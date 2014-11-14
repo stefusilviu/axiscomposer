@@ -106,8 +106,34 @@ final class AxisBuilder {
 	 * Includes required core files used in admin and on the frontend.
 	 */
 	private function includes() {
-		include_once( 'includes/axis-core-functions.php' );
-		include_once( 'includes/class-axis-install.php' );
+		include_once( 'includes/ab-core-functions.php' );
+		include_once( 'includes/class-ab-install.php' );
+
+		if ( is_admin() ) {
+			include_once( 'includes/admin/class-ab-admin.php' );
+		}
+
+		if ( is_ajax() ) {
+			$this->ajax_includes();
+		}
+
+		if ( ! is_admin() || is_ajax() ) {
+			$this->frontend_includes();
+		}
+	}
+
+	/**
+	 * Include required ajax files.
+	 */
+	public function ajax_includes() {
+		// include_once( 'includes/class-axis-ajax.php' );
+	}
+
+	/**
+	 * Include required frontend files.
+	 */
+	public function frontend_includes() {
+		// Include required frontend files.
 	}
 }
 

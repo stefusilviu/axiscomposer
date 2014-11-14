@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Include core functions (available in both admin and frontend)
-include( 'axis-conditional-functions.php' );
-include( 'axis-formatting-functions.php' );
+include( 'ab-conditional-functions.php' );
+include( 'ab-formatting-functions.php' );
 
 /**
  * AxisBuilder Supported Themes

@@ -24,7 +24,7 @@ if ( ! function_exists( 'axis_let_to_num' ) ) :
  * @param  $size
  * @return int
  */
-function axis_let_to_num( $size ) {
+function ab_let_to_num( $size ) {
 	$l   = substr( $size, -1 );
 	$ret = substr( $size, 0, -1 );
 

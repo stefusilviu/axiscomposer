@@ -77,12 +77,37 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * AxisCore Constructor.
+	 * AxisBuilder Constructor.
 	 *
-	 * @return AxisCore
+	 * @return AxisBuilder
 	 */
 	public function __construct() {
 
+		// Define constants
+		$this->define_constants();
+
+		// Include required files
+		$this->includes();
+
+		// Loaded action
+		do_action( 'axisbuilder_loaded' );
+	}
+
+	/**
+	 * Define AB Constants
+	 */
+	private function define_constants() {
+		define( 'AB_FILENAME', __FILE__ );
+		define( 'AB_BASENAME', plugin_basename( __FILE__ ) );
+		define( 'AB_VERSION', $this->version );
+	}
+
+	/**
+	 * Includes required core files used in admin and on the frontend.
+	 */
+	private function includes() {
+		include_once( 'includes/axis-core-functions.php' );
+		include_once( 'includes/class-axis-install.php' );
 	}
 }
 

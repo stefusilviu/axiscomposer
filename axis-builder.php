@@ -126,7 +126,7 @@ final class AxisBuilder {
 	 * Include required ajax files.
 	 */
 	public function ajax_includes() {
-		// include_once( 'includes/class-axis-ajax.php' );
+		include_once( 'includes/class-ab-ajax.php' );
 	}
 
 	/**
@@ -134,6 +134,36 @@ final class AxisBuilder {
 	 */
 	public function frontend_includes() {
 		// Include required frontend files.
+	}
+
+
+	/** Helper functions ******************************************************/
+
+	/**
+	 * Get the plugin url.
+	 *
+	 * @return string
+	 */
+	public function plugin_url() {
+		return untrailingslashit( plugins_url( '/', __FILE__ ) );
+	}
+
+	/**
+	 * Get the plugin path.
+	 *
+	 * @return string
+	 */
+	public function plugin_path() {
+		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+	}
+
+	/**
+	 * Get Ajax URL.
+	 *
+	 * @return string
+	 */
+	public function ajax_url() {
+		return admin_url( 'admin-ajax.php', 'relative' );
 	}
 }
 

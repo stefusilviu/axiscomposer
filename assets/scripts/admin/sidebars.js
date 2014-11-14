@@ -63,7 +63,7 @@
 
 					success : function( response ) {
 
-						if ( response === 'axis-sidebar-deleted' ) {
+						if ( response === 'axisbuilder-sidebar-deleted' ) {
 							widget.slideUp( 200, function() {
 
 								// Remove all Widgets inside

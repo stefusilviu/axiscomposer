@@ -120,6 +120,9 @@ final class AxisBuilder {
 		if ( ! is_admin() || is_ajax() ) {
 			$this->frontend_includes();
 		}
+
+		// Classes (used on all pages)
+		include_once( 'includes/class-ab-sidebars.php' );
 	}
 
 	/**

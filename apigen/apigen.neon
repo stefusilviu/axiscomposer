@@ -1,0 +1,33 @@
+source:
+	- ../
+	
+destination: api-docs
+exclude:
+	- tmp/**
+	- i18n/**
+	- dummy/**
+	- config/**
+	- apigen/**
+	- node_modules/**
+	
+title: Axis Builder
+templateTheme: bootstrap
+autocomplete:
+	- classes
+	- constants
+	- functions
+	- methods
+	- properties
+	- classconstants
+	
+accessLevels:
+	- public
+	- protected
+	- private
+	
+internal: true
+php: true
+tree: true
+deprecated: true
+todo: true
+download: true

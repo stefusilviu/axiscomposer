@@ -15,4 +15,4 @@ Support requests in issues on this repository will be closed on sight.
 ## Contributing to Axis Builder
 If you have a patch, or stumbled upon an issue with Axis Builder core, you can contribute this back to the code. Please read our [contributor guidelines](https://github.com/axisthemes/axis-builder/blob/master/CONTRIBUTING.md) for more information how you can do this.
 
-If you have an idea for Axis Builder, see the [Roadmap Trello board](https://trello.com/b/-(later)-/axis-builder-roadmap).
+If you have an idea for Axis Builder, see the [Roadmap Trello board](https://trello.com/b/BKBldPPv/axis-builder-roadmap).

@@ -82,6 +82,12 @@ final class AxisBuilder {
 	 * @return AxisBuilder
 	 */
 	public function __construct() {
+		// Auto-load classes on demand
+		if ( function_exists( "__autoload" ) ) {
+			spl_autoload_register( "__autoload" );
+		}
+
+		spl_autoload_register( array( $this, 'autoload' ) );
 
 		// Define constants
 		$this->define_constants();
@@ -89,8 +95,43 @@ final class AxisBuilder {
 		// Include required files
 		$this->includes();
 
+		// Hooks
+		add_action( 'widgets_init', array( $this, 'include_widgets' ) );
+
 		// Loaded action
 		do_action( 'axisbuilder_loaded' );
+	}
+
+	/**
+	 * Auto-load AB classes on demand to reduce memory consumption.
+	 *
+	 * @param mixed $class
+	 */
+	public function autoload( $class ) {
+		$path  = null;
+		$class = strtolower( $class );
+		$file  = 'class-' . str_replace( '_', '-', $class ) . '.php';
+
+		if ( strpos( $class, 'ab_admin_' ) === 0 ) {
+			$path = $this->plugin_path() . '/includes/admin/';
+		} elseif ( strpos( $class, 'ab_widget_' ) === 0 ) {
+			$path = $this->plugin_path() . '/includes/widgets/';
+		}
+
+		if ( $path && is_readable( $path . $file ) ) {
+			include_once( $path . $file );
+			return;
+		}
+
+		// Fallback
+		if ( strpos( $class, 'ab_' ) === 0 ) {
+			$path = $this->plugin_path() . '/includes/';
+		}
+
+		if ( $path && is_readable( $path . $file ) ) {
+			include_once( $path . $file );
+			return;
+		}
 	}
 
 	/**
@@ -131,6 +172,15 @@ final class AxisBuilder {
 	 */
 	public function ajax_includes() {
 		include_once( 'includes/class-ab-ajax.php' );
+	}
+
+	/**
+	 * Include core widgets
+	 */
+	public function include_widgets() {
+		include_once( 'includes/abstracts/abstract-ab-widget.php' );
+
+		register_widget( 'AB_Widget_Advertisement' );
 	}
 
 	/** Helper functions ******************************************************/

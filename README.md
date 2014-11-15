@@ -4,6 +4,10 @@ Welcome to the Axis Builder repository on GitHub. Here you can browse the source
 
 If you are not a developer, please use the [Axis Builder plugin page](http://wordpress.org/plugins/axis-builder/) on WordPress.org.
 
+## Documentation
+* [Axis Builder Docs](http://docs.axisthemes.com/documentation/plugins/axis-builder/)
+* [Axis Builder API Docs](http://docs.axisthemes.com/apidocs/axis-builder/)
+
 ## Support
 This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core Axis Builder issues only. Support can take place in the appropriate channels:
 

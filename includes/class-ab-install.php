@@ -27,12 +27,12 @@ class AB_Install {
 	 */
 	public function __construct() {
 		// Run this on activation.
-		register_activation_hook( AB_FILENAME, array( $this, 'install' ) );
+		register_activation_hook( AB_PLUGIN_FILE, array( $this, 'install' ) );
 
 		// Hooks
 		add_action( 'admin_init', array( $this, 'check_version' ), 5 );
 		add_action( 'in_plugin_update_message-axis-builder/axis-builder.php', array( $this, 'in_plugin_update_message' ) );
-		add_filter( 'plugin_action_links_' . AB_BASENAME, array( $this, 'plugin_action_links' ) );
+		add_filter( 'plugin_action_links_' . AB_PLUGIN_BASENAME, array( $this, 'plugin_action_links' ) );
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 	}
 
@@ -157,7 +157,7 @@ class AB_Install {
 	 * @return	array
 	 */
 	public function plugin_row_meta( $links, $file ) {
-		if ( $file == AB_BASENAME ) {
+		if ( $file == AB_PLUGIN_BASENAME ) {
 			$row_meta = array(
 				'docs'		=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axis-builder/' ) ) . '" title="' . esc_attr( __( 'View Axis Builder Documentation', 'axisbuilder' ) ) . '">' . __( 'Docs', 'axisbuilder' ) . '</a>',
 				'apidocs'	=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_apidocs_url', 'http://docs.axisthemes.com/apidocs/axis-builder/' ) ) . '" title="' . esc_attr( __( 'View Axis Builder API Docs', 'axisbuilder' ) ) . '">' . __( 'API Docs', 'axisbuilder' ) . '</a>',

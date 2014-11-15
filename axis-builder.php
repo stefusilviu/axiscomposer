@@ -97,8 +97,8 @@ final class AxisBuilder {
 	 * Define AB Constants
 	 */
 	private function define_constants() {
-		define( 'AB_FILENAME', __FILE__ );
-		define( 'AB_BASENAME', plugin_basename( __FILE__ ) );
+		define( 'AB_PLUGIN_FILE', __FILE__ );
+		define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'AB_VERSION', $this->version );
 	}
 

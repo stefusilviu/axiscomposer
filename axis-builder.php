@@ -100,6 +100,11 @@ final class AxisBuilder {
 		define( 'AB_PLUGIN_FILE', __FILE__ );
 		define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		define( 'AB_VERSION', $this->version );
+
+		if ( ! defined( 'AB_LOG_DIR' ) ) {
+			$upload_dir = wp_upload_dir();
+			define( 'AB_LOG_DIR', $upload_dir['basedir'] . '/axis-logs/' );
+		}
 	}
 
 	/**

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function ab_get_screen_ids() {
-	$ab_screen_id = sanitize_title( __( 'Axis Builder', 'axiscore' ) );
+	$ab_screen_id = sanitize_title( __( 'Axis Builder', 'axisbuilder' ) );
 
 	return apply_filters( 'axisbuilder_screen_ids', array(
 		'toplevel_page_' . $ab_screen_id,

@@ -65,7 +65,7 @@ if ( ! function_exists( 'is_current_user_editor' ) ) :
 /**
  * is_current_user_editor - Returns true when the User is Editor.
  *
- * @return bool
+ * @return boolean|null
  */
 function is_current_user_editor() {
 	global $current_user;
@@ -88,7 +88,7 @@ if ( ! function_exists( 'is_current_user_author' ) ) :
 /**
  * is_current_user_author - Returns true when the User is Author.
  *
- * @return bool
+ * @return boolean|null
  */
 function is_current_user_author() {
 	global $current_user;
@@ -111,7 +111,7 @@ if ( ! function_exists( 'is_current_user_contributor' ) ) :
 /**
  * is_current_user_contributor - Returns true when the User is Contributor.
  *
- * @return bool
+ * @return boolean|null
  */
 function is_current_user_contributor() {
 	global $current_user;
@@ -134,7 +134,7 @@ if ( ! function_exists( 'is_current_user_subscriber' ) ) :
 /**
  * is_current_user_subscriber - Returns true when the User is Subscriber.
  *
- * @return bool
+ * @return boolean|null
  */
 function is_current_user_subscriber() {
 	global $current_user;

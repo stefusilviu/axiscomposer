@@ -21,7 +21,7 @@ include( 'ab-formatting-functions.php' );
 /**
  * AxisBuilder Supported Themes
  *
- * @return array
+ * @return string[]
  */
 function ab_get_core_supported_themes() {
 	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentyeleven', 'twentytwelve', 'twentyten' );

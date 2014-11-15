@@ -90,6 +90,9 @@ class AB_Widget_Advertisement extends AB_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 
+		if ( $hide_if_target )
+			echo '<div class="hide_advertisement_widget_if_target">';
+
 		echo $slot_type;
 
 		echo $after_widget;

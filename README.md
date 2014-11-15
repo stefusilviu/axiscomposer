@@ -7,7 +7,7 @@ If you are not a developer, please use the [Axis Builder plugin page](http://wor
 ## Support
 This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core Axis Builder issues only. Support can take place in the appropriate channels:
 
-* The [Axis Framework premium support portal](http://support.axisthemes.com/) for customers who have purchased themes or extensions.
+* The [Axis Builder premium support portal](http://support.axisthemes.com/) for customers who have purchased themes or extensions.
 * The [public support forums](http://wordpress.org/support/plugin/axis-builder) on WordPress.org, where the community can help each other out.
 
 Support requests in issues on this repository will be closed on sight.

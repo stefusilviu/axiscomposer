@@ -70,7 +70,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 
 			$params = array(
-				'remove_sidebar_notice' => __( 'Are you sure you wish to delete the sidebar now?', 'axiscore' ),
+				'remove_sidebar_notice' => __( 'Are you sure you wish to delete the sidebar now?', 'axisbuilder' ),
 				'delete_sidebar_nonce'  => 'axisbuilder_delete_custom_sidebar',
 			);
 

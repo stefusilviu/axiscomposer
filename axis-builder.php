@@ -117,10 +117,6 @@ final class AxisBuilder {
 			$this->ajax_includes();
 		}
 
-		if ( ! is_admin() || is_ajax() ) {
-			$this->frontend_includes();
-		}
-
 		// Classes (used on all pages)
 		include_once( 'includes/class-ab-sidebars.php' );
 	}
@@ -131,14 +127,6 @@ final class AxisBuilder {
 	public function ajax_includes() {
 		include_once( 'includes/class-ab-ajax.php' );
 	}
-
-	/**
-	 * Include required frontend files.
-	 */
-	public function frontend_includes() {
-		// Include required frontend files.
-	}
-
 
 	/** Helper functions ******************************************************/
 

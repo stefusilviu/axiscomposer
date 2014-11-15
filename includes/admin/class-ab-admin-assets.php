@@ -62,7 +62,7 @@ class AB_Admin_Assets {
 		global $wp_query, $post;
 
 		$screen       = get_current_screen();
-		$ab_screen_id = sanitize_title( __( 'Axis Builder', 'axiscore' ) );
+		// $ab_screen_id = sanitize_title( __( 'Axis Builder', 'axiscore' ) );
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Widgets Specific

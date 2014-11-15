@@ -93,15 +93,8 @@ class AB_Sidebars {
 		$sidebar_exists = array_merge( $sidebar_exists, $this->sidebars );
 
 		if ( in_array( $sidebar_name, $sidebar_exists ) ) {
-			$count	= substr( $sidebar_name, -1 );
-			$rename	= "";
-
-			if ( ! is_numeric( $count ) ) {
-				$rename = $sidebar_name . " 1";
-			} else {
-				$rename = substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 );
-			}
-
+			$count        = substr( $sidebar_name, -1 );
+			$rename       = is_numeric( $count ) ? ( substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 ) ) : ( $sidebar_name . ' - 1' );
 			$sidebar_name = $this->get_sidebar_name( $rename );
 		}
 

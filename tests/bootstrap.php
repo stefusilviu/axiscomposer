@@ -84,6 +84,8 @@ class AB_Unit_Tests_Bootstrap {
 	 */
 	public function includes() {
 
+		// test cases
+		require_once( $this->tests_dir . '/framework/class-ab-unit-test-case.php' );
 	}
 
 	/**

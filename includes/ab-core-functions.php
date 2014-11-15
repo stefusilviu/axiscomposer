@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Include core functions (available in both admin and frontend)
 include( 'ab-conditional-functions.php' );
+include( 'ab-deprecated-functions.php' );
 include( 'ab-formatting-functions.php' );
 
 /**

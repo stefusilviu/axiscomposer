@@ -72,7 +72,8 @@ class AB_Sidebars {
 	/**
 	 * Checks the user Submitted name and makes sure that there are no collisions.
 	 *
-	 * @return string $name Valid Sidebar name without collisions.
+	 * @param  string $sidebar_name Raw Sidebar name
+	 * @return string $sidebar_name Valid Sidebar name without collisions.
 	 */
 	public function get_sidebar_name( $sidebar_name ) {
 

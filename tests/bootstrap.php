@@ -45,7 +45,7 @@ class AB_Unit_Tests_Bootstrap {
 		require_once( $this->wp_tests_dir . '/includes/bootstrap.php' );
 
 		// load AB testing framework
-		// $this->includes();
+		$this->includes();
 	}
 
 	/**
@@ -75,6 +75,15 @@ class AB_Unit_Tests_Bootstrap {
 		$GLOBALS['wp_roles']->reinit();
 
 		echo "Installing Axis Builder..." . PHP_EOL;
+	}
+
+	/**
+	 * Load AB-specific test cases and factories
+	 *
+	 * @since 1.0
+	 */
+	public function includes() {
+
 	}
 
 	/**

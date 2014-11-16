@@ -82,7 +82,7 @@ class AB_Widget_Advertisement extends AB_Widget {
 		$title = $instance['title'];
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-		$slot_type 	    = isset( $instance['slot_type'] ) ? $instance['display_type'] : 'double';
+		$slot_type      = isset( $instance['slot_type'] ) ? $instance['display_type'] : 'double';
 		$hide_if_target = empty( $instance['hide_if_target'] ) ? 0 : 1;
 
 		echo $before_widget;

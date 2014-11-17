@@ -37,6 +37,7 @@ class AB_Admin {
 		// Classes we only need during non-ajax requests
 		if ( ! is_ajax() ) {
 			include( 'class-ab-admin-menus.php' );
+			include( 'class-ab-admin-welcome.php' );
 			include( 'class-ab-admin-assets.php' );
 
 			// Help

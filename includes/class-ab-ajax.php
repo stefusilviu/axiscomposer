@@ -25,7 +25,7 @@ class AB_AJAX {
 	 */
 	public static function init() {
 
-		// axisthemes_EVENT => nopriv
+		// axisbuilder_EVENT => nopriv
 		$ajax_events = array(
 			'delete_custom_sidebar' => false,
 		);

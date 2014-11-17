@@ -2,10 +2,10 @@
 /**
  * AxisBuilder Admin Functions
  *
- * @package		AxisBuilder/Admin/Functions
- * @category	Core
- * @author		AxisThemes
- * @since		1.0.0
+ * @package     AxisBuilder/Admin/Functions
+ * @category    Core
+ * @author      AxisThemes
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

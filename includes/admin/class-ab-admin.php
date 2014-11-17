@@ -4,11 +4,11 @@
  *
  * Central Admin Class.
  *
- * @class		AB_Admin
- * @package		AxisBuilder/Admin
- * @category	Admin
- * @author		AxisThemes
- * @since		1.0.0
+ * @class       AB_Admin
+ * @package     AxisBuilder/Admin
+ * @category    Admin
+ * @author      AxisThemes
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,6 +36,7 @@ class AB_Admin {
 
 		// Classes we only need during non-ajax requests
 		if ( ! is_ajax() ) {
+			include( 'class-ab-admin-menus.php' );
 			include( 'class-ab-admin-assets.php' );
 
 			// Help

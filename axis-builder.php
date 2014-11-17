@@ -47,7 +47,7 @@ final class AxisBuilder {
 	 * Ensure only one instance of AxisBuilder is loaded or can be loaded.
 	 *
 	 * @static
-	 * @see    AC()
+	 * @see    AB()
 	 * @return AxisBuilder - Main instance
 	 */
 	public static function instance() {

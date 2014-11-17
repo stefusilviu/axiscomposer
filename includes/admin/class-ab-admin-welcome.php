@@ -109,7 +109,7 @@ class AB_Admin_Welcome {
 				-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
 				box-shadow: 0 1px 3px rgba(0,0,0,.2);
 			}
-			.ab-wrap .ab-badge {
+			.about-wrap .ab-badge {
 				position: absolute;
 				top: 0;
 				<?php echo is_rtl() ? 'left' : 'right'; ?>: 0;

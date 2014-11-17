@@ -138,12 +138,13 @@ class AB_Admin_Welcome {
 
 		<div class="about-text">
 			<?php
-				if ( ! empty( $_GET['ab-installed'] ) )
+				if ( ! empty( $_GET['ab-installed'] ) ) {
 					$message = __( 'Thanks, all done!', 'axisbuilder' );
-				elseif ( ! empty( $_GET['ab-updated'] ) )
+				} elseif ( ! empty( $_GET['ab-updated'] ) ) {
 					$message = __( 'Thank you for updating to the latest version!', 'axisbuilder' );
-				else
+				} else {
 					$message = __( 'Thanks for installing!', 'axisbuilder' );
+				}
 
 				printf( __( '%s Axis Builder %s is more powerful, stable, and secure than ever before. We hope you enjoy using it.', 'axisbuilder' ), $message, $major_version );
 			?>

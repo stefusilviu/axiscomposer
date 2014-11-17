@@ -2,11 +2,11 @@
 /**
  * Setup menus in WP admin.
  *
- * @class		AB_Admin_Menus
- * @package		AxisBuilder/Admin
- * @category	Admin
- * @author		AxisThemes
- * @since		1.0.0
+ * @class       AB_Admin_Menus
+ * @package     AxisBuilder/Admin
+ * @category    Admin
+ * @author      AxisThemes
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

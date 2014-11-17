@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-11-15 18:48:28+00:00\n"
+"POT-Creation-Date: 2014-11-17 17:42:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,6 +22,7 @@ msgid "Are you sure you wish to delete the sidebar now?"
 msgstr ""
 
 #: includes/admin/class-ab-admin-help.php:44
+#: includes/admin/class-ab-admin-welcome.php:156
 msgid "Documentation"
 msgstr ""
 
@@ -58,6 +59,7 @@ msgstr ""
 
 #: includes/admin/class-ab-admin-help.php:62
 #: includes/admin/class-ab-admin-help.php:73
+#: includes/admin/class-ab-admin-menus.php:82
 msgid "System Status"
 msgstr ""
 
@@ -91,6 +93,7 @@ msgid "For more information:"
 msgstr ""
 
 #: includes/admin/class-ab-admin-help.php:79
+#: includes/admin/class-ab-admin-welcome.php:42
 msgid "About Axis Builder"
 msgstr ""
 
@@ -108,6 +111,99 @@ msgstr ""
 
 #: includes/admin/class-ab-admin-help.php:83
 msgid "Official Extensions"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:59
+msgid "Axis Builder Iconfont Manager"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:59
+msgid "Iconfonts"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:66
+msgid "Axis Builder Settings"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:66
+#: includes/admin/class-ab-admin-welcome.php:155
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:82
+msgid "Axis Builder Status"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:90
+msgid "Axis Builder Add-ons/Extensions"
+msgstr ""
+
+#: includes/admin/class-ab-admin-menus.php:90
+msgid "Add-ons"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:43
+msgid "Welcome to Axis Builder"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:137
+msgid "Welcome to Axis Builder %s"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:142
+msgid "Thanks, all done!"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:144
+msgid "Thank you for updating to the latest version!"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:146
+msgid "Thanks for installing!"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:148
+msgid ""
+"%s Axis Builder %s is more powerful, stable, and secure than ever before. "
+"We hope you enjoy using it."
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:152
+msgid "Version %s"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:163
+msgid "What's New"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:165
+msgid "Credits"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:167
+msgid "Translators"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:187
+msgid "Go to Axis Builder Settings"
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:202
+msgid ""
+"Axis Builder is developed and maintained by a worldwide team of passionate "
+"individuals and backed by an awesome developer community. Want to see your "
+"name? <a href=\"%s\">Contribute to Axis Builder</a>."
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:218
+msgid ""
+"Axis Builder has been kindly translated into several other languages thanks "
+"to our translation team. Want to see your name? <a href=\"%s\">Translate "
+"Axis Builder</a>."
+msgstr ""
+
+#: includes/admin/class-ab-admin-welcome.php:266
+msgid "View %s"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-sidebars.php:14

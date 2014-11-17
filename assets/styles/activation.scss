@@ -1,0 +1,25 @@
+.axisbuilder-message {
+	position: relative;
+	border-left-color: #0074a2 !important;
+	overflow: hidden;
+	.twitter-share-button {
+		margin-left: 3px;
+		margin-top: -3px;
+		vertical-align: middle;
+	}
+}
+
+p.axisbuilder-actions, .axisbuilder-message {
+	a.button-primary, a.button-secondary {
+		text-decoration:none !important;
+	}
+	.twitter-share-button {
+		margin-left: 3px;
+		margin-top: -3px;
+		vertical-align: middle;
+	}
+}
+
+p.axisbuilder-actions {
+	margin-bottom: 1em !important;
+}

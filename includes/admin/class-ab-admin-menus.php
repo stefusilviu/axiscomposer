@@ -142,7 +142,7 @@ class AB_Admin_Menus {
 	 * @return bool
 	 */
 	public function custom_menu_order() {
-		return current_user_can( 'edit_theme_options' ) ? true : false;
+		return current_user_can( 'edit_theme_options' );
 	}
 
 	/**

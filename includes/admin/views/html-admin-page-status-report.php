@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<p class="submit"><a href="#" class="button-primary debug-report"><?php _e( 'Get System Report', 'axisbuilder' ); ?></a></p>
 	<div id="debug-report">
 		<textarea readonly="readonly"></textarea>
-		<p class="submit"><button id="copy-for-axis-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axisbuilder' ); ?>"><?php _e( 'Copy for Support', 'axisbuilder' ); ?></button></p>
+		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axisbuilder' ); ?>"><?php _e( 'Copy for Support', 'axisbuilder' ); ?></button></p>
 	</div>
 </div>
 
@@ -459,7 +459,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	});
 
 	jQuery( document ).ready( function ( $ ) {
-		$( '#copy-for-axis-support' ).tipTip({
+		$( '#copy-for-support' ).tipTip({
 			'attribute':  'data-tip',
 			'activation': 'click',
 			'fadeIn':     50,
@@ -467,7 +467,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'delay':      0
 		});
 
-		$( 'body' ).on( 'copy', '#copy-for-axis-support', function ( e ) {
+		$( 'body' ).on( 'copy', '#copy-for-support', function ( e ) {
 			e.clipboardData.clearData();
 			e.clipboardData.setData( 'text/plain', $( '#debug-report textarea' ).val() );
 			e.preventDefault();

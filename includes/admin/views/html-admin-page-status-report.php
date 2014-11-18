@@ -279,7 +279,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</thead>
 		<?php
 		$active_theme = wp_get_theme();
-		if ( $active_theme->{'Author URI'} == 'http://www.woothemes.com' ) :
+		if ( $active_theme->{'Author URI'} == 'http://axisthemes.com' ) :
 
 			$theme_dir = substr( strtolower( str_replace( ' ','', $active_theme->Name ) ), 0, 45 );
 

@@ -32,7 +32,7 @@ class AB_Admin_Notices {
 	}
 
 	/**
-	 * Reset notices for themes when switched or a new version of AB is installed
+	 * Reset notices for themes when switched or a new version of AB is installed.
 	 */
 	public function reset_admin_notices() {
 		update_option( 'axisbuilder_admin_notices', array( 'theme_support' ) );
@@ -68,14 +68,14 @@ class AB_Admin_Notices {
 	/**
 	 * Show the Theme Support notice.
 	 */
-	public function theme_support_notice() {
+	public function theme_support_notices() {
 		include( 'views/html-notice-theme-support.php' );
 	}
 
 	/**
-	 * Show the Translation upgrade notice.
+	 * Show the Translation Upgrade notice.
 	 */
-	public function translation_upgrade_notice() {
+	public function theme_support_notice() {
 		$screen = get_current_screen();
 
 		if ( 'update-core' !== $screen->id ) {

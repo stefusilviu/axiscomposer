@@ -165,6 +165,9 @@ final class AxisBuilder {
 
 		// Classes (used on all pages)
 		include_once( 'includes/class-ab-sidebars.php' );
+
+		// Download/Update languages
+		include_once( 'includes/class-ab-localization.php' );
 	}
 
 	/**

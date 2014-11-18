@@ -65,6 +65,27 @@ class AB_Admin_Assets {
 		// $ab_screen_id = sanitize_title( __( 'Axis Builder', 'axiscore' ) );
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+		// Register scripts
+		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
+
+		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
+		// AxisBuilder Admin pages
+		if ( in_array( $screen->id, ab_get_screen_ids() ) ) {
+
+			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'axisbuilder-admin' );
+			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'jquery-ui-autocomplete' );
+
+			$params = array(
+
+			);
+
+			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
+
+		}
+
 		// Widgets Specific
 		if ( in_array( $screen->id, array( 'widgets' ) ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
@@ -75,6 +96,11 @@ class AB_Admin_Assets {
 			);
 
 			wp_localize_script( 'axisbuilder-admin-sidebars', 'axisbuilder_admin_sidebars', $params );
+		}
+
+		// System status
+		if ( 'axis-builder_page_ab-status' === $screen->id ) {
+			wp_enqueue_script( 'zeroclipboard', AB()->plugin_url() . '/assets/scripts/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		}
 	}
 }

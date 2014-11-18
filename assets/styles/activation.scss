@@ -1,6 +1,11 @@
+/* =Mixins
+-------------------------------------------------------------- */
+@import "bourbon";
+@import "mixins";
+
 .axisbuilder-message {
 	position: relative;
-	border-left-color: #0074a2 !important;
+	border-left-color: $blue !important;
 	overflow: hidden;
 	.twitter-share-button {
 		margin-left: 3px;

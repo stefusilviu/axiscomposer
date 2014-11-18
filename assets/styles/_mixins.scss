@@ -1,5 +1,10 @@
 /* =Mixins
 -------------------------------------------------------------- */
+$red:		#dd3d36;
+$blue:		#0074a2;
+$green:		#7ad03a;
+$orange:	#d54e21;
+
 @mixin menu() {
 	@include clearfix();
 

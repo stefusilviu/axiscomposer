@@ -163,7 +163,7 @@ class AB_Admin_Menus {
 	 * Init the status page
 	 */
 	public function status_page() {
-
+		AB_Admin_Status::output();
 	}
 
 	/**

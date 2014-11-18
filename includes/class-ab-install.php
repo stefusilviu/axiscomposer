@@ -82,6 +82,16 @@ class AB_Install {
 				'base' 		=> $upload_dir['basedir'] . '/axisbuilder_uploads',
 				'file' 		=> 'index.html',
 				'content' 	=> ''
+			),
+			array(
+				'base' 		=> AB_LOG_DIR,
+				'file' 		=> '.htaccess',
+				'content' 	=> 'deny from all'
+			),
+			array(
+				'base' 		=> AB_LOG_DIR,
+				'file' 		=> 'index.html',
+				'content' 	=> ''
 			)
 		);
 

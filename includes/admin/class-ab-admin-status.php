@@ -137,7 +137,7 @@ class AB_Admin_Status {
 					// Force WordPress find for new updates and hide the Axis Builder translation update
 					set_site_transient( 'update_plugins', null );
 
-					echo '<div class="updated axisbuilder-message"><p>' . __( 'Translations installed/updated successfully !', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated axisbuilder-message"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';
 				break;
 			}
 		}

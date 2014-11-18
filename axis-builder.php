@@ -96,6 +96,7 @@ final class AxisBuilder {
 		$this->includes();
 
 		// Hooks
+		add_action( 'init', array( $this, 'init' ), 0 );
 		add_action( 'widgets_init', array( $this, 'include_widgets' ) );
 
 		// Loaded action
@@ -184,6 +185,51 @@ final class AxisBuilder {
 		include_once( 'includes/abstracts/abstract-ab-widget.php' );
 
 		register_widget( 'AB_Widget_Advertisement' );
+	}
+
+	/**
+	 * Init AxisBuilder when WordPress Initialises.
+	 */
+	public function init() {
+		// Before init action
+		do_action( 'before_axisbuilder_init' );
+
+		// Set up localisation
+		$this->load_plugin_textdomain();
+
+		// Init action
+		do_action( 'axisbuilder_init' );
+	}
+
+	/**
+	 * Load Localisation files.
+	 *
+	 * Note: the first-loaded translation file overrides any following ones if the same translation is present
+	 */
+	public function load_plugin_textdomain() {
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'axisbuilder' );
+		$dir    = trailingslashit( WP_LANG_DIR );
+
+		/**
+		 * Admin Locale. Looks in:
+		 *
+		 * 		- WP_LANG_DIR/axis-builder/axisbuilder-admin-LOCALE.mo
+		 * 		- WP_LANG_DIR/plugins/axisbuilder-admin-LOCALE.mo
+		 */
+		if ( is_admin() ) {
+			load_textdomain( 'axisbuilder', $dir . 'axis-builder/axisbuilder-admin-' . $locale . '.mo' );
+			load_textdomain( 'axisbuilder', $dir . 'plugins/axisbuilder-admin-' . $locale . '.mo' );
+		}
+
+		/**
+		 * Frontend/global Locale. Looks in:
+		 *
+		 * 		- WP_LANG_DIR/axis-builder/axisbuilder-LOCALE.mo
+		 * 	 	- axisbuilder/i18n/languages/axisbuilder-LOCALE.mo (which if not found falls back to:)
+		 * 	 	- WP_LANG_DIR/plugins/axisbuilder-LOCALE.mo
+		 */
+		load_textdomain( 'axisbuilder', $dir . 'axis-builder/axisbuilder-' . $locale . '.mo' );
+		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
 	}
 
 	/** Helper functions ******************************************************/

@@ -45,7 +45,7 @@ class AB_Admin_Notices {
 
 		$notices = get_option( 'axisbuilder_admin_notices', array() );
 
-		if ( ! empty( $_GET['dismiss_ab_theme_support_notice'] ) ) {
+		if ( ! empty( $_GET['dismiss_theme_support_notice'] ) ) {
 			$notices = array_diff( $notices, array( 'theme_support' ) );
 			update_option( 'axisbuilder_admin_notices', $notices );
 		}

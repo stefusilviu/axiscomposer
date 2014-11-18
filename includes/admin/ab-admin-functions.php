@@ -22,8 +22,9 @@ function ab_get_screen_ids() {
 
 	return apply_filters( 'axisbuilder_screen_ids', array(
 		'toplevel_page_' . $ab_screen_id,
+		$ab_screen_id . '_page_ab-iconfonts',
 		$ab_screen_id . '_page_ab-settings',
 		$ab_screen_id . '_page_ab-status',
-		$ab_screen_id . '_page_ab-extensions',
+		$ab_screen_id . '_page_ab-addons',
 	) );
 }

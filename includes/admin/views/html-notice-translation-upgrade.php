@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( isset( $_GET['action'] ) && 'hide_ab_translation_upgrade' == $_GET['action'] ) {
+if ( isset( $_GET['action'] ) && 'dismiss_translation_upgrade' == $_GET['action'] ) {
 	return;
 }
 
@@ -18,11 +18,11 @@ if ( isset( $_GET['action'] ) && 'hide_ab_translation_upgrade' == $_GET['action'
 
 	<p>
 		<?php if ( is_multisite() ) : ?>
-			<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=ab-status&tab=tools&action=ab_translation_upgrade' ), 'debug_action' ); ?>" class="button-primary"><?php _e( 'Update Translation', 'axisbuilder' ); ?></a>
+			<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=ab-status&tab=tools&action=translation_upgrade' ), 'debug_action' ); ?>" class="button-primary"><?php _e( 'Update Translation', 'axisbuilder' ); ?></a>
 		<?php else : ?>
 			<a href="<?php echo wp_nonce_url( add_query_arg( array( 'action' => 'do-translation-upgrade' ), admin_url( 'update-core.php' ) ), 'upgrade-translations' ); ?>" class="button-primary"><?php _e( 'Update Translation', 'axisbuilder' ); ?></a>
-			<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=ab-status&tab=tools&action=ab_translation_upgrade' ), 'debug_action' ); ?>" class="button-primary"><?php _e( 'Force Update Translation', 'axisbuilder' ); ?></a>
+			<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=ab-status&tab=tools&action=translation_upgrade' ), 'debug_action' ); ?>" class="button-primary"><?php _e( 'Force Update Translation', 'axisbuilder' ); ?></a>
 		<?php endif; ?>
-		<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=ab-status&tab=tools&action=dismiss_ab_translation_upgrade' ), 'debug_action' ); ?>" class="button-secondary"><?php _e( 'Dismiss this notice', 'axisbuilder' ); ?></a>
+		<a href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=ab-status&tab=tools&action=dismiss_translation_upgrade' ), 'debug_action' ); ?>" class="button-secondary"><?php _e( 'Dismiss this notice', 'axisbuilder' ); ?></a>
 	</p>
 </div>

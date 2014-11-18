@@ -68,14 +68,14 @@ class AB_Admin_Notices {
 	/**
 	 * Show the Theme Support notice.
 	 */
-	public function theme_support_notices() {
+	public function theme_support_notice() {
 		include( 'views/html-notice-theme-support.php' );
 	}
 
 	/**
 	 * Show the Translation Upgrade notice.
 	 */
-	public function theme_support_notice() {
+	public function translation_upgrade_notice() {
 		$screen = get_current_screen();
 
 		if ( 'update-core' !== $screen->id ) {

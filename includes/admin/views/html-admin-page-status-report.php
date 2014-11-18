@@ -358,7 +358,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 		<?php endif ?>
 		<tr>
-			<td><?php _e( 'WooCommerce Support', 'axisbuilder' ); ?>:</td>
+			<td><?php _e( 'Axis Builder Support', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declare Axis Builder support.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
 			<td><?php
 				if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( $active_theme->template, ab_get_core_supported_themes() ) ) {

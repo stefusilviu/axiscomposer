@@ -74,6 +74,7 @@ class AB_Admin_Assets {
 		if ( in_array( $screen->id, ab_get_screen_ids() ) ) {
 
 			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'jquery-tiptip' );
 			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
@@ -82,7 +83,7 @@ class AB_Admin_Assets {
 
 			);
 
-			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
+			// wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
 
 		}
 

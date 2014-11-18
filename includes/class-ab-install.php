@@ -51,6 +51,8 @@ class AB_Install {
 	 * Install AB
 	 */
 	public function install() {
+
+		$this->create_crob_jobs();
 		$this->create_files();
 
 		// Update version
@@ -61,6 +63,17 @@ class AB_Install {
 
 		// Redirect to Welcome screen
 		set_transient( '_ab_activation_redirect', 1, HOUR_IN_SECONDS );
+	}
+
+	/**
+	 * Create cron jobs (clear them first)
+	 */
+	private function create_crob_jobs() {
+		// Cron jobs
+		wp_clear_scheduled_hook( 'axisbuilder_language_pack_updater_check' );
+
+		// Schedule an event
+		wp_schedule_single_event( time(), 'axisbuilder_language_pack_updater_check' );
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * AxisBuilder Logger
  *
- * Allows log files to be written to for debugging purposes.
+ * Allows log files to be written for debugging purposes.
  *
  * @class       AB_Logger
  * @package     AxisBuilder/Classes

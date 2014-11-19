@@ -26,6 +26,7 @@ include( 'ab-formatting-functions.php' );
  * @return string The log file path
  */
 function ab_get_log_file_path( $handle ) {
+	global $wp_hasher;
 	return trailingslashit( AB_LOG_DIR ) . $handle . '-' . sanitize_file_name( wp_hash( $handle ) ) . '.log';
 }
 

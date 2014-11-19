@@ -20,6 +20,17 @@ include( 'ab-deprecated-functions.php' );
 include( 'ab-formatting-functions.php' );
 
 /**
+ * Get a log file path
+ *
+ * @param  string $handle name
+ * @return string The log file path
+ */
+function ab_get_log_file_path( $handle ) {
+	global $wp_hasher;
+	return trailingslashit( AB_LOG_DIR ) . $handle . '-' . sanitize_file_name( wp_hash( $handle ) ) . '.log';
+}
+
+/**
  * AxisBuilder Supported Themes
  *
  * @return string[]

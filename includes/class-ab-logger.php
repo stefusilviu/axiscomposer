@@ -30,7 +30,7 @@ class AB_Logger {
 	 */
 	public function __destruct() {
 		foreach ( $this->_handles as $handle ) {
-	       @fclose( escapeshellarg( $handle ) );
+			@fclose( escapeshellarg( $handle ) );
 		}
 	}
 

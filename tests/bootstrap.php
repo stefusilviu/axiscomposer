@@ -36,10 +36,10 @@ class AB_Unit_Tests_Bootstrap {
 		require_once( $this->wp_tests_dir . '/includes/functions.php' );
 
 		// load AB
-		tests_add_filter( 'muplugins_loaded', array( $this, 'load_ab' ) );
+		tests_add_filter( 'muplugins_loaded', array( $this, 'load_axisbuilder' ) );
 
 		// install AB
-		tests_add_filter( 'setup_theme', array( $this, 'install_ab' ) );
+		tests_add_filter( 'setup_theme', array( $this, 'install_axisbuilder' ) );
 
 		// load the WP testing environment
 		require_once( $this->wp_tests_dir . '/includes/bootstrap.php' );
@@ -53,7 +53,7 @@ class AB_Unit_Tests_Bootstrap {
 	 *
 	 * @since 1.1
 	 */
-	public function load_ab() {
+	public function load_axisbuilder() {
 		require_once( $this->plugin_dir . '/axis-builder.php' );
 	}
 
@@ -62,7 +62,7 @@ class AB_Unit_Tests_Bootstrap {
 	 *
 	 * @since 1.0
 	 */
-	public function install_ab() {
+	public function install_axisbuilder() {
 
 		// clean existing install first
 		define( 'WP_UNINSTALL_PLUGIN', true );

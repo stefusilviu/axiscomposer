@@ -134,7 +134,8 @@ final class AxisBuilder {
 	 * Includes the required core files used in admin and on the frontend.
 	 */
 	private function includes() {
-		include_once( 'includes/core-builder-functions.php' );
+		include_once( 'includes/builder-core-functions.php' );
+		include_once( 'includes/builder-widget-functions.php' );
 		include_once( 'includes/class-builder-install.php' );
 
 		if ( is_admin() ) {

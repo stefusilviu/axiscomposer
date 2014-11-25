@@ -1,7 +1,7 @@
 filter:
   excluded_paths:
+    - api/*
     - tests/*
-    - apigen/*
     - includes/libraries/*
 
 checks:

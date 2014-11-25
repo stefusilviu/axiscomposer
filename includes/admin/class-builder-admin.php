@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_Admin {
 
 	/**
-	 * Class Constructor Method.
+	 * Hook in tabs.
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'includes' ) );
@@ -31,21 +31,10 @@ class AB_Admin {
 	 * Include any classes we need within admin.
 	 */
 	public function includes() {
-		// Functions
-		include_once( 'ab-admin-functions.php' );
-
-		// Classes we only need during non-ajax requests
-		if ( ! is_ajax() ) {
-			include( 'class-ab-admin-menus.php' );
-			include( 'class-ab-admin-welcome.php' );
-			include( 'class-ab-admin-notices.php' );
-			include( 'class-ab-admin-assets.php' );
-
-			// Help
-			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {
-				include( 'class-ab-admin-help.php' );
-			}
-		}
+		// Classes
+		include_once( 'class-builder-admin-assets.php' );
+		include_once( 'class-builder-admin-editor.php' );
+		include_once( 'class-builder-admin-meta-boxes.php' );
 	}
 }
 

@@ -126,40 +126,31 @@ final class AxisBuilder {
 		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		$this->define( 'AB_VERSION', $this->version );
 		$this->define( 'AB_CONFIG_DIR', $this->plugin_path() . '/config/' );
-		$this->define( 'AB_SHORTCODE_DIR', $this->plugin_path() . '/shortcodes/' );
-		$this->define( 'AB_LOG_DIR', $upload_dir['basedir'] . '/axis-logs/' );
+		$this->define( 'AB_SHORTCODES_DIR', $this->plugin_path() . '/shortcodes/' );
 		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
 	}
 
 	/**
-	 * Includes required core files used in admin and on the frontend.
+	 * Includes the required core files used in admin and on the frontend.
 	 */
 	private function includes() {
-		include_once( 'includes/class-ab-autoloader.php' );
-		include_once( 'includes/ab-core-functions.php' );
-		include_once( 'includes/ab-widget-functions.php' );
-		include_once( 'includes/class-ab-install.php' );
+		include_once( 'includes/core-builder-functions.php' );
+		include_once( 'includes/class-builder-install.php' );
 
 		if ( is_admin() ) {
-			include_once( 'includes/admin/class-ab-admin.php' );
+			include_once( 'includes/admin/class-builder-admin.php' );
 		}
 
-		if ( is_ajax() ) {
+		if ( defined( 'DOING_AJAX' ) ) {
 			$this->ajax_includes();
 		}
-
-		// Classes (used on all pages)
-		include_once( 'includes/class-ab-sidebars.php' );
-
-		// Download/Update languages
-		include_once( 'includes/class-ab-localization.php' );
 	}
 
 	/**
 	 * Include required ajax files.
 	 */
 	public function ajax_includes() {
-		include_once( 'includes/class-ab-ajax.php' );
+		include_once( 'includes/class-builder-ajax.php' );
 	}
 
 	/**
@@ -204,7 +195,7 @@ final class AxisBuilder {
 		 * 	 	- WP_LANG_DIR/plugins/axisbuilder-LOCALE.mo
 		 */
 		load_textdomain( 'axisbuilder', $dir . 'axis-builder/axisbuilder-' . $locale . '.mo' );
-		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
+		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/languages" );
 	}
 
 	/** Helper functions ******************************************************/

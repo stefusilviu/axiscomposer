@@ -1,7 +1,7 @@
 source:
-	- ../
+	- ./
 	
-destination: api-docs
+destination: api
 exclude:
 	- tmp/**
 	- i18n/**

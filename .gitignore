@@ -16,7 +16,7 @@ sftp-config.json
 .sass-cache/
 
 # ApiGen
-/apigen/api-docs/
+/api/
 
 # OS X metadata
 .DS_Store

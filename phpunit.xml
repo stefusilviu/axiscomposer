@@ -15,7 +15,7 @@
 	</testsuites>
 	<filter>
 		<blacklist>
-			<directory suffix=".php">./apigen/</directory>
+			<directory suffix=".php">./api/</directory>
 			<directory suffix=".php">./i18n/</directory>
 			<directory suffix=".php">./tests/</directory>
 			<directory suffix=".php">./tmp/</directory>

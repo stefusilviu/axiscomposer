@@ -1,8 +1,8 @@
 === Axis Builder - #1 Page Builder ===
-Contributors: axisthemes, shivadai
+Contributors: axisthemes
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@axisthemes.com&item_name=Donation+for+Axis+Builder
-Requires at least: 3.8
+Requires at least: 4.0
 Tested up to: 4.0
 Stable tag: 1.0.0
 License: GPLv3
@@ -90,5 +90,5 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 
 == Upgrade Notice ==
 
-= 0.1.0 =
+= 1.0.0 =
 0.1 is a major update. Test extensions and your theme prior to updating, and ensure that you keep backups. Developers should catch up with [develop.axisthemes.com](http://develop.axisthemes.com/) to see what has been happening in core.

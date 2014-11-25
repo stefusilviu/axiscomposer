@@ -68,7 +68,7 @@ class AB_Unit_Tests_Bootstrap {
 		define( 'WP_UNINSTALL_PLUGIN', true );
 		include( $this->plugin_dir . '/uninstall.php' );
 
-		$installer = include( $this->plugin_dir . '/includes/class-ab-install.php' );
+		$installer = include( $this->plugin_dir . '/includes/class-builder-install.php' );
 		$installer->install();
 
 		// reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
@@ -85,7 +85,7 @@ class AB_Unit_Tests_Bootstrap {
 	public function includes() {
 
 		// test cases
-		require_once( $this->tests_dir . '/framework/class-ab-unit-test-case.php' );
+		require_once( $this->tests_dir . '/framework/class-builder-unit-test-case.php' );
 	}
 
 	/**

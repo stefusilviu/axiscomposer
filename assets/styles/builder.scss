@@ -1,0 +1,16 @@
+#axisbuilder-toggle-button {
+	position: relative;
+	bottom: -10px;
+	z-index: 1001;
+
+	&:active, &:focus {
+		outline: 0 !important;
+	}
+}
+
+.default-editor-hide, img[src=""] {
+	display: none;
+}
+.axis-page-builder-hide {
+	display: none !important;
+}

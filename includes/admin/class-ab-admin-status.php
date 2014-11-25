@@ -192,7 +192,6 @@ class AB_Admin_Status {
 	 * Retrieve metadata from a file. Based on WP Core's get_file_data function
 	 *
 	 * @param string $file Path to the file
-	 * @param array  $all_headers List of headers, in the format array('HeaderKey' => 'Header Name')
 	 */
 	public static function get_file_version( $file ) {
 		// Avoid notices if file does not exist

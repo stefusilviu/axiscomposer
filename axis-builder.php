@@ -6,11 +6,11 @@
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
  * Version: 1.0-bleeding
- * Requires at least: 3.8
+ * Requires at least: 4.0
  * Tested up to: 4.0
  *
  * Text Domain: axisbuilder
- * Domain Path: /i18n/languages/
+ * Domain Path: /languages/
  *
  * @package  AxisBuilder
  * @category Core
@@ -18,7 +18,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 if ( ! class_exists( 'AxisBuilder' ) ) :
@@ -32,7 +32,7 @@ if ( ! class_exists( 'AxisBuilder' ) ) :
 final class AxisBuilder {
 
 	/**
-	 * @var string AxisBuilder Version
+	 * @var string
 	 */
 	public $version = '1.0.0';
 
@@ -82,17 +82,7 @@ final class AxisBuilder {
 	 * @return AxisBuilder
 	 */
 	public function __construct() {
-		// Auto-load classes on demand
-		if ( function_exists( "__autoload" ) ) {
-			spl_autoload_register( "__autoload" );
-		}
-
-		spl_autoload_register( array( $this, 'autoload' ) );
-
-		// Define constants
 		$this->define_constants();
-
-		// Include required files
 		$this->includes();
 
 		// Hooks
@@ -104,34 +94,26 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Auto-load AB classes on demand to reduce memory consumption.
+	 * Auto-load in-accessible properties on demand.
 	 *
-	 * @param mixed $class
+	 * @param mixed $key
+	 * @return mixed
 	 */
-	public function autoload( $class ) {
-		$path  = null;
-		$class = strtolower( $class );
-		$file  = 'class-' . str_replace( '_', '-', $class ) . '.php';
-
-		if ( strpos( $class, 'ab_admin_' ) === 0 ) {
-			$path = $this->plugin_path() . '/includes/admin/';
-		} elseif ( strpos( $class, 'ab_widget_' ) === 0 ) {
-			$path = $this->plugin_path() . '/includes/widgets/';
+	public function __get( $key ) {
+		if ( method_exists( $this, $key ) ) {
+			return $this->$key();
 		}
+	}
 
-		if ( $path && is_readable( $path . $file ) ) {
-			include_once( $path . $file );
-			return;
-		}
-
-		// Fallback
-		if ( strpos( $class, 'ab_' ) === 0 ) {
-			$path = $this->plugin_path() . '/includes/';
-		}
-
-		if ( $path && is_readable( $path . $file ) ) {
-			include_once( $path . $file );
-			return;
+	/**
+	 * Define constant if not already set
+	 *
+	 * @param  string $name
+	 * @param  string $value
+	 */
+	private function define( $name, $value ) {
+		if ( ! defined( $name ) ) {
+			define( $name, $value );
 		}
 	}
 
@@ -139,20 +121,22 @@ final class AxisBuilder {
 	 * Define AB Constants
 	 */
 	private function define_constants() {
-		define( 'AB_PLUGIN_FILE', __FILE__ );
-		define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-		define( 'AB_VERSION', $this->version );
+		$upload_dir = wp_upload_dir();
 
-		if ( ! defined( 'AB_LOG_DIR' ) ) {
-			$upload_dir = wp_upload_dir();
-			define( 'AB_LOG_DIR', $upload_dir['basedir'] . '/axis-logs/' );
-		}
+		$this->define( 'AB_PLUGIN_FILE', __FILE__ );
+		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+		$this->define( 'AB_VERSION', $this->version );
+		$this->define( 'AB_CONFIG_DIR', $this->plugin_path() . '/config/' );
+		$this->define( 'AB_SHORTCODE_DIR', $this->plugin_path() . '/shortcodes/' );
+		$this->define( 'AB_LOG_DIR', $upload_dir['basedir'] . '/axis-logs/' );
+		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
 	}
 
 	/**
 	 * Includes required core files used in admin and on the frontend.
 	 */
 	private function includes() {
+		include_once( 'includes/class-ab-autoloader.php' );
 		include_once( 'includes/ab-core-functions.php' );
 		include_once( 'includes/class-ab-install.php' );
 
@@ -264,18 +248,14 @@ final class AxisBuilder {
 
 endif;
 
-if ( ! function_exists( 'AB' ) ) {
-
-	/**
-	 * Returns the main instance of AB to prevent the need to use globals.
-	 *
-	 * @access public
-	 * @since  1.0.0
-	 * @return AxisBuilder
-	 */
-	function AB() {
-		return AxisBuilder::instance();
-	}
+/**
+ * Returns the main instance of AB to prevent the need to use globals.
+ *
+ * @since  1.0.0
+ * @return AxisBuilder
+ */
+function AB() {
+	return AxisBuilder::instance();
 }
 
 // Global for backwards compatibility.

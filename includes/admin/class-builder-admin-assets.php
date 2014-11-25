@@ -55,7 +55,7 @@ class AB_Admin_Assets {
 		global $wp_query, $post;
 
 		$screen       = get_current_screen();
-		$wc_screen_id = sanitize_title( __( 'Axis Builder', 'axsisbuilder' ) );
+		// $ab_screen_id = sanitize_title( __( 'Axis Builder', 'axsisbuilder' ) );
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // For test purpose only replace position of '.min' :)
 
 		// Register Scripts

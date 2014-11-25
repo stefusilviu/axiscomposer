@@ -2,7 +2,7 @@
 /**
  * AxisBuilder Autoloader
  *
- * @class 		AB_Autoloader
+ * @class       AB_Autoloader
  * @package     AxisBuilder/Classes
  * @category    Class
  * @author      AxisThemes
@@ -69,9 +69,7 @@ class AB_Autoloader {
 		$path  = '';
 
 		if ( strpos( $class, 'ab_admin_' ) === 0 ) {
-			$path = $this->plugin_path() . '/includes/admin/';
-		} elseif ( strpos( $class, 'ab_widget_' ) === 0 ) {
-			$path = $this->plugin_path() . '/includes/widgets/';
+			$path = $this->include_path . 'admin/';
 		}
 
 		if ( ! $this->load_file( $path . $file ) && strpos( $class, 'ab_' ) === 0 ) {

@@ -87,7 +87,6 @@ final class AxisBuilder {
 
 		// Hooks
 		add_action( 'init', array( $this, 'init' ), 0 );
-		add_action( 'widgets_init', array( $this, 'include_widgets' ) );
 
 		// Loaded action
 		do_action( 'axisbuilder_loaded' );
@@ -138,6 +137,7 @@ final class AxisBuilder {
 	private function includes() {
 		include_once( 'includes/class-ab-autoloader.php' );
 		include_once( 'includes/ab-core-functions.php' );
+		include_once( 'includes/ab-widget-functions.php' );
 		include_once( 'includes/class-ab-install.php' );
 
 		if ( is_admin() ) {
@@ -160,15 +160,6 @@ final class AxisBuilder {
 	 */
 	public function ajax_includes() {
 		include_once( 'includes/class-ab-ajax.php' );
-	}
-
-	/**
-	 * Include core widgets
-	 */
-	public function include_widgets() {
-		include_once( 'includes/abstracts/abstract-ab-widget.php' );
-
-		register_widget( 'AB_Widget_Advertisement' );
 	}
 
 	/**

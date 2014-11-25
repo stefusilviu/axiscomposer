@@ -1,0 +1,292 @@
+# Copyright (C) 2014 AxisThemes
+# This file is distributed under the same license as the Axis Builder package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
+"Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
+"POT-Creation-Date: 2014-11-25 23:33:35+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: axis-builder.php:67 axis-builder.php:76
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Axis Builder"
+msgstr ""
+
+#: config/meta-boxes.php:6
+msgid "Layout Settings"
+msgstr ""
+
+#: config/meta-boxes.php:15
+msgid "Axis Page Builder"
+msgstr ""
+
+#: config/meta-boxes.php:19
+msgid "Layout Elements"
+msgstr ""
+
+#: config/meta-boxes.php:20
+msgid "Content Elements"
+msgstr ""
+
+#: config/meta-boxes.php:21
+msgid "Media Elements"
+msgstr ""
+
+#: config/meta-boxes.php:23
+msgid "Quick Info & Hotkeys"
+msgstr ""
+
+#: config/meta-boxes.php:24
+msgid "General Info"
+msgstr ""
+
+#: config/meta-boxes.php:26
+msgid ""
+"To insert an Element either click the insert button for that element or "
+"drag the button onto the canvas"
+msgstr ""
+
+#: config/meta-boxes.php:27
+msgid ""
+"If you place your mouse above the insert button a short info tooltip will "
+"appear"
+msgstr ""
+
+#: config/meta-boxes.php:28
+msgid ""
+"To sort and arrange your elements just drag them to a position of your "
+"choice and release them"
+msgstr ""
+
+#: config/meta-boxes.php:29
+msgid ""
+"Valid drop targets will be highlighted. Some elements like fullwidth "
+"sliders and color section can not be dropped onto other elements"
+msgstr ""
+
+#: config/meta-boxes.php:31
+msgid "Edit Elements in Popup Window:"
+msgstr ""
+
+#: config/meta-boxes.php:33
+msgid "Most elements open a popup window if you click them"
+msgstr ""
+
+#: config/meta-boxes.php:34
+msgid "Press TAB to navigate trough the various form fields of a popup window."
+msgstr ""
+
+#: config/meta-boxes.php:35
+msgid "Press ESC on your keyboard or the Close Button to close popup window."
+msgstr ""
+
+#: config/meta-boxes.php:36
+msgid ""
+"Press ENTER on your keyboard or the Save Button to save current state of a "
+"popup window"
+msgstr ""
+
+#: config/meta-boxes.php:42
+msgid "Layout"
+msgstr ""
+
+#: config/meta-boxes.php:43
+msgid "Select the desired Page layout"
+msgstr ""
+
+#: config/meta-boxes.php:49 config/meta-boxes.php:77
+msgid "Default Layout"
+msgstr ""
+
+#: config/meta-boxes.php:50
+msgid "No Sidebar"
+msgstr ""
+
+#: config/meta-boxes.php:51
+msgid "Left Sidebar"
+msgstr ""
+
+#: config/meta-boxes.php:52
+msgid "Right Sidebar"
+msgstr ""
+
+#: config/meta-boxes.php:58
+msgid "Sidebar Setting"
+msgstr ""
+
+#: config/meta-boxes.php:59
+msgid "Choose a custom sidebar for this entry"
+msgstr ""
+
+#: config/meta-boxes.php:70
+msgid "Title Bar Settings"
+msgstr ""
+
+#: config/meta-boxes.php:71
+msgid "Display the Title Bar with Page Title and Breadcrumb Navigation?"
+msgstr ""
+
+#: config/meta-boxes.php:78
+msgid "Display title and breadcrumbs"
+msgstr ""
+
+#: config/meta-boxes.php:79
+msgid "Display only title"
+msgstr ""
+
+#: config/meta-boxes.php:80
+msgid "Hide both"
+msgstr ""
+
+#: config/meta-boxes.php:86
+msgid "Activate Header transparency"
+msgstr ""
+
+#: config/meta-boxes.php:87
+msgid ""
+"If checked the header will be transparent and once the user scrolls down it "
+"will fade in."
+msgstr ""
+
+#: config/meta-boxes.php:93
+msgid "No transparency"
+msgstr ""
+
+#: config/meta-boxes.php:94
+msgid "Transparent Header"
+msgstr ""
+
+#: config/meta-boxes.php:95
+msgid "Transparent & Glassy Header"
+msgstr ""
+
+#: config/meta-boxes.php:101
+msgid "Footer Settings"
+msgstr ""
+
+#: config/meta-boxes.php:102
+msgid "Display the footer widgets?"
+msgstr ""
+
+#: config/meta-boxes.php:108
+msgid "Both Widgets and Socket"
+msgstr ""
+
+#: config/meta-boxes.php:109
+msgid "Only Widgets (No Socket)"
+msgstr ""
+
+#: config/meta-boxes.php:110
+msgid "Only Socket (No Widgets)"
+msgstr ""
+
+#: config/meta-boxes.php:111
+msgid "Don't Display Both"
+msgstr ""
+
+#: includes/class-builder-install.php:143
+msgid "View Axis Builder Settings"
+msgstr ""
+
+#: includes/class-builder-install.php:143
+msgid "Settings"
+msgstr ""
+
+#: includes/class-builder-install.php:159
+msgid "View Axis Builder Documentation"
+msgstr ""
+
+#: includes/class-builder-install.php:159
+msgid "Docs"
+msgstr ""
+
+#: includes/class-builder-install.php:160
+msgid "View Axis Builder API Docs"
+msgstr ""
+
+#: includes/class-builder-install.php:160
+msgid "API Docs"
+msgstr ""
+
+#: includes/class-builder-install.php:161
+msgid "Visit Premium Customer Support Forum"
+msgstr ""
+
+#: includes/class-builder-install.php:161
+msgid "Premium Support"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:23
+msgid "Displays Advertisements Slots."
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:25
+msgid "Axis Builder Advertisement"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:29
+msgid "Advertisement"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:30
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:35
+msgid "Slot type"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:37
+msgid "One Slot - 250x250px"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:38
+msgid "Two Slot - 125x125px"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:44
+msgid "Banner #1 Image Link"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:49
+msgid "Banner #1 Referal Link"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:54
+msgid "Banner #2 Image Link"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:59
+msgid "Banner #2 Referal Link"
+msgstr ""
+
+#: includes/widgets/class-builder-widget-advertisement.php:64
+msgid "Open link in a new window/tab"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://axisthemes.com/axis-builder/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A drag and drop builder that helps you build modern and unique page layouts "
+"smartly. Beautifully."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "AxisThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://axisthemes.com"
+msgstr ""

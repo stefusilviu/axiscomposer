@@ -1,0 +1,44 @@
+# Copyright (C) 2014 AxisThemes
+# This file is distributed under the same license as the Axis Builder package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
+"Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
+"POT-Creation-Date: 2014-11-25 23:34:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: includes/admin/class-builder-admin-editor.php:52
+msgid "Use Page Builder"
+msgstr ""
+
+#: includes/admin/class-builder-admin-editor.php:53
+msgid "Use Default Editor"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Axis Builder"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://axisthemes.com/axis-builder/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A drag and drop builder that helps you build modern and unique page layouts "
+"smartly. Beautifully."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "AxisThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://axisthemes.com"
+msgstr ""

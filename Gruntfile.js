@@ -106,7 +106,7 @@ module.exports = function( grunt ){
 		makepot: {
 			options: {
 				type: 'wp-plugin',
-				domainPath: 'i18n/languages',
+				domainPath: 'languages',
 				potHeaders: {
 					'report-msgid-bugs-to': 'https://github.com/axisthemes/axis-builder/issues',
 					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'

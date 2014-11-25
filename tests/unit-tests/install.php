@@ -7,21 +7,6 @@
 class AB_Tests_Install extends AB_Unit_Test_Case {
 
 	/**
-	 * Test check version
-	 */
-	public function test_check_version() {
-		update_option( 'axisbuilder_version', AB()->version - 1 );
-		AB_Install::check_version();
-
-		$this->assertTrue( did_action( 'axisbuilder_updated' ) === 1 );
-
-		update_option( 'axisbuilder_version', AB()->version );
-		AB_Install::check_version();
-
-		// $this->assertTrue( did_action( 'axisbuilder_updated' ) === 1 );
-	}
-
-	/**
 	 * Test - install
 	 */
 	public function test_install() {

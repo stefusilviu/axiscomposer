@@ -68,8 +68,7 @@ class AB_Unit_Tests_Bootstrap {
 		define( 'WP_UNINSTALL_PLUGIN', true );
 		include( $this->plugin_dir . '/uninstall.php' );
 
-		$installer = include( $this->plugin_dir . '/includes/class-builder-install.php' );
-		$installer->install();
+		AB_Install::install();
 
 		// reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
 		$GLOBALS['wp_roles']->reinit();

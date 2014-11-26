@@ -40,12 +40,11 @@ class AB_Admin_Meta_Boxes {
 		$screens = get_builder_core_supported_screens();
 
 		foreach ( $screens as $screen ) {
-			add_meta_box( 'axisbuilder-builder', __( 'Axis Builder', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'normal', 'high' );
-			add_meta_box( 'axisbuilder-layouts', __( 'Layout Settings', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'side', 'default' );
+			add_meta_box( 'axisbuilder-editor', __( 'Axis Builder', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'normal', 'high' );
+			add_meta_box( 'axisbuilder-layout', __( 'Layout Settings', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'side', 'default' );
 
 			// Filters for classes and columns
-			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-builder', array( $this, 'metabox_not_sortable' ) );
-			add_filter( 'manage_' . $screen . '_columns', array($this, 'manage_builder_columns' ), 100 );
+			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'metabox_not_sortable' ) );
 		}
 	}
 
@@ -61,11 +60,7 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function manage_builder_columns( $columns ) {
 
-		unset( $columns['comments'] );
-
-		return $columns;
-
-		// var_dump($columns);
+		// return array_merge( $columns, array( 'sticky' => __( 'Sticky', 'your_text_domain' ) ) );
 	}
 
 	public function metabox_not_sortable( $classes ) {
@@ -96,10 +91,13 @@ class AB_Admin_Meta_Boxes {
 
 	function metabox_not_sortable_style() {
 		echo '<style type="text/css">
+		label[for=axisbuilder-editor-hide] { display: none; }
 		.postbox.not-sortable h3.hndle { cursor: default !important }
+		#axisbuilder-editor.not-sortable h3.hndle { cursor: default !important }
 		</style>';
 	}
 
 }
+
 
 new AB_Admin_Meta_Boxes();

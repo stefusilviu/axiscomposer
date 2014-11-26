@@ -103,7 +103,6 @@ class AB_Install {
 
 	/**
 	 * Parse update notice from readme file
-	 *
 	 * @param  string $content
 	 * @return string
 	 */
@@ -134,9 +133,8 @@ class AB_Install {
 
 	/**
 	 * Show action links on the plugin screen.
-	 *
-	 * @param	mixed $links Plugin Action links
-	 * @return	array
+	 * @param  mixed $links Plugin Action links
+	 * @return array
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
@@ -148,10 +146,9 @@ class AB_Install {
 
 	/**
 	 * Show row meta on the plugin screen.
-	 *
-	 * @param	mixed $links Plugin Row Meta
-	 * @param	mixed $file  Plugin Base file
-	 * @return	array
+	 * @param  mixed $links Plugin Row Meta
+	 * @param  mixed $file  Plugin Base file
+	 * @return array
 	 */
 	public static function plugin_row_meta( $links, $file ) {
 		if ( $file == AB_PLUGIN_BASENAME ) {

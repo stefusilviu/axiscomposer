@@ -7,93 +7,88 @@
 
 	'use strict';
 
-	$.AxisBuilderAdmin = ( function() {
+	$.AxisBuilder = function() {
 
-		// Wrapper around tinyMCE Editor
-		var classicEditorWrap = $( '#postdivrich_wrap' );
+		// Canvas used to display the interface
+		this.canvas             = $( '#axisLayoutBuilder' );
 
-		// Button to switch between WordPress editor and axis builder
-		var switchButton = $( '#axisbuilder-toggle-button' );
+		// Box wrapping the canvas
+		this.canvasParent       = this.canvas.parents( '.postbox:eq(0)' );
 
-		// Initial Axis Page Builder state
-		window.axisBuilderState = 'inactive';
+		// Whether the Layout Builder is currently active or the WordPress default editor is
+		this.activeStatus       = this.canvasParent.find('#aviaLayoutBuilder_active');
 
-		// Axis page builder element
-		var axisPageBuilder = $( '#axis-page-builder' );
+		// List of available shortcode buttons
+		this.shortcodes         = $.AxisBuilder.shortcodes || {};
+
+		// Whether tinyMCE is available
+		this.tiny_active        = typeof window.tinyMCE == 'undefined' ? false : true;
+
+		// tinyMCE version
+		this.tiny_version       = this.tiny_active ? window.tinyMCE.majorVersion : false;
 
 		// WordPress default editor element
-		var wpDefaultEditor = $( '#postdivrich' );
+		this.wpDefaultEditor    = $( '#postdivrich' );
 
-		// Axis editor inside
-		var axisInsider = $( '.axis_insider' );
+		// Wrapper around tinyMCE Editor
+		this.classicEditorWrap  = $( '#postdivrich_wrap' );
 
-		// Toggle handler
-		var toggleHandler = $( '.axis_toggler' );
+		// Button to switch between WordPress editor and axis builder
+		this.switchButton       = this.classicEditorWrap.find( '#axisbuilder-button' );
 
-		// Check if builder was used last time
-		jQuery( document ).ready( function( $ ) {
+		// Activate the Plugin
+		this.activate();
+	};
 
-			// Allow interaction outside jQuery Dialog
-			$.ui.dialog.prototype._allowInteraction = function( event ) {
-				return true;
-			};
+	$.AxisBuilder.prototype = {
 
-			var instance = jQuery('#axis-page-builder').attr('instance');
-			var data = {
-				action : 'axis_editor_state',
-				instance : instance
-			};
+		// Activate the Whole Interface
+		activate: function() {
+			this.behaviour();
+		},
 
-			var hidden_field = jQuery('#axis-page-builder input[name=axisbuilder_status]').val();
+		// All event binding goes here
+		behaviour: function() {
+			var obj = this, $body = $( 'body' );
 
-			if ( hidden_field == 'active' ) {
-				showFusionEditor( switchButton );
-				setBuilderState( 'active' );
+			// Switch between default editor and page builder
+			this.switchButton.on( 'click', function(e) {
+				e.preventDefault();
+				obj.switch_layout_mode();
+			});
+		},
+
+		// Switch default and AxisBuilder Editors
+		switch_layout_mode: function() {
+			var editor = this.tiny_active ? window.tinyMCE.get( 'content' ) : false;
+
+			if ( this.activeStatus.val() != 'active' ) {
+				$( '#content-html' ).trigger( 'click' );
+				this.classicEditorWrap.addClass( 'axisbuilder-hidden-editor' );
+				this.switchButton.removeClass( 'button-primary').addClass( 'button-secondary').text( this.switchButton.data( 'active-button' ) );
+				this.activeStatus.val( 'active' );
+				this.canvasParent.removeClass( 'axisbuilder-hidden');
+
+				setTimeout( function() {
+					$( '#content-tmce' ).trigger( 'click' );
+				}, 10 );
+
+			} else {
+				this.classicEditorWrap.removeClass( 'axisbuilder-hidden-editor' );
+				this.switchButton.removeClass( 'button-secondary').addClass( 'button-primary').text( this.switchButton.data( 'inactive-button' ) );
+				this.activeStatus.val( '' );
+				this.canvasParent.addClass( 'axisbuilder-hidden');
+
+				$(window).trigger('scroll');
 			}
-		});
 
-		switchButton.on('click', function( e ) {
-
-			if( axisBuilderState !== 'active' ) { //if page builder currently inactive
-				showFusionEditor(this);
-				setBuilderState('active');
-
-			} else {  //if page builder currently actives
-				hideFusionEditor(this);
-				setBuilderState('inactive');
-			}
-		});
-
-		// Change builder state
-		function setBuilderState( state ) {
-			jQuery( '#axis-page-builder input[name=axisbuilder_status]' ).val( state );
-			window.axisBuilderState = state;
+			return false;
 		}
-
-		//function to show fusion editor and hide wp editor
-		function showFusionEditor( obj ) {
-
-			wpDefaultEditor.parent().addClass('default-editor-hide');//hide default editor
-			axisPageBuilder.removeClass('axis-page-builder-hide');
-			$(obj).text($(obj).attr('data-active-button'));
-			$(obj).addClass('button-secondary');
-			$(obj).removeClass('button-primary');
-		}
-
-		//function to hide wp editor and show fusion editor
-		function hideFusionEditor( obj ) {
-
-			wpDefaultEditor.parent().removeClass('default-editor-hide');//show default editor
-			axisPageBuilder.addClass('axis-page-builder-hide');
-			$(obj).text($(obj).attr('data-inactive-button'));
-			$(obj).addClass('button-primary');
-			$(obj).removeClass('button-secondary');
-		}
-	});
+	}
 
 
-	$(document).ready(function () {
-		$.AxisBuilderAdminObj = new $.AxisBuilderAdmin();
+	$( document ).ready( function () {
+		$.AxisBuilderObj = new $.AxisBuilder();
 	});
 
 })(jQuery);

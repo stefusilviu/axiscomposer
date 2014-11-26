@@ -52,8 +52,8 @@ class AB_Admin_Editor {
 			$builder_label = __( 'Use Page Builder', 'axisbuilder' );
 			$default_label = __( 'Use Default Editor', 'axisbuilder' );
 
-			echo '<a id="axisbuilder-toggle-button" href="javascript:void(0);" class="button button-large button-primary" data-active-button="' . $default_label . '" data-inactive-button="' . $builder_label . '">' . $builder_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axisbuilder">';
+			echo '<a id="axisbuilder-button" href="#" class="button button-large button-primary" data-active-button="' . $default_label . '" data-inactive-button="' . $builder_label . '">' . $builder_label . '</a>';
 		}
 	}
 

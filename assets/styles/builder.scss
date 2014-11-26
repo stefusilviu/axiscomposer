@@ -1,3 +1,11 @@
+/* AxisBuilder Editor Meta-Box related */
+label[for="axisbuilder-editor-hide"] {
+	display: none;
+}
+#axisbuilder-editor.not-sortable h3.hndle {
+	cursor: default !important;
+}
+
 #axisbuilder-toggle-button {
 	position: relative;
 	bottom: -10px;

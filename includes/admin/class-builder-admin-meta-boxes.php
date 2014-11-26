@@ -29,7 +29,6 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
 
 		add_action( 'admin_print_footer_scripts', array( $this, 'metabox_not_sortable_script' ), 99 );
-		add_action( 'admin_head', array( $this, 'metabox_not_sortable_style' ) );
 	}
 
 	/**
@@ -44,7 +43,7 @@ class AB_Admin_Meta_Boxes {
 			add_meta_box( 'axisbuilder-layout', __( 'Layout Settings', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'side', 'default' );
 
 			// Filters for classes and columns
-			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'metabox_not_sortable' ) );
+			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 	}
 
@@ -53,17 +52,11 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	/**
-	 * Register Columns in screen options toggle
-	 *
-	 * @param  array $columns Menu item columns
+	 * Filter the postbox classes for a specific screen and screen ID combo.
+	 * @param  array $classes An array of postbox classes.
 	 * @return array
 	 */
-	public function manage_builder_columns( $columns ) {
-
-		// return array_merge( $columns, array( 'sticky' => __( 'Sticky', 'your_text_domain' ) ) );
-	}
-
-	public function metabox_not_sortable( $classes ) {
+	public function custom_postbox_classes( $classes ) {
 		if( ! in_array( 'not-sortable', $classes ) ) {
 			$classes[] = 'not-sortable';
 		}
@@ -87,15 +80,6 @@ class AB_Admin_Meta_Boxes {
 		<?php
 	}
 
-	function metabox_not_sortable_style() {
-		echo '<style type="text/css">
-		label[for=axisbuilder-editor-hide] { display: none; }
-		.postbox.not-sortable h3.hndle { cursor: default !important }
-		#axisbuilder-editor.not-sortable h3.hndle { cursor: default !important }
-		</style>';
-	}
-
 }
-
 
 new AB_Admin_Meta_Boxes();

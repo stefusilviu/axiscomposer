@@ -140,7 +140,7 @@ class AB_Install {
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
-			'settings'	=>	'<a href="' . admin_url( 'admin.php?page=ab-settings' ) . '" title="' . esc_attr( __( 'View Axis Builder Settings', 'axisbuilder' ) ) . '">' . __( 'Settings', 'axisbuilder' ) . '</a>',
+			'settings'	=>	'<a href="' . admin_url( 'admin.php?page=axisbuilder-settings' ) . '" title="' . esc_attr( __( 'View Axis Builder Settings', 'axisbuilder' ) ) . '">' . __( 'Settings', 'axisbuilder' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );

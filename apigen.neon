@@ -28,6 +28,6 @@ accessLevels:
 internal: true
 php: true
 tree: true
-deprecated: true
-todo: true
+deprecated: false
+todo: false
 download: true

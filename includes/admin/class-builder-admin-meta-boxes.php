@@ -27,8 +27,6 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
-
-		add_action( 'admin_print_footer_scripts', array( $this, 'metabox_not_sortable_script' ), 99 );
 	}
 
 	/**
@@ -63,23 +61,6 @@ class AB_Admin_Meta_Boxes {
 
 		return $classes;
 	}
-
-	function metabox_not_sortable_script() {
-		?>
-			<script type="text/javascript">
-			/* <![CDATA[ */
-			jQuery( function( $ ){
-				$( '.meta-box-sortables' )
-					// define the cancel option of sortable to ignore sortable element for boxes with '.not-sortable' css class
-					.sortable( 'option', 'cancel', '.not-sortable .hndle, :input, button' )
-					// and then refresh the instance
-					.sortable( 'refresh' );
-			});
-			/* ]]> */
-			</script>
-		<?php
-	}
-
 }
 
 new AB_Admin_Meta_Boxes();

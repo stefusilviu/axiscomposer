@@ -49,11 +49,15 @@ class AB_Admin_Editor {
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 			global $post_ID;
 
-			$builder_label = __( 'Use Page Builder', 'axisbuilder' );
-			$default_label = __( 'Use Default Editor', 'axisbuilder' );
+			$builder_label   = __( 'Use Page Builder', 'axisbuilder' );
+			$default_label   = __( 'Use Default Editor', 'axisbuilder' );
+			$is_builder_used = get_post_meta( $post_ID, '_axisbuilder_active', true ) ? true : false;
+			$active_label    = $is_builder_used ? $default_label : $builder_label;
+			$active_class    = $is_builder_used ? 'axisbuilder-button-active' : '';
+			$editor_class    = $is_builder_used ? 'axisbuilder-hidden-editor' : '';
 
-			echo '<div id="postdivrich_wrap" class="axisbuilder">';
-			echo '<a id="axisbuilder-button" href="#" class="button button-large button-primary" data-active-button="' . $default_label . '" data-inactive-button="' . $builder_label . '">' . $builder_label . '</a>';
+			echo '<a href="#" id="axisbuilder-button" class="button button-large button-primary' . $active_class . '" data-page-builder="' . $builder_label . '" data-default-editor="' . $default_label . '">' . $active_label . '</a>';
+			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
 		}
 	}
 
@@ -61,7 +65,7 @@ class AB_Admin_Editor {
 		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
-			echo "</div> <!-- end postdivrich_wrap-->";
+			echo '</div> <!-- #postdivrich_wrap -->';
 		}
 	}
 }

@@ -16,7 +16,7 @@
 		this.canvasParent       = this.canvas.parents( '.postbox:eq(0)' );
 
 		// Whether the Layout Builder is currently active or the WordPress default editor is
-		this.activeStatus       = this.canvasParent.find('#aviaLayoutBuilder_active');
+		this.activeStatus       = this.canvasParent.find('#axisLayoutBuilder_active');
 
 		// List of available shortcode buttons
 		this.shortcodes         = $.AxisBuilder.shortcodes || {};
@@ -34,7 +34,7 @@
 		this.classicEditorWrap  = $( '#postdivrich_wrap' );
 
 		// Button to switch between WordPress editor and axis builder
-		this.switchButton       = this.classicEditorWrap.find( '#axisbuilder-button' );
+		this.switchButton       = $( 'body' ).find( '#axisbuilder-button' );
 
 		// Activate the Plugin
 		this.activate();
@@ -54,18 +54,18 @@
 			// Switch between default editor and page builder
 			this.switchButton.on( 'click', function(e) {
 				e.preventDefault();
-				obj.switch_layout_mode();
+				obj.switch_editor();
 			});
 		},
 
 		// Switch default and AxisBuilder Editors
-		switch_layout_mode: function() {
+		switch_editor: function() {
 			var editor = this.tiny_active ? window.tinyMCE.get( 'content' ) : false;
 
-			if ( this.activeStatus.val() != 'active' ) {
+			if ( this.activeStatus.val() !== 'active' ) {
 				$( '#content-html' ).trigger( 'click' );
 				this.classicEditorWrap.addClass( 'axisbuilder-hidden-editor' );
-				this.switchButton.removeClass( 'button-primary').addClass( 'button-secondary').text( this.switchButton.data( 'active-button' ) );
+				this.switchButton.text( this.switchButton.data( 'default-editor' ) );
 				this.activeStatus.val( 'active' );
 				this.canvasParent.removeClass( 'axisbuilder-hidden');
 
@@ -75,7 +75,7 @@
 
 			} else {
 				this.classicEditorWrap.removeClass( 'axisbuilder-hidden-editor' );
-				this.switchButton.removeClass( 'button-secondary').addClass( 'button-primary').text( this.switchButton.data( 'inactive-button' ) );
+				this.switchButton.text( this.switchButton.data( 'page-builder' ) );
 				this.activeStatus.val( '' );
 				this.canvasParent.addClass( 'axisbuilder-hidden');
 

@@ -41,7 +41,7 @@ class AB_Admin_Meta_Boxes {
 			add_meta_box( 'axisbuilder-layout', __( 'Layout Settings', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'side', 'default' );
 
 			// Filters for classes and columns
-			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
+			// add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 	}
 
@@ -55,8 +55,8 @@ class AB_Admin_Meta_Boxes {
 	 * @return array
 	 */
 	public function custom_postbox_classes( $classes ) {
-		if( ! in_array( 'not-sortable', $classes ) ) {
-			$classes[] = 'not-sortable';
+		if( ! in_array( 'axisbuilder-hidden', $classes ) ) {
+			$classes[] = 'axisbuilder-hidden';
 		}
 
 		return $classes;

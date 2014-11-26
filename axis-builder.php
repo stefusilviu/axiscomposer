@@ -59,7 +59,6 @@ final class AxisBuilder {
 
 	/**
 	 * Cloning is forbidden.
-	 *
 	 * @since 1.0
 	 */
 	public function __clone() {
@@ -68,7 +67,6 @@ final class AxisBuilder {
 
 	/**
 	 * Unserializing instances of this class is forbidden.
-	 *
 	 * @since 1.0
 	 */
 	public function __wakeup() {
@@ -130,7 +128,7 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Define AB Constants
+	 * Define AB Constants.
 	 */
 	private function define_constants() {
 		$upload_dir = wp_upload_dir();

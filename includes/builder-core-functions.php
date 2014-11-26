@@ -14,19 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'is_ajax' ) ) :
-
-/**
- * is_ajax - Returns true when the page is loaded via ajax.
- *
- * @return bool
- */
-function is_ajax() {
-	return defined( 'DOING_AJAX' );
-}
-
-endif;
-
 if ( ! function_exists( 'get_builder_core_support_themes' ) ) :
 
 /**

@@ -18,7 +18,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly
 }
 
 if ( ! class_exists( 'AxisBuilder' ) ) :
@@ -54,7 +54,6 @@ final class AxisBuilder {
 		if ( is_null( self::$_instance ) ) {
 			self::$_instance = new self();
 		}
-
 		return self::$_instance;
 	}
 
@@ -77,8 +76,19 @@ final class AxisBuilder {
 	}
 
 	/**
+	 * Auto-load in-accessible properties on demand.
+	 * @param  mixed $key
+	 * @return mixed
+	 */
+	public function __get( $key ) {
+		if ( method_exists( $this, $key ) ) {
+			return $this->$key();
+		}
+	}
+
+	/**
 	 * AxisBuilder Constructor.
-	 *
+	 * @access public
 	 * @return AxisBuilder
 	 */
 	public function __construct() {
@@ -93,26 +103,29 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Auto-load in-accessible properties on demand.
-	 *
-	 * @param mixed $key
-	 * @return mixed
-	 */
-	public function __get( $key ) {
-		if ( method_exists( $this, $key ) ) {
-			return $this->$key();
-		}
-	}
-
-	/**
 	 * Define constant if not already set
-	 *
 	 * @param  string $name
-	 * @param  string $value
+	 * @param  string|bool $value
 	 */
 	private function define( $name, $value ) {
 		if ( ! defined( $name ) ) {
 			define( $name, $value );
+		}
+	}
+
+	/**
+	 * What type of request is this?
+	 * @param  string $type ajax, frontend or admin
+	 * @return string
+	 */
+	private function is_request( $type ) {
+		switch ( $type ) {
+			case 'admin' :
+				return is_admin();
+			case 'ajax' :
+				return defined( 'DOING_AJAX' );
+			case 'frontend' :
+				return ! is_admin() || defined( 'DOING_AJAX' );
 		}
 	}
 
@@ -138,11 +151,11 @@ final class AxisBuilder {
 		include_once( 'includes/builder-widget-functions.php' );
 		include_once( 'includes/class-builder-install.php' );
 
-		if ( is_admin() ) {
+		if ( $this->is_request( 'admin' ) ) {
 			include_once( 'includes/admin/class-builder-admin.php' );
 		}
 
-		if ( defined( 'DOING_AJAX' ) ) {
+		if ( $this->is_request( 'ajax' ) ) {
 			$this->ajax_includes();
 		}
 	}
@@ -151,7 +164,7 @@ final class AxisBuilder {
 	 * Include required ajax files.
 	 */
 	public function ajax_includes() {
-		include_once( 'includes/class-builder-ajax.php' );
+		include_once( 'includes/class-builder-ajax.php' );                           // Ajax functions for admin and the front-end
 	}
 
 	/**
@@ -171,39 +184,31 @@ final class AxisBuilder {
 	/**
 	 * Load Localisation files.
 	 *
-	 * Note: the first-loaded translation file overrides any following ones if the same translation is present
+	 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+	 *
+	 * Admin Locales are found in:
+	 * 		- WP_LANG_DIR/axis-builder/axisbuilder-admin-LOCALE.mo
+	 * 		- WP_LANG_DIR/plugins/axisbuilder-admin-LOCALE.mo
+	 *
+	 * Frontend/global Locales found in:
+	 * 		- WP_LANG_DIR/axis-builder/axisbuilder-LOCALE.mo
+	 * 	 	- axis-builder/languages/axisbuilder-LOCALE.mo (which if not found falls back to:)
+	 * 	 	- WP_LANG_DIR/plugins/axisbuilder-LOCALE.mo
 	 */
 	public function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'axisbuilder' );
-		$dir    = trailingslashit( WP_LANG_DIR );
 
-		/**
-		 * Admin Locale. Looks in:
-		 *
-		 * 		- WP_LANG_DIR/axis-builder/axisbuilder-admin-LOCALE.mo
-		 * 		- WP_LANG_DIR/plugins/axisbuilder-admin-LOCALE.mo
-		 */
-		if ( is_admin() ) {
-			load_textdomain( 'axisbuilder', $dir . 'axis-builder/axisbuilder-admin-' . $locale . '.mo' );
-			load_textdomain( 'axisbuilder', $dir . 'plugins/axisbuilder-admin-' . $locale . '.mo' );
+		if ( $this->is_request( 'admin' ) ) {
+			load_textdomain( 'axisbuilder', WP_LANG_DIR . '/axis-builder/axisbuilder-admin-' . $locale . '.mo' );
+			load_textdomain( 'axisbuilder', WP_LANG_DIR . '/plugins/axisbuilder-admin-' . $locale . '.mo' );
 		}
 
-		/**
-		 * Frontend/global Locale. Looks in:
-		 *
-		 * 		- WP_LANG_DIR/axis-builder/axisbuilder-LOCALE.mo
-		 * 	 	- axisbuilder/i18n/languages/axisbuilder-LOCALE.mo (which if not found falls back to:)
-		 * 	 	- WP_LANG_DIR/plugins/axisbuilder-LOCALE.mo
-		 */
-		load_textdomain( 'axisbuilder', $dir . 'axis-builder/axisbuilder-' . $locale . '.mo' );
+		load_textdomain( 'axisbuilder', WP_LANG_DIR . '/axis-builder/axisbuilder-' . $locale . '.mo' );
 		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/languages" );
 	}
 
-	/** Helper functions ******************************************************/
-
 	/**
 	 * Get the plugin url.
-	 *
 	 * @return string
 	 */
 	public function plugin_url() {
@@ -212,7 +217,6 @@ final class AxisBuilder {
 
 	/**
 	 * Get the plugin path.
-	 *
 	 * @return string
 	 */
 	public function plugin_path() {
@@ -221,7 +225,6 @@ final class AxisBuilder {
 
 	/**
 	 * Get Ajax URL.
-	 *
 	 * @return string
 	 */
 	public function ajax_url() {

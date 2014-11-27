@@ -40,6 +40,21 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Add Meta-box configurations.
+	 */
+	public static function add_meta_config() {
+		require( AB_CONFIG_DIR . 'meta-boxes.php' );
+
+		if ( isset( $boxes ) ) {
+			self::$add_meta_boxes = apply_filters( 'axisbuilder_add_meta_boxes', $boxes );
+		}
+
+		if ( isset( $elements ) ) {
+			self::$add_meta_elements = apply_filters( 'axisbuilder_add_meta_elements', $elements );
+		}
+	}
+
+	/**
 	 * Add an error message.
 	 * @param string $text
 	 */
@@ -73,22 +88,6 @@ class AB_Admin_Meta_Boxes {
 		}
 	}
 
-
-	/**
-	 * Add Meta-box configurations.
-	 */
-	public static function add_meta_config() {
-		require( AB_CONFIG_DIR . 'meta-boxes.php' );
-
-		if ( isset( $boxes ) ) {
-			self::$add_meta_boxes = apply_filters( 'axisbuilder_add_meta_boxes', $boxes );
-		}
-
-		if ( isset( $elements ) ) {
-			self::$add_meta_elements = apply_filters( 'axisbuilder_add_meta_elements', $elements );
-		}
-	}
-
 	/**
 	 * Add AB Meta boxes.
 	 */
@@ -110,7 +109,7 @@ class AB_Admin_Meta_Boxes {
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
 
 				foreach ( $meta_box['page'] as $screen ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $screen, $meta_box['context'], $meta_box['priority'] );
+					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $screen, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
 				}
 			}
 		}

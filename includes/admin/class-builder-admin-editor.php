@@ -53,10 +53,9 @@ class AB_Admin_Editor {
 			$default_label   = __( 'Use Default Editor', 'axisbuilder' );
 			$is_builder_used = get_post_meta( $post_ID, '_axisLayoutBuilder_active', true ) ? true : false;
 			$active_label    = $is_builder_used ? $default_label : $builder_label;
-			$active_class    = $is_builder_used ? 'axisbuilder-button-active' : '';
 			$editor_class    = $is_builder_used ? 'axisbuilder-hidden-editor' : '';
 
-			echo '<a href="#" id="axisbuilder-button" class="button button-large button-primary' . $active_class . '" data-page-builder="' . $builder_label . '" data-default-editor="' . $default_label . '">' . $active_label . '</a>';
+			echo '<a href="#" id="axisbuilder-button" class="button button-large button-primary" data-page-builder="' . $builder_label . '" data-default-editor="' . $default_label . '">' . $active_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
 		}
 	}

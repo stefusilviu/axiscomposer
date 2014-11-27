@@ -1,5 +1,3 @@
-/* global axisbuilder_admin */
-
 /**
  * AxisBuilder Admin JS
  */
@@ -9,86 +7,66 @@
 
 	$.AxisBuilder = function() {
 
-		// Canvas used to display the interface
-		this.canvas             = $( '#axisLayoutBuilder' );
+		// WordPress default tinyMCE editor Element
+		this.wpDefaultEditor = $( '#postdivrich' );
 
-		// Box wrapping the canvas
-		this.canvasParent       = this.canvas.parents( '.postbox:eq(0)' );
+		// Axis Page Builder {Status|Button|Editor}
+		this.axisBuilderStatus = $( '#axisbuilder-editor' ); // should be changed
+		this.axisBuilderEditor = $( '#axisbuilder-editor' );
+		this.axisBuilderButton = $( '#axisbuilder-button' );
 
-		// Whether the Layout Builder is currently active or the WordPress default editor is
-		// this.activeStatus       = this.canvasParent.find('#axisLayoutBuilder_active');
-		this.activeStatus       = $( '#axisbuilder-editor' );
+		// WordPress tinyMCE {Defined|Version|Content}
+		this.tinyMceDefined = typeof window.tinyMCE !== 'undefined' ? true : false;
+		this.tinyMceVersion = this.tinyMceDefined ? window.tinyMCE.majorVersion : false;
+		this.tinyMceContent = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : false;
 
-		// List of available shortcode buttons
-		this.shortcodes         = $.AxisBuilder.shortcodes || {};
-
-		// Whether tinyMCE is available
-		this.tiny_active        = typeof window.tinyMCE == 'undefined' ? false : true;
-
-		// tinyMCE version
-		this.tiny_version       = this.tiny_active ? window.tinyMCE.majorVersion : false;
-
-		// WordPress default editor element
-		this.wpDefaultEditor    = $( '#postdivrich' );
-
-		// Wrapper around tinyMCE Editor
-		this.classicEditorWrap  = $( '#postdivrich_wrap' );
-
-		// Button to switch between WordPress editor and axis builder
-		this.switchButton       = $( 'body' ).find( '#axisbuilder-button' );
-
-		// Activate the Plugin
-		this.activate();
+		// Activate the Builder
+		this.builderActivate();
 	};
 
 	$.AxisBuilder.prototype = {
 
 		// Activate the Whole Interface
-		activate: function() {
+		builderActivate: function() {
 			this.behaviour();
 		},
 
 		// All event binding goes here
 		behaviour: function() {
-			var obj = this, $body = $( 'body' );
+			var self = this;
 
-			// Switch between default editor and page builder
-			this.switchButton.on( 'click', function(e) {
+			// Toggle between default editor and page builder
+			this.axisBuilderButton.on( 'click', function( e ) {
 				e.preventDefault();
-				obj.switchEditor();
+				self.switchEditor();
 			});
 		},
 
-		// Switch default and AxisBuilder Editors
+		// Switch between the {WordPress|AxisBuilder} Editors
 		switchEditor: function() {
-			var editor = this.tiny_active ? window.tinyMCE.get( 'content' ) : false;
 
-			if ( this.activeStatus.val() !== 'active' ) {
-				// $( '#content-html' ).trigger( 'click' );
-				this.classicEditorWrap.addClass( 'axisbuilder-hidden-editor' );
-				this.switchButton.addClass( 'axisbuilder-active' ).text( this.switchButton.data( 'default-editor' ) );
-				this.activeStatus.val( 'active' );
-				this.activeStatus.removeClass( 'axisbuilder-hidden');
-				// this.canvasParent.removeClass( 'axisbuilder-hidden');
+			if ( this.axisBuilderStatus.val() !== 'active' ) {
+				$( '#content-tmce' ).trigger( 'click' );
+				this.wpDefaultEditor.parent().addClass( 'axisbuilder-hidden-editor' );
+				this.axisBuilderStatus.val( 'active' );
+				this.axisBuilderEditor.removeClass( 'axisbuilder-hidden');
+				this.axisBuilderButton.addClass( 'button-secondary' ).removeClass( 'button-primary' ).text( this.axisBuilderButton.data( 'default-editor' ) );
 
 				setTimeout( function() {
 					$( '#content-tmce' ).trigger( 'click' );
 				}, 10 );
-
 			} else {
-				this.classicEditorWrap.removeClass( 'axisbuilder-hidden-editor' );
-				this.switchButton.removeClass( 'axisbuilder-active' ).text( this.switchButton.data( 'page-builder' ) );
-				this.activeStatus.val( '' );
-				this.activeStatus.addClass( 'axisbuilder-hidden');
-				// this.canvasParent.addClass( 'axisbuilder-hidden');
+				this.wpDefaultEditor.parent().removeClass( 'axisbuilder-hidden-editor' );
+				this.axisBuilderStatus.val( 'inactive' );
+				this.axisBuilderEditor.addClass( 'axisbuilder-hidden');
+				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
 
-				$(window).trigger('scroll');
+				$( window ).trigger( 'scroll' );
 			}
 
 			return false;
 		}
-	}
-
+	};
 
 	$( document ).ready( function () {
 		$.AxisBuilderObj = new $.AxisBuilder();

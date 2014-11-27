@@ -24,9 +24,9 @@ label[for="axisbuilder-editor-hide"] {
 
 /* Toggle Button */
 #axisbuilder-button {
+	top: 10px;
+	z-index: 9999;
 	position: relative;
-	bottom: -10px;
-	z-index: 1000;
 
 	&:active, &:focus {
 		outline: 0 !important;

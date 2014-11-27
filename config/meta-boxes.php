@@ -2,11 +2,10 @@
 global $builder;
 
 $boxes = array(
-	array( 'title' =>__( 'Axis Builder', 'axisbuilder' ), 'id' => 'axisbuilder', 'page' => array( 'portfolio', 'page' ), 'context' => 'normal', 'priority' => 'high', 'expandable' => true ),
 	array( 'title' =>__( 'Layout Settings', 'axisbuilder' ), 'id' => 'layout', 'page' => array( 'portfolio', 'page' , 'post' ), 'context' => 'side', 'priority' => 'low' ),
 );
 
-$boxes = apply_filters( 'axisbuilder_metaboxes', $boxes );
+$boxes = apply_filters( 'axisbuilder_meta_boxes', $boxes );
 
 $elements = array(
 
@@ -62,7 +61,7 @@ $elements = array(
 		'std'      => '',
 		'class'    => 'avia-style',
 		'required' => array( 'layout', 'not', 'fullsize' ),
-		'subtype'  => AviaHelper::get_registered_sidebars( array( 'Default Sidebars' => '' ), array( 'Displayed Everywhere' ) )
+		// 'subtype'  => AviaHelper::get_registered_sidebars( array( 'Default Sidebars' => '' ), array( 'Displayed Everywhere' ) )
 	),
 
 	array(
@@ -113,4 +112,4 @@ $elements = array(
 	),
 );
 
-$elements = apply_filters( 'axisbuilder_elements', $elements );
+$elements = apply_filters( 'axisbuilder_meta_elements', $elements );

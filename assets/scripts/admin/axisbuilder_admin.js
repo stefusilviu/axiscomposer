@@ -71,9 +71,9 @@
 				this.activeStatus.removeClass( 'axisbuilder-hidden');
 				// this.canvasParent.removeClass( 'axisbuilder-hidden');
 
-				// setTimeout( function() {
-				// 	$( '#content-tmce' ).trigger( 'click' );
-				// }, 10 );
+				setTimeout( function() {
+					$( '#content-tmce' ).trigger( 'click' );
+				}, 10 );
 
 			} else {
 				this.classicEditorWrap.removeClass( 'axisbuilder-hidden-editor' );
@@ -82,7 +82,7 @@
 				this.activeStatus.addClass( 'axisbuilder-hidden');
 				// this.canvasParent.addClass( 'axisbuilder-hidden');
 
-				// $(window).trigger('scroll');
+				$(window).trigger('scroll');
 			}
 
 			return false;

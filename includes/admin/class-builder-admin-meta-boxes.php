@@ -32,7 +32,7 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save builder Meta Boxes
-		add_action( 'axisbuilder_layout_editor_meta', array( $this, 'meta_box_save' ), 10, 2 );
+		add_action( 'axisbuilder_layout_editor_meta', array( $this, 'save_layout_editor_meta' ), 10, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -180,7 +180,7 @@ class AB_Admin_Meta_Boxes {
 	/**
 	 * Set status of builder (open/closed) and save the shortcodes that are used in the post
 	 */
-	public function meta_box_save() {
+	public function save_layout_editor_meta() {
 		if ( isset( $_POST['post_ID'] ) ) {
 
 			// Save if the page builder is active

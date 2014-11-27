@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-11-25 23:33:35+00:00\n"
+"POT-Creation-Date: 2014-11-27 21:41:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,215 +13,211 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: axis-builder.php:67 axis-builder.php:76
+#: axis-builder.php:65 axis-builder.php:73
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "Axis Builder"
-msgstr ""
-
-#: config/meta-boxes.php:6
+#: config/meta-boxes.php:5
 msgid "Layout Settings"
 msgstr ""
 
-#: config/meta-boxes.php:15
+#: config/meta-boxes.php:14
 msgid "Axis Page Builder"
 msgstr ""
 
-#: config/meta-boxes.php:19
+#: config/meta-boxes.php:18
 msgid "Layout Elements"
 msgstr ""
 
-#: config/meta-boxes.php:20
+#: config/meta-boxes.php:19
 msgid "Content Elements"
 msgstr ""
 
-#: config/meta-boxes.php:21
+#: config/meta-boxes.php:20
 msgid "Media Elements"
 msgstr ""
 
-#: config/meta-boxes.php:23
+#: config/meta-boxes.php:22
 msgid "Quick Info & Hotkeys"
 msgstr ""
 
-#: config/meta-boxes.php:24
+#: config/meta-boxes.php:23
 msgid "General Info"
 msgstr ""
 
-#: config/meta-boxes.php:26
+#: config/meta-boxes.php:25
 msgid ""
 "To insert an Element either click the insert button for that element or "
 "drag the button onto the canvas"
 msgstr ""
 
-#: config/meta-boxes.php:27
+#: config/meta-boxes.php:26
 msgid ""
 "If you place your mouse above the insert button a short info tooltip will "
 "appear"
 msgstr ""
 
-#: config/meta-boxes.php:28
+#: config/meta-boxes.php:27
 msgid ""
 "To sort and arrange your elements just drag them to a position of your "
 "choice and release them"
 msgstr ""
 
-#: config/meta-boxes.php:29
+#: config/meta-boxes.php:28
 msgid ""
 "Valid drop targets will be highlighted. Some elements like fullwidth "
 "sliders and color section can not be dropped onto other elements"
 msgstr ""
 
-#: config/meta-boxes.php:31
+#: config/meta-boxes.php:30
 msgid "Edit Elements in Popup Window:"
 msgstr ""
 
-#: config/meta-boxes.php:33
+#: config/meta-boxes.php:32
 msgid "Most elements open a popup window if you click them"
 msgstr ""
 
-#: config/meta-boxes.php:34
+#: config/meta-boxes.php:33
 msgid "Press TAB to navigate trough the various form fields of a popup window."
 msgstr ""
 
-#: config/meta-boxes.php:35
+#: config/meta-boxes.php:34
 msgid "Press ESC on your keyboard or the Close Button to close popup window."
 msgstr ""
 
-#: config/meta-boxes.php:36
+#: config/meta-boxes.php:35
 msgid ""
 "Press ENTER on your keyboard or the Save Button to save current state of a "
 "popup window"
 msgstr ""
 
-#: config/meta-boxes.php:42
+#: config/meta-boxes.php:41
 msgid "Layout"
 msgstr ""
 
-#: config/meta-boxes.php:43
+#: config/meta-boxes.php:42
 msgid "Select the desired Page layout"
 msgstr ""
 
-#: config/meta-boxes.php:49 config/meta-boxes.php:77
+#: config/meta-boxes.php:48 config/meta-boxes.php:76
 msgid "Default Layout"
 msgstr ""
 
-#: config/meta-boxes.php:50
+#: config/meta-boxes.php:49
 msgid "No Sidebar"
 msgstr ""
 
-#: config/meta-boxes.php:51
+#: config/meta-boxes.php:50
 msgid "Left Sidebar"
 msgstr ""
 
-#: config/meta-boxes.php:52
+#: config/meta-boxes.php:51
 msgid "Right Sidebar"
 msgstr ""
 
-#: config/meta-boxes.php:58
+#: config/meta-boxes.php:57
 msgid "Sidebar Setting"
 msgstr ""
 
-#: config/meta-boxes.php:59
+#: config/meta-boxes.php:58
 msgid "Choose a custom sidebar for this entry"
 msgstr ""
 
-#: config/meta-boxes.php:70
+#: config/meta-boxes.php:69
 msgid "Title Bar Settings"
 msgstr ""
 
-#: config/meta-boxes.php:71
+#: config/meta-boxes.php:70
 msgid "Display the Title Bar with Page Title and Breadcrumb Navigation?"
 msgstr ""
 
-#: config/meta-boxes.php:78
+#: config/meta-boxes.php:77
 msgid "Display title and breadcrumbs"
 msgstr ""
 
-#: config/meta-boxes.php:79
+#: config/meta-boxes.php:78
 msgid "Display only title"
 msgstr ""
 
-#: config/meta-boxes.php:80
+#: config/meta-boxes.php:79
 msgid "Hide both"
 msgstr ""
 
-#: config/meta-boxes.php:86
+#: config/meta-boxes.php:85
 msgid "Activate Header transparency"
 msgstr ""
 
-#: config/meta-boxes.php:87
+#: config/meta-boxes.php:86
 msgid ""
 "If checked the header will be transparent and once the user scrolls down it "
 "will fade in."
 msgstr ""
 
-#: config/meta-boxes.php:93
+#: config/meta-boxes.php:92
 msgid "No transparency"
 msgstr ""
 
-#: config/meta-boxes.php:94
+#: config/meta-boxes.php:93
 msgid "Transparent Header"
 msgstr ""
 
-#: config/meta-boxes.php:95
+#: config/meta-boxes.php:94
 msgid "Transparent & Glassy Header"
 msgstr ""
 
-#: config/meta-boxes.php:101
+#: config/meta-boxes.php:100
 msgid "Footer Settings"
 msgstr ""
 
-#: config/meta-boxes.php:102
+#: config/meta-boxes.php:101
 msgid "Display the footer widgets?"
 msgstr ""
 
-#: config/meta-boxes.php:108
+#: config/meta-boxes.php:107
 msgid "Both Widgets and Socket"
 msgstr ""
 
-#: config/meta-boxes.php:109
+#: config/meta-boxes.php:108
 msgid "Only Widgets (No Socket)"
 msgstr ""
 
-#: config/meta-boxes.php:110
+#: config/meta-boxes.php:109
 msgid "Only Socket (No Widgets)"
 msgstr ""
 
-#: config/meta-boxes.php:111
+#: config/meta-boxes.php:110
 msgid "Don't Display Both"
 msgstr ""
 
-#: includes/class-builder-install.php:143
+#: includes/class-builder-install.php:141
 msgid "View Axis Builder Settings"
 msgstr ""
 
-#: includes/class-builder-install.php:143
+#: includes/class-builder-install.php:141
 msgid "Settings"
 msgstr ""
 
-#: includes/class-builder-install.php:159
+#: includes/class-builder-install.php:156
 msgid "View Axis Builder Documentation"
 msgstr ""
 
-#: includes/class-builder-install.php:159
+#: includes/class-builder-install.php:156
 msgid "Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:160
+#: includes/class-builder-install.php:157
 msgid "View Axis Builder API Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:160
+#: includes/class-builder-install.php:157
 msgid "API Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:161
+#: includes/class-builder-install.php:158
 msgid "Visit Premium Customer Support Forum"
 msgstr ""
 
-#: includes/class-builder-install.php:161
+#: includes/class-builder-install.php:158
 msgid "Premium Support"
 msgstr ""
 
@@ -271,6 +267,10 @@ msgstr ""
 
 #: includes/widgets/class-builder-widget-advertisement.php:64
 msgid "Open link in a new window/tab"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Axis Builder"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

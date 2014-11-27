@@ -38,15 +38,15 @@
 			// Toggle between default editor and page builder
 			this.axisBuilderButton.on( 'click', function( e ) {
 				e.preventDefault();
-				self.switchEditor();
+				self.switchEditors();
 			});
 		},
 
 		// Switch between the {WordPress|AxisBuilder} Editors
-		switchEditor: function() {
+		switchEditors: function() {
 
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
-				$( '#content-tmce' ).trigger( 'click' );
+				$( '#content-html' ).trigger( 'click' );
 				this.wpDefaultEditor.parent().addClass( 'axisbuilder-hidden-editor' );
 				this.axisBuilderStatus.val( 'active' );
 				this.axisBuilderEditor.removeClass( 'axisbuilder-hidden');
@@ -60,7 +60,6 @@
 				this.axisBuilderStatus.val( 'inactive' );
 				this.axisBuilderEditor.addClass( 'axisbuilder-hidden');
 				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
-
 				$( window ).trigger( 'scroll' );
 			}
 

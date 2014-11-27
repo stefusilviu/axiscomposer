@@ -1,3 +1,9 @@
+ /*TODO :: check if we really need these, seem like global selectors */
+/* required to show editor button on right */
+/*#wp-content-wrap {
+	position:inherit;
+}*/
+
 /* Meta-Box Core Styles */
 .postbox-container .postbox {
 	clear: both;
@@ -10,18 +16,6 @@ div.mce-toolbar-grp {
 /* Hide Screen Option for Axis Builder */
 label[for="axisbuilder-editor-hide"] {
 	display: none;
-}
-
-/* No Need of this as Screen Option is Hidden */
-#axisbuilder-editor {
-	float: left;
-	width: 100%;
-	display: block;
-}
-
-/* Postbox Classes applied for AxisBuilder */
-#axisbuilder-editor.axisbuilder-hidden {
-	display: none !important;
 }
 
 /* Toggle Button */
@@ -37,6 +31,16 @@ label[for="axisbuilder-editor-hide"] {
 
 #postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {
 	display: none;
+}
+
+#axisbuilder-editor {
+	width: 100%;
+	float: left;
+	display: block;
+
+	&.axisbuilder-hidden {
+		display: none !important;
+	}
 }
 
 /* Meta Box Customize */

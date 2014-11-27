@@ -90,21 +90,21 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	/**
-	 * Add AB Meta boxes
+	 * Add AB Meta boxes.
 	 */
 	public function add_meta_boxes() {
 		$screens = get_builder_core_supported_screens();
 
-		// Page Builder Meta-box
+		// Page Builder
 		foreach ( $screens as $screen ) {
 			add_meta_box( 'axisbuilder-editor', __( 'Axis Page Builder', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 
-		// Load Meta-box Configuration
+		// Load Configurations
 		self::add_meta_config();
 
-		// Additional Meta-box
+		// Additional
 		if ( ! empty( self::$add_meta_boxes ) && ! empty( self::$add_meta_elements ) ) {
 
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {

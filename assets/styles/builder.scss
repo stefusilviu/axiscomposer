@@ -1,4 +1,4 @@
-/* AxisBuilder Meta-Box */
+/* Meta-Box Core Styles */
 .postbox-container .postbox {
 	clear: both;
 }
@@ -7,17 +7,19 @@ div.mce-toolbar-grp {
 	min-width: 100%;
 }
 
-/* Hide Screen Option and also apply style */
+/* Hide Screen Option for Axis Builder */
 label[for="axisbuilder-editor-hide"] {
 	display: none;
 }
 
+/* No Need of this as Screen Option is Hidden */
 #axisbuilder-editor {
 	float: left;
 	width: 100%;
 	display: block;
 }
 
+/* Postbox Classes applied for AxisBuilder */
 #axisbuilder-editor.axisbuilder-hidden {
 	display: none !important;
 }

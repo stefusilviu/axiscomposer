@@ -95,9 +95,9 @@ class AB_Admin_Meta_Boxes {
 		$screens = get_builder_core_supported_screens();
 
 		// Page Builder
-		foreach ( $screens as $screen ) {
-			add_meta_box( 'axisbuilder-editor', __( 'Axis Page Builder', 'axisbuilder' ), array( $this, 'create_meta_box' ), $screen, 'normal', 'high' );
-			add_filter( 'postbox_classes_' . $screen . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
+		foreach ( $screens as $type ) {
+			add_meta_box( 'axisbuilder-editor', __( 'Axis Page Builder', 'axisbuilder' ), array( $this, 'create_meta_box' ), $type, 'normal', 'high' );
+			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 
 		// Load Configurations
@@ -108,8 +108,8 @@ class AB_Admin_Meta_Boxes {
 
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
 
-				foreach ( $meta_box['page'] as $screen ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $screen, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
+				foreach ( $meta_box['page'] as $type ) {
+					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
 				}
 			}
 		}

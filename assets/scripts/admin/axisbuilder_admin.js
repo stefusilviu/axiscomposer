@@ -54,18 +54,18 @@
 			// Switch between default editor and page builder
 			this.switchButton.on( 'click', function(e) {
 				e.preventDefault();
-				obj.switch_editor();
+				obj.switchEditor();
 			});
 		},
 
 		// Switch default and AxisBuilder Editors
-		switch_editor: function() {
+		switchEditor: function() {
 			var editor = this.tiny_active ? window.tinyMCE.get( 'content' ) : false;
 
 			if ( this.activeStatus.val() !== 'active' ) {
 				$( '#content-html' ).trigger( 'click' );
 				this.classicEditorWrap.addClass( 'axisbuilder-hidden-editor' );
-				this.switchButton.text( this.switchButton.data( 'default-editor' ) );
+				this.switchButton.addClass( 'axisbuilder-active' ).text( this.switchButton.data( 'default-editor' ) );
 				this.activeStatus.val( 'active' );
 				this.canvasParent.removeClass( 'axisbuilder-hidden');
 
@@ -75,7 +75,7 @@
 
 			} else {
 				this.classicEditorWrap.removeClass( 'axisbuilder-hidden-editor' );
-				this.switchButton.text( this.switchButton.data( 'page-builder' ) );
+				this.switchButton.removeClass( 'axisbuilder-active' ).text( this.switchButton.data( 'page-builder' ) );
 				this.activeStatus.val( '' );
 				this.canvasParent.addClass( 'axisbuilder-hidden');
 

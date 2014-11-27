@@ -25,6 +25,7 @@ class AB_Admin_Editor {
 	 */
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'init' ) );
+		add_action( 'axisbuilder_save_post_meta_box', array( $this, 'meta_box_save' ) );
 	}
 
 	/**
@@ -51,7 +52,7 @@ class AB_Admin_Editor {
 
 			$builder_label   = __( 'Use Page Builder', 'axisbuilder' );
 			$default_label   = __( 'Use Default Editor', 'axisbuilder' );
-			$is_builder_used = get_post_meta( $post_ID, '_axisbuilder_active', true ) ? true : false;
+			$is_builder_used = get_post_meta( $post_ID, '_axisLayoutBuilder_active', true ) ? true : false;
 			$active_label    = $is_builder_used ? $default_label : $builder_label;
 			$active_class    = $is_builder_used ? 'axisbuilder-button-active' : '';
 			$editor_class    = $is_builder_used ? 'axisbuilder-hidden-editor' : '';
@@ -66,6 +67,19 @@ class AB_Admin_Editor {
 
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 			echo '</div> <!-- #postdivrich_wrap -->';
+		}
+	}
+
+	/**
+	 * Set status of builder (open/closed) and save the shortcodes that are used in the post
+	 */
+	public function meta_box_save() {
+		if ( isset( $_POST['post_ID'] ) ) {
+
+			// Save if the page builder is active
+			if ( isset( $_POST['axisLayoutBuilder_active'] ) ) {
+				update_post_meta( (int) $_POST['post_ID'], '_axisLayoutBuilder_active', $_POST['axisLayoutBuilder_active']);
+			}
 		}
 	}
 }

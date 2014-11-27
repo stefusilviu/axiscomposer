@@ -16,7 +16,8 @@
 		this.canvasParent       = this.canvas.parents( '.postbox:eq(0)' );
 
 		// Whether the Layout Builder is currently active or the WordPress default editor is
-		this.activeStatus       = this.canvasParent.find('#axisLayoutBuilder_active');
+		// this.activeStatus       = this.canvasParent.find('#axisLayoutBuilder_active');
+		this.activeStatus       = $( '#axisbuilder-editor' );
 
 		// List of available shortcode buttons
 		this.shortcodes         = $.AxisBuilder.shortcodes || {};
@@ -63,23 +64,25 @@
 			var editor = this.tiny_active ? window.tinyMCE.get( 'content' ) : false;
 
 			if ( this.activeStatus.val() !== 'active' ) {
-				$( '#content-html' ).trigger( 'click' );
+				// $( '#content-html' ).trigger( 'click' );
 				this.classicEditorWrap.addClass( 'axisbuilder-hidden-editor' );
 				this.switchButton.addClass( 'axisbuilder-active' ).text( this.switchButton.data( 'default-editor' ) );
 				this.activeStatus.val( 'active' );
-				this.canvasParent.removeClass( 'axisbuilder-hidden');
+				this.activeStatus.removeClass( 'axisbuilder-hidden');
+				// this.canvasParent.removeClass( 'axisbuilder-hidden');
 
-				setTimeout( function() {
-					$( '#content-tmce' ).trigger( 'click' );
-				}, 10 );
+				// setTimeout( function() {
+				// 	$( '#content-tmce' ).trigger( 'click' );
+				// }, 10 );
 
 			} else {
 				this.classicEditorWrap.removeClass( 'axisbuilder-hidden-editor' );
 				this.switchButton.removeClass( 'axisbuilder-active' ).text( this.switchButton.data( 'page-builder' ) );
 				this.activeStatus.val( '' );
-				this.canvasParent.addClass( 'axisbuilder-hidden');
+				this.activeStatus.addClass( 'axisbuilder-hidden');
+				// this.canvasParent.addClass( 'axisbuilder-hidden');
 
-				$(window).trigger('scroll');
+				// $(window).trigger('scroll');
 			}
 
 			return false;

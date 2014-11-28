@@ -119,7 +119,23 @@ class AB_Admin_Meta_Boxes {
 		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
 		$builder_status = $builder_active ? $builder_active : 'inactive';
 		?>
-		<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>
+		<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">
+			<div class="shortcode_button_wrap axisbuilder-tab-container">
+				<div id="tabs" class="axisbuilder-tab-title-container">
+					<a href="#axisbuilder-tab-1"><?php _e( 'Layout Elements',     'axisbuilder' ); ?></a>
+					<a href="#axisbuilder-tab-2"><?php _e( 'Content Elements',    'axisbuilder' ); ?></a>
+					<a href="#axisbuilder-tab-3"><?php _e( 'Media Elements',      'axisbuilder' ); ?></a>
+					<a href="#axisbuilder-tab-4"><?php _e( 'Plugin Additions',    'axisbuilder' ); ?></a>
+					<?php do_action( 'axisbuilder_shortcode_tabs' ); ?>
+				</div>
+				<div class="axisbuilder-tab axisbuilder-tab-1"><?php _e( 'Tabs-1 Content as shortcode goes here',  'axisbuilder' ); ?></div>
+				<div class="axisbuilder-tab axisbuilder-tab-2"><?php _e( 'Tabs-2 Content as shortcode goes here',  'axisbuilder' ); ?></div>
+				<div class="axisbuilder-tab axisbuilder-tab-3"><?php _e( 'Tabs-3 Content as shortcode goes here',  'axisbuilder' ); ?></div>
+				<div class="axisbuilder-tab axisbuilder-tab-4"><?php _e( 'Tabs-4 Content as shortcode goes here',  'axisbuilder' ); ?></div>
+				<?php do_action( 'axisbuilder_shortcode_outputs' ); ?>
+			</div>
+			<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>
+		</div>
 		<?php
 	}
 

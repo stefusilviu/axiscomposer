@@ -43,6 +43,7 @@ class AB_Admin_Assets {
 
 			// Admin styles for AB Builder only
 			wp_enqueue_style( 'axisbuilder-builder', AB()->plugin_url() . '/assets/styles/builder.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-example', AB()->plugin_url() . '/assets/styles/example.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), AB_VERSION );
 			wp_enqueue_style( 'wp-color-picker' );
 		}
@@ -59,7 +60,9 @@ class AB_Admin_Assets {
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // For test purpose only replace position of '.min' :)
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker', 'axisbuilder_behaviour' ), AB_VERSION, true );
+
+		wp_register_script( 'axisbuilder_behaviour', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_behaviour' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {

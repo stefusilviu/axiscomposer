@@ -22,6 +22,10 @@
 		this.tinyMceVersion = this.tinyMceDefined ? window.tinyMCE.majorVersion : false;
 		this.tinyMceContent = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : false;
 
+		// Shortcode Buttons {Wrapper|Display}
+		this.shortcodeWrapper = $( '.shortcode_button_wrap' );
+		this.shortcodeDisplay = $.AxisBuilder.shortcodeDisplay || {};
+
 		// Activate the Builder
 		this.builderActivate();
 	};

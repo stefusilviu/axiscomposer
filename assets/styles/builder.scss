@@ -41,3 +41,73 @@ label[for="axisbuilder-editor-hide"] {
 .axisbuilder_meta_box {
 	margin: 10px 0;
 }
+
+#axisbuilder-editor .inside {
+	padding: 0 0 12px !important;
+}
+
+.axisbuilder_editor {
+	margin: -7px 0 10px;
+	border-top: 1px solid #e5e5e5;
+}
+
+#tabs {
+	float:left;
+	width:100%;
+}
+
+/* Interface tabs that hold shortcode buttons */
+.shortcode_button_wrap {
+	display: block;
+	position: relative;
+}
+
+.axisbuilder-tab {
+	clear: both;
+	display: none;
+	overflow: hidden;
+	position: relative;
+	padding: 50px 15px;
+	background-color: #fdfdfd;
+	/*border: 1px solid #dfdfdf;*/
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.axisbuilder-tab-1 {
+	display: block;
+}
+
+.axisbuilder-tab-title-container {
+	background: #f5f5f5;
+}
+
+.axisbuilder-tab-title-container a {
+	z-index: 2;
+	padding: 10px 30px;
+	margin: 20px;
+	/*margin-right: 3px;*/
+	float: left;
+	display: block;
+	position: relative;
+	text-decoration: none;
+	color: #232323;
+	background: #fdfdfd;
+	border: 1px solid #C6C4C4;
+
+	&:hover {
+		background: #f7f7f7 !important;
+	}
+
+	&.active-tab {
+		color: #fdfdfd;
+		background: #2790C2;
+		border-color: #278FC1;
+		transition: color .15s linear .1s;
+		-webkit-transition: color .15s linear .1s;
+
+		&:hover {
+			background: #2790C2 !important;
+		}
+	}
+}

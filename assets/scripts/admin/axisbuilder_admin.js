@@ -71,6 +71,8 @@
 				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
 				this.axisBuilderEditor.addClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'inactive' );
+
+				// Turn WordPress editor resizing off :)
 				if( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
 				}

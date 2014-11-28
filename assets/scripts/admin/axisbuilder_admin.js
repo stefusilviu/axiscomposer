@@ -1,3 +1,5 @@
+/* global pagenow */
+
 /**
  * AxisBuilder Admin JS
  */
@@ -10,7 +12,7 @@
 		// WordPress default tinyMCE editor Element
 		this.wpDefaultEditor = $( '#postdivrich' );
 
-		// Axis Page Builder {Status|Button|Editor}
+		// Axis Page Builder {Button|Editor|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
 		this.axisBuilderEditor = $( '#axisbuilder-editor' );
 		this.axisBuilderStatus = this.axisBuilderEditor.find( 'input[name=axisbuilder_status]' );
@@ -40,9 +42,9 @@
 			if ( this.axisBuilderEditor.length && ( post_box.index( this.axisBuilderEditor ) !== 0 ) ) {
 				this.axisBuilderEditor.prependTo( meta_box );
 
-				// Trigger postbox saving, in case it is no already at the first position :)
+				// Re-save the postbox Order
 				window.postboxes.save_order( pagenow );
-			};
+			}
 		},
 
 		// All event binding goes here

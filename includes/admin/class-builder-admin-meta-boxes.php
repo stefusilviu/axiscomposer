@@ -29,10 +29,10 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10 );
-		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
+		add_action( 'save_post', array( $this, 'save_layout_editor_meta' ), 1, 2 );
 
 		// Save builder Meta Boxes
-		add_action( 'axisbuilder_layout_editor_meta', array( $this, 'save_layout_editor_meta' ), 10, 2 );
+		// add_action( 'axisbuilder_layout_editor_meta', array( $this, 'save_layout_editor_meta' ), 10, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -96,7 +96,7 @@ class AB_Admin_Meta_Boxes {
 
 		// Page Builder
 		foreach ( $screens as $type ) {
-			add_meta_box( 'axisbuilder-editor', __( 'Axis Page Builder', 'axisbuilder' ), array( $this, 'create_meta_box' ), $type, 'normal', 'high' );
+			add_meta_box( 'axisbuilder-editor', __( 'Axis Page Builder', 'axisbuilder' ), array( $this, 'create_page_builder' ), $type, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 
@@ -115,6 +115,14 @@ class AB_Admin_Meta_Boxes {
 		}
 	}
 
+	public function create_page_builder() {
+		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$builder_status = $builder_active ? $builder_active : 'inactive';
+		?>
+		<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>
+		<?php
+	}
+
 	public function create_meta_box() {
 		echo "string";
 	}
@@ -127,7 +135,7 @@ class AB_Admin_Meta_Boxes {
 	public function custom_postbox_classes( $classes ) {
 
 		// Class for hidden items
-		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisLayoutBuilder_active', true ) != 'active' ) ) {
+		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
 			$classes[] = 'axisbuilder-hidden';
 		}
 
@@ -179,13 +187,11 @@ class AB_Admin_Meta_Boxes {
 	/**
 	 * Set status of builder (open/closed) and save the shortcodes that are used in the post
 	 */
-	public function save_layout_editor_meta() {
-		if ( isset( $_POST['post_ID'] ) ) {
+	public function save_layout_editor_meta( $post_id ) {
 
-			// Save if the page builder is active
-			if ( isset( $_POST['axisLayoutBuilder_active'] ) ) {
-				update_post_meta( (int) $_POST['post_ID'], '_axisLayoutBuilder_active', $_POST['axisLayoutBuilder_active']);
-			}
+		// Save if the page builder is active
+		if ( isset( $_POST['axisbuilder_status'] ) ) {
+			update_post_meta( $post_id, '_axisbuilder_status', $_POST['axisbuilder_status']);
 		}
 	}
 }

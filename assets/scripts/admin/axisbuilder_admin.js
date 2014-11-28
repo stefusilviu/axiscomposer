@@ -30,12 +30,12 @@
 
 		// Activate the Whole Interface
 		builderActivate: function() {
-			this.builderTop();
-			this.addBehaviour();
+			this.builderPosition();
+			this.builderBehaviour();
 		},
 
-		// Always make Builder available at the first position.
-		builderTop: function() {
+		// Always make Builder available at the first position
+		builderPosition: function() {
 			var meta_box = $( '#normal-sortables' ),
 				post_box = meta_box.find( '.postbox' );
 
@@ -48,7 +48,7 @@
 		},
 
 		// All event binding goes here
-		addBehaviour: function() {
+		builderBehaviour: function() {
 			var self = this;
 
 			// Toggle between default editor and page builder

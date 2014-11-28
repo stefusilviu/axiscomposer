@@ -13,7 +13,6 @@
 		// Axis Page Builder {Status|Button|Editor}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
 		this.axisBuilderEditor = $( '#axisbuilder-editor' );
-		this.axisBuilderCanvas = $( '#axisbuilder-editor.postbox' );
 		this.axisBuilderStatus = this.axisBuilderEditor.find( 'input[name=axisbuilder_status]' );
 
 		// WordPress tinyMCE {Defined|Version|Content}
@@ -33,15 +32,17 @@
 			this.addBehaviour();
 		},
 
-		// Move the editor to the first position and trigger postbox saving, in case it is no already at the first pos :)
+		// Always make Builder available at the first position.
 		builderTop: function() {
-			var meta_box = $( '#normal-sortables' ), post_box = meta_box.find( '.postbox' );
+			var meta_box = $( '#normal-sortables' ),
+				post_box = meta_box.find( '.postbox' );
 
-			// if ( this.axisBuilderCanvas.length && post_box.index( this.axisBuilderCanvas ) !== 0 ) {
-			// 	this.axisBuilderCanvas.prependTo( meta_box );
-			// 	window.postboxes.save_order( pagenow );
-			// };
+			if ( this.axisBuilderEditor.length && ( post_box.index( this.axisBuilderEditor ) !== 0 ) ) {
+				this.axisBuilderEditor.prependTo( meta_box );
 
+				// Trigger postbox saving, in case it is no already at the first position :)
+				window.postboxes.save_order( pagenow );
+			};
 		},
 
 		// All event binding goes here

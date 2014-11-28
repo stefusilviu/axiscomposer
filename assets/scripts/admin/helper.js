@@ -47,7 +47,7 @@
 
 				// mirror_container should be defined when the tab element is cloned for the fullscreen view
 				if ( typeof mirror_container !== 'undefined' ) {
-					mirror_container.find( '.axisbuilder-tab-title-container-container a' ).eq( index ).trigger( 'click' );
+					mirror_container.find( '.axisbuilder-tab-title-container a' ).eq( index ).trigger( 'click' );
 				}
 
 				return false;

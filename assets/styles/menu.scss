@@ -1,7 +1,7 @@
 /**
  * menu.scss
  * Styles applied to dashboard menu items added via AxisBuilder.
- * Adds icons to top level menu items, etc.
+ * Adds icons to top level menu items, tinyMCE shortcode button, etc.
  */
 
 /**
@@ -15,6 +15,23 @@
 /**
  * Styling begins
  */
+#adminmenu #toplevel_page_axisbuilder .menu-icon-generic div.wp-menu-image:before {
+	font-family: 'AxisBuilder' !important;
+	content: "\e001";
+	font-size: 1.3em !important;
+}
+
+span.mce_axisbuilder_shortcodes_button {
+	background-image: none !important;
+	@include ir();
+
+	&:before {
+		@include icon( "\e002" );
+		font-size: .9em;
+		line-height: 1.2;
+	}
+}
+
 .axisbuilder_plugin_upgrade_notice {
 	font-weight: normal;
 	color: #fff;

@@ -15,6 +15,9 @@
 /**
  * Styling begins
  */
+.blockUI.blockOverlay {
+	@include loader();
+}
 
 /* Meta-Box Core Styles */
 .postbox-container .postbox {

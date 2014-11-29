@@ -39,7 +39,7 @@ abstract class AB_Widget extends WP_Widget {
 	 * Settings
 	 * @var array
 	 */
-	$settings;
+	public $settings;
 
 	/**
 	 * Class Constructor Method.

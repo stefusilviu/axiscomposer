@@ -15,6 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class AB_Widget_Column extends AB_Shortcode {
+class AB_Shortcode_Column extends AB_Shortcode {
 
 }

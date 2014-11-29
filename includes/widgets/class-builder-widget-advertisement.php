@@ -2,15 +2,17 @@
 /**
  * Advertisement Widget
  *
- * @extends 	AB_Widget
- * @package     AxisBuilder/Functions
- * @category    Core
+ * Displays Advertisements Slots widget.
+ *
+ * @extends     AB_Widget
+ * @package     AxisBuilder/Widgets
+ * @category    Widgets
  * @author      AxisThemes
  * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 class AB_Widget_Advertisement extends AB_Widget {

@@ -35,7 +35,8 @@ class AB_Admin_Assets {
 	 */
 	public function admin_styles() {
 		global $wp_scripts;
-		$screen = get_current_screen();
+		$screen       = get_current_screen();
+		$color_scheme = get_user_option( 'admin_color', get_current_user_id() );
 
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
@@ -46,6 +47,10 @@ class AB_Admin_Assets {
 			wp_enqueue_style( 'axisbuilder-example', AB()->plugin_url() . '/assets/styles/example.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), AB_VERSION );
 			wp_enqueue_style( 'wp-color-picker' );
+		}
+
+		if ( $color_scheme !== 'fresh' ) {
+			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array( 'axisbuilder-builder' ), AB_VERSION );
 		}
 	}
 

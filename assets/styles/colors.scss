@@ -1,6 +1,14 @@
 /**
- * Color Scheme
+ * colors.scss
+ * Color Scheme for AxisBuilder.
  */
+
+/**
+ * Imports
+ */
+@import "bourbon";
+@import "mixins";
+@import "variables";
 
 .admin-color-light {
 	.axisbuilder-tab-title-container a.active-tab {

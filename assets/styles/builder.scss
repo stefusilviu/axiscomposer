@@ -1,3 +1,15 @@
+/**
+ * builder.scss
+ * General AxisBuilder admin styles.
+ */
+
+/**
+ * Imports
+ */
+@import "bourbon";
+@import "mixins";
+@import "variables";
+
 /* Meta-Box Core Styles */
 .postbox-container .postbox {
 	clear: both;
@@ -13,7 +25,7 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /* Toggle Button */
-#axisbuilder-button {
+#axisbuilder-tab-active {
 	top: 10px;
 	z-index: 1001;
 	position: relative;
@@ -56,8 +68,8 @@ label[for="axisbuilder-editor-hide"] {
 	width:100%;
 }
 
-/* Interface tabs that hold shortcode buttons */
-.shortcode_button_wrap {
+/* Interface tabs that hold shortcode tab-actives */
+.shortcode_tab-active_wrap {
 	display: block;
 	position: relative;
 }
@@ -69,7 +81,6 @@ label[for="axisbuilder-editor-hide"] {
 	position: relative;
 	padding: 50px 15px;
 	background-color: #fdfdfd;
-	/*border: 1px solid #dfdfdf;*/
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
 }
@@ -95,19 +106,40 @@ label[for="axisbuilder-editor-hide"] {
 	background: #fdfdfd;
 	border: 1px solid #C6C4C4;
 
-	&:hover {
-		background: #f7f7f7 !important;
+	&:hover,
+	&:focus {
+		background: #f7f7f7;
 	}
+}
 
-	&.active-tab {
-		color: #fdfdfd;
-		background: #2790C2;
-		border-color: #278FC1;
-		transition: color .15s linear .1s;
-		-webkit-transition: color .15s linear .1s;
+.admin-color-fresh .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $fresh-tab-active-color )
+}
 
-		&:hover {
-			background: #2790C2 !important;
-		}
-	}
+.admin-color-light .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $light-tab-active-color )
+}
+
+.admin-color-blue .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $blue-tab-active-color )
+}
+
+.admin-color-coffee .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $coffee-tab-active-color )
+}
+
+.admin-color-ectoplasm .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $ectoplasm-tab-active-color )
+}
+
+.admin-color-midnight .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $midnight-tab-active-color )
+}
+
+.admin-color-ocean .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $ocean-tab-active-color )
+}
+
+.admin-color-sunrise .axisbuilder-tab-title-container a.active-tab {
+	@include active_tab( $sunrise-tab-active-color )
 }

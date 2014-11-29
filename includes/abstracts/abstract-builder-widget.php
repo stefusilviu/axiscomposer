@@ -11,14 +11,42 @@
  */
 abstract class AB_Widget extends WP_Widget {
 
+	/**
+	 * CSS class
+	 *
+	 * @var string
+	 */
 	public $widget_cssclass;
-	public $widget_description;
-	public $widget_id;
-	public $widget_name;
-	public $settings;
 
 	/**
-	 * Class Constructor Method
+	 * Widget description
+	 *
+	 * @var string
+	 */
+	public $widget_description;
+
+	/**
+	 * Widget ID
+	 *
+	 * @var string
+	 */
+	public $widget_id;
+
+	/**
+	 * Widget name
+	 *
+	 * @var string
+	 */
+	public $widget_name;
+
+	/**
+	 * Settings
+	 *
+	 * @var array
+	 */
+
+	/**
+	 * Class Constructor Method.
 	 */
 	public function __construct() {
 

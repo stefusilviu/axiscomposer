@@ -47,13 +47,13 @@ class AB_Admin_Assets {
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
 			// Admin styles for AB pages only
-			wp_enqueue_style( 'axisbuilder-builder', AB()->plugin_url() . '/assets/styles/builder.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), AB_VERSION );
 			wp_enqueue_style( 'wp-color-picker' );
 		}
 
 		if ( $color_scheme !== 'fresh' ) {
-			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array( 'axisbuilder-builder' ), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array(), AB_VERSION );
 		}
 	}
 

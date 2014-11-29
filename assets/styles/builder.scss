@@ -9,6 +9,7 @@
 @import "bourbon";
 @import "mixins";
 @import "variables";
+@import "colors";
 
 /* Meta-Box Core Styles */
 .postbox-container .postbox {
@@ -110,36 +111,8 @@ label[for="axisbuilder-editor-hide"] {
 	&:focus {
 		background: #f7f7f7;
 	}
-}
 
-.admin-color-fresh .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $fresh-tab-active-color )
-}
-
-.admin-color-light .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $light-tab-active-color )
-}
-
-.admin-color-blue .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $blue-tab-active-color )
-}
-
-.admin-color-coffee .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $coffee-tab-active-color )
-}
-
-.admin-color-ectoplasm .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $ectoplasm-tab-active-color )
-}
-
-.admin-color-midnight .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $midnight-tab-active-color )
-}
-
-.admin-color-ocean .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $ocean-tab-active-color )
-}
-
-.admin-color-sunrise .axisbuilder-tab-title-container a.active-tab {
-	@include active_tab( $sunrise-tab-active-color )
+	&.active-tab {
+		@include active_tab( $fresh-tab-active-color )
+	}
 }

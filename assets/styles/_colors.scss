@@ -1,0 +1,45 @@
+/**
+ * Color Scheme
+ */
+
+.admin-color-light {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $light-tab-active-color )
+	}
+}
+
+.admin-color-blue {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $blue-tab-active-color )
+	}
+}
+
+.admin-color-coffee {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $coffee-tab-active-color )
+	}
+}
+
+.admin-color-ectoplasm {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $ectoplasm-tab-active-color )
+	}
+}
+
+.admin-color-midnight {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $midnight-tab-active-color )
+	}
+}
+
+.admin-color-ocean {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $ocean-tab-active-color )
+	}
+}
+
+.admin-color-sunrise {
+	.axisbuilder-tab-title-container a.active-tab {
+		@include active_tab( $sunrise-tab-active-color )
+	}
+}

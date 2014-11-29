@@ -12,4 +12,17 @@
  */
 abstract class AB_Shortcode {
 
+	/**
+	 * Settings
+	 * @var array
+	 */
+	public $settings;
+
+	/**
+	 * Class Constructor Method.
+	 */
+	public function __construct() {
+
+	}
+
 }

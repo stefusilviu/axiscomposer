@@ -1,3 +1,7 @@
+/**
+ * _mixins.scss
+ * AxisBuilder Mixins
+ */
 @mixin active_tab( $tab-active-color, $text-color: white ) {
 	color: $text-color;
 	background: $tab-active-color;

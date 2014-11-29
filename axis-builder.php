@@ -156,13 +156,15 @@ final class AxisBuilder {
 		if ( $this->is_request( 'ajax' ) ) {
 			$this->ajax_includes();
 		}
+
+		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
 	}
 
 	/**
 	 * Include required ajax files.
 	 */
 	public function ajax_includes() {
-		include_once( 'includes/class-builder-ajax.php' );                           // Ajax functions for admin and the front-end
+		include_once( 'includes/class-builder-ajax.php' );                     // Ajax functions for admin and the front-end
 	}
 
 	/**

@@ -4,9 +4,9 @@
  *
  * The AxisBuilder shortcode class handles individual shortcode data.
  *
- * @class       AB_Widget
+ * @class       AB_Shortcode
  * @package     AxisBuilder/Abstracts
- * @category    Abstract Class
+ * @category    Shortcodes
  * @author      AxisThemes
  * @since       1.0.0
  */

@@ -46,7 +46,7 @@ class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
 
 		$this->assertEquals( $this->ab->version, AB_VERSION );
 		$this->assertNotEquals( AB_CONFIG_DIR, '' );
-		$this->assertNotEquals( AB_SHORTCODES_DIR, '' );
+		$this->assertNotEquals( AB_SHORTCODE_DIR, '' );
 		$this->assertNotEquals( AB_UPLOAD_DIR, '' );
 	}
 }

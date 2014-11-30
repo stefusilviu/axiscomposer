@@ -124,8 +124,9 @@ class AB_Admin_Meta_Boxes {
 
 	public function create_page_builder() {
 		$loop   = 0;
-		$title  = '';
-		$output = '';
+		$title  = $content = $html = '';
+		$active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$status = $active ? $active : 'inactive';
 
 		// Set AxisBuilder Tabs
 		// $builder_tabs = array(
@@ -141,9 +142,6 @@ class AB_Admin_Meta_Boxes {
 			__( 'Plugin Additions', 'axisbuilder' ),
 			__( 'Pre-Built Templates', 'axisbuilder' ),
 		);
-
-		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$builder_status = $builder_active ? $builder_active : 'inactive';
 
 		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $builder_tabs );
 		// $this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
@@ -207,24 +205,24 @@ class AB_Admin_Meta_Boxes {
 				usort( $tab, array( $this, 'sort_by_order' ) );
 
 				$loop ++;
-				$title  .= '<a href="#axisbuilder-tab-' . $loop . '">' . $key . '</a>';
-				$output .= '<div class="axisbuilder-tab axisbuilder-tab-' . $loop . '">';
+				$title   .= '<a href="#axisbuilder-tab-' . $loop . '">' . $key . '</a>';
+				$content .= '<div class="axisbuilder-tab axisbuilder-tab-' . $loop . '">';
 
 				foreach ( $tab as $shortcode ) {
 					if ( empty( $shortcode['invisible'] ) ) {
-						$output .= $this->create_shortcode_button( $shortcode );
+						$content .= $this->create_shortcode_button( $shortcode );
 					}
 				}
 
-				$output .= '</div>';
+				$content .= '</div>';
 			}
 
-			$output  = '<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
-			$output .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div class="axisbuilder-tab-title-container">'.$title.'</div>'.$output.'</div>';
-			$output .= '<input type="hidden" name="axisbuilder_status" value="' . $builder_status . '"/>';
-			$output .= '</div>';
+			$html  = '<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
+				$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
+				$html .= '<input type="hidden" name="axisbuilder_status" value="' . $status . '"/>';
+			$html .= '</div>';
 
-			echo $output;
+			echo $html;
 		}
 	}
 

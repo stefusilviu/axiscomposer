@@ -10,7 +10,7 @@
  * Tested up to: 4.0
  *
  * Text Domain: axisbuilder
- * Domain Path: /languages/
+ * Domain Path: /i18n/languages/
  *
  * @package  AxisBuilder
  * @category Core
@@ -193,7 +193,7 @@ final class AxisBuilder {
 	 *
 	 * Frontend/global Locales found in:
 	 * 		- WP_LANG_DIR/axis-builder/axisbuilder-LOCALE.mo
-	 * 	 	- axis-builder/languages/axisbuilder-LOCALE.mo (which if not found falls back to:)
+	 * 	 	- axis-builder/i18n/languages/axisbuilder-LOCALE.mo (which if not found falls back to:)
 	 * 	 	- WP_LANG_DIR/plugins/axisbuilder-LOCALE.mo
 	 */
 	public function load_plugin_textdomain() {
@@ -205,7 +205,7 @@ final class AxisBuilder {
 		}
 
 		load_textdomain( 'axisbuilder', WP_LANG_DIR . '/axis-builder/axisbuilder-' . $locale . '.mo' );
-		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/languages" );
+		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
 	}
 
 	/**

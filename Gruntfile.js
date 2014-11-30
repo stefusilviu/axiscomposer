@@ -6,6 +6,8 @@ module.exports = function( grunt ){
 
 		// Setting folder templates.
 		dirs: {
+			fonts: 'assets/fonts',
+			images: 'assets/images',
 			styles: 'assets/styles',
 			scripts: 'assets/scripts'
 		},
@@ -106,7 +108,7 @@ module.exports = function( grunt ){
 		makepot: {
 			options: {
 				type: 'wp-plugin',
-				domainPath: 'languages',
+				domainPath: 'i18n/languages',
 				potHeaders: {
 					'report-msgid-bugs-to': 'https://github.com/axisthemes/axis-builder/issues',
 					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'

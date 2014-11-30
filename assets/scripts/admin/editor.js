@@ -25,7 +25,7 @@
 		var ed = tinymce.activeEditor;
 		editor.addButton( 'axisbuilder_shortcodes', {
 			title : ed.getLang( 'axisbuilder_shortcodes.shortcode_title' ),
-			text: ed.getLang( 'axisbuilder_shortcodes.shortcode_title' ),
+			text: ed.getLang( 'axisbuilder_shortcodes.shortcode_text' ),
 			icon: 'axisbuilder-shortcodes',
 			type: 'menubutton',
 			menu: [

@@ -16,15 +16,16 @@ abstract class AB_Shortcode {
 	 * Settings
 	 * @var array
 	 */
-	public $settings;
+	public $config;
 
 	/**
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
-
 		$this->shortcode_button();
+		$this->shortcode_config();
 
+		add_action( 'axisbuilder_display_shortcode_buttons', array( $this, 'shortcode_display' ) );
 	}
 
 	/**
@@ -44,16 +45,37 @@ abstract class AB_Shortcode {
 
 	/**
 	 * Visual appearance of an Element.
-	 *
 	 */
 	public function shortcode_element( $params ) {
 		$params['inner_html'] = '';
-		if ( isset( $this->settings['icon'] ) ) {
-			$params['inner_html'] .= '<img src="' . $this->settings['icon'] . '" title="' . $this->settings['name'] . '" alt="" />';
+		if ( isset( $this->config['icon'] ) ) {
+			$params['inner_html'] .= '<img src="' . $this->config['icon'] . '" title="' . $this->config['name'] . '" alt="" />';
 		}
-		$params['inner_html'] .= '<div class="axisbuilder-element-label">' . $this->settings['name'] . '</div>';
+		$params['inner_html'] .= '<div class="axisbuilder-element-label">' . $this->config['name'] . '</div>';
 
 		return $params;
 	}
 
+	/**
+	 * Display Shortcodes.
+	 */
+	public function shortcode_display() {
+		$shortcode[] = $this->config;
+		return $shortcode;
+	}
+
+	/**
+	 * Auto-set shortcode configurations.
+	 */
+	protected function shortcode_config() {
+		$this->config['php_class'] = get_class( $this );
+
+		if ( empty( $this->config['drag-level'] ) ) {
+			$this->config['drag-level'] = 10;
+		}
+
+		if ( empty( $this->config['drop-level'] ) ) {
+			$this->config['drop-level'] = 10;
+		}
+	}
 }

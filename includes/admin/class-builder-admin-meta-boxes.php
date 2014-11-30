@@ -144,39 +144,7 @@ class AB_Admin_Meta_Boxes {
 		);
 
 		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $builder_tabs );
-		// $this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
-
-		// Till we are ready let's bail this :)
-		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array(
-			// Code Block
-			array(
-				'name'         => 'Code Block',
-				'tab'          => 'Content Element',
-				'icon'         => 'http://localhost/enfold/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/images/sc-codeblock.png',
-				'order'        => 40,
-				'target'       => 'avia-target-insert',
-				'shortcode'    => 'av_codeblock',
-				'tinyMCE'      => array( 'disable' => 1 ),
-				'tooltip'      => 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript',
-				'php_class'    => 'avia_sc_codeblock',
-				'drag-level'   => 3,
-				'popup_editor' => 1
-			),
-
-			array(
-				'name'         => 'Code Block',
-				'tab'          => 'Content Element',
-				'icon'         => 'http://localhost/enfold/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/images/sc-codeblock.png',
-				'order'        => 2,
-				'target'       => 'avia-target-insert',
-				'shortcode'    => 'av_codeblock',
-				'tinyMCE'      => array( 'disable' => 1 ),
-				'tooltip'      => 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript',
-				'php_class'    => 'avia_sc_codeblock',
-				'drag-level'   => 3,
-				'popup_editor' => 1
-			)
-		) );
+		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
 
 		if ( ! empty( $this->shortcode_buttons ) ) {
 

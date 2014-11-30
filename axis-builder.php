@@ -92,6 +92,7 @@ final class AxisBuilder {
 	public function __construct() {
 		$this->define_constants();
 		$this->includes();
+		$this->shortcodes();
 
 		// Hooks
 		add_action( 'init', array( $this, 'init' ), 0 );
@@ -166,6 +167,13 @@ final class AxisBuilder {
 	 */
 	public function ajax_includes() {
 		include_once( 'includes/class-builder-ajax.php' );                     // Ajax functions for admin and the front-end
+	}
+
+	/**
+	 * Auto-Load Shortcodes
+	 */
+	public function shortcodes() {
+		include_once( 'includes/shortcodes/class-builder-shortcode-codeblock.php' );
 	}
 
 	/**

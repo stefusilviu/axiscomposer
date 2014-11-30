@@ -109,7 +109,7 @@ class AB_Admin_Meta_Boxes {
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
 
 				foreach ( $meta_box['page'] as $type ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_page_builder' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
+					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
 				}
 			}
 		}
@@ -133,10 +133,53 @@ class AB_Admin_Meta_Boxes {
 				<div class="axisbuilder-tab axisbuilder-tab-3"><?php _e( 'Tabs-3 Content as shortcode goes here', 'axisbuilder' ); ?></div>
 				<div class="axisbuilder-tab axisbuilder-tab-4"><?php _e( 'Tabs-4 Content as shortcode goes here', 'axisbuilder' ); ?></div>
 				<?php do_action( 'axisbuilder_shortcode_outputs' ); ?>
+
+				<?php
+
+				?>
 			</div>
 			<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>
 		</div>
 		<?php
+	}
+
+	public function create_meta_box() {
+		$loop   = 0;
+		$title  = '';
+		$output = '';
+
+		// Set AxisBuilder Tabs
+		$builder_tabs = array(
+			'layout'    => __( 'Layout Options', 'axisbuilder' ),
+			'content'   => __( 'Content Elements', 'axisbuilder' ),
+			'plugins'   => __( 'Plugin Additions', 'axisbuilder' ),
+			'templates' => __( 'Pre-Built Templates', 'axisbuilder' ),
+		);
+
+		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $builder_tabs );
+		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
+
+		if ( ! empty( $this->shortcode_buttons ) ) {
+
+
+
+		}
+	}
+
+	/**
+	 * Create a shortcode button
+	 */
+	protected function create_shortcode_button( $shortcode ) {
+		$icon     = isset( $shortcode['icon'] ) ? '<img src="' . $shortcode['icon'] . '" alt="' . $shortcode['name'] . '" />' : '';
+		$class    = isset( $shortcode['class'] ) ? $shortcode['class'] : 'empty-class';
+		$target   = empty( $shortcode['target'] ) ? '' : $shortcode['target'];
+		$tooltip  = empty( $shortcode['tooltip'] ) ? '' : 'data-axis-tooltip="' . $shortcode['tooltip'] . '"';
+		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['dragdrop-level'] . '"';
+
+		$link = '';
+		$link .= '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
+
+		return $link;
 	}
 
 	/**

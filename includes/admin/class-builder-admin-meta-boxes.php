@@ -115,35 +115,11 @@ class AB_Admin_Meta_Boxes {
 		}
 	}
 
-	public function create_page_builder() {
-		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$builder_status = $builder_active ? $builder_active : 'inactive';
-		?>
-		<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">
-			<div class="shortcode_button_wrap axisbuilder-tab-container">
-				<div id="tabs" class="axisbuilder-tab-title-container">
-					<a href="#axisbuilder-tab-1"><?php _e( 'Layout Options',     'axisbuilder' ); ?></a>
-					<a href="#axisbuilder-tab-2"><?php _e( 'Content Elements',    'axisbuilder' ); ?></a>
-					<a href="#axisbuilder-tab-3"><?php _e( 'Plugin Additions',    'axisbuilder' ); ?></a>
-					<a href="#axisbuilder-tab-4"><?php _e( 'Pre-Built Templates', 'axisbuilder' ); ?></a>
-					<?php do_action( 'axisbuilder_shortcode_tabs' ); ?>
-				</div>
-				<div class="axisbuilder-tab axisbuilder-tab-1"><?php _e( 'Tabs-1 Content as shortcode goes here', 'axisbuilder' ); ?></div>
-				<div class="axisbuilder-tab axisbuilder-tab-2"><?php _e( 'Tabs-2 Content as shortcode goes here', 'axisbuilder' ); ?></div>
-				<div class="axisbuilder-tab axisbuilder-tab-3"><?php _e( 'Tabs-3 Content as shortcode goes here', 'axisbuilder' ); ?></div>
-				<div class="axisbuilder-tab axisbuilder-tab-4"><?php _e( 'Tabs-4 Content as shortcode goes here', 'axisbuilder' ); ?></div>
-				<?php do_action( 'axisbuilder_shortcode_outputs' ); ?>
+	public function create_meta_box() {
 
-				<?php
-
-				?>
-			</div>
-			<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>
-		</div>
-		<?php
 	}
 
-	public function create_meta_box() {
+	public function create_page_builder() {
 		$loop   = 0;
 		$title  = '';
 		$output = '';
@@ -257,10 +233,7 @@ class AB_Admin_Meta_Boxes {
 		$tooltip  = empty( $shortcode['tooltip'] ) ? '' : 'data-axis-tooltip="' . $shortcode['tooltip'] . '"';
 		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['drag-level'] . '"';
 
-		$link = '';
-		$link .= '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
-
-		return $link;
+		return '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
 	}
 
 	/**

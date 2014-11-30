@@ -21,5 +21,3 @@ class AB_Shortcode_Column extends AB_Shortcode {
 
 	}
 }
-
-return new AB_Shortcode_Column();

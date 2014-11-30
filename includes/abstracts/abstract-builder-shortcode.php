@@ -60,8 +60,10 @@ abstract class AB_Shortcode {
 	 * Display Shortcodes.
 	 */
 	public function shortcode_display() {
+		$shortcode = array();
 		$shortcode[] = $this->config;
-		return $shortcode;
+
+		return (array) $shortcode;
 	}
 
 	/**

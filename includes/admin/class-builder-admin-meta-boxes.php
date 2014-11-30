@@ -20,6 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Admin_Meta_Boxes {
 
+	public $shortcode_tabs;
+	public $shortcode_buttons;
+
 	private static $add_meta_boxes    = array();
 	private static $add_meta_elements = array();
 	private static $meta_box_errors   = array();

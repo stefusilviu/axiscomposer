@@ -219,8 +219,10 @@ class AB_Admin_Meta_Boxes {
 				$output .= '</div>';
 			}
 
-			$output  = '<div class="shortcode_button_wrap axisbuilder-tab-container"><div class="axisbuilder-tab-title-container">'.$title.'</div>'.$output.'</div>';
+			$output  = '<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
+			$output .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div class="axisbuilder-tab-title-container">'.$title.'</div>'.$output.'</div>';
 			$output .= '<input type="hidden" name="axisbuilder_status" value="' . $builder_status . '"/>';
+			$output .= '</div>';
 
 			echo $output;
 		}

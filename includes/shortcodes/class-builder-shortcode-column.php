@@ -17,4 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class AB_Shortcode_Column extends AB_Shortcode {
 
+	public function __construct() {
+		$this->shiva();
+	}
+
+	public function shiva() {
+		echo "string";
+	}
+
 }
+
+return new AB_Shortcode_Column();

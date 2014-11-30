@@ -133,4 +133,4 @@ class AB_Admin_Editor {
 	}
 }
 
-new AB_Admin_Editor();
+return new AB_Admin_Editor();

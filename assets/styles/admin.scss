@@ -63,6 +63,11 @@ label[for="axisbuilder-editor-hide"] {
 	margin: 10px 0;
 }
 
+/* @todo: Remove after we finish testing layout metabox for Responsive */
+#layout .inside {
+	padding: 0 0 12px !important;
+}
+
 #axisbuilder-editor .inside {
 	padding: 0 0 12px !important;
 }

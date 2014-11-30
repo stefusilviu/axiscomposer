@@ -109,7 +109,7 @@ class AB_Admin_Meta_Boxes {
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
 
 				foreach ( $meta_box['page'] as $type ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
+					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_page_builder' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
 				}
 			}
 		}
@@ -137,10 +137,6 @@ class AB_Admin_Meta_Boxes {
 			<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>
 		</div>
 		<?php
-	}
-
-	public function create_meta_box() {
-		echo "string";
 	}
 
 	/**

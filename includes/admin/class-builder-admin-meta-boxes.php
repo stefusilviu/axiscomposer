@@ -124,7 +124,7 @@ class AB_Admin_Meta_Boxes {
 
 	public function create_page_builder() {
 		$loop   = 0;
-		$title  = $content = $html = '';
+		$title  = $content = '';
 		$active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
 		$status = $active ? $active : 'inactive';
 

@@ -92,6 +92,7 @@ final class AxisBuilder {
 	public function __construct() {
 		$this->define_constants();
 		$this->includes();
+		$this->shortcode_includes();
 
 		// Hooks
 		add_action( 'init', array( $this, 'init' ), 0 );
@@ -137,7 +138,7 @@ final class AxisBuilder {
 		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		$this->define( 'AB_VERSION', $this->version );
 		$this->define( 'AB_CONFIG_DIR', $this->plugin_path() . '/config/' );
-		$this->define( 'AB_SHORTCODES_DIR', $this->plugin_path() . '/shortcodes/' );
+		$this->define( 'AB_SHORTCODE_DIR', $this->plugin_path() . '/shortcodes/' );
 		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
 	}
 
@@ -166,6 +167,18 @@ final class AxisBuilder {
 	 */
 	public function ajax_includes() {
 		include_once( 'includes/class-builder-ajax.php' );                     // Ajax functions for admin and the front-end
+	}
+
+	/**
+	 * Include required shortcode files.
+	 */
+	public function shortcode_includes() {
+
+		$shortcodes = glob( AB_SHORTCODE_DIR . '*.php' );
+
+		foreach ( $shortcodes as $shortcode ) {
+			include_once( $shortcode );
+		}
 	}
 
 	/**

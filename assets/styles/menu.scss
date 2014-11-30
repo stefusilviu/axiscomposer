@@ -32,6 +32,15 @@ span.mce_axisbuilder_shortcodes_button {
 	}
 }
 
+i.mce-i-axisbuilder-shortcodes {
+	position: relative;
+
+	&:before {
+		@include icon( "\e002" );
+		line-height: inherit;
+	}
+}
+
 .axisbuilder_plugin_upgrade_notice {
 	font-weight: normal;
 	color: #fff;

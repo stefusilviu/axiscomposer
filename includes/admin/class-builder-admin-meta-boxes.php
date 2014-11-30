@@ -149,20 +149,101 @@ class AB_Admin_Meta_Boxes {
 		$output = '';
 
 		// Set AxisBuilder Tabs
+		// $builder_tabs = array(
+		// 	'layout'    => __( 'Layout Options', 'axisbuilder' ),
+		// 	'content'   => __( 'Content Elements', 'axisbuilder' ),
+		// 	'plugins'   => __( 'Plugin Additions', 'axisbuilder' ),
+		// 	'templates' => __( 'Pre-Built Templates', 'axisbuilder' ),
+		// );
+
 		$builder_tabs = array(
-			'layout'    => __( 'Layout Options', 'axisbuilder' ),
-			'content'   => __( 'Content Elements', 'axisbuilder' ),
-			'plugins'   => __( 'Plugin Additions', 'axisbuilder' ),
-			'templates' => __( 'Pre-Built Templates', 'axisbuilder' ),
+			__( 'Layout Options', 'axisbuilder' ),
+			__( 'Content Elements', 'axisbuilder' ),
+			__( 'Plugin Additions', 'axisbuilder' ),
+			__( 'Pre-Built Templates', 'axisbuilder' ),
 		);
 
+		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$builder_status = $builder_active ? $builder_active : 'inactive';
+
 		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $builder_tabs );
-		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
+		// $this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
+
+		// Till we are ready let's bail this :)
+		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array(
+			// Code Block
+			array(
+				'name'         => 'Code Block',
+				'tab'          => 'Content Elements',
+				'icon'         => 'http://localhost/enfold/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/images/sc-codeblock.png',
+				'order'        => 40,
+				'target'       => 'avia-target-insert',
+				'shortcode'    => 'av_codeblock',
+				'tinyMCE'      => array( 'disable' => 1 ),
+				'tooltip'      => 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript',
+				'php_class'    => 'avia_sc_codeblock',
+				'drag-level'   => 3,
+				'popup_editor' => 1
+			),
+
+			array(
+				'name'         => 'Col Block',
+				'tab'          => 'Content Element',
+				'icon'         => 'http://localhost/enfold/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/images/sc-codeblock.png',
+				'order'        => 2,
+				'target'       => 'avia-target-insert',
+				'shortcode'    => 'av_codeblock',
+				'tinyMCE'      => array( 'disable' => 1 ),
+				'tooltip'      => 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript',
+				'php_class'    => 'avia_sc_codeblock',
+				'drag-level'   => 3,
+				'popup_editor' => 1
+			)
+		) );
 
 		if ( ! empty( $this->shortcode_buttons ) ) {
 
+			$this->shortcode_tabs = empty( $this->shortcode_tabs ) ? array() : array_flip( $this->shortcode_tabs );
 
+			// Will hide the PHP warnings :)
+			foreach ( $this->shortcode_tabs as &$empty_tabs ) {
+				$empty_tabs = array();
+			}
 
+			foreach ( $this->shortcode_buttons as $shortcode ) {
+				if ( empty( $shortcode['tinyMCE']['tiny_only'] ) ) {
+					if ( ! isset( $shortcode['tab'] ) ) {
+						$shortcode['tab'] = __( 'Custom Elements', 'axisbuilder' );
+					}
+				}
+
+				$this->shortcode_tabs[$shortcode['tab']][] = $shortcode;
+			}
+
+			foreach ( $this->shortcode_tabs as $key => $tab ) {
+				if ( empty( $tab ) ) {
+					continue;
+				}
+
+				usort( $tab, array( $this, 'sort_by_order' ) );
+
+				$loop ++;
+				$title  .= '<a href="#axisbuilder-tab-' . $loop . '">' . $key . '</a>';
+				$output .= '<div class="axisbuilder-tab axisbuilder-tab-' . $loop . '">';
+
+				foreach ( $tab as $shortcode ) {
+					if ( empty( $shortcode['invisible'] ) ) {
+						$output .= $this->create_shortcode_button( $shortcode );
+					}
+				}
+
+				$output .= '</div>';
+			}
+
+			$output  = '<div class="shortcode_button_wrap axisbuilder-tab-container"><div class="axisbuilder-tab-title-container">'.$title.'</div>'.$output.'</div>';
+			$output .= '<input type="hidden" name="axisbuilder_status" value="<?php echo $builder_status; ?>"/>';
+
+			echo $output;
 		}
 	}
 
@@ -174,12 +255,27 @@ class AB_Admin_Meta_Boxes {
 		$class    = isset( $shortcode['class'] ) ? $shortcode['class'] : 'empty-class';
 		$target   = empty( $shortcode['target'] ) ? '' : $shortcode['target'];
 		$tooltip  = empty( $shortcode['tooltip'] ) ? '' : 'data-axis-tooltip="' . $shortcode['tooltip'] . '"';
-		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['dragdrop-level'] . '"';
+		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['drag-level'] . '"';
 
 		$link = '';
 		$link .= '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
 
 		return $link;
+	}
+
+	/**
+	 * Helper function to sort the shortcode buttons.
+	 */
+	protected function sort_by_order( $a, $b ) {
+		if ( empty( $a['order'] ) ) {
+			$a['order'] = 10;
+		}
+
+		if ( empty( $b['order'] ) ) {
+			$b['order'] = 10;
+		}
+
+		return $b['order'] >= $a['order'];
 	}
 
 	/**

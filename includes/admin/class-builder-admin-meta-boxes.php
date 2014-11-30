@@ -119,7 +119,7 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	public function create_meta_box() {
-
+		return "Metabox Elements Goes Here :)";
 	}
 
 	public function create_page_builder() {

@@ -77,8 +77,6 @@ class AB_Autoloader {
 			$path = $this->include_path . 'admin/meta-boxes/';
 		} elseif ( strpos( $class, 'ab_admin' ) === 0 ) {
 			$path = $this->include_path . 'admin/';
-		} elseif ( strpos( $class, 'ab_widget_' ) === 0 ) {
-			$path = $this->include_path . 'widgets/';
 		}
 
 		if ( ! $this->load_file( $path . $file ) && strpos( $class, 'ab_' ) === 0 ) {

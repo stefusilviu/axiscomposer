@@ -151,7 +151,7 @@ class AB_Admin_Meta_Boxes {
 			// Code Block
 			array(
 				'name'         => 'Code Block',
-				'tab'          => 'Content Elements',
+				'tab'          => 'Content Element',
 				'icon'         => 'http://localhost/enfold/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/images/sc-codeblock.png',
 				'order'        => 40,
 				'target'       => 'avia-target-insert',
@@ -164,7 +164,7 @@ class AB_Admin_Meta_Boxes {
 			),
 
 			array(
-				'name'         => 'Col Block',
+				'name'         => 'Code Block',
 				'tab'          => 'Content Element',
 				'icon'         => 'http://localhost/enfold/wp-content/themes/enfold/config-templatebuilder/avia-template-builder/images/sc-codeblock.png',
 				'order'        => 2,

@@ -236,7 +236,7 @@ class AB_Admin_Meta_Boxes {
 		$tooltip  = empty( $shortcode['tooltip'] ) ? '' : 'data-axis-tooltip="' . $shortcode['tooltip'] . '"';
 		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['drag-level'] . '"';
 
-		return '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
+		return '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . $target . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
 	}
 
 	/**

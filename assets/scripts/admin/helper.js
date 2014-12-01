@@ -14,6 +14,11 @@
 		// Can be removed once all browser support css only tabs (:target support needed)
 		$.AxisBuilderHelper.tabs( '.axisbuilder-tab-container' );
 
+		// Default tooltips for various elements like shortcodes.
+		new $.AT_Tooltip({
+			scope: '#axisbuilder-editor',
+			attach: 'body'
+		});
 	});
 
 	// Since css only tabs are not fully working by now this script adds tab behavior to a tab container of choice

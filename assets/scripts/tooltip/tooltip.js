@@ -9,7 +9,7 @@
 ( function ( $ ) {
 	'use strict';
 
-	$.AT_Tooltip = function( options ) {
+	$.AxisTooltip = function( options ) {
 		var defaults = {
 			delay: 1500,             // Delay in ms until the tooltip appears
 			delayOut: 300,           // Delay in ms when instant showing should stop
@@ -33,8 +33,8 @@
 		this.bind_events();
 	};
 
-	$.AT_Tooltip.openTTs = [];
-	$.AT_Tooltip.prototype = {
+	$.AxisTooltip.openTTs = [];
+	$.AxisTooltip.prototype = {
 
 		bind_events: function() {
 
@@ -83,10 +83,10 @@
 
 			// @todo: Implement this in future if builder necessary tooltip got working correctly :)
 			// this.inner.html( text );
-			// newTip = typeof newTip !== 'undefined' ? $.AT_Tooltip.openTTs[newTip] : ( this.options.attach === 'element' ? this.tooltip.clone().insertAfter( attach ) : this.tooltip.clone().appendTo( attach ) );
+			// newTip = typeof newTip !== 'undefined' ? $.AxisTooltip.openTTs[newTip] : ( this.options.attach === 'element' ? this.tooltip.clone().insertAfter( attach ) : this.tooltip.clone().appendTo( attach ) );
 
 			if ( typeof newTip !== 'undefined' ) {
-				newTip = $.AT_Tooltip.openTTs[newTip];
+				newTip = $.AxisTooltip.openTTs[newTip];
 			} else {
 				this.inner.html( text );
 				newTip = this.options.attach === 'element' ? this.tooltip.clone().insertAfter( attach ) : this.tooltip.clone().appendTo( attach );
@@ -104,8 +104,8 @@
 
 			newTip.css({ opacity: 0, display: 'block', top: css_top - 10, left: css_left }).stop().animate({ top: css_top, opacity: 1 }, 200 );
 			newTip.find( 'input[type=search]' ).focus();
-			$.AT_Tooltip.openTTs.push( newTip );
-			element.data( 'axis-created-tooltip', $.AT_Tooltip.openTTs.length - 1 );
+			$.AxisTooltip.openTTs.push( newTip );
+			element.data( 'axis-created-tooltip', $.AxisTooltip.openTTs.length - 1 );
 		},
 
 		hide_tooltip: function( e ) {
@@ -123,7 +123,7 @@
 				}
 			} else {
 				newTip = element.data( 'axis-created-tooltip' );
-				newTip = typeof newTip !== 'undefined' ? $.AT_Tooltip.openTTs[newTip] : false;
+				newTip = typeof newTip !== 'undefined' ? $.AxisTooltip.openTTs[newTip] : false;
 			}
 
 			if ( newTip ) {

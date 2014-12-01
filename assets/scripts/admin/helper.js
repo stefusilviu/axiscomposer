@@ -15,7 +15,7 @@
 		$.AxisBuilderHelper.tabs( '.axisbuilder-tab-container' );
 
 		// Default tooltips for various elements like shortcodes.
-		new $.AT_Tooltip({
+		new $.AxisTooltip({
 			scope: '#axisbuilder-editor',
 			attach: 'body'
 		});

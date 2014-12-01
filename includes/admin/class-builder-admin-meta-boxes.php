@@ -157,12 +157,12 @@ class AB_Admin_Meta_Boxes {
 
 			foreach ( $this->shortcode_buttons as $shortcode ) {
 				if ( empty( $shortcode['tinyMCE']['tiny_only'] ) ) {
-					if ( ! isset( $shortcode['tab'] ) ) {
-						$shortcode['tab'] = __( 'Custom Elements', 'axisbuilder' );
+					if ( ! isset( $shortcode['type'] ) ) {
+						$shortcode['type'] = __( 'Custom Elements', 'axisbuilder' );
 					}
 				}
 
-				$this->shortcode_tabs[$shortcode['tab']][] = $shortcode;
+				$this->shortcode_tabs[$shortcode['type']][] = $shortcode;
 			}
 
 			foreach ( $this->shortcode_tabs as $key => $tab ) {
@@ -198,13 +198,13 @@ class AB_Admin_Meta_Boxes {
 	 * Create a shortcode button
 	 */
 	protected function create_shortcode_button( $shortcode ) {
-		$icon     = isset( $shortcode['icon'] ) ? '<img src="' . $shortcode['icon'] . '" alt="' . $shortcode['name'] . '" />' : '';
+		$icon     = isset( $shortcode['image'] ) ? '<img src="' . $shortcode['image'] . '" alt="' . $shortcode['name'] . '" />' : '<i class="' . $shortcode['icon'] . '" /></i>';
+		$desc     = empty( $shortcode['desc'] ) ? '' : 'data-axis-tooltip="' . $shortcode['desc'] . '"';
 		$class    = isset( $shortcode['class'] ) ? $shortcode['class'] : 'empty-class';
 		$target   = empty( $shortcode['target'] ) ? '' : $shortcode['target'];
-		$tooltip  = empty( $shortcode['tooltip'] ) ? '' : 'data-axis-tooltip="' . $shortcode['tooltip'] . '"';
 		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['drag-level'] . '"';
 
-		return '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . $target . '" ' . $tooltip . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
+		return '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . $target . '" ' . $desc . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
 	}
 
 	/**

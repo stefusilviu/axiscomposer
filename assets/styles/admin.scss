@@ -127,45 +127,47 @@ label[for="axisbuilder-editor-hide"] {
 
 /* Tooltips */
 .axis-tooltip {
-	position: absolute;
+	color: #fff;
+	width: 140px;
+	padding: 12px;
 	z-index: 9999999;
-	padding:12px;
-	margin-top:-18px;
-	background: #000;
-	background: rgba(0, 0, 0, 0.7);
-	color:#fff;
-	width:140px;
+	margin-top: -18px;
+	position: absolute;
+	background: #232323;
+	background: rgba( 0, 0, 0, 0.7 );
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+
 	.axis-arrow-wrap {
-		width:20px;
-		height:20px;
-		position: absolute;
-		bottom:-20px;
 		left:50%;
-		margin-left:-10px;
+		bottom: -20px;
+		width: 20px;
+		height: 20px;
 		overflow: hidden;
+		position: absolute;
+		margin-left: -10px;
 	}
+
 	.axis-arrow {
-		background: rgba(0, 0, 0, 0.7);
 		border: none;
+		background: rgba( 0, 0, 0, 0.7 );
 	}
 }
 
-.axis-arrow{
+.axis-arrow {
+	top: -6px;
+	left: 50%;
+	width: 10px;
+	height: 10px;
 	background: #fff;
-	height:10px;
-	width:10px;
 	position: absolute;
-	top:-6px;
-	left:50%;
-	margin-left:-5px;
+	margin-left: -5px;
+	border-top: 1px solid #e1e1e1;
+	border-left: 1px solid #e1e1e1;
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
 	transform: rotate(45deg);
-	border-top:1px solid #e1e1e1;
-	border-left:1px solid #e1e1e1;
 }
 
 /* Shortcode Wrap */

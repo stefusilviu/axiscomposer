@@ -137,7 +137,7 @@ class AB_Admin_Meta_Boxes {
 		// );
 
 		$builder_tabs = array(
-			__( 'Layout Options', 'axisbuilder' ),
+			__( 'Layout Elements', 'axisbuilder' ),
 			__( 'Content Elements', 'axisbuilder' ),
 			__( 'Plugin Additions', 'axisbuilder' ),
 			__( 'Pre-Built Templates', 'axisbuilder' ),

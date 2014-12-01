@@ -173,6 +173,7 @@ final class AxisBuilder {
 	 * Auto-Load Shortcodes
 	 */
 	public function shortcodes() {
+		include_once( 'includes/shortcodes/class-builder-shortcode-columns.php' );
 		include_once( 'includes/shortcodes/class-builder-shortcode-codeblock.php' );
 	}
 

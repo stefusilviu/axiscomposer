@@ -28,7 +28,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 		$this->config['shortcode'] = 'ab_codeblock';
 
 		// Fallback if icon is missing )
-		$this->config['image']     = AB()->plugin_url() . '/assets/images/element-codeblock.png';
+		$this->config['image']     = AB()->plugin_url() . '/assets/images/content/codeblock.png';
 	}
 
 }

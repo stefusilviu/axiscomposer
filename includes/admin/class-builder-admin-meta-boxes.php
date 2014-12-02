@@ -121,24 +121,25 @@ class AB_Admin_Meta_Boxes {
 
 	public function create_page_builder() {
 		global $axisbuilder_shortcodes;
-
-		$loop   = 0;
 		$title  = $content = '';
 
 		// Builder Status
 		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
 		$builder_status = $builder_active ? $builder_active : 'inactive';
 
-		// Set AxisBuilder Tabs
+		// Shortcode Tabs
 		$load_shortcode_tabs = array(
-			'layout'  => __( 'Layout Elements', 'axisbuilder' ),
-			'custom'  => __( 'Custom Elements', 'axisbuilder' ),
+			'layout'  => __( 'Layout Elements',  'axisbuilder' ),
 			'content' => __( 'Content Elements', 'axisbuilder' ),
-			'plugins' => __( 'Plugin Additions', 'axisbuilder' ),
+			'media'   => __( 'Media Elements',   'axisbuilder' ),
+			'plugin'  => __( 'Plugin Additions', 'axisbuilder' ),
+			'custom'  => __( 'Custom Elements',  'axisbuilder' ),
 		);
 
 		// Filters
 		$load_shortcode_tabs = apply_filters( 'axisbuilder_shortcode_tabs', $load_shortcode_tabs );
+
+		$loop = 0;
 
 		if ( ! empty( $axisbuilder_shortcodes ) ) {
 

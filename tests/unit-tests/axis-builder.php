@@ -38,7 +38,7 @@ class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
 	/**
 	 * Test that all AB constants are set
 	 *
-	 * @since 2.2
+	 * @since 1.0
 	 */
 	public function test_constants() {
 
@@ -46,5 +46,6 @@ class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
 
 		$this->assertEquals( $this->ab->version, AB_VERSION );
 		$this->assertNotEquals( AB_CONFIG_DIR, '' );
+		$this->assertNotEquals( AB_UPLOAD_DIR, '' );
 	}
 }

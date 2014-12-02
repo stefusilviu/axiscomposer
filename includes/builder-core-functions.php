@@ -14,14 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'get_builder_core_support_themes' ) ) :
+if ( ! function_exists( 'get_builder_core_supported_themes' ) ) :
 
 /**
  * AxisBuilder Supported Themes
- *
  * @return string[]
  */
-function get_builder_core_support_themes() {
+function get_builder_core_supported_themes() {
 	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentyeleven', 'twentytwelve', 'twentyten' );
 }
 
@@ -31,11 +30,30 @@ if ( ! function_exists( 'get_builder_core_supported_screens' ) ) :
 
 /**
  * Get a Page Builder Supported Screens or Post types.
- *
  * @return string[]
  */
 function get_builder_core_supported_screens() {
 	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'portfolio', 'axis-portfolio', 'jetpack-portfolio' ) );
+}
+
+endif;
+
+if ( ! function_exists( 'get_builder_core_shortcode_tabs' ) ) :
+
+/**
+ * Get a Page Builder Supported Shortcode Tabs.
+ * @return array
+ */
+function get_builder_core_shortcode_tabs() {
+	$shortcode_tabs = array(
+		'layout'  => __( 'Layout Elements',  'axisbuilder' ),
+		'content' => __( 'Content Elements', 'axisbuilder' ),
+		'media'   => __( 'Media Elements',   'axisbuilder' ),
+		'plugin'  => __( 'Plugin Additions', 'axisbuilder' ),
+		'custom'  => __( 'Custom Elements',  'axisbuilder' ),
+	);
+
+	return apply_filters( 'axisbuilder_shortcode_tabs', $shortcode_tabs );
 }
 
 endif;

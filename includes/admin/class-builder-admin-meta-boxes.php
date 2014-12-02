@@ -127,23 +127,13 @@ class AB_Admin_Meta_Boxes {
 		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
 		$builder_status = $builder_active ? $builder_active : 'inactive';
 
-		// Shortcode Tabs
-		$load_shortcode_tabs = array(
-			'layout'  => __( 'Layout Elements',  'axisbuilder' ),
-			'content' => __( 'Content Elements', 'axisbuilder' ),
-			'media'   => __( 'Media Elements',   'axisbuilder' ),
-			'plugin'  => __( 'Plugin Additions', 'axisbuilder' ),
-			'custom'  => __( 'Custom Elements',  'axisbuilder' ),
-		);
-
-		// Filters
-		$load_shortcode_tabs = apply_filters( 'axisbuilder_shortcode_tabs', $load_shortcode_tabs );
-
 		$loop = 0;
 
 		// Let's bail if shortcode exists.
 		if ( ! empty( $axisbuilder_shortcodes ) ) {
 
+			// Shortcode tabs
+			$load_shortcode_tabs = get_builder_core_shortcode_tabs();
 			$load_shortcode_tabs = empty( $load_shortcode_tabs ) ? array() : array_flip( $load_shortcode_tabs );
 
 			// Will hide the PHP warnings :)

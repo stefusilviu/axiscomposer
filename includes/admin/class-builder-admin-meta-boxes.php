@@ -174,11 +174,11 @@ class AB_Admin_Meta_Boxes {
 
 			$html  = '<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
 				$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
-				$html .= '<div id="axisbuilder-controller" class="control-bar"></div>';
 				$html .= '<input type="hidden" name="axisbuilder_status" value="' . $builder_status . '"/>';
 			$html .= '</div>';
-			$html .= '<div id="axisbuilder_canvas">';
-				$html .= '<div id="editor" class="axisbuilder-style axisbuilder-canvas axisbuilder-connect-sort preloading axisbuilder-drop"></div>';
+			$html .= '<div id="axisbuilder-editor-wrap">';
+				$html .= '<div id="axisbuilder-handle" class="axisbuilder-handle control-bar"></div>';
+				$html .= '<div id="axisbuilder-canvas" class="axisbuilder-canvas axisbuilder-style axisbuilder-connect-sort preloading axisbuilder-drop"></div>';
 			$html .= '</div>';
 
 			echo $html;

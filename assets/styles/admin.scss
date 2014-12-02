@@ -88,7 +88,7 @@ label[for="axisbuilder-editor-hide"] {
 	display: none;
 	overflow: hidden;
 	position: relative;
-	padding: 10px;
+	padding: 10px 20px;
 	background-color: #fdfdfd;
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
@@ -104,12 +104,13 @@ label[for="axisbuilder-editor-hide"] {
 
 .axisbuilder-tab-title-container a {
 	z-index: 2;
-	padding: 10px 30px;
-	margin: 20px;
-	/*margin-right: 3px;*/
+	width: 175px;
+	padding: 10px 0;
+	margin: 15px 20px;
 	float: left;
 	display: block;
 	position: relative;
+	text-align: center;
 	text-decoration: none;
 	color: #232323;
 	background: #fdfdfd;
@@ -128,13 +129,15 @@ label[for="axisbuilder-editor-hide"] {
 /* Tooltips */
 .axis-tooltip {
 	color: #fff;
-	width: 120px;
 	padding: 10px;
+	font-size: 11px;
+	max-width: 140px;
 	z-index: 9999999;
 	margin-top: -10px;
 	position: absolute;
-	background: #232323;
-	background: rgba( 0, 0, 0, 0.7 );
+	text-align: center;
+	background: #464646;
+	background: rgba( 70, 70, 70, 0.9 );
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -151,7 +154,7 @@ label[for="axisbuilder-editor-hide"] {
 
 	.axis-arrow {
 		border: none;
-		background: rgba( 0, 0, 0, 0.7 );
+		background: rgba( 70, 70, 70, 0.9 );
 	}
 }
 

@@ -60,14 +60,16 @@ class AB_Install {
 	 */
 	private static function create_files() {
 		// Install files and folders for uploading files and prevent hotlinking
+		$upload_dir = wp_upload_dir();
+
 		$files = array(
 			array(
-				'base' 		=> AB_UPLOAD_DIR,
+				'base' 		=> $upload_dir['basedir'] . '/axisbuilder_uploads',
 				'file' 		=> '.htaccess',
 				'content' 	=> 'deny from all'
 			),
 			array(
-				'base' 		=> AB_UPLOAD_DIR,
+				'base' 		=> $upload_dir['basedir'] . '/axisbuilder_uploads',
 				'file' 		=> 'index.html',
 				'content' 	=> ''
 			)

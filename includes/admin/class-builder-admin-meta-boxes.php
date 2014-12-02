@@ -125,8 +125,10 @@ class AB_Admin_Meta_Boxes {
 	public function create_page_builder() {
 		$loop   = 0;
 		$title  = $content = '';
-		$active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$status = $active ? $active : 'inactive';
+
+		// Builder Status
+		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$builder_status = $builder_active ? $builder_active : 'inactive';
 
 		// Set AxisBuilder Tabs
 		$shortcode_tabs = array(
@@ -180,7 +182,7 @@ class AB_Admin_Meta_Boxes {
 
 			$html  = '<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
 				$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
-				$html .= '<input type="hidden" name="axisbuilder_status" value="' . $status . '"/>';
+				$html .= '<input type="hidden" name="axisbuilder_status" value="' . $builder_status . '"/>';
 			$html .= '</div>';
 
 			echo $html;

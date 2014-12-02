@@ -241,3 +241,13 @@ label[for="axisbuilder-editor-hide"] {
 	left: -12px;
 	top: 9px;
 }
+
+#axisbuilder_canvas {
+	#editor {
+		width:100%;
+		float: left;
+		background: #fff;
+		min-height: 200px;
+		position: relative;
+	}
+}

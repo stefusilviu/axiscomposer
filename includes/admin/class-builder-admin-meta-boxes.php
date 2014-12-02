@@ -141,6 +141,7 @@ class AB_Admin_Meta_Boxes {
 
 		$loop = 0;
 
+		// Let's bail if shortcode exists.
 		if ( ! empty( $axisbuilder_shortcodes ) ) {
 
 			$load_shortcode_tabs = empty( $load_shortcode_tabs ) ? array() : array_flip( $load_shortcode_tabs );

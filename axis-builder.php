@@ -79,7 +79,7 @@ final class AxisBuilder {
 	 * @return mixed
 	 */
 	public function __get( $key ) {
-		if ( method_exists( $this, $key ) ) {
+		if ( in_array( $key, array( 'shortcodes' ) ) ) {
 			return $this->$key();
 		}
 	}
@@ -92,7 +92,6 @@ final class AxisBuilder {
 	public function __construct() {
 		$this->define_constants();
 		$this->includes();
-		$this->shortcodes();
 
 		// Hooks
 		add_action( 'init', array( $this, 'init' ), 0 );
@@ -170,14 +169,6 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Auto-Load Shortcodes
-	 */
-	public function shortcodes() {
-		include_once( 'includes/shortcodes/class-builder-shortcode-columns.php' );
-		include_once( 'includes/shortcodes/class-builder-shortcode-codeblock.php' );
-	}
-
-	/**
 	 * Init AxisBuilder when WordPress Initialises.
 	 */
 	public function init() {
@@ -186,6 +177,9 @@ final class AxisBuilder {
 
 		// Set up localisation
 		$this->load_plugin_textdomain();
+
+		// Setup Shortcodes
+		$this->shortcodes();
 
 		// Init action
 		do_action( 'axisbuilder_init' );
@@ -239,6 +233,14 @@ final class AxisBuilder {
 	 */
 	public function ajax_url() {
 		return admin_url( 'admin-ajax.php', 'relative' );
+	}
+
+	/**
+	 * Get shortcodes class
+	 * @return AB_Shortcodes
+	 */
+	public function shortcodes() {
+		return AB_Shortcodes::instance();
 	}
 }
 

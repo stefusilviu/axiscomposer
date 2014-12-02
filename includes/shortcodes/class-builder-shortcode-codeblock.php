@@ -32,5 +32,3 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 	}
 
 }
-
-return new AB_Shortcode_Codeblock();

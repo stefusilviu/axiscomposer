@@ -52,3 +52,5 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 	}
 
 }
+
+new AB_Shortcode_Columns_One_Half();

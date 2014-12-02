@@ -22,6 +22,7 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		$this->init();
 		$this->shortcode_button();
 		$this->shortcode_config();
 	}

@@ -120,7 +120,7 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	public function create_page_builder() {
-		global $ab_shortcode;
+		global $axisbuilder_shortcodes;
 
 		$loop   = 0;
 		$title  = $content = '';
@@ -130,7 +130,7 @@ class AB_Admin_Meta_Boxes {
 		$builder_status = $builder_active ? $builder_active : 'inactive';
 
 		// Set AxisBuilder Tabs
-		$load_tabs = array(
+		$load_shortcode_tabs = array(
 			// 'layout'  =>
 			__( 'Layout Elements', 'axisbuilder' ),
 			// 'custom'  =>
@@ -142,39 +142,28 @@ class AB_Admin_Meta_Boxes {
 		);
 
 		// Filters
-		$load_tabs       = apply_filters( 'axisbuilder_shortcode_tabs', $load_tabs );
-		$load_shortcodes = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
+		$load_shortcode_tabs = apply_filters( 'axisbuilder_shortcode_tabs', $load_shortcode_tabs );
 
-		// Tests Starts
-		// if ( ! empty( $load_shortcodes ) ) {
-		// 	foreach ( $load_shortcodes as $key => $value ) {
-		// 		print_r( $value['name'] );
-		// 	}
-		// }
+		if ( ! empty( $axisbuilder_shortcodes ) ) {
 
-		// return true;
-		// Test Ends
-
-		if ( ! empty( $load_shortcodes ) ) {
-
-			$load_tabs = empty( $load_tabs ) ? array() : array_flip( $load_tabs );
+			$load_shortcode_tabs = empty( $load_shortcode_tabs ) ? array() : array_flip( $load_shortcode_tabs );
 
 			// Will hide the PHP warnings :)
-			foreach ( $load_tabs as &$empty_tabs ) {
+			foreach ( $load_shortcode_tabs as &$empty_tabs ) {
 				$empty_tabs = array();
 			}
 
-			foreach ( $load_shortcodes as $shortcode ) {
+			foreach ( $axisbuilder_shortcodes as $shortcode ) {
 				if ( empty( $shortcode['tinyMCE']['tiny_only'] ) ) {
 					if ( ! isset( $shortcode['type'] ) ) {
 						$shortcode['type'] = __( 'Custom Elements', 'axisbuilder' );
 					}
 				}
 
-				$load_tabs[$shortcode['type']][] = $shortcode;
+				$load_shortcode_tabs[$shortcode['type']][] = $shortcode;
 			}
 
-			foreach ( $load_tabs as $key => $tab ) {
+			foreach ( $load_shortcode_tabs as $key => $tab ) {
 				if ( empty( $tab ) ) {
 					continue;
 				}

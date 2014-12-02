@@ -24,7 +24,12 @@ abstract class AB_Shortcode {
 	public function __construct() {
 		$this->shortcode_button();
 		$this->shortcode_config();
+	}
 
+	/**
+	 * Initialize.
+	 */
+	public function init() {
 		add_action( 'axisbuilder_display_shortcode_buttons', array( $this, 'shortcode_display' ) );
 	}
 
@@ -60,10 +65,11 @@ abstract class AB_Shortcode {
 	 * Display Shortcodes.
 	 */
 	public function shortcode_display() {
-		$shortcode = array();
-		$shortcode[] = $this->config;
+		global $ab_shortcode;
+		// $ab_shortcode = array();
+		$ab_shortcode[] = $this->config;
 
-		return (array) $shortcode;
+		return (array) $ab_shortcode;
 	}
 
 	/**

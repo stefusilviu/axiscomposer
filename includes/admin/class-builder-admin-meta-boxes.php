@@ -20,9 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Admin_Meta_Boxes {
 
-	public $shortcode_tabs;
-	public $shortcode_buttons;
-
 	private static $add_meta_boxes    = array();
 	private static $add_meta_elements = array();
 	private static $meta_box_errors   = array();
@@ -123,6 +120,8 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	public function create_page_builder() {
+		global $ab_shortcode;
+
 		$loop   = 0;
 		$title  = $content = '';
 
@@ -131,36 +130,51 @@ class AB_Admin_Meta_Boxes {
 		$builder_status = $builder_active ? $builder_active : 'inactive';
 
 		// Set AxisBuilder Tabs
-		$shortcode_tabs = array(
-			'layout'    => __( 'Layout Elements', 'axisbuilder' ),
-			'custom'   => __( 'Custom Elements', 'axisbuilder' ),
-			'content'   => __( 'Content Elements', 'axisbuilder' ),
-			'plugins'   => __( 'Plugin Additions', 'axisbuilder' ),
+		$load_tabs = array(
+			// 'layout'  =>
+			__( 'Layout Elements', 'axisbuilder' ),
+			// 'custom'  =>
+			__( 'Custom Elements', 'axisbuilder' ),
+			// 'content' =>
+			__( 'Content Elements', 'axisbuilder' ),
+			// 'plugins' =>
+			__( 'Plugin Additions', 'axisbuilder' ),
 		);
 
-		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $shortcode_tabs );
-		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
+		// Filters
+		$load_tabs       = apply_filters( 'axisbuilder_shortcode_tabs', $load_tabs );
+		$load_shortcodes = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
 
-		if ( ! empty( $this->shortcode_buttons ) ) {
+		// Tests Starts
+		// if ( ! empty( $load_shortcodes ) ) {
+		// 	foreach ( $load_shortcodes as $key => $value ) {
+		// 		print_r( $value['name'] );
+		// 	}
+		// }
 
-			$this->shortcode_tabs = empty( $this->shortcode_tabs ) ? array() : array_flip( $this->shortcode_tabs );
+		// return true;
+		// Test Ends
+
+		if ( ! empty( $load_shortcodes ) ) {
+
+			$load_tabs = empty( $load_tabs ) ? array() : array_flip( $load_tabs );
 
 			// Will hide the PHP warnings :)
-			foreach ( $this->shortcode_tabs as &$empty_tabs ) {
+			foreach ( $load_tabs as &$empty_tabs ) {
 				$empty_tabs = array();
 			}
 
-			foreach ( $this->shortcode_buttons as $shortcode ) {
+			foreach ( $load_shortcodes as $shortcode ) {
 				if ( empty( $shortcode['tinyMCE']['tiny_only'] ) ) {
 					if ( ! isset( $shortcode['type'] ) ) {
 						$shortcode['type'] = __( 'Custom Elements', 'axisbuilder' );
 					}
 				}
 
-				$this->shortcode_tabs[$shortcode['type']][] = $shortcode;
+				$load_tabs[$shortcode['type']][] = $shortcode;
 			}
 
-			foreach ( $this->shortcode_tabs as $key => $tab ) {
+			foreach ( $load_tabs as $key => $tab ) {
 				if ( empty( $tab ) ) {
 					continue;
 				}

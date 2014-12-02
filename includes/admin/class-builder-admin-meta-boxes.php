@@ -131,14 +131,10 @@ class AB_Admin_Meta_Boxes {
 
 		// Set AxisBuilder Tabs
 		$load_shortcode_tabs = array(
-			// 'layout'  =>
-			__( 'Layout Elements', 'axisbuilder' ),
-			// 'custom'  =>
-			__( 'Custom Elements', 'axisbuilder' ),
-			// 'content' =>
-			__( 'Content Elements', 'axisbuilder' ),
-			// 'plugins' =>
-			__( 'Plugin Additions', 'axisbuilder' ),
+			'layout'  => __( 'Layout Elements', 'axisbuilder' ),
+			'custom'  => __( 'Custom Elements', 'axisbuilder' ),
+			'content' => __( 'Content Elements', 'axisbuilder' ),
+			'plugins' => __( 'Plugin Additions', 'axisbuilder' ),
 		);
 
 		// Filters

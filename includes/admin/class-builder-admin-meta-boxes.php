@@ -129,21 +129,14 @@ class AB_Admin_Meta_Boxes {
 		$status = $active ? $active : 'inactive';
 
 		// Set AxisBuilder Tabs
-		// $builder_tabs = array(
-		// 	'layout'    => __( 'Layout Options', 'axisbuilder' ),
-		// 	'content'   => __( 'Content Elements', 'axisbuilder' ),
-		// 	'plugins'   => __( 'Plugin Additions', 'axisbuilder' ),
-		// 	'templates' => __( 'Pre-Built Templates', 'axisbuilder' ),
-		// );
-
-		$builder_tabs = array(
-			__( 'Layout Elements', 'axisbuilder' ),
-			__( 'Content Elements', 'axisbuilder' ),
-			__( 'Plugin Additions', 'axisbuilder' ),
-			__( 'Pre-Built Templates', 'axisbuilder' ),
+		$shortcode_tabs = array(
+			'layout'    => __( 'Layout Elements', 'axisbuilder' ),
+			'custom'   => __( 'Custom Elements', 'axisbuilder' ),
+			'content'   => __( 'Content Elements', 'axisbuilder' ),
+			'plugins'   => __( 'Plugin Additions', 'axisbuilder' ),
 		);
 
-		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $builder_tabs );
+		$this->shortcode_tabs    = apply_filters( 'axisbuilder_shortcode_tabs', $shortcode_tabs );
 		$this->shortcode_buttons = apply_filters( 'axisbuilder_display_shortcode_buttons', array() );
 
 		if ( ! empty( $this->shortcode_buttons ) ) {

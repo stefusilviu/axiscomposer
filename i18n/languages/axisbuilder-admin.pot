@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-11-27 21:41:39+00:00\n"
+"POT-Creation-Date: 2014-12-02 10:39:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,16 +13,36 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: includes/admin/class-builder-admin-editor.php:52
+#: includes/admin/class-builder-admin-editor.php:51
 msgid "Use Page Builder"
 msgstr ""
 
-#: includes/admin/class-builder-admin-editor.php:53
+#: includes/admin/class-builder-admin-editor.php:52
 msgid "Use Default Editor"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:99
+#: includes/admin/class-builder-admin-meta-boxes.php:102
 msgid "Axis Page Builder"
+msgstr ""
+
+#: includes/admin/class-builder-admin-meta-boxes.php:140
+msgid "Layout Elements"
+msgstr ""
+
+#: includes/admin/class-builder-admin-meta-boxes.php:141
+msgid "Content Elements"
+msgstr ""
+
+#: includes/admin/class-builder-admin-meta-boxes.php:142
+msgid "Plugin Additions"
+msgstr ""
+
+#: includes/admin/class-builder-admin-meta-boxes.php:143
+msgid "Pre-Built Templates"
+msgstr ""
+
+#: includes/admin/class-builder-admin-meta-boxes.php:161
+msgid "Custom Elements"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

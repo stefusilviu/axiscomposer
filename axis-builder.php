@@ -174,7 +174,7 @@ final class AxisBuilder {
 		// Set up localisation
 		$this->load_plugin_textdomain();
 
-		// Setup Shortcodes
+		// Set up shortcodes
 		$this->shortcodes();
 
 		// Init action

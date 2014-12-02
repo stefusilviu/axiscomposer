@@ -20,7 +20,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 		// Shortcode Button
 		$this->config['name']      = __( 'Code Block', 'axisbuilder' );
 		$this->config['desc']      = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axisbuilder' );
-		$this->config['type']      = __( 'Builder Elements', 'axisbuilder' );
+		$this->config['type']      = __( 'Content Elements', 'axisbuilder' );
 		$this->config['icon']      = 'codeblock';
 		$this->config['order']     = 1;
 		$this->config['target']    = '';

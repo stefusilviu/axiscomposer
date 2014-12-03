@@ -106,7 +106,7 @@ label[for="axisbuilder-editor-hide"] {
 	z-index: 2;
 	width: 175px;
 	padding: 10px 0;
-	margin: 15px 20px;
+	margin: 15px 5px;
 	float: left;
 	display: block;
 	position: relative;
@@ -115,6 +115,14 @@ label[for="axisbuilder-editor-hide"] {
 	color: #232323;
 	background: #fdfdfd;
 	border: 1px solid #C6C4C4;
+
+	&:first-child {
+		margin-left: 20px;
+	}
+
+	&:last-child {
+		margin-right: 20px;
+	}
 
 	&:hover,
 	&:focus {
@@ -258,5 +266,30 @@ label[for="axisbuilder-editor-hide"] {
 		background: #fff;
 		min-height: 200px;
 		position: relative;
+	}
+}
+
+/**
+ * Optimisation for screens 500px and smaller
+ */
+@media only screen and (max-width: 500px) {
+	.axisbuilder-tab {
+		padding: 8px 12px;
+	}
+
+	.axisbuilder-tab-title-container a {
+		float: none;
+		width: auto;
+		display: block;
+		padding: 8px 0;
+		margin: 8px 12px;
+
+		&:first-child {
+			margin-left: 12px;
+		}
+
+		&:last-child {
+			margin-right: 12px;
+		}
 	}
 }

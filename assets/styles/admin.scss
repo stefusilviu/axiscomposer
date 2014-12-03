@@ -267,6 +267,10 @@ label[for="axisbuilder-editor-hide"] {
 		background: #fff;
 		min-height: 200px;
 		position: relative;
+
+		&.loader {
+			@include loader();
+		}
 	}
 }
 

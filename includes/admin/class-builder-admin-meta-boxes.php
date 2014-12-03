@@ -178,7 +178,7 @@ class AB_Admin_Meta_Boxes {
 			$html .= '</div>';
 			$html .= '<div id="axisbuilder-editor-wrap">';
 				$html .= '<div id="axisbuilder-handle" class="axisbuilder-handle control-bar"></div>';
-				$html .= '<div id="axisbuilder-canvas" class="axisbuilder-canvas axisbuilder-style axisbuilder-connect-sort preloading axisbuilder-drop"></div>';
+				$html .= '<div id="axisbuilder-canvas" class="axisbuilder-canvas loader axisbuilder-style axisbuilder-connect-sort axisbuilder-drop"></div>';
 			$html .= '</div>';
 
 			echo $html;
@@ -191,7 +191,7 @@ class AB_Admin_Meta_Boxes {
 	protected function create_shortcode_button( $shortcode ) {
 		$icon     = isset( $shortcode['image'] ) ? '<img src="' . $shortcode['image'] . '" alt="' . $shortcode['name'] . '" />' : '<i class="' . $shortcode['icon'] . '" /></i>';
 		$desc     = empty( $shortcode['desc'] ) ? '' : 'data-axis-tooltip="' . $shortcode['desc'] . '"';
-		$class    = isset( $shortcode['class'] ) ? $shortcode['class'] : 'empty-class';
+		$class    = isset( $shortcode['class'] ) ? $shortcode['class'] : 'empty-class ';
 		$target   = empty( $shortcode['target'] ) ? '' : $shortcode['target'];
 		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['drag-level'] . '"';
 

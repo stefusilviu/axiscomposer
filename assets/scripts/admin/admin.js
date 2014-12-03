@@ -12,8 +12,9 @@
 		// WordPress default tinyMCE editor Element
 		this.wpDefaultEditor = $( '#postdivrich' );
 
-		// Axis Page Builder {Button|Editor|Status}
+		// Axis Page Builder {Button|Canvas|Editor|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
+		this.axisBuilderCanvas = $( '#axisbuilder-canvas' );
 		this.axisBuilderEditor = $( '#axisbuilder-editor' );
 		this.axisBuilderStatus = this.axisBuilderEditor.find( 'input[name=axisbuilder_status]' );
 
@@ -75,6 +76,9 @@
 				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
 				this.axisBuilderEditor.addClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'inactive' );
+
+				// Add Loader
+				this.axisBuilderCanvas.addClass( 'loader' );
 
 				// Turn WordPress editor resizing off :)
 				if( typeof window.editorExpand === 'object' ) {

@@ -90,11 +90,51 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 	}
 }
 
+class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
+
+	public function shortcode_button() {
+
+		// Shortcode Button
+		$this->config['name']      = __( '1/4', 'axisbuilder' );
+		$this->config['desc']      = __( 'Creates a single column with 25&percnt; width', 'axisbuilder' );
+		$this->config['type']      = __( 'Layout Elements', 'axisbuilder' );
+		$this->config['icon']      = 'one-fourth';
+		$this->config['order']     = 60;
+		$this->config['target']    = 'axisbuilder-section-drop';
+		$this->config['tinyMCE']   = array( 'name' => '1/4 + 1/4 + 1/4 + 1/4', 'instantInsert' => '[ab_one_fourth first]Add Content here[/ab_one_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]' );
+		$this->config['shortcode'] = 'ab_one_third';
+
+		// Fallback if icon is missing )
+		$this->config['image']     = AB()->plugin_url() . '/assets/images/columns/one-fourth.png';
+	}
+}
+
+class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
+
+	public function shortcode_button() {
+
+		// Shortcode Button
+		$this->config['name']      = __( '3/4', 'axisbuilder' );
+		$this->config['desc']      = __( 'Creates a single column with 75&percnt; width', 'axisbuilder' );
+		$this->config['type']      = __( 'Layout Elements', 'axisbuilder' );
+		$this->config['icon']      = 'three-fourth';
+		$this->config['order']     = 50;
+		$this->config['target']    = 'axisbuilder-section-drop';
+		$this->config['tinyMCE']   = array( 'name' => '3/4 + 1/4', 'instantInsert' => '[ab_three_fourth first]Add Content here[/ab_three_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]' );
+		$this->config['shortcode'] = 'ab_one_third';
+
+		// Fallback if icon is missing )
+		$this->config['image']     = AB()->plugin_url() . '/assets/images/columns/three-fourth.png';
+	}
+}
+
 // Load Columns
 $load_columns = array(
 	'AB_Shortcode_Columns_One_Half',
 	'AB_Shortcode_Columns_One_Third',
 	'AB_Shortcode_Columns_Two_Third',
+	'AB_Shortcode_Columns_One_Fourth',
+	'AB_Shortcode_Columns_Three_Fourth',
 );
 
 foreach ( $load_columns as $column ) {

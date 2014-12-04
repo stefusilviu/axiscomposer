@@ -12,11 +12,12 @@
 		// WordPress default tinyMCE editor Element
 		this.wpDefaultEditor = $( '#postdivrich' );
 
-		// Axis Page Builder {Button|Canvas|Editor|Status}
+		// Axis Page Builder {Button|Handle|Canvas|Parent|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
-		this.axisBuilderCanvas = $( '#axisbuilder-canvas' );
-		this.axisBuilderEditor = $( '#axisbuilder-editor' );
-		this.axisBuilderStatus = this.axisBuilderEditor.find( 'input[name=axisbuilder_status]' );
+		this.axisBuilderHandle = $( '#axisbuilder-handle' ).find( '.control-bar' );
+		this.axisBuilderCanvas = $( '#axisbuilder-canvas' ).find( '.canvas-area' );
+		this.axisBuilderParent = this.axisBuilderCanvas.parents( '.postbox:eq(0)' );
+		this.axisBuilderStatus = this.axisBuilderParent.find( 'input[name=axisbuilder_status]' );
 
 		// WordPress tinyMCE {Defined|Version|Content}
 		this.tinyMceDefined = typeof window.tinyMCE !== 'undefined' ? true : false;
@@ -44,8 +45,8 @@
 			var meta_box = $( '#normal-sortables' ),
 				post_box = meta_box.find( '.postbox' );
 
-			if ( this.axisBuilderEditor.length && ( post_box.index( this.axisBuilderEditor ) !== 0 ) ) {
-				this.axisBuilderEditor.prependTo( meta_box );
+			if ( this.axisBuilderParent.length && ( post_box.index( this.axisBuilderParent ) !== 0 ) ) {
+				this.axisBuilderParent.prependTo( meta_box );
 
 				// Re-save the postbox Order
 				window.postboxes.save_order( pagenow );
@@ -61,6 +62,29 @@
 				e.preventDefault();
 				self.switchEditors();
 			});
+
+			// Trash the entire canvas elements
+			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
+
+				sweetAlert({
+					title: "Are you sure?",
+					text: "You will not be able to recover this canvas elements!",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Yes, delete it!",
+					closeOnConfirm: false
+				}, function() {
+					swal({
+						title: "Deleted!",
+						text: "Your canvas elements has been deleted.",
+						type: "success",
+						timer: 2000
+					});
+				});
+
+				return false;
+			});
 		},
 
 		// Switch between the {WordPress|AxisBuilder} Editors
@@ -69,12 +93,12 @@
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
 				this.wpDefaultEditor.parent().addClass( 'axisbuilder-hidden-editor' );
 				this.axisBuilderButton.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'default-editor' ) );
-				this.axisBuilderEditor.removeClass( 'axisbuilder-hidden');
+				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'active' );
 			} else {
 				this.wpDefaultEditor.parent().removeClass( 'axisbuilder-hidden-editor' );
 				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
-				this.axisBuilderEditor.addClass( 'axisbuilder-hidden');
+				this.axisBuilderParent.addClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'inactive' );
 
 				// Add Loader

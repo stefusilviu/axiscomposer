@@ -68,11 +68,13 @@ class AB_Admin_Assets {
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // For test purpose only replace position of '.min' :)
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker', 'axisbuilder_helper', 'axisbuilder_tooltip' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker', 'axisbuilder_helper', 'axisbuilder_tooltip', 'axisbuilder_sweet_alert' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_tooltip', AB()->plugin_url() . '/assets/scripts/tooltip/tooltip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
+		wp_register_script( 'axisbuilder_sweet_alert', AB()->plugin_url() . '/assets/scripts/sweetalert/sweet-alert' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {

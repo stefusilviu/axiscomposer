@@ -186,11 +186,11 @@ class AB_Admin_Meta_Boxes {
 						// History Sections
 						$html .= '<div class="history-sections">';
 							$html .= '<div class="history-action" data-axis-tooltip="History">';
-								$html .= '<a href="#" class="undo-icon" title="Undo"></i></a>';
-								$html .= '<a href="#" class="redo-icon" title="Redo"></i></a>';
+								$html .= '<a href="#" class="undo-icon undo-data" title="Undo"></i></a>';
+								$html .= '<a href="#" class="redo-icon redo-data" title="Redo"></i></a>';
 							$html .= '</div>';
 							$html .= '<div class="delete-action">';
-								$html .= '<a href="#" class="trash-icon" data-axis-tooltip="Permanently delete all canvas elements"></a>';
+								$html .= '<a href="#" class="trash-icon trash-data" data-axis-tooltip="Permanently delete all canvas elements"></a>';
 							$html .= '</div>';
 						$html .= '</div>';
 

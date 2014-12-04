@@ -295,7 +295,7 @@ label[for="axisbuilder-editor-hide"] {
 			.redo-icon {
 				float: right;
 				margin-left: .5em;
-				margin-right: 2px;
+				margin-right: 3px;
 
 				&:before {
 					@include icon( "\e004" );
@@ -310,6 +310,7 @@ label[for="axisbuilder-editor-hide"] {
 				@include ir();
 				color: #7b7b7b;
 				font-size: 16px;
+				margin-left: 3px;
 
 				&:before {
 					@include icon( "\e005" );

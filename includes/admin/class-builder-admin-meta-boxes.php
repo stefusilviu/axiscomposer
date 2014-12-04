@@ -173,29 +173,34 @@ class AB_Admin_Meta_Boxes {
 
 			$html = '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
 
-				// Builder Control
-				$html .= '<div id="axisbuilder-control" class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
+				// Builder Loader
+				$html .= '<div id="axisbuilder-loader" class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
 					$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
 				$html .= '</div>';
 
 				// Builder Handle
-				$html .= '<div id="axisbuilder-handle" class="axisbuilder-handle control-bar">';
+				$html .= '<div id="axisbuilder-handle" class="control-bar">';
+
+					// Left Sections
 					$html .= '<div class="left-sections">';
-						$html .= '<div class="delete-action">';
-							$html .= '<a href="#" class="delete-icon"></a>';
-						$html .= '</div>';
 						$html .= '<div class="history-action">';
-							$html .= '<a href="#" class="history-undo"></a>';
-							$html .= '<a href="#" class="history-redo"></a>';
+							$html .= '<a href="#" class="undo-icon" title="Undo"></i></a>';
+							$html .= '<a href="#" class="redo-icon" title="Redo"></i></a>';
+						$html .= '</div>';
+						$html .= '<div class="delete-action">';
+							$html .= '<a href="#" class="trash-icon" data-axis-tooltip="Permanently delete all elements"></a>';
 						$html .= '</div>';
 					$html .= '</div>';
+
+					// Right Sections
 					$html .= '<div class="right-sections">';
-						$html .= '<a href="#" class="axisbuilder-expand-button axisbuilder-attach-expand">Fullscreen</a>';
+						$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" title="Toggle fullScreen mode"></a>';
 					$html .= '</div>';
+
 				$html .= '</div>';
 
 				// Builder Canvas
-				$html .= '<div id="axisbuilder-canvas">';
+				$html .= '<div id="axisbuilder-canvas" class="visual-editor">';
 					$html .= '<div class="canvas-area loader"></div>';
 					$html .= '<textarea readonly="readonly" name="canvas-data" id="canvas-data">' . $builder_canvas . '</textarea>';
 				$html .= '</div>';

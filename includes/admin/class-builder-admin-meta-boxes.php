@@ -200,7 +200,7 @@ class AB_Admin_Meta_Boxes {
 								$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
 							$html .= '</div>';
 							$html .= '<div class="fullscreen-action">';
-								$html .= '<a href="#" class="expand-icon axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
+								$html .= '<a href="#" class="expand-icon axisbuilder-attach-expand" data-axis-tooltip="Toggle Fullscreen">Close</a>';
 							$html .= '</div>';
 						$html .= '</div>';
 

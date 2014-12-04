@@ -82,7 +82,7 @@ body.axisbuilder-noscroll-box {
 	overflow: hidden;
 }
 
-#normal-sortables .postbox.axisbuilder-expanded#axisbuilder-editor:first-child{
+#normal-sortables .postbox.axisbuilder-expanded#axisbuilder-editor:first-child {
 	margin-top:-0;
 }
 
@@ -120,23 +120,23 @@ body.axisbuilder-noscroll-box {
 	visibility: visible;
 }
 
-.postbox.axisbuilder-expanded .axisbuilder-expand-button{
+.postbox.axisbuilder-expanded .axisbuilder-expand-button {
 	position: fixed;
 	top:40px;
 }
 
-.axisbuilder-expanded-buttons{
+.axisbuilder-expanded-buttons {
 	position: absolute;
 	top:-6px;
 	right:0;
 }
 
-.axisbuilder-fixed-controls #publish{
+.axisbuilder-fixed-controls #publish {
 	float:left;
 	margin-right: 4px;
 }
 
-.axisbuilder-fixed-controls #post-preview{
+.axisbuilder-fixed-controls #post-preview {
 	float: left;
 	margin-right: 4px;
 	line-height: 30px;
@@ -145,61 +145,61 @@ body.axisbuilder-noscroll-box {
 }
 
 /*expand button*/
-.axisbuilder-expanded .axisbuilder-fixed-controls  .axisbuilder-expand-button{
-position: relative;
-float: left;
-top: 0;
-right: 0;
-background: none;
-text-indent: 0;
-width: auto;
-display: inline-block;
-text-decoration: none;
-line-height: 29px;
-height: 30px;
-color: white;
-opacity: 1;
-border-color: #D54E21;
-background-color: #D54E21;
-background-image: -webkit-gradient(linear,left top,left bottom,from(#DD7C5C),to(#D54E21));
-background-image: -webkit-linear-gradient(top,#DD7C5C,#D54E21);
-background-image: -moz-linear-gradient(top,#DD7C5C,#D54E21);
-background-image: -ms-linear-gradient(top,#DD7C5C,#D54E21);
-background-image: -o-linear-gradient(top,#DD7C5C,#D54E21);
-background-image: linear-gradient(to bottom,#DD7C5C,#D54E21);
+.axisbuilder-expanded .axisbuilder-fixed-controls  .axisbuilder-expand-button {
+	position: relative;
+	float: left;
+	top: 0;
+	right: 0;
+	background: none;
+	text-indent: 0;
+	width: auto;
+	display: inline-block;
+	text-decoration: none;
+	line-height: 29px;
+	height: 30px;
+	color: white;
+	opacity: 1;
+	border-color: #D54E21;
+	background-color: #D54E21;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#DD7C5C),to(#D54E21));
+	background-image: -webkit-linear-gradient(top,#DD7C5C,#D54E21);
+	background-image: -moz-linear-gradient(top,#DD7C5C,#D54E21);
+	background-image: -ms-linear-gradient(top,#DD7C5C,#D54E21);
+	background-image: -o-linear-gradient(top,#DD7C5C,#D54E21);
+	background-image: linear-gradient(to bottom,#DD7C5C,#D54E21);
 
-	-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.3);
--webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+		-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
 
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 .axisbuilder-expanded .axisbuilder-fixed-controls .axisbuilder-expand-button:hover{ background-color: #DD7C5C; background-image:none;}
 .axisbuilder-expanded .axisbuilder-fixed-controls .axisbuilder-expand-button:active{
-background-color: #F05F2F;
-background-image: -webkit-gradient(linear,left top,left bottom,from(#D54E21),to(#DD7C5C));
-background-image: -webkit-linear-gradient(top,#D54E21,#DD7C5C);
-background-image: -moz-linear-gradient(top,#D54E21,#DD7C5C);
-background-image: -ms-linear-gradient(top,#D54E21,#DD7C5C);
-background-image: -o-linear-gradient(top,#D54E21,#DD7C5C);
-background-image: linear-gradient(to bottom,#D54E21,#DD7C5C);
+	background-color: #F05F2F;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#D54E21),to(#DD7C5C));
+	background-image: -webkit-linear-gradient(top,#D54E21,#DD7C5C);
+	background-image: -moz-linear-gradient(top,#D54E21,#DD7C5C);
+	background-image: -ms-linear-gradient(top,#D54E21,#DD7C5C);
+	background-image: -o-linear-gradient(top,#D54E21,#DD7C5C);
+	background-image: linear-gradient(to bottom,#D54E21,#DD7C5C);
 }
 
-.axisbuilder-expand-whitescreen{
-position: fixed;
-top:0;
-left:0;
-bottom:0;
-right:0;
-background: #fff;
-z-index: 99998;
-display:none;
+.axisbuilder-expand-fullscreen {
+	position: fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background: #fff;
+	z-index: 99998;
+	display:none;
 }
 
 /**
  * Builder Loader Style
  */
-#axisbuilder-loader {
+#axisbuilder-loader, .axisbuilder-expanded {
 	width: 100%;
 	display: block;
 	position: relative;
@@ -542,6 +542,16 @@ display:none;
  * Optimisation for screens 782px and smaller
  */
 @media only screen and (max-width: 782px) {
+
+	.axisbuilder-expanded-buttons #post-preview,
+	.axisbuilder-expanded-buttons #publish {
+		display: inline-block;
+		float: none;
+	}
+
+	.axisbuilder-expanded .inside .shortcode_button_wrap {
+		padding-bottom: 38px;
+	}
 
 	.axisbuilder-tab-title a {
 		float: left;

@@ -132,7 +132,7 @@
 				});
 
 				publish.clone( true ).appendTo( button_container );
-				clicked.clone( true ).addClass( 'wp-core-ui button' ).appendTo( button_container );
+				clicked.clone( true ).addClass( 'button button-large button-secondary' ).appendTo( button_container );
 
 				//create hidden input that tells wordpress which element to expand in case the save button was pressed
 				$('<input type="hidden" name="axisbuilder-expanded-hidden" value="' + parents.attr('id') +'" />').appendTo(button_container);

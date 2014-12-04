@@ -124,9 +124,8 @@ class AB_Admin_Meta_Boxes {
 		$title  = $content = '';
 
 		// Builder Status
-		$builder_cleanup = get_post_meta( get_the_ID(), '_axisbuilder_cleanup', true );
-		$builder_active  = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$builder_status  = $builder_active ? $builder_active : 'inactive';
+		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$builder_status = $builder_active ? $builder_active : 'inactive';
 
 		$loop = 0;
 

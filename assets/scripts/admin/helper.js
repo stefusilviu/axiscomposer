@@ -128,7 +128,7 @@
 					setTimeout( function() {
 						var wp_prev = window.open('', 'wp-preview', '');
 						wp_prev.focus();
-					}, 10 );
+					}, 10 ); // This hack has "Uncaught TypeError: Cannot read property 'focus' of undefined"
 				});
 
 				publish.clone( true ).appendTo( button_container );

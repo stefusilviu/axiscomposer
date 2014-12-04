@@ -188,7 +188,7 @@ class AB_Admin_Meta_Boxes {
 							$html .= '<a href="#" class="redo-icon" title="Redo"></i></a>';
 						$html .= '</div>';
 						$html .= '<div class="delete-action">';
-							$html .= '<a href="#" class="trash-icon" data-axis-tooltip="Permanently delete all elements"></a>';
+							$html .= '<a href="#" class="trash-icon" data-axis-tooltip="Permanently delete all canvas elements"></a>';
 						$html .= '</div>';
 					$html .= '</div>';
 

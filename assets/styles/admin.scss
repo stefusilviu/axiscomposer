@@ -19,21 +19,9 @@
 	@include loader();
 }
 
-/* Meta-Box Core Styles */
-.postbox-container .postbox {
-	clear: both;
-}
-
-div.mce-toolbar-grp {
-	min-width: 100%;
-}
-
-/* Hide Screen Option for Axis Builder */
-label[for="axisbuilder-editor-hide"] {
-	display: none;
-}
-
-/* Toggle Button */
+/**
+ * Toggle Button
+ */
 #axisbuilder-button {
 	top: 10px;
 	z-index: 1001;
@@ -58,8 +46,22 @@ label[for="axisbuilder-editor-hide"] {
 	}
 }
 
-/* Meta Box Customize */
-.axisbuilder_meta_box {
+/**
+ * Meta-Box Tweaks
+ */
+.postbox-container .postbox {
+	clear: both;
+}
+
+div.mce-toolbar-grp {
+	min-width: 100%;
+}
+
+label[for="axisbuilder-editor-hide"] {
+	display: none;
+}
+
+.axisbuilder-meta-box {
 	margin: 10px 0;
 }
 
@@ -67,14 +69,74 @@ label[for="axisbuilder-editor-hide"] {
 	padding: 0 0 12px !important;
 }
 
-.axisbuilder_editor {
+.axisbuilder-editor-custom {
 	margin: -7px 0 0 !important;
 	border-top: 1px solid #e5e5e5;
 }
 
-#tabs {
-	float:left;
-	width:100%;
+/**
+ * Builder Loader Style
+ */
+#axisbuilder-loader {
+	width: 100%;
+	display: block;
+	position: relative;
+	background: #f5f5f5;
+
+	.axisbuilder-tab-title {
+		padding: 0 12px;
+
+		a {
+			z-index: 2;
+			float: left;
+			margin: 8px 0;
+			padding: 8px 0;
+			display: block;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			width: 22%;
+			margin-right: 3.33%;
+			color: #232323;
+			background: #fdfdfd;
+			border: 1px solid #C6C4C4;
+
+
+			&:hover,
+			&:focus {
+				background: #f7f7f7;
+			}
+
+			&:nth-of-type(4n) {
+				float: right;
+				margin-right: 0;
+			}
+
+			&.active-tab {
+				@include active_tab( $fresh-tab-active-color )
+			}
+		}
+	}
+
+	.axisbuilder-tab-shortcodes {
+		clear: both;
+		display: none;
+		overflow: hidden;
+		position: relative;
+		padding: 4px 12px 9px;
+		background-color: #fdfdfd;
+		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.axisbuilder-content-1 {
+		display: block;
+	}
+
+	/* For Future its sure : When 1,2, loop are stop */
+	.axisbuilder-conttent-layout {
+		display: block;
+	}
 }
 
 /* Interface tabs that hold shortcode tab-actives */
@@ -83,63 +145,9 @@ label[for="axisbuilder-editor-hide"] {
 	position: relative;
 }
 
-.axisbuilder-tab {
-	clear: both;
-	display: none;
-	overflow: hidden;
-	position: relative;
-	padding: 7px 18px 12px;
-	background-color: #fdfdfd;
-	border-top: 1px solid #e5e5e5;
-	border-bottom: 1px solid #e5e5e5;
-}
-
-.axisbuilder-tab-1 {
-	display: block;
-}
-
-/* For Future its sure */
-.axisbuilder-tab-layout {
-	display: block;
-}
-
-.axisbuilder-tab-title-container {
-	background: #f5f5f5;
-}
-
-.axisbuilder-tab-title-container a {
-	z-index: 2;
-	width: 175px;
-	padding: 10px 0;
-	margin: 15px 5px;
-	float: left;
-	display: block;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	color: #232323;
-	background: #fdfdfd;
-	border: 1px solid #C6C4C4;
-
-	&:first-child {
-		margin-left: 20px;
-	}
-
-	&:last-child {
-		margin-right: 20px;
-	}
-
-	&:hover,
-	&:focus {
-		background: #f7f7f7;
-	}
-
-	&.active-tab {
-		@include active_tab( $fresh-tab-active-color )
-	}
-}
-
-/* Tooltips */
+/**
+ * Tooltips Styles
+ */
 .axis-tooltip {
 	color: #fff;
 	padding: 8px;
@@ -187,11 +195,6 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /* Shortcode Wrap */
-.shortcode_button_wrap {
-	display: block;
-	position: relative;
-}
-
 #wpwrap .axisbuilder-active-insert{
 	border: 1px solid #D54E21;
 }
@@ -261,7 +264,6 @@ label[for="axisbuilder-editor-hide"] {
 	}
 
 	.control-bar {
-		width: 97%;
 		height: 28px;
 		padding: 6px;
 		margin: 0 auto;
@@ -331,23 +333,27 @@ label[for="axisbuilder-editor-hide"] {
 	.content-sections {
 		float: right;
 
+		/* This Template is not sure so hidden */
 		.template-action {
 			float: left;
-			width: auto;
-			margin: 0 auto;
 		}
 
 		.fullscreen-action {
 			float: right;
+			padding: 6px;
 			margin-left: 10px;
 
 			.expand-icon {
 				@include ir();
+				color: #7b7b7b;
 				font-size: 16px;
 
 				&:before {
 					@include icon( "\e006" );
-					line-height: inherit;
+				}
+
+				&:hover {
+					color: #2ea2cc;
 				}
 			}
 		}
@@ -396,26 +402,60 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
+ * Small screen optimisation
+ */
+@media only screen and (max-width: 1280px) {
+
+}
+
+/**
+ * Optimisation for screens 900px and smaller
+ */
+@media only screen and (max-width: 900px) {
+
+}
+
+/**
+ * Optimisation for screens 782px and smaller
+ */
+@media only screen and (max-width: 782px) {
+
+	.axisbuilder-tab-title a {
+		float: left;
+		width: 45% !important;
+
+		&:nth-of-type(2n) {
+			float: right !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	#axisbuilder-handle {
+		height: 52px;
+
+		.control-bar {
+			padding: 12px 6px;
+		}
+
+		.content-sections {
+
+			.template-action {
+				margin-top: -6px;
+				margin-right: 75px;
+			}
+		}
+	}
+}
+
+/**
  * Optimisation for screens 500px and smaller
  */
 @media only screen and (max-width: 500px) {
-	.axisbuilder-tab {
-		padding: 4px 12px 9px;
-	}
 
-	.axisbuilder-tab-title-container a {
-		float: none;
-		width: auto;
-		display: block;
-		padding: 8px 0;
-		margin: 8px 12px;
+	#axisbuilder-handle {
 
-		&:first-child {
-			margin-left: 12px;
-		}
-
-		&:last-child {
-			margin-right: 12px;
+		.control-bar {
+			padding: 12px;
 		}
 	}
 }

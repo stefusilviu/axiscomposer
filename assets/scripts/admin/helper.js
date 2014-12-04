@@ -38,8 +38,8 @@
 			}
 
 			var	current = $( this ),
-				links   = current.find( '.axisbuilder-tab-title-container a' ),
-				tabs    = current.find( '.axisbuilder-tab' ),
+				links   = current.find( '.axisbuilder-tab-title a' ),
+				tabs    = current.find( '.axisbuilder-tab-shortcodes' ),
 				currentLink;
 
 			links.unbind( 'click' ).bind( 'click', function() {
@@ -55,7 +55,7 @@
 
 				// mirror_container should be defined when the tab element is cloned for the fullscreen view
 				if ( typeof mirror_container !== 'undefined' ) {
-					mirror_container.find( '.axisbuilder-tab-title-container a' ).eq( index ).trigger( 'click' );
+					mirror_container.find( '.axisbuilder-tab-title a' ).eq( index ).trigger( 'click' );
 				}
 
 				return false;

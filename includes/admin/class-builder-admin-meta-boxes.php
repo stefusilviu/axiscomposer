@@ -160,7 +160,7 @@ class AB_Admin_Meta_Boxes {
 
 				$loop ++;
 				$title   .= '<a href="#axisbuilder-tab-' . $loop . '">' . $key . '</a>';
-				$content .= '<div class="axisbuilder-tab axisbuilder-tab-' . $loop . '">';
+				$content .= '<div class="axisbuilder-tab-shortcodes axisbuilder-content-' . $loop . '">';
 
 				foreach ( $tab as $shortcode ) {
 					if ( empty( $shortcode['invisible'] ) ) {
@@ -174,8 +174,8 @@ class AB_Admin_Meta_Boxes {
 			$html = '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
 
 				// Builder Loader
-				$html .= '<div id="axisbuilder-loader" class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
-					$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
+				$html .= '<div id="axisbuilder-loader" class="axisbuilder-meta-box axisbuilder-editor-custom">';
+					$html .= '<div class="axisbuilder-shortcodes axisbuilder-tab-container"><div class="axisbuilder-tab-title">' . $title . '</div>' . $content . '</div>';
 				$html .= '</div>';
 
 				// Builder Handle
@@ -197,10 +197,10 @@ class AB_Admin_Meta_Boxes {
 						// Content Sections
 						$html .= '<div class="content-sections">';
 							$html .= '<div class="template-action">';
-								$html .= '<a href="#" class="button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
+								$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
 							$html .= '</div>';
 							$html .= '<div class="fullscreen-action">';
-								$html .= '<a href="#" class="button-secondary expand-button axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"><span class="expand-icon"></span></a>';
+								$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
 							$html .= '</div>';
 						$html .= '</div>';
 

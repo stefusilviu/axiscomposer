@@ -59,7 +59,7 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 		// Shortcode Button
 		$this->config['name']      = __( '1/3', 'axisbuilder' );
 		$this->config['desc']      = __( 'Creates a single column with 33&percnt; width', 'axisbuilder' );
-		$this->config['type']      = __( 'Layout Elements', 'axisbuilder' );
+		$this->config['type']      = __( 'Layout Elem', 'axisbuilder' );
 		$this->config['icon']      = 'one-third';
 		$this->config['order']     = 80;
 		$this->config['target']    = 'axisbuilder-section-drop';
@@ -78,7 +78,7 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 		// Shortcode Button
 		$this->config['name']      = __( '2/3', 'axisbuilder' );
 		$this->config['desc']      = __( 'Creates a single column with 67&percnt; width', 'axisbuilder' );
-		$this->config['type']      = __( 'Layout Elements', 'axisbuilder' );
+		$this->config['type']      = __( 'Layout Eleme', 'axisbuilder' );
 		$this->config['icon']      = 'two-third';
 		$this->config['order']     = 70;
 		$this->config['target']    = 'axisbuilder-section-drop';
@@ -97,7 +97,7 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 		// Shortcode Button
 		$this->config['name']      = __( '1/4', 'axisbuilder' );
 		$this->config['desc']      = __( 'Creates a single column with 25&percnt; width', 'axisbuilder' );
-		$this->config['type']      = __( 'Layout Elements', 'axisbuilder' );
+		$this->config['type']      = __( 'Layout Elemen', 'axisbuilder' );
 		$this->config['icon']      = 'one-fourth';
 		$this->config['order']     = 60;
 		$this->config['target']    = 'axisbuilder-section-drop';
@@ -116,7 +116,7 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 		// Shortcode Button
 		$this->config['name']      = __( '3/4', 'axisbuilder' );
 		$this->config['desc']      = __( 'Creates a single column with 75&percnt; width', 'axisbuilder' );
-		$this->config['type']      = __( 'Layout Elements', 'axisbuilder' );
+		$this->config['type']      = __( 'Layout Element', 'axisbuilder' );
 		$this->config['icon']      = 'three-fourth';
 		$this->config['order']     = 50;
 		$this->config['target']    = 'axisbuilder-section-drop';

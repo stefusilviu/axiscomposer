@@ -24,7 +24,7 @@
 		this.tinyMceContent = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : false;
 
 		// Shortcode Buttons {Wrapper|Display}
-		this.shortcodeWrapper = $( '.shortcode_button_wrap' );
+		this.shortcodeWrapper = $( '.axisbuilder-shortcodes' );
 		this.shortcodeDisplay = $.AxisBuilder.shortcodeDisplay || {};
 
 		// Activate the Builder

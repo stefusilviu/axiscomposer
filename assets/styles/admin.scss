@@ -339,19 +339,15 @@ label[for="axisbuilder-editor-hide"] {
 
 		.fullscreen-action {
 			float: right;
-			padding: 6px;
+			margin-left: 10px;
 
 			.expand-icon {
 				@include ir();
-				color: #7b7b7b;
 				font-size: 16px;
 
 				&:before {
 					@include icon( "\e006" );
-				}
-
-				&:hover {
-					color: #2ea2cc;
+					line-height: inherit;
 				}
 			}
 		}

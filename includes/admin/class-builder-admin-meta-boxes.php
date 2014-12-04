@@ -197,10 +197,10 @@ class AB_Admin_Meta_Boxes {
 						// Content Sections
 						$html .= '<div class="content-sections">';
 							$html .= '<div class="template-action">';
-								$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
+								$html .= '<a href="#" class="button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
 							$html .= '</div>';
 							$html .= '<div class="fullscreen-action">';
-								$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
+								$html .= '<a href="#" class="button-secondary expand-button axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"><span class="expand-icon"></span></a>';
 							$html .= '</div>';
 						$html .= '</div>';
 

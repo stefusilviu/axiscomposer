@@ -260,10 +260,16 @@ label[for="axisbuilder-editor-hide"] {
 		z-index: 12;
 	}
 
-	.left-sections {
+	.control-bar {
+		width: 97%;
+		height: 28px;
+		padding: 6px;
+		margin: 0 auto;
+	}
+
+	.history-section {
 		float: left;
-		height: auto;
-		margin: 6px;
+		width: 100px;
 
 		.history-action,
 		.delete-action {
@@ -323,10 +329,13 @@ label[for="axisbuilder-editor-hide"] {
 		}
 	}
 
-	.right-sections {
+	.template-section {
+		float: left;
+		margin: 0 auto;
+	}
+
+	.fullscreen-section {
 		float: right;
-		height: auto;
-		margin: 6px;
 		padding: 6px;
 
 		.expand-icon {

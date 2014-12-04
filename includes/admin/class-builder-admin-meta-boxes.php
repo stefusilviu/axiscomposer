@@ -179,22 +179,31 @@ class AB_Admin_Meta_Boxes {
 				$html .= '</div>';
 
 				// Builder Handle
-				$html .= '<div id="axisbuilder-handle" class="control-bar">';
+				$html .= '<div id="axisbuilder-handle" class="handle-bar">';
 
-					// Left Sections
-					$html .= '<div class="left-sections">';
-						$html .= '<div class="history-action">';
-							$html .= '<a href="#" class="undo-icon" title="Undo"></i></a>';
-							$html .= '<a href="#" class="redo-icon" title="Redo"></i></a>';
-						$html .= '</div>';
-						$html .= '<div class="delete-action">';
-							$html .= '<a href="#" class="trash-icon" data-axis-tooltip="Permanently delete all canvas elements"></a>';
-						$html .= '</div>';
-					$html .= '</div>';
+					$html .= '<div class="control-bar">';
 
-					// Right Sections
-					$html .= '<div class="right-sections">';
-						$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" title="Toggle fullScreen mode"></a>';
+						// History
+						$html .= '<div class="history-section">';
+							$html .= '<div class="history-action" data-axis-tooltip="History">';
+								$html .= '<a href="#" class="undo-icon" title="Undo"></i></a>';
+								$html .= '<a href="#" class="redo-icon" title="Redo"></i></a>';
+							$html .= '</div>';
+							$html .= '<div class="delete-action">';
+								$html .= '<a href="#" class="trash-icon" data-axis-tooltip="Permanently delete all canvas elements"></a>';
+							$html .= '</div>';
+						$html .= '</div>';
+
+						// Template
+						$html .= '<div class="template-section">';
+							$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
+						$html .= '</div>';
+
+						// Fullscreen
+						$html .= '<div class="fullscreen-section">';
+							$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
+						$html .= '</div>';
+
 					$html .= '</div>';
 
 				$html .= '</div>';

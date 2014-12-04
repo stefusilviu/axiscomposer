@@ -160,7 +160,7 @@ class AB_Admin_Meta_Boxes {
 
 				$loop ++;
 				$title   .= '<a href="#axisbuilder-tab-' . $loop . '">' . $key . '</a>';
-				$content .= '<div class="axisbuilder-tab-shortcodes axisbuilder-content-' . $loop . '">';
+				$content .= '<div class="axisbuilder-tab-shortcodes axisbuilder-tab-' . $loop . '">';
 
 				foreach ( $tab as $shortcode ) {
 					if ( empty( $shortcode['invisible'] ) ) {
@@ -200,7 +200,7 @@ class AB_Admin_Meta_Boxes {
 								$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
 							$html .= '</div>';
 							$html .= '<div class="fullscreen-action">';
-								$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
+								$html .= '<a href="#" class="expand-icon axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
 							$html .= '</div>';
 						$html .= '</div>';
 
@@ -317,6 +317,16 @@ class AB_Admin_Meta_Boxes {
 		if ( isset( $_POST['axisbuilder_status'] ) ) {
 			update_post_meta( $post_id, '_axisbuilder_status', $_POST['axisbuilder_status']);
 		}
+
+		// Filter the redirect url in case we got a Meta-Box that is expanded. In that case append some POST Paramas.
+		if ( ! empty( $_POST['axisbuilder-expanded-hidden'] ) ) {
+			add_filter( 'redirect_post_location', array( $this, 'add_expanded_param' ), 10, 2 );
+		}
+	}
+
+	public function add_expanded_param( $location, $id ) {
+		$location .= '&axisbuilder-expanded=' . $_POST['axisbuilder-expanded-hidden'];
+		return $location;
 	}
 }
 

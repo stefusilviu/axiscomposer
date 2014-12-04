@@ -70,20 +70,45 @@
 	// Functionality to Expand Builder Meta-Box to fullscreen proportions.
 	$.AxisBuilderHelper.fullscreen = function() {
 
-		var body       = $( 'body' ),
-			expand     = $( '.axisbuilder-expanded' ).find( '.axisbuilder-attach-expand' ),
-			publish    = $( 'input#publish' ),
-			preview    = $( 'a#post-preview' ),
-			fullscreen = $( '<div class="axisbuilder-expand-fullscreen"></div>' ).appendTo( body ),
+		var body             = $( 'body' ),
+			publish          = $( 'input#publish' ),
+			preview          = $( 'a#post-preview' ),
+			fullscreen       = $( '<div class="axisbuilder-expand-fullscreen"></div>' ).appendTo( body ),
+			already_expanded = $( '.axisbuilder-expanded' ).find( '.axisbuilder-attach-expand' ),
 			clicked, parents, container, clone_tab, button_container;
 
-		if ( expand.length ) {
-			clicked = expand;
+		if ( already_expanded.length ) {
+			clicked = already_expanded;
 			parents = clicked.parents( '.postbox:eq(0)' );
 			fullscreen_open();
 		}
 
-		body.on( 'click', '.axisbuilder-attach-expand', function() {
+		body.on( 'click', '.axisbuilder-attach-expand', function( e ) {
+			e.preventDefault();
+			clicked = $( this );
+			parents = clicked.parents( '.postbox:eq(0)' );
+
+			if ( parents.is( '.axisbuilder-expanded' ) ) {
+				fullscreen.css({ display: "block", opacity: 0 }).animate({ opacity: 1 }, function() {
+
+					// Close Fullscreen
+					fullscreen_close();
+
+					fullscreen.animate({ opacity: 0 }, function() {
+						fullscreen.css({ display: "none" })
+					});
+				});
+			} else {
+				fullscreen.css({ display: "block", opacity: 0 }).animate({ opacity: 1 }, function() {
+
+					// Open Fullscreen
+					fullscreen_open();
+
+					fullscreen.animate({ opacity: 0 }, function() {
+						fullscreen.css({ display: "none" })
+					});
+				});
+			}
 
 		});
 
@@ -94,6 +119,30 @@
 
 			if ( clone_tab.length ) {
 
+				// Create the cloned tab controls with buttons
+				button_container = $( '<div class="axisbuilder-fullscreen-buttons"></div>' ).appendTo( clone_tab );
+
+				preview.clone( true ).appendTo( button_container ).bind( 'click', function() {
+
+					// Hackathon for switching to WordPress Preview Window :)
+					setTimeout( function() {
+						var wp_prev = window.open('', 'wp-preview', '');
+						wp_prev.focus();
+					}, 10 );
+				});
+
+				publish.clone( true ).appendTo( button_container );
+				clicked.clone( true ).addClass( 'wp-core-ui button' ).appendTo( button_container );
+
+				//create hidden input that tells wordpress which element to expand in case the save button was pressed
+				$('<input type="hidden" name="axisbuilder-expanded-hidden" value="' + parents.attr('id') +'" />').appendTo(button_container);
+
+				// Append the cloned tabs controls to the container
+				container = $( '<div class="axisbuilder-fixed-controls"></div>' ).appendTo( parents );
+				clone_tab.appendTo( container );
+
+				//activate behavior
+				$.AxisBuilderHelper.tabs( clone_tab, $( '.axisbuilder-tab-container:not(.axisbuilder-fixed-controls .axisbuilder-tab-container):first' ) );
 			}
 		}
 
@@ -105,7 +154,6 @@
 				container.remove();
 			}
 		}
-
 	};
 
 })(jQuery);

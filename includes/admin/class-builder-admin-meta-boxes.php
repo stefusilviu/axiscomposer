@@ -96,7 +96,7 @@ class AB_Admin_Meta_Boxes {
 
 		// Page Builder
 		foreach ( $screens as $type ) {
-			add_meta_box( 'axisbuilder-editor', __( 'Axis Page Builder', 'axisbuilder' ), array( $this, 'create_page_builder' ), $type, 'normal', 'high' );
+			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), array( $this, 'create_page_builder' ), $type, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 
@@ -123,9 +123,9 @@ class AB_Admin_Meta_Boxes {
 		global $axisbuilder_shortcodes;
 		$title  = $content = '';
 
-		// Builder Status
-		$builder_active = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$builder_status = $builder_active ? $builder_active : 'inactive';
+		// Builder Post Meta
+		$builder_canvas = get_post_meta( get_the_ID(), '_axisbuilder_canvas', true );
+		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
 
 		$loop = 0;
 
@@ -171,14 +171,39 @@ class AB_Admin_Meta_Boxes {
 				$content .= '</div>';
 			}
 
-			$html  = '<div class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
-				$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
-				$html .= '<input type="hidden" name="axisbuilder_status" value="' . $builder_status . '"/>';
+			$html = '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
+
+				// Builder Control
+				$html .= '<div id="axisbuilder-control" class="axisbuilder_meta_box axisbuilder_editor meta_box_normal">';
+					$html .= '<div class="shortcode_button_wrap axisbuilder-tab-container"><div id="tabs" class="axisbuilder-tab-title-container">' . $title . '</div>' . $content . '</div>';
+				$html .= '</div>';
+
+				// Builder Handle
+				$html .= '<div id="axisbuilder-handle" class="axisbuilder-handle control-bar">';
+					$html .= '<div class="left-sections">';
+						$html .= '<div class="delete-action">';
+							$html .= '<a href="#" class="delete-icon"></a>';
+						$html .= '</div>';
+						$html .= '<div class="history-action">';
+							$html .= '<a href="#" class="history-undo"></a>';
+							$html .= '<a href="#" class="history-redo"></a>';
+						$html .= '</div>';
+					$html .= '</div>';
+					$html .= '<div class="right-sections">';
+						$html .= '<a href="#" class="axisbuilder-expand-button axisbuilder-attach-expand">Fullscreen</a>';
+					$html .= '</div>';
+				$html .= '</div>';
+
+				// Builder Canvas
+				$html .= '<div id="axisbuilder-canvas">';
+					$html .= '<div class="canvas-area loader"></div>';
+					$html .= '<textarea readonly="readonly" name="canvas-data" id="canvas-data">' . $builder_canvas . '</textarea>';
+				$html .= '</div>';
+
 			$html .= '</div>';
-			$html .= '<div id="axisbuilder-editor-wrap">';
-				$html .= '<div id="axisbuilder-handle" class="axisbuilder-handle control-bar"></div>';
-				$html .= '<div id="axisbuilder-canvas" class="axisbuilder-canvas loader axisbuilder-style axisbuilder-connect-sort axisbuilder-drop"></div>';
-			$html .= '</div>';
+
+			// Builder Status
+			$html .= '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
 
 			echo $html;
 		}

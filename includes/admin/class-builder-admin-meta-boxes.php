@@ -183,8 +183,8 @@ class AB_Admin_Meta_Boxes {
 
 					$html .= '<div class="control-bar">';
 
-						// History
-						$html .= '<div class="history-section">';
+						// History Sections
+						$html .= '<div class="history-sections">';
 							$html .= '<div class="history-action" data-axis-tooltip="History">';
 								$html .= '<a href="#" class="undo-icon" title="Undo"></i></a>';
 								$html .= '<a href="#" class="redo-icon" title="Redo"></i></a>';
@@ -194,14 +194,14 @@ class AB_Admin_Meta_Boxes {
 							$html .= '</div>';
 						$html .= '</div>';
 
-						// Template
-						$html .= '<div class="template-section">';
-							$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
-						$html .= '</div>';
-
-						// Fullscreen
-						$html .= '<div class="fullscreen-section">';
-							$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
+						// Content Sections
+						$html .= '<div class="content-sections">';
+							$html .= '<div class="template-action">';
+								$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
+							$html .= '</div>';
+							$html .= '<div class="fullscreen-action">';
+								$html .= '<a href="#" class="expand-icon axisbuilder-expand-button axisbuilder-attach-expand" data-axis-tooltip="Fullscreen"></a>';
+							$html .= '</div>';
 						$html .= '</div>';
 
 					$html .= '</div>';

@@ -267,9 +267,8 @@ label[for="axisbuilder-editor-hide"] {
 		margin: 0 auto;
 	}
 
-	.history-section {
+	.history-sections {
 		float: left;
-		width: 100px;
 
 		.history-action,
 		.delete-action {
@@ -329,26 +328,31 @@ label[for="axisbuilder-editor-hide"] {
 		}
 	}
 
-	.template-section {
-		float: left;
-		margin: 0 auto;
-	}
-
-	.fullscreen-section {
+	.content-sections {
 		float: right;
-		padding: 6px;
 
-		.expand-icon {
-			@include ir();
-			color: #7b7b7b;
-			font-size: 16px;
+		.template-action {
+			float: left;
+			width: auto;
+			margin: 0 auto;
+		}
 
-			&:before {
-				@include icon( "\e006" );
-			}
+		.fullscreen-action {
+			float: right;
+			padding: 6px;
 
-			&:hover {
-				color: #2ea2cc;
+			.expand-icon {
+				@include ir();
+				color: #7b7b7b;
+				font-size: 16px;
+
+				&:before {
+					@include icon( "\e006" );
+				}
+
+				&:hover {
+					color: #2ea2cc;
+				}
 			}
 		}
 	}

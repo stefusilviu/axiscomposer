@@ -95,8 +95,8 @@ label[for="axisbuilder-editor-hide"] {
 			position: relative;
 			text-align: center;
 			text-decoration: none;
-			width: 22%;
-			margin-right: 3.33%;
+			width: 22.25%;
+			margin-right: 3%;
 			color: #232323;
 			background: #fdfdfd;
 			border: 1px solid #C6C4C4;
@@ -336,6 +336,7 @@ label[for="axisbuilder-editor-hide"] {
 		/* This Template is not sure so hidden */
 		.template-action {
 			float: left;
+			display: none;
 		}
 
 		.fullscreen-action {

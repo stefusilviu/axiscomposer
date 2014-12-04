@@ -320,14 +320,21 @@ class AB_Admin_Meta_Boxes {
 
 		// Filter the redirect url in case we got a Meta-Box that is expanded. In that case append some POST Paramas.
 		if ( ! empty( $_POST['axisbuilder-expanded-hidden'] ) ) {
-			add_filter( 'redirect_post_location', array( $this, 'add_expanded_param' ), 10, 2 );
+			add_filter( 'redirect_post_location', array( __CLASS__, 'set_builder_expanded_param' ), 10, 2 );
 		}
 	}
 
-	public function add_expanded_param( $location, $id ) {
-		$location .= '&axisbuilder-expanded=' . $_POST['axisbuilder-expanded-hidden'];
-		return $location;
+	/**
+	 * Set the correct Builder Expanded POST Params.
+	 *
+	 * @param  $location
+	 * @static
+	 * @return string
+	 */
+	public static function set_builder_expanded_param( $location ) {
+		return add_query_arg( 'axisbuilder-expanded', $_POST['axisbuilder-expanded-hidden'], $location );
 	}
 }
 
 new AB_Admin_Meta_Boxes();
+

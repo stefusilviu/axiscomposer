@@ -8,15 +8,15 @@
 	 * @param  {string} value
 	 * @return {bool}
 	 */
-	function axisShortcodesIsEmpty( value ) {
-		value = value.toString();
+	// function axisShortcodesIsEmpty( value ) {
+	// 	value = value.toString();
 
-		if ( 0 !== value.length ) {
-			return false;
-		}
+	// 	if ( 0 !== value.length ) {
+	// 		return false;
+	// 	}
 
-		return true;
-	}
+	// 	return true;
+	// }
 
 	/**
 	 * Add the shortcodes downdown.

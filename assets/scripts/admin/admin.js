@@ -1,5 +1,25 @@
 /* global pagenow */
 
+// global AxisBuilder Logger Helper
+function AB_Logger( text, type ) {
+	var console;
+
+	if ( typeof console === 'undefined' ) {
+		return true;
+	}
+
+	if ( typeof type === 'undefined' ) {
+		type = 'logger';
+	}
+
+	if ( type === false ) {
+		console.log( text );
+	} else {
+		type = 'AB_' + type.toUpperCase();
+		console.log( '[' + type + ']' + text );
+	}
+}
+
 /**
  * AxisBuilder Admin JS
  */
@@ -65,10 +85,11 @@
 
 			// Add a new element to the Builder Canvas
 			this.shortcodeWrap.on( 'click', '.insert-shortcode', function() {
-				var parents = $( this ).parents( '.axisbuilder-shortcodes' ),
-					execute = this.hash.replace( '#', '' ),
-					targets = 'instant-insert', // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? "target_insert" : "instant_insert",
-					already_active = ( this.className.indexOf( 'axisbuilder-active-insert' ) !== -1 ) ? true : false;
+				// var parents = $( this ).parents( '.axisbuilder-shortcodes' ),
+					// already_active = ( this.className.indexOf( 'axisbuilder-active-insert' ) !== -1 ) ? true : false;
+
+				var	execute = this.hash.replace( '#', '' ),
+					targets = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? "target_insert" : "instant_insert",
 
 				obj.shortcodes.fetchShortcodeEditorElement( execute, targets, obj );
 
@@ -78,22 +99,22 @@
 			// Trash the entire canvas elements
 			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
 
-				sweetAlert({
-					title: "Are you sure?",
-					text: "You will not be able to recover this canvas elements!",
-					type: "warning",
-					showCancelButton: true,
-					confirmButtonColor: "#DD6B55",
-					confirmButtonText: "Yes, delete it!",
-					closeOnConfirm: false
-				}, function() {
-					swal({
-						title: "Deleted!",
-						text: "Your canvas elements has been deleted.",
-						type: "success",
-						timer: 2000
-					});
-				});
+				// sweetAlert({
+				// 	title: "Are you sure?",
+				// 	text: "You will not be able to recover this canvas elements!",
+				// 	type: "warning",
+				// 	showCancelButton: true,
+				// 	confirmButtonColor: "#DD6B55",
+				// 	confirmButtonText: "Yes, delete it!",
+				// 	closeOnConfirm: false
+				// }, function() {
+				// 	swal({
+				// 		title: "Deleted!",
+				// 		text: "Your canvas elements has been deleted.",
+				// 		type: "success",
+				// 		timer: 2000
+				// 	});
+				// });
 
 				return false;
 			});
@@ -123,6 +144,60 @@
 			}
 
 			return false;
+		},
+
+		/**
+		 * Send element(s) to AxisBuilder Canvas
+		 * Gets executed on page load to display all elements and when a single item is fetchec via AJAX or HTML5 Storage.
+		 */
+		sendToBuilderCanvas: function( text ) {
+			var add_text = $( text );
+			this.axisBuilderCanvas.append( add_text );
+
+			// Activate Element Drag and Drop
+			this.activate_element_dragging();
+			this.activate_element_dropping();
+		},
+
+		// --------------------------------------------
+		// Main Interface drag and drop Implementation
+		// --------------------------------------------
+
+		// Version Compare helper function for drag and drop fix below
+		compareVersion: function( a, b ) {
+			var i, compare, length, regex = /(\.0)+[^\.]*$/;
+
+			a      = ( a + '' ).replace( regex, '' ).split( '.' );
+			b      = ( b + '' ).replace( regex, '' ).split( '.' );
+			length = Math.min( a.length, b.length );
+
+			for( i = 0; i < length; i++ ) {
+				compare = parseInt( a[i], 10 ) - parseInt( b[i], 10 );
+				if( compare !== 0 ) {
+					return compare;
+				}
+			}
+
+			return ( a.length - b.length );
+		},
+
+		// Activate Element Dragging
+		activate_element_dragging: function() {
+
+			var fix_active = this.compareVersion( $.ui.draggable.version, '1.10.9' );
+
+			if ( ( navigator.userAgent.indexOf( 'Safari' ) !== -1 ) || ( navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) ) {
+				fix_active = true;
+			}
+
+			if ( fix_active ) {
+				new AB_Logger( 'Drag and drop Positioning fix active' );
+			}
+		},
+
+		// Activate Element Dropping
+		activate_element_dropping: function() {
+
 		}
 	};
 
@@ -145,14 +220,16 @@
 		var template = $( '#axisbuilder-template-' + shortcode );
 
 		if ( template.length ) {
-			if ( insert_target === 'instant_insert' ) {
-				sweetAlert('hello');
+			if ( insert_target === 'instant-insert' ) {
+				obj.sendToBuilderCanvas( template.html() );
+				// obj.updateTextarea();
+				// obj.historySnapshot()
 			} else {
-				sweetAlert('world');
+
 			}
 
 			return;
 		}
-	}
+	};
 
 })(jQuery);

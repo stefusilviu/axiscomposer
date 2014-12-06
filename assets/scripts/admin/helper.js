@@ -89,23 +89,23 @@
 			parents = clicked.parents( '.postbox:eq(0)' );
 
 			if ( parents.is( '.axisbuilder-expanded' ) ) {
-				fullscreen.css({ display: "block", opacity: 0 }).animate({ opacity: 1 }, function() {
+				fullscreen.css({ display: 'block', opacity: 0 }).animate({ opacity: 1 }, function() {
 
 					// Close Fullscreen
 					fullscreen_close();
 
 					fullscreen.animate({ opacity: 0 }, function() {
-						fullscreen.css({ display: "none" })
+						fullscreen.css({ display: 'none' });
 					});
 				});
 			} else {
-				fullscreen.css({ display: "block", opacity: 0 }).animate({ opacity: 1 }, function() {
+				fullscreen.css({ display: 'block', opacity: 0 }).animate({ opacity: 1 }, function() {
 
 					// Open Fullscreen
 					fullscreen_open();
 
 					fullscreen.animate({ opacity: 0 }, function() {
-						fullscreen.css({ display: "none" })
+						fullscreen.css({ display: 'none' });
 					});
 				});
 			}

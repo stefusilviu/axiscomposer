@@ -184,6 +184,7 @@ function AB_Logger( text, type ) {
 
 			// Do snap test for drag and drop :)
 			obj.sendToBuilderCanvas();
+			obj.axisBuilderCanvas.removeClass( 'loader' );
 		},
 
 		/**

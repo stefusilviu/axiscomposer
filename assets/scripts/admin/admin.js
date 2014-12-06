@@ -197,7 +197,16 @@ function AB_Logger( text, type ) {
 			// Drag
 			var obj    = this,
 				scope  = passed_scope || this.axisBuilderParent,
-				params = {};
+				params = {
+					appendTo: 'body',
+					handle: '>.menu-item-handle',
+					helper: 'clone',
+					scroll: true,
+					zIndex: 20000,
+					cursorAt: {
+						left: 20
+					}
+				};
 
 			// If exclude is undefined
 			if ( typeof exclude === 'undefined') {
@@ -218,7 +227,10 @@ function AB_Logger( text, type ) {
 			// Drop
 			var obj    = this,
 				scope  = passed_scope || this.axisBuilderParent,
-				params = {};
+				params = {
+					greedy: true,
+					tolerance: 'pointer'
+				};
 
 			// If exclude is undefined
 			if ( typeof exclude === 'undefined') {

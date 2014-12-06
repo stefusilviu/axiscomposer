@@ -233,7 +233,7 @@ class AB_Admin_Meta_Boxes {
 		$target   = empty( $shortcode['target'] ) ? '' : $shortcode['target'];
 		$dragdrop = empty( $shortcode['drag-level'] ) ? '' : 'data-dragdrop-level="' . $shortcode['drag-level'] . '"';
 
-		return '<a href="#' . $shortcode['php_class'] . '" class="shortcode_insert_button ' . $class . $target . '" ' . $desc . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
+		return '<a href="#' . $shortcode['php_class'] . '" class="insert-shortcode ' . $class . $target . '" ' . $desc . $dragdrop . '>' . $icon . '<span>' . $shortcode['name'] . '</span></a>';
 	}
 
 	/**

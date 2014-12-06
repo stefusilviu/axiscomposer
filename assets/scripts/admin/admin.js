@@ -24,9 +24,9 @@
 		this.tinyMceVersion = this.tinyMceDefined ? window.tinyMCE.majorVersion : false;
 		this.tinyMceContent = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : false;
 
-		// Shortcode Buttons {Wrapper|Display}
-		this.shortcodeWrapper = $( '.axisbuilder-shortcodes' );
-		this.shortcodeDisplay = $.AxisBuilder.shortcodeDisplay || {};
+		// Shortcode Buttons {Object|Wrap}
+		this.shortcodes    = $.AxisBuilder.shortcodes || {};
+		this.shortcodeWrap = $( '.axisbuilder-shortcodes' );
 
 		// Activate the Builder
 		this.builderActivate();
@@ -55,12 +55,24 @@
 
 		// All event binding goes here
 		builderBehaviour: function() {
-			var self = this;
+			var obj = this;
 
 			// Toggle between default editor and page builder
 			this.axisBuilderButton.on( 'click', function( e ) {
 				e.preventDefault();
-				self.switchEditors();
+				obj.switchEditors();
+			});
+
+			// Add a new element to the Builder Canvas
+			this.shortcodeWrap.on( 'click', '.insert-shortcode', function() {
+				var parents = $( this ).parents( '.axisbuilder-shortcodes' ),
+					execute = this.hash.replace( '#', '' ),
+					targets = 'instant-insert', // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? "target_insert" : "instant_insert",
+					already_active = ( this.className.indexOf( 'axisbuilder-active-insert' ) !== -1 ) ? true : false;
+
+				obj.shortcodes.fetchShortcodeEditorElement( execute, targets, obj );
+
+				return false;
 			});
 
 			// Trash the entire canvas elements
@@ -117,5 +129,20 @@
 	$( document ).ready( function () {
 		$.AxisBuilderObj = new $.AxisBuilder();
 	});
+
+})(jQuery);
+
+/**
+ * AxisBuilder Shortcodes JS
+ */
+( function( $ ) {
+
+	'use strict';
+
+	$.AxisBuilder.shortcodes = $.AxisBuilder.shortcodes || {};
+
+	$.AxisBuilder.shortcodes.fetchShortcodeEditorElement = function( shortcode, insert_target, obj ) {
+
+	}
 
 })(jQuery);

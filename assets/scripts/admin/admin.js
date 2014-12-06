@@ -177,9 +177,18 @@ function AB_Logger( text, type ) {
 				return true;
 			}
 
-			// If text is undefined
+			// If text is undefined. Also Test-Drive val() to html()
 			if ( typeof text === 'undefined' ) {
-				text = '';
+				text = this.axisBuilderValues.val();
+				if ( text.indexOf( '[' ) === -1 ) {
+					text = this.wpDefaultEditorArea.val();
+
+					if ( this.tinyMceDefined ) {
+						text = window.switchEditors._wp_Nop( text );
+					}
+
+					this.axisBuilderValues.val( text );
+				}
 			}
 
 			// Do snap test for drag and drop :)

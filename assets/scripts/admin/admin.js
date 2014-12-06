@@ -146,9 +146,9 @@
 
 		if ( template.length ) {
 			if ( insert_target === 'instant_insert' ) {
-				alert('hello');
+				sweetAlert('hello');
 			} else {
-				alert('world');
+				sweetAlert('world');
 			}
 
 			return;

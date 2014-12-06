@@ -268,6 +268,11 @@ class AB_Admin_Meta_Boxes {
 			$classes[] = 'axisbuilder-expanded';
 		}
 
+		// Class for Debug or Test-mode
+		if ( defined( 'AB_DEBUG' ) && AB_DEBUG ) {
+			$classes[] = 'axisbuilder-debug';
+		}
+
 		return $classes;
 	}
 

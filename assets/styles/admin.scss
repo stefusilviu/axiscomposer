@@ -508,11 +508,11 @@ body.axisbuilder-noscroll-box {
 	}
 
 	textarea {
+		width: 100%;
 		resize: none;
 		display: none;
-		padding: 20px;
 		height: 300px;
-		min-width: 100%;
+		padding: 20px;
 		font-size: 12px;
 		line-height: 20px;
 		font-family: monospace;
@@ -520,11 +520,11 @@ body.axisbuilder-noscroll-box {
 }
 
 /**
- * Testmode Styles
+ * Debug or Test-Mode Styles
  */
-.testmode {
+.axisbuilder-debug {
 
-	textarea {
+	textarea#canvas-data {
 		display: inline-block;
 	}
 }

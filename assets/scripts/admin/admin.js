@@ -142,7 +142,17 @@
 	$.AxisBuilder.shortcodes = $.AxisBuilder.shortcodes || {};
 
 	$.AxisBuilder.shortcodes.fetchShortcodeEditorElement = function( shortcode, insert_target, obj ) {
+		var template = $( '#axisbuilder-template-' + shortcode );
 
+		if ( template.length ) {
+			if ( insert_target === 'instant_insert' ) {
+				alert('hello');
+			} else {
+				alert('world');
+			}
+
+			return;
+		}
 	}
 
 })(jQuery);

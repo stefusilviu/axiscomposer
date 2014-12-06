@@ -124,6 +124,7 @@ function AB_Logger( text, type ) {
 
 		// Switch between the {WordPress|AxisBuilder} Editors
 		switchEditors: function() {
+			var self = this;
 
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
 				this.wpDefaultEditor.parent().addClass( 'axisbuilder-hidden-editor' );
@@ -131,8 +132,9 @@ function AB_Logger( text, type ) {
 				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'active' );
 
+				// Load Shortcodes to Interface :)
 				setTimeout( function() {
-					// this.shortcodesToInterface();
+					self.shortcodesToInterface();
 				}, 10 );
 			} else {
 				this.wpDefaultEditor.parent().removeClass( 'axisbuilder-hidden-editor' );
@@ -150,7 +152,7 @@ function AB_Logger( text, type ) {
 
 				// Debug Logger
 				if ( this.axisBuilderDebug !== 'disable' ) {
-					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user cant edit shortcode directly', 'Editor' );
+					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
 				}
 			}
 
@@ -158,9 +160,25 @@ function AB_Logger( text, type ) {
 		},
 
 		/**
-		 * Send Editor content to server and get builder elements JSON
+		 * Converts shortcodes to an editable element on Builder Canvas.
+		 * Only executed at page load or when editor is switched from default to Page Builder.
 		 */
+		shortcodesToInterface: function( text ) {
+			var obj = this;
 
+			// Return if builder is not in active state
+			if ( this.axisBuilderStatus.val() !== 'active' ) {
+				return true;
+			}
+
+			// If text is undefined
+			if ( typeof text === 'undefined' ) {
+				text = '';
+			}
+
+			// Do snap test for drag and drop :)
+			obj.sendToBuilderCanvas();
+		},
 
 		/**
 		 * Send element(s) to AxisBuilder Canvas

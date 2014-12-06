@@ -92,6 +92,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-button' );
 
 			$params = array(
+				'debug'  => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
 				'postid' => get_the_ID(),
 			);
 

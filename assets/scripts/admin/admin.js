@@ -1,4 +1,4 @@
-/* global console, pagenow */
+/* global console, axisbuilder_admin, pagenow */
 
 // global AxisBuilder Logger Helper
 function AB_Logger( text, type ) {
@@ -30,6 +30,9 @@ function AB_Logger( text, type ) {
 
 		// WordPress default tinyMCE editor Element
 		this.wpDefaultEditor = $( '#postdivrich' );
+
+		// AxisBuilder Debug or Test Mode
+		this.axisBuilderDebug = axisbuilder_admin.debug || {};
 
 		// Axis Page Builder {Button|Handle|Canvas|Parent|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
@@ -127,6 +130,10 @@ function AB_Logger( text, type ) {
 				this.axisBuilderButton.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'default-editor' ) );
 				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'active' );
+
+				setTimeout( function() {
+					// this.shortcodesToInterface();
+				}, 10 );
 			} else {
 				this.wpDefaultEditor.parent().removeClass( 'axisbuilder-hidden-editor' );
 				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
@@ -140,10 +147,20 @@ function AB_Logger( text, type ) {
 				if( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
 				}
+
+				// Debug Logger
+				if ( this.axisBuilderDebug !== 'disable' ) {
+					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user cant edit shortcode directly', 'Editor' );
+				}
 			}
 
 			return false;
 		},
+
+		/**
+		 * Send Editor content to server and get builder elements JSON
+		 */
+
 
 		/**
 		 * Send element(s) to AxisBuilder Canvas

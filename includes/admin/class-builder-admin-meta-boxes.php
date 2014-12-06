@@ -211,7 +211,7 @@ class AB_Admin_Meta_Boxes {
 				// Builder Canvas
 				$html .= '<div id="axisbuilder-canvas" class="visual-editor">';
 					$html .= '<div class="canvas-area loader"></div>';
-					$html .= '<textarea readonly="readonly" name="canvas-data" id="canvas-data">' . $builder_canvas . '</textarea>';
+					$html .= '<textarea readonly="readonly" name="canvas-data" id="canvas-data" class="canvas-data">' . $builder_canvas . '</textarea>';
 				$html .= '</div>';
 
 			$html .= '</div>';

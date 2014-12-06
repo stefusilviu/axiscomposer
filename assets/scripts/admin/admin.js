@@ -28,16 +28,18 @@ function AB_Logger( text, type ) {
 
 	$.AxisBuilder = function() {
 
-		// WordPress default tinyMCE editor Element
-		this.wpDefaultEditor = $( '#postdivrich' );
+		// WordPress default tinyMCE Editor {Wrap|Area}
+		this.wpDefaultEditorWrap = $( '#postdivrich' );
+		this.wpDefaultEditorArea = $('#content.wp-editor-area');
 
 		// AxisBuilder Debug or Test Mode
 		this.axisBuilderDebug = axisbuilder_admin.debug || {};
 
-		// Axis Page Builder {Button|Handle|Canvas|Parent|Status}
+		// Axis Page Builder {Button|Handle|Canvas|Values|Parent|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
 		this.axisBuilderHandle = $( '#axisbuilder-handle' ).find( '.control-bar' );
 		this.axisBuilderCanvas = $( '#axisbuilder-canvas' ).find( '.canvas-area' );
+		this.axisBuilderValues = $( '#axisbuilder-canvas' ).find( '.canvas-data' );
 		this.axisBuilderParent = this.axisBuilderCanvas.parents( '.postbox:eq(0)' );
 		this.axisBuilderStatus = this.axisBuilderParent.find( 'input[name=axisbuilder_status]' );
 
@@ -127,7 +129,7 @@ function AB_Logger( text, type ) {
 			var self = this;
 
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
-				this.wpDefaultEditor.parent().addClass( 'axisbuilder-hidden-editor' );
+				this.wpDefaultEditorWrap.parent().addClass( 'axisbuilder-hidden-editor' );
 				this.axisBuilderButton.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'default-editor' ) );
 				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'active' );
@@ -137,7 +139,7 @@ function AB_Logger( text, type ) {
 					self.shortcodesToInterface();
 				}, 10 );
 			} else {
-				this.wpDefaultEditor.parent().removeClass( 'axisbuilder-hidden-editor' );
+				this.wpDefaultEditorWrap.parent().removeClass( 'axisbuilder-hidden-editor' );
 				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
 				this.axisBuilderParent.addClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'inactive' );
@@ -151,8 +153,12 @@ function AB_Logger( text, type ) {
 				}
 
 				// Debug Logger
-				if ( this.axisBuilderDebug !== 'disable' ) {
+				if ( this.axisBuilderDebug !== 'disable' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
 					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
+					if ( this.tinyMceContent ) {
+						this.tinyMceContent.setContent( '', { format: 'html' } );
+						this.wpDefaultEditorArea.val( '' );
+					}
 				}
 			}
 

@@ -1,8 +1,7 @@
-/* global pagenow */
+/* global console, pagenow */
 
 // global AxisBuilder Logger Helper
 function AB_Logger( text, type ) {
-	var console;
 
 	if ( typeof console === 'undefined' ) {
 		return true;
@@ -16,7 +15,7 @@ function AB_Logger( text, type ) {
 		console.log( text );
 	} else {
 		type = 'AB_' + type.toUpperCase();
-		console.log( '[' + type + ']' + text );
+		console.log( '[' + type + '] - ' + text );
 	}
 }
 
@@ -182,22 +181,67 @@ function AB_Logger( text, type ) {
 		},
 
 		// Activate Element Dragging
-		activate_element_dragging: function() {
+		activate_element_dragging: function( passed_scope, exclude ) {
 
-			var fix_active = this.compareVersion( $.ui.draggable.version, '1.10.9' );
+			var windows    = $( window ),
+				fix_active = ( this.compareVersion( $.ui.draggable.version, '1.10.9' ) <= 0 ) ? true : false;
 
 			if ( ( navigator.userAgent.indexOf( 'Safari' ) !== -1 ) || ( navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) ) {
-				fix_active = true;
+				fix_active = false;
 			}
 
 			if ( fix_active ) {
 				new AB_Logger( 'Drag and drop Positioning fix active' );
 			}
+
+			// Drag
+			var obj    = this,
+				scope  = passed_scope || this.axisBuilderParent,
+				params = {};
+
+			// If exclude is undefined
+			if ( typeof exclude === 'undefined') {
+				exclude = ':not(.ui-draggable)';
+			}
+
+			// Let's Bail Draggeble UI
+			scope.find( '.axisbuilder-drag' + exclude ).draggable( params );
+
+			params.cursorAt = { left: 33, top:33 };
+			params.handle   = false;
+			scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable( params );
 		},
 
 		// Activate Element Dropping
-		activate_element_dropping: function() {
+		activate_element_dropping: function( passed_scope, exclude ) {
 
+			// Drop
+			var obj    = this,
+				scope  = passed_scope || this.axisBuilderParent,
+				params = {};
+
+			// If exclude is undefined
+			if ( typeof exclude === 'undefined') {
+				exclude = ':not(.ui-droppable)';
+			}
+
+			// If exclude is set to destroy remove all droppables and then re-apply
+			if ( exclude === 'destroy' ) {
+				scope.find( '.axisbuilder-drop' ).droppable( 'destroy' );
+				exclude = '';
+			}
+
+			// Let's Bail Droppable UI
+			scope.find( '.axisbuilder-drop' + exclude ).droppable( params );
+		},
+
+		// Compares the drop level of the 2 elements. If the dragable has a higher drop level it may be dropped upon the droppable.
+		dropping_allowed: function( dragable, droppable ) {
+			if ( dragable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
+				return true;
+			}
+
+			return false;
 		}
 	};
 

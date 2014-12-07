@@ -205,8 +205,8 @@ function AB_Logger( text, type ) {
 			this.axisBuilderCanvas.append( add_text );
 
 			// Activate Element Drag and Drop
-			this.activate_element_dragging();
-			this.activate_element_dropping();
+			this.activateDragging();
+			this.activateDropping();
 		},
 
 		// --------------------------------------------
@@ -231,8 +231,8 @@ function AB_Logger( text, type ) {
 			return ( a.length - b.length );
 		},
 
-		// Activate Element Dragging
-		activate_element_dragging: function( passed_scope, exclude ) {
+		// Activate dragging for the given DOM element.
+		activateDragging: function( passed_scope, exclude ) {
 
 			var windows    = $( window ),
 				fix_active = ( this.compareVersion( $.ui.draggable.version, '1.10.9' ) <= 0 ) ? true : false;
@@ -249,13 +249,51 @@ function AB_Logger( text, type ) {
 			var obj    = this,
 				scope  = passed_scope || this.axisBuilderParent,
 				params = {
-					appendTo: 'body',
-					handle: '>.menu-item-handle',
-					helper: 'clone',
-					scroll: true,
-					zIndex: 20000,
-					cursorAt: {
-						left: 20
+					appendTo : 'body',
+					handle   : '>.menu-item-handle',
+					helper   : 'clone',
+					zIndex   : 20000,
+					scroll   : true,
+					revert	 : false,
+					cursorAt : {
+						left : 20
+					},
+
+					start: function( event, ui ) {
+						var current = $( event.target );
+
+						// Reduce elements opacity so user got a visual feedback on what he is editing
+						current.css({ opacity: 0.4 });
+
+						// Remove all previous hover elements
+						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+
+						// Add a class to the container element that highlights all possible drop targets
+						obj.axisBuilderCanvas.addClass( 'axisbuilder-select-target-' + current.data( 'dragdrop-level' ) );
+					},
+
+					drag: function( event, ui ) {
+						if ( fix_active ) {
+							ui.position.top -= parseInt( windows.scrollTop() );
+						}
+					},
+
+					stop: function( event, ui ) {
+						var current = $( event.target );
+
+						// Return opacity of element to normal
+						current.css({ opacity: 1 });
+
+						// Remove hover class from all elements
+						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+
+						/**
+						 * Reset highlight on container class
+						 *
+						 * Currently have setting for 4 nested level of element.
+						 * If you have more levels, just add styles like the other 'axisbuilder-select-target'
+						 */
+						obj.axisBuilderCanvas.removeClass( 'axisbuilder-select-target-1', 'axisbuilder-select-target-2', 'axisbuilder-select-target-3', 'axisbuilder-select-target-4' );
 					}
 				};
 
@@ -272,15 +310,24 @@ function AB_Logger( text, type ) {
 			scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable( params );
 		},
 
-		// Activate Element Dropping
-		activate_element_dropping: function( passed_scope, exclude ) {
+		// Activate dropping for the given DOM element.
+		activateDropping: function( passed_scope, exclude ) {
 
 			// Drop
 			var obj    = this,
 				scope  = passed_scope || this.axisBuilderParent,
 				params = {
 					greedy: true,
-					tolerance: 'pointer'
+					tolerance: 'pointer',
+					over: function( event, ui ) {
+						var droppable = $( this );
+						// if ( obj.isDropingAllowed( ui.helper, droppable ) ) {
+							droppable.addClass( 'axisbuilder-hover-active' );
+						// }
+					},
+					out: function( event, ui ) {
+						$(this).removeClass( 'axisbuilder-hover-active' );
+					}
 				};
 
 			// If exclude is undefined
@@ -298,9 +345,12 @@ function AB_Logger( text, type ) {
 			scope.find( '.axisbuilder-drop' + exclude ).droppable( params );
 		},
 
-		// Compares the drop level of the 2 elements. If the dragable has a higher drop level it may be dropped upon the droppable.
-		dropping_allowed: function( dragable, droppable ) {
-			if ( dragable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
+		/**
+		 * Check if the droppable element can accept the draggable element based on attribute "dragdrop-level"
+		 * @returns {Boolean}
+		 */
+		isDropingAllowed: function( draggable, droppable ) {
+			if ( draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
 				return true;
 			}
 

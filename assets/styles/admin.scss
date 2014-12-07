@@ -48,6 +48,16 @@
 }
 
 /**
+ * Debug or Test-Mode Styles
+ */
+.axisbuilder-debug {
+
+	textarea#canvas-data {
+		display: inline-block;
+	}
+}
+
+/**
  * Meta-Box Tweaks
  */
 .postbox-container .postbox {
@@ -520,16 +530,6 @@ body.axisbuilder-noscroll-box {
 }
 
 /**
- * Debug or Test-Mode Styles
- */
-.axisbuilder-debug {
-
-	textarea#canvas-data {
-		display: inline-block;
-	}
-}
-
-/**
  * Small screen optimisation
  */
 @media only screen and (max-width: 1280px) {
@@ -596,4 +596,38 @@ body.axisbuilder-noscroll-box {
 			padding: 12px;
 		}
 	}
+}
+
+/**
+ * Drag and Drop Styles
+ */
+body div.ui-draggable-dragging {
+	width:240px;
+}
+
+#wpwrap .axisbuilder-hover-active {
+	background: #f3f8fa;
+	border: 1px dashed #1075a0;
+}
+
+/*drag drop highlight of single elements*/
+.axisbuilder-select-target-1.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-2.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-3.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-4.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-1 .axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-2 .axisbuilder-drop[data-dragdrop-level="1"],
+.axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="2"], .axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="1"],
+.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="3"], .axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="2"], .axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="1"] {
+	background: #F2F9FF;
+	border: 1px dashed #4D9EDD;
+}
+
+
+.axisbuilder-select-target-2 .axisbuilder-drop[data-dragdrop-level="1"], .axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="1"], .axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="1"] {
+	background: #E5F3FF;
+}
+
+.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="2"] , .axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="2"]{
+	background: #DFF0FF;
 }

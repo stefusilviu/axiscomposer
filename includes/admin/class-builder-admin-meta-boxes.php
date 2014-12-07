@@ -31,8 +31,9 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10 );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
-		// Save builder Meta Boxes
-		add_action( 'axisbuilder_layout_editor_meta', array( $this, 'save_layout_editor_meta' ), 10, 2 );
+		// Save Meta-Boxes
+		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 10, 2 );
+		add_action( 'axisbuilder_layout_builder_meta', array( $this, 'save_layout_builder_meta' ), 20, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -314,10 +315,20 @@ class AB_Admin_Meta_Boxes {
 			return;
 		}
 
-		// Hook for Saving Page Builder Post Meta.
-		do_action( 'axisbuilder_layout_editor_meta', $post_id, $post );
+		// Hook for Saving {Builder|Config} Meta-Box data.
+		do_action( 'axisbuilder_layout_configs_meta', $post_id, $post );
+		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
+	}
 
-		// All Check passed, now save additional Meta-Box Elements
+	/**
+	 * Save Additional Meta-Box data.
+	 */
+	public function save_layout_configs_meta( $post_id ) {
+
+		// Load Configurations
+		self::add_meta_config();
+
+		// Let's bail the save method :)
 		foreach ( self::$add_meta_elements as $meta_element ) {
 			if ( isset( $meta_element['type'] ) && ( $meta_element['type'] == 'fake' || $meta_element['type'] == 'checkbox' ) ) {
 				if ( empty( $_POST[$meta_element['id']] ) ) {
@@ -334,9 +345,9 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	/**
-	 * Set status of builder (open/closed) and save the shortcodes that are used in the post
+	 * Set Page/layout Builder Meta-Box data.
 	 */
-	public function save_layout_editor_meta( $post_id ) {
+	public function save_layout_builder_meta( $post_id ) {
 
 		// Save the builder status and canvas textarea data :)
 		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );

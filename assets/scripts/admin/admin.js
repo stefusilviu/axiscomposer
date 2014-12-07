@@ -191,9 +191,19 @@ function AB_Logger( text, type ) {
 				}
 			}
 
-			// Do snap test for drag and drop :)
-			obj.sendToBuilderCanvas();
-			obj.axisBuilderCanvas.removeClass( 'loader' );
+			// AJAX Shortcodes to Interface
+			$.ajax({
+				type: 'post',
+				url: axisbuilder_admin.ajax_url,
+				data: {
+					action: 'axisbuilder_shortcodes_to_interface',
+					text: text
+				},
+				success: function( response ) {
+					obj.sendToBuilderCanvas( response );
+					obj.axisBuilderCanvas.removeClass( 'loader' );
+				}
+			});
 		},
 
 		/**

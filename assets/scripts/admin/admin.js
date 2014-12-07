@@ -259,10 +259,10 @@ function AB_Logger( text, type ) {
 						left : 20
 					},
 
-					start: function( event, ui ) {
+					start: function( event ) {
 						var current = $( event.target );
 
-						// Reduce elements opacity so user got a visual feedback on what he is editing
+						// Reduce elements opacity so user got a visual feedback on what (s)he is editing
 						current.css({ opacity: 0.4 });
 
 						// Remove all previous hover elements
@@ -274,15 +274,14 @@ function AB_Logger( text, type ) {
 
 					drag: function( event, ui ) {
 						if ( fix_active ) {
-							ui.position.top -= parseInt( windows.scrollTop() );
+							ui.position.top -= parseInt( windows.scrollTop(), 10 );
 						}
 					},
 
-					stop: function( event, ui ) {
-						var current = $( event.target );
+					stop: function( event ) {
 
 						// Return opacity of element to normal
-						current.css({ opacity: 1 });
+						$( event.target ).css({ opacity: 1 });
 
 						// Remove hover class from all elements
 						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
@@ -293,7 +292,7 @@ function AB_Logger( text, type ) {
 						 * Currently have setting for 4 nested level of element.
 						 * If you have more levels, just add styles like the other 'axisbuilder-select-target'
 						 */
-						obj.axisBuilderCanvas.removeClass( 'axisbuilder-select-target-1', 'axisbuilder-select-target-2', 'axisbuilder-select-target-3', 'axisbuilder-select-target-4' );
+						obj.axisBuilderCanvas.removeClass( 'axisbuilder-select-target-1 axisbuilder-select-target-2 axisbuilder-select-target-3 axisbuilder-select-target-4' );
 					}
 				};
 
@@ -319,14 +318,21 @@ function AB_Logger( text, type ) {
 				params = {
 					greedy: true,
 					tolerance: 'pointer',
+
+					// If there's a draggable element and it's over the current element, this function will be executed.
 					over: function( event, ui ) {
 						var droppable = $( this );
-						// if ( obj.isDropingAllowed( ui.helper, droppable ) ) {
+
+						// Check if the current element can accept the droppable element
+						if ( obj.isDropingAllowed( ui.helper, droppable ) ) {
+							 // Add active class that will highlight the element with gree, i.e drop is allowed.
 							droppable.addClass( 'axisbuilder-hover-active' );
-						// }
+						}
 					},
-					out: function( event, ui ) {
-						$(this).removeClass( 'axisbuilder-hover-active' );
+
+					// If there's a draggable element and it was over the current element, when it moves out this function will be executed.
+					out: function() {
+						$( this ).removeClass( 'axisbuilder-hover-active' );
 					}
 				};
 

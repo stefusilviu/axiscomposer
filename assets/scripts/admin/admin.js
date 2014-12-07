@@ -266,7 +266,7 @@ function AB_Logger( text, type ) {
 						current.css({ opacity: 0.4 });
 
 						// Remove all previous hover elements
-						// $( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
 
 						// Add a class to the container element that highlights all possible drop targets
 						obj.axisBuilderCanvas.addClass( 'axisbuilder-select-target-' + current.data( 'dragdrop-level' ) );
@@ -285,7 +285,7 @@ function AB_Logger( text, type ) {
 						current.css({ opacity: 1 });
 
 						// Remove hover class from all elements
-						// $( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
 
 						/**
 						 * Reset highlight on container class

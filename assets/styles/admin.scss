@@ -52,8 +52,8 @@
  */
 .axisbuilder-debug {
 
-	textarea#canvas-data {
-		display: inline-block;
+	.canvas-secure-data {
+		/*display: block !important;*/
 	}
 }
 
@@ -77,7 +77,8 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 #axisbuilder-editor .inside {
-	padding: 0 0 12px !important;
+	margin-bottom: -1px;
+	padding: 0 !important; /* 0 0 12px Test without highlight */
 }
 
 .axisbuilder-editor-custom {
@@ -208,7 +209,7 @@ body.axisbuilder-noscroll-box {
 	right:0;
 	background: #fff;
 	z-index: 99998;
-	display:none;
+	display: none;
 }
 
 /**
@@ -394,7 +395,6 @@ body.axisbuilder-noscroll-box {
 	color: #7b7b7b;
 	line-height: 40px;
 	background: #f5f5f5;
-	border-bottom: 1px solid #e5e5e5;
 
 	&:hover {
 		z-index: 12;
@@ -502,12 +502,10 @@ body.axisbuilder-noscroll-box {
  * Editor Canvas Styles
  */
 #axisbuilder-canvas {
-	width: 100%;
-
+	border-top: 1px solid #e5e5e5;
 
 	.canvas-area {
-		width: 100%;
-		margin: 0 -1px;
+		padding: 12px;
 		background: #fff;
 		min-height: 220px;
 		position: relative;
@@ -519,12 +517,12 @@ body.axisbuilder-noscroll-box {
 
 	.canvas-secure-data {
 		width: 97%;
-		margin: 0 auto;
+		display: none;
+		margin: 15px auto 10px;
 
 		textarea {
 			width: 100%;
 			resize: none;
-			display: none;
 			height: 300px;
 			padding: 20px;
 			font-size: 12px;
@@ -611,6 +609,7 @@ body div.ui-draggable-dragging {
 }
 
 #wpwrap .axisbuilder-hover-active {
+	top: -1px;
 	background: #f3f8fa;
 	border: 1px dashed #1075a0;
 }

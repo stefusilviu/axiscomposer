@@ -502,13 +502,13 @@ body.axisbuilder-noscroll-box {
  * Editor Canvas Styles
  */
 #axisbuilder-canvas {
-	width: 97%;
-	margin: 0 auto;
+	width: 100%;
+
 
 	.canvas-area {
-		min-width: 100%;
+		width: 100%;
+		margin: 0 -1px;
 		background: #fff;
-		margin: 1em auto;
 		min-height: 220px;
 		position: relative;
 
@@ -517,15 +517,20 @@ body.axisbuilder-noscroll-box {
 		}
 	}
 
-	textarea {
-		width: 100%;
-		resize: none;
-		display: none;
-		height: 300px;
-		padding: 20px;
-		font-size: 12px;
-		line-height: 20px;
-		font-family: monospace;
+	.canvas-secure-data {
+		width: 97%;
+		margin: 0 auto;
+
+		textarea {
+			width: 100%;
+			resize: none;
+			display: none;
+			height: 300px;
+			padding: 20px;
+			font-size: 12px;
+			line-height: 20px;
+			font-family: monospace;
+		}
 	}
 }
 
@@ -622,7 +627,6 @@ body div.ui-draggable-dragging {
 	background: #F2F9FF;
 	border: 1px dashed #4D9EDD;
 }
-
 
 .axisbuilder-select-target-2 .axisbuilder-drop[data-dragdrop-level="1"], .axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="1"], .axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="1"] {
 	background: #E5F3FF;

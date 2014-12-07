@@ -27,7 +27,8 @@ class AB_AJAX {
 
 		// axisbuilder_EVENT => nopriv
 		$ajax_events = array(
-			'delete_custom_sidebar' => false,
+			'delete_custom_sidebar'   => false,
+			'shortcodes_to_interface' => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -77,6 +78,15 @@ class AB_AJAX {
 
 		// Quit out
 		die();
+	}
+
+	/**
+	 * Shortcodes to interface
+	 */
+	public static function shortcodes_to_interface() {
+
+		check_ajax_referer( 'shortcodes-to-interface', 'security' );
+
 	}
 }
 

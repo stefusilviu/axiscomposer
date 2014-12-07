@@ -170,8 +170,6 @@ function AB_Logger( text, type ) {
 		 * Only executed at page load or when editor is switched from default to Page Builder.
 		 */
 		shortcodesToInterface: function( text ) {
-			var obj = this;
-
 			// Return if builder is not in active state
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
 				return true;
@@ -191,14 +189,17 @@ function AB_Logger( text, type ) {
 				}
 			}
 
-			// AJAX Shortcodes to Interface
-			$.ajax({
-				type: 'post',
-				url: axisbuilder_admin.ajax_url,
-				data: {
+			var obj  = this,
+				data = {
+					text: text,
 					action: 'axisbuilder_shortcodes_to_interface',
-					text: text
-				},
+					security: axisbuilder_admin.shortcodes_to_interface_nonce
+				};
+
+			$.ajax({
+				url: axisbuilder_admin.ajax_url,
+				data: data,
+				type: 'POST',
 				success: function( response ) {
 					obj.sendToBuilderCanvas( response );
 					obj.axisBuilderCanvas.removeClass( 'loader' );

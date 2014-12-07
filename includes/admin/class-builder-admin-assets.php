@@ -92,10 +92,11 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-button' );
 
 			$params = array(
-				'post_id'      => isset( $post->ID ) ? $post->ID : '',
-				'plugin_url'   => AB()->plugin_url(),
-				'ajax_url'     => admin_url( 'admin-ajax.php' ),
-				'debug_mode'   => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
+				'post_id'                       => isset( $post->ID ) ? $post->ID : '',
+				'plugin_url'                    => AB()->plugin_url(),
+				'ajax_url'                      => admin_url( 'admin-ajax.php' ),
+				'debug_mode'                    => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
+				'shortcodes_to_interface_nonce' => wp_create_nonce( 'shortcodes-to-interface' ),
 			);
 
 			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );

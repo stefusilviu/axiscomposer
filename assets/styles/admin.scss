@@ -495,7 +495,6 @@ body.axisbuilder-noscroll-box {
 
 	.canvas-area {
 		padding: 12px;
-		/*background: #fff;*/
 		min-height: 225px;
 		position: relative;
 		border-top: 1px solid #e5e5e5;
@@ -602,7 +601,7 @@ body.axisbuilder-noscroll-box {
 }
 
 /**
- * Drag and Drop Styles
+ * Drag-Drop Styles
  */
 body div.ui-draggable-dragging {
 	width:240px;
@@ -617,7 +616,11 @@ body div.ui-draggable-dragging {
 .axisbuilder-select-target-1.drag-element[data-dragdrop-level="0"],
 .axisbuilder-select-target-2.drag-element[data-dragdrop-level="0"],
 .axisbuilder-select-target-3.drag-element[data-dragdrop-level="0"],
-.axisbuilder-select-target-4.drag-element[data-dragdrop-level="0"],
+.axisbuilder-select-target-4.drag-element[data-dragdrop-level="0"] {
+	background: #f3f8fa;
+	border: 1px dashed #1075a0 !important;
+}
+
 .axisbuilder-select-target-1 .drag-element[data-dragdrop-level="0"],
 .axisbuilder-select-target-2 .drag-element[data-dragdrop-level="1"],
 .axisbuilder-select-target-3 .drag-element[data-dragdrop-level="2"],

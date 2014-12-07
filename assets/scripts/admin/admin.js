@@ -200,6 +200,7 @@ function AB_Logger( text, type ) {
 					text: text
 				},
 				success: function( response ) {
+					new AB_Logger(response);
 					obj.sendToBuilderCanvas( response );
 					obj.axisBuilderCanvas.removeClass( 'loader' );
 				}

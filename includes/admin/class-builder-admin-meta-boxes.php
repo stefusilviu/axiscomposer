@@ -338,9 +338,13 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function save_layout_editor_meta( $post_id ) {
 
-		// Save if the page builder is active
-		if ( isset( $_POST['axisbuilder_status'] ) ) {
-			update_post_meta( $post_id, '_axisbuilder_status', $_POST['axisbuilder_status'] );
+		// Save the builder status and canvas textarea data :)
+		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
+
+		foreach ( $builder_post_meta as $post_meta ) {
+			if ( isset( $_POST[$post_meta] ) ) {
+				update_post_meta( $post_id, '_' . $post_meta, $_POST[$post_meta] );
+			}
 		}
 
 		// Filter the redirect url in case we got a Meta-Box that is expanded. In that case append some POST Paramas.

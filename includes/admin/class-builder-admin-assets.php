@@ -92,8 +92,10 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-button' );
 
 			$params = array(
-				'debug'  => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
-				'postid' => get_the_ID(),
+				'post_id'      => isset( $post->ID ) ? $post->ID : '',
+				'plugin_url'   => AB()->plugin_url(),
+				'ajax_url'     => admin_url( 'admin-ajax.php' ),
+				'debug_mode'   => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
 			);
 
 			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );

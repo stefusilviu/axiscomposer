@@ -29,10 +29,10 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10 );
-		add_action( 'save_post', array( $this, 'save_layout_editor_meta' ), 1, 2 );
+		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save builder Meta Boxes
-		// add_action( 'axisbuilder_layout_editor_meta', array( $this, 'save_layout_editor_meta' ), 10, 2 );
+		add_action( 'axisbuilder_layout_editor_meta', array( $this, 'save_layout_editor_meta' ), 10, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -124,8 +124,8 @@ class AB_Admin_Meta_Boxes {
 		$title  = $content = '';
 
 		// Builder Post Meta
-		$builder_canvas = get_post_meta( get_the_ID(), '_axisbuilder_canvas', true );
 		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$builder_canvas = get_post_meta( get_the_ID(), '_axisbuilder_canvas', true );
 
 		$loop = 0;
 
@@ -171,7 +171,14 @@ class AB_Admin_Meta_Boxes {
 				$content .= '</div>';
 			}
 
-			$html = '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
+			// Create Nonce field
+			wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
+
+			// Builder Status
+			$html = '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
+
+			// Builder Wrapper
+			$html .= '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
 
 				// Builder Loader
 				$html .= '<div id="axisbuilder-loader" class="axisbuilder-meta-box axisbuilder-editor-custom">';
@@ -217,9 +224,6 @@ class AB_Admin_Meta_Boxes {
 				$html .= '</div>';
 
 			$html .= '</div>';
-
-			// Builder Status
-			$html .= '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
 
 			echo $html;
 		}
@@ -310,10 +314,24 @@ class AB_Admin_Meta_Boxes {
 			return;
 		}
 
-		// Provide a hook for some additional data manipulation where users can modify the $_POST array or save additional information
+		// Hook for Saving Page Builder Post Meta.
 		do_action( 'axisbuilder_layout_editor_meta', $post_id, $post );
-	}
 
+		// All Check passed, now save additional Meta-Box Elements
+		foreach ( self::$add_meta_elements as $meta_element ) {
+			if ( isset( $meta_element['type'] ) && ( $meta_element['type'] == 'fake' || $meta_element['type'] == 'checkbox' ) ) {
+				if ( empty( $_POST[$meta_element['id']] ) ) {
+					$_POST[$meta_element['id']] = 0;
+				}
+			}
+
+			foreach ( $_POST as $key => $value ) {
+				if ( strpos( $key, $meta_element['id'] !== false ) ) {
+					update_post_meta( $post_id, $key, $_POST[$key] );
+				}
+			}
+		}
+	}
 
 	/**
 	 * Set status of builder (open/closed) and save the shortcodes that are used in the post
@@ -322,7 +340,7 @@ class AB_Admin_Meta_Boxes {
 
 		// Save if the page builder is active
 		if ( isset( $_POST['axisbuilder_status'] ) ) {
-			update_post_meta( $post_id, '_axisbuilder_status', $_POST['axisbuilder_status']);
+			update_post_meta( $post_id, '_axisbuilder_status', $_POST['axisbuilder_status'] );
 		}
 
 		// Filter the redirect url in case we got a Meta-Box that is expanded. In that case append some POST Paramas.
@@ -344,4 +362,3 @@ class AB_Admin_Meta_Boxes {
 }
 
 new AB_Admin_Meta_Boxes();
-

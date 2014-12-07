@@ -30,7 +30,7 @@
 		$( tab_container ).each( function( i ) {
 			var active_tab = 0,
 				storage    = false,
-				postid     = 'axisbuilder_post_' + i + '_' + axisbuilder_admin.postid;
+				postid     = 'axisbuilder_post_' + i + '_' + axisbuilder_admin.post_id;
 
 			if ( typeof( storage ) !== 'undefined' ) {
 				storage = true,

@@ -33,7 +33,7 @@ function AB_Logger( text, type ) {
 		this.wpDefaultEditorArea = $('#content.wp-editor-area');
 
 		// AxisBuilder Debug or Test Mode
-		this.axisBuilderDebug = axisbuilder_admin.debug || {};
+		this.axisBuilderDebug = axisbuilder_admin.debug_mode || {};
 
 		// Axis Page Builder {Button|Handle|Canvas|Values|Parent|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );

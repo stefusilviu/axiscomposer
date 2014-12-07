@@ -48,16 +48,6 @@
 }
 
 /**
- * Debug or Test-Mode Styles
- */
-.axisbuilder-debug {
-
-	.canvas-secure-data {
-		/*display: block !important;*/
-	}
-}
-
-/**
  * Meta-Box Tweaks
  */
 .postbox-container .postbox {
@@ -502,13 +492,14 @@ body.axisbuilder-noscroll-box {
  * Editor Canvas Styles
  */
 #axisbuilder-canvas {
-	border-top: 1px solid #e5e5e5;
 
 	.canvas-area {
 		padding: 12px;
 		background: #fff;
 		min-height: 220px;
 		position: relative;
+		border-top: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
 
 		&.loader {
 			@include loader();
@@ -516,9 +507,8 @@ body.axisbuilder-noscroll-box {
 	}
 
 	.canvas-secure-data {
-		width: 97%;
 		display: none;
-		margin: 15px auto 10px;
+		padding: 12px 12px 8px;
 
 		textarea {
 			width: 100%;
@@ -529,6 +519,16 @@ body.axisbuilder-noscroll-box {
 			line-height: 20px;
 			font-family: monospace;
 		}
+	}
+}
+
+/**
+ * Debug or Test-Mode Styles
+ */
+.axisbuilder-debug {
+
+	.canvas-secure-data {
+		display: block !important;
 	}
 }
 
@@ -609,7 +609,6 @@ body div.ui-draggable-dragging {
 }
 
 #wpwrap .axisbuilder-hover-active {
-	top: -1px;
 	background: #f3f8fa;
 	border: 1px dashed #1075a0;
 }

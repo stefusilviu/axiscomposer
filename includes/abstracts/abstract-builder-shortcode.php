@@ -79,5 +79,89 @@ abstract class AB_Shortcode {
 		if ( empty( $this->config['drop-level'] ) ) {
 			$this->config['drop-level'] = 10;
 		}
+
+		// If we got elements for the popup editor activate it
+		if ( method_exists( $this, 'popup_elements' ) ) {
+
+			// Load via the shortcodes function
+			$this->popup_elements();
+
+			if ( ! empty( $this->elements ) ) {
+				global $axisbuilder_elements;
+				$axisbuilder_elements = $this->elements;
+
+				$this->config['popup_editor'] = true;
+
+				$this->extra_config_element_iterator( $this->elements );
+
+				// Remove any duplicate values
+				if ( ! empty( $this->config['modal_on_load'] ) ) {
+					$this->config['modal_on_load'] = array_unique( $this->config['modal_on_load'] );
+				}
+			}
+		}
+	}
+
+	/**
+	 * Helper function to iterate recursively over element and subelement trees.
+	 */
+	protected function extra_config_element_iterator( $elements ) {
+		foreach ( $elements as $element ) {
+			switch ( $element['type'] ) {
+				case 'multi_input':
+					$this->config['modal_on_load'][] = 'modal_load_multi_input';
+				break;
+
+				case 'tab_container':
+					$this->config['modal_on_load'][] = 'modal_load_tabs';
+				break;
+
+				case 'tiny_mce':
+					$this->config['modal_on_load'][] = 'modal_load_tiny_mce';
+				break;
+
+				case 'colorpicker':
+					$this->config['modal_on_load'][] = 'modal_load_colorpicker';
+				break;
+
+				case 'datepicker':
+					$this->config['modal_on_load'][] = 'modal_load_datepicker';
+				break;
+
+				case 'table':
+					$this->config['modal_on_load'][] = 'modal_load_tablebuilder';
+				break;
+
+				case 'modal_group':
+					$this->config['modal_on_load'][] = 'modal_start_sorting';
+					$this->config['modal_on_load'][] = 'modal_tab_functions';
+					$this->config['modal_on_load'][] = 'modal_hotspot_helper';
+					$this->extra_config_element_iterator( $element['subelements'] );
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Render new Builder Canvas Element
+	 * @param  boolean $content
+	 * @param  array   $args
+	 * @return array
+	 */
+	public static function prepare_editor_element( $content = false, $args = array() ) {
+		// Set default content unless it was already passed
+		if ( $content === false ) {
+			// $content = self::$get_default_content( $content );
+		}
+
+		self::get_default_content( $content );
+	}
+
+	/**
+	 * Helper function that gets the default value of the content element.
+	 */
+	public static function get_default_content( $content = null ) {
+		global $axisbuilder_elements;
+
 	}
 }

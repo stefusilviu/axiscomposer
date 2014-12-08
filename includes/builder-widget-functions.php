@@ -20,10 +20,9 @@ include_once( 'widgets/class-builder-widget-advertisement.php' );
 
 /**
  * Register Widgets
- *
  * @since 1.0.0
  */
-function wc_register_widgets() {
+function axisbuilder_register_widgets() {
 	register_widget( 'AB_Widget_Advertisement' );
 }
-add_action( 'widgets_init', 'wc_register_widgets' );
+add_action( 'widgets_init', 'axisbuilder_register_widgets' );

@@ -40,9 +40,22 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		$this->shortcode_tabs();
+
 		$this->shortcode_button();
 		$this->shortcode_config();
 		$this->shortcode_display();
+	}
+
+	/**
+	 * Loads shortcode tabs contents.
+	 */
+	public function shortcode_tabs() {
+		$load_shortcode_tabs = get_builder_core_shortcode_tabs();
+
+		foreach ( $this->shortcode_data as $key => $shortcode ) {
+
+		}
 	}
 
 	/**

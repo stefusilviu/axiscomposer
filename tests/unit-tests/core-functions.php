@@ -38,11 +38,11 @@ class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
 	public function test_get_builder_core_shortcode_tabs() {
 
 		$expected_shortcode_tabs = array(
-			__( 'Layout Elements',  'axisbuilder' ),
-			__( 'Content Elements', 'axisbuilder' ),
-			__( 'Media Elements',   'axisbuilder' ),
-			__( 'Plugin Additions', 'axisbuilder' ),
-			__( 'Custom Elements',  'axisbuilder' ),
+			'layout-tab'  => __( 'Layout Elements',  'axisbuilder' ),
+			'content-tab' => __( 'Content Elements', 'axisbuilder' ),
+			'media-tab'   => __( 'Media Elements',   'axisbuilder' ),
+			'plugin-tab'  => __( 'Plugin Additions', 'axisbuilder' ),
+			'custom-tab'  => __( 'Custom Elements',  'axisbuilder' ),
 		);
 
 		$this->assertEquals( $expected_shortcode_tabs, get_builder_core_shortcode_tabs() );

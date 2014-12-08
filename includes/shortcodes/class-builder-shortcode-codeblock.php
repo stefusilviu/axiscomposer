@@ -25,7 +25,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 			'id'    => 'codeblock',
 			'icon'  => 'codeblock',
 			'type'  => 'content-tab',
-			'image' => AB()->plugin_url() . '/assets/images/content/codeblock.png'; // Fallback if icon is missing :)
+			'image' => AB()->plugin_url() . '/assets/images/content/codeblock.png', // Fallback if icon is missing :)
 		);
 		$this->popup_settings = array(
 

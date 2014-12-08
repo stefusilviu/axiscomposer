@@ -1,0 +1,4 @@
+#layout .inside{
+	margin-bottom: -1px;
+	padding: 0 !important; /* 0 0 12px Test without highlight */
+}

@@ -32,8 +32,8 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save Meta-Boxes
-		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 10, 2 );
-		add_action( 'axisbuilder_layout_builder_meta', array( $this, 'save_layout_builder_meta' ), 20, 2 );
+		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
+		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 20, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -97,7 +97,7 @@ class AB_Admin_Meta_Boxes {
 
 		// Page Builder
 		foreach ( $screens as $type ) {
-			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), array( $this, 'create_page_builder' ), $type, 'normal', 'high' );
+			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
 		}
 
@@ -110,16 +110,102 @@ class AB_Admin_Meta_Boxes {
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
 
 				foreach ( $meta_box['page'] as $type ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_meta_box' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
+					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_page_builder' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
 				}
 			}
 		}
 	}
 
-	public function create_meta_box() {
-		return 'Empty Meta-Boxes'; // Will be utilized later :)
+	/**
+	 * Filter the postbox classes for a specific screen and screen ID combo.
+	 * @param  array $classes An array of postbox classes.
+	 * @return array
+	 */
+	public function custom_postbox_classes( $classes ) {
+
+		// Class for hidden items
+		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
+			$classes[] = 'axisbuilder-hidden';
+		}
+
+		// Class for expanded items
+		if ( ! empty( $_GET['axisbuilder-expanded'] ) && ( 'axisbuilder-editor' === $_GET['axisbuilder-expanded'] ) ) {
+			$classes[] = 'axisbuilder-expanded';
+		}
+
+		// Class for Debug or Test-mode
+		if ( defined( 'AB_DEBUG' ) && AB_DEBUG ) {
+			$classes[] = 'axisbuilder-debug';
+		}
+
+		return $classes;
 	}
 
+	/**
+	 * Check if we're saving, the trigger an action based on the post type
+	 *
+	 * @param  int $post_id
+	 * @param  object $post
+	 */
+	public function save_meta_boxes( $post_id, $post ) {
+		// $post_id and $post are required
+		if ( empty( $post_id ) || empty( $post ) ) {
+			return;
+		}
+
+		// Dont' save meta boxes for revisions or autosaves
+		if ( defined( 'DOING_AUTOSAVE' ) || is_int( wp_is_post_revision( $post ) ) || is_int( wp_is_post_autosave( $post ) ) ) {
+			return;
+		}
+
+		// Check the nonce
+		if ( empty( $_POST['axisbuilder_meta_nonce'] ) || ! wp_verify_nonce( $_POST['axisbuilder_meta_nonce'], 'axisbuilder_save_data' ) ) {
+			return;
+		}
+
+		// Check the post being saved == the $post_id to prevent triggering this call for other save_post events
+		if ( empty( $_POST['post_ID'] ) || $_POST['post_ID'] != $post_id ) {
+			return;
+		}
+
+		// Check user has permission to edit
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		// Hook for Saving {Builder|Config} Meta-Box data.
+		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
+		do_action( 'axisbuilder_layout_configs_meta', $post_id, $post );
+	}
+
+	/**
+	 * Save Additional Meta-Box data.
+	 */
+	public function save_layout_configs_meta( $post_id ) {
+
+		// Load Configurations
+		self::add_meta_config();
+
+		// Let's bail the save method :)
+		foreach ( self::$add_meta_elements as $meta_element ) {
+			if ( isset( $meta_element['type'] ) && ( $meta_element['type'] == 'fake' || $meta_element['type'] == 'checkbox' ) ) {
+				if ( empty( $_POST[$meta_element['id']] ) ) {
+					$_POST[$meta_element['id']] = 0;
+				}
+			}
+
+			foreach ( $_POST as $key => $value ) {
+				if ( strpos( $key, $meta_element['id'] !== false ) ) {
+					update_post_meta( $post_id, $key, $_POST[$key] );
+				}
+			}
+		}
+	}
+
+	/**
+	 * @deprecated Page Builder Data
+	 * @todo Remove this after the builder is ready :)
+	 */
 	public function create_page_builder() {
 		global $axisbuilder_shortcodes;
 		$title  = $content = '';
@@ -232,6 +318,7 @@ class AB_Admin_Meta_Boxes {
 
 	/**
 	 * Create a shortcode button
+	 * @deprecated Todo: Remove along will above function :)
 	 */
 	protected function create_shortcode_button( $shortcode ) {
 		$icon     = isset( $shortcode['image'] ) ? '<img src="' . $shortcode['image'] . '" alt="' . $shortcode['name'] . '" />' : '<i class="' . $shortcode['icon'] . '" /></i>';
@@ -245,6 +332,7 @@ class AB_Admin_Meta_Boxes {
 
 	/**
 	 * Helper function to sort the shortcode buttons.
+	 * @deprecated Todo: Remove along will above function :)
 	 */
 	protected function sort_by_order( $a, $b ) {
 		if ( empty( $a['order'] ) ) {
@@ -256,123 +344,6 @@ class AB_Admin_Meta_Boxes {
 		}
 
 		return $b['order'] >= $a['order'];
-	}
-
-	/**
-	 * Filter the postbox classes for a specific screen and screen ID combo.
-	 * @param  array $classes An array of postbox classes.
-	 * @return array
-	 */
-	public function custom_postbox_classes( $classes ) {
-
-		// Class for hidden items
-		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
-			$classes[] = 'axisbuilder-hidden';
-		}
-
-		// Class for expanded items
-		if ( ! empty( $_GET['axisbuilder-expanded'] ) && ( 'axisbuilder-editor' === $_GET['axisbuilder-expanded'] ) ) {
-			$classes[] = 'axisbuilder-expanded';
-		}
-
-		// Class for Debug or Test-mode
-		if ( defined( 'AB_DEBUG' ) && AB_DEBUG ) {
-			$classes[] = 'axisbuilder-debug';
-		}
-
-		return $classes;
-	}
-
-	/**
-	 * Check if we're saving, the trigger an action based on the post type
-	 *
-	 * @param  int $post_id
-	 * @param  object $post
-	 */
-	public function save_meta_boxes( $post_id, $post ) {
-		// $post_id and $post are required
-		if ( empty( $post_id ) || empty( $post ) ) {
-			return;
-		}
-
-		// Dont' save meta boxes for revisions or autosaves
-		if ( defined( 'DOING_AUTOSAVE' ) || is_int( wp_is_post_revision( $post ) ) || is_int( wp_is_post_autosave( $post ) ) ) {
-			return;
-		}
-
-		// Check the nonce
-		if ( empty( $_POST['axisbuilder_meta_nonce'] ) || ! wp_verify_nonce( $_POST['axisbuilder_meta_nonce'], 'axisbuilder_save_data' ) ) {
-			return;
-		}
-
-		// Check the post being saved == the $post_id to prevent triggering this call for other save_post events
-		if ( empty( $_POST['post_ID'] ) || $_POST['post_ID'] != $post_id ) {
-			return;
-		}
-
-		// Check user has permission to edit
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
-
-		// Hook for Saving {Builder|Config} Meta-Box data.
-		do_action( 'axisbuilder_layout_configs_meta', $post_id, $post );
-		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
-	}
-
-	/**
-	 * Save Additional Meta-Box data.
-	 */
-	public function save_layout_configs_meta( $post_id ) {
-
-		// Load Configurations
-		self::add_meta_config();
-
-		// Let's bail the save method :)
-		foreach ( self::$add_meta_elements as $meta_element ) {
-			if ( isset( $meta_element['type'] ) && ( $meta_element['type'] == 'fake' || $meta_element['type'] == 'checkbox' ) ) {
-				if ( empty( $_POST[$meta_element['id']] ) ) {
-					$_POST[$meta_element['id']] = 0;
-				}
-			}
-
-			foreach ( $_POST as $key => $value ) {
-				if ( strpos( $key, $meta_element['id'] !== false ) ) {
-					update_post_meta( $post_id, $key, $_POST[$key] );
-				}
-			}
-		}
-	}
-
-	/**
-	 * Set Page/layout Builder Meta-Box data.
-	 */
-	public function save_layout_builder_meta( $post_id ) {
-
-		// Save the builder status and canvas textarea data :)
-		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
-
-		foreach ( $builder_post_meta as $post_meta ) {
-			if ( isset( $_POST[$post_meta] ) ) {
-				update_post_meta( $post_id, '_' . $post_meta, $_POST[$post_meta] );
-			}
-		}
-
-		// Filter the redirect url in case we got a Meta-Box that is expanded. In that case append some POST Paramas.
-		if ( ! empty( $_POST['axisbuilder-expanded-hidden'] ) ) {
-			add_filter( 'redirect_post_location', array( __CLASS__, 'set_builder_expanded_param' ), 10, 2 );
-		}
-	}
-
-	/**
-	 * Set the correct Builder Expanded POST Params.
-	 *
-	 * @param  $location
-	 * @static
-	 * @return string
-	 */
-	public static function set_builder_expanded_param( $location ) {
-		return add_query_arg( 'axisbuilder-expanded', $_POST['axisbuilder-expanded-hidden'], $location );
 	}
 }
 

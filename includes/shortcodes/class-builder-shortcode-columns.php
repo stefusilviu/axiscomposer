@@ -27,7 +27,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 			'type'  => 'layout-tab',
 			'image' => AB()->plugin_url() . '/assets/images/columns/one-full.png'; // Fallback if icon is missing :)
 		);
-		$this->settings       = array(
+		$this->popup_settings = array(
 
 		);
 		parent::__construct();
@@ -69,7 +69,7 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 			'type'  => 'layout-tab',
 			'image' => AB()->plugin_url() . '/assets/images/columns/one-half.png'; // Fallback if icon is missing :)
 		);
-		$this->settings       = array(
+		$this->popup_settings = array(
 
 		);
 		parent::__construct();
@@ -110,7 +110,7 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 			'type'  => 'layout-tab',
 			'image' => AB()->plugin_url() . '/assets/images/columns/one-third.png'; // Fallback if icon is missing :)
 		);
-		$this->settings       = array(
+		$this->popup_settings = array(
 
 		);
 		parent::__construct();
@@ -151,7 +151,7 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 			'type'  => 'layout-tab',
 			'image' => AB()->plugin_url() . '/assets/images/columns/two-third.png'; // Fallback if icon is missing :)
 		);
-		$this->settings       = array(
+		$this->popup_settings = array(
 
 		);
 		parent::__construct();
@@ -192,7 +192,7 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 			'type'  => 'layout-tab',
 			'image' => AB()->plugin_url() . '/assets/images/columns/one-fourth.png'; // Fallback if icon is missing :)
 		);
-		$this->settings       = array(
+		$this->popup_settings = array(
 
 		);
 		parent::__construct();
@@ -233,7 +233,7 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 			'type'  => 'layout-tab',
 			'image' => AB()->plugin_url() . '/assets/images/columns/three-fourth.png'; // Fallback if icon is missing :)
 		);
-		$this->settings       = array(
+		$this->popup_settings = array(
 
 		);
 		parent::__construct();

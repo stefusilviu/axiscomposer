@@ -31,10 +31,10 @@ abstract class AB_Shortcode {
 	public $shortcode_data;
 
 	/**
-	 * Shortcode Settings
+	 * Shortcode Popup Settings
 	 * @var array
 	 */
-	public $settings;
+	public $popup_settings;
 
 	/**
 	 * Class Constructor Method.

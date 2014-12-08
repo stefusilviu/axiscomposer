@@ -84,6 +84,9 @@ class AB_Admin_Assets {
 
 			wp_enqueue_script( 'axisbuilder_admin' );
 
+			// Example only
+			wp_register_script( 'axisbuilder_example', AB()->plugin_url() . '/assets/scripts/example.js', array( 'jquery' ), AB_VERSION );
+
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
 			wp_enqueue_script( 'jquery-ui-core' );

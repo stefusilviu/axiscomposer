@@ -72,7 +72,7 @@ class AB_Shortcodes {
 
 		// Load shortcodes in order
 		foreach ( $load_shortcodes as $shortcode ) {
-			$load_shortcode = new $shortcode();
+			new $shortcode();
 		}
 	}
 }

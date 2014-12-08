@@ -13,7 +13,7 @@
 abstract class AB_Shortcode {
 
 	/**
-	 * Settings
+	 * Shortcode Configurations.
 	 * @var array
 	 */
 	public $config;
@@ -140,28 +140,5 @@ abstract class AB_Shortcode {
 				break;
 			}
 		}
-	}
-
-	/**
-	 * Render new Builder Canvas Element
-	 * @param  boolean $content
-	 * @param  array   $args
-	 * @return array
-	 */
-	public static function prepare_editor_element( $content = false, $args = array() ) {
-		// Set default content unless it was already passed
-		if ( $content === false ) {
-			// $content = self::$get_default_content( $content );
-		}
-
-		self::get_default_content( $content );
-	}
-
-	/**
-	 * Helper function that gets the default value of the content element.
-	 */
-	public static function get_default_content( $content = null ) {
-		global $axisbuilder_elements;
-
 	}
 }

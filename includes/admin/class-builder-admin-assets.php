@@ -111,7 +111,7 @@ class AB_Admin_Assets {
 
 		foreach ( $axisbuilder_shortcodes as $shortcode ) {
 			$class    = $shortcode['php_class'];
-			$template = $class::prepare_editor_element();
+			$template = '';
 
 			if ( is_array( $template ) ) {
 				continue;

@@ -16,6 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_Shortcode_Codeblock extends AB_Shortcode {
 
 	/**
+	 * __construct function.
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+
+	/**
 	 * Create the config array for the shortcode button.
 	 */
 	public function shortcode_button() {

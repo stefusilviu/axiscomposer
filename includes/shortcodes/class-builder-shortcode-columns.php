@@ -15,6 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class AB_Shortcode_Columns extends AB_Shortcode {
 
+	/**
+	 * __construct function.
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+
 	public function shortcode_button() {
 
 		// Shortcode Button

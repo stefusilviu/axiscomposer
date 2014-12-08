@@ -42,7 +42,6 @@ class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
 			'content-tab' => __( 'Content Elements', 'axisbuilder' ),
 			'media-tab'   => __( 'Media Elements',   'axisbuilder' ),
 			'plugin-tab'  => __( 'Plugin Additions', 'axisbuilder' ),
-			'custom-tab'  => __( 'Custom Elements',  'axisbuilder' ),
 		);
 
 		$this->assertEquals( $expected_shortcode_tabs, get_builder_core_shortcode_tabs() );

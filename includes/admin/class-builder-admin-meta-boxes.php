@@ -117,7 +117,7 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	public function create_meta_box() {
-
+		return 'Empty Meta-Boxes'; // Will be utilized later :)
 	}
 
 	public function create_page_builder() {

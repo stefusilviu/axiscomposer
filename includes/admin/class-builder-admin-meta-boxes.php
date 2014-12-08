@@ -117,7 +117,9 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	public function create_meta_box() {
+		?>
 
+		<?php
 	}
 
 	public function create_page_builder() {

@@ -19,6 +19,10 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		$this->shortcode_id   = 'codeblock';
+		$this->shortcode_name = __( 'Code Block', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axisbuilder' );
+
 		parent::__construct();
 	}
 

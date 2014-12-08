@@ -19,6 +19,10 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		$this->shortcode_id   = 'col_one_full';
+		$this->shortcode_name = __( '1/1', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Creates a single full width column', 'axisbuilder' );
+
 		parent::__construct();
 	}
 
@@ -46,6 +50,17 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 
 class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 
+	/**
+	 * Class Constructor Method.
+	 */
+	public function __construct() {
+		$this->shortcode_id   = 'col_one_half';
+		$this->shortcode_name = __( '1/2', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Creates a single column with 50&percnt; width', 'axisbuilder' );
+
+		parent::__construct();
+	}
+
 	public function shortcode_button() {
 
 		// Shortcode Button
@@ -68,6 +83,17 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 }
 
 class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
+
+	/**
+	 * Class Constructor Method.
+	 */
+	public function __construct() {
+		$this->shortcode_id   = 'col_one_third';
+		$this->shortcode_name = __( '1/3', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Creates a single column with 30&percnt; width', 'axisbuilder' );
+
+		parent::__construct();
+	}
 
 	public function shortcode_button() {
 
@@ -92,6 +118,17 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 
 class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 
+	/**
+	 * Class Constructor Method.
+	 */
+	public function __construct() {
+		$this->shortcode_id   = 'col_two_third';
+		$this->shortcode_name = __( '2/3', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Creates a single column with 67&percnt; width', 'axisbuilder' );
+
+		parent::__construct();
+	}
+
 	public function shortcode_button() {
 
 		// Shortcode Button
@@ -115,6 +152,17 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 
 class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 
+	/**
+	 * Class Constructor Method.
+	 */
+	public function __construct() {
+		$this->shortcode_id   = 'col_one_fourth';
+		$this->shortcode_name = __( '1/4', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Creates a single column with 25&percnt; width', 'axisbuilder' );
+
+		parent::__construct();
+	}
+
 	public function shortcode_button() {
 
 		// Shortcode Button
@@ -137,6 +185,17 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 }
 
 class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
+
+	/**
+	 * Class Constructor Method.
+	 */
+	public function __construct() {
+		$this->shortcode_id   = 'col_three_fourth';
+		$this->shortcode_name = __( '3/4', 'axisbuilder' );
+		$this->shortcode_desc = __( 'Creates a single column with 75&percnt; width', 'axisbuilder' );
+
+		parent::__construct();
+	}
 
 	public function shortcode_button() {
 

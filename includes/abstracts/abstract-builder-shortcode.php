@@ -34,7 +34,7 @@ abstract class AB_Shortcode {
 	 * Shortcode Description
 	 * @var string
 	 */
-	public $shortcode_description;
+	public $shortcode_desc;
 
 	/**
 	 * Shortcode Configurations

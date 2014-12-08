@@ -46,10 +46,10 @@ if ( ! function_exists( 'get_builder_core_shortcode_tabs' ) ) :
  */
 function get_builder_core_shortcode_tabs() {
 	$shortcode_tabs = array(
-		'layout-tab'  => __( 'Layout Elements',  'axisbuilder' ),
-		'content-tab' => __( 'Content Elements', 'axisbuilder' ),
-		'media-tab'   => __( 'Media Elements',   'axisbuilder' ),
-		'plugin-tab'  => __( 'Plugin Additions', 'axisbuilder' ),
+		'layout'  => __( 'Layout Elements',  'axisbuilder' ),
+		'content' => __( 'Content Elements', 'axisbuilder' ),
+		'media'   => __( 'Media Elements',   'axisbuilder' ),
+		'plugin'  => __( 'Plugin Additions', 'axisbuilder' ),
 	);
 
 	return apply_filters( 'axisbuilder_shortcode_tabs', $shortcode_tabs );

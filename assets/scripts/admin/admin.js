@@ -61,6 +61,7 @@ function AB_Logger( text, type ) {
 		// Activate the Whole Interface
 		builderActivate: function() {
 			this.builderPosition();
+			this.shortcodesToInterface();
 			this.builderBehaviour();
 		},
 

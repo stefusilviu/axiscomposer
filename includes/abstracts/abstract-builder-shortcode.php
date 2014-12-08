@@ -13,10 +13,40 @@
 abstract class AB_Shortcode {
 
 	/**
-	 * Shortcode Configurations.
+	 * CSS class
+	 * @var string
+	 */
+	public $shortcode_cssclass;
+
+	/**
+	 * Shortcode ID
+	 * @var string
+	 */
+	public $shortcode_id;
+
+	/**
+	 * Shortcode Name
+	 * @var string
+	 */
+	public $shortcode_name;
+
+	/**
+	 * Shortcode Description
+	 * @var string
+	 */
+	public $shortcode_description;
+
+	/**
+	 * Shortcode Configurations
 	 * @var array
 	 */
 	public $config;
+
+	/**
+	 * Shortcode Settings
+	 * @var array
+	 */
+	public $settings;
 
 	/**
 	 * Class Constructor Method.

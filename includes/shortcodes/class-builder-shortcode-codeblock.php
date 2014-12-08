@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_Shortcode_Codeblock extends AB_Shortcode {
 
 	/**
-	 * __construct function.
+	 * Class Constructor Method.
 	 */
 	public function __construct() {
 		parent::__construct();

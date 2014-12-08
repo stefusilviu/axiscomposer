@@ -2,7 +2,7 @@
 global $builder;
 
 $boxes = array(
-	array( 'title' =>__( 'Layout Settings', 'axisbuilder' ), 'id' => 'layout', 'page' => array( 'portfolio', 'page' , 'post' ), 'context' => 'side', 'priority' => 'low' ),
+	array( 'title' =>__( 'Layout Settings', 'axisbuilder' ), 'id' => 'layout', 'page' => array( 'portfolio', 'page' , 'post' ), 'context' => 'normal', 'priority' => 'low' ),
 );
 
 $boxes = apply_filters( 'axisbuilder_meta_boxes', $boxes );

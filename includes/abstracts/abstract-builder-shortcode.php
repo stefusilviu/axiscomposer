@@ -13,6 +13,11 @@
 abstract class AB_Shortcode {
 
 	/**
+	 * @todo Remove
+	 */
+	public $config;
+
+	/**
 	 * Shortcode Name
 	 * @var string
 	 */
@@ -53,8 +58,10 @@ abstract class AB_Shortcode {
 	public function shortcode_tabs() {
 		$load_shortcode_tabs = get_builder_core_shortcode_tabs();
 
-		foreach ( $this->shortcode_data as $key => $shortcode ) {
-
+		foreach ( $this->shortcode_data as $shortcode ) {
+			print '<pre>';
+			print_r( $shortcode );
+			print '</pre>';
 		}
 	}
 

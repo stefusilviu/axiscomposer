@@ -19,7 +19,7 @@ abstract class AB_Shortcode {
 	public $shortcode_name;
 
 	/**
-	 * Shortcode Tooltip
+	 * Shortcode Tooltip Description
 	 * @var string
 	 */
 	public $shortcode_desc;

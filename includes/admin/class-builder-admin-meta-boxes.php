@@ -117,10 +117,7 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	public function create_meta_box() {
-		$shortcode = new AB_Shortcode_Columns();
-		$tabs = $shortcode->shortcode_loader();
 
-		echo $tabs;
 	}
 
 	public function create_page_builder() {

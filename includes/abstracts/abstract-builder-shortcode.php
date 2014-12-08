@@ -45,7 +45,7 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
-		// $this->shortcode_loader();
+		$this->shortcode_loader();
 
 		$this->shortcode_button();
 		$this->shortcode_config();
@@ -56,7 +56,6 @@ abstract class AB_Shortcode {
 	 * Loads shortcode tabs contents.
 	 */
 	public function shortcode_loader() {
-		$title  = $content = '';
 
 	}
 

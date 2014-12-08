@@ -55,8 +55,8 @@ abstract class AB_Shortcode {
 	/**
 	 * Loads shortcode tabs contents.
 	 */
-	public function shortcode_loader() {
-
+	public function shortcode_loader( $type = 'plugin' ) {
+		$this->shortcode_data[$type];
 	}
 
 	/**

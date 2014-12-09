@@ -102,7 +102,7 @@ class AB_Meta_Box_Builder_Data {
 	/**
 	 * Save Meta-Box data.
 	 */
-	public function save( $post_id, $post ) {
+	public function save( $post_id ) {
 
 		// Save the builder status and canvas textarea data :)
 		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );

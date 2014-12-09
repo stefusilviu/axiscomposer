@@ -14,19 +14,19 @@ abstract class AB_Shortcode {
 
 	/**
 	 * Shortcode ID
-	 * @var array
+	 * @var string
 	 */
 	public $id;
 
 	/**
 	 * Shortcode Title
-	 * @var array
+	 * @var string
 	 */
 	public $title;
 
 	/**
 	 * Shortcode Tooltip
-	 * @var array
+	 * @var string
 	 */
 	public $tooltip;
 

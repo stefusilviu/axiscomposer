@@ -35,11 +35,11 @@ class AB_Meta_Box_Builder_Data {
 
 		?>
 
-		<!-- Page Builder Wrapper -->
-		<div id="axisbuilder-wrapper" class="wrap-pagebuilder">
+		<!-- Page Builder Panel -->
+		<div class="axisbuilder-panel">
 
-			<!-- Tabbed Panel -->
-			<div class="panel-wrap builder_data">
+			<!-- Tabbed Panels -->
+			<div class="panels-wrap builder_data">
 				<ul class="builder_data_tabs axisbuilder-tabs">
 					<?php
 						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
@@ -59,7 +59,7 @@ class AB_Meta_Box_Builder_Data {
 								'class'  => array( 'hide_if_empty' ),
 							),
 							'plugin'  => array(
-								'label'  => __( 'Plugin Elements', 'axisbuilder' ),
+								'label'  => __( 'Plugin Additions', 'axisbuilder' ),
 								'target' => 'plugin_builder_data',
 								'class'  => array( 'hide_if_empty' ),
 							),
@@ -76,7 +76,10 @@ class AB_Meta_Box_Builder_Data {
 				</ul>
 
 				<div id="layout_builder_data" class="panel axisbuilder_options_panel">
-					<?php echo AB()->shortcodes->load_shortcode_buttons( 'layout' ); ?>
+					<?php
+
+						echo AB()->shortcodes->load_shortcode_buttons( 'layout' );
+					?>
 				</div>
 
 				<div id="content_builder_data" class="panel axisbuilder_options_panel">

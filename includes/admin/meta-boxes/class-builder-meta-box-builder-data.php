@@ -28,6 +28,7 @@ class AB_Meta_Box_Builder_Data {
 
 		// Builder Post Meta
 		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+		$builder_canvas = get_post_meta( get_the_ID(), '_axisbuilder_canvas', true );
 
 		// Builder Status
 		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
@@ -93,6 +94,49 @@ class AB_Meta_Box_Builder_Data {
 			<div class="clear"></div>
 		</div>
 		<?php
+
+		$html = '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
+
+			// Builder Handle
+			$html .= '<div id="axisbuilder-handle" class="handle-bar">';
+
+				$html .= '<div class="control-bar">';
+
+					// History Sections
+					$html .= '<div class="history-sections">';
+						$html .= '<div class="history-action" data-axis-tooltip="History">';
+							$html .= '<a href="#" class="undo-icon undo-data" title="Undo"></i></a>';
+							$html .= '<a href="#" class="redo-icon redo-data" title="Redo"></i></a>';
+						$html .= '</div>';
+						$html .= '<div class="delete-action">';
+							$html .= '<a href="#" class="trash-icon trash-data" data-axis-tooltip="Permanently delete all canvas elements"></a>';
+						$html .= '</div>';
+					$html .= '</div>';
+
+					// Content Sections
+					$html .= '<div class="content-sections">';
+						$html .= '<div class="template-action">';
+							$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
+						$html .= '</div>';
+						$html .= '<div class="fullscreen-action">';
+							$html .= '<a href="#" class="expand-icon axisbuilder-attach-expand">Close</a>';
+						$html .= '</div>';
+					$html .= '</div>';
+
+				$html .= '</div>';
+
+			$html .= '</div>';
+
+			// Builder Canvas
+			$html .= '<div id="axisbuilder-canvas" class="visual-editor">';
+				$html .= '<div class="canvas-area loader drag-element" data-dragdrop-level="0"></div>';
+				$html .= '<div class="canvas-secure-data">';
+					$html .= '<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data">' . esc_textarea( $builder_canvas ) . '</textarea>'; // readonly="readonly" later on
+				$html .= '</div>';
+			$html .= '</div>';
+		$html .= '</div>';
+
+		echo $html;
 	}
 
 	/**
@@ -126,7 +170,7 @@ class AB_Meta_Box_Builder_Data {
 	public static function save( $post_id, $post ) {
 
 		// Save the builder status and canvas textarea data :)
-		$builder_post_meta = array( 'axisbuilder_status' );
+		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
 
 		foreach ( $builder_post_meta as $post_meta ) {
 			if ( isset( $_POST[$post_meta] ) ) {

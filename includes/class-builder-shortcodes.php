@@ -105,4 +105,12 @@ class AB_Shortcodes {
 
 		return $_available_shortcodes;
 	}
+
+	/**
+	 * Get shortcode Buttons.
+	 * @return array
+	 */
+	public function load_shortcode_buttons( $type = 'plugin' ) {
+		return $type;
+	}
 }

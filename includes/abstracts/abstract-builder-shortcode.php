@@ -50,17 +50,18 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Loads shortcode tabs contents.
-	 */
-	public function shortcode_loader( $type = 'plugin' ) {
-		return 'This section will now load shortcode buttons :)';
-	}
-
-	/**
 	 * Auto-set shortcode configurations.
 	 */
 	protected function shortcode_config() {
 		$this->shortcode['php_class'] = get_class( $this );
+
+		if ( empty( $this->shortcode['class'] ) ) {
+			$this->shortcode['class'] = '';
+		}
+
+		if ( empty( $this->shortcode['target'] ) ) {
+			$this->shortcode['target'] = '';
+		}
 
 		if ( empty( $this->shortcode['drag-level'] ) ) {
 			$this->shortcode['drag-level'] = 10;

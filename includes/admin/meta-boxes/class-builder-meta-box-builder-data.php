@@ -65,19 +65,19 @@ class AB_Meta_Box_Builder_Data {
 			</ul>
 
 			<div id="layout_builder_data" class="panel axisbuilder_options_panel">
-				<?php self::fetch_shortcode_buttons( 'layout' ); ?>
+				<?php echo AB()->shortcodes->load_shortcode_buttons( 'layout' ); ?>
 			</div>
 
 			<div id="content_builder_data" class="panel axisbuilder_options_panel">
-				<?php self::fetch_shortcode_buttons( 'content' ); ?>
+				<?php echo AB()->shortcodes->load_shortcode_buttons( 'content' ); ?>
 			</div>
 
 			<div id="media_builder_data" class="panel axisbuilder_options_panel">
-				<?php self::fetch_shortcode_buttons( 'media' ); ?>
+				<?php echo AB()->shortcodes->load_shortcode_buttons( 'media' ); ?>
 			</div>
 
 			<div id="plugin_builder_data" class="panel axisbuilder_options_panel">
-				<?php self::fetch_shortcode_buttons( 'plugin' ); ?>
+				<?php echo AB()->shortcodes->load_shortcode_buttons( 'plugin' ); ?>
 			</div>
 
 			<?php
@@ -88,15 +88,6 @@ class AB_Meta_Box_Builder_Data {
 			<div class="clear"></div>
 		</div>
 		<?php
-	}
-
-	/**
-	 * Fetch the shortcodes buttons.
-	 * @param  string $type Tabbed Name.
-	 * @return string       Shortcode Button Links.
-	 */
-	public static function fetch_shortcode_buttons( $type = 'plugin' ) {
-		return 'This section will now return shortcode buttons :)';
 	}
 
 	/**

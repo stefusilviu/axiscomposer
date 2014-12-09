@@ -185,10 +185,6 @@ class AB_Admin_Meta_Boxes {
 		global $axisbuilder_shortcodes;
 		$title  = $content = '';
 
-		// Builder Post Meta
-		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$builder_canvas = get_post_meta( get_the_ID(), '_axisbuilder_canvas', true );
-
 		$loop = 0;
 
 		// Let's bail if shortcode exists.

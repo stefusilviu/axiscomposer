@@ -27,8 +27,8 @@ class AB_Meta_Box_Builder_Data {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
 		// Builder Post Meta
-		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
-		$builder_canvas = get_post_meta( get_the_ID(), '_axisbuilder_canvas', true );
+		$builder_status = get_post_meta( $post->ID, '_axisbuilder_status', true );
+		$builder_canvas = get_post_meta( $post->ID, '_axisbuilder_canvas', true );
 
 		// Builder Status
 		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';

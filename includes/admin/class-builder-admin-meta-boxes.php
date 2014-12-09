@@ -312,7 +312,7 @@ class AB_Admin_Meta_Boxes {
 
 			$html .= '</div>';
 
-			echo $html;
+			// echo $html;
 		}
 	}
 

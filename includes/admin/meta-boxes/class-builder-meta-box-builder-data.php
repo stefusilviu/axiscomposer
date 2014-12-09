@@ -96,7 +96,7 @@ class AB_Meta_Box_Builder_Data {
 	 * @return string       Shortcode Button Links.
 	 */
 	public static function fetch_shortcode_buttons( $type = 'plugin' ) {
-		echo $type;
+		return 'This section will now return shortcode buttons :)';
 	}
 
 	/**

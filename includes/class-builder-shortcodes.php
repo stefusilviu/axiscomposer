@@ -70,9 +70,39 @@ class AB_Shortcodes {
 		// Filter
 		$load_shortcodes = apply_filters( 'axisbuilder_shortcodes', $load_shortcodes );
 
+		// Get sort order End
+		$order_end = 999;
+
 		// Load shortcodes in order
 		foreach ( $load_shortcodes as $shortcode ) {
-			new $shortcode();
+			$load_shortcode = new $shortcode();
+
+			if ( isset( $load_shortcode->shortcode['sort'] ) && is_numeric( $load_shortcode->shortcode['sort'] ) ) {
+				// Add in position
+				$this->shortcodes[ $load_shortcode->shortcode['sort'] ] = $load_shortcode;
+			} else {
+				// Add to end of the array
+				$this->shortcodes[ $order_end ] = $load_shortcode;
+				$order_end++;
+			}
 		}
+
+		ksort( $this->shortcodes );
+	}
+
+	/**
+	 * Get shortcodes.
+	 * @return array
+	 */
+	public function get_shortcodes() {
+		$_available_shortcodes = array();
+
+		if ( sizeof( $this->shortcodes ) > 0 ) {
+			foreach ( $this->shortcodes as $shortcode ) {
+				$_available_shortcodes[ $shortcode->id ] = $shortcode;
+			}
+		}
+
+		return $_available_shortcodes;
 	}
 }

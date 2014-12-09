@@ -26,9 +26,12 @@ class AB_Meta_Box_Builder_Data {
 	public static function output( $post ) {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
+		// Builder Post Meta
+		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
+
 		?>
 		<div class="panel-wrap builder_data">
-			<?php echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( get_post_meta( $post->ID, '_axisbuilder_status', true ) ) . '"/>'; ?>
+			<?php echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>'; ?>
 			<ul class="builder_data_tabs axisbuilder-tabs">
 				<?php
 					$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
@@ -88,6 +91,31 @@ class AB_Meta_Box_Builder_Data {
 			<div class="clear"></div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Filter the postbox classes for a specific screen and screen ID combo.
+	 * @param  array $classes An array of postbox classes.
+	 * @return array
+	 */
+	public static function postbox_classes( $classes ) {
+
+		// Class for hidden items
+		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
+			$classes[] = 'axisbuilder-hidden';
+		}
+
+		// Class for expanded items
+		if ( ! empty( $_GET['axisbuilder-expanded'] ) && ( 'axisbuilder-editor' === $_GET['axisbuilder-expanded'] ) ) {
+			$classes[] = 'axisbuilder-expanded';
+		}
+
+		// Class for Debug or Test-mode
+		if ( defined( 'AB_DEBUG' ) && AB_DEBUG ) {
+			$classes[] = 'axisbuilder-debug';
+		}
+
+		return $classes;
 	}
 
 	/**

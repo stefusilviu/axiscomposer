@@ -32,8 +32,8 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save Meta-Boxes
-		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
-		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 20, 2 );
+		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 20, 2 );
+		// add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 20, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -98,7 +98,7 @@ class AB_Admin_Meta_Boxes {
 		// Page Builder
 		foreach ( $screens as $type ) {
 			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
-			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', array( $this, 'custom_postbox_classes' ) );
+			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', 'AB_Meta_Box_Builder_Data::postbox_classes' );
 		}
 
 		// Load Configurations
@@ -114,31 +114,6 @@ class AB_Admin_Meta_Boxes {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Filter the postbox classes for a specific screen and screen ID combo.
-	 * @param  array $classes An array of postbox classes.
-	 * @return array
-	 */
-	public function custom_postbox_classes( $classes ) {
-
-		// Class for hidden items
-		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
-			$classes[] = 'axisbuilder-hidden';
-		}
-
-		// Class for expanded items
-		if ( ! empty( $_GET['axisbuilder-expanded'] ) && ( 'axisbuilder-editor' === $_GET['axisbuilder-expanded'] ) ) {
-			$classes[] = 'axisbuilder-expanded';
-		}
-
-		// Class for Debug or Test-mode
-		if ( defined( 'AB_DEBUG' ) && AB_DEBUG ) {
-			$classes[] = 'axisbuilder-debug';
-		}
-
-		return $classes;
 	}
 
 	/**

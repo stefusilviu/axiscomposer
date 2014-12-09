@@ -210,7 +210,6 @@ class AB_Meta_Box_Builder_Data {
 
 	/**
 	 * Set the correct Builder Expanded ID.
-	 *
 	 * @param  $location
 	 * @return string
 	 */

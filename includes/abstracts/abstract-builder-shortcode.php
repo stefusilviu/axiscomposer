@@ -53,22 +53,18 @@ abstract class AB_Shortcode {
 	 * Auto-set shortcode configurations.
 	 */
 	protected function shortcode_config() {
-		$this->shortcode['php_class'] = get_class( $this );
+		$load_shortcode_data = array(
+			'class'      => '',
+			'target'     => '',
+			'drag-level' => 10,
+			'drop-level' => 10,
+			'type-class' => get_class( $this )
+		);
 
-		if ( empty( $this->shortcode['class'] ) ) {
-			$this->shortcode['class'] = '';
-		}
-
-		if ( empty( $this->shortcode['target'] ) ) {
-			$this->shortcode['target'] = '';
-		}
-
-		if ( empty( $this->shortcode['drag-level'] ) ) {
-			$this->shortcode['drag-level'] = 10;
-		}
-
-		if ( empty( $this->shortcode['drop-level'] ) ) {
-			$this->shortcode['drop-level'] = 10;
+		foreach ( $load_shortcode_data as $key => $data ) {
+			if ( empty( $this->shortcode[$key] ) ) {
+				$this->shortcode[$key] = $data;
+			}
 		}
 	}
 }

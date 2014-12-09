@@ -33,7 +33,7 @@ class AB_Admin_Meta_Boxes {
 
 		// Save Meta-Boxes
 		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
-		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 20, 2 );
+		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_meta_data' ), 20, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
@@ -110,7 +110,7 @@ class AB_Admin_Meta_Boxes {
 			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
 
 				foreach ( $meta_box['page'] as $type ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'create_page_builder' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
+					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'output_meta_elements' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
 				}
 			}
 		}
@@ -154,9 +154,16 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Output Additional Meta-Box Elements.
+	 */
+	public function output_meta_elements() {
+		return 'Additional Metabox Elements is returned in future :)';
+	}
+
+	/**
 	 * Save Additional Meta-Box data.
 	 */
-	public function save_layout_configs_meta( $post_id ) {
+	public function save_meta_data( $post_id ) {
 
 		// Load Configurations
 		self::add_meta_config();
@@ -174,72 +181,6 @@ class AB_Admin_Meta_Boxes {
 					update_post_meta( $post_id, $key, $_POST[$key] );
 				}
 			}
-		}
-	}
-
-	/**
-	 * @deprecated Page Builder Data
-	 * @todo Remove this after the builder is ready :)
-	 */
-	public function create_page_builder() {
-		global $axisbuilder_shortcodes;
-		$title  = $content = '';
-
-		$loop = 0;
-
-		// Let's bail if shortcode exists.
-		if ( ! empty( $axisbuilder_shortcodes ) ) {
-
-			// Shortcode tabs
-			$load_shortcode_tabs = get_builder_core_shortcode_tabs();
-			$load_shortcode_tabs = empty( $load_shortcode_tabs ) ? array() : array_flip( $load_shortcode_tabs );
-
-			// Will hide the PHP warnings :)
-			foreach ( $load_shortcode_tabs as &$empty_tabs ) {
-				$empty_tabs = array();
-			}
-
-			foreach ( $axisbuilder_shortcodes as $shortcode ) {
-				if ( empty( $shortcode['tinyMCE']['tiny_only'] ) ) {
-					if ( ! isset( $shortcode['type'] ) ) {
-						$shortcode['type'] = __( 'Custom Elements', 'axisbuilder' );
-					}
-				}
-
-				$load_shortcode_tabs[$shortcode['type']][] = $shortcode;
-			}
-
-			foreach ( $load_shortcode_tabs as $key => $tab ) {
-				if ( empty( $tab ) ) {
-					continue;
-				}
-
-				usort( $tab, array( $this, 'sort_by_order' ) );
-
-				$loop ++;
-				$title   .= '<a href="#axisbuilder-tab-' . $loop . '">' . $key . '</a>';
-				$content .= '<div class="axisbuilder-tab-shortcodes axisbuilder-tab-' . $loop . '">';
-
-				foreach ( $tab as $shortcode ) {
-					if ( empty( $shortcode['invisible'] ) ) {
-						// $content .= $this->create_shortcode_button( $shortcode );
-					}
-				}
-
-				$content .= '</div>';
-			}
-
-			// Builder Wrapper
-			$html .= '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
-
-				// Builder Loader
-				$html .= '<div id="axisbuilder-loader" class="axisbuilder-meta-box axisbuilder-editor-custom">';
-					$html .= '<div class="axisbuilder-shortcodes axisbuilder-tab-container"><div class="axisbuilder-tab-title">' . $title . '</div>' . $content . '</div>';
-				$html .= '</div>';
-
-			$html .= '</div>';
-
-			// echo $html;
 		}
 	}
 }

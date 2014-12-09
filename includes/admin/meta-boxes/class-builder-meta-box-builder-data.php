@@ -34,109 +34,110 @@ class AB_Meta_Box_Builder_Data {
 		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
 
 		?>
-		<div class="panel-wrap builder_data">
-			<ul class="builder_data_tabs axisbuilder-tabs">
+
+		<!-- Page Builder Wrapper -->
+		<div id="axisbuilder-wrapper" class="wrap-pagebuilder">
+
+			<!-- Tabbed Panel -->
+			<div class="panel-wrap builder_data">
+				<ul class="builder_data_tabs axisbuilder-tabs">
+					<?php
+						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
+							'layout'  => array(
+								'label'  => __( 'Layout Elements', 'axisbuilder' ),
+								'target' => 'layout_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'content' => array(
+								'label'  => __( 'Content Elements', 'axisbuilder' ),
+								'target' => 'content_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'media'   => array(
+								'label'  => __( 'Media Elements', 'axisbuilder' ),
+								'target' => 'media_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'plugin'  => array(
+								'label'  => __( 'Plugin Elements', 'axisbuilder' ),
+								'target' => 'plugin_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+						) );
+
+						foreach ( $builder_data_tabs as $key => $tab ) {
+							?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
+								<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
+							</li><?php
+						}
+
+						do_action( 'axisbuilder_shortcode_write_panel_tabs' );
+					?>
+				</ul>
+
+				<div id="layout_builder_data" class="panel axisbuilder_options_panel">
+					<?php echo AB()->shortcodes->load_shortcode_buttons( 'layout' ); ?>
+				</div>
+
+				<div id="content_builder_data" class="panel axisbuilder_options_panel">
+					<?php echo AB()->shortcodes->load_shortcode_buttons( 'content' ); ?>
+				</div>
+
+				<div id="media_builder_data" class="panel axisbuilder_options_panel">
+					<?php echo AB()->shortcodes->load_shortcode_buttons( 'media' ); ?>
+				</div>
+
+				<div id="plugin_builder_data" class="panel axisbuilder_options_panel">
+					<?php echo AB()->shortcodes->load_shortcode_buttons( 'plugin' ); ?>
+				</div>
+
 				<?php
-					$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
-						'layout'  => array(
-							'label'  => __( 'Layout Elements', 'axisbuilder' ),
-							'target' => 'layout_builder_data',
-							'class'  => array( 'hide_if_empty' ),
-						),
-						'content' => array(
-							'label'  => __( 'Content Elements', 'axisbuilder' ),
-							'target' => 'content_builder_data',
-							'class'  => array( 'hide_if_empty' ),
-						),
-						'media'   => array(
-							'label'  => __( 'Media Elements', 'axisbuilder' ),
-							'target' => 'media_builder_data',
-							'class'  => array( 'hide_if_empty' ),
-						),
-						'plugin'  => array(
-							'label'  => __( 'Plugin Elements', 'axisbuilder' ),
-							'target' => 'plugin_builder_data',
-							'class'  => array( 'hide_if_empty' ),
-						),
-					) );
 
-					foreach ( $builder_data_tabs as $key => $tab ) {
-						?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
-							<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
-						</li><?php
-					}
-
-					do_action( 'axisbuilder_shortcode_write_panel_tabs' );
+					do_action( 'axisbuilder_shortcode_data_panels' );
 				?>
-			</ul>
 
-			<div id="layout_builder_data" class="panel axisbuilder_options_panel">
-				<?php echo AB()->shortcodes->load_shortcode_buttons( 'layout' ); ?>
+				<div class="clear"></div>
 			</div>
 
-			<div id="content_builder_data" class="panel axisbuilder_options_panel">
-				<?php echo AB()->shortcodes->load_shortcode_buttons( 'content' ); ?>
+			<!-- Builder Handle -->
+			<div id="axisbuilder-handle" class="handle-bar">
+
+				<div class="control-bar">
+
+					<!-- History Sections -->
+					<div class="history-sections">
+						<div class="history-action" data-axis-tooltip="<?php _e( 'History', 'axisbuilder' ); ?>">
+							<a href="#" class="undo-icon undo-data" title="Undo"></i></a>
+							<a href="#" class="redo-icon redo-data" title="Redo"></i></a>
+						</div>
+						<div class="delete-action">
+							<a href="#" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
+						</div>
+					</div>
+
+					<!-- Content Sections -->
+					<div class="content-sections">
+						<div class="template-action">
+							<a href="#" class="button button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
+						</div>
+						<div class="fullscreen-action">
+							<a href="#" class="expand-icon axisbuilder-attach-expand"><?php _e( 'Close', 'axisbuilder' ); ?></a>
+						</div>
+					</div>
+
+				</div>
+
 			</div>
 
-			<div id="media_builder_data" class="panel axisbuilder_options_panel">
-				<?php echo AB()->shortcodes->load_shortcode_buttons( 'media' ); ?>
+			<!-- Builder Canvas -->
+			<div id="axisbuilder-canvas" class="visual-editor">
+				<div class="canvas-area loader drag-element" data-dragdrop-level="0"></div>
+				<div class="canvas-secure-data">
+					<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data"><?php esc_textarea( $builder_canvas ); ?>'</textarea>'; <!-- readonly="readonly" later -->
+				</div>
 			</div>
-
-			<div id="plugin_builder_data" class="panel axisbuilder_options_panel">
-				<?php echo AB()->shortcodes->load_shortcode_buttons( 'plugin' ); ?>
-			</div>
-
-			<?php
-
-				do_action( 'axisbuilder_shortcode_data_panels' );
-			?>
-
-			<div class="clear"></div>
 		</div>
 		<?php
-
-		$html = '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
-
-			// Builder Handle
-			$html .= '<div id="axisbuilder-handle" class="handle-bar">';
-
-				$html .= '<div class="control-bar">';
-
-					// History Sections
-					$html .= '<div class="history-sections">';
-						$html .= '<div class="history-action" data-axis-tooltip="History">';
-							$html .= '<a href="#" class="undo-icon undo-data" title="Undo"></i></a>';
-							$html .= '<a href="#" class="redo-icon redo-data" title="Redo"></i></a>';
-						$html .= '</div>';
-						$html .= '<div class="delete-action">';
-							$html .= '<a href="#" class="trash-icon trash-data" data-axis-tooltip="Permanently delete all canvas elements"></a>';
-						$html .= '</div>';
-					$html .= '</div>';
-
-					// Content Sections
-					$html .= '<div class="content-sections">';
-						$html .= '<div class="template-action">';
-							$html .= '<a href="#" class="button button-secondary" data-axis-tooltip="Save or Load templates">Templates</a>';
-						$html .= '</div>';
-						$html .= '<div class="fullscreen-action">';
-							$html .= '<a href="#" class="expand-icon axisbuilder-attach-expand">Close</a>';
-						$html .= '</div>';
-					$html .= '</div>';
-
-				$html .= '</div>';
-
-			$html .= '</div>';
-
-			// Builder Canvas
-			$html .= '<div id="axisbuilder-canvas" class="visual-editor">';
-				$html .= '<div class="canvas-area loader drag-element" data-dragdrop-level="0"></div>';
-				$html .= '<div class="canvas-secure-data">';
-					$html .= '<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data">' . esc_textarea( $builder_canvas ) . '</textarea>'; // readonly="readonly" later on
-				$html .= '</div>';
-			$html .= '</div>';
-		$html .= '</div>';
-
-		echo $html;
 	}
 
 	/**

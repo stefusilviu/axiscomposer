@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Meta_Box_Builder_Data {
 
+	private static $load_shortcode;
+
 	/**
 	 * Output the Metabox
 	 */
@@ -75,24 +77,10 @@ class AB_Meta_Box_Builder_Data {
 					?>
 				</ul>
 
-				<div id="layout_builder_data" class="panel axisbuilder_options_panel">
-					<?php
-
-						echo AB()->shortcodes->load_shortcode_buttons( 'layout' );
-					?>
-				</div>
-
-				<div id="content_builder_data" class="panel axisbuilder_options_panel">
-					<?php echo AB()->shortcodes->load_shortcode_buttons( 'content' ); ?>
-				</div>
-
-				<div id="media_builder_data" class="panel axisbuilder_options_panel">
-					<?php echo AB()->shortcodes->load_shortcode_buttons( 'media' ); ?>
-				</div>
-
-				<div id="plugin_builder_data" class="panel axisbuilder_options_panel">
-					<?php echo AB()->shortcodes->load_shortcode_buttons( 'plugin' ); ?>
-				</div>
+				<div id="layout_builder_data" class="panel axisbuilder_options_panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axisbuilder_options_panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axisbuilder_options_panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axisbuilder_options_panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
 
 				<?php
 
@@ -141,6 +129,38 @@ class AB_Meta_Box_Builder_Data {
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Fetch Shortcode Buttons.
+	 * @param  string  $type    Tabbed content type
+	 * @param  boolean $display Return or Print
+	 * @return array            Shortcode Buttons array
+	 */
+	protected static function fetch_shortcode_buttons( $type = 'plugin', $display = true ) {
+
+		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
+
+			if ( $load_shortcodes->shortcode['type'] === $type ) {
+
+				// Fetch shortcode data :)
+				$title     = $load_shortcodes->title;
+				$tooltip   = $load_shortcodes->tooltip;
+				$shortcode = $load_shortcodes->shortcode;
+
+				// Fallback if icon is missing :)
+				$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
+
+				// Create a button Link :)
+				self::$load_shortcode = '<a href="#' . $shortcode['href-class'] . '" class="insert-shortcode ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-axis-tooltip="' . $tooltip . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
+
+				if ( $display ) {
+					echo self::$load_shortcode;
+				} else {
+					return self::$load_shortcode;
+				}
+			}
+		}
 	}
 
 	/**

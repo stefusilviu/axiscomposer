@@ -233,12 +233,6 @@ class AB_Admin_Meta_Boxes {
 				$content .= '</div>';
 			}
 
-			// Create Nonce field
-			wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
-
-			// Builder Status
-			$html = '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
-
 			// Builder Wrapper
 			$html .= '<div id="axisbuilder-wrapper" class="wrap-pagebuilder">';
 

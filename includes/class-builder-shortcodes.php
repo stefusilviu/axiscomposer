@@ -108,7 +108,7 @@ class AB_Shortcodes {
 
 	/**
 	 * Get shortcode Buttons.
-	 * @return array
+	 * @return string
 	 */
 	public function load_shortcode_buttons( $type = 'plugin' ) {
 		return $type;

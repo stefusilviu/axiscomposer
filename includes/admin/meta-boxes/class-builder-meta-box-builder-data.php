@@ -29,9 +29,11 @@ class AB_Meta_Box_Builder_Data {
 		// Builder Post Meta
 		$builder_status = get_post_meta( get_the_ID(), '_axisbuilder_status', true );
 
+		// Builder Status
+		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
+
 		?>
 		<div class="panel-wrap builder_data">
-			<?php echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>'; ?>
 			<ul class="builder_data_tabs axisbuilder-tabs">
 				<?php
 					$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
@@ -121,10 +123,10 @@ class AB_Meta_Box_Builder_Data {
 	/**
 	 * Save Meta-Box data.
 	 */
-	public function save( $post_id ) {
+	public static function save( $post_id, $post ) {
 
 		// Save the builder status and canvas textarea data :)
-		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
+		$builder_post_meta = array( 'axisbuilder_status' );
 
 		foreach ( $builder_post_meta as $post_meta ) {
 			if ( isset( $_POST[$post_meta] ) ) {

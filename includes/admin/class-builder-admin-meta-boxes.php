@@ -32,8 +32,8 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save Meta-Boxes
-		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 20, 2 );
-		// add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 20, 2 );
+		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
+		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_layout_configs_meta' ), 20, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );

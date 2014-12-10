@@ -67,6 +67,14 @@ class AB_Shortcodes {
 			// Layout Elements
 			'AB_Shortcode_Columns',
 			'AB_Shortcode_Columns_One_Half',
+			'AB_Shortcode_Columns_One_Third',
+			'AB_Shortcode_Columns_Two_Third',
+			'AB_Shortcode_Columns_One_Fourth',
+			'AB_Shortcode_Columns_Three_Fourth',
+			'AB_Shortcode_Columns_One_Fifth',
+			'AB_Shortcode_Columns_Two_Fifth',
+			'AB_Shortcode_Columns_Three_Fifth',
+			'AB_Shortcode_Columns_Four_Fifth',
 
 			// Content Elements
 			'AB_Shortcode_Codeblock'

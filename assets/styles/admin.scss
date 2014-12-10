@@ -9,6 +9,7 @@
 @import "bourbon";
 @import "mixins";
 @import "sweet-alert";
+@import "tooltip";
 @import "variables";
 @import "animation";
 @import "fonts";
@@ -28,7 +29,7 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Toggle Button
+ * Toggle Editors Button
  */
 #axisbuilder-button {
 	top: 10px;
@@ -54,7 +55,6 @@ label[for="axisbuilder-editor-hide"] {
 	.inside {
 		margin: 0;
 		padding: 0;
-		/*margin-bottom: -1px;*/
 	}
 
 	&.axisbuilder-hidden {
@@ -65,13 +65,88 @@ label[for="axisbuilder-editor-hide"] {
 /**
  * Custom Panel
  */
-.axisbuilder-panel {
-	background: #fff;
-/*	margin-top: -7px !important;
-	border-top: 1px solid #e5e5e5;
-*/
+#axisbuilder-editor {
+
 	.panels-wrap {
 		overflow: hidden;
+	}
+
+	ul.axisbuilder-tabs {
+		margin: 0;
+		padding: 20px 12px;
+		background: #fff;
+		line-height: 1em;
+		position: relative;
+		background-color: #fafafa;
+		border-bottom: 1px solid #eee;
+		@include box-sizing( border-box );
+
+		&:after {
+			content: "";
+			display: block;
+			width: 100%;
+			left: 0;
+			background-color: #fafafa;
+			border-right: 1px solid #eee;
+		}
+
+		li {
+			margin: 0;
+			padding: 0;
+			display: inline;
+
+			a {
+				padding: 10px;
+				line-height: 20px !important;
+				margin: 0;
+				width: 20%;
+				text-align: center;
+				text-decoration: none;
+				background: #fdfdfd;
+				border: 1px solid #eee;
+
+				&:hover,
+				&:focus {
+					background: #f7f7f7;
+				}
+
+				&:before {
+					@include iconbefore( "\e028" );
+				}
+			}
+
+			&.layout_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.content_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.media_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.plugin_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.active {
+				a {
+					position: relative;
+					background-color: #eee;
+					color: #555;
+				}
+			}
+		}
 	}
 }
 
@@ -272,55 +347,6 @@ body.axisbuilder-noscroll-box {
 	position: relative;
 }
 
-/**
- * Tooltips Styles
- */
-.axis-tooltip {
-	color: #fff;
-	padding: 8px;
-	font-size: 11px;
-	max-width: 140px;
-	z-index: 9999999;
-	margin-top: -10px;
-	position: absolute;
-	text-align: center;
-	background: #464646;
-	background: rgba( 70, 70, 70, 0.9 );
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-
-	.axis-arrow-wrap {
-		left:50%;
-		bottom: -20px;
-		width: 20px;
-		height: 20px;
-		overflow: hidden;
-		position: absolute;
-		margin-left: -10px;
-	}
-
-	.axis-arrow {
-		border: none;
-		background: rgba( 70, 70, 70, 0.9 );
-	}
-}
-
-.axis-arrow {
-	top: -6px;
-	left: 50%;
-	width: 10px;
-	height: 10px;
-	background: #fff;
-	position: absolute;
-	margin-left: -5px;
-	border-top: 1px solid #e1e1e1;
-	border-left: 1px solid #e1e1e1;
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	transform: rotate(45deg);
-}
-
 /* Shortcode Wrap */
 #wpwrap .axisbuilder-active-insert{
 	border: 1px solid #D54E21;
@@ -383,7 +409,8 @@ body.axisbuilder-noscroll-box {
 	display: block;
 	color: #7b7b7b;
 	line-height: 40px;
-	background: #f5f5f5;
+	background: #fafafa;
+	border-top: 1px solid #eee;
 
 	&:hover {
 		z-index: 12;
@@ -437,7 +464,7 @@ body.axisbuilder-noscroll-box {
 		}
 
 		.delete-action {
-			border-left: 1px solid #c6c4c4;
+			border-left: 1px solid #ccc;
 
 			.trash-icon {
 				@include ir();
@@ -496,8 +523,8 @@ body.axisbuilder-noscroll-box {
 		padding: 12px;
 		min-height: 225px;
 		position: relative;
-		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
 
 		&.loader {
 			@include loader();

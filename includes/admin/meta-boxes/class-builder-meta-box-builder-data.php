@@ -133,9 +133,9 @@ class AB_Meta_Box_Builder_Data {
 
 	/**
 	 * Fetch Shortcode Buttons.
-	 * @param  string  $type    Tabbed content type
-	 * @param  boolean $display Return or Print
-	 * @return [type]           Shortcode Buttons
+	 * @param  string      $type    Tabbed content type
+	 * @param  boolean     $display Return or Print
+	 * @return string|bull          Shortcode Buttons
 	 */
 	protected static function fetch_shortcode_buttons( $type = 'plugin', $display = true ) {
 

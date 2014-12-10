@@ -23,7 +23,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 		$this->title     = __( 'Code Block', 'axisbuilder' );
 		$this->tooltip   = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 30,
+			'sort'    => 3,
 			'type'    => 'content',
 			'name'    => 'ab_codeblock',
 			'icon'    => 'icon-codeblock',

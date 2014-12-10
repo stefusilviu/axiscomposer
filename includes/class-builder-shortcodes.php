@@ -63,7 +63,12 @@ class AB_Shortcodes {
 	 */
 	public function init() {
 		$load_shortcodes = array(
+
+			// Layout Elements
 			'AB_Shortcode_Columns',
+			'AB_Shortcode_Columns_One_Half',
+
+			// Content Elements
 			'AB_Shortcode_Codeblock'
 		);
 

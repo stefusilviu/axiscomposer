@@ -21,6 +21,13 @@
 }
 
 /**
+ * Hide Screen Option
+ */
+label[for="axisbuilder-editor-hide"] {
+	display: none;
+}
+
+/**
  * Toggle Button
  */
 #axisbuilder-button {
@@ -33,14 +40,22 @@
 	}
 }
 
+/**
+ * Hide Default Editor
+ */
 #postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {
 	display: none;
 }
 
+/**
+ * Builder Meta-Box
+ */
 #axisbuilder-editor {
-	width: 100%;
-	float: left;
-	display: block;
+	.inside {
+		margin: 0;
+		padding: 0;
+		/*margin-bottom: -1px;*/
+	}
 
 	&.axisbuilder-hidden {
 		display: none !important;
@@ -48,48 +63,17 @@
 }
 
 /**
- * Meta-Box Tweaks
- */
-.postbox-container .postbox {
-	clear: both;
-}
-
-div.mce-toolbar-grp {
-	min-width: 100%;
-}
-
-label[for="axisbuilder-editor-hide"] {
-	display: none;
-}
-
-.axisbuilder-meta-box {
-	margin: 10px 0;
-}
-
-#axisbuilder-editor .inside {
-	margin-bottom: -1px;
-	padding: 0 !important; /* 0 0 12px Test without highlight */
-}
-
-.axisbuilder-editor-custom {
-	margin: -7px 0 0 !important;
-	border-top: 1px solid #e5e5e5;
-}
-
-/**
  * Custom Panel
  */
 .axisbuilder-panel {
 	background: #fff;
-	margin-top: -7px !important;
+/*	margin-top: -7px !important;
 	border-top: 1px solid #e5e5e5;
-
+*/
 	.panels-wrap {
 		overflow: hidden;
 	}
 }
-
-
 
 /**
  * Full Screen Styles

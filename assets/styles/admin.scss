@@ -89,7 +89,7 @@ label[for="axisbuilder-editor-hide"] {
 				a {
 					width: 20%;
 					float: left;
-					padding: 8px;
+					padding: 8px 4px;
 					margin: 15px 12px;
 					color: #555;
 					background: #fdfdfd;
@@ -543,23 +543,21 @@ label[for="axisbuilder-editor-hide"] {
  */
 @media only screen and (max-width: 782px) {
 
-	.axisbuilder-expanded-buttons #post-preview,
-	.axisbuilder-expanded-buttons #publish {
-		display: inline-block;
-		float: none;
-	}
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				a {
+					margin: 8px 12px;
+					width: 40% !important;
+				}
 
-	.axisbuilder-expanded .inside .axisbuilder-shortcodes {
-		padding-bottom: 38px;
-	}
-
-	.axisbuilder-tab-title a {
-		float: left;
-		width: 47% !important;
-
-		&:nth-of-type(2n) {
-			float: right !important;
-			margin-right: 0 !important;
+				&:nth-of-type(2n) {
+					a {
+						float: right !important;
+						margin-left: 0 !important;
+					}
+				}
+			}
 		}
 	}
 
@@ -577,6 +575,16 @@ label[for="axisbuilder-editor-hide"] {
 				margin-right: 75px;
 			}
 		}
+	}
+
+	.axisbuilder-expanded-buttons #post-preview,
+	.axisbuilder-expanded-buttons #publish {
+		display: inline-block;
+		float: none;
+	}
+
+	.axisbuilder-expanded .inside .axisbuilder-shortcodes {
+		padding-bottom: 38px;
 	}
 }
 

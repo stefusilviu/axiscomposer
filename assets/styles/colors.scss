@@ -12,57 +12,99 @@
 @import "fonts";
 
 .admin-color-light {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $light-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $light-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }
 
 .admin-color-blue {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $blue-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $blue-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }
 
 .admin-color-coffee {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $coffee-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $coffee-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }
 
 .admin-color-ectoplasm {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $ectoplasm-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels  {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $ectoplasm-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }
 
 .admin-color-midnight {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $midnight-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $midnight-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }
 
 .admin-color-ocean {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $ocean-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $ocean-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }
 
 .admin-color-sunrise {
-	#axisbuilder-loader, .axisbuilder-expanded {
-		.axisbuilder-tab-title a.active-tab {
-			@include active_tab( $sunrise-tab-active-color )
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				&.active {
+					a {
+						@include active_tab( $sunrise-tab-active-color )
+					}
+				}
+			}
 		}
 	}
 }

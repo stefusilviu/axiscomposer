@@ -29,21 +29,4 @@ class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
 
 		$this->assertEquals( $expected_screens, get_builder_core_supported_screens() );
 	}
-
-	/**
-	 * Test get_builder_core_shortcode_tabs()
-	 *
-	 * @since 1.0
-	 */
-	public function test_get_builder_core_shortcode_tabs() {
-
-		$expected_shortcode_tabs = array(
-			'layout'  => __( 'Layout Elements',  'axisbuilder' ),
-			'content' => __( 'Content Elements', 'axisbuilder' ),
-			'media'   => __( 'Media Elements',   'axisbuilder' ),
-			'plugin'  => __( 'Plugin Additions', 'axisbuilder' ),
-		);
-
-		$this->assertEquals( $expected_shortcode_tabs, get_builder_core_shortcode_tabs() );
-	}
 }

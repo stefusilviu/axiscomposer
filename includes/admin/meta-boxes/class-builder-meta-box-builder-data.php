@@ -1,0 +1,220 @@
+<?php
+/**
+ * Page Builder Data
+ *
+ * Displays the page builder data box, tabbed, with several drag and drop canvas elements.
+ *
+ * @class       AB_Meta_Box_Builder_Data
+ * @package     AxisBuilder/Admin/Meta Boxes
+ * @category    Admin
+ * @author      AxisThemes
+ * @since       1.0.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * AB_Meta_Box_Builder_Data Class
+ */
+class AB_Meta_Box_Builder_Data {
+
+	private static $load_shortcode;
+
+	/**
+	 * Output the Metabox
+	 */
+	public static function output( $post ) {
+		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
+
+		// Builder Post Meta
+		$builder_status = get_post_meta( $post->ID, '_axisbuilder_status', true );
+		$builder_canvas = get_post_meta( $post->ID, '_axisbuilder_canvas', true );
+
+		// Builder Status
+		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
+
+		?>
+
+		<!-- Page Builder Panel -->
+		<div class="axisbuilder-panel">
+
+			<!-- Tabbed Panels -->
+			<div class="panels-wrap axisbuilder-tab-container">
+				<ul class="axisbuilder-tabs">
+					<?php
+						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
+							'layout'  => array(
+								'label'  => __( 'Layout Elements', 'axisbuilder' ),
+								'target' => 'layout_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'content' => array(
+								'label'  => __( 'Content Elements', 'axisbuilder' ),
+								'target' => 'content_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'media'   => array(
+								'label'  => __( 'Media Elements', 'axisbuilder' ),
+								'target' => 'media_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'plugin'  => array(
+								'label'  => __( 'Plugin Additions', 'axisbuilder' ),
+								'target' => 'plugin_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+						) );
+
+						foreach ( $builder_data_tabs as $key => $tab ) {
+							?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
+								<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
+							</li><?php
+						}
+
+						do_action( 'axisbuilder_shortcode_write_panel_tabs' );
+					?>
+				</ul>
+
+				<div id="layout_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
+
+				<?php
+
+					do_action( 'axisbuilder_shortcode_data_panels' );
+				?>
+
+				<div class="clear"></div>
+			</div>
+
+			<!-- Builder Handle -->
+			<div id="axisbuilder-handle" class="handle-bar">
+
+				<div class="control-bar">
+
+					<!-- History Sections -->
+					<div class="history-sections">
+						<div class="history-action" data-axis-tooltip="<?php _e( 'History', 'axisbuilder' ); ?>">
+							<a href="#" class="undo-icon undo-data" title="Undo"></i></a>
+							<a href="#" class="redo-icon redo-data" title="Redo"></i></a>
+						</div>
+						<div class="delete-action">
+							<a href="#" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
+						</div>
+					</div>
+
+					<!-- Content Sections -->
+					<div class="content-sections">
+						<div class="template-action">
+							<a href="#" class="button button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
+						</div>
+						<div class="fullscreen-action">
+							<a href="#" class="expand-icon axisbuilder-attach-expand"><?php _e( 'Close', 'axisbuilder' ); ?></a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- Builder Canvas -->
+			<div id="axisbuilder-canvas" class="visual-editor">
+				<div class="canvas-area loader drag-element" data-dragdrop-level="0"></div>
+				<div class="canvas-secure-data">
+					<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data"><?php esc_textarea( $builder_canvas ); ?></textarea> <!-- readonly="readonly" later -->
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Fetch Shortcode Buttons.
+	 * @property array       $shortcodes Get shortcodes class
+	 * @param    string      $type       Tabbed content type
+	 * @param    boolean     $display    Return or Print
+	 * @return   string|null             Shortcode Buttons
+	 */
+	protected static function fetch_shortcode_buttons( $type = 'plugin', $display = true ) {
+
+		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
+
+			if ( $load_shortcodes->shortcode['type'] === $type ) {
+
+				// Fetch shortcode data :)
+				$title     = $load_shortcodes->title;
+				$tooltip   = $load_shortcodes->tooltip;
+				$shortcode = $load_shortcodes->shortcode;
+
+				// Fallback if icon is missing :)
+				$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
+
+				// Create a button Link :)
+				self::$load_shortcode = '<a href="#' . $shortcode['href-class'] . '" class="insert-shortcode ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-axis-tooltip="' . $tooltip . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
+
+				if ( $display ) {
+					echo self::$load_shortcode;
+				} else {
+					return self::$load_shortcode;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Filter the postbox classes for a specific screen and screen ID combo.
+	 * @param  array $classes An array of postbox classes.
+	 * @return array
+	 */
+	public static function postbox_classes( $classes ) {
+
+		// Class for hidden items
+		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
+			$classes[] = 'axisbuilder-hidden';
+		}
+
+		// Class for expanded items
+		if ( ! empty( $_GET['axisbuilder-expanded'] ) && ( 'axisbuilder-editor' === $_GET['axisbuilder-expanded'] ) ) {
+			$classes[] = 'axisbuilder-expanded';
+		}
+
+		// Class for Debug or Test-mode
+		if ( defined( 'AB_DEBUG' ) && AB_DEBUG ) {
+			$classes[] = 'axisbuilder-debug';
+		}
+
+		return $classes;
+	}
+
+	/**
+	 * Save Meta-Box data.
+	 */
+	public static function save( $post_id ) {
+
+		// Save the builder status and canvas textarea data :)
+		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
+
+		foreach ( $builder_post_meta as $post_meta ) {
+			if ( isset( $_POST[$post_meta] ) ) {
+				update_post_meta( $post_id, '_' . $post_meta, $_POST[$post_meta] );
+			}
+		}
+
+		// Filter the redirect url in case we got a Meta-Box that is expanded.
+		if ( ! empty( $_POST['axisbuilder-expanded-hidden'] ) ) {
+			add_filter( 'redirect_post_location', array( __CLASS__, 'set_builder_expanded' ), 10, 2 );
+		}
+	}
+
+	/**
+	 * Set the correct Builder Expanded ID.
+	 * @param  $location
+	 * @return string
+	 */
+	public static function set_builder_expanded( $location ) {
+		return add_query_arg( 'axisbuilder-expanded', $_POST['axisbuilder-expanded-hidden'], $location );
+	}
+}

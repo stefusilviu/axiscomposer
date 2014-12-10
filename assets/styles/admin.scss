@@ -9,6 +9,7 @@
 @import "bourbon";
 @import "mixins";
 @import "sweet-alert";
+@import "tooltip";
 @import "variables";
 @import "animation";
 @import "fonts";
@@ -21,7 +22,14 @@
 }
 
 /**
- * Toggle Button
+ * Hide Screen Option
+ */
+label[for="axisbuilder-editor-hide"] {
+	display: none;
+}
+
+/**
+ * Toggle Editors Button
  */
 #axisbuilder-button {
 	top: 10px;
@@ -33,14 +41,21 @@
 	}
 }
 
+/**
+ * Hide Default Editor
+ */
 #postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {
 	display: none;
 }
 
+/**
+ * Builder Meta-Box
+ */
 #axisbuilder-editor {
-	width: 100%;
-	float: left;
-	display: block;
+	.inside {
+		margin: 0;
+		padding: 0;
+	}
 
 	&.axisbuilder-hidden {
 		display: none !important;
@@ -48,32 +63,106 @@
 }
 
 /**
- * Meta-Box Tweaks
+ * Builer Tabs
  */
-.postbox-container .postbox {
-	clear: both;
-}
+#axisbuilder-editor {
 
-div.mce-toolbar-grp {
-	min-width: 100%;
-}
+	.panels-wrap {
+		overflow: hidden;
+	}
 
-label[for="axisbuilder-editor-hide"] {
-	display: none;
-}
+	ul.axisbuilder-tabs {
+		width: 100%;
+		float: left;
+		margin: 0;
+		padding: 0;
+		line-height: 1em;
+		position: relative;
+		background: #ffffff;
+		background-color: #fafafa;
+		border-bottom: 1px solid #eee;
+		@include box-sizing( border-box );
 
-.axisbuilder-meta-box {
-	margin: 10px 0;
-}
+		&:after {
+			content: "";
+			display: block;
+			width: 100%;
+			left: 0;
+			background-color: #fafafa;
+			border-right: 1px solid #eee;
+		}
 
-#axisbuilder-editor .inside {
-	margin-bottom: -1px;
-	padding: 0 !important; /* 0 0 12px Test without highlight */
-}
+		li {
+			margin: 0;
+			padding: 0;
 
-.axisbuilder-editor-custom {
-	margin: -7px 0 0 !important;
-	border-top: 1px solid #e5e5e5;
+			a {
+				width: 20%;
+				float: left;
+				padding: 8px;
+				margin: 15px 12px;
+				color: #232323;
+				background: #fdfdfd;
+				position: relative;
+				text-align: center;
+				text-decoration: none;
+				border: 1px solid #C6C4C4;
+				line-height: 20px !important;
+
+				&:before {
+					@include iconbefore( "\e002" );
+				}
+
+				&:hover,
+				&:focus {
+					background: #f7f7f7;
+				}
+			}
+
+			&.layout_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.content_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.media_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.plugin_options {
+				a:before {
+					content: "\e002";
+				}
+			}
+
+			&.active {
+				a {
+					@include active_tab( $fresh-tab-active-color )
+				}
+			}
+		}
+	}
+
+	#layout_builder_data {
+		display: block;
+	}
+
+	.axisbuilder-shortcodes-panel {
+		clear: both;
+		display: none;
+		overflow: hidden;
+		position: relative;
+		padding: 4px 12px 9px;
+		background-color: #fdfdfd;
+	}
 }
 
 /**
@@ -202,124 +291,10 @@ body.axisbuilder-noscroll-box {
 	display: none;
 }
 
-/**
- * Builder Loader Style
- */
-#axisbuilder-loader, .axisbuilder-expanded {
-	width: 100%;
-	display: block;
-	position: relative;
-	background: #f5f5f5;
-
-	.axisbuilder-tab-title {
-		padding: 0 12px;
-
-		a {
-			z-index: 2;
-			float: left;
-			margin: 8px 0;
-			padding: 8px 0;
-			display: block;
-			position: relative;
-			text-align: center;
-			text-decoration: none;
-			width: 22.25%;
-			margin-right: 3%;
-			color: #232323;
-			background: #fdfdfd;
-			border: 1px solid #C6C4C4;
-
-
-			&:hover,
-			&:focus {
-				background: #f7f7f7;
-			}
-
-			&:nth-of-type(4n) {
-				float: right;
-				margin-right: 0;
-			}
-
-			&.active-tab {
-				@include active_tab( $fresh-tab-active-color )
-			}
-		}
-	}
-
-	.axisbuilder-tab-shortcodes {
-		clear: both;
-		display: none;
-		overflow: hidden;
-		position: relative;
-		padding: 4px 12px 9px;
-		background-color: #fdfdfd;
-		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
-	}
-
-	.axisbuilder-tab-1 {
-		display: block;
-	}
-
-	/* For Future its sure : When 1,2, loop are stop */
-	.axisbuilder-tab-layout {
-		display: block;
-	}
-}
-
 /* Interface tabs that hold shortcode tab-actives */
 .shortcode_tab-active_wrap {
 	display: block;
 	position: relative;
-}
-
-/**
- * Tooltips Styles
- */
-.axis-tooltip {
-	color: #fff;
-	padding: 8px;
-	font-size: 11px;
-	max-width: 140px;
-	z-index: 9999999;
-	margin-top: -10px;
-	position: absolute;
-	text-align: center;
-	background: #464646;
-	background: rgba( 70, 70, 70, 0.9 );
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-
-	.axis-arrow-wrap {
-		left:50%;
-		bottom: -20px;
-		width: 20px;
-		height: 20px;
-		overflow: hidden;
-		position: absolute;
-		margin-left: -10px;
-	}
-
-	.axis-arrow {
-		border: none;
-		background: rgba( 70, 70, 70, 0.9 );
-	}
-}
-
-.axis-arrow {
-	top: -6px;
-	left: 50%;
-	width: 10px;
-	height: 10px;
-	background: #fff;
-	position: absolute;
-	margin-left: -5px;
-	border-top: 1px solid #e1e1e1;
-	border-left: 1px solid #e1e1e1;
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	transform: rotate(45deg);
 }
 
 /* Shortcode Wrap */
@@ -384,7 +359,8 @@ body.axisbuilder-noscroll-box {
 	display: block;
 	color: #7b7b7b;
 	line-height: 40px;
-	background: #f5f5f5;
+	background: #fafafa;
+	border-top: 1px solid #eee;
 
 	&:hover {
 		z-index: 12;
@@ -438,7 +414,7 @@ body.axisbuilder-noscroll-box {
 		}
 
 		.delete-action {
-			border-left: 1px solid #c6c4c4;
+			border-left: 1px solid #ccc;
 
 			.trash-icon {
 				@include ir();
@@ -497,8 +473,8 @@ body.axisbuilder-noscroll-box {
 		padding: 12px;
 		min-height: 225px;
 		position: relative;
-		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
 
 		&.loader {
 			@include loader();

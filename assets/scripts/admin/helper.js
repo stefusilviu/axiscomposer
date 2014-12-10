@@ -38,15 +38,15 @@
 			}
 
 			var	current = $( this ),
-				links   = current.find( '.axisbuilder-tab-title a' ),
-				tabs    = current.find( '.axisbuilder-tab-shortcodes' ),
-				currentLink;
+				items   = current.find( '.axisbuilder-tabs li' ),
+				tabs    = current.find( '.axisbuilder-shortcodes-panel' ),
+				current_item;
 
-			links.unbind( 'click' ).bind( 'click', function() {
-				links.removeClass( 'active-tab' );
-				currentLink = $( this ).addClass( 'active-tab' );
+			items.unbind( 'click' ).bind( 'click', function() {
+				items.removeClass( 'active' );
+				current_item = $( this ).addClass( 'active' );
 
-				var index = links.index( currentLink );
+				var index = items.index( current_item );
 
 				tabs.css({ display: 'none' }).filter( ':eq(' + index + ')' ).css({ display:'block' });
 				if ( storage ) {
@@ -55,14 +55,14 @@
 
 				// mirror_container should be defined when the tab element is cloned for the fullscreen view
 				if ( typeof mirror_container !== 'undefined' ) {
-					mirror_container.find( '.axisbuilder-tab-title a' ).eq( index ).trigger( 'click' );
+					mirror_container.find( '.axisbuilder-tabs a' ).eq( index ).trigger( 'click' );
 				}
 
 				return false;
 			});
 
-			if ( ! links.filter( '.active-tab' ).length ) {
-				links.filter( ':eq(' + active_tab + ')' ).addClass( 'active-tab' ).trigger( 'click' );
+			if ( ! items.filter( '.active-tab' ).length ) {
+				items.filter( ':eq(' + active_tab + ')' ).addClass( 'active' ).trigger( 'click' );
 			}
 		});
 	};

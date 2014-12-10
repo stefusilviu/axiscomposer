@@ -28,7 +28,7 @@ class AB_Admin_Assets {
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		add_action( 'print_media_templates', array( $this, 'media_templates' ) );
+		// add_action( 'print_media_templates', array( $this, 'media_templates' ) );
 	}
 
 	/**

@@ -63,16 +63,59 @@ class AB_Shortcodes {
 	 */
 	public function init() {
 		$load_shortcodes = array(
+
+			// Layout Elements
 			'AB_Shortcode_Columns',
+			'AB_Shortcode_Columns_One_Half',
+			'AB_Shortcode_Columns_One_Third',
+			'AB_Shortcode_Columns_Two_Third',
+			'AB_Shortcode_Columns_One_Fourth',
+			'AB_Shortcode_Columns_Three_Fourth',
+			'AB_Shortcode_Columns_One_Fifth',
+			'AB_Shortcode_Columns_Two_Fifth',
+			'AB_Shortcode_Columns_Three_Fifth',
+			'AB_Shortcode_Columns_Four_Fifth',
+
+			// Content Elements
 			'AB_Shortcode_Codeblock'
 		);
 
 		// Filter
 		$load_shortcodes = apply_filters( 'axisbuilder_shortcodes', $load_shortcodes );
 
+		// Get sort order End
+		$order_end = 999;
+
 		// Load shortcodes in order
 		foreach ( $load_shortcodes as $shortcode ) {
-			new $shortcode();
+			$load_shortcode = new $shortcode();
+
+			if ( isset( $load_shortcode->shortcode['sort'] ) && is_numeric( $load_shortcode->shortcode['sort'] ) ) {
+				// Add in position
+				$this->shortcodes[ $load_shortcode->shortcode['sort'] ] = $load_shortcode;
+			} else {
+				// Add to end of the array
+				$this->shortcodes[ $order_end ] = $load_shortcode;
+				$order_end++;
+			}
 		}
+
+		ksort( $this->shortcodes );
+	}
+
+	/**
+	 * Get shortcodes.
+	 * @return array
+	 */
+	public function get_shortcodes() {
+		$_available_shortcodes = array();
+
+		if ( sizeof( $this->shortcodes ) > 0 ) {
+			foreach ( $this->shortcodes as $shortcode ) {
+				$_available_shortcodes[ $shortcode->id ] = $shortcode;
+			}
+		}
+
+		return $_available_shortcodes;
 	}
 }

@@ -28,7 +28,7 @@ class AB_Admin_Assets {
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		// add_action( 'print_media_templates', array( $this, 'media_templates' ) );
+		add_action( 'print_media_templates', array( $this, 'media_templates' ) );
 	}
 
 	/**
@@ -110,10 +110,9 @@ class AB_Admin_Assets {
 	 * Create Media Templates
 	 */
 	public function media_templates() {
-		global $axisbuilder_shortcodes;
 
-		foreach ( $axisbuilder_shortcodes as $shortcode ) {
-			$class    = $shortcode['php_class'];
+		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
+			$class    = $load_shortcodes->shortcode['href-class'];
 			$template = '';
 
 			if ( is_array( $template ) ) {

@@ -63,7 +63,7 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Custom Panel
+ * Builer Tabs
  */
 #axisbuilder-editor {
 
@@ -72,11 +72,13 @@ label[for="axisbuilder-editor-hide"] {
 	}
 
 	ul.axisbuilder-tabs {
+		width: 100%;
+		float: left;
 		margin: 0;
-		padding: 20px 12px;
-		background: #fff;
+		padding: 0;
 		line-height: 1em;
 		position: relative;
+		background: #ffffff;
 		background-color: #fafafa;
 		border-bottom: 1px solid #eee;
 		@include box-sizing( border-box );
@@ -93,25 +95,27 @@ label[for="axisbuilder-editor-hide"] {
 		li {
 			margin: 0;
 			padding: 0;
-			display: inline;
 
 			a {
-				padding: 10px;
-				line-height: 20px !important;
-				margin: 0;
 				width: 20%;
+				float: left;
+				padding: 8px;
+				margin: 15px 12px;
+				color: #232323;
+				background: #fdfdfd;
+				position: relative;
 				text-align: center;
 				text-decoration: none;
-				background: #fdfdfd;
-				border: 1px solid #eee;
+				border: 1px solid #C6C4C4;
+				line-height: 20px !important;
+
+				&:before {
+					@include iconbefore( "\e002" );
+				}
 
 				&:hover,
 				&:focus {
 					background: #f7f7f7;
-				}
-
-				&:before {
-					@include iconbefore( "\e028" );
 				}
 			}
 
@@ -141,12 +145,23 @@ label[for="axisbuilder-editor-hide"] {
 
 			&.active {
 				a {
-					position: relative;
-					background-color: #eee;
-					color: #555;
+					@include active_tab( $fresh-tab-active-color )
 				}
 			}
 		}
+	}
+
+	#layout_builder_data {
+		display: block;
+	}
+
+	.axisbuilder-shortcodes-panel {
+		clear: both;
+		display: none;
+		overflow: hidden;
+		position: relative;
+		padding: 4px 12px 9px;
+		background-color: #fdfdfd;
 	}
 }
 
@@ -274,71 +289,6 @@ body.axisbuilder-noscroll-box {
 	background: #fff;
 	z-index: 99998;
 	display: none;
-}
-
-/**
- * Builder Loader Style
- */
-#axisbuilder-loader, .axisbuilder-expanded {
-	width: 100%;
-	display: block;
-	position: relative;
-	background: #f5f5f5;
-
-	.axisbuilder-tab-title {
-		padding: 0 12px;
-
-		a {
-			z-index: 2;
-			float: left;
-			margin: 8px 0;
-			padding: 8px 0;
-			display: block;
-			position: relative;
-			text-align: center;
-			text-decoration: none;
-			width: 22.25%;
-			margin-right: 3%;
-			color: #232323;
-			background: #fdfdfd;
-			border: 1px solid #C6C4C4;
-
-
-			&:hover,
-			&:focus {
-				background: #f7f7f7;
-			}
-
-			&:nth-of-type(4n) {
-				float: right;
-				margin-right: 0;
-			}
-
-			&.active-tab {
-				@include active_tab( $fresh-tab-active-color )
-			}
-		}
-	}
-
-	.axisbuilder-tab-shortcodes {
-		clear: both;
-		display: none;
-		overflow: hidden;
-		position: relative;
-		padding: 4px 12px 9px;
-		background-color: #fdfdfd;
-		border-top: 1px solid #e5e5e5;
-		border-bottom: 1px solid #e5e5e5;
-	}
-
-	.axisbuilder-tab-1 {
-		display: block;
-	}
-
-	/* For Future its sure : When 1,2, loop are stop */
-	.axisbuilder-tab-layout {
-		display: block;
-	}
 }
 
 /* Interface tabs that hold shortcode tab-actives */

@@ -41,55 +41,53 @@ class AB_Meta_Box_Builder_Data {
 		<div class="axisbuilder-panel">
 
 			<!-- Tabbed Panels -->
-			<div id="axisbuilder-loader" class="panel-wrap">
-				<div class="axisbuilder-shortcodes axisbuilder-tab-container">
-					<ul class="axisbuilder-tab-title">
-						<?php
-							$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
-								'layout'  => array(
-									'label'  => __( 'Layout Elements', 'axisbuilder' ),
-									'target' => 'layout_builder_data',
-									'class'  => array( 'hide_if_empty', 'active' ),
-								),
-								'content' => array(
-									'label'  => __( 'Content Elements', 'axisbuilder' ),
-									'target' => 'content_builder_data',
-									'class'  => array( 'hide_if_empty' ),
-								),
-								'media'   => array(
-									'label'  => __( 'Media Elements', 'axisbuilder' ),
-									'target' => 'media_builder_data',
-									'class'  => array( 'hide_if_empty' ),
-								),
-								'plugin'  => array(
-									'label'  => __( 'Plugin Additions', 'axisbuilder' ),
-									'target' => 'plugin_builder_data',
-									'class'  => array( 'hide_if_empty' ),
-								),
-							) );
-
-							foreach ( $builder_data_tabs as $key => $tab ) {
-								?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?> tabs">
-									<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
-								</li><?php
-							}
-
-							do_action( 'axisbuilder_shortcode_write_panel_tabs' );
-						?>
-					</ul>
-
-					<div id="layout_builder_data" class="panel axisbuilder_options_panel axisbuilder-tab-shortcodes"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
-					<div id="content_builder_data" class="panel axisbuilder_options_panel axisbuilder-tab-shortcodes"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
-					<div id="media_builder_data" class="panel axisbuilder_options_panel axisbuilder-tab-shortcodes"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
-					<div id="plugin_builder_data" class="panel axisbuilder_options_panel axisbuilder-tab-shortcodes"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
-
+			<div class="panels-wrap axisbuilder-tab-container">
+				<ul class="axisbuilder-tabs">
 					<?php
+						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
+							'layout'  => array(
+								'label'  => __( 'Layout Elements', 'axisbuilder' ),
+								'target' => 'layout_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'content' => array(
+								'label'  => __( 'Content Elements', 'axisbuilder' ),
+								'target' => 'content_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'media'   => array(
+								'label'  => __( 'Media Elements', 'axisbuilder' ),
+								'target' => 'media_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+							'plugin'  => array(
+								'label'  => __( 'Plugin Additions', 'axisbuilder' ),
+								'target' => 'plugin_builder_data',
+								'class'  => array( 'hide_if_empty' ),
+							),
+						) );
 
-						do_action( 'axisbuilder_shortcode_data_panels' );
+						foreach ( $builder_data_tabs as $key => $tab ) {
+							?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
+								<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
+							</li><?php
+						}
+
+						do_action( 'axisbuilder_shortcode_write_panel_tabs' );
 					?>
+				</ul>
 
-					<div class="clear"></div>
-				</div>
+				<div id="layout_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
+
+				<?php
+
+					do_action( 'axisbuilder_shortcode_data_panels' );
+				?>
+
+				<div class="clear"></div>
 			</div>
 
 			<!-- Builder Handle -->

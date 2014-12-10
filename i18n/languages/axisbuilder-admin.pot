@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-02 10:39:56+00:00\n"
+"POT-Creation-Date: 2014-12-10 18:01:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,28 +21,40 @@ msgstr ""
 msgid "Use Default Editor"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:102
-msgid "Axis Page Builder"
+#: includes/admin/class-builder-admin-meta-boxes.php:100
+msgid "Page Builder"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:140
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:49
 msgid "Layout Elements"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:141
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:54
 msgid "Content Elements"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:142
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:59
+msgid "Media Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:64
 msgid "Plugin Additions"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:143
-msgid "Pre-Built Templates"
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:100
+msgid "History"
 msgstr ""
 
-#: includes/admin/class-builder-admin-meta-boxes.php:161
-msgid "Custom Elements"
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:105
+msgid "Permanently delete all canvas elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:112
+msgid "Save or Load templates"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:115
+msgid "Close"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

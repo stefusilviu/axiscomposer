@@ -13,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * AB_Shortcode_Codeblock Class
+ */
 class AB_Shortcode_Codeblock extends AB_Shortcode {
 
 	/**

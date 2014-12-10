@@ -56,8 +56,8 @@ abstract class AB_Shortcode {
 		$load_shortcode_data = array(
 			'class'      => '',
 			'target'     => '',
-			'drag-level' => 10,
-			'drop-level' => 10,
+			'drag-level' => 2,
+			'drop-level' => 2,
 			'href-class' => get_class( $this )
 		);
 

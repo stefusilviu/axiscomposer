@@ -48,7 +48,7 @@ class AB_Meta_Box_Builder_Data {
 							'layout'  => array(
 								'label'  => __( 'Layout Elements', 'axisbuilder' ),
 								'target' => 'layout_builder_data',
-								'class'  => array( 'hide_if_empty' ),
+								'class'  => array( 'hide_if_empty', 'active' ),
 							),
 							'content' => array(
 								'label'  => __( 'Content Elements', 'axisbuilder' ),

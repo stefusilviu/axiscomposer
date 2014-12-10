@@ -22,6 +22,13 @@
 }
 
 /**
+ * Full Screen No-Scroll
+ */
+body.axisbuilder-noscroll-box {
+	overflow: hidden;
+}
+
+/**
  * Hide Screen Option
  */
 label[for="axisbuilder-editor-hide"] {
@@ -52,124 +59,134 @@ label[for="axisbuilder-editor-hide"] {
  * Builder Meta-Box
  */
 #axisbuilder-editor {
+
 	.inside {
 		margin: 0;
 		padding: 0;
 	}
 
-	&.axisbuilder-hidden {
-		display: none !important;
+	/**
+	 * Tabbed Panels
+	 */
+	#axisbuilder-panels {
+		overflow: hidden;
+
+		ul.axisbuilder-tabs {
+			width: 100%;
+			float: left;
+			margin: 0;
+			padding: 0;
+			line-height: 1em;
+			position: relative;
+			background: #fafafa;
+			border-bottom: 1px solid #eee;
+			@include box-sizing( border-box );
+
+			li {
+				margin: 0;
+				padding: 0;
+
+				a {
+					width: 20%;
+					float: left;
+					padding: 8px;
+					margin: 15px 12px;
+					color: #232323;
+					background: #fdfdfd;
+					position: relative;
+					text-align: center;
+					text-decoration: none;
+					border: 1px solid #C6C4C4;
+					line-height: 20px !important;
+
+					&:before {
+						font-size: 16px;
+						vertical-align: text-bottom;
+						@include iconbefore( "\e002" );
+					}
+
+					&:hover,
+					&:focus {
+						background: #f7f7f7;
+					}
+				}
+
+				&.layout_options {
+					a:before {
+						content: "\e003";
+					}
+				}
+
+				&.content_options {
+					a:before {
+						content: "\e004";
+					}
+				}
+
+				&.media_options {
+					a:before {
+						content: "\e005";
+					}
+				}
+
+				&.plugin_options {
+					a:before {
+						content: "\e006";
+					}
+				}
+
+				&.active {
+					a {
+						@include active_tab( $fresh-tab-active-color )
+					}
+				}
+			}
+		}
+
+		#layout_builder_data {
+			display: block;
+		}
+
+		.axisbuilder-shortcodes-panel {
+			clear: both;
+			display: none;
+			overflow: hidden;
+			position: relative;
+			padding: 4px 12px 9px;
+			background-color: #fdfdfd;
+		}
 	}
+
+
 }
 
 /**
- * Builer Tabs
+ * Builder Postbox Classes
  */
 #axisbuilder-editor {
 
-	.panels-wrap {
-		overflow: hidden;
+	&.axisbuilder-hidden {
+		display: none !important;
 	}
 
-	ul.axisbuilder-tabs {
-		width: 100%;
-		float: left;
-		margin: 0;
-		padding: 0;
-		line-height: 1em;
-		position: relative;
-		background: #ffffff;
-		background-color: #fafafa;
-		border-bottom: 1px solid #eee;
-		@include box-sizing( border-box );
-
-		&:after {
-			content: "";
-			display: block;
-			width: 100%;
-			left: 0;
-			background-color: #fafafa;
-			border-right: 1px solid #eee;
-		}
-
-		li {
-			margin: 0;
-			padding: 0;
-
-			a {
-				width: 20%;
-				float: left;
-				padding: 8px;
-				margin: 15px 12px;
-				color: #232323;
-				background: #fdfdfd;
-				position: relative;
-				text-align: center;
-				text-decoration: none;
-				border: 1px solid #C6C4C4;
-				line-height: 20px !important;
-
-				&:before {
-					@include iconbefore( "\e002" );
-				}
-
-				&:hover,
-				&:focus {
-					background: #f7f7f7;
-				}
-			}
-
-			&.layout_options {
-				a:before {
-					content: "\e002";
-				}
-			}
-
-			&.content_options {
-				a:before {
-					content: "\e002";
-				}
-			}
-
-			&.media_options {
-				a:before {
-					content: "\e002";
-				}
-			}
-
-			&.plugin_options {
-				a:before {
-					content: "\e002";
-				}
-			}
-
-			&.active {
-				a {
-					@include active_tab( $fresh-tab-active-color )
-				}
-			}
-		}
-	}
-
-	#layout_builder_data {
-		display: block;
-	}
-
-	.axisbuilder-shortcodes-panel {
-		clear: both;
-		display: none;
-		overflow: hidden;
-		position: relative;
-		padding: 4px 12px 9px;
-		background-color: #fdfdfd;
+	&.axisbuilder-expanded {
+		position: fixed;
+		top:-3px;
+		left:0;
+		right:0;
+		bottom:0;
+		z-index: 10000;
+		margin:0;
+		overflow: auto;
+		overflow-x: hidden;
 	}
 }
 
 /**
- * Full Screen Styles
+ * Clear
  */
-body.axisbuilder-noscroll-box {
-	overflow: hidden;
+.clear {
+	clear: both;
 }
 
 #normal-sortables .postbox.axisbuilder-expanded#axisbuilder-editor:first-child {
@@ -181,7 +198,7 @@ body.axisbuilder-noscroll-box {
 	margin: 10px 20px 0;
 }
 
-.postbox.axisbuilder-expanded {
+/*.postbox.axisbuilder-expanded {
 	position: fixed;
 	top:-3px;
 	left:0;
@@ -191,7 +208,7 @@ body.axisbuilder-noscroll-box {
 	margin:0;
 	overflow: auto;
 	overflow-x: hidden;
-}
+}*/
 
 .axisbuilder-expanded .axisbuilder-tab-container {
 	visibility: hidden;
@@ -398,7 +415,7 @@ body.axisbuilder-noscroll-box {
 				float: left;
 
 				&:before {
-					@include icon( "\e003" );
+					@include icon( "\e007" );
 				}
 			}
 
@@ -408,7 +425,7 @@ body.axisbuilder-noscroll-box {
 				margin-right: 3px;
 
 				&:before {
-					@include icon( "\e004" );
+					@include icon( "\e008" );
 				}
 			}
 		}
@@ -423,7 +440,7 @@ body.axisbuilder-noscroll-box {
 				margin-left: 3px;
 
 				&:before {
-					@include icon( "\e005" );
+					@include icon( "\e009" );
 				}
 
 				&:hover {
@@ -453,7 +470,7 @@ body.axisbuilder-noscroll-box {
 				font-size: 16px;
 
 				&:before {
-					@include icon( "\e006" );
+					@include icon( "\e00a" );
 				}
 
 				&:hover {

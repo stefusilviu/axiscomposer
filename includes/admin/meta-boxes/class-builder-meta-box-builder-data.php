@@ -37,11 +37,9 @@ class AB_Meta_Box_Builder_Data {
 
 		?>
 
-		<!-- Page Builder Panel -->
-		<div class="axisbuilder-panel">
+		<div class="axisbuilder-wrap">
 
-			<!-- Tabbed Panels -->
-			<div class="panels-wrap axisbuilder-tab-container">
+			<div id="axisbuilder-panels" class="panels-tab">
 				<ul class="axisbuilder-tabs">
 					<?php
 						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
@@ -89,13 +87,8 @@ class AB_Meta_Box_Builder_Data {
 
 				<div class="clear"></div>
 			</div>
-
-			<!-- Builder Handle -->
 			<div id="axisbuilder-handle" class="handle-bar">
-
 				<div class="control-bar">
-
-					<!-- History Sections -->
 					<div class="history-sections">
 						<div class="history-action" data-axis-tooltip="<?php _e( 'History', 'axisbuilder' ); ?>">
 							<a href="#" class="undo-icon undo-data" title="Undo"></i></a>
@@ -105,8 +98,6 @@ class AB_Meta_Box_Builder_Data {
 							<a href="#" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
 						</div>
 					</div>
-
-					<!-- Content Sections -->
 					<div class="content-sections">
 						<div class="template-action">
 							<a href="#" class="button button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
@@ -115,12 +106,8 @@ class AB_Meta_Box_Builder_Data {
 							<a href="#" class="expand-icon axisbuilder-attach-expand"><?php _e( 'Close', 'axisbuilder' ); ?></a>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
-
-			<!-- Builder Canvas -->
 			<div id="axisbuilder-canvas" class="visual-editor">
 				<div class="canvas-area loader drag-element" data-dragdrop-level="0"></div>
 				<div class="canvas-secure-data">

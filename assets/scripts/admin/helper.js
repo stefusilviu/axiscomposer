@@ -12,7 +12,7 @@
 	$( document ).ready( function() {
 
 		// Can be removed once all browser support css only tabs (:target support needed)
-		$.AxisBuilderHelper.tabs( '.axisbuilder-tab-container' );
+		$.AxisBuilderHelper.tabs( '.panels-tab' );
 
 		// Allows to expand Builder Meta-Box to fullscreen proportions.
 		$.AxisBuilderHelper.fullscreen();
@@ -115,7 +115,7 @@
 		function fullscreen_open() {
 			parents.addClass( 'axisbuilder-expanded' );
 			body.addClass( 'axisbuilder-noscroll-box' );
-			clone_tab = parents.find( '.axisbuilder-tab-container' ).clone( true );
+			clone_tab = parents.find( '.panels-tab' ).clone( true );
 
 			if ( clone_tab.length ) {
 
@@ -142,7 +142,7 @@
 				clone_tab.appendTo( container );
 
 				//activate behavior
-				$.AxisBuilderHelper.tabs( clone_tab, $( '.axisbuilder-tab-container:not(.axisbuilder-fixed-controls .axisbuilder-tab-container):first' ) );
+				$.AxisBuilderHelper.tabs( clone_tab, $( '.panels-tab:not(.axisbuilder-fixed-controls .panels-tab):first' ) );
 			}
 		}
 

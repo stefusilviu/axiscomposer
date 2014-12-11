@@ -32,9 +32,18 @@ class AB_Admin {
 	 */
 	public function includes() {
 		// Classes
-		include_once( 'class-builder-admin-assets.php' );
 		include_once( 'class-builder-admin-editor.php' );
 		include_once( 'class-builder-admin-meta-boxes.php' );
+
+		// Classes we only need during non-ajax requests
+		if ( ! defined( 'DOING_AJAX' ) ) {
+			include_once( 'class-builder-admin-assets.php' );
+
+			// Help
+			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {
+				include( 'class-builder-admin-help.php' );
+			}
+		}
 	}
 }
 

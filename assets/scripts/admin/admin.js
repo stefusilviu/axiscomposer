@@ -49,8 +49,8 @@ function AB_Logger( text, type ) {
 		this.tinyMceContent = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : false;
 
 		// Shortcode Buttons {Object|Wrap}
-		this.shortcodes    = $.AxisBuilderShortcodes || {};
-		this.shortcodeWrap = $( '.axisbuilder-shortcodes' );
+		this.shortcodes     = $.AxisBuilderShortcodes || {};
+		this.shortcodesWrap = $( '.axisbuilder-shortcodes' );
 
 		// Activate the Builder
 		this.builderActivate();
@@ -89,7 +89,7 @@ function AB_Logger( text, type ) {
 			});
 
 			// Add a new element to the Builder Canvas
-			this.shortcodeWrap.on( 'click', '.insert-shortcode', function() {
+			this.shortcodesWrap.on( 'click', '.insert-shortcode', function() {
 				// var parents = $( this ).parents( '.axisbuilder-shortcodes' ),
 					// already_active = ( this.className.indexOf( 'axisbuilder-active-insert' ) !== -1 ) ? true : false;
 

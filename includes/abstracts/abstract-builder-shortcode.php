@@ -58,7 +58,7 @@ abstract class AB_Shortcode {
 			'target'     => '',
 			'drag-level' => 2,
 			'drop-level' => 2,
-			'href-class' => strtolower( get_class( $this ) )
+			'href-class' => get_class( $this )
 		);
 
 		foreach ( $load_shortcode_data as $key => $data ) {
@@ -66,5 +66,12 @@ abstract class AB_Shortcode {
 				$this->shortcode[$key] = $data;
 			}
 		}
+	}
+
+	/**
+	 * Render shortcode canvas elements.
+	 */
+	public static function shortcode_canvas() {
+		return "Shortcode Canvas";
 	}
 }

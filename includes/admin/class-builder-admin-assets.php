@@ -112,16 +112,17 @@ class AB_Admin_Assets {
 	public function media_templates() {
 
 		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
-			$class    = strtolower( $load_shortcodes->shortcode['href-class'] );
-			$template = '';
+			$class    = $load_shortcodes->shortcode['href-class'];
+			$template = $class::shortcode_canvas();
 
 			if ( is_array( $template ) ) {
 				continue;
 			}
 
-			$html  =  "\n" . '<script type="text/html" id="axisbuilder-template-' . $class . '">' . "\n";
+			$html = "\n" . '<!-- ' . $class . ' Template -->';
+			$html .= "\n" . '<script type="text/html" id="axisbuilder-template-' . strtolower( $class ) . '">' . "\n";
 				$html .= $template;
-			$html .=  "\n" . '</script>' . "\n\n";
+			$html .= "\n" . '</script>' . "\n\n";
 
 			echo $html;
 		}

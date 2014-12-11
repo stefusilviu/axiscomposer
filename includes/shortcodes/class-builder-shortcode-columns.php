@@ -24,6 +24,13 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		parent::__construct();
+	}
+
+	/**
+	 * Configuration for builder shortcode button.
+	 */
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_one_full';
 		$this->title     = __( '1/1', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single full width column', 'axisbuilder' );
@@ -36,16 +43,12 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-		parent::__construct();
 	}
 
 	/**
 	 * Visual appearance of shortcode on canvas.
 	 */
-	public function visual_appearance( $params ) {
+	public static function visual_appearance( $params ) {
 		extract( $params );
 
 		$data = $this->shortcode;
@@ -62,6 +65,12 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 			'ab_three_fifth'  => '3/5',
 			'ab_four_fifth'   => '4/5',
 		);
+
+		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' axisbuilder-first-col' : '' : '';
+
+		$output = '<div class="axisbuilder-layout-column axisbuilder"></div>';
+
+		// return $output;
 	}
 }
 
@@ -71,9 +80,9 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_one_half';
 		$this->title     = __( '1/2', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 50&percnt; width', 'axisbuilder' );
@@ -86,12 +95,6 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -101,9 +104,9 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_one_third';
 		$this->title     = __( '1/3', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 33&percnt; width', 'axisbuilder' );
@@ -116,12 +119,6 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -131,9 +128,9 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_two_third';
 		$this->title     = __( '2/3', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 67&percnt; width', 'axisbuilder' );
@@ -146,12 +143,6 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -161,9 +152,9 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_one_fourth';
 		$this->title     = __( '1/4', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 25&percnt; width', 'axisbuilder' );
@@ -176,12 +167,6 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -191,9 +176,9 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_three_fourth';
 		$this->title     = __( '3/4', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 75&percnt; width', 'axisbuilder' );
@@ -206,12 +191,6 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -221,9 +200,9 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_one_fifth';
 		$this->title     = __( '1/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 20&percnt; width', 'axisbuilder' );
@@ -236,12 +215,6 @@ class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -251,9 +224,9 @@ class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Two_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_two_fifth';
 		$this->title     = __( '2/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 40&percnt; width', 'axisbuilder' );
@@ -266,12 +239,6 @@ class AB_Shortcode_Columns_Two_Fifth extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -281,9 +248,9 @@ class AB_Shortcode_Columns_Two_Fifth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_three_fifth';
 		$this->title     = __( '3/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 60&percnt; width', 'axisbuilder' );
@@ -296,12 +263,6 @@ class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }
 
@@ -311,9 +272,9 @@ class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Four_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Class Constructor Method.
+	 * Configuration for builder shortcode button.
 	 */
-	public function __construct() {
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_four_fifth';
 		$this->title     = __( '4/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 80&percnt; width', 'axisbuilder' );
@@ -326,11 +287,5 @@ class AB_Shortcode_Columns_Four_Fifth extends AB_Shortcode_Columns {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-
-		$this->shortcode_config();
-		// parent::__construct();
 	}
 }

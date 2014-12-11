@@ -22,6 +22,13 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		parent::__construct();
+	}
+
+	/**
+	 * Configuration for builder shortcode button.
+	 */
+	public function shortcode_button() {
 		$this->id        = 'axisbuilder_codeblock';
 		$this->title     = __( 'Code Block', 'axisbuilder' );
 		$this->tooltip   = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axisbuilder' );
@@ -34,9 +41,5 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
-		$this->settings = array(
-
-		);
-		parent::__construct();
 	}
 }

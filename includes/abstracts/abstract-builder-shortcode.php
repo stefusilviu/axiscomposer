@@ -46,8 +46,14 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		$this->shortcode_button();
 		$this->shortcode_config();
 	}
+
+	/**
+	 * Abstract method for builder shortcode button configuration.
+	 */
+	abstract function shortcode_button();
 
 	/**
 	 * Auto-set shortcode configurations.
@@ -64,6 +70,14 @@ abstract class AB_Shortcode {
 		foreach ( $load_shortcode_data as $key => $data ) {
 			if ( empty( $this->shortcode[$key] ) ) {
 				$this->shortcode[$key] = $data;
+			}
+		}
+
+		// Load popup when shortcode is clicked.
+		if ( method_exists( $this, 'popup_elements' ) ) {
+			$this->popup_elements();
+			if ( ! empty( $this->settings ) ) {
+				$this->shortcode['popup_editor'] = true;
 			}
 		}
 	}
@@ -97,6 +111,26 @@ abstract class AB_Shortcode {
 		if ( empty( $args ) ) {
 			$args = self::fetch_default_args( $args );
 		}
+
+		if ( isset( $args['content'] ) ) {
+			unset( $args['content'] );
+		}
+
+		$params['args']    = $args;
+		$params['content'] = $content;
+		// $params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
+
+		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
+		$params = self::visual_appearance( $params );
+
+
+		$output = $params;
+
+		// return $output;
+	}
+
+	public static function visual_appearance( $params ) {
+		return $params;
 	}
 
 	/**

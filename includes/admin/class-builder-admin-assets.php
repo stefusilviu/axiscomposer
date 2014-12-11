@@ -120,7 +120,7 @@ class AB_Admin_Assets {
 			}
 
 			$html = "\n" . '<!-- ' . $class . ' Template -->';
-			$html .= "\n" . '<script type="text/html" id="axisbuilder-template-' . strtolower( $class ) . '">' . "\n";
+			$html .= "\n" . '<script type="text/html" id="axisbuilder-tmpl-' . strtolower( $class ) . '">' . "\n";
 				$html .= $template;
 			$html .= "\n" . '</script>' . "\n\n";
 

@@ -61,7 +61,7 @@
 				return false;
 			});
 
-			if ( ! items.filter( '.active-tab' ).length ) {
+			if ( ! items.filter( '.active' ).length ) {
 				items.filter( ':eq(' + active_tab + ')' ).addClass( 'active' ).trigger( 'click' );
 			}
 		});

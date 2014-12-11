@@ -8,7 +8,7 @@
 	$.AxisBuilderShortcodes = $.AxisBuilderShortcodes || {};
 
 	$.AxisBuilderShortcodes.fetchShortcodeEditorElement = function( shortcode, insert_target, obj ) {
-		var template = $( '#axisbuilder-template-' + shortcode );
+		var template = $( '#axisbuilder-tmpl-' + shortcode );
 
 		if ( template.length ) {
 			if ( insert_target === 'instant-insert' ) {

@@ -41,6 +41,28 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 		);
 		parent::__construct();
 	}
+
+	/**
+	 * Visual appearance of shortcode on canvas.
+	 */
+	public function visual_appearance( $params ) {
+		extract( $params );
+
+		$data = $this->shortcode;
+
+		$size = array(
+			'ab_one_full'     => '1/1',
+			'ab_one_half'     => '1/2',
+			'ab_one_third'    => '1/3',
+			'ab_two_third'    => '2/3',
+			'ab_one_fourth'   => '1/4',
+			'ab_three_fourth' => '3/4',
+			'ab_one_fifth'    => '1/5',
+			'ab_two_fifth'    => '2/5',
+			'ab_three_fifth'  => '3/5',
+			'ab_four_fifth'   => '4/5',
+		);
+	}
 }
 
 /**

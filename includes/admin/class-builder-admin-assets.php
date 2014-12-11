@@ -119,13 +119,15 @@ class AB_Admin_Assets {
 				continue;
 			}
 
-			$html = "\n" . '<!-- ' . $class . ' Template -->';
-			$html .= "\n" . '<script type="text/html" id="axisbuilder-tmpl-' . strtolower( $class ) . '">' . "\n";
-				$html .= $template;
-			$html .= "\n" . '</script>' . "\n\n";
+			$html  = "\n" . '	<!-- ' . $class . ' Template -->';
+			$html .= "\n" . '	<script type="text/html" id="axisbuilder-tmpl-' . strtolower( $class ) . '">';
+			$html .= "\n	" . $template;
+			$html .= "\n" . '	</script>' . "\n";
 
 			echo $html;
 		}
+
+		echo "\n";
 	}
 }
 

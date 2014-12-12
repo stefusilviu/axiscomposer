@@ -184,11 +184,11 @@ abstract class AB_Shortcode {
 
 		?>
 
-		<!-- <?php echo $class ?> Templates -->
-		<script type="text/html" id="axisbuilder-tmpl-<?php echo strtolower( $class ); ?>">
-			<?php echo $template ?>
+<!-- <?php echo $class ?> Templates -->
+<script type="text/html" id="axisbuilder-tmpl-<?php echo strtolower( $class ); ?>">
+<?php echo $template ?>
 
-		</script>
+</script>
 
 		<?php
 	}

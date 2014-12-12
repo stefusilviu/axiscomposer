@@ -49,6 +49,9 @@ abstract class AB_Shortcode {
 		$this->shortcode_assets();
 		$this->shortcode_button();
 		$this->shortcode_config();
+
+		// Hooks
+		add_action( 'print_media_templates', array( $this, 'media_templates' ) );
 	}
 
 	/**
@@ -146,7 +149,7 @@ abstract class AB_Shortcode {
 
 		$output = $params;
 
-		echo $this->title;
+		return $this->title;
 
 		// return $output;
 	}
@@ -163,5 +166,25 @@ abstract class AB_Shortcode {
 	 */
 	public function fetch_default_args() {
 
+	}
+
+	/**
+	 * Create Media Templates
+	 */
+	public function media_templates() {
+		$class    = $this->shortcode['href-class'];
+		$template = $this->prepare_editor_element();
+
+
+		if ( is_array( $template ) ) {
+			continue;
+		}
+
+		$html  = "\n" . '	<!-- ' . $class . ' Template -->';
+		$html .= "\n" . '	<script type="text/html" id="axisbuilder-tmpl-' . strtolower( $class ) . '">';
+		$html .= "\n	" . $template;
+		$html .= "\n" . '	</script>' . "\n\n";
+
+		echo $html;
 	}
 }

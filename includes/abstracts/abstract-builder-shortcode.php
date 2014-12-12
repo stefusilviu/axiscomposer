@@ -86,12 +86,12 @@ abstract class AB_Shortcode {
 		}
 
 		// Activate popup editor if settings exist.
-		if ( method_exists( $this, 'popup_elements' ) ) {
-			$this->popup_elements();
-			if ( ! empty( $this->settings ) ) {
-				$this->shortcode['popup_editor'] = true;
-			}
-		}
+		// if ( method_exists( $this, 'popup_elements' ) ) {
+		// 	$this->popup_elements();
+		// 	if ( ! empty( $this->settings ) ) {
+		// 		$this->shortcode['popup_editor'] = true;
+		// 	}
+		// }
 	}
 
 	/**
@@ -128,14 +128,14 @@ abstract class AB_Shortcode {
 	public function prepare_editor_element( $content = false, $args = array() ) {
 
 		// Set default content unless it was already passed
-		if ( $content === false ) {
-			$content = $this->fetch_default_content( $content );
-		}
+		// if ( $content === false ) {
+		// 	$content = $this->fetch_default_content( $content );
+		// }
 
 		// Set default arguments unless it was already passed
-		if ( empty( $args ) ) {
-			$args = $this->fetch_default_args( $args );
-		}
+		// if ( empty( $args ) ) {
+		// 	$args = $this->fetch_default_args( $args );
+		// }
 
 		if ( isset( $args['content'] ) ) {
 			unset( $args['content'] );
@@ -157,16 +157,16 @@ abstract class AB_Shortcode {
 	/**
 	 * Fetch default content
 	 */
-	public function fetch_default_content() {
+	// public function fetch_default_content() {
 
-	}
+	// }
 
 	/**
 	 * Fetch default args
 	 */
-	public function fetch_default_args() {
+	// public function fetch_default_args() {
 
-	}
+	// }
 
 	/**
 	 * Output a view template which can used with builder elements.

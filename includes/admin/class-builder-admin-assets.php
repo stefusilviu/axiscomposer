@@ -28,11 +28,10 @@ class AB_Admin_Assets {
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		add_action( 'print_media_templates', array( $this, 'media_templates' ) );
 	}
 
 	/**
-	 * Enqueue styles
+	 * Enqueue styles.
 	 */
 	public function admin_styles() {
 		global $wp_scripts;
@@ -59,7 +58,7 @@ class AB_Admin_Assets {
 	}
 
 	/**
-	 * Enqueue scripts
+	 * Enqueue scripts.
 	 */
 	public function admin_scripts() {
 		global $wp_query, $post;
@@ -95,39 +94,17 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-button' );
 
 			$params = array(
-				'post_id'                       => isset( $post->ID ) ? $post->ID : '',
-				'plugin_url'                    => AB()->plugin_url(),
-				'ajax_url'                      => admin_url( 'admin-ajax.php' ),
-				'debug_mode'                    => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
-				'shortcodes_to_interface_nonce' => wp_create_nonce( 'shortcodes-to-interface' ),
+				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
+				'plugin_url'                      => AB()->plugin_url(),
+				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
+				'debug_mode'                      => defined( 'AB_DEBUG' ) && AB_DEBUG ? 'enable' : 'disable',
+				'shortcodes_to_interface_nonce'   => wp_create_nonce( 'shortcodes-to-interface' ),
+				'i18n_delete_all_canvas_elements' => esc_js( __( 'Are you sure you want to delete all canvas element(s)? This cannot be undone.', 'axisbuilder' ) ),
+				'i18n_last_warning'               => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) ),
 			);
 
 			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );
 		}
-	}
-
-	/**
-	 * Create Media Templates
-	 */
-	public function media_templates() {
-
-		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
-			$class    = $load_shortcodes->shortcode['href-class'];
-			$template = $class::shortcode_canvas();
-
-			if ( is_array( $template ) ) {
-				continue;
-			}
-
-			$html  = "\n" . '	<!-- ' . $class . ' Template -->';
-			$html .= "\n" . '	<script type="text/html" id="axisbuilder-tmpl-' . strtolower( $class ) . '">';
-			$html .= "\n	" . $template;
-			$html .= "\n" . '	</script>' . "\n";
-
-			echo $html;
-		}
-
-		echo "\n";
 	}
 }
 

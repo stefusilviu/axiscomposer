@@ -101,6 +101,12 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
+			// Remove element from the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-trash', function() {
+				obj.shortcodes.trashItem( this, obj );
+				return false;
+			});
+
 			// Trash the entire canvas elements
 			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
 

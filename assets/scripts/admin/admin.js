@@ -48,9 +48,10 @@ function AB_Logger( text, type ) {
 		this.tinyMceVersion = this.tinyMceDefined ? window.tinyMCE.majorVersion : false;
 		this.tinyMceContent = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : false;
 
-		// Shortcode Buttons {Object|Wrap}
+		// Shortcode Buttons {Object|Wrap|Data}
 		this.shortcodes     = $.AxisBuilderShortcodes || {};
 		this.shortcodesWrap = $( '.axisbuilder-shortcodes' );
+		this.shortcodesData = 'textarea[data-name="text-shortcode"]';
 
 		// Activate the Builder
 		this.builderActivate();
@@ -101,12 +102,6 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
-			// Remove element from the Builder Canvas
-			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-trash', function() {
-				obj.shortcodes.trashItem( this, obj );
-				return false;
-			});
-
 			// Trash all element(s) from the Builder Canvas
 			this.axisBuilderHandle.on( 'click', 'a.trash-data', function( e ) {
 				var length = obj.axisBuilderCanvas.children().length;
@@ -125,6 +120,18 @@ function AB_Logger( text, type ) {
 				}
 
 				e.preventDefault();
+				return false;
+			});
+
+			// Remove element from the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-trash', function() {
+				obj.shortcodes.trashItem( this, obj );
+				return false;
+			});
+
+			// Resize the layout element of the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', function() {
+				obj.shortcodes.resizeLayout( this, obj );
 				return false;
 			});
 		},

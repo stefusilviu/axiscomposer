@@ -59,4 +59,44 @@
 		});
 	};
 
+	$.AxisBuilderShortcodes.resizeLayout = function( clicked, obj ) {
+		var element     = $( clicked ),
+			container   = element.parents( '.axisbuilder-layout-column:eq(0)' ),
+			// section     = container.parents( '.axisbuilder-layout-section:eq(0)' ),
+			currentSize = container.data( 'width' ),
+			nextSize    = [],
+			direction   = element.is( '.axisbuilder-increase' ) ? 1 : -1,
+			sizeString  = container.find( '.axisbuilder-column-size' ),
+			dataStorage = container.find( '.axisbuilder-inner-shortcode > ' + obj.shortcodesData ),
+			dataString  = dataStorage.val(),
+			sizes       = [
+				['ab_one_full',     '1/1'],
+				['ab_four_fifth',   '4/5'],
+				['ab_three_fourth', '3/4'],
+				['ab_two_third',    '2/3'],
+				['ab_three_fifth',  '3/5'],
+				['ab_one_half',     '1/2'],
+				['ab_two_fifth',    '2/5'],
+				['ab_one_third',    '1/3'],
+				['ab_one_fourth',   '1/4'],
+				['ab_one_fifth',    '1/5']
+			];
+
+		for ( var i = 0; i < sizes.length; i++ ) {
+			if ( sizes[i][0] === currentSize ) {
+				nextSize = sizes[ i - direction ];
+			}
+		}
+
+		if ( typeof nextSize !== 'undefined' ) {
+			dataString = dataString.replace( new RegExp( '^\\[' + currentSize, 'g' ), '[' + nextSize[0] );
+			dataString = dataString.replace( new RegExp( currentSize + '\\]', 'g' ), nextSize[0] + ']' );
+
+			dataStorage.val( dataString );
+			container.removeClass( currentSize ).addClass( nextSize[0] );
+			container.attr( 'data-width', nextSize[0] ).data( 'width', nextSize[0] ); // Ensure to set data attr so html() functions fetch the correct value :)
+			sizeString.text( nextSize[1] );
+		}
+	};
+
 })(jQuery);

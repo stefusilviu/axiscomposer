@@ -51,7 +51,9 @@ abstract class AB_Shortcode {
 		$this->shortcode_config();
 
 		// Hooks
-		add_action( 'print_media_templates', array( $this, 'media_templates' ) );
+		if ( is_admin() ) {
+			add_action( 'print_media_templates', array( $this, 'print_media_templates' ) );
+		}
 	}
 
 	/**
@@ -139,9 +141,9 @@ abstract class AB_Shortcode {
 			unset( $args['content'] );
 		}
 
-		$params['args']    = $args;
 		$params['content'] = $content;
-		// $params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
+		$params['args']    = $args;
+		$params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
 
 		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
 		$params = $this->editor_element( $params );
@@ -149,9 +151,7 @@ abstract class AB_Shortcode {
 
 		$output = $params;
 
-		return $this->title;
-
-		// return $output;
+		return $output;
 	}
 
 	/**
@@ -169,21 +169,27 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Create Media Templates.
+	 * Output a view template which can used with builder elements.
 	 */
-	public function media_templates() {
+	public function print_media_templates() {
 		$class    = $this->shortcode['href-class'];
 		$template = $this->prepare_editor_element();
 
 		if ( is_array( $template ) ) {
-			continue;
+			foreach ($template as $value) {
+				$template = $value;
+				continue;
+			}
 		}
 
-		$html  = "\n" . '	<!-- ' . $class . ' Template -->';
-		$html .= "\n" . '	<script type="text/html" id="axisbuilder-tmpl-' . strtolower( $class ) . '">';
-		$html .= "\n	" . $template;
-		$html .= "\n" . '	</script>' . "\n\n";
+		?>
 
-		echo $html;
+		<!-- <?php echo $class ?> Templates -->
+		<script type="text/html" id="axisbuilder-tmpl-<?php echo strtolower( $class ); ?>">
+			<?php echo $template ?>
+
+		</script>
+
+		<?php
 	}
 }

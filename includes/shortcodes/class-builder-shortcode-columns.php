@@ -68,7 +68,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 			'ab_four_fifth'   => '4/5',
 		);
 
-		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' axisbuilder-first-col' : '' : '';
+		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' axisbuilder-first-column' : '' : '';
 
 		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell popup-animation axisbuilder-drag ' . $data['name'] . $extra_class . '" data-dragdrop-level="' . $data['drag-level'] . '" data-width="' . $data['name'] . '">';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';

@@ -31,7 +31,7 @@ class AB_Admin_Assets {
 	}
 
 	/**
-	 * Enqueue styles
+	 * Enqueue styles.
 	 */
 	public function admin_styles() {
 		global $wp_scripts;
@@ -58,7 +58,7 @@ class AB_Admin_Assets {
 	}
 
 	/**
-	 * Enqueue scripts
+	 * Enqueue scripts.
 	 */
 	public function admin_scripts() {
 		global $wp_query, $post;

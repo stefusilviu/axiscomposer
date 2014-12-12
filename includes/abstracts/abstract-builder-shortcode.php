@@ -169,7 +169,7 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Create Media Templates
+	 * Create Media Templates.
 	 */
 	public function media_templates() {
 		$class    = $this->shortcode['href-class'];

@@ -99,12 +99,12 @@ abstract class AB_Shortcode {
 	 *
 	 * This method defines the visual appearance of an element on the Builder canvas.
 	 */
-	public function editor_element( $params = array() ) {
+	public function editor_element( $params ) {
 		$params['innerHtml']  = '';
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
 		$params['innerHtml'] .= '<div class="axibulder-element-label">' . $this->title . '</div>';
 
-		return $params;
+		return (array) $params;
 	}
 
 	/**

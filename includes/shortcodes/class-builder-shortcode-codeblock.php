@@ -72,6 +72,6 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
 		$params['innerHtml'] .= '<div class="axibulder-element-label">' . $this->title . '</div>';
 
-		return $params;
+		return (array) $params;
 	}
 }

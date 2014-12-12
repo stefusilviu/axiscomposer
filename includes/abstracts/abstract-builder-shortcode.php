@@ -46,9 +46,15 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
+		$this->shortcode_assets();
 		$this->shortcode_button();
 		$this->shortcode_config();
 	}
+
+	/**
+	 * Enqueue shortcode styles and scripts.
+	 */
+	public function shortcode_assets() {}
 
 	/**
 	 * Abstract method for builder shortcode button configuration.
@@ -74,7 +80,7 @@ abstract class AB_Shortcode {
 			}
 		}
 
-		// Let's bail the shortcode popup modal
+		// Activate popup editor if settings exist.
 		if ( method_exists( $this, 'popup_elements' ) ) {
 			$this->popup_elements();
 			if ( ! empty( $this->settings ) ) {

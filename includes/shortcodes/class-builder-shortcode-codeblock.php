@@ -42,4 +42,23 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 			'tinymce' => array( 'disable' => true ),
 		);
 	}
+
+	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->settings = array(
+			array(
+				'name'  => __( 'Code Block Element. Add your own HTML/Javascript here', 'axisbuilder' ),
+				'desc'  => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axisbuilder' ),
+				'id'    => 'content',
+				'class' => 'axisbuilder-element-fullwidth',
+				'type'  => 'textarea',
+				'std'   => ''
+			)
+		);
+	}
 }

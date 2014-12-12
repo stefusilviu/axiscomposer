@@ -33,7 +33,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	public function shortcode_button() {
 		$this->id        = 'axisbuilder_col_one_full';
 		$this->title     = __( '1/1', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single full width column', 'axisbuilder' );
+		$this->tooltip   = __( 'Creates a single column with full width', 'axisbuilder' );
 		$this->shortcode = array(
 			'sort'    => 1,
 			'type'    => 'layout',

@@ -67,13 +67,14 @@ abstract class AB_Shortcode {
 			'href-class' => get_class( $this )
 		);
 
+		// Load the default shortcode data
 		foreach ( $load_shortcode_data as $key => $data ) {
 			if ( empty( $this->shortcode[$key] ) ) {
 				$this->shortcode[$key] = $data;
 			}
 		}
 
-		// Load popup when shortcode is clicked.
+		// Let's bail the shortcode popup modal
 		if ( method_exists( $this, 'popup_elements' ) ) {
 			$this->popup_elements();
 			if ( ! empty( $this->settings ) ) {

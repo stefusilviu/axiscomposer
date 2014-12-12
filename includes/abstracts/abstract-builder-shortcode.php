@@ -175,7 +175,6 @@ abstract class AB_Shortcode {
 		$class    = $this->shortcode['href-class'];
 		$template = $this->prepare_editor_element();
 
-
 		if ( is_array( $template ) ) {
 			continue;
 		}

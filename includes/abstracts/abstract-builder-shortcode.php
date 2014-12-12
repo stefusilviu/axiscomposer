@@ -46,7 +46,7 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
-		$this->shortcode_assets();
+		// $this->shortcode_assets();
 		$this->shortcode_button();
 		$this->shortcode_config();
 
@@ -59,7 +59,7 @@ abstract class AB_Shortcode {
 	/**
 	 * Enqueue shortcode styles and scripts.
 	 */
-	public function shortcode_assets() {}
+	// public function shortcode_assets() {}
 
 	/**
 	 * Abstract method for builder shortcode button configuration.

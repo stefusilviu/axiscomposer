@@ -107,26 +107,23 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
-			// Trash the entire canvas elements
-			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
+			// Trash all element(s) from the Builder Canvas
+			this.axisBuilderHandle.on( 'click', 'a.trash-data', function( e ) {
+				var length = obj.axisBuilderCanvas.children().length;
 
-				// sweetAlert({
-				// 	title: "Are you sure?",
-				// 	text: "You will not be able to recover this canvas elements!",
-				// 	type: "warning",
-				// 	showCancelButton: true,
-				// 	confirmButtonColor: "#DD6B55",
-				// 	confirmButtonText: "Yes, delete it!",
-				// 	closeOnConfirm: false
-				// }, function() {
-				// 	swal({
-				// 		title: "Deleted!",
-				// 		text: "Your canvas elements has been deleted.",
-				// 		type: "success",
-				// 		timer: 2000
-				// 	});
-				// });
+				if ( length > 0 ) {
+					var answer = window.confirm( axisbuilder_admin.i18n_delete_all_canvas_elements );
 
+					if ( answer ) {
+						answer = window.confirm( axisbuilder_admin.i18n_last_warning );
+
+						if ( answer ) {
+							obj.axisBuilderCanvas.empty();
+						}
+					}
+				}
+
+				e.preventDefault();
 				return false;
 			});
 		},

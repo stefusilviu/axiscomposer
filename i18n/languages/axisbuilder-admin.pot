@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-10 18:01:57+00:00\n"
+"POT-Creation-Date: 2014-12-12 17:46:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,6 +12,16 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: includes/admin/class-builder-admin-assets.php:102
+msgid ""
+"Are you sure you want to delete all canvas element(s)? This cannot be "
+"undone."
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:103
+msgid "Last warning, are you sure?"
+msgstr ""
 
 #: includes/admin/class-builder-admin-editor.php:51
 msgid "Use Page Builder"
@@ -21,39 +31,90 @@ msgstr ""
 msgid "Use Default Editor"
 msgstr ""
 
+#: includes/admin/class-builder-admin-help.php:44
 #: includes/admin/class-builder-admin-meta-boxes.php:100
 msgid "Page Builder"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:49
+#: includes/admin/class-builder-admin-help.php:47
+msgid "General Info"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:49
+msgid ""
+"To insert an Element either click the insert button for that element or "
+"drag the button onto the canvas."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:50
+msgid ""
+"If you place your mouse above the insert button a short info tooltip will "
+"appear."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:51
+msgid ""
+"To sort and arrange your elements just drag them to a position of your "
+"choice and release them."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:52
+msgid ""
+"Valid drop targets will be highlighted. Elements like fullwidth sliders "
+"&amp color section can't be dropped onto other elements."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:54
+msgid "Popup Elements"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:56
+msgid "Most elements open a popup window if you click them."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:57
+msgid "Press TAB to navigate trough the various form fields of a popup window."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:58
+msgid "Press ESC on your keyboard or the Close Button to close popup window."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:59
+msgid ""
+"Press ENTER on your keyboard or the Save Button to save current state of a "
+"popup window."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:46
 msgid "Layout Elements"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:54
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:51
 msgid "Content Elements"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:59
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:56
 msgid "Media Elements"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:64
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:61
 msgid "Plugin Additions"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:100
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:93
 msgid "History"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:105
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:98
 msgid "Permanently delete all canvas elements"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:112
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:103
 msgid "Save or Load templates"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:115
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:106
 msgid "Close"
 msgstr ""
 

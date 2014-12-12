@@ -46,9 +46,11 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	}
 
 	/**
-	 * Visual appearance of shortcode on canvas.
+	 * Editor Elements.
+	 *
+	 * This method defines the visual appearance of an element on the Builder canvas.
 	 */
-	public static function visual_appearance( $params ) {
+	public function editor_element( $params ) {
 		extract( $params );
 
 		$data = $this->shortcode;
@@ -70,7 +72,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 
 		$output = '<div class="axisbuilder-layout-column axisbuilder"></div>';
 
-		// return $output;
+		return $output;
 	}
 }
 

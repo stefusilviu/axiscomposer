@@ -111,9 +111,11 @@ class AB_Admin_Assets {
 	 */
 	public function media_templates() {
 
+
+
 		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
 			$class    = $load_shortcodes->shortcode['href-class'];
-			$template = $class::shortcode_canvas();
+			$template = $class;
 
 			if ( is_array( $template ) ) {
 				continue;

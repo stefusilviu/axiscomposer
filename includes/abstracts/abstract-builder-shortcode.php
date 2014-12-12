@@ -90,6 +90,19 @@ abstract class AB_Shortcode {
 	}
 
 	/**
+	 * Editor Elements.
+	 *
+	 * This method defines the visual appearance of an element on the Builder canvas.
+	 */
+	public function editor_element( $params ) {
+		$params['innerHtml']  = '';
+		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
+		$params['innerHtml'] .= '<div class="axibulder-element-label">' . $this->title . '</div>';
+
+		return $params;
+	}
+
+	/**
 	 * Add-on for custom CSS class to each element.
 	 */
 	public function custom_css( $elements ) {
@@ -107,16 +120,16 @@ abstract class AB_Shortcode {
 	/**
 	 * Render shortcode canvas elements.
 	 */
-	public static function shortcode_canvas( $content = false, $args = array() ) {
+	public function prepare_editor_element( $content = false, $args = array() ) {
 
 		// Set default content unless it was already passed
 		if ( $content === false ) {
-			$content = self::fetch_default_content( $content );
+			$content = $this->fetch_default_content( $content );
 		}
 
 		// Set default arguments unless it was already passed
 		if ( empty( $args ) ) {
-			$args = self::fetch_default_args( $args );
+			$args = $this->fetch_default_args( $args );
 		}
 
 		if ( isset( $args['content'] ) ) {
@@ -128,29 +141,27 @@ abstract class AB_Shortcode {
 		// $params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
 
 		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
-		$params = self::visual_appearance( $params );
+		$params = $this->editor_element( $params );
 
 
 		$output = $params;
 
-		// return $output;
-	}
+		echo $this->title;
 
-	public static function visual_appearance( $params ) {
-		return $params;
+		// return $output;
 	}
 
 	/**
 	 * Fetch default content
 	 */
-	public static function fetch_default_content() {
+	public function fetch_default_content() {
 
 	}
 
 	/**
 	 * Fetch default args
 	 */
-	public static function fetch_default_args() {
+	public function fetch_default_args() {
 
 	}
 }

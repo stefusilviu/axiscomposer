@@ -109,7 +109,7 @@ class AB_Meta_Box_Builder_Data {
 				</div>
 			</div>
 			<div id="axisbuilder-canvas" class="visual-editor">
-				<div class="canvas-area loader layout-flex-grid drag-element" data-dragdrop-level="0"></div>
+				<div class="canvas-area loader axisbuilder-style layout-flex-grid drag-element" data-dragdrop-level="0"></div>
 				<div class="canvas-secure-data">
 					<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( $builder_canvas ); ?></textarea> <!-- readonly="readonly" later -->
 				</div>

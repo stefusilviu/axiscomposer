@@ -435,6 +435,7 @@ label[for="axisbuilder-editor-hide"] {
 
 	#{$all-text-inputs-focus}, textarea:focus {
 		color: #555;
+		border: 1px solid #ccc;
 		box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
 	}
 

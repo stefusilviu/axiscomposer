@@ -380,6 +380,15 @@ label[for="axisbuilder-editor-hide"] {
  */
 .axisbuilder-debug {
 
+	.axisbuilder-inner-shortcode {
+
+		textarea {
+			width: 50%;
+			margin: 20px auto;
+			display: block;
+		}
+	}
+
 	.canvas-secure-data {
 		display: block !important;
 	}

@@ -13,7 +13,7 @@
 		if ( template.length ) {
 			if ( insert_target === 'instant-insert' ) {
 				obj.sendToBuilderCanvas( template.html() );
-				// obj.updateTextarea();
+				obj.updateTextarea();
 				// obj.historySnapshot()
 			} else {
 

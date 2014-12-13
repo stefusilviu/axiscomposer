@@ -232,6 +232,44 @@ function AB_Logger( text, type ) {
 			this.activateDropping();
 		},
 
+		/**
+		 * Updates the Textarea that holds the shortcode + values when element is on the first level and not nested.
+		 */
+		 updateTextarea: function( scope ) {
+			// Return if builder is not in active state
+			if ( this.axisBuilderStatus.val() !== 'active' ) {
+				return true;
+			}
+
+			if ( ! scope ) {
+				var obj = this;
+
+				// If this was called without predefined scope iterate over all sections and calculate the columns widths in there, afterwards calculate the column outside :)
+				// this.axisBuilderCanvas.find( '.axisbuilder-layout-column' ).each( function() {
+				//
+				// });
+
+				scope = $( '.axisbuilder-data > div > .axisbuilder-inner-shortcode' );
+			}
+
+			var content_fields = scope.find( '>' + this.shortcodesData ),
+				content        = '',
+				sizeCount      = 0,
+				currentField, currentContent, currentParent, currentSize,
+				sizes          = {
+					'ab_one_full'     : 1.00,
+					'ab_four_fifth'   : 0.80,
+					'ab_three_fourth' : 0.75,
+					'ab_two_third'    : 0.66,
+					'ab_three_fifth'  : 0.60,
+					'ab_one_half'     : 0.50,
+					'ab_two_fifth'    : 0.40,
+					'ab_one_third'    : 0.33,
+					'ab_one_fourth'   : 0.25,
+					'ab_one_fifth'    : 0.20
+				};
+		 },
+
 		// --------------------------------------------
 		// Main Interface drag and drop Implementation
 		// --------------------------------------------

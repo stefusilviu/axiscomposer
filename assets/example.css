@@ -1,0 +1,122 @@
+/**
+ * Shortcode layout
+ */
+.axisbuilder-layout-column, .axisbuilder-layout-section, .axisbuilder-highlight {
+	float: left;
+	width: 200px;
+	margin: 1%;
+	position: relative;
+}
+
+.axisbuilder-first-column {
+	clear: left;
+}
+
+.axisbuilder-start-sorting .axisbuilder-first-column {
+	clear: none;
+}
+
+.axisbuilder-layout-column > .axisbuilder-inner-shortcode {
+	background: #f8f8f8;
+	min-height: 25px;
+	border: 1px dashed #e1e1e1;
+	border-top: none;
+	padding: 20px 10px;
+	position: relative;
+}
+
+.axisbuilder-sorthandle {
+	height: 25px;
+	width: auto;
+	position: relative;
+	z-index: 10;
+	opacity: 1;
+}
+
+.axisbuilder-trash {
+	height:24px;
+	width:24px;
+	line-height: 24px;
+	position: absolute;
+	top:0px;
+	right:0px;
+	background: transparent url(images/icon-trash.png) top left no-repeat;
+	overflow: hidden;
+	text-indent: 200%;
+	/*opacity: 0;*/
+}
+
+.axisbuilder-trash:hover{
+	background: transparent url(images/icon-trash.png) bottom left no-repeat;
+	opacity: 1
+}
+
+
+/*Col size*/
+.axisbuilder-change-column-size {
+	height:24px;
+	width:24px;
+	line-height: 24px;
+	float:left;
+	display: block;
+	overflow: hidden;
+	text-indent: 200%;
+	background: transparent url(images/icon-grow.png) top left no-repeat;
+	position: relative;
+	left:0px;
+	/*opacity: 0;*/
+}
+
+.axisbuilder-change-column-size.axisbuilder-decrease {
+	background: transparent url(images/icon-shrink.png) top left no-repeat;
+}
+
+.axisbuilder-change-column-size:hover {
+	background-position-y: bottom;
+}
+
+.axisbuilder-column-size {
+	height:24px;
+	width:36px;
+	float:left;
+	line-height: 26px;
+	text-align: center;
+	position: relative;
+	color:#999;
+}
+
+/*Clone*/
+
+.axisbuilder-clone{
+height:24px;
+width:24px;
+line-height: 24px;
+position: absolute;
+top:0px;
+left:1px;
+background: transparent url(images/icon-clone.png) top center no-repeat;
+overflow: hidden;
+text-indent: 200%;
+/*opacity: 0;*/
+
+}
+
+.axisbuilder-clone{
+left:auto;
+}
+
+.axisbuilder-clone:hover{
+background: transparent url(images/icon-clone.png?ver=23) bottom center no-repeat;
+}
+
+.layout-flex-grid .ab_one_fifth{width:18%;}
+.layout-flex-grid .ab_two_fifth{width:38%;}
+.layout-flex-grid .ab_three_fifth{width:58%;}
+.layout-flex-grid .ab_four_fifth{width:78%;}
+
+.layout-flex-grid .ab_one_fourth{width:23%;}
+.layout-flex-grid .ab_three_fourth{width:73%;}
+.layout-flex-grid .ab_one_third{width:31.3%;}
+.layout-flex-grid .ab_two_third{width:64.6%;}
+.layout-flex-grid .ab_one_half{width:48%;}
+.layout-flex-grid .ab_one_full{width:98%;}

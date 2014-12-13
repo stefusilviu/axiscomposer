@@ -4,7 +4,7 @@
 .axisbuilder-layout-column, .axisbuilder-layout-section, .axisbuilder-highlight {
 	float: left;
 	width: 200px;
-	margin: 0 auto;
+	margin: 1%;
 	position: relative;
 }
 

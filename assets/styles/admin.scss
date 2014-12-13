@@ -155,53 +155,6 @@ label[for="axisbuilder-editor-hide"] {
 			padding: 4px 12px 9px;
 			background-color: #fdfdfd;
 		}
-
-		.insert-shortcode {
-			height: 50px;
-			width: 70px;
-			border: 1px solid #e1e1e1;
-			padding: 4px 2px 10px 2px;
-			background: #fff;
-			text-align: center;
-			text-decoration: none;
-			font-size: 11px;
-			display: block;
-			overflow: hidden;
-			outline: none;
-			line-height: 13px;
-			float: left;
-			margin: 5px 5px 0 0;
-			position: relative;
-			color: #777;
-
-			&:hover {
-				border:1px solid #aaa;
-			}
-
-			&:active {
-				border:1px solid #D54E21;
-			}
-
-			&:hover img, &:active img {
-				opacity: 1;
-			}
-
-			img {
-				opacity: 0.5;
-				display: block;
-				position: relative;
-				margin: 6px auto 5px auto;
-			}
-
-			span {
-				position: absolute;
-				width: 88%;
-				left: 6%;
-				bottom: 3px;
-				background: rgba(255,255,255,0.7);
-				padding-top: 1px;
-			}
-		}
 	}
 
 	/**
@@ -378,6 +331,56 @@ label[for="axisbuilder-editor-hide"] {
 		margin:0;
 		overflow: auto;
 		overflow-x: hidden;
+	}
+}
+
+/**
+ * Shortcode Button Styles
+ */
+.insert-shortcode {
+	height: 50px;
+	width: 70px;
+	border: 1px solid #e1e1e1;
+	padding: 4px 2px 10px 2px;
+	background: #fff;
+	text-align: center;
+	text-decoration: none;
+	font-size: 11px;
+	display: block;
+	overflow: hidden;
+	outline: none;
+	line-height: 13px;
+	float: left;
+	margin: 5px 5px 0 0;
+	position: relative;
+	color: #777;
+
+	&:hover {
+		border:1px solid #aaa;
+	}
+
+	&:active {
+		border:1px solid #D54E21;
+	}
+
+	&:hover img, &:active img {
+		opacity: 1;
+	}
+
+	img {
+		opacity: 0.5;
+		display: block;
+		position: relative;
+		margin: 6px auto 5px auto;
+	}
+
+	span {
+		position: absolute;
+		width: 88%;
+		left: 6%;
+		bottom: 3px;
+		background: rgba(255,255,255,0.7);
+		padding-top: 1px;
 	}
 }
 

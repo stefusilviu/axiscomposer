@@ -20,9 +20,9 @@
 	background: #f8f8f8;
 	min-height: 25px;
 	border: 1px dashed #e1e1e1;
+	border-top: none;
 	padding: 20px 10px;
 	position: relative;
-	top: -5px;
 }
 
 .axisbuilder-sorthandle {

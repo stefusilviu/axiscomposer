@@ -394,7 +394,7 @@ label[for="axisbuilder-editor-hide"] {
 	.axisbuilder-inner-shortcode {
 
 		textarea {
-			width: 50%;
+			resize: none;
 			display: block;
 			margin: 20px auto;
 			font-family: monospace;
@@ -435,7 +435,6 @@ label[for="axisbuilder-editor-hide"] {
 		outline: none;
 		display: inline;
 		max-width: 100%;
-		background: #fff;
 		border-radius: 0px;
 		border: 1px solid #e1e1e1;
 		font: 13px $helvetica;

@@ -147,12 +147,8 @@ function do_shortcode_tag_builder( $m ) {
 	$content = ( $close !== false ) ? $m[5] : null;
 
 	if ( in_array( $tag, ab_fetch_shortcode_data( 'name' ) ) ) {
-
-		// Need to return the prepare_editor_element() (located in abstract) of shortcode name specific class :P
-
-		// return $tag->prepare_editor_element();
-
-		// print_clean( $tag );
+		$_available_shortcodes = AB()->shortcodes->get_editor_element();
+		return $_available_shortcodes[$tag];
 	} else {
 		return $m[0];
 	}

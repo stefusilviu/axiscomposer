@@ -57,3 +57,57 @@ function ab_create_shortcode_data( $name, $content = null, $args = array() ) {
 }
 
 endif;
+
+function ab_build_shortcode_pattern( $predefined_tags = false ) {
+	global $shortcode_tags, $_builder_shortcode_tags;
+
+	// Store the {old|new} shortcode tags
+	$_old_shortcodes = $shortcode_tags;
+	$_new_shortcodes = ab_fetch_shortcode_data();
+
+	// If builder has shortcodes build the pattern.
+	if ( ! empty( $_new_shortcodes ) ) {
+		$shortcode_tags = array_flip( $_new_shortcodes );
+	}
+
+	// Filter out all elements that are not in the predefined tags array.
+	if ( is_array( $predefined_tags ) ) {
+		$predefined_tags = array_flip( $predefined_tags );
+		$shortcode_tags  = shortcode_atts( $predefined_tags, $shortcode_tags );
+	}
+
+	// Create the pattern and store it ;)
+	$_builder_shortcode_tags = get_shortcode_regex();
+
+	// Restore the original(old) shortcode tags ;)
+	$shortcode_tags = $_old_shortcodes;
+
+	return $_builder_shortcode_tags;
+}
+
+function ab_fetch_shortcode_data() {
+	$builder_shortcodes = array();
+
+	foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
+		$builder_shortcodes[] = $load_shortcodes->shortcode['name'];
+	}
+
+	return $builder_shortcodes;
+}
+
+function do_shortcode_builder( $text ) {
+	global $_builder_shortcode_tags;
+	return preg_replace_callback("/$_builder_shortcode_tags/s", 'do_shortcode_tag_builder', $text );
+}
+
+function do_shortcode_tag_builder( $m ) {
+	global $shortcode_tags;
+
+	// allow [[foo]] syntax for escaping a tag
+	if ( $m[1] == '[' && $m[6] == ']' ) {
+		return substr($m[0], 1, -1);
+	}
+
+	$tag = $m[2];
+	$attr = shortcode_parse_atts( $m[3] );
+}

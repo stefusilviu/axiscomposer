@@ -141,8 +141,19 @@ function do_shortcode_tag_builder( $m ) {
 		return substr($m[0], 1, -1);
 	}
 
-	$tag = $m[2];
-	$attr = shortcode_parse_atts( $m[3] );
+	$tag     = $m[2];
+	$attr    = shortcode_parse_atts( $m[3] );
+	$close   = strpos( $m[0], "[/$tag]" );
+	$content = ( $close !== false ) ? $m[5] : null;
 
-	print_clean( $m[0] );
+	if ( in_array( $tag, ab_fetch_shortcode_data( 'name' ) ) ) {
+
+		// Need to return the prepare_editor_element() (located in abstract) of shortcode name specific class :P
+
+		// return $tag->prepare_editor_element();
+
+		// print_clean( $tag );
+	} else {
+		return $m[0];
+	}
 }

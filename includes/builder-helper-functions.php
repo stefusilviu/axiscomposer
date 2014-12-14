@@ -62,8 +62,8 @@ if ( ! function_exists( 'ab_build_shortcode_pattern' ) ) :
 
 /**
  * Creates the shortcode pattern that only matches builder shortcodes.
- * @param  array        $predefined_tags Prefefined Tags
- * @return array|string
+ * @param  array        $predefined_tags Prefefined Tags.
+ * @return array|string Matched builder shortcode pattern.
  */
 function ab_build_shortcode_pattern( $predefined_tags = null ) {
 	global $shortcode_tags, $_builder_shortcode_tags;

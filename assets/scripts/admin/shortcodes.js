@@ -14,7 +14,7 @@
 			if ( insert_target === 'instant-insert' ) {
 				obj.sendToBuilderCanvas( template.html() );
 				obj.updateTextarea();
-				// obj.historySnapshot()
+				obj.historySnapshot();
 			} else {
 
 			}
@@ -55,7 +55,17 @@
 		// obj.targetInsertInActive();
 
 		element.hide( element_hide, function() {
+			if ( removeCell ) {
+				// $.AxisBuilderShortcodes.removeCell( clicked, obj );
+			}
+
 			element.remove();
+
+			if ( parents && parents.length ) {
+				obj.updateInnerTextarea( parents );
+			}
+
+			obj.updateTextarea();
 		});
 	};
 

@@ -395,8 +395,9 @@ label[for="axisbuilder-editor-hide"] {
 
 		textarea {
 			width: 50%;
+			display: block;
 			margin: 20px auto;
-			display: none; /* Should be block in Testomde but not in debug-mode */
+			font-family: monospace;
 		}
 	}
 

@@ -128,9 +128,14 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
+			// Clone element from the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-clone', function() {
+				obj.shortcodes.cloneElement( this, obj );
+			});
+
 			// Remove element from the Builder Canvas
 			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-trash', function() {
-				obj.shortcodes.trashItem( this, obj );
+				obj.shortcodes.trashElement( this, obj );
 				return false;
 			});
 
@@ -219,7 +224,9 @@ function AB_Logger( text, type ) {
 				type: 'POST',
 				success: function( response ) {
 					obj.sendToBuilderCanvas( response );
+					// obj.updateTextarea(); // Don't update textarea on load, only when elements got edited.
 					obj.axisBuilderCanvas.removeClass( 'loader' );
+					obj.historySnapshot();
 				}
 			});
 		},
@@ -241,7 +248,7 @@ function AB_Logger( text, type ) {
 		 * Updates the Textarea that holds the shortcode + values when located in a nested environment like columns.
 		 */
 		updateInnerTextarea: function( element, container ) {
-			alert( 'Inner Textarea is recognized' );
+			// alert( 'Inner Textarea is recognized' );
 		},
 
 		/**

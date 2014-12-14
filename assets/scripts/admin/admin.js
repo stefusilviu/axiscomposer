@@ -131,6 +131,7 @@ function AB_Logger( text, type ) {
 			// Clone element from the Builder Canvas
 			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-clone', function() {
 				obj.shortcodes.cloneElement( this, obj );
+				return false;
 			});
 
 			// Remove element from the Builder Canvas

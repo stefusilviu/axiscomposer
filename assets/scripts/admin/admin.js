@@ -303,14 +303,14 @@ function AB_Logger( text, type ) {
 					if ( sizeCount > 1 || i === 0 ) {
 
 						if ( ! currentParents.is( '.axisbuilder-first-column' ) ) {
-							currentParents.addClass( '.axisbuilder-first-column' );
+							currentParents.addClass( 'axisbuilder-first-column' );
 							currentContent = currentContent.replace( new RegExp( '^\\[' + currentSize ), '[' + currentSize + ' first' );
 							currentField.val( currentContent );
 						}
 
 						sizeCount = sizes[currentSize];
 					} else if ( currentParents.is( '.axisbuilder-first-column' ) ) {
-						currentParents.removeClass( '.axisbuilder-first-column' );
+						currentParents.removeClass( 'axisbuilder-first-column' );
 						currentContent = currentContent.replace( ' first', '' );
 						currentField.val( currentContent );
 					}

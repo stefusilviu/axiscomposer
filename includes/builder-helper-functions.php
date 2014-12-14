@@ -58,12 +58,19 @@ function ab_create_shortcode_data( $name, $content = null, $args = array() ) {
 
 endif;
 
-function ab_build_shortcode_pattern( $predefined_tags = false ) {
+if ( ! function_exists( 'ab_build_shortcode_pattern' ) ) :
+
+/**
+ * Creates the shortcode pattern that only matches builder shortcodes.
+ * @param  array        $predefined_tags Prefefined Tags
+ * @return array|string
+ */
+function ab_build_shortcode_pattern( $predefined_tags = null ) {
 	global $shortcode_tags, $_builder_shortcode_tags;
 
 	// Store the {old|new} shortcode tags
 	$_old_shortcodes = $shortcode_tags;
-	$_new_shortcodes = ab_fetch_shortcode_data();
+	$_new_shortcodes = ab_fetch_shortcode_data( 'name' );
 
 	// If builder has shortcodes build the pattern.
 	if ( ! empty( $_new_shortcodes ) ) {
@@ -85,15 +92,41 @@ function ab_build_shortcode_pattern( $predefined_tags = false ) {
 	return $_builder_shortcode_tags;
 }
 
-function ab_fetch_shortcode_data() {
+endif;
+
+if ( ! function_exists( 'ab_fetch_shortcode_data' ) ) :
+
+/**
+ * Fetch the builder shortcodes data.
+ * @param  string $data Shortcode data type.
+ * @return array        All shortcodes data.
+ */
+function ab_fetch_shortcode_data( $data ) {
 	$builder_shortcodes = array();
 
 	foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
-		$builder_shortcodes[] = $load_shortcodes->shortcode['name'];
+		$builder_shortcodes[] = $load_shortcodes->shortcode[$data];
 	}
 
 	return $builder_shortcodes;
 }
+
+endif;
+
+if ( ! function_exists( 'print_clean' ) ) :
+
+/**
+ * Print formatted data passed.
+ * @param  array|string $data Raw data.
+ * @return array|string $data Clean data.
+ */
+function print_clean( $data ) {
+	print '<pre>';
+	print_r( $data );
+	print '</pre>';
+}
+
+endif;
 
 function do_shortcode_builder( $text ) {
 	global $_builder_shortcode_tags;
@@ -110,11 +143,6 @@ function do_shortcode_tag_builder( $m ) {
 
 	$tag = $m[2];
 	$attr = shortcode_parse_atts( $m[3] );
-}
 
-
-function print_clean( $data ) {
-	print '<pre>';
-	print_r( $data );
-	print '</pre>';
+	print_clean( $m[0] );
 }

@@ -111,3 +111,10 @@ function do_shortcode_tag_builder( $m ) {
 	$tag = $m[2];
 	$attr = shortcode_parse_atts( $m[3] );
 }
+
+
+function print_clean( $data ) {
+	print '<pre>';
+	print_r( $data );
+	print '</pre>';
+}

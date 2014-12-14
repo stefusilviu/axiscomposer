@@ -13,8 +13,8 @@
 		if ( template.length ) {
 			if ( insert_target === 'instant-insert' ) {
 				obj.sendToBuilderCanvas( template.html() );
-				// obj.updateTextarea();
-				// obj.historySnapshot()
+				obj.updateTextarea();
+				obj.historySnapshot();
 			} else {
 
 			}
@@ -23,7 +23,48 @@
 		}
 	};
 
-	$.AxisBuilderShortcodes.trashItem = function( clicked, obj ) {
+	$.AxisBuilderShortcodes.cloneElement = function( clicked, obj ) {
+		var trigger = $( clicked ),
+			element = trigger.parents( '.axisbuilder-sortable-element:eq(0)' );
+
+		// var	layoutCell = false;
+
+		// Check if it is a column
+		if ( ! element.length ) {
+			element = trigger.parents( '.axisbuilder-layout-column:eq(0)' );
+
+			// Check if it is a section
+			if ( ! element.length ) {
+				element = trigger.parents( '.axisbuilder-layout-section:eq(0)' );
+			}
+		}
+
+		// Check if its a layout cell and if we can add one to the row :)
+		// if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
+			// Let's add condition when cell is available :)
+		// }
+
+		// Make sure the elements actual html code matches the value so cloning works properly.
+		element.find( 'textarea' ).each( function() {
+			this.innerHTML = this.value;
+		});
+
+		var cloned = element.clone();
+
+		// Remove all previous drag/drop classes so we can apply new ones.
+		cloned.find( '.ui-draggable, .ui-droppable' ).removeClass( '.ui-draggable, .ui-droppable' );
+		cloned.insertAfter( element );
+
+		// Activate Element Drag and Drop
+		obj.activateDragging();
+		obj.activateDropping();
+
+		// Update Text-Area and Snapshot history
+		obj.updateTextarea();
+		obj.historySnapshot();
+	};
+
+	$.AxisBuilderShortcodes.trashElement = function( clicked, obj ) {
 		var trigger = $( clicked ),
 			element = trigger.parents( '.axisbuilder-sortable-element:eq(0)' ),
 			parents = false, removeCell = false, element_hide = 200;
@@ -55,7 +96,17 @@
 		// obj.targetInsertInActive();
 
 		element.hide( element_hide, function() {
+			if ( removeCell ) {
+				// $.AxisBuilderShortcodes.removeCell( clicked, obj );
+			}
+
 			element.remove();
+
+			if ( parents && parents.length ) {
+				obj.updateInnerTextarea( parents );
+			}
+
+			obj.updateTextarea();
 		});
 	};
 

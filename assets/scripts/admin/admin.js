@@ -53,6 +53,11 @@ function AB_Logger( text, type ) {
 		this.shortcodesWrap = $( '.axisbuilder-shortcodes' );
 		this.shortcodesData = 'textarea[data-name="text-shortcode"]';
 
+		// Boolean Data {targetInsert|singleInsert|updateTimeout}
+		this.targetInsert  = false;
+		this.singleInsert  = false;
+		this.updateTimeout = false;
+
 		// Activate the Builder
 		this.builderActivate();
 	};
@@ -123,9 +128,15 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
+			// Clone element from the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-clone', function() {
+				obj.shortcodes.cloneElement( this, obj );
+				return false;
+			});
+
 			// Remove element from the Builder Canvas
 			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-trash', function() {
-				obj.shortcodes.trashItem( this, obj );
+				obj.shortcodes.trashElement( this, obj );
 				return false;
 			});
 
@@ -214,7 +225,9 @@ function AB_Logger( text, type ) {
 				type: 'POST',
 				success: function( response ) {
 					obj.sendToBuilderCanvas( response );
+					// obj.updateTextarea(); // Don't update textarea on load, only when elements got edited.
 					obj.axisBuilderCanvas.removeClass( 'loader' );
+					obj.historySnapshot();
 				}
 			});
 		},
@@ -230,6 +243,119 @@ function AB_Logger( text, type ) {
 			// Activate Element Drag and Drop
 			this.activateDragging();
 			this.activateDropping();
+		},
+
+		/**
+		 * Updates the Textarea that holds the shortcode + values when located in a nested environment like columns.
+		 */
+		// updateInnerTextarea: function( element, container ) {
+		// 	// alert( 'Inner Textarea is recognized' );
+		// },
+
+		/**
+		 * Updates the Textarea that holds the shortcode + values when element is on the first level and not nested.
+		 */
+		 updateTextarea: function( scope ) {
+			// Return if builder is not in active state
+			if ( this.axisBuilderStatus.val() !== 'active' ) {
+				return true;
+			}
+
+			if ( ! scope ) {
+				var obj = this;
+
+				// If this was called without predefined scope iterate over all sections and calculate the columns widths in there, afterwards calculate the column outside :)
+				this.axisBuilderCanvas.find( '.axisbuilder-layout-section' ).each( function() {
+					var col_in_section = $( this ).find( '>.axisbuilder-inner-shortcode > div > .axisbuilder-inner-shortcode' ),
+						col_in_cell    = $( this ).find( '.axisbuilder-layout-cell .axisbuilder-layout-column-no-cell > .axisbuilder-inner-shortcode' );
+
+					if ( col_in_section.length ) {
+						obj.updateTextarea( col_in_section );
+					}
+
+					if ( col_in_cell.length ) {
+						obj.updateTextarea( col_in_cell );
+					}
+				});
+
+				scope = $( '.axisbuilder-data > div > .axisbuilder-inner-shortcode' );
+			}
+
+			var content_fields = scope.find( '>' + this.shortcodesData ),
+				content        = '',
+				sizeCount      = 0,
+				currentField, currentContent, currentParents, currentSize,
+				sizes          = {
+					'ab_one_full'     : 1.00,
+					'ab_four_fifth'   : 0.80,
+					'ab_three_fourth' : 0.75,
+					'ab_two_third'    : 0.66,
+					'ab_three_fifth'  : 0.60,
+					'ab_one_half'     : 0.50,
+					'ab_two_fifth'    : 0.40,
+					'ab_one_third'    : 0.33,
+					'ab_one_fourth'   : 0.25,
+					'ab_one_fifth'    : 0.20
+				};
+
+			for ( var i = 0; i < content_fields.length; i++ ) {
+				currentField   = $( content_fields[i] );
+				currentContent = currentField.val();
+				currentParents = currentField.parents( '.axisbuilder-layout-column-no-cell:eq(0)' );
+
+				// If we are checking a column we need to make sure to add/remove the first class :)
+				if ( currentParents.length ) {
+					currentSize = currentParents.data( 'width' );
+					sizeCount  += sizes[currentSize];
+
+					if ( sizeCount > 1 || i === 0 ) {
+
+						if ( ! currentParents.is( '.axisbuilder-first-column' ) ) {
+							currentParents.addClass( 'axisbuilder-first-column' );
+							currentContent = currentContent.replace( new RegExp( '^\\[' + currentSize ), '[' + currentSize + ' first' );
+							currentField.val( currentContent );
+						}
+
+						sizeCount = sizes[currentSize];
+					} else if ( currentParents.is( '.axisbuilder-first-column' ) ) {
+						currentParents.removeClass( 'axisbuilder-first-column' );
+						currentContent = currentContent.replace( ' first', '' );
+						currentField.val( currentContent );
+					}
+				} else {
+					sizeCount = 1;
+				}
+
+				content += currentContent;
+			}
+
+			if ( typeof tinyMceContent !== 'undefined' ) {
+				clearTimeout( this.updateTimeout );
+
+				this.updateTimeout = setTimeout( function() {
+					// Slow the whole process considerably :)
+					this.tinyMceContent.setContent( window.switchEditors.wpautop(content), { format: 'html' } );
+				}, 500 );
+			}
+
+			this.wpDefaultEditorArea.val( content );
+			this.axisBuilderValues.val( content );
+		},
+
+		/**
+		 * Create a snapshot for the Undo-Redo function.
+		 * Timeout is added so javascript has enough time to remove animation classes and hover states.
+		 */
+		historySnapshot: function( timeout ) {
+			var self = this;
+
+			if ( ! timeout ) {
+				timeout = 150;
+			}
+
+			setTimeout( function() {
+				self.axisBuilderCanvas.trigger( 'axisbuilder-storage-update' );
+			}, timeout );
 		},
 
 		// --------------------------------------------

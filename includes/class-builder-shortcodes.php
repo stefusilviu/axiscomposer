@@ -118,4 +118,18 @@ class AB_Shortcodes {
 
 		return $_available_shortcodes;
 	}
+
+	/**
+	 * Get Editor Elements.
+	 * @return array
+	 */
+	public function get_editor_element() {
+		$_available_shortcodes = array();
+
+		foreach ( $this->shortcodes as $shortcode ) {
+			$_available_shortcodes[ $shortcode->shortcode['name'] ] = $shortcode->prepare_editor_element();
+		}
+
+		return $_available_shortcodes;
+	}
 }

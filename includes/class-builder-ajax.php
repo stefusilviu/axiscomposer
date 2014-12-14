@@ -83,10 +83,34 @@ class AB_AJAX {
 	/**
 	 * Shortcodes to interface
 	 */
-	public static function shortcodes_to_interface() {
+	public static function shortcodes_to_interface( $text = null ) {
 
 		check_ajax_referer( 'shortcodes-to-interface', 'security' );
 
+		$allowed = false;
+
+		if ( isset( $_POST['text'] ) ) {
+			$text = $_POST['text'];
+		}
+
+		// Only build the pattern with a subset of shortcodes.
+		if ( isset( $_POST['params'] ) && isset( $_POST['params']['allowed'] ) ) {
+			$allowed = explode( ',', $_POST['params']['allowed'] );
+		}
+
+		// Build the shortcode pattern to check if the text that we want to check uses any of the builder shortcodes.
+		ab_build_shortcode_pattern( $allowed );
+
+		$text = do_shortcode_builder( $text );
+
+		if ( isset( $_POST['text'] ) ) {
+			echo $text;
+
+			// Quit out
+			die();
+		} else {
+			return $text;
+		}
 	}
 }
 

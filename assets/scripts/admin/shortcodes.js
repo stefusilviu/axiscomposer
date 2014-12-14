@@ -23,11 +23,11 @@
 		}
 	};
 
-	// Function that gets executes if a user clicks the clone icon.
 	$.AxisBuilderShortcodes.cloneElement = function( clicked, obj ) {
 		var trigger = $( clicked ),
-			element = trigger.parents( '.axisbuilder-sortable-element:eq(0)' ),
-			layoutCell = false;
+			element = trigger.parents( '.axisbuilder-sortable-element:eq(0)' );
+
+		// var	layoutCell = false;
 
 		// Check if it is a column
 		if ( ! element.length ) {
@@ -40,9 +40,9 @@
 		}
 
 		// Check if its a layout cell and if we can add one to the row :)
-		if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
+		// if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
 			// Let's add condition when cell is available :)
-		}
+		// }
 
 		// Make sure the elements actual html code matches the value so cloning works properly.
 		element.find( 'textarea' ).each( function() {

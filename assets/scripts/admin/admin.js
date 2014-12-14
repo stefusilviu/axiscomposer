@@ -247,9 +247,9 @@ function AB_Logger( text, type ) {
 		/**
 		 * Updates the Textarea that holds the shortcode + values when located in a nested environment like columns.
 		 */
-		updateInnerTextarea: function( element, container ) {
-			// alert( 'Inner Textarea is recognized' );
-		},
+		// updateInnerTextarea: function( element, container ) {
+		// 	// alert( 'Inner Textarea is recognized' );
+		// },
 
 		/**
 		 * Updates the Textarea that holds the shortcode + values when element is on the first level and not nested.
@@ -322,7 +322,7 @@ function AB_Logger( text, type ) {
 						currentField.val( currentContent );
 					}
 				} else {
-					sizeCount = 1
+					sizeCount = 1;
 				}
 
 				content += currentContent;

@@ -123,11 +123,13 @@ class AB_Shortcodes {
 	 * Get Editor Elements.
 	 * @return array
 	 */
-	public function get_editor_element() {
+	public function get_editor_element( $content, $args ) {
 		$_available_shortcodes = array();
 
-		foreach ( $this->shortcodes as $shortcode ) {
-			$_available_shortcodes[ $shortcode->shortcode['name'] ] = $shortcode->prepare_editor_element();
+		if ( sizeof( $this->shortcodes ) > 0 ) {
+			foreach ( $this->shortcodes as $shortcode ) {
+				$_available_shortcodes[ $shortcode->shortcode['name'] ] = $shortcode->prepare_editor_element( $content, $args );
+			}
 		}
 
 		return $_available_shortcodes;

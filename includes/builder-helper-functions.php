@@ -147,7 +147,7 @@ function do_shortcode_tag_builder( $m ) {
 	$content = ( $close !== false ) ? $m[5] : null;
 
 	if ( in_array( $tag, ab_fetch_shortcode_data( 'name' ) ) ) {
-		$_available_shortcodes = AB()->shortcodes->get_editor_element();
+		$_available_shortcodes = AB()->shortcodes->get_editor_element( $content, $attr );
 		return $_available_shortcodes[$tag];
 	} else {
 		return $m[0];

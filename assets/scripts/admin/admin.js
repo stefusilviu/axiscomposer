@@ -167,8 +167,8 @@ function AB_Logger( text, type ) {
 				this.axisBuilderParent.addClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'inactive' );
 
-				// Add Loader
-				this.axisBuilderCanvas.addClass( 'loader' );
+				// Add Loader and remove duplication of elements on canvas :)
+				this.axisBuilderCanvas.addClass( 'loader' ).find( '>*:not( .control-bar, .axisbuilder-insert-area )' ).remove();
 
 				// Turn WordPress editor resizing off :)
 				if( typeof window.editorExpand === 'object' ) {
@@ -212,8 +212,8 @@ function AB_Logger( text, type ) {
 				}
 			}
 
-			var obj  = this;
-			var	data = {
+			var obj  = this,
+				data = {
 					text: text,
 					action: 'axisbuilder_shortcodes_to_interface',
 					security: axisbuilder_admin.shortcodes_to_interface_nonce

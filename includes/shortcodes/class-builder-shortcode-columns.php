@@ -80,7 +80,10 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $data['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $data['name'], $content, $args ) . '</textarea>';
-				// $outout .= $content;
+				if ( $content ) {
+					$content = do_shortcode_builder( $content );
+					$output .= $content;
+				}
 			$output .= '</div>';
 		$output .= '</div>';
 

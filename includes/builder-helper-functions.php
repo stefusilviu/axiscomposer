@@ -81,7 +81,7 @@ if ( ! function_exists( 'ab_build_shortcode_pattern' ) ) :
  * @return array|string Matched builder shortcode pattern.
  */
 function ab_build_shortcode_pattern( $predefined_tags = false ) {
-	global $shortcode_tags, $_builder_shortcode_tags;
+	global $shortcode_tags, $_axisbuilder_shortcode_tags;
 
 	// Store the {old|new} shortcode tags
 	$_old_shortcodes = $shortcode_tags;
@@ -99,12 +99,12 @@ function ab_build_shortcode_pattern( $predefined_tags = false ) {
 	}
 
 	// Create the pattern and store it ;)
-	$_builder_shortcode_tags = get_shortcode_regex();
+	$_axisbuilder_shortcode_tags = get_shortcode_regex();
 
 	// Restore the original(old) shortcode tags ;)
 	$shortcode_tags = $_old_shortcodes;
 
-	return $_builder_shortcode_tags;
+	return $_axisbuilder_shortcode_tags;
 }
 
 endif;
@@ -129,8 +129,8 @@ function ab_fetch_shortcode_data( $data ) {
 endif;
 
 function do_shortcode_builder( $text ) {
-	global $_builder_shortcode_tags;
-	return preg_replace_callback("/$_builder_shortcode_tags/s", 'do_shortcode_tag_builder', $text );
+	global $_axisbuilder_shortcode_tags;
+	return preg_replace_callback( "/$_axisbuilder_shortcode_tags/s", 'do_shortcode_tag_builder', $text );
 }
 
 function do_shortcode_tag_builder( $m ) {

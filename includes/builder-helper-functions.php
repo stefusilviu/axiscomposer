@@ -14,6 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'print_clean' ) ) :
+
+/**
+ * Print formatted data passed.
+ * @param  array|string $data Raw data.
+ * @return array|string $data Clean data.
+ */
+function print_clean( $data ) {
+	print '<pre>';
+	print_r( $data );
+	print '</pre>';
+}
+
+endif;
+
 if ( ! function_exists( 'ab_create_shortcode_data' ) ) :
 
 /**
@@ -109,21 +124,6 @@ function ab_fetch_shortcode_data( $data ) {
 	}
 
 	return $builder_shortcodes;
-}
-
-endif;
-
-if ( ! function_exists( 'print_clean' ) ) :
-
-/**
- * Print formatted data passed.
- * @param  array|string $data Raw data.
- * @return array|string $data Clean data.
- */
-function print_clean( $data ) {
-	print '<pre>';
-	print_r( $data );
-	print '</pre>';
 }
 
 endif;

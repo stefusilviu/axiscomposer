@@ -14,7 +14,7 @@
 			if ( insert_target === 'instant-insert' ) {
 				obj.sendToBuilderCanvas( template.html() );
 				obj.updateTextarea();
-				obj.historySnapshot();
+				obj.historySnapshot(0);
 			} else {
 
 			}

@@ -163,7 +163,7 @@ class AB_Admin_Meta_Boxes {
 	 * @return null
 	 */
 	public function restore_post_revision( $post_id, $revision_id ) {
-		$post     = get_post( $post_id );
+		// $post     = get_post( $post_id );
 		$revision = get_post( $revision_id );
 		$metadata = array( '_axisbuilder_canvas' );
 

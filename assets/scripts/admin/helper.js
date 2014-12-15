@@ -22,6 +22,11 @@
 			scope: '#axisbuilder-editor',
 			attach: 'body'
 		});
+
+		// Control the Undo and Redo button history.
+		new $.AxisBuilderHistory({
+
+		});
 	});
 
 	// Since css only tabs are not fully working by now this script adds tab behavior to a tab container of choice

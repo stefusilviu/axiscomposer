@@ -212,8 +212,8 @@ function AB_Logger( text, type ) {
 				}
 			}
 
-			var obj  = this,
-				data = {
+			var obj  = this;
+			var	data = {
 					text: text,
 					action: 'axisbuilder_shortcodes_to_interface',
 					security: axisbuilder_admin.shortcodes_to_interface_nonce
@@ -329,12 +329,14 @@ function AB_Logger( text, type ) {
 				content += currentContent;
 			}
 
-			if ( typeof this.tinyMceContent ) {
+			var tinyMceEditor = this.tinyMceDefined ? window.tinyMCE.get( 'content' ) : undefined;
+
+			if ( tinyMceEditor !== 'undefined' ) {
 				clearTimeout( this.updateTimeout );
 
 				this.updateTimeout = setTimeout( function() {
 					// Slow the whole process considerably :)
-					this.tinyMceContent.setContent( window.switchEditors.wpautop( content ), { format: 'html' } );
+					tinyMceEditor.setContent( window.switchEditors.wpautop( content ), { format: 'html' } );
 				}, 500 );
 			}
 
@@ -453,7 +455,7 @@ function AB_Logger( text, type ) {
 			// Let's Bail Draggeble UI
 			scope.find( '.axisbuilder-drag' + exclude ).draggable( params );
 
-			params.cursorAt = { left: 33, top:33 };
+			params.cursorAt = { left: 33, top: 33 };
 			params.handle   = false;
 			scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable( params );
 		},

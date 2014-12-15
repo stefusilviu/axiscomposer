@@ -9,7 +9,11 @@
 
 	$.AxisBuilderHistory = function( options ) {
 		var defaults = {
-
+			steps: 40,
+			editor: '',
+			monitor: '',
+			buttons: '',
+			event: 'axisbuilder-storage-update'
 		};
 
 		// No web storage? stop here :)
@@ -26,7 +30,10 @@
 	$.AxisBuilderHistory.prototype = {
 
 		setups: function() {
-
+			this.editor  = $( this.options.editor );
+			this.canvas  = $( this.options.monitor );
+			this.wrapper = this.canvas.parent();
+			this.buttons = $( this.options.buttons );
 		}
 	};
 

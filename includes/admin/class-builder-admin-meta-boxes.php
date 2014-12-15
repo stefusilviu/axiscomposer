@@ -35,6 +35,9 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
 		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_meta_data' ), 20, 2 );
 
+		// Restores a post to the specified revision
+		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
+
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
 		add_action( 'shutdown', array( $this, 'save_errors' ) );
@@ -151,6 +154,28 @@ class AB_Admin_Meta_Boxes {
 		// Hook for Saving {Builder|Config} Meta-Box data.
 		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
 		do_action( 'axisbuilder_layout_configs_meta', $post_id, $post );
+	}
+
+	/**
+	 * Function to restore post meta along with revision.
+	 * @param  int $post_id     Post ID.
+	 * @param  int $revision_id Post revision ID.
+	 * @return null
+	 */
+	public function restore_post_revision( $post_id, $revision_id ) {
+		$post     = get_post( $post_id );
+		$revision = get_post( $revision_id );
+		$metadata = array( '_axisbuilder_canvas' );
+
+		foreach ( $metadata as $metafield ) {
+			$builder_metadata = get_metadata( 'post', $revision->ID, $metafield, true );
+
+			if ( ! empty( $builder_metadata ) ) {
+				update_post_meta( $post_id, $metafield, $builder_metadata );
+			} else {
+				delete_post_meta( $post_id, $metafield );
+			}
+		}
 	}
 
 	/**

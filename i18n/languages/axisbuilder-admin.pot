@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-12 17:46:44+00:00\n"
+"POT-Creation-Date: 2014-12-15 10:14:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,7 @@ msgid "Use Default Editor"
 msgstr ""
 
 #: includes/admin/class-builder-admin-help.php:44
-#: includes/admin/class-builder-admin-meta-boxes.php:100
+#: includes/admin/class-builder-admin-meta-boxes.php:103
 msgid "Page Builder"
 msgstr ""
 

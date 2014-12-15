@@ -36,7 +36,7 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_meta_data' ), 20, 2 );
 
 		// Restores a post to the specified revision
-		// add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
+		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
 
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );

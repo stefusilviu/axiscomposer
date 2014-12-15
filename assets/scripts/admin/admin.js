@@ -329,12 +329,12 @@ function AB_Logger( text, type ) {
 				content += currentContent;
 			}
 
-			if ( typeof tinyMceContent !== 'undefined' ) {
+			if ( typeof this.tinyMceContent ) {
 				clearTimeout( this.updateTimeout );
 
 				this.updateTimeout = setTimeout( function() {
 					// Slow the whole process considerably :)
-					this.tinyMceContent.setContent( window.switchEditors.wpautop(content), { format: 'html' } );
+					this.tinyMceContent.setContent( window.switchEditors.wpautop( content ), { format: 'html' } );
 				}, 500 );
 			}
 

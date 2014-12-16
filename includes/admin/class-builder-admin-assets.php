@@ -82,7 +82,6 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder_sweet_alert', AB()->plugin_url() . '/assets/scripts/sweetalert/sweet-alert' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		// History
-
 		$params = array(
 			'theme_name'     => $theme->get( 'Name' ),
 			'theme_version'  => $theme->get( 'Version' ),

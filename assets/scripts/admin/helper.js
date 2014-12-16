@@ -25,9 +25,9 @@
 
 		// Control the Undo and Redo button history.
 		new $.AxisBuilderHistory({
-			editor: '.canvas-data',
+			button: '.history-action',
 			canvas: '.canvas-area',
-			button: '.history-action'
+			editor: '.canvas-data'
 		});
 	});
 

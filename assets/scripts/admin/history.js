@@ -12,9 +12,9 @@
 	$.AxisBuilderHistory = function( options ) {
 		var defaults = {
 			steps: 40,
-			editor: '',
-			canvas: '',
 			button: '',
+			canvas: '',
+			editor: '',
 			event: 'axisbuilder-storage-update'
 		};
 
@@ -32,9 +32,9 @@
 	$.AxisBuilderHistory.prototype = {
 
 		setups: function() {
-			this.editor = $( this.options.editor );
-			this.canvas = $( this.options.canvas );
 			this.button = $( this.options.button );
+			this.canvas = $( this.options.canvas );
+			this.editor = $( this.options.editor );
 
 			// Create a unique array key for this post
 			this.key     = this.create_array_key();

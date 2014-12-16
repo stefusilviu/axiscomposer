@@ -103,7 +103,7 @@
 
 		clear: function() {
 			sessionStorage.removeItem( this.key );
-			sessionStorage.removeItem( this.index );
+			sessionStorage.removeItem( this.key + 'index' );
 			this.storage = [];
 			this.index   = null;
 		},

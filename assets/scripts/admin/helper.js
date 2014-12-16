@@ -23,7 +23,7 @@
 			attach: 'body'
 		});
 
-		// Control the Undo and Redo button history.
+		// Control the History Undo-Redo button.
 		new $.AxisBuilderHistory({
 			button: '.history-action',
 			canvas: '.canvas-area',

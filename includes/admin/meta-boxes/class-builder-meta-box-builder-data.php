@@ -91,11 +91,11 @@ class AB_Meta_Box_Builder_Data {
 				<div class="control-bar">
 					<div class="history-sections">
 						<div class="history-action" data-axis-tooltip="<?php _e( 'History', 'axisbuilder' ); ?>">
-							<a href="#" class="undo-icon undo-data" title="Undo"></i></a>
-							<a href="#" class="redo-icon redo-data" title="Redo"></i></a>
+							<a href="#undo" class="undo-icon undo-data" title="Undo"></a>
+							<a href="#redo" class="redo-icon redo-data" title="Redo"></a>
 						</div>
 						<div class="delete-action">
-							<a href="#" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
+							<a href="#trash" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
 						</div>
 					</div>
 					<div class="content-sections">

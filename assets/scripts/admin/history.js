@@ -47,6 +47,10 @@
 				this.index = this.maximum;
 			}
 
+			// Undo-Redo Buttons
+			this.undoButton = this.buttons.find( '.undo-data' );
+			this.redoButton = this.buttons.find( '.redo-data' );
+
 			// Clear storage for testing purpose
 			this.clear();
 
@@ -61,7 +65,19 @@
 		},
 
 		bindEvents: function() {
-			// var obj = this;
+			var obj = this;
+
+			this.canvas.on( 'axisbuilder-storage-update', function() {
+				obj.snapshot();
+			});
+
+			this.buttons.on( 'click', 'a.undo-data', function() {
+				obj.undo();
+			});
+
+			this.buttons.on( 'click', 'a.redo-data', function() {
+				obj.redo();
+			});
 		},
 
 		get: function( passed_key ) {
@@ -81,6 +97,8 @@
 				new AB_Logger( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', 'Storage' );
 				new AB_Logger( e, 'Storage' );
 				this.clear();
+				this.redoButton.addClass( 'inactive-history' );
+				this.undoButton.addClass( 'inactive-history' );
 			}
 		},
 
@@ -89,6 +107,107 @@
 			sessionStorage.removeItem( this.index );
 			this.index   = null;
 			this.storage = [];
+		},
+
+		undo: function() {
+			if ( ( this.index - 1 ) >= 0 ) {
+				this.index--;
+				this.canvasUpdate( this.storage[ this.index ] );
+			}
+
+			return false;
+		},
+
+		redo: function() {
+			if ( ( this.index + 1 ) <= this.maximum ) {
+				this.index++;
+				this.canvasUpdate( this.storage[ this.index ] );
+			}
+
+			return false;
+		},
+
+		canvasUpdate: function( values ) {
+
+			if ( typeof this.tinyMCE === 'undefined' ) {
+				this.tinyMCE = typeof window.tinyMCE === 'undefined' ? false : window.tinyMCE.get( this.options.editor.replace( '#', '' ) );
+			}
+
+			if ( this.tinyMCE ) {
+				this.tinyMCE.setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
+			}
+
+			this.editor.val( values[0] );
+			this.canvas.html( values[1] );
+			sessionStorage.setItem( this.key + 'index', this.index );
+
+			// Control Undo inactive class
+			if ( this.index <= 0 ) {
+				this.undoButton.addClass( 'inactive-history' );
+			} else {
+				this.undoButton.removeClass( 'inactive-history' );
+			}
+
+			// Control Redo inactive class
+			if ( this.index + 1 > this.max ) {
+				this.redoButton.addClass( 'inactive-history' );
+			} else {
+				this.redoButton.removeClass( 'inactive-history' );
+			}
+
+			// Trigger storage event
+			this.canvas.trigger( 'axisbuilder-history-update' );
+		},
+
+		snapshot: function() {
+
+			// Update all textarea html with actual value, otherwise jquerys html() fetches the values that were present on page load
+			this.canvas.find( 'textarea' ).each( function() {
+				this.innerHTML = this.value;
+			});
+
+			// Set Storage, index
+			this.storage = this.storage || this.get() || [];
+			this.index   = this.index || this.get( this.key + 'index' );
+			if ( typeof this.index === 'undefined' || this.index === null ) {
+				this.index = this.storage.length - 1;
+			}
+
+			var snapshot    = [ this.editor.val(), this.canvas.html().replace( /popup-animation/g, '' ) ],
+				lastStorage = this.storage[ this.index ];
+
+			if ( typeof lastStorage === 'undefined' || ( lastStorage[0] !== snapshot[0] ) ) {
+				this.index++;
+
+				// Remove all steps after the current one
+				this.storage = this.storage.slice( 0, this.index );
+
+				// Add the latest step to the array
+				this.storage.push( snapshot );
+
+				// If we got more steps than defined in our options, remove the first step
+				if ( this.options.steps < this.storage.length ) {
+					this.storage.shift();
+				}
+
+				// Set the browser storage object
+				this.set();
+			}
+
+			this.maximum = this.storage.length - 1;
+
+			// Set Undo and Redo button if storage is on the last index
+			if ( this.storage.length === 1 || this.index === 0 ) {
+				this.undoButton.addClass( 'inactive-history' );
+			} else {
+				this.undoButton.removeClass( 'inactive-history' );
+			}
+
+			if ( this.storage.length -1 === this.index ) {
+				this.redoButton.addClass( 'inactive-history' );
+			} else {
+				this.redoButton.removeClass( 'inactive-history' );
+			}
 		}
 	};
 

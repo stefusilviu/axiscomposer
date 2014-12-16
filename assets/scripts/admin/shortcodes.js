@@ -147,6 +147,9 @@
 			container.removeClass( currentSize ).addClass( nextSize[0] );
 			container.attr( 'data-width', nextSize[0] ).data( 'width', nextSize[0] ); // Ensure to set data attr so html() functions fetch the correct value :)
 			sizeString.text( nextSize[1] );
+
+			obj.updateTextarea();
+			obj.historySnapshot(0);
 		}
 	};
 

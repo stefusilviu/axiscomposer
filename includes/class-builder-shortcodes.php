@@ -77,6 +77,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Columns_Four_Fifth',
 
 			// Content Elements
+			'AB_Shortcode_Button',
 			'AB_Shortcode_Codeblock'
 		);
 

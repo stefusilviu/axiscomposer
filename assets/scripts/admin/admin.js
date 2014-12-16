@@ -118,8 +118,9 @@ function AB_Logger( text, type ) {
 						answer = window.confirm( axisbuilder_admin.i18n_last_warning );
 
 						if ( answer ) {
-							 // Empty the canvas :)
+							 // Empty the canvas & textarea :)
 							obj.axisBuilderCanvas.empty();
+							obj.updateTextarea();
 						}
 					}
 				}

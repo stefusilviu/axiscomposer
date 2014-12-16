@@ -132,7 +132,6 @@ final class AxisBuilder {
 	 * Define AB Constants.
 	 */
 	private function define_constants() {
-		$this->define( 'AB_DEBUG', true );
 		$this->define( 'AB_PLUGIN_FILE', __FILE__ );
 		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		$this->define( 'AB_VERSION', $this->version );

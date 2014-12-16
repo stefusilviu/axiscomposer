@@ -13,8 +13,8 @@
 		var defaults = {
 			steps: 40,
 			editor: '',
-			monitor: '',
-			buttons: '',
+			canvas: '',
+			button: '',
 			event: 'axisbuilder-storage-update'
 		};
 
@@ -32,10 +32,9 @@
 	$.AxisBuilderHistory.prototype = {
 
 		setups: function() {
-			this.editor  = $( this.options.editor );
-			this.canvas  = $( this.options.monitor );
-			this.wrapper = this.canvas.parent();
-			this.buttons = $( this.options.buttons );
+			this.editor = $( this.options.editor );
+			this.canvas = $( this.options.canvas );
+			this.button = $( this.options.button );
 
 			// Create a unique array key for this post
 			this.key     = this.create_array_key();
@@ -48,8 +47,8 @@
 			}
 
 			// Undo-Redo Buttons
-			this.undoButton = this.buttons.find( '.undo-data' );
-			this.redoButton = this.buttons.find( '.redo-data' );
+			this.undoButton = this.button.find( '.undo-data' );
+			this.redoButton = this.button.find( '.redo-data' );
 
 			// Clear storage for testing purpose
 			this.clear();
@@ -61,7 +60,7 @@
 		// Creates the array key for this post history
 		create_array_key: function() {
 			var key = 'axisbuilder' + axisbuilder_history.theme_name + axisbuilder_history.theme_version + axisbuilder_admin.post_id + axisbuilder_history.plugin_version;
-			key = key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
+			return key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
 		},
 
 		bindEvents: function() {
@@ -71,11 +70,11 @@
 				obj.snapshot();
 			});
 
-			this.buttons.on( 'click', 'a.undo-data', function() {
+			this.button.on( 'click', 'a.undo-data', function() {
 				obj.undo();
 			});
 
-			this.buttons.on( 'click', 'a.redo-data', function() {
+			this.button.on( 'click', 'a.redo-data', function() {
 				obj.redo();
 			});
 		},
@@ -105,13 +104,13 @@
 		clear: function() {
 			sessionStorage.removeItem( this.key );
 			sessionStorage.removeItem( this.index );
-			this.index   = null;
 			this.storage = [];
+			this.index   = null;
 		},
 
 		undo: function() {
 			if ( ( this.index - 1 ) >= 0 ) {
-				this.index--;
+				this.index --;
 				this.canvasUpdate( this.storage[ this.index ] );
 			}
 
@@ -120,7 +119,7 @@
 
 		redo: function() {
 			if ( ( this.index + 1 ) <= this.maximum ) {
-				this.index++;
+				this.index ++;
 				this.canvasUpdate( this.storage[ this.index ] );
 			}
 
@@ -149,7 +148,7 @@
 			}
 
 			// Control Redo inactive class
-			if ( this.index + 1 > this.max ) {
+			if ( this.index + 1 > this.maximum ) {
 				this.redoButton.addClass( 'inactive-history' );
 			} else {
 				this.redoButton.removeClass( 'inactive-history' );
@@ -176,8 +175,9 @@
 			var snapshot    = [ this.editor.val(), this.canvas.html().replace( /popup-animation/g, '' ) ],
 				lastStorage = this.storage[ this.index ];
 
+			// Create a new snapshot if none exists or if the last stored snapshot doesnt match the current state
 			if ( typeof lastStorage === 'undefined' || ( lastStorage[0] !== snapshot[0] ) ) {
-				this.index++;
+				this.index ++;
 
 				// Remove all steps after the current one
 				this.storage = this.storage.slice( 0, this.index );
@@ -203,7 +203,7 @@
 				this.undoButton.removeClass( 'inactive-history' );
 			}
 
-			if ( this.storage.length -1 === this.index ) {
+			if ( this.storage.length - 1 === this.index ) {
 				this.redoButton.addClass( 'inactive-history' );
 			} else {
 				this.redoButton.removeClass( 'inactive-history' );

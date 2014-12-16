@@ -107,6 +107,7 @@
 			}
 
 			obj.updateTextarea();
+			obj.historySnapshot();
 		});
 	};
 

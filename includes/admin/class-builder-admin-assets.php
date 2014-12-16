@@ -63,20 +63,32 @@ class AB_Admin_Assets {
 	public function admin_scripts() {
 		global $wp_query, $post;
 
+		$theme        = wp_get_theme();
 		$screen       = get_current_screen();
 		// $ab_screen_id = sanitize_title( __( 'Axis Builder', 'axsisbuilder' ) );
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // For test purpose only replace position of '.min' :)
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker', 'axisbuilder_helper', 'axisbuilder_shortcodes', 'axisbuilder_tooltip', 'axisbuilder_sweet_alert' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker', 'axisbuilder_helper', 'axisbuilder_history', 'axisbuilder_shortcodes', 'axisbuilder_tooltip', 'axisbuilder_sweet_alert' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
+		wp_register_script( 'axisbuilder_history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_tooltip', AB()->plugin_url() . '/assets/scripts/tooltip/tooltip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_sweet_alert', AB()->plugin_url() . '/assets/scripts/sweetalert/sweet-alert' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
+		// History
+		$params = array(
+			'theme_name'     => $theme->get( 'Name' ),
+			'theme_version'  => $theme->get( 'Version' ),
+			'plugin_version' => AB_VERSION
+		);
+
+		wp_localize_script( 'axisbuilder_history', 'axisbuilder_history', $params );
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {

@@ -200,6 +200,11 @@ label[for="axisbuilder-editor-hide"] {
 					&:hover {
 						color: #2ea2cc;
 					}
+
+					&.inactive-history {
+						opacity: 0.5;
+						color: #7b7b7b;
+					}
 				}
 
 				.undo-icon {

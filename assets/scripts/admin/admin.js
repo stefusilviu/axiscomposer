@@ -146,6 +146,12 @@ function AB_Logger( text, type ) {
 				obj.shortcodes.resizeLayout( this, obj );
 				return false;
 			});
+
+			// Reactivate sorting and dropping after Undo Redo changes
+			this.axisBuilderCanvas.on( 'axisbuilder-history-update', function() {
+				obj.activateDragging( this.axisBuilderParent, '' );
+				obj.activateDropping( this.axisBuilderParent, '' );
+			});
 		},
 
 		// Switch between the {WordPress|AxisBuilder} Editors

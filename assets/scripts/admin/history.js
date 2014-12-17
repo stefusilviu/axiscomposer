@@ -72,10 +72,12 @@
 
 			this.button.on( 'click', 'a.undo-data', function() {
 				obj.undo();
+				return false;
 			});
 
 			this.button.on( 'click', 'a.redo-data', function() {
 				obj.redo();
+				return false;
 			});
 		},
 

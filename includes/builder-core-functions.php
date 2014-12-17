@@ -21,7 +21,7 @@ if ( ! function_exists( 'get_builder_core_supported_themes' ) ) :
  * @return string[]
  */
 function get_builder_core_supported_themes() {
-	return array( 'twentyfifteen', 'twentythirteen', 'twentyeleven', 'twentytwelve', 'twentyten' );
+	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentyeleven', 'twentytwelve', 'twentyten' );
 }
 
 endif;

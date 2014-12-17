@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-17 17:29:45+00:00\n"
+"POT-Creation-Date: 2014-12-17 21:13:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,6 +106,14 @@ msgstr ""
 msgid "History"
 msgstr ""
 
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:94
+msgid "Undo"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:95
+msgid "Redo"
+msgstr ""
+
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:98
 msgid "Permanently delete all canvas elements"
 msgstr ""
@@ -134,7 +142,23 @@ msgid "Theme Integration Guide"
 msgstr ""
 
 #: includes/admin/views/html-notice-theme-support.php:16
+#: includes/admin/views/html-notice-translation-upgrade.php:26
 msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/admin/views/html-notice-translation-upgrade.php:17
+msgid ""
+"<strong>Axis Builder Translation Available</strong> &#8211; Install or "
+"update your <code>%s</code> translation to version <code>%s</code>."
+msgstr ""
+
+#: includes/admin/views/html-notice-translation-upgrade.php:21
+#: includes/admin/views/html-notice-translation-upgrade.php:23
+msgid "Update Translation"
+msgstr ""
+
+#: includes/admin/views/html-notice-translation-upgrade.php:24
+msgid "Force Update Translation"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

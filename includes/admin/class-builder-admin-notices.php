@@ -58,6 +58,11 @@ class AB_Admin_Notices {
 				add_action( 'admin_notices', array( $this, 'theme_support_notice' ) );
 			}
 		}
+
+		if ( in_array( 'translation_upgrade', $notices ) ) {
+			wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/styles/activation.css', array(), AB_VERSION );
+			add_action( 'admin_notices', array( $this, 'translation_upgrade_notice' ) );
+		}
 	}
 
 	/**
@@ -65,6 +70,17 @@ class AB_Admin_Notices {
 	 */
 	public function theme_support_notice() {
 		include( 'views/html-notice-theme-support.php' );
+	}
+
+	/**
+	 * Show the Translation Upgrade notice.
+	 */
+	public function translation_upgrade_notice() {
+		$screen = get_current_screen();
+
+		if ( 'update-core' !== $screen->id ) {
+			include( 'views/html-notice-translation-upgrade.php' );
+		}
 	}
 }
 

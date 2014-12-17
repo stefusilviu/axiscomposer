@@ -46,6 +46,7 @@ class AB_Install {
 	 * Install AB
 	 */
 	public static function install() {
+		self::create_cron_jobs();
 		self::create_files();
 
 		// Update version
@@ -53,6 +54,14 @@ class AB_Install {
 
 		// Flush rules after install
 		flush_rewrite_rules();
+	}
+
+	/**
+	 * Create cron jobs (clear them first)
+	 */
+	private static function create_cron_jobs() {
+		wp_clear_scheduled_hook( 'axisbuilder_language_pack_updater_check' );
+		wp_schedule_single_event( time(), 'axisbuilder_language_pack_updater_check' );
 	}
 
 	/**

@@ -183,7 +183,7 @@ function AB_Logger( text, type ) {
 				}
 
 				// Debug Logger
-				if ( this.axisBuilderDebug !== 'disable' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
+				if ( this.axisBuilderDebug !== 'disabled' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
 					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
 					if ( this.tinyMceContent ) {
 						this.tinyMceContent.setContent( '', { format: 'html' } );

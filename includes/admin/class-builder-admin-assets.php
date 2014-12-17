@@ -109,7 +109,7 @@ class AB_Admin_Assets {
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
-				'debug_mode'                      => current_theme_supports( 'axisbuilder-debug' ),
+				'debug_mode'                      => current_theme_supports( 'axisbuilder-debug' ) ? 'enabled' : 'disabled',
 				'shortcodes_to_interface_nonce'   => wp_create_nonce( 'shortcodes-to-interface' ),
 				'i18n_delete_all_canvas_elements' => esc_js( __( 'Are you sure you want to delete all canvas element(s)? This cannot be undone.', 'axisbuilder' ) ),
 				'i18n_last_warning'               => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) ),

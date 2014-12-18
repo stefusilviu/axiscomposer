@@ -70,7 +70,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 	public function editor_element( $params ) {
 		$params['innerHtml']  = '';
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
-		$params['innerHtml'] .= '<div class="axibulder-element-label">' . $this->title . '</div>';
+		$params['innerHtml'] .= '<div class="axisbuilder-element-label">' . $this->title . '</div>';
 
 		return (array) $params;
 	}

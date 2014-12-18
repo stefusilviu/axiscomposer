@@ -46,7 +46,6 @@ abstract class AB_Shortcode {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
-		// $this->shortcode_assets();
 		$this->shortcode_button();
 		$this->shortcode_config();
 
@@ -55,11 +54,6 @@ abstract class AB_Shortcode {
 			add_action( 'print_media_templates', array( $this, 'print_media_templates' ) );
 		}
 	}
-
-	/**
-	 * Enqueue shortcode styles and scripts.
-	 */
-	// public function shortcode_assets() {}
 
 	/**
 	 * Abstract method for builder shortcode button configuration.
@@ -71,18 +65,23 @@ abstract class AB_Shortcode {
 	 */
 	protected function shortcode_config() {
 		$load_shortcode_data = array(
-			'class'      => '',
-			'target'     => '',
-			'drag-level' => 2,
-			'drop-level' => 2,
-			'href-class' => get_class( $this )
+			'class'       => '',
+			'target'      => '',
+			'drag-level'  => 10,
+			'drop-level'  => 10,
+			'href-class'  => get_class( $this )
 		);
 
-		// Load the default shortcode data
+		// Load the default shortcode data.
 		foreach ( $load_shortcode_data as $key => $data ) {
 			if ( empty( $this->shortcode[$key] ) ) {
 				$this->shortcode[$key] = $data;
 			}
+		}
+
+		// Activate sortable editor element.
+		if ( ! isset( $this->shortcode['html-render'] ) ) {
+			$this->shortcode['html-render'] = 'sortable_editor_element';
 		}
 
 		// Activate popup editor if settings exist.
@@ -148,8 +147,25 @@ abstract class AB_Shortcode {
 		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
 		$params = $this->editor_element( $params );
 
+		// Render the sortable or default editor elements.
+		if ( $this->shortcode['html-render'] !== false ) {
+			$callback = array( $this, $this->shortcode['html-render'] );
 
-		$output = $params;
+			if ( is_callable( $callback ) ) {
+				$output = call_user_func( $callback, $params );
+			}
+		} else {
+			$output = $params;
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Callback for default sortable elements.
+	 */
+	public function sortable_editor_element( $params ) {
+		$output = '<div>Shiva</div>';
 
 		return $output;
 	}

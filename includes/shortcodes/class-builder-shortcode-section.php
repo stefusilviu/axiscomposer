@@ -33,15 +33,16 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$this->title     = __( 'Color Section', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a section with unique background image and colors', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'       => 11,
-			'type'       => 'layout',
-			'name'       => 'ab_section',
-			'icon'       => 'icon-section',
-			'image'      => AB()->plugin_url() . '/assets/images/layouts/section.png', // Fallback if icon is missing :)
-			'target'     => 'axisbuilder-target-insert',
-			'tinymce'    => array( 'disable' => true ),
-			'drag-level' => 1,
-			'drop-level' => 1
+			'sort'        => 11,
+			'type'        => 'layout',
+			'name'        => 'ab_section',
+			'icon'        => 'icon-section',
+			'image'       => AB()->plugin_url() . '/assets/images/layouts/section.png', // Fallback if icon is missing :)
+			'target'      => 'axisbuilder-target-insert',
+			'tinymce'     => array( 'disable' => true ),
+			'drag-level'  => 1,
+			'drop-level'  => 1,
+			'html-render' => false
 		);
 	}
 }

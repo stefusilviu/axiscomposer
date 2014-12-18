@@ -33,15 +33,16 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 		$this->title     = __( 'Grid Row', 'axisbuilder' );
 		$this->tooltip   = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'       => 12,
-			'type'       => 'layout',
-			'name'       => 'ab_gridrow',
-			'icon'       => 'icon-gridrow',
-			'image'      => AB()->plugin_url() . '/assets/images/layouts/gridrow.png', // Fallback if icon is missing :)
-			'target'     => 'axisbuilder-target-insert',
-			'tinymce'    => array( 'disable' => true ),
-			'drag-level' => 1,
-			'drop-level' => 100
+			'sort'        => 12,
+			'type'        => 'layout',
+			'name'        => 'ab_gridrow',
+			'icon'        => 'icon-gridrow',
+			'image'       => AB()->plugin_url() . '/assets/images/layouts/gridrow.png', // Fallback if icon is missing :)
+			'target'      => 'axisbuilder-target-insert',
+			'tinymce'     => array( 'disable' => true ),
+			'drag-level'  => 1,
+			'drop-level'  => 100,
+			'html-render' => false
 		);
 	}
 }

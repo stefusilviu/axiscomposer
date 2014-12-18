@@ -59,10 +59,10 @@ class AB_Admin_Notices {
 			}
 		}
 
-		if ( in_array( 'translation_upgrade', $notices ) ) {
-			wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/styles/activation.css', array(), AB_VERSION );
-			add_action( 'admin_notices', array( $this, 'translation_upgrade_notice' ) );
-		}
+		// if ( in_array( 'translation_upgrade', $notices ) ) {
+		// 	wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/styles/activation.css', array(), AB_VERSION );
+		// 	add_action( 'admin_notices', array( $this, 'translation_upgrade_notice' ) );
+		// }
 	}
 
 	/**

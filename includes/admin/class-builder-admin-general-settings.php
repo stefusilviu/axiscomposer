@@ -24,16 +24,16 @@ class AB_Admin_General_Settings {
 	 * Hook in tabs.
 	 */
 	public function __construct() {
-		$this->settings_init();
+		// $this->settings_init();
 		$this->settings_save();
 	}
 
 	/**
 	 * Init our Settings.
 	 */
-	public function settings_init() {
+	// public function settings_init() {
 
-	}
+	// }
 
 	/**
 	 * Save the Settings.

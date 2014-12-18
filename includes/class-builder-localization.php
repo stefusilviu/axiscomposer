@@ -216,4 +216,4 @@ class AB_Localization {
 	}
 }
 
-new AB_Localization();
+// new AB_Localization();

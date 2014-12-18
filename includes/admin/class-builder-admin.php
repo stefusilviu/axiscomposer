@@ -25,7 +25,7 @@ class AB_Admin {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'includes' ) );
-		add_action( 'current_screen', array( $this, 'conditonal_includes' ) );
+		// add_action( 'current_screen', array( $this, 'conditonal_includes' ) );
 	}
 
 	/**

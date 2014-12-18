@@ -404,23 +404,21 @@ label[for="axisbuilder-editor-hide"] {
 
 	#axisbuilder-canvas {
 
-		.canvas-area {
-			border-bottom: 1px solid #eee !important;
-		}
-
 		.axisbuilder-inner-shortcode {
 
 			textarea {
 				resize: none;
-				display: block;
 				font-size: 11px;
 				margin: 20px auto;
 				font-family: monospace;
+				display: block !important;
 			}
 		}
 
 		.canvas-secure-data {
 			padding: 12px;
+			background: #fafafa;
+			border-top: 1px solid #eee;
 			visibility: visible !important;
 
 			textarea {

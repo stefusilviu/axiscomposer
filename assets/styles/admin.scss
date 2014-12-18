@@ -730,3 +730,104 @@ body div.ui-draggable-dragging {
 	background: #f3f8fa;
 	border: 1px dashed #4d9edd !important;
 }
+
+
+/**
+ * Layout Styles
+ */
+.layout-flex-grid {
+	.ab_one_full {
+		width: 98%;
+	}
+	.ab_one_half {
+		width: 48%;
+	}
+	.ab_one_third {
+		width: 31.3%;
+	}
+	.ab_two_third {
+		width: 64.6%;
+	}
+	.ab_one_fourth {
+		width: 23%;
+	}
+	.ab_three_fourth {
+		width: 73%;
+	}
+	.ab_one_fifth {
+		width: 18%;
+	}
+	.ab_two_fifth {
+		width: 38%;
+	}
+	.ab_three_fifth {
+		width: 58%;
+	}
+	.ab_four_fifth {
+		width: 78%;
+	}
+}
+
+/**
+ * Sortable Elements Styles
+ */
+.axisbuilder-sortable-element {
+	width: 98%;
+	margin: 1%;
+	color: #666;
+	float: left;
+	position: relative;
+
+	&:hover {
+		.axisbuilder-sorthandle {
+			opacity: 1;
+			z-index: 10;
+		}
+	}
+
+	.axisbuilder-sorthandle {
+		opacity: 0;
+		top: -24px;
+		left: 0;
+		right: 0;
+		border: none;
+		box-shadow: none;
+		position: absolute;
+		background: rgba( 0,0,0,0.3 );
+	}
+
+	.axisbuilder-inner-shortcode {
+		background: #fcfcfc;
+		padding: 10px;
+		border: 1px solid #e1e1e1;
+		text-align: center;
+	}
+}
+
+.axisbuilder-sortable-element, .axisbuilder-layout-column {
+
+	&:hover {
+		z-index: 20;
+	}
+}
+
+.axisbuilder-inner-shortcode {
+
+	.axisbuilder-highlight,
+	.axisbuilder-sortable-element {
+		margin: 10px 1%;
+	}
+
+	.axisbuilder-element-label {
+		display: inline;
+		margin-bottom: 5px;
+	}
+
+	img {
+		top: 6px;
+		max-width: 100%;
+		display: inline;
+		margin-right: 10px;
+		position: relative;
+	}
+}

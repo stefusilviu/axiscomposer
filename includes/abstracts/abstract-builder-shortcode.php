@@ -87,7 +87,7 @@ abstract class AB_Shortcode {
 		// Activate popup editor if settings exist.
 		if ( method_exists( $this, 'popup_elements' ) ) {
 			$this->popup_elements();
-			if ( ! empty( $this->settings ) ) {
+			if ( isset( $this->settings ) ) {
 				$this->shortcode['popup_editor'] = true;
 			}
 		}
@@ -101,7 +101,7 @@ abstract class AB_Shortcode {
 	public function editor_element( $params ) {
 		$params['innerHtml']  = '';
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
-		$params['innerHtml'] .= '<div class="axibulder-element-label">' . $this->title . '</div>';
+		$params['innerHtml'] .= '<div class="axisbuilder-element-label">' . $this->title . '</div>';
 
 		return (array) $params;
 	}
@@ -192,6 +192,10 @@ abstract class AB_Shortcode {
 
 		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '" ' . $data_string . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+				if ( isset( $this->shortcode['popup_editor'] ) ) {
+					$extra_class = 'axisbuilder-edit-element';
+					$output .= '<a class="' . $extra_class . '" href="#editor-element" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
+				}
 				$output .= '<a class="axisbuilder-trash" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axisbuilder-clone" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';

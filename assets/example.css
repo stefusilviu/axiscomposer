@@ -25,6 +25,16 @@
 	position: relative;
 }
 
+.axisbuilder-layout-column > .axisbuilder-inner-shortcode:after, .axisbuilder-layout-section > .axisbuilder-inner-shortcode:after, #axisbuilder-editor:after, .axisbuilder-clearfix:after {
+	width: 0;
+	height: 0;
+	clear:both;
+	content: '.';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+}
+
 .axisbuilder-sorthandle {
 	height: 25px;
 	width: auto;
@@ -109,14 +119,3 @@ left:auto;
 background: transparent url(images/icon-clone.png?ver=23) bottom center no-repeat;
 }
 
-.layout-flex-grid .ab_one_fifth{width:18%;}
-.layout-flex-grid .ab_two_fifth{width:38%;}
-.layout-flex-grid .ab_three_fifth{width:58%;}
-.layout-flex-grid .ab_four_fifth{width:78%;}
-
-.layout-flex-grid .ab_one_fourth{width:23%;}
-.layout-flex-grid .ab_three_fourth{width:73%;}
-.layout-flex-grid .ab_one_third{width:31.3%;}
-.layout-flex-grid .ab_two_third{width:64.6%;}
-.layout-flex-grid .ab_one_half{width:48%;}
-.layout-flex-grid .ab_one_full{width:98%;}

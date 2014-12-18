@@ -39,7 +39,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 			'type'    => 'layout',
 			'name'    => 'ab_one_full',
 			'icon'    => 'icon-one-full',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/one-full.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/one-full.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -108,7 +108,7 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_one_half',
 			'icon'    => 'icon-one-half',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/one-half.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/one-half.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -132,7 +132,7 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_one_third',
 			'icon'    => 'icon-one-third',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/one-third.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/one-third.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -156,7 +156,7 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_two_third',
 			'icon'    => 'icon-two-third',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/two-third.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/two-third.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -180,7 +180,7 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_one_fourth',
 			'icon'    => 'icon-one-fourth',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/one-fourth.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/one-fourth.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -204,7 +204,7 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_three_fourth',
 			'icon'    => 'icon-three-fourth',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/three-fourth.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/three-fourth.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -228,7 +228,7 @@ class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_one_fifth',
 			'icon'    => 'icon-one-fifth',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/one-fifth.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/one-fifth.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -252,7 +252,7 @@ class AB_Shortcode_Columns_Two_Fifth extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_two_fifth',
 			'icon'    => 'icon-two-fifth',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/two-fifth.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/two-fifth.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -276,7 +276,7 @@ class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_three_fifth',
 			'icon'    => 'icon-three-fifth',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/three-fifth.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/three-fifth.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);
@@ -300,7 +300,7 @@ class AB_Shortcode_Columns_Four_Fifth extends AB_Shortcode_Columns {
 			'type'    => 'layout',
 			'name'    => 'ab_four_fifth',
 			'icon'    => 'icon-four-fifth',
-			'image'   => AB()->plugin_url() . '/assets/images/columns/four-fifth.png', // Fallback if icon is missing :)
+			'image'   => AB()->plugin_url() . '/assets/images/layouts/columns/four-fifth.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinymce' => array( 'disable' => true ),
 		);

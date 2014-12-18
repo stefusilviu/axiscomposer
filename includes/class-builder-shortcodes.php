@@ -75,6 +75,8 @@ class AB_Shortcodes {
 			'AB_Shortcode_Columns_Two_Fifth',
 			'AB_Shortcode_Columns_Three_Fifth',
 			'AB_Shortcode_Columns_Four_Fifth',
+			'AB_Shortcode_Section',
+			'AB_Shortcode_Grid_Row',
 
 			// Content Elements
 			'AB_Shortcode_Button',

@@ -193,8 +193,16 @@ abstract class AB_Shortcode {
 		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '" ' . $data_string . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['popup_editor'] ) ) {
-					$extra_class = 'axisbuilder-edit';
-					$output .= '<a class="' . $extra_class . '" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
+					add_thickbox();
+					?>
+<div id="my-content-id" style="display:none;">
+     <p>
+          This is my hidden content! It will appear in ThickBox when the link is clicked.
+     </p>
+</div>
+					<?php
+					$extra_class = 'axisbuilder-edit thickbox';
+					$output .= '<a class="' . $extra_class . '" href="#TB_inline?width=600&height=550&inlineId=my-content-id" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
 				}
 				$output .= '<a class="axisbuilder-trash" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axisbuilder-clone" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';

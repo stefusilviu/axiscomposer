@@ -67,8 +67,8 @@ abstract class AB_Shortcode {
 		$load_shortcode_data = array(
 			'class'       => '',
 			'target'      => '',
-			'drag-level'  => 10,
-			'drop-level'  => 10,
+			'drag-level'  => 3,
+			'drop-level'  => -1,
 			'href-class'  => get_class( $this )
 		);
 
@@ -85,12 +85,12 @@ abstract class AB_Shortcode {
 		}
 
 		// Activate popup editor if settings exist.
-		// if ( method_exists( $this, 'popup_elements' ) ) {
-		// 	$this->popup_elements();
-		// 	if ( ! empty( $this->settings ) ) {
-		// 		$this->shortcode['popup_editor'] = true;
-		// 	}
-		// }
+		if ( method_exists( $this, 'popup_elements' ) ) {
+			$this->popup_elements();
+			if ( ! empty( $this->settings ) ) {
+				$this->shortcode['popup_editor'] = true;
+			}
+		}
 	}
 
 	/**
@@ -165,7 +165,41 @@ abstract class AB_Shortcode {
 	 * Callback for default sortable elements.
 	 */
 	public function sortable_editor_element( $params ) {
-		$output = '<div>Shiva</div>';
+		$data_string = $extra_class = '';
+
+		$defaults = array(
+			'innerHtml' => '',
+			'class'     => 'axisbuilder-default-container',
+		);
+
+		$params = array_merge( $defaults, $params );
+
+		extract( $params );
+
+		$data['modal-title']       = $this->title;
+		$data['modal-action']      = $this->shortcode['name'];
+		$data['dragdrop-level']    = $this->shortcode['drag-level'];
+		$data['shortcode-handler'] = $this->shortcode['name'];
+		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		foreach ( $data as $key => $value ) {
+			if ( is_array( $value ) ) {
+				$value = implode( ', ', $value );
+			}
+
+			$data_string .= ' data-' . $key . '="' . $value . '"';
+		}
+
+		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '" ' . $data_string . '>';
+			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+				$output .= '<a class="axisbuilder-trash" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-clone" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
+			$output .= '</div>';
+			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
+				$output .= $innerHtml;
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+			$output .= '</div>';
+		$output .= '</div>';
 
 		return $output;
 	}

@@ -78,8 +78,8 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 				$output .= '<a class="axisbuilder-decrease axisbuilder-change-column-size" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '">-</a>';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $data['name'] ] . '</span>';
 				$output .= '<a class="axisbuilder-increase axisbuilder-change-column-size" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '">+</a>';
-				$output .= '<a class="axisbuilder-trash" href="#trash" title="' . __( 'Delete Column Size', 'axisbuilder' ) . '">x</a>';
-				$output .= '<a class="axisbuilder-clone" href="#clone" title="' . __( 'Clone Column Size', 'axisbuilder' ) . '">' . __( 'Clone Column', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-trash" href="#trash" title="' . __( 'Delete Column', 'axisbuilder' ) . '">' . __( 'Delete Column', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-clone" href="#clone" title="' . __( 'Clone Column',  'axisbuilder' ) . '">' . __( 'Clone Column',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $data['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $data['name'], $content, $args ) . '</textarea>';

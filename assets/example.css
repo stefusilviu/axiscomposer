@@ -117,22 +117,3 @@
 .axisbuilder-clone:hover{
 	background: transparent url(images/icon-clone.png?ver=23) bottom center no-repeat;
 }
-
-/*Clone*/
-.axisbuilder-sorthandle .axisbuilder-edit {
-	height:24px;
-	width:24px;
-	line-height: 24px;
-	position: absolute;
-	top:0px;
-	left:25px;
-	background: transparent url(images/icon-edit.png) top center no-repeat;
-	overflow: hidden;
-	text-indent: 200%;
-	/*opacity: 0;*/
-
-}
-
-.axisbuilder-sorthandle .axisbuilder-edit:hover {
-	background: transparent url(images/icon-edit.png) bottom center no-repeat;
-}

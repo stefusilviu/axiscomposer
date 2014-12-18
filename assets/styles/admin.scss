@@ -786,14 +786,15 @@ body div.ui-draggable-dragging {
 	}
 
 	.axisbuilder-sorthandle {
-		opacity: 0;
-		top: -24px;
 		left: 0;
 		right: 0;
+		top: -24px;
+		opacity: 0;
 		border: none;
 		box-shadow: none;
 		position: absolute;
-		background: rgba( 0,0,0,0.3 );
+		background: rgba( 0, 0, 0, 0.25 );
+		/*border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );*/
 	}
 
 	.axisbuilder-inner-shortcode {
@@ -829,5 +830,27 @@ body div.ui-draggable-dragging {
 		margin-right: 10px;
 		position: relative;
 		display: inline-block;
+	}
+}
+
+/**
+ * Elements Icon Styles
+ */
+.axisbuilder-sorthandle {
+
+	.edit-element-icon {
+		top: 4px;
+		left: 25px;
+		color: #555;
+		font-size: 16px;
+		@include ir();
+
+		&:hover {
+			color: #278ab7;
+		}
+
+		&:before {
+			@include icon( "\e011" );
+		}
 	}
 }

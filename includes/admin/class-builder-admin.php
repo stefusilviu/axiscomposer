@@ -25,7 +25,6 @@ class AB_Admin {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'includes' ) );
-		// add_action( 'current_screen', array( $this, 'conditonal_includes' ) );
 	}
 
 	/**
@@ -45,20 +44,6 @@ class AB_Admin {
 			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {
 				include( 'class-builder-admin-help.php' );
 			}
-		}
-	}
-
-	/**
-	 * Include admin file conditionally.
-	 */
-	public function conditonal_includes() {
-
-		$screen = get_current_screen();
-
-		switch ( $screen->id ) {
-			case 'options-general':
-				include( 'class-builder-admin-general-settings.php' );
-			break;
 		}
 	}
 }

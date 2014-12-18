@@ -157,7 +157,6 @@ final class AxisBuilder {
 		}
 
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
-		include_once( 'includes/class-builder-localization.php' );             // Download/update languages
 	}
 
 	/**

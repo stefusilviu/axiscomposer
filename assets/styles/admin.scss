@@ -788,12 +788,12 @@ body div.ui-draggable-dragging {
 	.axisbuilder-sorthandle {
 		left: 0;
 		right: 0;
-		top: -24px;
-		opacity: 0;
-		border: none;
-		box-shadow: none;
-		position: absolute;
-		background: rgba( 0, 0, 0, 0.25 );
+		/*top: -24px;*/
+		/*opacity: 0;*/
+		/*border: none;*/
+		/*box-shadow: none;*/
+		/*position: absolute;*/
+		/*background: rgba( 0, 0, 0, 0.25 );*/
 		/*border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );*/
 	}
 
@@ -802,6 +802,7 @@ body div.ui-draggable-dragging {
 		padding: 10px;
 		border: 1px solid #e1e1e1;
 		text-align: center;
+		border-top: none; /* Added */
 	}
 }
 

@@ -35,14 +35,6 @@
 	visibility: hidden;
 }
 
-.axisbuilder-sorthandle {
-	height: 25px;
-	width: auto;
-	position: relative;
-	z-index: 10;
-	opacity: 1;
-}
-
 .axisbuilder-trash {
 	height:24px;
 	width:24px;
@@ -59,40 +51,6 @@
 .axisbuilder-trash:hover{
 	background: transparent url(images/icon-trash.png) bottom left no-repeat;
 	opacity: 1
-}
-
-
-/*Col size*/
-.axisbuilder-change-column-size {
-	height:24px;
-	width:24px;
-	line-height: 24px;
-	float:left;
-	display: block;
-	overflow: hidden;
-	text-indent: 200%;
-	background: transparent url(images/icon-grow.png) top left no-repeat;
-	position: relative;
-	left:0px;
-	/*opacity: 0;*/
-}
-
-.axisbuilder-change-column-size.axisbuilder-decrease {
-	background: transparent url(images/icon-shrink.png) top left no-repeat;
-}
-
-.axisbuilder-change-column-size:hover {
-	background-position-y: bottom;
-}
-
-.axisbuilder-column-size {
-	height:24px;
-	width:36px;
-	float:left;
-	line-height: 26px;
-	text-align: center;
-	position: relative;
-	color:#999;
 }
 
 /*Clone*/

@@ -834,9 +834,59 @@ body div.ui-draggable-dragging {
 }
 
 /**
- * Elements Icon Styles
+ * Sort-Handle Styles
  */
 .axisbuilder-sorthandle {
+	opacity: 1;
+	z-index: 10;
+	width: auto;
+	height: 25px;
+	position: relative;
+
+	.axisbuilder-column-size,
+	.layout-element-icon {
+		float: left;
+		color: #999;
+		@include ir();
+		width: 25px;
+		height: 25px;
+	}
+
+	.axisbuilder-column-size {
+		padding: 0 5px;
+		line-height: 25px;
+		text-align: center;
+		text-indent: inherit;
+	}
+
+	.layout-element-icon {
+		font-size: 16px;
+		background: #eee;
+		border-left: 1px solid #e5e5e5;
+		border-right: 1px solid #e5e5e5;
+
+		&:hover {
+			color: #278ab7;
+			background: #f8f8f8;
+		}
+
+		&.axisbuilder-decrease {
+			border-left: none;
+
+			&:before {
+				@include icon( "\e00d" );
+				line-height: 1.5;
+			}
+		}
+
+		&.axisbuilder-increase {
+
+			&:before {
+				@include icon( "\e00e" );
+				line-height: 1.5;
+			}
+		}
+	}
 
 	.edit-element-icon {
 		top: 4px;

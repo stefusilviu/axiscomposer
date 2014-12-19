@@ -411,6 +411,7 @@ label[for="axisbuilder-editor-hide"] {
 		.axisbuilder-inner-shortcode {
 
 			textarea {
+				width: 98%; /* Added */
 				resize: none;
 				font-size: 11px;
 				margin: 20px auto;
@@ -706,35 +707,75 @@ label[for="axisbuilder-editor-hide"] {
 /**
  * Drag-Drop Styles
  */
-body div.ui-draggable-dragging {
-	width:240px;
+body .ui-draggable-dragging {
+	width: 240px;
+
+	.axisbuilder-sorthandle {
+		opacity: 1;
+		z-index: 10;
+	}
+
+	.axisbuilder-inner-shortcode {
+		height: 110px;
+		overflow: hidden;
+		background: #fff;
+		border: 1px solid #e1e1e1;
+		@include position(absolute, 0px 0px 0px 0px);
+
+		img, div, textarea {
+			visibility: hidden;
+		}
+	}
 }
 
-.axisbuilder-hover-active {
-	background: #f3f8fa;
-	border: 1px dashed #1075a0;
+#wpwrap .axisbuilder-hover-active {
+	background: #f7fff2;
+	border: 1px dashed #9acf57 !important;
 }
 
-/* Drag-Drop highlight of single element */
-.axisbuilder-select-target-1.drag-element[data-dragdrop-level="0"],
-.axisbuilder-select-target-2.drag-element[data-dragdrop-level="0"],
-.axisbuilder-select-target-3.drag-element[data-dragdrop-level="0"],
-.axisbuilder-select-target-4.drag-element[data-dragdrop-level="0"] {
-	background: #f3f8fa;
-	border: 1px dashed #1075a0 !important;
-}
-
-.axisbuilder-select-target-1 .drag-element[data-dragdrop-level="0"],
-.axisbuilder-select-target-2 .drag-element[data-dragdrop-level="1"],
-.axisbuilder-select-target-3 .drag-element[data-dragdrop-level="2"],
-.axisbuilder-select-target-3 .drag-element[data-dragdrop-level="1"],
-.axisbuilder-select-target-4 .drag-element[data-dragdrop-level="3"],
-.axisbuilder-select-target-4 .drag-element[data-dragdrop-level="2"],
-.axisbuilder-select-target-4 .drag-element[data-dragdrop-level="1"] {
+/* Drag-Drop highlight of single elements */
+.axisbuilder-select-target-1.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-2.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-3.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-4.axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-1 .axisbuilder-drop[data-dragdrop-level="0"],
+.axisbuilder-select-target-2 .axisbuilder-drop[data-dragdrop-level="1"],
+.axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="2"],
+.axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="1"],
+.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="3"],
+.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="2"],
+.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="1"] {
 	background: #f3f8fa;
 	border: 1px dashed #4d9edd !important;
 }
 
+.axisbuilder-select-target-2 .av_drop[data-dragdrop-level="1"],
+.axisbuilder-select-target-3 .av_drop[data-dragdrop-level="1"],
+.axisbuilder-select-target-4 .av_drop[data-dragdrop-level="1"] {
+	background: #e5f3ff;
+}
+
+.axisbuilder-select-target-3 .av_drop[data-dragdrop-level="2"],
+.axisbuilder-select-target-4 .av_drop[data-dragdrop-level="2"] {
+	background: #dff0ff;
+}
+
+/* Target Mode highlight of elements */
+.axisbuilder-hover-target {
+	cursor: crosshair;
+}
+
+.axisbuilder-hover-target.axisbuilder-drop[data-dragdrop-level="0"]:hover,
+.axisbuilder-hover-target.axisbuilder-select-target-1 .axisbuilder-drop:hover[data-dragdrop-level="0"],
+.axisbuilder-hover-target.axisbuilder-select-target-2 .axisbuilder-drop:hover[data-dragdrop-level="1"],
+.axisbuilder-hover-target.axisbuilder-select-target-3 .axisbuilder-drop:hover[data-dragdrop-level="2"],
+.axisbuilder-hover-target.axisbuilder-select-target-3 .axisbuilder-drop:hover[data-dragdrop-level="1"],
+.axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="3"],
+.axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="2"],
+.axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="1"] {
+	background: #f7fff2;
+	border: 1px dashed #9acf57 !important;
+}
 
 /**
  * Layout Styles
@@ -966,15 +1007,17 @@ body div.ui-draggable-dragging {
 }
 
 .axisbuilder-layout-column > .axisbuilder-inner-shortcode {
+	top: -5px;
 	background: #f8f8f8;
 	min-height: 25px;
 	border: 1px dashed #e1e1e1;
-	border-top: none;
 	padding: 20px 10px;
 	position: relative;
 }
 
-.axisbuilder-layout-column > .axisbuilder-inner-shortcode:after, .axisbuilder-layout-section > .axisbuilder-inner-shortcode:after, #axisbuilder-editor:after, .axisbuilder-clearfix:after {
+#axisbuilder-editor:after, .axisbuilder-clearfix:after,
+.axisbuilder-layout-column > .axisbuilder-inner-shortcode:after,
+.axisbuilder-layout-section > .axisbuilder-inner-shortcode:after {
 	width: 0;
 	height: 0;
 	clear:both;

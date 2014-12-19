@@ -80,7 +80,8 @@ class AB_Shortcodes {
 
 			// Content Elements
 			'AB_Shortcode_Button',
-			'AB_Shortcode_Codeblock'
+			'AB_Shortcode_Sidebar',
+			'AB_Shortcode_Codeblock',
 		);
 
 		// Filter

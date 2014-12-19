@@ -786,14 +786,15 @@ body div.ui-draggable-dragging {
 	}
 
 	.axisbuilder-sorthandle {
-		opacity: 0;
-		top: -24px;
 		left: 0;
 		right: 0;
+		top: -24px;
+		opacity: 0;
 		border: none;
 		box-shadow: none;
 		position: absolute;
-		background: rgba( 0,0,0,0.3 );
+		background: rgba( 0, 0, 0, 0.25 );
+		/*border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );*/
 	}
 
 	.axisbuilder-inner-shortcode {
@@ -830,4 +831,150 @@ body div.ui-draggable-dragging {
 		position: relative;
 		display: inline-block;
 	}
+}
+
+/**
+ * Sort-Handle Styles
+ */
+.axisbuilder-sorthandle {
+	opacity: 1;
+	z-index: 10;
+	width: auto;
+	height: 25px;
+	font-size: 16px;
+	position: relative;
+
+	.axisbuilder-column-size,
+	.layout-element-icon {
+		float: left;
+		color: #999;
+		@include ir();
+		width: 25px;
+		height: 25px;
+	}
+
+	.axisbuilder-column-size {
+		padding: 0 5px;
+		font-size: 12px;
+		line-height: 25px;
+		text-align: center;
+		text-indent: inherit;
+		font-family: monospace;
+	}
+
+	.layout-element-icon {
+		background: #eee;
+		border-left: 1px solid #e5e5e5;
+		border-right: 1px solid #e5e5e5;
+
+		&:hover {
+			color: #278ab7;
+			background: #f8f8f8;
+		}
+
+		&.axisbuilder-decrease {
+			border-left: none;
+
+			&:before {
+				@include icon( "\e00d" );
+				line-height: 1.5;
+			}
+		}
+
+		&.axisbuilder-increase {
+
+			&:before {
+				@include icon( "\e00e" );
+				line-height: 1.5;
+			}
+		}
+	}
+
+	.edit-element-icon {
+		color: #999;
+		float: left;
+		@include ir();
+		width: 25px;
+		height: 25px;
+
+		&:before {
+			@include icon( "\e011" );
+			line-height: 1.5;
+		}
+
+		&:hover {
+			color: #278ab7;
+		}
+	}
+
+	.clone-element-icon {
+		color: #999;
+		float: left;
+		@include ir();
+		width: 25px;
+		height: 25px;
+
+		&:before {
+			@include icon( "\e012" );
+			line-height: 1.5;
+		}
+
+		&:hover {
+			color: #278ab7;
+		}
+	}
+
+	.trash-element-icon {
+		color: #999;
+		float: right;
+		@include ir();
+		width: 25px;
+		height: 25px;
+
+		&:before {
+			@include icon( "\e00f" );
+			line-height: 1.5;
+		}
+
+		&:hover {
+			color: #d54e21;
+		}
+	}
+}
+
+/**
+ * Shortcode layout
+ */
+.axisbuilder-layout-column, .axisbuilder-layout-section, .axisbuilder-highlight {
+	float: left;
+	width: 200px;
+	margin: 1%;
+	position: relative;
+}
+
+.axisbuilder-first-column {
+	clear: left;
+}
+
+.axisbuilder-start-sorting .axisbuilder-first-column {
+	clear: none;
+}
+
+.axisbuilder-layout-column > .axisbuilder-inner-shortcode {
+	background: #f8f8f8;
+	min-height: 25px;
+	border: 1px dashed #e1e1e1;
+	border-top: none;
+	padding: 20px 10px;
+	position: relative;
+}
+
+.axisbuilder-layout-column > .axisbuilder-inner-shortcode:after, .axisbuilder-layout-section > .axisbuilder-inner-shortcode:after, #axisbuilder-editor:after, .axisbuilder-clearfix:after {
+	width: 0;
+	height: 0;
+	clear:both;
+	content: '.';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
 }

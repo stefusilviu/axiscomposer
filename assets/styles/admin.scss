@@ -716,15 +716,11 @@ body .ui-draggable-dragging {
 	}
 
 	.axisbuilder-inner-shortcode {
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
 		height: 110px;
-		background: #fff;
 		overflow: hidden;
-		position: absolute;
+		background: #fff;
 		border: 1px solid #e1e1e1;
+		@include position(absolute, 0px 0px 0px 0px);
 
 		img, div, textarea {
 			visibility: hidden;

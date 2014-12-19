@@ -707,8 +707,29 @@ label[for="axisbuilder-editor-hide"] {
 /**
  * Drag-Drop Styles
  */
-body div.ui-draggable-dragging {
-	width:240px;
+body .ui-draggable-dragging {
+	width: 240px;
+
+	.axisbuilder-sorthandle {
+		opacity: 1;
+		z-index: 10;
+	}
+
+	.axisbuilder-inner-shortcode {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 110px;
+		background: #fff;
+		overflow: hidden;
+		position: absolute;
+		border: 1px solid #e1e1e1;
+
+		img, div, textarea {
+			visibility: hidden;
+		}
+	}
 }
 
 #wpwrap .axisbuilder-hover-active {

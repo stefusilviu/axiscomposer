@@ -204,8 +204,8 @@ abstract class AB_Shortcode {
 					$extra_class = 'axisbuilder-edit thickbox';
 					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#TB_inline?width=600&height=550&inlineId=my-content-id" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
 				}
-				$output .= '<a class="axisbuilder-trash" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axisbuilder-clone" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;

@@ -33,7 +33,7 @@ class AB_Shortcode_Image extends AB_Shortcode {
 		$this->title     = __( 'Image', 'axisbuilder' );
 		$this->tooltip   = __( 'Inserts a image of your choice', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 60,
+			'sort'    => 260,
 			'type'    => 'media',
 			'name'    => 'ab_image',
 			'icon'    => 'icon-image',

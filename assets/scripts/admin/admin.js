@@ -491,6 +491,116 @@ function AB_Logger( text, type ) {
 					// If there's a draggable element and it was over the current element, when it moves out this function will be executed.
 					out: function() {
 						$( this ).removeClass( 'axisbuilder-hover-active' );
+					},
+
+					drop: function( event, ui ) {
+						var droppable = $( this );
+
+						if ( ! droppable.is( '.axisbuilder-hover-active' ) ) {
+							return false;
+						}
+
+						var elements = droppable.find( '>.axisbuilder-drag' ), offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height;
+
+						// AB_Logger("dragging:" + ui.draggable.find('h2').text() +" to position: "+ui.offset.top + "/" +ui.offset.left);
+
+						// Iterate over all elements and check their positions
+						for ( var i = 0; i < elements.length; i++ ) {
+							var current = elements.eq(i);
+							offset  = current.offset();
+
+							if ( offset.top < ui.offset.top ) {
+								toEl = current;
+								last_pos = offset;
+
+								// Save all items before the draggable to a position array so we can check if the right positioning is important :)
+								if ( ! position_array[ 'top_' + offset.top ] ) {
+									max_height = 0;
+									position_array[ 'top_' + offset.top ] = [];
+								}
+
+								var height = ( current.outerHeight() + offset.top );
+								max_height = max_height > height ? max_height : height;
+
+								position_array[ 'top_' + offset.top ].push({
+									index: i,
+									top: offset.top,
+									left: offset.left,
+									height: current.outerHeight(),
+									maxheight: current.outerHeight() + offset.top
+								});
+
+								// AB_Logger(current.find('h2').text() + " element offset:" +offset.top + "/" +offset.left);
+							} else {
+								break;
+							}
+						}
+
+						// If we got multiple matches that all got the same top position we also need to check for the left position.
+						if ( last_pos && position_array[ 'top_' + last_pos.top ].length > 1 && ( max_height - 40 ) > ui.offset.top ) {
+							var real_element = false;
+
+							// AB_Logger( 'Checking right Positions' );
+
+							for ( var i = 0; i < position_array[ 'top_' + last_pos.top ].length; i++ ) {
+
+								// console.log( position_array[ 'top_' + last_pos.top ][i] );
+
+								if ( position_array[ 'top_' + last_pos.top ][i].left < ui.offset.left ) {
+									real_element = position_array[ 'top_' + last_pos.top ][i].index;
+								} else {
+									break;
+								}
+							}
+
+							if ( real_element === false ) {
+								AB_Logger( 'No right Position Element found, using first element' );
+								real_element = position_array[ 'top_' + last_pos.top ][0].index;
+								method = 'before';
+							}
+
+							toEl = elements.eq( real_element );
+						}
+
+						// If we got an index get that element from the list, else delete the toEL var because we need to append the draggable to the start and the next check will do that for us ;)
+						if ( toEl === false ) {
+							// AB_Logger( 'No Element Found' );
+
+							toEl = droppable;
+							method = 'prepend';
+						}
+
+						//AB_Logger( ui.draggable.find('h2').text() + " dragable top:" +ui.offset.top + "/" +ui.offset.left);
+
+						// If we got a hash on the draggable we are not dragging element but a new one via shortcode button so we need to fetch an empty shortcode template ;)
+						if ( ui.draggable[0].hash ) {
+							var shortcode = ui.draggable.get(0).hash.replace( '#', '' ),
+								template  = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
+
+							ui.draggable = template;
+						}
+
+						// Before finally moving the element, save the former parent of the draggable to a var so we can check later if we need to update the parent as well
+						var formerParent = ui.draggable.parents( '.axisbuilder-drag:last' );
+
+						// Move the real draggable element to the new position
+						toEl[method]( ui.draggable );
+
+						//AB_Logger( 'Appended to: ' + toEl.find('h2').text() );
+
+
+						// Everything is fine, now do the re sorting and textarea updating
+						obj.updateTextarea();
+
+						// Apply dragging and dropping in case we got a new element
+						if ( typeof template !== 'undefined' ) {
+							obj.axisBuilderCanvas.removeClass( 'ui-droppable' ).droppable( 'destroy' );
+							obj.activateDragging();
+							obj.activateDropping();
+						}
+
+						obj.historySnapshot();
+						// AB_Logger( '_______________' );
 					}
 				};
 

@@ -411,6 +411,7 @@ label[for="axisbuilder-editor-hide"] {
 		.axisbuilder-inner-shortcode {
 
 			textarea {
+				width: 98%; /* Added */
 				resize: none;
 				font-size: 11px;
 				margin: 20px auto;

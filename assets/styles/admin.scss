@@ -376,6 +376,10 @@ label[for="axisbuilder-editor-hide"] {
 		border:1px solid #D54E21;
 	}
 
+	&:active, &:focus {
+		box-shadow: none;
+	}
+
 	&:hover img, &:active img {
 		opacity: 1;
 	}

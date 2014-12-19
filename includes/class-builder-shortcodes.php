@@ -80,6 +80,7 @@ class AB_Shortcodes {
 
 			// Content Elements
 			'AB_Shortcode_Button',
+			'AB_Shortcode_Image',
 			'AB_Shortcode_Sidebar',
 			'AB_Shortcode_Codeblock',
 		);

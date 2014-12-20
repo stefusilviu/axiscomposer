@@ -55,6 +55,13 @@
 		cloned.find( '.ui-draggable, .ui-droppable' ).removeClass( '.ui-draggable, .ui-droppable' );
 		cloned.insertAfter( element );
 
+		if ( parents.is( '.axisbuilder-layout-column' ) || parent.is( '.axisbuilder-layout-section' ) || wrap.length ) {
+			if ( wrap.length ) {
+				obj.updateTextarea();
+				obj.updateInnerTextarea( parents );
+			}
+		}
+
 		// Activate Element Drag and Drop
 		obj.activateDragging();
 		obj.activateDropping();
@@ -106,6 +113,11 @@
 				obj.updateInnerTextarea( parents );
 			}
 
+			// Bugfix for column delete that renders the canvas undropbable for unknown reason
+			if ( obj.axisBuilderValues.val() === '' ) {
+				obj.activateDropping( obj.axisBuilderParent, 'destroy' );
+			}
+
 			obj.updateTextarea();
 			obj.historySnapshot();
 		});
@@ -114,7 +126,7 @@
 	$.AxisBuilderShortcodes.resizeLayout = function( clicked, obj ) {
 		var element     = $( clicked ),
 			container   = element.parents( '.axisbuilder-layout-column:eq(0)' ),
-			// section     = container.parents( '.axisbuilder-layout-section:eq(0)' ),
+			section     = container.parents( '.axisbuilder-layout-section:eq(0)' ),
 			currentSize = container.data( 'width' ),
 			nextSize    = [],
 			direction   = element.is( '.axisbuilder-increase' ) ? 1 : -1,
@@ -150,6 +162,12 @@
 			sizeString.text( nextSize[1] );
 
 			obj.updateTextarea();
+
+			if ( section.length ) {
+				obj.updateInnerTextarea( false, section );
+				obj.updateTextarea();
+			}
+
 			obj.historySnapshot(0);
 		}
 	};

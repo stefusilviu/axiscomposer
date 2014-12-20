@@ -255,9 +255,38 @@ function AB_Logger( text, type ) {
 		/**
 		 * Updates the Textarea that holds the shortcode + values when located in a nested environment like columns.
 		 */
-		// updateInnerTextarea: function( element, container ) {
-		// 	// alert( 'Inner Textarea is recognized' );
-		// },
+		updateInnerTextarea: function( element, container ) {
+
+			// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section
+			if ( typeof container === 'undefined' ) {
+				container = $( element ).parents( '.axisbuilder-layout-section:eq(0)' );
+			}
+
+			// If we got no section and no container yet check if the container is a column
+			if ( ! container.length ) {
+				container = $( element ).parents( '.axisbuilder-layout-column:eq(0)' );
+			}
+
+			// Still no container? No need for an inner update
+			if ( ! container.length ) {
+				return true;
+			}
+
+			if ( container.is( '.axisbuilder-layout-column:not(.axisbuilder-layout-cell)' ) ) {
+				var	content        = '',
+					currentSize    = container.data( 'width' ),
+					currentFirst   = container.is( '.axisbuilder-first-column' ) ? ' first' : '',
+					content_fields = container.find( '.axisbuilder-sortable-element ' + this.shortcodesData ),
+					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData );
+
+				for ( var i = 0; i < content_fields.length; i++ ) {
+					content += $( content_fields[i] ).val();
+				}
+
+				content = '[' + currentSize + currentFirst + ']\n\n' + content + '[/' + currentSize + ']';
+				main_storage.val( content );
+			}
+		},
 
 		/**
 		 * Updates the Textarea that holds the shortcode + values when element is on the first level and not nested.
@@ -565,12 +594,17 @@ function AB_Logger( text, type ) {
 						// If we got an index get that element from the list, else delete the toEL var because we need to append the draggable to the start and the next check will do that for us ;)
 						if ( toEl === false ) {
 							// AB_Logger( 'No Element Found' );
-
 							toEl = droppable;
 							method = 'prepend';
 						}
 
 						//AB_Logger( ui.draggable.find('h2').text() + " dragable top:" +ui.offset.top + "/" +ui.offset.left);
+
+						// If the draggable and the new el are the same do nothing
+						if ( toEl[0] === ui.draggable[0] ) {
+							// AB_Logger( 'Same Element Selected: stoping script' );
+							return true;
+						}
 
 						// If we got a hash on the draggable we are not dragging element but a new one via shortcode button so we need to fetch an empty shortcode template ;)
 						if ( ui.draggable[0].hash ) {
@@ -588,6 +622,20 @@ function AB_Logger( text, type ) {
 
 						//AB_Logger( 'Appended to: ' + toEl.find('h2').text() );
 
+						// If the element got a former parent we need to update that as well
+						if ( formerParent.length ) {
+							obj.updateInnerTextarea( false, formerParent );
+						}
+
+						// Get the element that the new element was inserted into. This has to be the parent of the current toEL since we usually insert the new element outside of the toEL with the 'after' method
+						// If method !== 'after' the element was inserted with prepend directly to the toEL and toEL should therefore also the insertedInto element :)
+						var insertedInto = method === 'after' ? toEl.parents( '.axisbuilder-drop' ) : toEl;
+
+						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
+							// AB_Logger( 'Inner update necessary. Level:' + insertedInto.data('dragdrop-level') );
+							obj.updateTextarea(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements
+							obj.updateInnerTextarea( ui.draggable );
+						}
 
 						// Everything is fine, now do the re sorting and textarea updating
 						obj.updateTextarea();

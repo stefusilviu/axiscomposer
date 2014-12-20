@@ -628,83 +628,6 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Small screen optimisation
- */
-@media only screen and (max-width: 1280px) {
-
-}
-
-/**
- * Optimisation for screens 900px and smaller
- */
-@media only screen and (max-width: 900px) {
-
-}
-
-/**
- * Optimisation for screens 782px and smaller
- */
-@media only screen and (max-width: 782px) {
-
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				a {
-					margin: 8px 12px;
-					width: 40% !important;
-				}
-
-				&:nth-of-type(2n) {
-					a {
-						float: right !important;
-						margin-left: 0 !important;
-					}
-				}
-			}
-		}
-	}
-
-	#axisbuilder-handle {
-		height: 52px;
-
-		.control-bar {
-			padding: 12px 6px;
-		}
-
-		.content-sections {
-
-			.template-action {
-				margin-top: -6px;
-				margin-right: 75px;
-			}
-		}
-	}
-
-	.axisbuilder-expanded-buttons #post-preview,
-	.axisbuilder-expanded-buttons #publish {
-		display: inline-block;
-		float: none;
-	}
-
-	.axisbuilder-expanded .inside .axisbuilder-shortcodes {
-		padding-bottom: 38px;
-	}
-}
-
-/**
- * Optimisation for screens 500px and smaller
- */
-@media only screen and (max-width: 500px) {
-
-	#axisbuilder-handle {
-
-		.control-bar {
-			padding: 12px;
-		}
-	}
-}
-
-/**
  * Drag-Drop Styles
  */
 body div.ui-draggable-dragging {
@@ -778,42 +701,6 @@ body .ui-draggable-dragging {
 .axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="1"] {
 	background: #f7fff2;
 	border: 1px dashed #9acf57 !important;
-}
-
-/**
- * Layout Styles
- */
-.layout-flex-grid {
-	.ab_one_full {
-		width: 98%;
-	}
-	.ab_one_half {
-		width: 48%;
-	}
-	.ab_one_third {
-		width: 31.3%;
-	}
-	.ab_two_third {
-		width: 64.6%;
-	}
-	.ab_one_fourth {
-		width: 23%;
-	}
-	.ab_three_fourth {
-		width: 73%;
-	}
-	.ab_one_fifth {
-		width: 18%;
-	}
-	.ab_two_fifth {
-		width: 38%;
-	}
-	.ab_three_fifth {
-		width: 58%;
-	}
-	.ab_four_fifth {
-		width: 78%;
-	}
 }
 
 /**
@@ -1001,44 +888,29 @@ body .ui-draggable-dragging {
 }
 
 /**
- * Shortcode layout
+ * Shortcode layout Styles
  */
-.axisbuilder-layout-column, .axisbuilder-layout-section, .axisbuilder-highlight {
-	float: left;
-	width: 200px;
-	margin: 1%;
-	position: relative;
+.axisbuilder-layout-column  {
+
+	&.axisbuilder-first-column {
+		clear: left;
+	}
+
+	> .axisbuilder-inner-shortcode {
+		top: -5px;
+		background: #f8f8f8;
+		min-height: 25px;
+		border: 1px dashed #e1e1e1;
+		padding: 20px 10px;
+		position: relative;
+	}
 }
 
-.axisbuilder-first-column {
-	clear: left;
-}
-
-.axisbuilder-start-sorting .axisbuilder-first-column {
-	clear: none;
-}
-
-.axisbuilder-layout-column > .axisbuilder-inner-shortcode {
-	top: -5px;
-	background: #f8f8f8;
-	min-height: 25px;
-	border: 1px dashed #e1e1e1;
-	padding: 20px 10px;
-	position: relative;
-}
-
-/* Layout Section */
 .axisbuilder-layout-section {
 	width: 98%;
 	clear: both;
 
-	.edit-element-icon,
-	.clone-element-icon,
-	.trash-element-icon {
-		opacity: 0;
-	}
-
-	.axisbuilder-inner-shortcode {
+	> .axisbuilder-inner-shortcode {
 		top: -5px;
 		padding: 6px;
 		background: #fff;
@@ -1047,26 +919,139 @@ body .ui-draggable-dragging {
 		border: 1px solid #e1e1e1;
 		border-top: none !important;
 	}
+}
 
-	&:hover {
-		.trash-element-icon,
-		.clone-element-icon {
-			opacity: 1;
-		}
+.axisbuilder-highlight,
+.axisbuilder-layout-column,
+.axisbuilder-layout-section {
+	margin: 1%;
+	float: left;
+	position: relative;
+}
+
+.axisbuilder-start-sorting .axisbuilder-first-column {
+	clear: none;
+}
+
+/**
+ * Layout Flex-Grid Styles
+ */
+.layout-flex-grid {
+	.ab_one_full {
+		width: 98%;
+	}
+	.ab_one_half {
+		width: 48%;
+	}
+	.ab_one_third {
+		width: 31.3%;
+	}
+	.ab_two_third {
+		width: 64.6%;
+	}
+	.ab_one_fourth {
+		width: 23%;
+	}
+	.ab_three_fourth {
+		width: 73%;
+	}
+	.ab_one_fifth {
+		width: 18%;
+	}
+	.ab_two_fifth {
+		width: 38%;
+	}
+	.ab_three_fifth {
+		width: 58%;
+	}
+	.ab_four_fifth {
+		width: 78%;
 	}
 }
 
 /**
  * Clearfix
  */
-#axisbuilder-editor:after, .axisbuilder-clearfix:after,
-.axisbuilder-layout-column > .axisbuilder-inner-shortcode:after,
-.axisbuilder-layout-section > .axisbuilder-inner-shortcode:after {
-	width: 0;
-	height: 0;
-	clear: both;
-	content: '.';
-	display: block;
-	overflow: hidden;
-	visibility: hidden;
+#axisbuilder-editor, .axisbuilder-clearfix,
+.axisbuilder-layout-column > .axisbuilder-inner-shortcode,
+.axisbuilder-layout-section > .axisbuilder-inner-shortcode {
+	@include clearfix();
+}
+
+
+/**
+ * Small screen optimisation
+ */
+@media only screen and (max-width: 1280px) {
+
+}
+
+/**
+ * Optimisation for screens 900px and smaller
+ */
+@media only screen and (max-width: 900px) {
+
+}
+
+/**
+ * Optimisation for screens 782px and smaller
+ */
+@media only screen and (max-width: 782px) {
+
+	#axisbuilder-editor {
+		#axisbuilder-panels {
+			ul.axisbuilder-tabs li {
+				a {
+					margin: 8px 12px;
+					width: 40% !important;
+				}
+
+				&:nth-of-type(2n) {
+					a {
+						float: right !important;
+						margin-left: 0 !important;
+					}
+				}
+			}
+		}
+	}
+
+	#axisbuilder-handle {
+		height: 52px;
+
+		.control-bar {
+			padding: 12px 6px;
+		}
+
+		.content-sections {
+
+			.template-action {
+				margin-top: -6px;
+				margin-right: 75px;
+			}
+		}
+	}
+
+	.axisbuilder-expanded-buttons #post-preview,
+	.axisbuilder-expanded-buttons #publish {
+		display: inline-block;
+		float: none;
+	}
+
+	.axisbuilder-expanded .inside .axisbuilder-shortcodes {
+		padding-bottom: 38px;
+	}
+}
+
+/**
+ * Optimisation for screens 500px and smaller
+ */
+@media only screen and (max-width: 500px) {
+
+	#axisbuilder-handle {
+
+		.control-bar {
+			padding: 12px;
+		}
+	}
 }

@@ -55,10 +55,12 @@
 		cloned.find( '.ui-draggable, .ui-droppable' ).removeClass( '.ui-draggable, .ui-droppable' );
 		cloned.insertAfter( element );
 
-		if ( parents.is( '.axisbuilder-layout-column' ) || parent.is( '.axisbuilder-layout-section' ) || wrap.length ) {
+		var wrap = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
+
+		if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrap.length ) {
 			if ( wrap.length ) {
 				obj.updateTextarea();
-				obj.updateInnerTextarea( parents );
+				obj.updateInnerTextarea( element );
 			}
 		}
 

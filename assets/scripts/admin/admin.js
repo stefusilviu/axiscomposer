@@ -570,9 +570,9 @@ function AB_Logger( text, type ) {
 							return false;
 						}
 
-						var elements = droppable.find( '>.axisbuilder-drag' ), offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height;
+						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height;
 
-						// AB_Logger("dragging:" + ui.draggable.find('h2').text() +" to position: "+ui.offset.top + "/" +ui.offset.left);
+						// new AB_Logger( 'dragging:' + ui.draggable.find( 'h2' ).text() + ' to position: ' + ui.offset.top + '/' + ui.offset.left );
 
 						// Iterate over all elements and check their positions
 						for ( var i = 0; i < elements.length; i++ ) {
@@ -600,7 +600,7 @@ function AB_Logger( text, type ) {
 									maxheight: current.outerHeight() + offset.top
 								});
 
-								// AB_Logger(current.find('h2').text() + " element offset:" +offset.top + "/" +offset.left);
+								// new AB_Logger( current.find( 'h2' ).text() + ' element offset: ' + offset.top + '/' + offset.left );
 							} else {
 								break;
 							}
@@ -610,7 +610,7 @@ function AB_Logger( text, type ) {
 						if ( last_pos && position_array[ 'top_' + last_pos.top ].length > 1 && ( max_height - 40 ) > ui.offset.top ) {
 							var real_element = false;
 
-							// AB_Logger( 'Checking right Positions' );
+							// new AB_Logger( 'Checking right Positions' );
 
 							for ( var i = 0; i < position_array[ 'top_' + last_pos.top ].length; i++ ) {
 
@@ -624,7 +624,7 @@ function AB_Logger( text, type ) {
 							}
 
 							if ( real_element === false ) {
-								AB_Logger( 'No right Position Element found, using first element' );
+								// new AB_Logger( 'No right Position Element found, using first element' );
 								real_element = position_array[ 'top_' + last_pos.top ][0].index;
 								method = 'before';
 							}
@@ -634,23 +634,23 @@ function AB_Logger( text, type ) {
 
 						// If we got an index get that element from the list, else delete the toEL var because we need to append the draggable to the start and the next check will do that for us ;)
 						if ( toEl === false ) {
-							// AB_Logger( 'No Element Found' );
+							// new AB_Logger( 'No Element Found' );
 							toEl = droppable;
 							method = 'prepend';
 						}
 
-						//AB_Logger( ui.draggable.find('h2').text() + " dragable top:" +ui.offset.top + "/" +ui.offset.left);
+						// new AB_Logger( ui.draggable.find( 'h2' ).text() + ' dragable top: ' + ui.offset.top + '/' + ui.offset.left );
 
 						// If the draggable and the new el are the same do nothing
 						if ( toEl[0] === ui.draggable[0] ) {
-							// AB_Logger( 'Same Element Selected: stoping script' );
+							// new AB_Logger( 'Same Element Selected: stoping script' );
 							return true;
 						}
 
 						// If we got a hash on the draggable we are not dragging element but a new one via shortcode button so we need to fetch an empty shortcode template ;)
 						if ( ui.draggable[0].hash ) {
-							var shortcode = ui.draggable.get(0).hash.replace( '#', '' ),
-								template  = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
+							var shortcode = ui.draggable.get(0).hash.replace( '#', '' );
+							template  = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
 
 							ui.draggable = template;
 						}
@@ -659,9 +659,9 @@ function AB_Logger( text, type ) {
 						var formerParent = ui.draggable.parents( '.axisbuilder-drag:last' );
 
 						// Move the real draggable element to the new position
-						toEl[method]( ui.draggable );
+						toEl[ method ]( ui.draggable );
 
-						//AB_Logger( 'Appended to: ' + toEl.find('h2').text() );
+						// new AB_Logger( 'Appended to: ' + toEl.find( 'h2' ).text() );
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {
@@ -673,8 +673,8 @@ function AB_Logger( text, type ) {
 						var insertedInto = method === 'after' ? toEl.parents( '.axisbuilder-drop' ) : toEl;
 
 						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
-							// AB_Logger( 'Inner update necessary. Level:' + insertedInto.data('dragdrop-level') );
-							obj.updateTextarea(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements
+							// new AB_Logger( 'Inner update necessary. Level: ' + insertedInto.data( 'dragdrop-level' ) );
+							obj.updateTextarea(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
 							obj.updateInnerTextarea( ui.draggable );
 						}
 
@@ -689,7 +689,7 @@ function AB_Logger( text, type ) {
 						}
 
 						obj.historySnapshot();
-						// AB_Logger( '_______________' );
+						// new AB_Logger( '_______________' );
 					}
 				};
 

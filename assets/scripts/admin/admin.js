@@ -272,6 +272,49 @@ function AB_Logger( text, type ) {
 				return true;
 			}
 
+			// If we are in section iterate over all columns inside and set the value before setting the section value
+			if ( container.is( '.axisbuilder-layout-section' ) ) {
+				var columns = container.find( '.axisbuilder-layout-column-no-cell' );
+
+				for ( var i = 0; i < columns.length; i++ ) {
+					this.updateInnerTextarea( false, $( columns[i] ) );
+				}
+
+				columns = container.find( '.axisbuilder-layout-cell' );
+
+				for ( var i = 0; i < columns.length; i++ ) {
+					this.updateInnerTextarea( false, $( columns[i] ) );
+				}
+
+				var	content        = '',
+					currentName    = container.data( 'shortcode-handler' ),
+					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData ),
+					contentName    = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column .axisbuilder-sortable-element ' + this.shortcodesData + ', .axisbuilder-layout-cell .axisbuilder-layout-column ' + this.shortcodesData + ')' ),
+					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\' ) );
+
+				for ( var i = 0; i < content_fields.length; i++ ) {
+					content += $( content_fields[i] ).val();
+				}
+
+				content = open_tags[0] + '\n\n' + content + '[/' + currentName + ']';
+				main_storage.val( content );
+			}
+
+			if ( container.is( '.axisbuilder-layout-cell' ) ) {
+				var	content        = '',
+					currentSize    = container.data( 'width' ),
+					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData ),
+					content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column-no-cell .axisbuilder-sortable-element ' + this.shortcodesData + ')' ),
+					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\' ) );
+
+				for ( var i = 0; i < content_fields.length; i++ ) {
+					content += $( content_fields[i] ).val();
+				}
+
+				content = open_tags[0] + '\n\n' + content + '[/' + currentSize + ']';
+				main_storage.val( content );
+			}
+
 			if ( container.is( '.axisbuilder-layout-column:not(.axisbuilder-layout-cell)' ) ) {
 				var	content        = '',
 					currentSize    = container.data( 'width' ),
@@ -317,9 +360,9 @@ function AB_Logger( text, type ) {
 				scope = $( '.axisbuilder-data > div > .axisbuilder-inner-shortcode' );
 			}
 
-			var content_fields = scope.find( '>' + this.shortcodesData ),
-				content        = '',
+			var content        = '',
 				sizeCount      = 0,
+				content_fields = scope.find( '>' + this.shortcodesData ),
 				currentField, currentContent, currentParents, currentSize,
 				sizes          = {
 					'ab_one_full'     : 1.00,

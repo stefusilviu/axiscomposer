@@ -275,13 +275,11 @@ function AB_Logger( text, type ) {
 			// If we are in section iterate over all columns inside and set the value before setting the section value
 			if ( container.is( '.axisbuilder-layout-section' ) ) {
 				var columns = container.find( '.axisbuilder-layout-column-no-cell' );
-
 				for ( var i = 0; i < columns.length; i++ ) {
 					this.updateInnerTextarea( false, $( columns[i] ) );
 				}
 
 				columns = container.find( '.axisbuilder-layout-cell' );
-
 				for ( var i = 0; i < columns.length; i++ ) {
 					this.updateInnerTextarea( false, $( columns[i] ) );
 				}

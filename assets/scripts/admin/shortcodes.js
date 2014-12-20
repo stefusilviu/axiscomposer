@@ -81,7 +81,7 @@
 		// Check if it is a column
 		if ( ! element.length ) {
 			element = trigger.parents( '.axisbuilder-layout-column:eq(0)' );
-			parents = trigger.parents( '.axisbuilder-layout-column:eq(0)>.axisbuilder-inner-shortcode' );
+			parents = trigger.parents( '.axisbuilder-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
 
 			// Check if it is a section
 			if ( ! element.length ) {
@@ -115,12 +115,13 @@
 				obj.updateInnerTextarea( parents );
 			}
 
+			obj.updateTextarea();
+
 			// Bugfix for column delete that renders the canvas undropbable for unknown reason
 			if ( obj.axisBuilderValues.val() === '' ) {
 				obj.activateDropping( obj.axisBuilderParent, 'destroy' );
 			}
 
-			obj.updateTextarea();
 			obj.historySnapshot();
 		});
 	};

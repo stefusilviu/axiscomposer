@@ -29,7 +29,7 @@ function print_clean( $data ) {
 
 endif;
 
-if ( ! function_exists( 'create_data_string' ) ) :
+if ( ! function_exists( 'axisbuilder_html_data_string' ) ) :
 
 /**
  * Converts an array into a html data string.

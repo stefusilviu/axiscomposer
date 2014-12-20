@@ -652,6 +652,11 @@ body .ui-draggable-dragging {
 			visibility: hidden;
 		}
 	}
+
+	.axisbuilder-cell {
+		display: none;
+		visibility: hidden;
+	}
 }
 
 #wpwrap .axisbuilder-hover-active {
@@ -920,6 +925,43 @@ body .ui-draggable-dragging {
 		position: relative;
 		border: 1px solid #e1e1e1;
 		border-top: none !important;
+	}
+}
+
+.axisbuilder-layout-gridrow {
+	margin-bottom: 30px !important;
+
+	.axisbuilder-cell {
+		z-index: 20;
+		width: auto;
+		height: 24px;
+		color: #a5a5a5;
+		line-height: 24px;
+		display: block;
+		cursor: pointer;
+		overflow: hidden;
+		border-top: none;
+		border: 1px solid #e1e1e1;
+		text-indent: inherit;
+		text-decoration: none;
+		padding: 0 7px 0 27px;
+		@include transition-duration(0s);
+		@include position(absolute, null 0px -20px null);
+
+		&.add-cell-icon {
+
+			&:hover {
+				color: #278ab7;
+			}
+		}
+
+		&.set-cell-icon {
+			right: 85px;
+
+			&:hover {
+				color: #278ab7;
+			}
+		}
 	}
 }
 

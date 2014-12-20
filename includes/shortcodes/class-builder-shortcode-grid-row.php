@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Grid_Row extends AB_Shortcode {
 
+	public static $count = 0;
+
 	/**
 	 * Class Constructor Method.
 	 */
@@ -44,5 +46,39 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			'drop-level'  => 100,
 			'html-render' => false
 		);
+	}
+
+	/**
+	 * Editor Elements.
+	 *
+	 * This method defines the visual appearance of an element on the Builder canvas.
+	 */
+	public function editor_element( $params ) {
+		extract( $params );
+
+		$data['modal-title']       = $this->title;
+		$data['modal-action']      = $this->shortcode['name'];
+		$data['dragdrop-level']    = $this->shortcode['drag-level'];
+		$data['shortcode-handler'] = $this->shortcode['name'];
+		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		$output = '<div class="axisbuilder-layout-gridrow axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
+			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
+				if ( isset( $this->shortcode['popup_editor'] ) ) {
+					$output .= '<a class="axisbuilder-edit edit-element-icon" href="#edit" title="' . __( 'Edit Row', 'axisbuilder' ) . '">' . __( 'Edit Row', 'axisbuilder' ) . '</a>';
+				}
+				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axisbuilder' ) . '">' . __( 'Delete Row', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axisbuilder' ) . '">' . __( 'Clone Row',  'axisbuilder' ) . '</a>';
+			$output .= '</div>';
+			$output .= '<a class="axisbuilder-cell add-cell-icon" href="#add-cell" title="' . __( 'Add Cell',      'axisbuilder' ) . '">' . __( 'Add Cell',      'axisbuilder' ) . '</a>';
+			$output .= '<a class="axisbuilder-cell set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axisbuilder' ) . '">' . __( 'Set Cell Size', 'axisbuilder' ) . '</a>';
+			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . $textarea_content . '</textarea>';
+				$output .= $eventual_content;
+			$output .= '</div>';
+		$output .= '</div>';
+
+		return $output;
 	}
 }

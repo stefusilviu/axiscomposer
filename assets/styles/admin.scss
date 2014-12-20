@@ -796,6 +796,7 @@ body .ui-draggable-dragging {
 		font-size: 12px;
 		line-height: 25px;
 		text-indent: inherit;
+		@include transition(all .2s ease-in-out);
 	}
 
 	.axisbuilder-column-size {
@@ -805,6 +806,7 @@ body .ui-draggable-dragging {
 		text-align: center;
 		text-indent: inherit;
 		font-family: monospace;
+		@include transition(all .2s ease-in-out);
 	}
 
 	.layout-element-icon {
@@ -970,6 +972,25 @@ body .ui-draggable-dragging {
 }
 
 /**
+ * Additional Styles
+ */
+.axisbuilder-sorthandle a,
+.axisbuilder-sortable-element .axisbuilder-sorthandle {
+	@include transition(all .2s ease-in-out);
+}
+
+.axisbuilder-layout-column:hover a,
+.axisbuilder-sortable-element:hover a,
+.axisbuilder-layout-section:hover > .axisbuilder-sorthandle a {
+	opacity: 1;
+}
+
+.axisbuilder-layout-column a:active {
+	opacity: 0.3;
+	outline: none;
+}
+
+/**
  * Clearfix
  */
 #axisbuilder-editor, .axisbuilder-clearfix,
@@ -977,7 +998,6 @@ body .ui-draggable-dragging {
 .axisbuilder-layout-section > .axisbuilder-inner-shortcode {
 	@include clearfix();
 }
-
 
 /**
  * Small screen optimisation

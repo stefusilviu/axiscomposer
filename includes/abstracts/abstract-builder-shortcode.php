@@ -165,7 +165,7 @@ abstract class AB_Shortcode {
 	 * Callback for default sortable elements.
 	 */
 	public function sortable_editor_element( $params ) {
-		$data_string = $extra_class = '';
+		$extra_class = '';
 
 		$defaults = array(
 			'innerHtml' => '',
@@ -182,27 +182,11 @@ abstract class AB_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		foreach ( $data as $key => $value ) {
-			if ( is_array( $value ) ) {
-				$value = implode( ', ', $value );
-			}
-
-			$data_string .= ' data-' . $key . '="' . $value . '"';
-		}
-
-		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '" ' . $data_string . '>';
+		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['popup_editor'] ) ) {
-					add_thickbox();
-					?>
-<div id="my-content-id" style="display:none;">
-     <p>
-          This is my hidden content! It will appear in ThickBox when the link is clicked.
-     </p>
-</div>
-					<?php
-					$extra_class = 'axisbuilder-edit thickbox';
-					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#TB_inline?width=600&height=550&inlineId=my-content-id" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
+					$extra_class = 'axisbuilder-edit';
+					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
 				}
 				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';

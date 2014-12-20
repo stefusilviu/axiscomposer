@@ -29,6 +29,29 @@ function print_clean( $data ) {
 
 endif;
 
+if ( ! function_exists( 'create_data_string' ) ) :
+
+/**
+ * Converts an array into a html data string.
+ * @param  array  $data        Array for html data.
+ * @return string $data_string converted html data.
+ */
+function axisbuilder_html_data_string( $data ) {
+	$data_string = '';
+
+	foreach ( $data as $key => $value ) {
+		if ( is_array( $value ) ) {
+			$value = implode( ', ', $value );
+		}
+
+		$data_string .= ' data-' . $key . '="' . $value . '"';
+	}
+
+	return $data_string;
+}
+
+endif;
+
 if ( ! function_exists( 'ab_create_shortcode_data' ) ) :
 
 /**

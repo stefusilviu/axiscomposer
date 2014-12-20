@@ -707,8 +707,11 @@ label[for="axisbuilder-editor-hide"] {
 /**
  * Drag-Drop Styles
  */
-body .ui-draggable-dragging {
+body div.ui-draggable-dragging {
 	width: 240px;
+}
+
+body .ui-draggable-dragging {
 
 	.axisbuilder-sorthandle {
 		opacity: 1;
@@ -890,6 +893,7 @@ body .ui-draggable-dragging {
 	font-size: 16px;
 	position: relative;
 
+	.axisbuilder-element-title,
 	.axisbuilder-column-size,
 	.layout-element-icon {
 		float: left;
@@ -897,6 +901,14 @@ body .ui-draggable-dragging {
 		@include ir();
 		width: 25px;
 		height: 25px;
+	}
+
+	.axisbuilder-element-title {
+		width: auto;
+		padding: 0 8px;
+		font-size: 12px;
+		line-height: 25px;
+		text-indent: inherit;
 	}
 
 	.axisbuilder-column-size {
@@ -1015,12 +1027,44 @@ body .ui-draggable-dragging {
 	position: relative;
 }
 
+/* Layout Section */
+.axisbuilder-layout-section {
+	width: 98%;
+	clear: both;
+
+	.edit-element-icon,
+	.clone-element-icon,
+	.trash-element-icon {
+		opacity: 0;
+	}
+
+	.axisbuilder-inner-shortcode {
+		top: -5px;
+		padding: 6px;
+		background: #fff;
+		min-height: 100px;
+		position: relative;
+		border: 1px solid #e1e1e1;
+		border-top: none !important;
+	}
+
+	&:hover {
+		.trash-element-icon,
+		.clone-element-icon {
+			opacity: 1;
+		}
+	}
+}
+
+/**
+ * Clearfix
+ */
 #axisbuilder-editor:after, .axisbuilder-clearfix:after,
 .axisbuilder-layout-column > .axisbuilder-inner-shortcode:after,
 .axisbuilder-layout-section > .axisbuilder-inner-shortcode:after {
 	width: 0;
 	height: 0;
-	clear:both;
+	clear: both;
 	content: '.';
 	display: block;
 	overflow: hidden;

@@ -289,8 +289,8 @@ function AB_Logger( text, type ) {
 				var	content        = '',
 					currentName    = container.data( 'shortcode-handler' ),
 					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData ),
-					contentName    = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column .axisbuilder-sortable-element ' + this.shortcodesData + ', .axisbuilder-layout-cell .axisbuilder-layout-column ' + this.shortcodesData + ')' ),
-					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\' ) );
+					content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column .axisbuilder-sortable-element ' + this.shortcodesData + ', .axisbuilder-layout-cell .axisbuilder-layout-column ' + this.shortcodesData + ')' ),
+					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
 
 				for ( var i = 0; i < content_fields.length; i++ ) {
 					content += $( content_fields[i] ).val();

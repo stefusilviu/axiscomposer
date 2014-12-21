@@ -303,7 +303,7 @@ function AB_Logger( text, type ) {
 					currentSize    = container.data( 'width' ),
 					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData ),
 					content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column-no-cell .axisbuilder-sortable-element ' + this.shortcodesData + ')' ),
-					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\' ) );
+					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
 
 				for ( var i = 0; i < content_fields.length; i++ ) {
 					content += $( content_fields[i] ).val();

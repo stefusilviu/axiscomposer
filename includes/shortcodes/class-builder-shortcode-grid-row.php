@@ -67,7 +67,9 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			$eventual_content = '';
 			$ab_cell_one_half = new AB_Shortcode_Cells_One_Half();
 			$shortcode_params = array( 'content' => '', 'args' => '', 'data' => '' );
-			$eventual_content = $ab_cell_one_half->editor_element( $shortcode_params );
+			// Loading twice as we have to generate 2 cell :)
+			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
+			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
 			$textarea_content = ab_create_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
 		}
 

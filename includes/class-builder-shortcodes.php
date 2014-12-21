@@ -65,6 +65,9 @@ class AB_Shortcodes {
 		$load_shortcodes = array(
 
 			// Layout Elements
+			'AB_Shortcode_Section',
+			'AB_Shortcode_Grid_Row',
+
 			'AB_Shortcode_Columns',
 			'AB_Shortcode_Columns_One_Half',
 			'AB_Shortcode_Columns_One_Third',
@@ -75,8 +78,17 @@ class AB_Shortcodes {
 			'AB_Shortcode_Columns_Two_Fifth',
 			'AB_Shortcode_Columns_Three_Fifth',
 			'AB_Shortcode_Columns_Four_Fifth',
-			'AB_Shortcode_Section',
-			'AB_Shortcode_Grid_Row',
+
+			'AB_Shortcode_Cells',
+			'AB_Shortcode_Cells_One_Half',
+			'AB_Shortcode_Cells_One_Third',
+			'AB_Shortcode_Cells_Two_Third',
+			'AB_Shortcode_Cells_One_Fourth',
+			'AB_Shortcode_Cells_Three_Fourth',
+			'AB_Shortcode_Cells_One_Fifth',
+			'AB_Shortcode_Cells_Two_Fifth',
+			'AB_Shortcode_Cells_Three_Fifth',
+			'AB_Shortcode_Cells_Four_Fifth',
 
 			// Content Elements
 			'AB_Shortcode_Button',

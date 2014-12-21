@@ -44,7 +44,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			'tinymce'     => array( 'disable' => true ),
 			'drag-level'  => 1,
 			'drop-level'  => 100,
-			'html-render' => false
+			'html-render' => false,
 		);
 	}
 
@@ -61,6 +61,17 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 		$data['dragdrop-level']    = $this->shortcode['drag-level'];
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		if ( $content ) {
+			$eventual_content = do_shortcode_builder( $content );
+			$textarea_content = ab_create_shortcode_data( $this->shortcode['name'], $content, $args );
+		} else {
+			$eventual_content = '';
+			$ab_cell_one_half = new AB_Shortcode_Cells_One_Half();
+			$shortcode_params = array( 'content' => '', 'args' => '', 'data' => '' );
+			$eventual_content = $ab_cell_one_half->editor_element( $shortcode_params );
+			$textarea_content = ab_create_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
+		}
 
 		$output = '<div class="axisbuilder-layout-gridrow axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';

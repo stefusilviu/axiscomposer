@@ -39,9 +39,9 @@
 		}
 
 		// Check if its a layout cell and if we can add one to the row :)
-		if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
-			var counter = element.parent( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
-			if ( typeof $.AxisBuilderLayoutRow.newCellOrder[ counter ] !== 'undefined' ) {
+		if ( element.is( '.axisbuilder-layout-cell' ) ) {
+			var counter = element.parents( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
+			if ( typeof $.AxisBuilderLayoutRow.newCellOrder[counter] !== 'undefined' ) {
 				layoutCell = true;
 			} else {
 				return false;
@@ -53,7 +53,8 @@
 			this.innerHTML = this.value;
 		});
 
-		var cloned = element.clone();
+		var cloned  = element.clone(),
+			wrapped = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
 
 		// Remove all previous drag/drop classes so we can apply new ones.
 		cloned.find( '.ui-draggable, .ui-droppable' ).removeClass( '.ui-draggable, .ui-droppable' );
@@ -63,10 +64,8 @@
 			$.AxisBuilderShortcodes.recalcCell( clicked, obj );
 		}
 
-		var wrap = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
-
-		if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrap.length ) {
-			if ( wrap.length ) {
+		if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapped.length ) {
+			if ( wrapped.length ) {
 				obj.updateTextarea();
 				obj.updateInnerTextarea( element );
 			}
@@ -201,16 +200,17 @@
 		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, 0 );
 	};
 
-	$.AxisBuilderShortcodes.removeCell = function( clicked, obj ) {
-		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
-	};
-
 	$.AxisBuilderShortcodes.recalcCell = function( clicked, obj ) {
 		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -1 );
 	};
 
-	$.AxisBuilderShortcodes.setCellSize = function( clicked, obj ) {
+	$.AxisBuilderShortcodes.removeCell = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
+	};
+
+	$.AxisBuilderShortcodes.setCellSize = function() {
 		// Will do after the modal is ready to render data :)
+		// --> clicked, obj
 	};
 
 	// Main Row/Cell control
@@ -226,7 +226,7 @@
 			[ 'ab_cell_two_fifth'    , '2/5', 0.40 ],
 			[ 'ab_cell_one_third'    , '1/3', 0.33 ],
 			[ 'ab_cell_one_fourth'   , '1/4', 0.25 ],
-			[ 'ab_cell_one_fifth'    , '1/5', 0.20 ],
+			[ 'ab_cell_one_fifth'    , '1/5', 0.20 ]
 		],
 
 		newCellOrder: [
@@ -234,7 +234,7 @@
 			[ 'ab_cell_one_half'     , '1/2' ],
 			[ 'ab_cell_one_third'    , '1/3' ],
 			[ 'ab_cell_one_fourth'   , '1/4' ],
-			[ 'ab_cell_one_fifth'    , '1/5' ],
+			[ 'ab_cell_one_fifth'    , '1/5' ]
 		],
 
 		cellSizeVariations: {
@@ -285,7 +285,7 @@
 					$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, newEl, obj );
 				} else {
 					$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, newEl, obj );
-					$.AxisBuilderLayoutRow.appendCell( row, newEl, obj );
+					$.AxisBuilderLayoutRow.appendCell( row, newEl );
 					obj.activateDropping();
 				}
 
@@ -295,7 +295,7 @@
 			}
 		},
 
-		appendCell: function ( row, newEl, obj ) {
+		appendCell: function ( row, newEl ) {
 			var dataStorage    = row.find( '> .axisbuilder-inner-shortcode' ),
 				shortcodeClass = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
 				template       = $( $( '#axisbuilder-tmpl-' + shortcodeClass ).html() );

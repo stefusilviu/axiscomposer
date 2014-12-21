@@ -118,7 +118,7 @@ function AB_Logger( text, type ) {
 						answer = window.confirm( axisbuilder_admin.i18n_last_warning );
 
 						if ( answer ) {
-							 // Empty the canvas & textarea :)
+							// Empty the canvas & Update textarea with empty value :)
 							obj.axisBuilderCanvas.empty();
 							obj.updateTextarea();
 						}
@@ -147,7 +147,19 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
-			// Reactivate sorting and dropping after Undo Redo changes
+			// Set cell size for layout/grid row element of the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-cell-set', function() {
+				obj.shortcodes.setCellSize( this, obj );
+				return false;
+			});
+
+			// Add new cell for layout/grid row element of the Builder Canvas
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-cell-add', function() {
+				obj.shortcodes.addNewCell( this, obj );
+				return false;
+			});
+
+			// Reactivate sorting and dropping after Undo-Redo changes
 			this.axisBuilderCanvas.on( 'axisbuilder-history-update', function() {
 				obj.activateDragging( this.axisBuilderParent, '' );
 				obj.activateDropping( this.axisBuilderParent, '' );

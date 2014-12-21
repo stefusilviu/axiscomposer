@@ -75,9 +75,9 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 
 		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell popup-animation axisbuilder-drag ' . $data['name'] . $extra_class . '" data-dragdrop-level="' . $data['drag-level'] . '" data-width="' . $data['name'] . '">';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
-				$output .= '<a class="layout-element-icon axisbuilder-decrease axisbuilder-change-column-size" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '"></a>';
+				$output .= '<a class="axisbuilder-change-column-size layout-element-icon axisbuilder-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '"></a>';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $data['name'] ] . '</span>';
-				$output .= '<a class="layout-element-icon axisbuilder-increase axisbuilder-change-column-size" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '"></a>';
+				$output .= '<a class="axisbuilder-change-column-size layout-element-icon axisbuilder-increase" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '"></a>';
 				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axisbuilder' ) . '">' . __( 'Delete Column', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axisbuilder' ) . '">' . __( 'Clone Column',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';

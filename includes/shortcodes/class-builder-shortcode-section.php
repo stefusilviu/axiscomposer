@@ -60,7 +60,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		$output = '<div class="axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['popup_editor'] ) ) {

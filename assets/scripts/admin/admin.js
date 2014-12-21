@@ -284,25 +284,28 @@ function AB_Logger( text, type ) {
 				return true;
 			}
 
+			// variable declarations are hoisted to the top of the scope :)
+			var i, content, main_storage, content_fields, open_tags, currentName, currentSize;
+
 			// If we are in section iterate over all columns inside and set the value before setting the section value
 			if ( container.is( '.axisbuilder-layout-section' ) ) {
 				var columns = container.find( '.axisbuilder-layout-column-no-cell' );
-				for ( var i = 0; i < columns.length; i++ ) {
+				for ( i = 0; i < columns.length; i++ ) {
 					this.updateInnerTextarea( false, $( columns[i] ) );
 				}
 
 				columns = container.find( '.axisbuilder-layout-cell' );
-				for ( var i = 0; i < columns.length; i++ ) {
+				for ( i = 0; i < columns.length; i++ ) {
 					this.updateInnerTextarea( false, $( columns[i] ) );
 				}
 
-				var	content        = '',
-					currentName    = container.data( 'shortcode-handler' ),
-					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData ),
-					content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column .axisbuilder-sortable-element ' + this.shortcodesData + ', .axisbuilder-layout-cell .axisbuilder-layout-column ' + this.shortcodesData + ')' ),
-					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
+				content        = '';
+				currentName    = container.data( 'shortcode-handler' );
+				main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData );
+				content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column .axisbuilder-sortable-element ' + this.shortcodesData + ', .axisbuilder-layout-cell .axisbuilder-layout-column ' + this.shortcodesData + ')' );
+				open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
 
-				for ( var i = 0; i < content_fields.length; i++ ) {
+				for ( i = 0; i < content_fields.length; i++ ) {
 					content += $( content_fields[i] ).val();
 				}
 
@@ -311,13 +314,13 @@ function AB_Logger( text, type ) {
 			}
 
 			if ( container.is( '.axisbuilder-layout-cell' ) ) {
-				var	content        = '',
-					currentSize    = container.data( 'width' ),
-					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData ),
-					content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column-no-cell .axisbuilder-sortable-element ' + this.shortcodesData + ')' ),
-					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
+				content        = '';
+				currentSize    = container.data( 'width' );
+				main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData );
+				content_fields = container.find( '>.axisbuilder-inner-shortcode > div ' + this.shortcodesData + ':not(.axisbuilder-layout-column-no-cell .axisbuilder-sortable-element ' + this.shortcodesData + ')' );
+				open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
 
-				for ( var i = 0; i < content_fields.length; i++ ) {
+				for ( i = 0; i < content_fields.length; i++ ) {
 					content += $( content_fields[i] ).val();
 				}
 
@@ -326,13 +329,14 @@ function AB_Logger( text, type ) {
 			}
 
 			if ( container.is( '.axisbuilder-layout-column:not(.axisbuilder-layout-cell)' ) ) {
-				var	content        = '',
-					currentSize    = container.data( 'width' ),
-					currentFirst   = container.is( '.axisbuilder-first-column' ) ? ' first' : '',
-					content_fields = container.find( '.axisbuilder-sortable-element ' + this.shortcodesData ),
-					main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData );
+				var	currentFirst   = container.is( '.axisbuilder-first-column' ) ? ' first' : '';
 
-				for ( var i = 0; i < content_fields.length; i++ ) {
+				content        = '';
+				currentSize    = container.data( 'width' );
+				content_fields = container.find( '.axisbuilder-sortable-element ' + this.shortcodesData );
+				main_storage   = container.find( '>.axisbuilder-inner-shortcode >' + this.shortcodesData );
+
+				for ( i = 0; i < content_fields.length; i++ ) {
 					content += $( content_fields[i] ).val();
 				}
 
@@ -582,12 +586,12 @@ function AB_Logger( text, type ) {
 							return false;
 						}
 
-						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height;
+						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
 
 						// new AB_Logger( 'dragging:' + ui.draggable.find( 'h2' ).text() + ' to position: ' + ui.offset.top + '/' + ui.offset.left );
 
 						// Iterate over all elements and check their positions
-						for ( var i = 0; i < elements.length; i++ ) {
+						for ( i = 0; i < elements.length; i++ ) {
 							var current = elements.eq(i);
 							offset  = current.offset();
 
@@ -624,7 +628,7 @@ function AB_Logger( text, type ) {
 
 							// new AB_Logger( 'Checking right Positions' );
 
-							for ( var i = 0; i < position_array[ 'top_' + last_pos.top ].length; i++ ) {
+							for ( i = 0; i < position_array[ 'top_' + last_pos.top ].length; i++ ) {
 
 								// console.log( position_array[ 'top_' + last_pos.top ][i] );
 

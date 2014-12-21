@@ -128,23 +128,26 @@ class AB_Meta_Box_Builder_Data {
 
 		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
 
-			if ( $load_shortcodes->shortcode['type'] === $type ) {
+			if ( empty( $load_shortcodes->shortcode['invisible'] ) ) {
 
-				// Fetch shortcode data :)
-				$title     = $load_shortcodes->title;
-				$tooltip   = $load_shortcodes->tooltip;
-				$shortcode = $load_shortcodes->shortcode;
+				if ( $load_shortcodes->shortcode['type'] === $type ) {
 
-				// Fallback if icon is missing :)
-				$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
+					// Fetch shortcode data :)
+					$title     = $load_shortcodes->title;
+					$tooltip   = $load_shortcodes->tooltip;
+					$shortcode = $load_shortcodes->shortcode;
 
-				// Create a button Link :)
-				self::$load_shortcode = '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-axis-tooltip="' . $tooltip . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
+					// Fallback if icon is missing :)
+					$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
 
-				if ( $display ) {
-					echo self::$load_shortcode;
-				} else {
-					return self::$load_shortcode;
+					// Create a button Link :)
+					self::$load_shortcode = '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-axis-tooltip="' . $tooltip . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
+
+					if ( $display ) {
+						echo self::$load_shortcode;
+					} else {
+						return self::$load_shortcode;
+					}
 				}
 			}
 		}

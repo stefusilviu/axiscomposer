@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-17 21:13:12+00:00\n"
+"POT-Creation-Date: 2014-12-21 23:52:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,45 +129,57 @@ msgstr ""
 msgid "Axis Builder"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:116
+#: includes/abstracts/abstract-builder-shortcode.php:115
 msgid "custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:117
+#: includes/abstracts/abstract-builder-shortcode.php:116
 msgid ""
 "Add a custom css class for the element here. Ensure the use of allowed "
 "characters (latin characters, underscores, dashes and numbers)"
 msgstr ""
 
-#: includes/class-builder-install.php:152
+#: includes/abstracts/abstract-builder-shortcode.php:189
+msgid "Edit Element"
+msgstr ""
+
+#: includes/abstracts/abstract-builder-shortcode.php:191
+msgid "Delete Element"
+msgstr ""
+
+#: includes/abstracts/abstract-builder-shortcode.php:192
+msgid "Clone Element"
+msgstr ""
+
+#: includes/class-builder-install.php:143
 msgid "View Axis Builder Settings"
 msgstr ""
 
-#: includes/class-builder-install.php:152
+#: includes/class-builder-install.php:143
 msgid "Settings"
 msgstr ""
 
-#: includes/class-builder-install.php:167
+#: includes/class-builder-install.php:158
 msgid "View Axis Builder Documentation"
 msgstr ""
 
-#: includes/class-builder-install.php:167
+#: includes/class-builder-install.php:158
 msgid "Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:168
+#: includes/class-builder-install.php:159
 msgid "View Axis Builder API Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:168
+#: includes/class-builder-install.php:159
 msgid "API Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:169
+#: includes/class-builder-install.php:160
 msgid "Visit Premium Customer Support Forum"
 msgstr ""
 
-#: includes/class-builder-install.php:169
+#: includes/class-builder-install.php:160
 msgid "Premium Support"
 msgstr ""
 
@@ -177,6 +189,118 @@ msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-button.php:34
 msgid "Creates a colored button"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:35
+#: includes/shortcodes/class-builder-shortcode-columns.php:35
+msgid "1/1"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:36
+#: includes/shortcodes/class-builder-shortcode-columns.php:36
+msgid "Creates a single column with full width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:84
+msgid "Edit Cell"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:86
+msgid "Delete Cell"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:87
+msgid "Clone Cell"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:113
+#: includes/shortcodes/class-builder-shortcode-columns.php:107
+msgid "1/2"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:114
+#: includes/shortcodes/class-builder-shortcode-columns.php:108
+msgid "Creates a single column with 50&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:141
+#: includes/shortcodes/class-builder-shortcode-columns.php:134
+msgid "1/3"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:142
+#: includes/shortcodes/class-builder-shortcode-columns.php:135
+msgid "Creates a single column with 33&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:169
+#: includes/shortcodes/class-builder-shortcode-columns.php:161
+msgid "2/3"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:170
+#: includes/shortcodes/class-builder-shortcode-columns.php:162
+msgid "Creates a single column with 67&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:197
+#: includes/shortcodes/class-builder-shortcode-columns.php:188
+msgid "1/4"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:198
+#: includes/shortcodes/class-builder-shortcode-columns.php:189
+msgid "Creates a single column with 25&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:225
+#: includes/shortcodes/class-builder-shortcode-columns.php:215
+msgid "3/4"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:226
+#: includes/shortcodes/class-builder-shortcode-columns.php:216
+msgid "Creates a single column with 75&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:253
+#: includes/shortcodes/class-builder-shortcode-columns.php:242
+msgid "1/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:254
+#: includes/shortcodes/class-builder-shortcode-columns.php:243
+msgid "Creates a single column with 20&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:281
+#: includes/shortcodes/class-builder-shortcode-columns.php:269
+msgid "2/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:282
+#: includes/shortcodes/class-builder-shortcode-columns.php:270
+msgid "Creates a single column with 40&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:309
+#: includes/shortcodes/class-builder-shortcode-columns.php:296
+msgid "3/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:310
+#: includes/shortcodes/class-builder-shortcode-columns.php:297
+msgid "Creates a single column with 60&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:337
+#: includes/shortcodes/class-builder-shortcode-columns.php:323
+msgid "4/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:338
+#: includes/shortcodes/class-builder-shortcode-columns.php:324
+msgid "Creates a single column with 80&percnt; width"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-codeblock.php:33
@@ -199,104 +323,94 @@ msgid ""
 "shortcode is not recommended though)"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:35
-msgid "1/1"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-columns.php:36
-msgid "Creates a single column with full width"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-columns.php:75
+#: includes/shortcodes/class-builder-shortcode-columns.php:78
 msgid "Decrease Column Size"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:77
+#: includes/shortcodes/class-builder-shortcode-columns.php:80
 msgid "Increase Column Size"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:78
-msgid "Delete Column Size"
+#: includes/shortcodes/class-builder-shortcode-columns.php:81
+msgid "Delete Column"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:79
-msgid "Clone Column Size"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-columns.php:79
+#: includes/shortcodes/class-builder-shortcode-columns.php:82
 msgid "Clone Column"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:104
-msgid "1/2"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:33
+msgid "Grid Row"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:105
-msgid "Creates a single column with 50&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:34
+msgid ""
+"Add multiple Grid Rows below each other to create advanced grid layouts. "
+"Cells can be styled individually"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:128
-msgid "1/3"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:80
+msgid "Edit Row"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:129
-msgid "Creates a single column with 33&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:82
+msgid "Delete Row"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:152
-msgid "2/3"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:83
+msgid "Clone Row"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:153
-msgid "Creates a single column with 67&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:86
+msgid "Set Cell Size"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:176
-msgid "1/4"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:87
+msgid "Add Cell"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:177
-msgid "Creates a single column with 25&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-image.php:33
+msgid "Image"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:200
-msgid "3/4"
+#: includes/shortcodes/class-builder-shortcode-image.php:34
+msgid "Inserts a image of your choice"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:201
-msgid "Creates a single column with 75&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-section.php:33
+msgid "Color Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:224
-msgid "1/5"
+#: includes/shortcodes/class-builder-shortcode-section.php:34
+msgid "Creates a section with unique background image and colors"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:225
-msgid "Creates a single column with 20&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-section.php:67
+msgid "Edit Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:248
-msgid "2/5"
+#: includes/shortcodes/class-builder-shortcode-section.php:69
+msgid "Delete Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:249
-msgid "Creates a single column with 40&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-section.php:70
+msgid "Clone Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:272
-msgid "3/5"
+#: includes/shortcodes/class-builder-shortcode-sidebar.php:33
+msgid "Widget Area"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:273
-msgid "Creates a single column with 60&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-sidebar.php:34
+msgid "Display one of the themes widget areas"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:296
-msgid "4/5"
+#: includes/shortcodes/class-builder-shortcode-video.php:33
+msgid "Video"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-columns.php:297
-msgid "Creates a single column with 80&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-video.php:34
+msgid "Display a video of your choice"
 msgstr ""
 
 #: includes/widgets/class-builder-widget-advertisement.php:25

@@ -928,8 +928,64 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-layout-gridrow {
+.axisbuilder-layout-row {
 	margin-bottom: 30px !important;
+
+	.axisbuilder-inner-shortcode {
+		padding: 0;
+		clear: both;
+		overflow: hidden;
+	}
+
+	.axisbuilder-layout-column {
+
+		> .axisbuilder-inner-shortcode {
+			top: 0;
+		}
+	}
+
+	.axisbuilder-layout-cell {
+		margin: 0;
+
+		textarea {
+			width: 85% !important;
+		}
+
+		.axisbuilder-fake-cellborder {
+			right: -1px;
+			height: 2000px;
+			display: block;
+			position: absolute;
+			border-right: 1px dashed #e1e1e1;
+			-webkit-backface-visibility: hidden;
+		}
+
+		> .axisbuilder-sorthandle {
+			border: none;
+			box-shadow: none;
+			background: #fff;
+			border-right: 1px dashed #e1e1e1;
+			border-bottom: 1px dashed #e1e1e1;
+		}
+
+		> .axisbuilder-inner-shortcode {
+			border: none;
+			background: #fff;
+			border-right: 1px solid #e1e1e1;
+		}
+
+		&:last-child {
+
+			.axisbuilder-fake-cellborder {
+				display: none;
+			}
+
+			> .axisbuilder-sorthandle,
+			> .axisbuilder-inner-shortcode {
+				border-right: none;
+			}
+		}
+	}
 
 	.axisbuilder-cell {
 		z-index: 20;
@@ -981,6 +1037,8 @@ body .ui-draggable-dragging {
  * Layout Flex-Grid Styles
  */
 .layout-flex-grid {
+
+	/* Columns */
 	.ab_one_full {
 		width: 98%;
 	}
@@ -1010,6 +1068,48 @@ body .ui-draggable-dragging {
 	}
 	.ab_four_fifth {
 		width: 78%;
+	}
+
+	/* Cells */
+	.ab_cell_one_full,
+	.axisbuilder-modal-label-ab_cell_one_full {
+		width: 100%;
+	}
+	.ab_cell_one_half,
+	.axisbuilder-modal-label-ab_cell_one_half {
+		width: 50%;
+	}
+	.ab_cell_one_third,
+	.axisbuilder-modal-label-ab_cell_one_third {
+		width: 33.3%;
+	}
+	.ab_cell_two_third,
+	.axisbuilder-modal-label-ab_cell_two_third {
+		width: 66.6%;
+	}
+	.ab_cell_one_fourth,
+	.axisbuilder-modal-label-ab_cell_one_fourth {
+		width: 25%;
+	}
+	.ab_cell_three_fourth,
+	.axisbuilder-modal-label-ab_cell_three_fourth {
+		width: 75%;
+	}
+	.ab_cell_one_fifth,
+	.axisbuilder-modal-label-ab_cell_one_fifth {
+		width: 20%;
+	}
+	.ab_cell_two_fifth,
+	.axisbuilder-modal-label-ab_cell_two_fifth {
+		width: 40%;
+	}
+	.ab_cell_three_fifth,
+	.axisbuilder-modal-label-ab_cell_three_fifth {
+		width: 60%;
+	}
+	.ab_cell_four_fifth,
+	.axisbuilder-modal-label-ab_cell_four_fifth {
+		width: 80%;
 	}
 }
 

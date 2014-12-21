@@ -31,13 +31,13 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 	 * Configuration for builder shortcode button.
 	 */
 	public function shortcode_button() {
-		$this->id        = 'axisbuilder_grid_row';
+		$this->id        = 'axisbuilder_layout_row';
 		$this->title     = __( 'Grid Row', 'axisbuilder' );
 		$this->tooltip   = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axisbuilder' );
 		$this->shortcode = array(
 			'sort'        => 12,
 			'type'        => 'layout',
-			'name'        => 'ab_gridrow',
+			'name'        => 'ab_layout_row',
 			'icon'        => 'icon-gridrow',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/gridrow.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-target-insert',
@@ -73,7 +73,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			$textarea_content = ab_create_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
 		}
 
-		$output = '<div class="axisbuilder-layout-gridrow axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-layout-row axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['popup_editor'] ) ) {

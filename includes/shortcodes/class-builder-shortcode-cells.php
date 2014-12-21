@@ -79,7 +79,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 
 		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle">';
-				$output .= '<span class="axisbuilder-column-size">' . $size[ $data['name'] ] . '</span>';
+				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				if ( isset( $this->shortcode['popup_editor'] ) ) {
 					$output .= '<a class="axisbuilder-edit edit-element-icon" href="#edit" title="' . __( 'Edit Cell', 'axisbuilder' ) . '">' . __( 'Edit Cell', 'axisbuilder' ) . '</a>';
 				}

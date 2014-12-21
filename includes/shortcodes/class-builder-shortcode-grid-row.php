@@ -18,8 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Grid_Row extends AB_Shortcode {
 
-	public static $count = 0;
-
 	/**
 	 * Class Constructor Method.
 	 */

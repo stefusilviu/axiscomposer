@@ -1132,6 +1132,44 @@ body .ui-draggable-dragging {
 	outline: none;
 }
 
+/* Grid Row Modal */
+.axisbuilder-layout-row-modal {
+	color: #888;
+	margin-bottom: 10px;
+}
+
+.axisbuilder-layout-row-modal-label {
+
+	input {
+		display: none;
+
+		&:checked + .axisbuilder-layout-row-inner-label {
+			color: #fff;
+			background: #1e8cbe;
+		}
+	}
+
+	span {
+		display: inline-block;
+		border-right: 1px solid #e1e1e1;
+
+		span {
+			padding: 15px;
+			text-align: center;
+			border: 1px solid #e1e1e1;
+			@include box-sizing( border-box );
+		}
+	}
+}
+
+.axisbuilder-layout-row-inner-label {
+	width: 100%;
+
+	&:hover {
+		background: #f8f8f8;
+	}
+}
+
 /**
  * Clearfix
  */

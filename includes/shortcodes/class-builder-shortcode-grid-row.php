@@ -80,8 +80,10 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axisbuilder' ) . '">' . __( 'Delete Row', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axisbuilder' ) . '">' . __( 'Clone Row',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<a class="axisbuilder-cell add-cell-icon" href="#add-cell" title="' . __( 'Add Cell',      'axisbuilder' ) . '">' . __( 'Add Cell',      'axisbuilder' ) . '</a>';
-			$output .= '<a class="axisbuilder-cell set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axisbuilder' ) . '">' . __( 'Set Cell Size', 'axisbuilder' ) . '</a>';
+			$output .= '<div class="axisbuilder-cell">';
+				$output .= '<a class="axisbuilder-cell-set set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axisbuilder' ) . '">' . __( 'Set Cell Size', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-cell-add add-cell-icon" href="#add-cell" title="' . __( 'Add Cell',      'axisbuilder' ) . '">' . __( 'Add Cell',      'axisbuilder' ) . '</a>';
+			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . $textarea_content . '</textarea>';
 				$output .= $eventual_content;

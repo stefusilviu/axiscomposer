@@ -833,15 +833,14 @@ body .ui-draggable-dragging {
 			border-left: none;
 
 			&:before {
-				@include icon( "\e00d" );
+				@include icon( "\e00b" );
 				line-height: 1.5;
 			}
 		}
 
 		&.axisbuilder-increase {
-
 			&:before {
-				@include icon( "\e00e" );
+				@include icon( "\e00bc" );
 				line-height: 1.5;
 			}
 		}
@@ -855,7 +854,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e011" );
+			@include icon( "\e017" );
 			line-height: 1.5;
 		}
 
@@ -872,7 +871,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e012" );
+			@include icon( "\e018" );
 			line-height: 1.5;
 		}
 
@@ -889,7 +888,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e00f" );
+			@include icon( "\e014" );
 			line-height: 1.5;
 		}
 
@@ -995,33 +994,47 @@ body .ui-draggable-dragging {
 
 	.axisbuilder-cell {
 		z-index: 20;
-		width: auto;
-		height: 24px;
-		color: #a5a5a5;
-		line-height: 24px;
-		display: block;
-		cursor: pointer;
-		overflow: hidden;
-		border-top: none;
-		border: 1px solid #e1e1e1;
-		text-indent: inherit;
-		text-decoration: none;
-		padding: 0 7px 0 27px;
 		@include transition-duration(0s);
-		@include position(absolute, null 0px -20px null);
+		@include position(absolute, null 0px 0px null);
 
-		&.add-cell-icon {
+		a {
+			top: 18px;
+			left: 1px;
+			color: #7b7b7b;
+			padding: 5px 10px;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			border: 1px solid #e1e1e1;
+			border-top: none !important;
+			font-family: sans-serif !important;
 
-			&:hover {
+			&:before {
+				font-size: 16px;
+				vertical-align: middle;
+				@include iconbefore( "\e019" );
+				line-height: inherit;
+			}
+
+			&:hover,
+			&:focus {
 				color: #278ab7;
 			}
-		}
 
-		&.set-cell-icon {
-			right: 85px;
+			&:last-child {
+				border-left: none;
+			}
 
-			&:hover {
-				color: #278ab7;
+			&.set-cell-icon {
+				&:before {
+					content: "\e00d";
+				}
+			}
+
+			&.add-cell-icon {
+				&:before {
+					content: "\e00c";
+				}
 			}
 		}
 	}

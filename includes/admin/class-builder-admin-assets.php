@@ -26,8 +26,23 @@ class AB_Admin_Assets {
 	 * Hook in tabs.
 	 */
 	public function __construct() {
+		add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+	}
+
+	/**
+	 * Body Class
+	 */
+	public function admin_body_class( $classes ) {
+		$screen = get_current_screen();
+
+		// Class for builder Canvas & Modal grid
+		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+			$classes .= 'axisbuilder-flex-grid';
+		}
+
+		return $classes;
 	}
 
 	/**

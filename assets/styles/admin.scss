@@ -10,6 +10,7 @@
 @import "mixins";
 @import "sweet-alert";
 @import "tooltip";
+@import "flex-grid";
 @import "variables";
 @import "animation";
 @import "fonts";
@@ -137,7 +138,7 @@ label[for="axisbuilder-editor-hide"] {
 
 				&.active {
 					a {
-						@include active_tab( $fresh-tab-active-color )
+						@include active_tab( $fresh-color )
 					}
 				}
 			}
@@ -1003,86 +1004,6 @@ body .ui-draggable-dragging {
 }
 
 /**
- * Layout Flex-Grid Styles
- */
-.layout-flex-grid {
-
-	/* Columns */
-	.ab_one_full {
-		width: 98%;
-	}
-	.ab_one_half {
-		width: 48%;
-	}
-	.ab_one_third {
-		width: 31.3%;
-	}
-	.ab_two_third {
-		width: 64.6%;
-	}
-	.ab_one_fourth {
-		width: 23%;
-	}
-	.ab_three_fourth {
-		width: 73%;
-	}
-	.ab_one_fifth {
-		width: 18%;
-	}
-	.ab_two_fifth {
-		width: 38%;
-	}
-	.ab_three_fifth {
-		width: 58%;
-	}
-	.ab_four_fifth {
-		width: 78%;
-	}
-
-	/* Cells */
-	.ab_cell_one_full,
-	.axisbuilder-modal-label-ab_cell_one_full {
-		width: 100%;
-	}
-	.ab_cell_one_half,
-	.axisbuilder-modal-label-ab_cell_one_half {
-		width: 50%;
-	}
-	.ab_cell_one_third,
-	.axisbuilder-modal-label-ab_cell_one_third {
-		width: 33.3%;
-	}
-	.ab_cell_two_third,
-	.axisbuilder-modal-label-ab_cell_two_third {
-		width: 66.6%;
-	}
-	.ab_cell_one_fourth,
-	.axisbuilder-modal-label-ab_cell_one_fourth {
-		width: 25%;
-	}
-	.ab_cell_three_fourth,
-	.axisbuilder-modal-label-ab_cell_three_fourth {
-		width: 75%;
-	}
-	.ab_cell_one_fifth,
-	.axisbuilder-modal-label-ab_cell_one_fifth {
-		width: 20%;
-	}
-	.ab_cell_two_fifth,
-	.axisbuilder-modal-label-ab_cell_two_fifth {
-		width: 40%;
-	}
-	.ab_cell_three_fifth,
-	.axisbuilder-modal-label-ab_cell_three_fifth {
-		width: 60%;
-	}
-	.ab_cell_four_fifth,
-	.axisbuilder-modal-label-ab_cell_four_fifth {
-		width: 80%;
-	}
-}
-
-/**
  * Additional Styles
  */
 .axisbuilder-sorthandle a,
@@ -1101,41 +1022,44 @@ body .ui-draggable-dragging {
 	outline: none;
 }
 
-/* Grid Row Modal */
+/**
+ * Row/Cell Modal Styles
+ */
 .axisbuilder-layout-row-modal {
 	color: #888;
 	margin-bottom: 10px;
-}
 
-.axisbuilder-layout-row-modal-label {
+	.axisbuilder-layout-row-modal-label {
 
-	input {
-		display: none;
+		input {
+			display: none;
 
-		&:checked + .axisbuilder-layout-row-inner-label {
-			color: #fff;
-			background: #1e8cbe;
+			&:checked + .axisbuilder-layout-row-inner-label {
+				color: #fff;
+				background: #1e8cbe;
+			}
 		}
-	}
-
-	span {
-		display: inline-block;
-		border-right: 1px solid #e1e1e1;
 
 		span {
-			padding: 15px;
-			text-align: center;
-			border: 1px solid #e1e1e1;
-			@include box-sizing( border-box );
+			display: inline-block;
+			border-right:1px solid #e1e1e1;
+
+			span {
+				padding: 15px;
+				text-align: center;
+				border: 1px solid #e1e1e1;
+				border-right: none;
+				@include box-sizing( border-box );
+			}
 		}
-	}
-}
 
-.axisbuilder-layout-row-inner-label {
-	width: 100%;
+		.axisbuilder-layout-row-inner-label {
+			width: 100%;
 
-	&:hover {
-		background: #f8f8f8;
+			&:hover {
+				background: #f8f8f8;
+			}
+		}
 	}
 }
 

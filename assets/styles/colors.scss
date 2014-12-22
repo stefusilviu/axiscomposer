@@ -17,9 +17,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $light-tab-active-color )
+						@include active_tab( $light-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $light-color;
 			}
 		}
 	}
@@ -31,9 +39,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $blue-tab-active-color )
+						@include active_tab( $blue-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $blue-color;
 			}
 		}
 	}
@@ -45,9 +61,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $coffee-tab-active-color )
+						@include active_tab( $coffee-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $coffee-color;
 			}
 		}
 	}
@@ -59,9 +83,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $ectoplasm-tab-active-color )
+						@include active_tab( $ectoplasm-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $ectoplasm-color;
 			}
 		}
 	}
@@ -73,9 +105,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $midnight-tab-active-color )
+						@include active_tab( $midnight-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $midnight-color;
 			}
 		}
 	}
@@ -87,9 +127,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $ocean-tab-active-color )
+						@include active_tab( $ocean-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $ocean-color;
 			}
 		}
 	}
@@ -101,9 +149,17 @@
 			ul.axisbuilder-tabs li {
 				&.active {
 					a {
-						@include active_tab( $sunrise-tab-active-color )
+						@include active_tab( $sunrise-color )
 					}
 				}
+			}
+		}
+	}
+
+	.axisbuilder-layout-row-modal {
+		.axisbuilder-layout-row-modal-label {
+			input:checked + .axisbuilder-layout-row-inner-label {
+				background: $sunrise-color;
 			}
 		}
 	}

@@ -28,7 +28,7 @@
 		this.wrap       = $( '#wpwrap' );
 		this.body       = $( 'body' ).addClass( 'axisbuilder-noscroll' );
 		this.options    = $.extend( {}, defaults, options );
-		this.modal      = $( '<div class="axisbuilder-modal axisbuilder-style"></div>' );
+		this.modal      = $( '<div class="axisbuilder-modal axisbuilder-style popup-animation"></div>' );
 		this.backdrop   = $( '<div class="axisbuilder-modal-backdrop"></div>' );
 		this.instanceNr = $.AxisBuilderModal.openInstance.length;
 		this.namespace  = '.AxisBuilderModal' + this.instanceNr;
@@ -50,7 +50,7 @@
 		appendHTML: function() {
 			var output,
 				content = this.options.modal_content ? this.options.modal_content : '',
-				loading = this.options.modal_content ? '' : ' loader ',
+				loading = this.options.modal_content ? '' : 'loader ',
 				heading = '<h3 class="axisbuilder-modal-title">' + this.options.modal_title + '</h3>';
 
 			output  = '<div class="axisbuilder-modal-inner">';
@@ -95,7 +95,7 @@
 			var obj = this;
 
 			// Save Modal event (execute callback)
-			this.modal.on( 'click', '.axisbuilder-modal-save', function() {
+			this.modal.on( 'click', '.axisbuilder-save-modal', function() {
 				// obj.executeCallback();
 				return false;
 			});
@@ -108,7 +108,7 @@
 
 			// Save and Close Modal events on Enter/Escape keypress.
 			this.doc.bind( 'keydown' + this.namespace, function( e ) {
-				if ( obj.mediaOverlayClosed && obj.linkOverlayClosed ) {
+				if ( obj.linkOverlayClosed && obj.mediaOverlayClosed ) {
 
 					// Save Event
 					if ( e.keyCode === 13 && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {

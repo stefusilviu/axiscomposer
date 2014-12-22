@@ -181,6 +181,8 @@ function AB_Logger( text, type ) {
 				var params  = parents.data(), modal;
 
 				params.scope       = obj;
+				params.modal_title = parents.data( 'modal-title' );
+
 				params.on_load     = parents.data( 'modal_on_load' );
 				params.before_save = parents.data( 'before_save' );
 				// params.on_save     = obj.send_to_datastorage;

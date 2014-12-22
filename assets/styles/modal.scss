@@ -94,7 +94,6 @@ body.axisbuilder-noscroll {
 	background: #fff;
 	min-height: 210px;
 	@include position(fixed, 30px 15%);
-	@include animation( modal .3s $ease-out-back );
 
 	&.bigscreen {
 		@include position(null, null 30px 30px);
@@ -170,25 +169,23 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 }
 
 .axisbuilder-modal-inner-content {
-	position: absolute;
-	overflow: auto;
 	padding: 0;
-	top: 52px;
-	left: 0;
-	right: 0;
-	bottom: 50px;
+	overflow: auto;
+	@include position(absolute, 52px 0px 50px 0px);
+
+	&.loader {
+		@include loader();
+	}
 }
 
 .axisbuilder-modal-title {
-	position: absolute;
-	top: 0;
 	margin: 0;
-	line-height: 53px;
-	left: 14px;
-	color: #555;
 	padding: 0;
+	color: #555;
 	font-size: 22px;
 	font-weight: 200;
+	line-height: 53px;
+	@include position(absolute, 0px null null 14px);
 }
 
 .axisbuilder-msg-error { color: #D54E21; }
@@ -244,17 +241,17 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 	float:right;
 }
 
-/**
- * Animation Styles
- */
-.modal-animation {
-	@include animation( popup .3s $ease-out-back );
-}
-
 .wp-fullscreen-active input[type=text].wp-fullscreen-title {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/**
+ * Animation Styles
+ */
+.popup-animation {
+	@include animation( popup .3s $ease-out-back );
 }
 
 /**

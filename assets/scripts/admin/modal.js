@@ -54,7 +54,7 @@
 				heading = '<h3 class="axisbuilder-modal-title">' + this.options.modal_title + '</h3>';
 
 			output  = '<div class="axisbuilder-modal-inner">';
-				output += '<div class="axisbuilder-modal-inner-header">' + heading + '<a href="#close" class="axisbuilder-modal-close trash-modal-icon axisbuilder-attach-close-event">X</a></div>';
+				output += '<div class="axisbuilder-modal-inner-header">' + heading + '<a href="#close" class="axisbuilder-modal-close trash-modal-icon axisbuilder-attach-close-event"></a></div>';
 				output += '<div class="axisbuilder-modal-inner-content ' + loading + '">' + content + '</div>';
 				output += '<div class="axisbuilder-modal-inner-footer">';
 					if ( this.options.button === 'save' ) {

@@ -19,21 +19,16 @@
 	@include loader();
 }
 
+.axisbuilder-noselect {
+	@include user-select(none);
+}
+
 body .axisbuilder-hidden {
 	display: none;
 }
 
 body.axisbuilder-noscroll {
 	overflow: hidden;
-}
-
-.axisbuilder-noselect{
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 /**
@@ -91,7 +86,6 @@ body.axisbuilder-noscroll {
 	background: black;
 	min-height: 360px;
 	@include position(fixed, 0px 0px 0px 0px);
-	@include animation( popup .3s $ease-out-back );
 }
 
 .axisbuilder-modal {
@@ -100,6 +94,7 @@ body.axisbuilder-noscroll {
 	background: #fff;
 	min-height: 210px;
 	@include position(fixed, 30px 15%);
+	@include animation( modal .3s $ease-out-back );
 
 	&.bigscreen {
 		@include position(null, null 30px 30px);
@@ -125,6 +120,28 @@ body.axisbuilder-noscroll {
 	&.flexscreen,
 	&.smallscreen {
 		@include position(null, 35% 30% auto);
+	}
+}
+
+.axisbuilder-modal-close {
+	width: 25px;
+	height: 25px;
+	overflow: hidden;
+	@include animation-duration(0s);
+	@include position(absolute, 14px 14px null null);
+
+	&.trash-modal-icon {
+		color: #999;
+		font-size: 16px;
+
+		&:before {
+			@include icon( "\e014" );
+			line-height: 1.5;
+		}
+
+		&:hover {
+			color: #d54e21;
+		}
 	}
 }
 
@@ -160,24 +177,6 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 	left: 0;
 	right: 0;
 	bottom: 50px;
-}
-
-.axisbuilder-modal-close{
-	-webkit-transition-duration: 0s;
-	-moz-transition-duration: 0s;
-	transition-duration: 0s;
-	height:24px;
-	width:24px;
-	position: absolute;
-	top:14px;
-	right:14px;
-	background: transparent url(../images/icon-trash.png) top left no-repeat;
-	overflow: hidden;
-	text-indent: 200%;
-}
-
-.axisbuilder-modal-close:hover {
-	background: transparent url(../images/icon-trash.png) bottom left no-repeat;
 }
 
 .axisbuilder-modal-title {

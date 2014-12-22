@@ -98,7 +98,7 @@
 					fetch: true,
 					params: this.options.ajax_param,
 					action: 'axisbuilder_' + this.options.modal_action,
-					instance: this.instanceNr,
+					instance: this.instanceNr
 				};
 
 			$.ajax({
@@ -131,14 +131,40 @@
 						obj.loadCallback();
 					}
 				},
-				complete: function( response ) {
+				complete: function() {
 					inner.removeClass( 'loader' );
 				}
 			});
 		},
 
 		loadCallback: function() {
+			var callbacks = this.options.on_load, index = 0, execute;
 
+			if ( typeof callbacks === 'string' ) {
+				execute = callbacks.split( ', ' );
+
+				for ( index in execute ) {
+					if ( $.AxisBuilderModal.registerCallback[ execute[index] ] !== 'undefined' ) {
+						$.AxisBuilderModal.registerCallback[ execute[index] ].call( this );
+					} else {
+						new AB_Logger( 'Not defined modal_on_load function: $.AxisBuilderModal.register_callback.' + execute[index], 'error' );
+						new AB_Logger( 'Ensure that the modal_on_load function is defined in your Shortcodes Configurations.', 'help' );
+					}
+				}
+			} else if ( typeof callbacks === 'function' ) {
+				callbacks.call();
+			}
+
+			this.setFocus();
+			this.propogateModalContent();
+		},
+
+		setFocus: function() {
+			var field = this.modal.find( 'input[type=text], input[type=checkpox], textarea, select, radio' ).filter( ':eq(0)' );
+
+			if ( ! field.is( '.axisbuilder-autoselect-off' ) ) {
+				field.focus();
+			}
 		},
 
 		modalBehaviour: function() {
@@ -146,7 +172,7 @@
 
 			// Save Modal event (execute callback)
 			this.modal.on( 'click', '.axisbuilder-save-modal', function() {
-				// obj.executeCallback();
+				obj.executeCallback();
 				return false;
 			});
 
@@ -163,7 +189,7 @@
 					// Save Event
 					if ( e.keyCode === 13 && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
 						setTimeout( function() {
-							// obj.executeCallback();
+							obj.executeCallback();
 						}, 100 );
 
 						e.stopImmediatePropagation();
@@ -179,6 +205,39 @@
 					}
 				}
 			});
+		},
+
+		executeCallback: function() {
+			var values = this.modal.find( 'input, textarea, select, radio' ).serializeArray(),
+				value_array = this.convertValues( values );
+
+			// Filter function for the value array in case we got a special shortcode like tables :)
+			if ( typeof $.AxisBuilderModal.registerCallback[ this.options.before_save ] !== 'undefined' ) {
+				value_array = $.AxisBuilderModal.registerCallback[ this.options.before_save ].call( this.options.scope, value_array, this.options.save_param );
+			}
+
+			var close_allowed = this.options.on_save.call( this.options.scope, value_array, this.options.save_param );
+
+			if ( close_allowed !== false ) {
+				this.close();
+			}
+		},
+
+		convertValues: function( data ) {
+			var output = {};
+
+			$.each( data, function() {
+				if ( typeof output[this.name] !== 'undefined' ) {
+					if ( ! output[this.name].push ) {
+						output[this.name] = [output[this.name]];
+					}
+					output[this.name].push( this.value || '' );
+				} else {
+					output[this.name] = this.value || '';
+				}
+			});
+
+			return output;
 		},
 
 		modifyBindingOrder: function() {

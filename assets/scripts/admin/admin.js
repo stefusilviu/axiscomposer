@@ -212,6 +212,7 @@ function AB_Logger( text, type ) {
 		 * Only executed at page load or when editor is switched from default to Page Builder.
 		 */
 		shortcodesToInterface: function( text ) {
+
 			// Return if builder is not in active state
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
 				return true;
@@ -259,7 +260,7 @@ function AB_Logger( text, type ) {
 			var add_text = $( text );
 			this.axisBuilderCanvas.append( add_text );
 
-			// Activate Element Drag and Drop
+			// Activate Element Drag-Drop
 			this.activateDragging();
 			this.activateDropping();
 		},
@@ -349,6 +350,7 @@ function AB_Logger( text, type ) {
 		 * Updates the Textarea that holds the shortcode + values when element is on the first level and not nested.
 		 */
 		 updateTextarea: function( scope ) {
+
 			// Return if builder is not in active state
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
 				return true;
@@ -467,6 +469,7 @@ function AB_Logger( text, type ) {
 
 			for( i = 0; i < length; i++ ) {
 				compare = parseInt( a[i], 10 ) - parseInt( b[i], 10 );
+
 				if( compare !== 0 ) {
 					return compare;
 				}
@@ -741,4 +744,4 @@ function AB_Logger( text, type ) {
 		$.AxisBuilderObj = new $.AxisBuilder();
 	});
 
-})(jQuery);
+})( jQuery );

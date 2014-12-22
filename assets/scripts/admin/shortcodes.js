@@ -192,7 +192,6 @@
 		}
 	};
 
-
 	// --------------------------------------------
 	// Functions necessary for Row/Cell Management
 	// --------------------------------------------
@@ -345,7 +344,6 @@
 			// Change the cell size text
 			sizeString.text( nextSize[1] );
 		}
-
 	};
 
-})(jQuery);
+})( jQuery );

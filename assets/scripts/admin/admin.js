@@ -86,7 +86,8 @@ function AB_Logger( text, type ) {
 
 		// All event binding goes here
 		builderBehaviour: function() {
-			var obj = this;
+			var obj  = this,
+				body = $( 'body' );
 
 			// Toggle between default editor and page builder
 			this.axisBuilderButton.on( 'click', function( e ) {
@@ -163,6 +164,35 @@ function AB_Logger( text, type ) {
 			this.axisBuilderCanvas.on( 'axisbuilder-history-update', function() {
 				obj.activateDragging( this.axisBuilderParent, '' );
 				obj.activateDropping( this.axisBuilderParent, '' );
+			});
+
+			// Edit item via Modal Window
+			body.on( 'click', '.axisbuilder-edit', function() {
+				var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+
+				if ( ! parents.length ) {
+					parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
+
+					if ( ! parents.length ) {
+						parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+					}
+				}
+
+				var params  = parents.data(), modal;
+
+				params.scope       = obj;
+				params.on_load     = parents.data( 'modal_on_load' );
+				params.before_save = parents.data( 'before_save' );
+				// params.on_save     = obj.send_to_datastorage;
+				params.save_param  = parents;
+				params.ajax_param  = {
+					extract: true,
+					shortcode: parents.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData + ':eq(0)' ).val(),
+					allowed: params.allowedShortcodes
+				};
+
+				modal = new $.AxisBuilderModal( params );
+				return false;
 			});
 		},
 

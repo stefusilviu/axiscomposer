@@ -19,11 +19,21 @@
 	@include loader();
 }
 
-/**
- * Modal No-Scroll
- */
+body .axisbuilder-hidden {
+	display: none;
+}
+
 body.axisbuilder-noscroll {
 	overflow: hidden;
+}
+
+.axisbuilder-noselect{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 /**
@@ -118,6 +128,123 @@ body.axisbuilder-noscroll {
 	}
 }
 
+.axisbuilder-modal-inner-header {
+	height: 50px;
+	border-bottom: 1px solid #DFDFDF;
+	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+
+.axisbuilder-modal-inner-footer {
+	height: 50px;
+	border-top: 1px solid #DFDFDF;
+	box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.1);
+	position: absolute;
+	bottom: 0;
+	background: #FCFCFC;
+	width: 100%;
+}
+
+div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
+	position: absolute;
+	right: 12px;
+	top: 10px;
+	padding: 0 35px 2px;
+}
+
+.axisbuilder-modal-inner-content {
+	position: absolute;
+	overflow: auto;
+	padding: 0;
+	top: 52px;
+	left: 0;
+	right: 0;
+	bottom: 50px;
+}
+
+.axisbuilder-modal-close{
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	transition-duration: 0s;
+	height:24px;
+	width:24px;
+	position: absolute;
+	top:14px;
+	right:14px;
+	background: transparent url(../images/icon-trash.png) top left no-repeat;
+	overflow: hidden;
+	text-indent: 200%;
+}
+
+.axisbuilder-modal-close:hover {
+	background: transparent url(../images/icon-trash.png) bottom left no-repeat;
+}
+
+.axisbuilder-modal-title {
+	position: absolute;
+	top: 0;
+	margin: 0;
+	line-height: 53px;
+	left: 14px;
+	color: #555;
+	padding: 0;
+	font-size: 22px;
+	font-weight: 200;
+}
+
+.axisbuilder-msg-error { color: #D54E21; }
+.axisbuilder-msg-success { color:#8AB83A; }
+.axisbuilder-msg-attention {color:#4BA7D3; }
+
+.axisbuilder-form-element-container {
+	padding: 8px;
+}
+
+.axisbuilder-modal .axisbuilder-form-element-container {
+	clear: both;
+	background: #fff;
+	padding: 18px 20px;
+	position: relative;
+	border-bottom:1px dashed #e1e1e1;
+	@include box-sizing( border-box );
+
+	p {
+		color: #777;
+	}
+}
+
+.smallscreen .axisbuilder-form-element-container {
+	border-bottom: none;
+}
+
+.axisbuilder-modal .axisbuilder-form-element-container:hover,
+.smallscreen .axisbuilder-modal .axisbuilder-modal-inner-content:hover {
+	background: #fcfcfc;
+}
+
+.axisbuilder-name-description {
+	> strong {
+		display: block;
+	}
+
+	> span,
+	> label {
+		color: #777;
+		display: block;
+		margin-bottom: 4px;
+	}
+}
+
+/* Inside modal use half with for element + description */
+.axisbuilder-modal .axisbuilder-form-element {
+	width:49%;
+	float:left;
+}
+.axisbuilder-modal .axisbuilder-name-description {
+	width:49%;
+	float:right;
+}
+
 /**
  * Animation Styles
  */
@@ -125,9 +252,22 @@ body.axisbuilder-noscroll {
 	@include animation( popup .3s $ease-out-back );
 }
 
+.wp-fullscreen-active input[type=text].wp-fullscreen-title {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /**
  * Clear
  */
 .clear {
 	clear: both;
+}
+
+/**
+ * Clearfix
+ */
+.axisbuilder-clearfix {
+	@include clearfix();
 }

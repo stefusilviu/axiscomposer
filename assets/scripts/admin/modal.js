@@ -145,7 +145,7 @@
 			this.doc.trigger( 'axisbuilder_modal_before_close', [ this ] );
 			this.modal.remove();
 			this.backdrop.remove();
-			this.doc.trigger( 'axisbuilder_modal_close', [this] ).unbind( 'keydown' + this.namespace );
+			this.doc.trigger( 'axisbuilder_modal_close', [ this ] ).unbind( 'keydown' + this.namespace );
 
 			if ( $.AxisBuilderModal.openInstance.length === 0 ) {
 				this.body.removeClass( 'axisbuilder-noscroll' );

@@ -19,6 +19,16 @@
 	@include loader();
 }
 
+/**
+ * Modal No-Scroll
+ */
+body.axisbuilder-noscroll {
+	overflow: hidden;
+}
+
+/**
+ * Base Styles
+ */
 .axisbuilder-style {
 	line-height: 1.5em;
 
@@ -60,4 +70,64 @@
 		font-size: 11px;
 		font-style: italic;
 	}
+}
+
+/**
+ * Popup Modal
+ */
+.axisbuilder-modal-backdrop {
+	opacity: 0.7;
+	z-index: 14000;
+	background: black;
+	min-height: 360px;
+	@include position(fixed, 0px 0px 0px 0px);
+	@include animation( popup .3s $ease-out-back );
+}
+
+.axisbuilder-modal {
+	overflow: auto;
+	z-index: 15000;
+	background: #fff;
+	min-height: 210px;
+	@include position(fixed, 30px 15%);
+
+	&.bigscreen {
+		@include position(null, null 30px 30px);
+	}
+
+	&.mediumscreen {
+		@include position(null, 20%);
+	}
+
+	&.highscreen {
+		@include position(null, 5% 20% 5%);
+	}
+
+	&.flexscreen {
+		min-height: 0;
+
+		.axisbuilder-modal-inner-content {
+			padding-bottom: 50px;
+			@include position(relative, 0px null null);
+		}
+	}
+
+	&.flexscreen,
+	&.smallscreen {
+		@include position(null, 35% 30% auto);
+	}
+}
+
+/**
+ * Animation Styles
+ */
+.modal-animation {
+	@include animation( popup .3s $ease-out-back );
+}
+
+/**
+ * Clear
+ */
+.clear {
+	clear: both;
 }

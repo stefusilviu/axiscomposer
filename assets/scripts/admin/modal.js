@@ -41,7 +41,17 @@
 	$.AxisBuilderModal.prototype = {
 
 		modalActivate: function() {
-			// Alright folks ;)
+			this.appendHTML();
+			this.modalBehaviour();
+
+		},
+
+		appendHTML: function() {
+
+		},
+
+		modalBehaviour: function() {
+
 		}
 	};
 

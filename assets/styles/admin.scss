@@ -445,10 +445,6 @@ label[for="axisbuilder-editor-hide"] {
 	@include animation( popup .3s $ease-out-back );
 }
 
-.modal-animation {
-	@include animation( popup .3s $ease-out-back );
-}
-
 /**
  * Clear
  */

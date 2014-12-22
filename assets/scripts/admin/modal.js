@@ -12,7 +12,7 @@
 			modal_title: '',        // @string   modal window title
 			modal_class: '',        // @string   modal window class
 			modal_content: false,   // @string   modal window content. If not specified ajax function will execute
-			modal_ajax_hook: '',    // @string   name of php ajax hook that will execute the content fetching function
+			modal_action: '',       // @string   name of php ajax hook that will execute the content fetching function
 			button: 'save',         // @string   parameter that tells the modal window which button to generate
 			ajax_param: '',         // @string   parameters that are passed to the ajax content fetching function
 			save_param: {},         // @obj      parameters that are passed to the callback function in addition to the form values

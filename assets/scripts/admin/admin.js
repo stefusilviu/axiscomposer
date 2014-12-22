@@ -180,8 +180,9 @@ function AB_Logger( text, type ) {
 
 				var params  = parents.data(), modal;
 
-				params.scope       = obj;
-				params.modal_title = parents.data( 'modal-title' );
+				params.scope        = obj;
+				params.modal_title  = parents.data( 'modal-title' );
+				params.modal_action = parents.data( 'modal-action' );
 
 				params.on_load     = parents.data( 'modal_on_load' );
 				params.before_save = parents.data( 'before_save' );

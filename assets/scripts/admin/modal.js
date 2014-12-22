@@ -1,4 +1,4 @@
-/* global axisbuilder_modal */
+/* global AB_Logger, axisbuilder_admin, axisbuilder_modal */
 
 /**
  * AxisBuilder Modal JS
@@ -83,12 +83,62 @@
 			this.modal.css({ margin: ( 30 * multiplier ), zIndex: ( z_previous + multiplier + 1 )});
 			this.backdrop.css({ zIndex: ( z_previous + multiplier )});
 
-			// Modal Content
-			// if ( ! this.options.modal_content ) {
-			// 	this.fetchContent();
-			// } else {
-			// 	this.loadCallback();
-			// }
+			// Load Modal Content
+			if ( ! this.options.modal_content ) {
+				this.fetchContent();
+			} else {
+				this.loadCallback();
+			}
+		},
+
+		fetchContent: function() {
+			var obj   = this,
+				inner = obj.modal.find( '.axisbuilder-modal-inner-content' ),
+				data  = {
+					fetch: true,
+					params: this.options.ajax_param,
+					action: 'axisbuilder_' + this.options.modal_action,
+					instance: this.instanceNr,
+				};
+
+			$.ajax({
+				url: axisbuilder_admin.ajax_url,
+				data: data,
+				type: 'POST',
+				error: function() {
+					$.AxisBuilderModal.openInstance[0].close();
+					$.AxisBuilderModalNotification({
+						mode: 'error',
+						message: axisbuilder_modal.ajax_error
+					});
+				},
+				success: function( response ) {
+					if ( response === '0' ) {
+						$.AxisBuilderModal.openInstance[0].close();
+						$.AxisBuilderModalNotification({
+							mode: 'error',
+							message: axisbuilder_modal.login_error
+						});
+					} else if ( response === '-1' ) {
+						// Nonce Timeout ;)
+						$.AxisBuilderModal.openInstance[0].close();
+						$.AxisBuilderModalNotification({
+							mode: 'error',
+							message: axisbuilder_modal.timeout
+						});
+					} else {
+						inner.html( response );
+						obj.loadCallback();
+					}
+				},
+				complete: function( response ) {
+					inner.removeClass( 'loader' );
+				}
+			});
+		},
+
+		loadCallback: function() {
+
 		},
 
 		modalBehaviour: function() {
@@ -168,6 +218,19 @@
 		propogateModalContent: function() {
 			this.body.trigger( 'axisbuilder_modal_open', this );
 		}
+	};
+
+	// Wrapper for Modal notifications
+	$.AxisBuilderModalNotification = function( options ) {
+		var defaults = {
+			button: 'close',
+			modal_class: 'flexscreen',
+			modal_title: '<span class="axisbuilder-message-' + options.mode + '">' + axisbuilder_modal[options.mode] + '</span>',
+			modal_content: '<div class="axisbuilder-form-element-container">' + options.message + '</div>'
+		};
+
+		this.options = $.extend( {}, defaults, options );
+		return new $.AxisBuilderModal( this.options );
 	};
 
 })( jQuery );

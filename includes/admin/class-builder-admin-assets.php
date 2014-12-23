@@ -32,7 +32,7 @@ class AB_Admin_Assets {
 	}
 
 	/**
-	 * Body Class
+	 * Body Class.
 	 */
 	public function admin_body_class( $classes ) {
 		$screen = get_current_screen();

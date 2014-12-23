@@ -275,7 +275,7 @@
 		},
 
 		propogateModalContent: function() {
-			this.body.trigger( 'axisbuilder_modal_open', this );
+			this.body.trigger( 'axisbuilder_modal_finished', this );
 		}
 	};
 

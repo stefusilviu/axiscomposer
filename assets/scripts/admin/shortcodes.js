@@ -180,7 +180,7 @@
 			// Change the column size text
 			sizeString.text( nextSize[1] );
 
-			// Textarea Update and Historry snapshot :)
+			// Textarea Update and History snapshot :)
 			obj.updateTextarea();
 
 			if ( section.length ) {

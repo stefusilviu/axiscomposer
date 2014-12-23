@@ -371,7 +371,7 @@
 					}
 
 					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
-					message += '<input type="radio" name="layout" value="' + y + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					message += '<input type="radio" name="layout" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 				}
 
 				message += '</form>';

@@ -48,6 +48,7 @@ abstract class AB_Shortcode {
 	public function __construct() {
 		$this->shortcode_button();
 		$this->shortcode_config();
+		$this->shortcode_action();
 
 		// Hooks
 		if ( is_admin() ) {
@@ -107,6 +108,16 @@ abstract class AB_Shortcode {
 	}
 
 	/**
+	 * AJAX Events
+	 */
+	public function shortcode_action() {
+		// Ajax action for element with modal window editor
+		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
+			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'popup_editor' ) );
+		}
+	}
+
+	/**
 	 * Popup Editor.
 	 */
 	public function popup_editor() {
@@ -115,8 +126,10 @@ abstract class AB_Shortcode {
 			die();
 		}
 
+		check_ajax_referer( 'get-modal-elements', 'security' );
+
 		// Check theme support for custom CSS element
-		if ( current_theme_supprts( 'axisbuilder-custom-css' ) ) {
+		if ( current_theme_supports( 'axisbuilder-custom-css' ) ) {
 			$this->elements = $this->custom_css( $this->elements );
 		}
 
@@ -131,6 +144,11 @@ abstract class AB_Shortcode {
 				}
 			}
 		}
+
+		// $elements = $this->set_defaults_value( $elements );
+		AB_HTML_Helper::render_multiple_elements( $elements, $this );
+
+		die();
 	}
 
 	/**

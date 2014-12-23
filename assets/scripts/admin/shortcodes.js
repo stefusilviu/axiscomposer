@@ -1,3 +1,5 @@
+/* global axisbuilder_shortcodes */
+
 /**
  * AxisBuilder Shortcodes JS
  */
@@ -362,7 +364,7 @@
 
 					for ( var y in variations[x] ) {
 						for ( var z in this.cellSize ) {
-							if ( this.cellSize[z][0] == variations[x][y] ) {
+							if ( this.cellSize[z][0] === variations[x][y] ) {
 								labeltext = this.cellSize[z][1];
 							}
 						}
@@ -379,12 +381,12 @@
 			} else {
 				button = 'close';
 				modal_class = 'flexscreen';
-				message += '<p>' + axisbuilder_modal.no_layout + '<br />';
+				message += '<p>' + axisbuilder_shortcodes.i18n_no_layout + '<br />';
 
 				if ( rowCount === 1 ) {
-					message += axisbuilder_modal.add_one_cell;
+					message += axisbuilder_shortcodes.i18n_add_one_cell;
 				} else {
-					message += axisbuilder_modal.remove_one_cell;
+					message += axisbuilder_shortcodes.i18n_remove_one_cell;
 				}
 
 				message += '</p>';
@@ -396,13 +398,13 @@
 				button: button,
 				message: message,
 				modal_class: modal_class,
-				modal_title: axisbuilder_modal.select_layout,
+				modal_title: axisbuilder_shortcodes.i18n_select_layout,
 				on_save: this.saveModal,
 				save_param: {
 					obj: obj,
 					row: row,
 					cells: cells,
-					variations: variations,
+					variations: variations
 				}
 			});
 		},

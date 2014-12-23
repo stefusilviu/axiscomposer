@@ -1,4 +1,4 @@
-/* global AB_Logger, axisbuilder_admin, axisbuilder_modal */
+/* global AB_Logger, axisbuilder_modal */
 
 /**
  * AxisBuilder Modal JS
@@ -58,9 +58,9 @@
 				output += '<div class="axisbuilder-modal-inner-content ' + loading + '">' + content + '</div>';
 				output += '<div class="axisbuilder-modal-inner-footer">';
 					if ( this.options.button === 'save' ) {
-						output += '<a href="#save" class="axisbuilder-save-modal button button-primary button-large">' + axisbuilder_modal.save + '</a>';
+						output += '<a href="#save" class="axisbuilder-save-modal button button-primary button-large">' + axisbuilder_modal.i18n_save_button + '</a>';
 					} else if ( this.options.button === 'close' ) {
-						output += '<a href="#close" class="axisbuilder-attach-close-event button button-primary button-large">' + axisbuilder_modal.close + '</a>';
+						output += '<a href="#close" class="axisbuilder-attach-close-event button button-primary button-large">' + axisbuilder_modal.i18n_close_button + '</a>';
 					} else {
 						output += this.options.button;
 					}
@@ -98,18 +98,19 @@
 					fetch: true,
 					params: this.options.ajax_param,
 					action: 'axisbuilder_' + this.options.modal_action,
+					security: axisbuilder_modal.get_modal_elements_nonce,
 					instance: this.instanceNr
 				};
 
 			$.ajax({
-				url: axisbuilder_admin.ajax_url,
+				url: axisbuilder_modal.ajax_url,
 				data: data,
 				type: 'POST',
 				error: function() {
 					$.AxisBuilderModal.openInstance[0].close();
 					$.AxisBuilderModalNotification({
 						mode: 'error',
-						message: axisbuilder_modal.ajax_error
+						message: axisbuilder_modal.i18n_ajax_error
 					});
 				},
 				success: function( response ) {
@@ -117,14 +118,13 @@
 						$.AxisBuilderModal.openInstance[0].close();
 						$.AxisBuilderModalNotification({
 							mode: 'error',
-							message: axisbuilder_modal.login_error
+							message: axisbuilder_modal.i18n_login_error
 						});
 					} else if ( response === '-1' ) {
-						// Nonce Timeout ;)
 						$.AxisBuilderModal.openInstance[0].close();
 						$.AxisBuilderModalNotification({
 							mode: 'error',
-							message: axisbuilder_modal.timeout
+							message: axisbuilder_modal.i18n_session_error
 						});
 					} else {
 						inner.html( response );

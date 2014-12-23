@@ -64,66 +64,65 @@ class AB_Admin_Assets {
 	public function admin_scripts() {
 		global $wp_query, $post;
 
-		$theme        = wp_get_theme();
-		$screen       = get_current_screen();
-		// $ab_screen_id = sanitize_title( __( 'Axis Builder', 'axsisbuilder' ) );
-		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // For test purpose only replace position of '.min' :)
+		$theme  = wp_get_theme();
+		$screen = get_current_screen();
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder_modal', 'axisbuilder_helper', 'axisbuilder_history', 'axisbuilder_shortcodes', 'axisbuilder_tooltip', 'axisbuilder_sweet_alert' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-modal', 'axisbuilder-helper', 'axisbuilder-history', 'axisbuilder-tooltip', 'axisbuilder-shortcodes' ), AB_VERSION, true );
 
-		wp_register_script( 'axisbuilder_modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
-		wp_register_script( 'axisbuilder_helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
-		wp_register_script( 'axisbuilder_history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
-		wp_register_script( 'axisbuilder_shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-tooltip', AB()->plugin_url() . '/assets/scripts/tooltip/tooltip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
-		wp_register_script( 'axisbuilder_tooltip', AB()->plugin_url() . '/assets/scripts/tooltip/tooltip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
-		wp_register_script( 'axisbuilder_sweet_alert', AB()->plugin_url() . '/assets/scripts/sweetalert/sweet-alert' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
-		// Modal i10n
+		// Modal
 		$modal_params = array(
-			'save'        => __( 'Save', 'axisbuilder' ),
-			'close'       => __( 'Close', 'axisbuilder' ),
-			'success'     => __( 'All right!', 'axisbuilder' ),
-			'attention'   => __( 'Attention!', 'axisbuilder' ),
-			'error'       => __( 'An error occured', 'axisbuilder' ),
-			'timeout'     => __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ),
-			'ajax_error'  => __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ),
-			'login_error' => __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ),
-
-			// Row/Cell Specific
-			'select_layout'   => __( 'Select a cell layout', 'axisbuilder' ),
-			'no_layout'       => __( 'The current number of cells does not allow any layout variations', 'axisbuilder' ),
-			'add_one_cell'    => __( 'You need to add at least one cell', 'axisbuilder' ),
-			'remove_one_cell' => __( 'You need to remove at least one cell', 'axisbuilder' ),
+			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+			'error'                    => esc_js( __( 'An error occured', 'axisbuilder' ) ),
+			'success'                  => esc_js( __( 'All right!', 'axisbuilder' ) ),
+			'attention'                => esc_js( __( 'Attention!', 'axisbuilder' ) ),
+			'i18n_save_button'         => esc_js( __( 'Save', 'axisbuilder' ) ),
+			'i18n_close_button'        => esc_js( __( 'Close', 'axisbuilder' ) ),
+			'i18n_ajax_error'          => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_login_error'         => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_session_error'       => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
+			'get_modal_elements_nonce' => wp_create_nonce( 'get-modal-elements' )
 		);
 
-		// History i10n
+		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', $modal_params );
+
+		// History
 		$history_params = array(
 			'theme_name'     => $theme->get( 'Name' ),
 			'theme_version'  => $theme->get( 'Version' ),
 			'plugin_version' => AB_VERSION
 		);
 
-		wp_localize_script( 'axisbuilder_modal', 'axisbuilder_modal', $modal_params );
-		wp_localize_script( 'axisbuilder_history', 'axisbuilder_history', $history_params );
+		wp_localize_script( 'axisbuilder-history', 'axisbuilder_history', $history_params );
+
+		// Shortcodes
+		$shortcodes_params = array(
+			'i18n_no_layout'       => esc_js( __( 'The current number of cells does not allow any layout variations', 'axisbuilder' ) ),
+			'i18n_add_one_cell'    => esc_js( __( 'You need to add at least one cell', 'axisbuilder' ) ),
+			'i18n_remove_one_cell' => esc_js( __( 'You need to remove at least one cell', 'axisbuilder' ) ),
+			'i18n_select_layout'   => esc_js( __( 'Select a cell layout', 'axisbuilder' ) )
+		);
+
+		wp_localize_script( 'axisbuilder-shortcodes', 'axisbuilder_shortcodes', $shortcodes_params );
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
-			wp_enqueue_script( 'axisbuilder_admin' );
-
-			// Enqueue Example only
-			wp_enqueue_media();
-			wp_enqueue_script( 'axisbuilder_example', AB()->plugin_url() . '/assets/example.js', array( 'jquery' ), AB_VERSION, 'all' );
+			wp_enqueue_script( 'axisbuilder-admin' );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
-			wp_enqueue_script( 'jquery-blockui' );
 			wp_enqueue_script( 'jquery-ui-core' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'jquery-ui-droppable' );
@@ -139,7 +138,7 @@ class AB_Admin_Assets {
 				'i18n_last_warning'               => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) ),
 			);
 
-			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );
+			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
 		}
 	}
 }

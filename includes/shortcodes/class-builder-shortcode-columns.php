@@ -56,8 +56,6 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	public function editor_element( $params ) {
 		extract( $params );
 
-		$data = $this->shortcode;
-
 		$size = array(
 			'ab_one_full'     => '1/1',
 			'ab_one_half'     => '1/2',
@@ -73,16 +71,16 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 
 		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' axisbuilder-first-column' : '' : '';
 
-		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell popup-animation axisbuilder-drag ' . $data['name'] . $extra_class . '" data-dragdrop-level="' . $data['drag-level'] . '" data-width="' . $data['name'] . '">';
+		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell popup-animation axisbuilder-drag ' . $this->shortcode['name'] . $extra_class . '" data-dragdrop-level="' . $this->shortcode['drag-level'] . '" data-width="' . $this->shortcode['name'] . '">';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<a class="axisbuilder-change-column-size layout-element-icon axisbuilder-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '"></a>';
-				$output .= '<span class="axisbuilder-column-size">' . $size[ $data['name'] ] . '</span>';
+				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				$output .= '<a class="axisbuilder-change-column-size layout-element-icon axisbuilder-increase" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '"></a>';
 				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axisbuilder' ) . '">' . __( 'Delete Column', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axisbuilder' ) . '">' . __( 'Clone Column',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $data['drop-level'] . '">';
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $data['name'], $content, $args ) . '</textarea>';
+			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );
 					$output .= $content;

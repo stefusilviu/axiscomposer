@@ -2,7 +2,7 @@
  * _flex-grid.scss
  * AxisBuilder Flexible Grid
  */
-.axisbuilder-flex-grid {
+.layout-flex-grid {
 
 	/* Columns */
 	.ab_one_full {
@@ -35,46 +35,40 @@
 	.ab_four_fifth {
 		width: 78%;
 	}
+}
+
+.layout-flex-grid,
+.axisbuilder-modal {
 
 	/* Cells */
-	.ab_cell_one_full,
-	.axisbuilder-modal-label-ab_cell_one_full {
+	.ab_cell_one_full {
 		width: 100%;
 	}
-	.ab_cell_one_half,
-	.axisbuilder-modal-label-ab_cell_one_half {
+	.ab_cell_one_half {
 		width: 50%;
 	}
-	.ab_cell_one_third,
-	.axisbuilder-modal-label-ab_cell_one_third {
+	.ab_cell_one_third {
 		width: 33.3%;
 	}
-	.ab_cell_two_third,
-	.axisbuilder-modal-label-ab_cell_two_third {
+	.ab_cell_two_third {
 		width: 66.6%;
 	}
-	.ab_cell_one_fourth,
-	.axisbuilder-modal-label-ab_cell_one_fourth {
+	.ab_cell_one_fourth {
 		width: 25%;
 	}
-	.ab_cell_three_fourth,
-	.axisbuilder-modal-label-ab_cell_three_fourth {
+	.ab_cell_three_fourth {
 		width: 75%;
 	}
-	.ab_cell_one_fifth,
-	.axisbuilder-modal-label-ab_cell_one_fifth {
+	.ab_cell_one_fifth {
 		width: 20%;
 	}
-	.ab_cell_two_fifth,
-	.axisbuilder-modal-label-ab_cell_two_fifth {
+	.ab_cell_two_fifth {
 		width: 40%;
 	}
-	.ab_cell_three_fifth,
-	.axisbuilder-modal-label-ab_cell_three_fifth {
+	.ab_cell_three_fifth {
 		width: 60%;
 	}
-	.ab_cell_four_fifth,
-	.axisbuilder-modal-label-ab_cell_four_fifth {
+	.ab_cell_four_fifth {
 		width: 80%;
 	}
 }

@@ -367,7 +367,7 @@
 							}
 						}
 
-						label += '<span class="axisbuilder-modal-label-' + variations[x][y] + '">' + labeltext + '</span>';
+						label += '<span class="axisbuilder-modal-label ' + variations[x][y] + '">' + labeltext + '</span>';
 					}
 
 					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';

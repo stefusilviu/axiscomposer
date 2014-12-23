@@ -1,0 +1,269 @@
+/**
+ * modal.scss
+ * AxisBuilder popup modal styles.
+ */
+
+/**
+ * Imports
+ */
+@import "bourbon";
+@import "mixins";
+@import "variables";
+@import "animation";
+@import "fonts";
+
+/**
+ * Styling begins
+ */
+.blockUI.blockOverlay {
+	@include loader();
+}
+
+.axisbuilder-noselect {
+	@include user-select(none);
+}
+
+body .axisbuilder-hidden {
+	display: none;
+}
+
+body.axisbuilder-noscroll {
+	overflow: hidden;
+}
+
+/**
+ * Base Styles
+ */
+.axisbuilder-style {
+	line-height: 1.5em;
+
+	#{$all-text-inputs}, .input-text, textarea, select {
+		color: #777;
+		outline: none;
+		display: inline;
+		max-width: 100%;
+		border-radius: 0px;
+		border: 1px solid #e1e1e1;
+		font: 13px $helvetica;
+		@include size(95% auto);
+		@include margin(0 0 5px);
+		@include padding(6px 4px);
+		@include appearance(none);
+	}
+
+	#{$all-text-inputs-focus}, textarea:focus {
+		color: #555;
+		border: 1px solid #ccc;
+		box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+	}
+
+	input[type="text"]:disabled {
+		color: #aaa;
+		background: #f8f8f8;
+		border: 1px solid #e1e1e1;
+	}
+
+	textarea {
+		width: 95%;
+		padding: 15px;
+		height: 150px;
+		@include box-sizing( border-box );
+	}
+
+	small {
+		color: #999;
+		font-size: 11px;
+		font-style: italic;
+	}
+}
+
+/**
+ * Popup Modal
+ */
+.axisbuilder-modal-backdrop {
+	opacity: 0.7;
+	z-index: 14000;
+	background: black;
+	min-height: 360px;
+	@include position(fixed, 0px 0px 0px 0px);
+}
+
+.axisbuilder-modal {
+	overflow: auto;
+	z-index: 15000;
+	background: #fff;
+	min-height: 210px;
+	@include position(fixed, 30px 15%);
+
+	&.bigscreen {
+		@include position(null, null 30px 30px);
+	}
+
+	&.mediumscreen {
+		@include position(null, 20%);
+	}
+
+	&.highscreen {
+		@include position(null, 5% 20% 5%);
+	}
+
+	&.flexscreen {
+		min-height: 0;
+
+		.axisbuilder-modal-inner-content {
+			padding-bottom: 50px;
+			@include position(relative, 0px null null);
+		}
+	}
+
+	&.flexscreen,
+	&.smallscreen {
+		@include position(null, 35% 30% auto);
+	}
+}
+
+.axisbuilder-modal-close {
+	width: 25px;
+	height: 25px;
+	overflow: hidden;
+	@include animation-duration(0s);
+	@include position(absolute, 14px 14px null null);
+
+	&.trash-modal-icon {
+		color: #999;
+		font-size: 16px;
+
+		&:before {
+			@include icon( "\e014" );
+			line-height: 1.5;
+		}
+
+		&:hover {
+			color: #d54e21;
+		}
+	}
+}
+
+.axisbuilder-modal-inner-header {
+	height: 50px;
+	border-bottom: 1px solid #DFDFDF;
+	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.1);
+	position: relative;
+}
+
+.axisbuilder-modal-inner-footer {
+	height: 50px;
+	border-top: 1px solid #DFDFDF;
+	box-shadow: inset 0 4px 4px -4px rgba(0, 0, 0, 0.1);
+	position: absolute;
+	bottom: 0;
+	background: #FCFCFC;
+	width: 100%;
+}
+
+div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
+	position: absolute;
+	right: 12px;
+	top: 10px;
+	padding: 0 35px 2px;
+}
+
+.axisbuilder-modal-inner-content {
+	padding: 0;
+	overflow: auto;
+	@include position(absolute, 52px 0px 50px 0px);
+
+	&.loader {
+		@include loader();
+	}
+}
+
+.axisbuilder-modal-title {
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font-size: 22px;
+	font-weight: 200;
+	line-height: 53px;
+	@include position(absolute, 0px null null 14px);
+}
+
+.axisbuilder-msg-error { color: #D54E21; }
+.axisbuilder-msg-success { color:#8AB83A; }
+.axisbuilder-msg-attention {color:#4BA7D3; }
+
+.axisbuilder-form-element-container {
+	padding: 8px;
+}
+
+.axisbuilder-modal .axisbuilder-form-element-container {
+	clear: both;
+	background: #fff;
+	padding: 18px 20px;
+	position: relative;
+	border-bottom:1px dashed #e1e1e1;
+	@include box-sizing( border-box );
+
+	p {
+		color: #777;
+	}
+}
+
+.smallscreen .axisbuilder-form-element-container {
+	border-bottom: none;
+}
+
+.axisbuilder-modal .axisbuilder-form-element-container:hover,
+.smallscreen .axisbuilder-modal .axisbuilder-modal-inner-content:hover {
+	background: #fcfcfc;
+}
+
+.axisbuilder-name-description {
+	> strong {
+		display: block;
+	}
+
+	> span,
+	> label {
+		color: #777;
+		display: block;
+		margin-bottom: 4px;
+	}
+}
+
+/* Inside modal use half with for element + description */
+.axisbuilder-modal .axisbuilder-form-element {
+	width:49%;
+	float:left;
+}
+.axisbuilder-modal .axisbuilder-name-description {
+	width:49%;
+	float:right;
+}
+
+.wp-fullscreen-active input[type=text].wp-fullscreen-title {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/**
+ * Animation Styles
+ */
+.popup-animation {
+	@include animation( popup .3s $ease-out-back );
+}
+
+/**
+ * Clear
+ */
+.clear {
+	clear: both;
+}
+
+/**
+ * Clearfix
+ */
+.axisbuilder-clearfix {
+	@include clearfix();
+}

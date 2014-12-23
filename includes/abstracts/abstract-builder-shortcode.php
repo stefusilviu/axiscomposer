@@ -37,10 +37,10 @@ abstract class AB_Shortcode {
 	public $shortcode;
 
 	/**
-	 * Shortcode Settings
+	 * Shortcode Elements
 	 * @var array
 	 */
-	public $settings;
+	public $elements;
 
 	/**
 	 * Class Constructor Method.
@@ -84,10 +84,10 @@ abstract class AB_Shortcode {
 			$this->shortcode['html-render'] = 'sortable_editor_element';
 		}
 
-		// Activate popup editor if settings exist.
+		// Activate popup editor if elements exist.
 		if ( method_exists( $this, 'popup_elements' ) ) {
 			$this->popup_elements();
-			if ( isset( $this->settings ) ) {
+			if ( isset( $this->elements ) ) {
 				$this->shortcode['popup_editor'] = true;
 			}
 		}
@@ -104,6 +104,33 @@ abstract class AB_Shortcode {
 		$params['innerHtml'] .= '<div class="axisbuilder-element-label">' . $this->title . '</div>';
 
 		return (array) $params;
+	}
+
+	/**
+	 * Popup Editor.
+	 */
+	public function popup_editor() {
+
+		if ( empty( $this->elements ) ) {
+			die();
+		}
+
+		// Check theme support for custom CSS element
+		if ( current_theme_supprts( 'axisbuilder-custom-css' ) ) {
+			$this->elements = $this->custom_css( $this->elements );
+		}
+
+		$elements = apply_filters( 'axisbuilder_shortcodes_elements', $this->elements );
+
+		// If the ajax request told us that we are fetching the sub-function iterate over the array elements :)
+		if ( ! empty( $_POST['params']['subelements'] ) ) {
+			foreach ( $elements as $element ) {
+				if ( isset( $element['subelements'] ) ) {
+					$elements = $element['subelements'];
+					break;
+				}
+			}
+		}
 	}
 
 	/**

@@ -1,0 +1,74 @@
+/**
+ * _flex-grid.scss
+ * AxisBuilder Flexible Grid
+ */
+.layout-flex-grid {
+
+	/* Columns */
+	.ab_one_full {
+		width: 98%;
+	}
+	.ab_one_half {
+		width: 48%;
+	}
+	.ab_one_third {
+		width: 31.3%;
+	}
+	.ab_two_third {
+		width: 64.6%;
+	}
+	.ab_one_fourth {
+		width: 23%;
+	}
+	.ab_three_fourth {
+		width: 73%;
+	}
+	.ab_one_fifth {
+		width: 18%;
+	}
+	.ab_two_fifth {
+		width: 38%;
+	}
+	.ab_three_fifth {
+		width: 58%;
+	}
+	.ab_four_fifth {
+		width: 78%;
+	}
+}
+
+.layout-flex-grid,
+.axisbuilder-modal {
+
+	/* Cells */
+	.ab_cell_one_full {
+		width: 100%;
+	}
+	.ab_cell_one_half {
+		width: 50%;
+	}
+	.ab_cell_one_third {
+		width: 33.3%;
+	}
+	.ab_cell_two_third {
+		width: 66.6%;
+	}
+	.ab_cell_one_fourth {
+		width: 25%;
+	}
+	.ab_cell_three_fourth {
+		width: 75%;
+	}
+	.ab_cell_one_fifth {
+		width: 20%;
+	}
+	.ab_cell_two_fifth {
+		width: 40%;
+	}
+	.ab_cell_three_fifth {
+		width: 60%;
+	}
+	.ab_cell_four_fifth {
+		width: 80%;
+	}
+}

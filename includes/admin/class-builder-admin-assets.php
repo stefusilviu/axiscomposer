@@ -48,6 +48,7 @@ class AB_Admin_Assets {
 
 			// Admin styles for AB pages only
 			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-modal', AB()->plugin_url() . '/assets/styles/modal.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), AB_VERSION );
 			wp_enqueue_style( 'wp-color-picker' );
 		}
@@ -69,7 +70,9 @@ class AB_Admin_Assets {
 		$suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // For test purpose only replace position of '.min' :)
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-ui-datepicker', 'axisbuilder_helper', 'axisbuilder_history', 'axisbuilder_shortcodes', 'axisbuilder_tooltip', 'axisbuilder_sweet_alert' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder_modal', 'axisbuilder_helper', 'axisbuilder_history', 'axisbuilder_shortcodes', 'axisbuilder_tooltip', 'axisbuilder_sweet_alert' ), AB_VERSION, true );
+
+		wp_register_script( 'axisbuilder_modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
@@ -81,14 +84,33 @@ class AB_Admin_Assets {
 
 		wp_register_script( 'axisbuilder_sweet_alert', AB()->plugin_url() . '/assets/scripts/sweetalert/sweet-alert' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
-		// History
-		$params = array(
+		// Modal i10n
+		$modal_params = array(
+			'save'        => __( 'Save', 'axisbuilder' ),
+			'close'       => __( 'Close', 'axisbuilder' ),
+			'success'     => __( 'All right!', 'axisbuilder' ),
+			'attention'   => __( 'Attention!', 'axisbuilder' ),
+			'error'       => __( 'An error occured', 'axisbuilder' ),
+			'timeout'     => __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ),
+			'ajax_error'  => __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ),
+			'login_error' => __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ),
+
+			// Row/Cell Specific
+			'select_layout'   => __( 'Select a cell layout', 'axisbuilder' ),
+			'no_layout'       => __( 'The current number of cells does not allow any layout variations', 'axisbuilder' ),
+			'add_one_cell'    => __( 'You need to add at least one cell', 'axisbuilder' ),
+			'remove_one_cell' => __( 'You need to remove at least one cell', 'axisbuilder' ),
+		);
+
+		// History i10n
+		$history_params = array(
 			'theme_name'     => $theme->get( 'Name' ),
 			'theme_version'  => $theme->get( 'Version' ),
 			'plugin_version' => AB_VERSION
 		);
 
-		wp_localize_script( 'axisbuilder_history', 'axisbuilder_history', $params );
+		wp_localize_script( 'axisbuilder_modal', 'axisbuilder_modal', $modal_params );
+		wp_localize_script( 'axisbuilder_history', 'axisbuilder_history', $history_params );
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
@@ -101,10 +123,11 @@ class AB_Admin_Assets {
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'jquery-blockui' );
 			wp_enqueue_script( 'jquery-ui-core' );
-			wp_enqueue_script( 'jquery-ui-tabs' );
-			wp_enqueue_script( 'jquery-ui-dialog' );
-			wp_enqueue_script( 'jquery-ui-button' );
+			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'jquery-ui-droppable' );
+			wp_enqueue_script( 'jquery-ui-datepicker' );
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',

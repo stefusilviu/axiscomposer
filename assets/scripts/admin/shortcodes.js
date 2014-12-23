@@ -180,7 +180,7 @@
 			// Change the column size text
 			sizeString.text( nextSize[1] );
 
-			// Textarea Update and Historry snapshot :)
+			// Textarea Update and History snapshot :)
 			obj.updateTextarea();
 
 			if ( section.length ) {
@@ -207,9 +207,8 @@
 		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
 	};
 
-	$.AxisBuilderShortcodes.setCellSize = function() {
-		// Will do after the modal is ready to render data :)
-		// --> clicked, obj
+	$.AxisBuilderShortcodes.setCellSize = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.setCellSize( clicked, obj );
 	};
 
 	// Main Row/Cell control
@@ -343,6 +342,81 @@
 
 			// Change the cell size text
 			sizeString.text( nextSize[1] );
+		},
+
+		setCellSize: function( clicked, obj ) {
+			var item       = $( clicked ),
+				row        = item.parents( '.axisbuilder-layout-row:eq(0)' ),
+				cells      = row.find( '.axisbuilder-layout-cell' ),
+				rowCount   = cells.length,
+				variations = this.cellSizeVariations[rowCount],
+				button, modal_class, message = '';
+
+			if ( variations ) {
+				button = 'save';
+				modal_class = 'highscreen';
+				message += '<form>';
+
+				for ( var x in variations ) {
+					var label = '',	labeltext = '';
+
+					for ( var y in variations[x] ) {
+						for ( var z in this.cellSize ) {
+							if ( this.cellSize[z][0] == variations[x][y] ) {
+								labeltext = this.cellSize[z][1];
+							}
+						}
+
+						label += '<span class="axisbuilder-modal-label ' + variations[x][y] + '">' + labeltext + '</span>';
+					}
+
+					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
+					message += '<input type="radio" name="layout" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+				}
+
+				message += '</form>';
+
+			} else {
+				button = 'close';
+				modal_class = 'flexscreen';
+				message += '<p>' + axisbuilder_modal.no_layout + '<br />';
+
+				if ( rowCount === 1 ) {
+					message += axisbuilder_modal.add_one_cell;
+				} else {
+					message += axisbuilder_modal.remove_one_cell;
+				}
+
+				message += '</p>';
+			}
+
+			// Modal Notification
+			new $.AxisBuilderModalNotification({
+				scope: this,
+				button: button,
+				message: message,
+				modal_class: modal_class,
+				modal_title: axisbuilder_modal.select_layout,
+				on_save: this.saveModal,
+				save_param: {
+					obj: obj,
+					row: row,
+					cells: cells,
+					variations: variations,
+				}
+			});
+		},
+
+		saveModal: function( values, save_param ) {
+			var index = ( values && values.layout ) ? values.layout : false;
+			if ( ! index ) {
+				return true;
+			}
+
+			$.AxisBuilderLayoutRow.changeMultipleCellSize( save_param.cells, save_param.variations[index], save_param.obj, true );
+			save_param.obj.updateInnerTextarea( false, save_param.row );
+			save_param.obj.updateTextarea();
+			save_param.obj.historySnapshot(0);
 		}
 	};
 

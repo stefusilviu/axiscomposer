@@ -192,6 +192,9 @@ abstract class AB_Shortcode {
 			unset( $args['content'] );
 		}
 
+		// Let's initialized params as an array
+		$params = array();
+
 		$params['args']    = $args;
 		$params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
 		$params['content'] = $content;

@@ -52,28 +52,53 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 	public function popup_elements() {
 		$this->elements = array(
 			array(
-				'name'  => __( 'Code Block Element. Add your own HTML/Javascript here', 'axisbuilder' ),
-				'desc'  => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axisbuilder' ),
-				'id'    => 'content',
-				'class' => 'axisbuilder-element-fullwidth',
-				'type'  => 'textarea',
-				'std'   => ''
+				'name'            => __( 'Code Block Element. Add your own HTML/Javascript here', 'axisbuilder' ),
+				'desc'            => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axisbuilder' ),
+				'id'              => 'content',
+				'std'             => '',
+				'type'            => 'textarea',
+				'container_class' => 'axisbuilder-element-fullwidth',
 			),
 
 			array(
-				'name'  => __( 'Code Wrapper Element', 'axisbuilder' ),
-				'desc'  => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axisbuilder' ),
-				'id'    => 'wrapper_element',
-				'type'  => 'input',
-				'std'   => ''
+				'name'    => __( 'Code Wrapper Element', 'axisbuilder' ),
+				'desc'    => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axisbuilder' ),
+				'id'      => 'wrapper_element',
+				'type'    => 'input',
+				'std'     => '',
+				'require' => array( 'wrapper_element', 'not', '' )
+			),
+
+			array(
+				'name'  => __( 'Code Wrapper Element Attributes', 'axisbuilder' ),
+				'desc'  => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axisbuilder' ),
+				'id'    => 'wrapper_element_attributes',
+				'std'   => '',
+				'type'  => 'input'
 			),
 
 			array(
 				'name'  => __( 'Escape HTML Code', 'axisbuilder' ),
 				'desc'  => __( 'WordPress will convert the html tags to readable text.', 'axisbuilder' ),
 				'id'    => 'escape_html',
-				'type'  => 'checkbox',
-				'std'   => false
+				'std'   => false,
+				'type'  => 'checkbox'
+			),
+
+			array(
+				'name'  => __( 'Disable Shortcode Processing', 'axisbuilder' ),
+				'desc'  => __( 'Check if you want to disable the shortcode processing for this code block.', 'axisbuilder' ),
+				'id'    => 'deactivate_shortcode',
+				'std'   => false,
+				'type'  => 'checkbox'
+			),
+
+			array(
+				'name'  => __( 'Deactivate schema.org markup', 'axisbuilder' ),
+				'desc'  => __( 'Output the code without any additional wrapper elements. (not recommended)', 'axisbuilder' ),
+				'id'    => 'deactivate_wrapper',
+				'std'   => false,
+				'type'  => 'checkbox'
 			)
 		);
 	}

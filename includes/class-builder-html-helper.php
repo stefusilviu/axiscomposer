@@ -47,7 +47,7 @@ class AB_HTML_Helper {
 
 		// ID and Class string
 		$id_string    = empty( $element['id'] ) ? '' : $element['id'] . '-form-container';
-		$class_string = empty( $element['class'] ) ? ' ' : $element['class'];
+		$class_string = empty( $element['container_class'] ) ? ' ' : $element['container_class'];
 
 		if ( ! empty( $target ) ) {
 			$data['target-element']  = $element['target'][0];

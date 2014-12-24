@@ -164,14 +164,28 @@ function do_shortcode_tag_builder( $m ) {
 		return substr($m[0], 1, -1);
 	}
 
-	$tag     = $m[2];
-	$attr    = shortcode_parse_atts( $m[3] );
-	$close   = strpos( $m[0], "[/$tag]" );
-	$content = ( $close !== false ) ? $m[5] : null;
+	// Let's initialized values as an array
+	$values = array();
 
-	if ( in_array( $tag, ab_fetch_shortcode_data( 'name' ) ) ) {
-		$_available_shortcodes = AB()->shortcodes->get_editor_element( $content, $attr );
-		return $_available_shortcodes[$tag];
+	// Check for enclosing tag or self closing
+	$values['tag']     = $m[2];
+	$values['attr']    = shortcode_parse_atts( $m[3] );
+	$values['closing'] = strpos( $m[0], '[/'.$m[2].']' );
+	$values['content'] = ( $values['closing'] !== false ) ? $m[5] : null;
+
+	if ( isset( $_POST['params']['extract'] ) ) {
+		// If we open a modal winndow check for the nested shortcodes
+		if ( $values['content'] ) {
+			$values['content'] = do_shortcode_builder( $values['content'] );
+		}
+
+		$_POST['extracted_shortcode'][] = $values;
+		return $m[0];
+	}
+
+	if ( in_array( $values['tag'], ab_fetch_shortcode_data( 'name' ) ) ) {
+		$_available_shortcodes = AB()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
+		return $_available_shortcodes[$values['tag']];
 	} else {
 		return $m[0];
 	}

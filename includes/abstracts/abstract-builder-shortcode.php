@@ -43,6 +43,12 @@ abstract class AB_Shortcode {
 	public $elements;
 
 	/**
+	 * Shortcode Arguments
+	 * @var array
+	 */
+	protected $arguments;
+
+	/**
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
@@ -128,8 +134,8 @@ abstract class AB_Shortcode {
 
 		check_ajax_referer( 'get-modal-elements', 'security' );
 
-		// Check theme support for custom CSS element
-		if ( current_theme_supports( 'axisbuilder-custom-css' ) ) {
+		// Display Custom CSS element
+		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {
 			$this->elements = $this->custom_css( $this->elements );
 		}
 
@@ -145,14 +151,14 @@ abstract class AB_Shortcode {
 			}
 		}
 
-		// $elements = $this->set_defaults_value( $elements );
-		AB_HTML_Helper::render_multiple_elements( $elements, $this );
+		$elements = $this->set_defaults_value( $elements );
+		AB_HTML_Helper::render_multiple_elements( $elements );
 
 		die();
 	}
 
 	/**
-	 * Add-on for custom CSS class to each element.
+	 * Add-on for Custom CSS class to each element.
 	 */
 	public function custom_css( $elements ) {
 		$elements[] = array(
@@ -171,23 +177,27 @@ abstract class AB_Shortcode {
 	 */
 	public function prepare_editor_element( $content = false, $args = array() ) {
 
-		// Set default content unless it was already passed
-		// if ( $content === false ) {
-		// 	$content = $this->fetch_default_content( $content );
-		// }
+		// Extract default content unless it was already passed
+		if ( $content === false ) {
+			$content = $this->get_default_content();
+		}
 
-		// Set default arguments unless it was already passed
-		// if ( empty( $args ) ) {
-		// 	$args = $this->fetch_default_args( $args );
-		// }
+		// Extract default arguments unless it was already passed
+		if ( empty( $args ) ) {
+			$args = $this->get_default_arguments();
+		}
 
+		// Unset content key that resides in arguments passed
 		if ( isset( $args['content'] ) ) {
 			unset( $args['content'] );
 		}
 
-		$params['content'] = $content;
+		// Let's initialized params as an array
+		$params = array();
+
 		$params['args']    = $args;
 		$params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
+		$params['content'] = $content;
 
 		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
 		$params = $this->editor_element( $params );
@@ -214,7 +224,7 @@ abstract class AB_Shortcode {
 
 		$defaults = array(
 			'innerHtml' => '',
-			'class'     => 'axisbuilder-default-container',
+			'class'     => 'axisbuilder-default-container'
 		);
 
 		$params = array_merge( $defaults, $params );
@@ -246,18 +256,124 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Fetch default content
+	 * Extracts the shortcode attributes and merge the values into the options array.
+	 * @param  array $elements
+	 * @return array $elements
 	 */
-	// public function fetch_default_content() {
+	public function set_defaults_value( $elements ) {
+		$shortcode = empty( $_POST['params']['shortcode'] ) ? '' : $_POST['params']['shortcode'];
 
-	// }
+		if ( $shortcode ) {
+
+			// Will extract the shortcode into $_POST['extracted_shortcode']
+			AB_AJAX::shortcodes_to_interface( $shortcode );
+
+			// The main shortcode (which is always the last array item) will be stored in $extracted_shortcode
+			$extracted_shortcode = end( $_POST['extracted_shortcode'] );
+
+			// If the $_POST['extracted_shortcode'] has more than one items we are dealing with nested shortcodes
+			$multi_content = count( $_POST['extracted_shortcode'] );
+
+			// Proceed if the main shortcode has either arguments or content
+			if ( ! empty( $extracted_shortcode['attr'] ) || ! empty( $extracted_shortcode['content'] ) ) {
+
+				if ( empty( $extracted_shortcode['attr'] ) ) {
+					$extracted_shortcode['attr'] = '';
+				}
+
+				if ( isset( $extracted_shortcode['content'] ) ) {
+					$extracted_shortcode['attr']['content'] = $extracted_shortcode['content'];
+				}
+
+				// Iterate over each elements and check if we already got a value
+				foreach ( $elements as $element ) {
+
+					if ( isset( $element['id'] ) && isset( $extracted_shortcode['attr'][$element['id']] ) ) {
+
+						// Ensure each popup element can access the other values of the shortcode. Necessary for hidden elements.
+						$element['shortcode_data'] = $extracted_shortcode['attr'];
+
+						// If the item has subelements then std value should be an array
+						if ( isset( $element['subelements'] ) ) {
+							$element['std'] = array();
+
+							for ( $i = 0; $i < ( $multi_content - 1 ); $i++ ) {
+								$element['std'][$i] = $_POST['extracted_shortcode'][$i]['attr'];
+								$element['std'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
+							}
+						} else {
+							$element['std'] = stripslashes( $extracted_shortcode['attr'][$element['id']] );
+						}
+					} else {
+						if ( $element['type'] == 'checkbox' ) {
+							$element['std'] = '';
+						}
+					}
+				}
+			}
+		}
+
+		return $elements;
+	}
 
 	/**
-	 * Fetch default args
+	 * Extract the default values of the content element.
+	 * @return array $content
 	 */
-	// public function fetch_default_args() {
+	public function get_default_content() {
+		$content = '';
 
-	// }
+		if ( ! empty( $this->elements ) ) {
+
+			// If we didn't iterate over the arguments array yet do it now !
+			if ( empty( $this->arguments ) ) {
+				$this->get_default_arguments();
+			}
+
+			if ( ! isset( $this->arguments['content'] ) ) {
+				foreach ( $this->elements as $element ) {
+					if ( isset( $element['std'] ) && isset( $element['id'] ) && $element['id'] == 'content' ) {
+						$content = $element['std'];
+					}
+				}
+			} else {
+				$content = $this->arguments['content'];
+			}
+
+			// If content is an array we got a nested shortcode :)
+			if ( is_array( $content ) ) {
+				$nested_content = '';
+
+				foreach ( $content as $data ) {
+					$nested_content .= trim( ab_create_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
+				}
+
+				$content = $nested_content;
+			}
+		}
+
+		return $content;
+	}
+
+	/**
+	 * Extract the std values from the options array and create a shortcode arguments array.
+	 * @return array $arguments
+	 */
+	public function get_default_arguments() {
+		$arguments = array();
+
+		if ( ! empty( $this->elements ) ) {
+			foreach ( $this->elements as $element ) {
+				if ( isset( $element['std'] ) && isset( $element['id'] ) ) {
+					$arguments[$element['id']] = $element['std'];
+				}
+			}
+
+			$this->arguments = $arguments;
+		}
+
+		return $arguments;
+	}
 
 	/**
 	 * Output a view template which can used with builder elements.

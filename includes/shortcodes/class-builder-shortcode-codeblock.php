@@ -58,6 +58,14 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 				'class' => 'axisbuilder-element-fullwidth',
 				'type'  => 'textarea',
 				'std'   => ''
+			),
+
+			array(
+				'name'  => __( 'Code Wrapper Element', 'axisbuilder' ),
+				'desc'  => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axisbuilder' ),
+				'id'    => 'wrapper_element',
+				'type'  => 'input',
+				'std'   => ''
 			)
 		);
 	}

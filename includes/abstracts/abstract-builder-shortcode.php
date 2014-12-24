@@ -46,7 +46,7 @@ abstract class AB_Shortcode {
 	 * Default Arguments
 	 * @var array
 	 */
-	protected $default_args;
+	protected $arguments;
 
 	/**
 	 * Class Constructor Method.
@@ -326,7 +326,7 @@ abstract class AB_Shortcode {
 				}
 			}
 
-			$this->default_args = $args;
+			$this->arguments = $args;
 		}
 
 		return $args;
@@ -342,18 +342,18 @@ abstract class AB_Shortcode {
 		if ( ! empty( $this->elements ) ) {
 
 			// If we didn't iterate over the arguments array yet do it now
-			if ( empty( $this->default_args ) ) {
+			if ( empty( $this->arguments ) ) {
 				$this->get_default_args();
 			}
 
-			if ( ! isset( $this->default_args['content'] ) ) {
+			if ( ! isset( $this->arguments['content'] ) ) {
 				foreach ( $this->elements as $element ) {
 					if ( isset( $element['std'] ) && isset( $element['id'] ) && $element['id'] == 'content' ) {
 						$content = $element['std'];
 					}
 				}
 			} else {
-				$content = $this->default_args['content'];
+				$content = $this->arguments['content'];
 			}
 
 			// If $content is an array we got a nested shortcode :)

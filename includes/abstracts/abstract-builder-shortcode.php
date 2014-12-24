@@ -221,7 +221,7 @@ abstract class AB_Shortcode {
 
 		$defaults = array(
 			'innerHtml' => '',
-			'class'     => 'axisbuilder-default-container',
+			'class'     => 'axisbuilder-default-container'
 		);
 
 		$params = array_merge( $defaults, $params );

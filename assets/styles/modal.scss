@@ -241,6 +241,17 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 	float:right;
 }
 
+/**
+ * Use full-width Styles
+ */
+.axisbuilder-element-fullwidth {
+	.axisbuilder-form-element,
+	.axisbuilder-name-description {
+		float: none;
+		width: 100%;
+	}
+}
+
 .wp-fullscreen-active input[type=text].wp-fullscreen-title {
 	display: block;
 	margin-left: auto;

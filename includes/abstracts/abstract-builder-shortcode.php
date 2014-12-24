@@ -177,17 +177,17 @@ abstract class AB_Shortcode {
 	 */
 	public function prepare_editor_element( $content = false, $args = array() ) {
 
-		// Set default content unless it was already passed
+		// Extract default content unless it was already passed
 		if ( $content === false ) {
 			$content = $this->get_default_content();
 		}
 
-		// Set default arguments unless it was already passed
+		// Extract default arguments unless it was already passed
 		if ( empty( $args ) ) {
 			$args = $this->get_default_arguments();
 		}
 
-		// Unset content that resides in arguments passed
+		// Unset content key that resides in arguments passed
 		if ( isset( $args['content'] ) ) {
 			unset( $args['content'] );
 		}
@@ -322,7 +322,7 @@ abstract class AB_Shortcode {
 
 		if ( ! empty( $this->elements ) ) {
 
-			// If we didn't iterate over the arguments array yet do it now
+			// If we didn't iterate over the arguments array yet do it now !
 			if ( empty( $this->arguments ) ) {
 				$this->get_default_arguments();
 			}
@@ -337,7 +337,7 @@ abstract class AB_Shortcode {
 				$content = $this->arguments['content'];
 			}
 
-			// If $content is an array we got a nested shortcode :)
+			// If content is an array we got a nested shortcode :)
 			if ( is_array( $content ) ) {
 				$nested_content = '';
 

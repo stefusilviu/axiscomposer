@@ -145,8 +145,8 @@ abstract class AB_Shortcode {
 			}
 		}
 
-		// $elements = $this->set_defaults_value( $elements );
-		AB_HTML_Helper::render_multiple_elements( $elements, $this );
+		$elements = $this->set_defaults_value( $elements );
+		AB_HTML_Helper::render_multiple_elements( $elements );
 
 		die();
 	}
@@ -243,6 +243,34 @@ abstract class AB_Shortcode {
 		$output .= '</div>';
 
 		return $output;
+	}
+
+	/**
+	 * Extracts the shortcode attributes and merge the values into the options array.
+	 * @param  array $elements
+	 * @return array $elements
+	 */
+	public function set_defaults_value( $elements ) {
+		$shortcode = empty( $_POST['params']['shortcode'] ) ? '' : $_POST['params']['shortcode'];
+
+		if ( $shortcode ) {
+
+			// Will extract the shortcode into $_POST['extracted_shortcode']
+			// AB_AJAX::shortcodes_to_interface( $shortcode );
+
+			// The main shortcode (which is always the last array item) will be stored in $extracted_shortcode
+			$extracted_shortcode = end( $_POST['extracted_shortcode'] );
+
+			// If the $_POST['extracted_shortcode'] has more than one items we are dealing with nested shortcodes
+			$multi_content = count( $_POST['extracted_shortcode'] );
+
+			// Proceed if the main shortcode has either arguments or content
+			if ( ! empty( $extracted_shortcode['attr'] ) || ! empty( $extracted_shortcode['content'] ) ) {
+				echo "string";
+			}
+		}
+
+		return $elements;
 	}
 
 	/**

@@ -44,7 +44,7 @@ class AB_HTML_Helper {
 			$prepend = isset( $_POST['instance'] ) ? $_POST['instance'] : 0;
 			$element['ajax'] = true;
 
-			// Loop if multiple windows called ;)
+			// Prepend multiple times if multiple windows called ;)
 			for ( $i = 0; $i < $prepend; $i++ ) {
 				$element['id'] = "axisbuilderTB-" . $element['id'];
 			}
@@ -64,11 +64,11 @@ class AB_HTML_Helper {
 		// Save the values into a unique array in case we need it for dependencies
 		self::$elementValues[$element['id']] = $element['std'];
 
-		// Prepend a string to ID if it's on modal window. Prepend multiple times if multiple windows called.
-		$element = self::ajax_modify_id( $element );
-
 		// Create default data & class string and check the depedencies of an object
 		// extract( self::check_dependencies( $element ) );
+
+		// Check if its an ajax request and prepend a string to ensure ID's are unique
+		$element = self::ajax_modify_id( $element );
 
 		// ID and Class string
 		$id_string    = empty( $element['id'] ) ? '' : $element['id'] . '-form-container';

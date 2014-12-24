@@ -152,6 +152,21 @@ abstract class AB_Shortcode {
 	}
 
 	/**
+	 * Add-on for custom CSS class to each element.
+	 */
+	public function custom_css( $elements ) {
+		$elements[] = array(
+			'id'   => 'custom_class',
+			'name' => __( 'custom CSS Class', 'axisbuilder' ),
+			'desc' => __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers)', 'axisbuilder' ),
+			'type' => 'input',
+			'std'  => ''
+		);
+
+		return $elements;
+	}
+
+	/**
 	 * Extracts the shortcode attributes and merge the values into the options array.
 	 * @param  array $elements
 	 * @return array $elements
@@ -208,21 +223,6 @@ abstract class AB_Shortcode {
 				}
 			}
 		}
-
-		return $elements;
-	}
-
-	/**
-	 * Add-on for custom CSS class to each element.
-	 */
-	public function custom_css( $elements ) {
-		$elements[] = array(
-			'id'   => 'custom_class',
-			'name' => __( 'custom CSS Class', 'axisbuilder' ),
-			'desc' => __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers)', 'axisbuilder' ),
-			'type' => 'input',
-			'std'  => ''
-		);
 
 		return $elements;
 	}

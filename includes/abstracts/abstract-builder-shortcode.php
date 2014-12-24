@@ -177,16 +177,17 @@ abstract class AB_Shortcode {
 	 */
 	public function prepare_editor_element( $content = false, $args = array() ) {
 
-		// Set default arguments unless it was already passed
-		if ( empty( $args ) ) {
-			$args = $this->get_default_arguments();
-		}
-
 		// Set default content unless it was already passed
 		if ( $content === false ) {
 			$content = $this->get_default_content();
 		}
 
+		// Set default arguments unless it was already passed
+		if ( empty( $args ) ) {
+			$args = $this->get_default_arguments();
+		}
+
+		// Unset content that resides in arguments passed
 		if ( isset( $args['content'] ) ) {
 			unset( $args['content'] );
 		}

@@ -66,6 +66,14 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 				'id'    => 'wrapper_element',
 				'type'  => 'input',
 				'std'   => ''
+			),
+
+			array(
+				'name'  => __( 'Escape HTML Code', 'axisbuilder' ),
+				'desc'  => __( 'WordPress will convert the html tags to readable text.', 'axisbuilder' ),
+				'id'    => 'escape_html',
+				'type'  => 'checkbox',
+				'std'   => false
 			)
 		);
 	}

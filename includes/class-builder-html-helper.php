@@ -70,7 +70,7 @@ class AB_HTML_Helper {
 					}
 
 					if ( ! empty( $element['desc'] ) ) {
-						if ( ! empty( $element['type'] ) && $element['type'] != 'checkbox' ) {
+						if ( ! empty( $element['type'] ) && $element['type'] !== 'checkbox' ) {
 							$output .= '<span>' . $element['desc'] . '</span>';
 						} else {
 							$output .= '<label for="' . $element['id'] . '">' . $element['desc'] . '</label>';
@@ -80,7 +80,7 @@ class AB_HTML_Helper {
 					$output .= '</div>';
 				}
 
-				$output .= '<div class="axisbuilder-form-element "' . $element['class'] . '">';
+				$output .= '<div class="axisbuilder-form-element ' . $element['class'] . '">';
 					$output .= self::$element['type']( $element, $parent_class );
 
 					if ( ! empty( $element['fetchTMPL'] ) ) {
@@ -103,6 +103,17 @@ class AB_HTML_Helper {
 
 	public static function textarea( $element ) {
 		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
+		return $output;
+	}
+
+	public static function checkbox( $element ) {
+		$checked = '';
+
+		if ( $element['std'] != '' ) {
+			$checked = 'checked="checked"';
+		}
+
+		$output = '<input type="checkbox" ' . $checked . ' name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . $element['id'] . '" />';
 		return $output;
 	}
 }

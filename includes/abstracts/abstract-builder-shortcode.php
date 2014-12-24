@@ -134,8 +134,8 @@ abstract class AB_Shortcode {
 
 		check_ajax_referer( 'get-modal-elements', 'security' );
 
-		// Check theme support for custom CSS element
-		if ( current_theme_supports( 'axisbuilder-custom-css' ) ) {
+		// Display Custom CSS element
+		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {
 			$this->elements = $this->custom_css( $this->elements );
 		}
 
@@ -158,7 +158,7 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Add-on for custom CSS class to each element.
+	 * Add-on for Custom CSS class to each element.
 	 */
 	public function custom_css( $elements ) {
 		$elements[] = array(

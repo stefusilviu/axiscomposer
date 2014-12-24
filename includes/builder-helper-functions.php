@@ -173,7 +173,7 @@ function do_shortcode_tag_builder( $m ) {
 	if ( isset( $_POST['params']['extract'] ) ) {
 		// If we open a modal winndow check for the nested shortcodes
 		if ( $values['content'] ) {
-			$content = do_shortcode_builder( $values['content'] );
+			$values['content'] = do_shortcode_builder( $values['content'] );
 		}
 
 		$_POST['extracted_shortcode'][] = $values;

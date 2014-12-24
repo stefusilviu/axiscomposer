@@ -167,6 +167,85 @@ abstract class AB_Shortcode {
 	}
 
 	/**
+	 * Render shortcode canvas elements.
+	 */
+	public function prepare_editor_element( $args = array(), $content = false ) {
+
+		// Set default arguments unless it was already passed
+		if ( empty( $args ) ) {
+			$args = $this->get_default_args();
+		}
+
+		// Set default content unless it was already passed
+		if ( $content === false ) {
+			$content = $this->get_default_content();
+		}
+
+		if ( isset( $args['content'] ) ) {
+			unset( $args['content'] );
+		}
+
+		$params['args']    = $args;
+		$params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
+		$params['content'] = $content;
+
+		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
+		$params = $this->editor_element( $params );
+
+		// Render the sortable or default editor elements.
+		if ( $this->shortcode['html-render'] !== false ) {
+			$callback = array( $this, $this->shortcode['html-render'] );
+
+			if ( is_callable( $callback ) ) {
+				$output = call_user_func( $callback, $params );
+			}
+		} else {
+			$output = $params;
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Callback for default sortable elements.
+	 */
+	public function sortable_editor_element( $params ) {
+		$extra_class = '';
+
+		$defaults = array(
+			'innerHtml' => '',
+			'class'     => 'axisbuilder-default-container',
+		);
+
+		$params = array_merge( $defaults, $params );
+
+		extract( $params );
+
+		$data['modal-title']       = $this->title;
+		$data['modal-action']      = $this->shortcode['name'];
+		$data['dragdrop-level']    = $this->shortcode['drag-level'];
+		$data['shortcode-handler'] = $this->shortcode['name'];
+		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
+			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+				if ( isset( $this->shortcode['popup_editor'] ) ) {
+					$extra_class = 'axisbuilder-edit';
+					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
+				}
+				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
+			$output .= '</div>';
+			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
+				$output .= $innerHtml;
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+			$output .= '</div>';
+		$output .= '</div>';
+
+		return $output;
+	}
+
+	/**
 	 * Extracts the shortcode attributes and merge the values into the options array.
 	 * @param  array $elements
 	 * @return array $elements
@@ -228,97 +307,63 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Render shortcode canvas elements.
+	 * Extract the std values from the options array and create a shortcode arguments array.
+	 * @return array $args
 	 */
-	public function prepare_editor_element( $content = false, $args = array() ) {
+	public function get_default_args() {
+		$args = array();
 
-		// Set default content unless it was already passed
-		// if ( $content === false ) {
-		// 	$content = $this->fetch_default_content( $content );
-		// }
-
-		// Set default arguments unless it was already passed
-		// if ( empty( $args ) ) {
-		// 	$args = $this->fetch_default_args( $args );
-		// }
-
-		if ( isset( $args['content'] ) ) {
-			unset( $args['content'] );
-		}
-
-		$params['content'] = $content;
-		$params['args']    = $args;
-		$params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
-
-		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
-		$params = $this->editor_element( $params );
-
-		// Render the sortable or default editor elements.
-		if ( $this->shortcode['html-render'] !== false ) {
-			$callback = array( $this, $this->shortcode['html-render'] );
-
-			if ( is_callable( $callback ) ) {
-				$output = call_user_func( $callback, $params );
-			}
-		} else {
-			$output = $params;
-		}
-
-		return $output;
-	}
-
-	/**
-	 * Callback for default sortable elements.
-	 */
-	public function sortable_editor_element( $params ) {
-		$extra_class = '';
-
-		$defaults = array(
-			'innerHtml' => '',
-			'class'     => 'axisbuilder-default-container',
-		);
-
-		$params = array_merge( $defaults, $params );
-
-		extract( $params );
-
-		$data['modal-title']       = $this->title;
-		$data['modal-action']      = $this->shortcode['name'];
-		$data['dragdrop-level']    = $this->shortcode['drag-level'];
-		$data['shortcode-handler'] = $this->shortcode['name'];
-		$data['shortcode-allowed'] = $this->shortcode['name'];
-
-		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
-			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
-				if ( isset( $this->shortcode['popup_editor'] ) ) {
-					$extra_class = 'axisbuilder-edit';
-					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
+		if ( ! empty( $this->elements ) ) {
+			foreach ( $this->elements as $element ) {
+				if ( isset( $element['std'] ) && isset( $element['id'] ) ) {
+					$args[$element['id']] = $element['std'];
 				}
-				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
-			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
-				$output .= $innerHtml;
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
-			$output .= '</div>';
-		$output .= '</div>';
+			}
 
-		return $output;
+			$this->default_args = $args;
+		}
+
+		return $args;
 	}
 
 	/**
-	 * Fetch default content
+	 * Extract the default values of the content element.
+	 * @return array $content
 	 */
-	// public function fetch_default_content() {
+	public function get_default_content() {
+		$content = '';
 
-	// }
+		if ( ! empty( $this->elements ) ) {
 
-	/**
-	 * Fetch default args
-	 */
-	// public function fetch_default_args() {
+			// If we didn't iterate over the arguments array yet do it now
+			if ( empty( $this->default_args ) ) {
+				$this->get_default_args();
+			}
 
-	// }
+			if ( ! isset( $this->default_args['content'] ) ) {
+				foreach ( $this->elements as $element ) {
+					if ( isset( $element['std'] ) && isset( $element['id'] ) && $element['id'] == 'content' ) {
+						$content = $element['std'];
+					}
+				}
+			} else {
+				$content = $this->default_args['content'];
+			}
+
+			// If $content is an array we got a nested shortcode :)
+			if ( is_array( $content ) ) {
+				$nested_content = '';
+
+				foreach ( $content as $data ) {
+					$nested_content .= trim( ab_create_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
+				}
+
+				$content = $nested_content;
+			}
+		}
+
+		return $content;
+	}
 
 	/**
 	 * Output a view template which can used with builder elements.

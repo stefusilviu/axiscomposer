@@ -43,7 +43,7 @@ abstract class AB_Shortcode {
 	public $elements;
 
 	/**
-	 * Default Arguments
+	 * Shortcode Arguments
 	 * @var array
 	 */
 	protected $arguments;

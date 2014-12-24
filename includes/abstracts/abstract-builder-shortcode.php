@@ -172,7 +172,40 @@ abstract class AB_Shortcode {
 
 			// Proceed if the main shortcode has either arguments or content
 			if ( ! empty( $extracted_shortcode['attr'] ) || ! empty( $extracted_shortcode['content'] ) ) {
-				echo "string";
+
+				if ( empty( $extracted_shortcode['attr'] ) ) {
+					$extracted_shortcode['attr'] = '';
+				}
+
+				if ( isset( $extracted_shortcode['content'] ) ) {
+					$extracted_shortcode['attr']['content'] = $extracted_shortcode['content'];
+				}
+
+				// Iterate over each elements and check if we already got a value
+				foreach ( $elements as $element ) {
+
+					if ( isset( $element['id'] ) && isset( $extracted_shortcode['attr'][$element['id']] ) ) {
+
+						// Ensure each popup element can access the other values of the shortcode. Necessary for hidden elements.
+						$element['shortcode_data'] = $extracted_shortcode['attr'];
+
+						// If the item has subelements then std value should be an array
+						if ( isset( $element['subelements'] ) ) {
+							$element['std'] = array();
+
+							for ( $i = 0; $i < ( $multi_content - 1 ); $i++ ) {
+								$element['std'][$i] = $_POST['extracted_shortcode'][$i]['attr'];
+								$element['std'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
+							}
+						} else {
+							$element['std'] = stripslashes( $extracted_shortcode['attr'][$element['id']] );
+						}
+					} else {
+						if ( $element['type'] == 'checkbox' ) {
+							$element['std'] = '';
+						}
+					}
+				}
 			}
 		}
 

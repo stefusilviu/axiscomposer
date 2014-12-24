@@ -164,6 +164,9 @@ function do_shortcode_tag_builder( $m ) {
 		return substr($m[0], 1, -1);
 	}
 
+	// Let's initialized $values as an array
+	$values = array();
+
 	// Check for enclosing tag or self closing
 	$values['tag']     = $m[2];
 	$values['attr']    = shortcode_parse_atts( $m[3] );

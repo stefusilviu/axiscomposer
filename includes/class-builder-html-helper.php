@@ -34,6 +34,25 @@ class AB_HTML_Helper {
 		}
 	}
 
+	/**
+	 * Check AJAX request and modify ELement ID.
+	 * @param  array $element Shortcode Element.
+	 * @return array $element If AJAX request update ELement's ID.
+	 */
+	public static function ajax_modify_id( $element ) {
+		if ( isset( $_POST['fetch'] ) ) {
+			$prepend = isset( $_POST['instance'] ) ? $_POST['instance'] : 0;
+			$element['ajax'] = true;
+
+			// Loop if multiple windows called ;)
+			for ( $i = 0; $i < $prepend; $i++ ) {
+				$element['id'] = "axisbuilderTB-" . $element['id'];
+			}
+		}
+
+		return $element;
+	}
+
 	public static function render_element( $element, $parent_class = false ) {
 		$data   = array();
 		$output = $target_string = '';
@@ -44,6 +63,12 @@ class AB_HTML_Helper {
 
 		// Save the values into a unique array in case we need it for dependencies
 		self::$elementValues[$element['id']] = $element['std'];
+
+		// Prepend a string to ID if it's on modal window. Prepend multiple times if multiple windows called.
+		$element = self::ajax_modify_id( $element );
+
+		// Create default data & class string and check the depedencies of an object
+		// extract( self::check_dependencies( $element ) );
 
 		// ID and Class string
 		$id_string    = empty( $element['id'] ) ? '' : $element['id'] . '-form-container';

@@ -175,11 +175,11 @@ abstract class AB_Shortcode {
 	/**
 	 * Render shortcode canvas elements.
 	 */
-	public function prepare_editor_element( $args = array(), $content = false ) {
+	public function prepare_editor_element( $content = false, $args = array() ) {
 
 		// Set default arguments unless it was already passed
 		if ( empty( $args ) ) {
-			$args = $this->get_default_args();
+			$args = $this->get_default_arguments();
 		}
 
 		// Set default content unless it was already passed
@@ -313,26 +313,6 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Extract the std values from the options array and create a shortcode arguments array.
-	 * @return array $args
-	 */
-	public function get_default_args() {
-		$args = array();
-
-		if ( ! empty( $this->elements ) ) {
-			foreach ( $this->elements as $element ) {
-				if ( isset( $element['std'] ) && isset( $element['id'] ) ) {
-					$args[$element['id']] = $element['std'];
-				}
-			}
-
-			$this->arguments = $args;
-		}
-
-		return $args;
-	}
-
-	/**
 	 * Extract the default values of the content element.
 	 * @return array $content
 	 */
@@ -343,7 +323,7 @@ abstract class AB_Shortcode {
 
 			// If we didn't iterate over the arguments array yet do it now
 			if ( empty( $this->arguments ) ) {
-				$this->get_default_args();
+				$this->get_default_arguments();
 			}
 
 			if ( ! isset( $this->arguments['content'] ) ) {
@@ -369,6 +349,26 @@ abstract class AB_Shortcode {
 		}
 
 		return $content;
+	}
+
+	/**
+	 * Extract the std values from the options array and create a shortcode arguments array.
+	 * @return array $arguments
+	 */
+	public function get_default_arguments() {
+		$arguments = array();
+
+		if ( ! empty( $this->elements ) ) {
+			foreach ( $this->elements as $element ) {
+				if ( isset( $element['std'] ) && isset( $element['id'] ) ) {
+					$arguments[$element['id']] = $element['std'];
+				}
+			}
+
+			$this->arguments = $arguments;
+		}
+
+		return $arguments;
 	}
 
 	/**

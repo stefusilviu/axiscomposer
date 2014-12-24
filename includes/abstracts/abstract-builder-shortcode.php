@@ -43,6 +43,12 @@ abstract class AB_Shortcode {
 	public $elements;
 
 	/**
+	 * Default Arguments
+	 * @var array
+	 */
+	protected $default_args;
+
+	/**
 	 * Class Constructor Method.
 	 */
 	public function __construct() {

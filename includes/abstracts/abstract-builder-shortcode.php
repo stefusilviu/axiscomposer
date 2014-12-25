@@ -163,7 +163,7 @@ abstract class AB_Shortcode {
 	public function custom_css( $elements ) {
 		$elements[] = array(
 			'id'   => 'custom_class',
-			'name' => __( 'custom CSS Class', 'axisbuilder' ),
+			'name' => __( 'Custom CSS Class', 'axisbuilder' ),
 			'desc' => __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers)', 'axisbuilder' ),
 			'type' => 'input',
 			'std'  => ''

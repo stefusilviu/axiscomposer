@@ -231,20 +231,65 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 	}
 }
 
-/* Inside modal use half with for element + description */
-.axisbuilder-modal .axisbuilder-form-element {
-	width:49%;
-	float:left;
+.axisbuilder-modal {
+
+	.axisbuilder-name-description {
+		width: 49%;
+		float: right;
+	}
+
+	.axisbuilder-form-element {
+		width: 49%;
+		float: left;
+	}
+
+	/* Checkbox needs another width */
+	.axisbuilder-element-checkbox {
+
+		.axisbuilder-name-description {
+			width: 100%;
+		}
+
+		.axisbuilder-form-element {
+			width: 30px;
+		}
+	}
 }
-.axisbuilder-modal .axisbuilder-name-description {
-	width:49%;
-	float:right;
+
+/**
+ * Use full-width Styles
+ */
+.axisbuilder-element-fullwidth {
+	.axisbuilder-form-element,
+	.axisbuilder-name-description {
+		float: none;
+		width: 100%;
+	}
 }
 
 .wp-fullscreen-active input[type=text].wp-fullscreen-title {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/**
+ * Checkbox Styles
+ */
+.axisbuilder-element-checkbox {
+	position: relative;
+
+	.axisbuilder-name-description {
+		> span,
+		> label {
+			padding-left: 20px;
+		}
+	}
+
+	.axisbuilder-form-element {
+		top: 37px;
+		position: absolute;
+	}
 }
 
 /**

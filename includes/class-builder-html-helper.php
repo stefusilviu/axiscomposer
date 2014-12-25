@@ -134,7 +134,7 @@ class AB_HTML_Helper {
 	public static function checkbox( $element ) {
 		$checked = '';
 
-		if ( $element['std'] != '' ) {
+		if ( $element['std'] != false ) {
 			$checked = 'checked="checked"';
 		}
 

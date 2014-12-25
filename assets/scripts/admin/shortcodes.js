@@ -58,8 +58,8 @@
 		var cloned  = element.clone(),
 			wrapped = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
 
-		// Remove all previous drag/drop classes so we can apply new ones.
-		cloned.find( '.ui-draggable, .ui-droppable' ).removeClass( '.ui-draggable, .ui-droppable' );
+		// Remove all previous drag-drop classes so we can apply new ones.
+		cloned.removeClass( 'ui-draggable ui-droppable' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 		cloned.insertAfter( element );
 
 		if ( layoutCell ) {

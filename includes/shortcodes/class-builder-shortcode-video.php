@@ -33,7 +33,7 @@ class AB_Shortcode_Video extends AB_Shortcode {
 		$this->title     = __( 'Video', 'axisbuilder' );
 		$this->tooltip   = __( 'Display a video of your choice', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 270,
+			'sort'    => 370,
 			'type'    => 'media',
 			'name'    => 'ab_video',
 			'icon'    => 'icon-video',

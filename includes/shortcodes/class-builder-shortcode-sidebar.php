@@ -33,7 +33,7 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 		$this->title     = __( 'Widget Area', 'axisbuilder' );
 		$this->tooltip   = __( 'Display one of the themes widget areas', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 240,
+			'sort'    => 330,
 			'type'    => 'content',
 			'name'    => 'ab_sidebar',
 			'icon'    => 'icon-sidebar',

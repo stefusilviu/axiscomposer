@@ -33,7 +33,7 @@ class AB_Shortcode_Heading extends AB_Shortcode {
 		$this->title     = __( 'Special Heading', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a Special Heading', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 290,
+			'sort'    => 80,
 			'type'    => 'content',
 			'name'    => 'ab_heading',
 			'icon'    => 'icon-heading',

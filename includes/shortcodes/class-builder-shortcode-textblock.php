@@ -33,7 +33,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 		$this->title     = __( 'Text Block', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a simple text block', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 280,
+			'sort'    => 60,
 			'type'    => 'content',
 			'name'    => 'ab_textblock',
 			'icon'    => 'icon-textblock',

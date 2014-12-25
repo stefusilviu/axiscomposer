@@ -33,7 +33,7 @@ class AB_Shortcode_Button extends AB_Shortcode {
 		$this->title     = __( 'Button', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a colored button', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 60,
+			'sort'    => 120,
 			'type'    => 'content',
 			'name'    => 'ab_button',
 			'icon'    => 'icon-button',

@@ -126,19 +126,13 @@ class AB_HTML_Helper {
 		return $output;
 	}
 
-	public static function textarea( $element ) {
-		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
+	public static function checkbox( $element ) {
+		$output = '<input type="checkbox" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . $element['id'] . '" ' . checked( $element['std'], $element['id'], false ) . ' />';
 		return $output;
 	}
 
-	public static function checkbox( $element ) {
-		$checked = '';
-
-		if ( $element['std'] != false ) {
-			$checked = 'checked="checked"';
-		}
-
-		$output = '<input type="checkbox" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . $element['id'] . '" ' . $checked . ' />';
+	public static function textarea( $element ) {
+		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
 		return $output;
 	}
 }

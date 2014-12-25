@@ -138,7 +138,7 @@ class AB_HTML_Helper {
 			$checked = 'checked="checked"';
 		}
 
-		$output = '<input type="checkbox" ' . $checked . ' name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . $element['id'] . '" />';
+		$output = '<input type="checkbox" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . $element['id'] . '" ' . $checked . ' />';
 		return $output;
 	}
 }

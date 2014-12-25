@@ -169,7 +169,7 @@ function do_shortcode_tag_builder( $m ) {
 
 	// Check for enclosing tag or self closing
 	$values['tag']     = $m[2];
-	$values['attr']    = shortcode_parse_atts( $m[3] );
+	$values['attr']    = shortcode_parse_atts( stripslashes( $m[3] ) );
 	$values['closing'] = strpos( $m[0], '[/'.$m[2].']' );
 	$values['content'] = ( $values['closing'] !== false ) ? $m[5] : null;
 

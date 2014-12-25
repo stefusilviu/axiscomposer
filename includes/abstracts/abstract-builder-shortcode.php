@@ -286,7 +286,7 @@ abstract class AB_Shortcode {
 				}
 
 				// Iterate over each elements and check if we already got a value
-				foreach ( $elements as $element ) {
+				foreach ( $elements as &$element ) {
 
 					if ( isset( $element['id'] ) && isset( $extracted_shortcode['attr'][$element['id']] ) ) {
 
@@ -298,7 +298,7 @@ abstract class AB_Shortcode {
 							$element['std'] = array();
 
 							for ( $i = 0; $i < ( $multi_content - 1 ); $i++ ) {
-								$element['std'][$i] = $_POST['extracted_shortcode'][$i]['attr'];
+								$element['std'][$i]            = $_POST['extracted_shortcode'][$i]['attr'];
 								$element['std'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
 							}
 						} else {

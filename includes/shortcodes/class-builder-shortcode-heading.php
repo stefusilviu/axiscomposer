@@ -26,7 +26,7 @@ class AB_Shortcode_Heading extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode special heading.
+	 * Configuration for builder shortcode button.
 	 */
 	public function shortcode_button() {
 		$this->id        = 'axisbuilder_heading';

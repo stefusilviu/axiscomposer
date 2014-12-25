@@ -26,7 +26,7 @@ class AB_Shortcode_Image extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode image.
+	 * Configuration for builder shortcode button.
 	 */
 	public function shortcode_button() {
 		$this->id        = 'axisbuilder_image';

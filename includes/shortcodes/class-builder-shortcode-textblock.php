@@ -26,7 +26,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode text block.
+	 * Configuration for builder shortcode button.
 	 */
 	public function shortcode_button() {
 		$this->id        = 'axisbuilder_textblock';

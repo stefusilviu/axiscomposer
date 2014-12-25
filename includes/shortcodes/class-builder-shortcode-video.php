@@ -26,7 +26,7 @@ class AB_Shortcode_Video extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode video.
+	 * Configuration for builder shortcode button.
 	 */
 	public function shortcode_button() {
 		$this->id        = 'axisbuilder_video';

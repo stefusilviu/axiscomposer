@@ -519,7 +519,7 @@ function AB_Logger( text, type ) {
 		 * Updates Builder Canvas element(s) to reflect changes instantly.
 		 */
 		updateHTML: function( element_container, values, force_content_close ) {
-			var output = '', key, subkey, new_key, old_val;
+			var key, subkey, new_key, old_val;
 
 			// Filter keys for the 'axisbuilderTB-' string prefix and re-modify the key that was edited.
 			for ( key in values ) {
@@ -551,7 +551,9 @@ function AB_Logger( text, type ) {
 			var shortcode = element_container.data( 'shortcode-handler' ),
 				visual_updates = element_container.find( '[data-update_with]' ),
 				class_updates  = element_container.find( '[data-update_class_with]' ),
-				visual_key = '', visual_el = '', visual_template = '', update_html = '', replace_val = '';
+				visual_el = '', visual_key = '', visual_template = '', class_el = '', class_key = '';
+
+			// var update_html = '', replace_val = ''; Need later for visual_updates ;)
 
 			if ( ! element_container.is( '.axisbuilder-no-visual-updates') ) {
 				// Reset class name's
@@ -640,6 +642,7 @@ function AB_Logger( text, type ) {
 						}
 
 						attributes += key + "='" + values[key] + "' ";
+						// attributes += key + '=' + values[key] + '" ';
 					} else {
 						attributes += values[key] + ' ';
 					}

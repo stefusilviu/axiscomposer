@@ -91,12 +91,11 @@ class AB_Shortcodes {
 			'AB_Shortcode_Cells_Four_Fifth',
 
 			// Content Elements
+			'AB_Shortcode_Textblock',
+			'AB_Shortcode_Heading',
 			'AB_Shortcode_Button',
 			'AB_Shortcode_Sidebar',
 			'AB_Shortcode_Codeblock',
-			'AB_Shortcode_Textblock',
-			'AB_Shortcode_Heading',
-
 
 			// Media Elements
 			'AB_Shortcode_Image',

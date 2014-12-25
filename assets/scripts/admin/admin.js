@@ -268,8 +268,7 @@ function AB_Logger( text, type ) {
 			var obj  = this,
 				data = {
 					text: text,
-					action: 'axisbuilder_shortcodes_to_interface',
-					security: axisbuilder_admin.shortcodes_to_interface_nonce
+					action: 'axisbuilder_shortcodes_to_interface'
 				};
 
 			$.ajax({

@@ -84,9 +84,6 @@ class AB_AJAX {
 	 * Shortcodes to interface
 	 */
 	public static function shortcodes_to_interface( $text = null ) {
-
-		// check_ajax_referer( 'shortcodes-to-interface', 'security' );
-
 		$allowed = false;
 
 		if ( isset( $_POST['text'] ) ) {

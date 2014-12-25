@@ -641,8 +641,7 @@ function AB_Logger( text, type ) {
 							values[key] = values[key].join( ',' );
 						}
 
-						attributes += key + "='" + values[key] + "' ";
-						// attributes += key + '=' + values[key] + '" ';
+						attributes += key + '=\'' + values[key] + '\' ';
 					} else {
 						attributes += values[key] + ' ';
 					}

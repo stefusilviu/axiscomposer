@@ -522,7 +522,7 @@ function AB_Logger( text, type ) {
 		updateHTML: function( element_container, values, force_content_close ) {
 			var output = '', key, subkey, new_key, old_val;
 
-			// Filter keys for the 'axisbuilderTB' string prefix and re-modify the key that was edited.
+			// Filter keys for the 'axisbuilderTB-' string prefix and re-modify the key that was edited.
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
 					new_key = key.replace( /axisbuilderTB-/g, '' );

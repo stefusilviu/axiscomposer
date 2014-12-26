@@ -1,5 +1,5 @@
 === Axis Builder - #1 Page Builder ===
-Contributors: axisthemes
+Contributors: axisthemes, shivapoudel
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@axisthemes.com&item_name=Donation+for+Axis+Builder
 Requires at least: 3.8

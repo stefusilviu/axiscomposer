@@ -9,9 +9,9 @@
 
 	$.AxisBuilderSidebars = function() {
 
-		this.widget_area = $( '#widgets-right' );
-		this.widget_wrap = $( '.widget-liquid-right' );
-		this.widget_tmpl = $( '#axisbuilder-add-widget-tmpl' );
+		this.widgetArea = $( '#widgets-right' );
+		this.widgetWrap = $( '.widget-liquid-right' );
+		this.widgetTmpl = $( '#axisbuilder-add-widget-tmpl' );
 
 		this.createForm();
 		this.deleteIcon();
@@ -22,18 +22,18 @@
 
 		// Create Widget Area Form
 		createForm : function() {
-			this.widget_area.prepend( this.widget_tmpl.html() );
-			this.nonce = this.widget_wrap.find( 'input[name="_axisbuilder_custom_sidebar_nonce"]' ).val();
+			this.widgetArea.prepend( this.widgetTmpl.html() );
+			this.nonce = this.widgetWrap.find( 'input[name="_axisbuilder_custom_sidebar_nonce"]' ).val();
 		},
 
 		// Add Delete Icon to Widget Areas
 		deleteIcon : function() {
-			this.widget_area.find( '.sidebar-axisbuilder-custom' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
+			this.widgetArea.find( '.sidebar-axisbuilder-custom' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
 		},
 
 		// Widget Area Delete or Bind Events
 		bindEvents : function() {
-			this.widget_wrap.on( 'click', '.axisbuilder-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
+			this.widgetWrap.on( 'click', '.axisbuilder-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
 		},
 
 		// Delete the Widget Area (Sidebar) with all Widgets within, then re-calculate the other sidebar ids and re-save the order
@@ -76,7 +76,7 @@
 									widget.remove();
 
 									// Re-calculate Widget Id's
-									obj.widget_area.find( '.widgets-holder-wrap .widgets-sortables' ).each( function( i ) {
+									obj.widgetArea.find( '.widgets-holder-wrap .widgets-sortables' ).each( function( i ) {
 										$(this).attr( 'id', 'sidebar-' + ( i + 1 ) );
 									} );
 

@@ -700,6 +700,11 @@ body .ui-draggable-dragging {
 		border: 1px solid #e1e1e1;
 		text-align: center;
 		border-top: none; /* Added */
+
+		select {
+			width: auto;
+			max-width: 90%;
+		}
 	}
 }
 

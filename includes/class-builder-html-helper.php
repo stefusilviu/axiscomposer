@@ -205,4 +205,9 @@ class AB_HTML_Helper {
 		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
 		return $output;
 	}
+
+	public static function select( $element ) {
+		$output = '<select class="' . $element['class'] . '"><option>Select Widget Area</option><option>Select Widget Area</option></select>';
+		return $output;
+	}
 }

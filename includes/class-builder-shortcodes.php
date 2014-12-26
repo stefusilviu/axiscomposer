@@ -97,6 +97,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Sidebar',
 			'AB_Shortcode_Codeblock',
 			'AB_Shortcode_Calltoaction',
+			'AB_Shortcode_Iconbox',
 
 			// Media Elements
 			'AB_Shortcode_Image',

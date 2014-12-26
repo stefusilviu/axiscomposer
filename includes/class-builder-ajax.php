@@ -47,21 +47,18 @@ class AB_AJAX {
 
 		check_ajax_referer( 'delete-custom-sidebar', 'security' );
 
-		$sidebar = esc_attr( $_POST['name'] );
+		$sidebar = esc_attr( $_POST['sidebar'] );
 
 		if ( isset( $sidebar ) || ! empty( $sidebar ) ) {
 
-			$name = stripslashes( $_POST['name'] );
+			$name = stripslashes( $_POST['sidebar'] );
 			$data = get_option( 'axisbuilder_sidebars' );
 			$keys = array_search( $name, $data );
 
 			if ( $keys !== false ) {
-
 				unset( $data[$keys] );
 				update_option( 'axisbuilder_sidebars', $data );
-
-				$response = 'axisbuilder-sidebar-deleted';
-				wp_send_json( $response );
+				wp_send_json( true );
 			}
 		}
 

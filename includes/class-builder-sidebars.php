@@ -52,10 +52,10 @@ class AB_Sidebars {
 	 */
 	public function add_sidebar_option() {
 
-		if ( ! empty( $_POST['axisbuilder-add-widget'] ) ) {
+		if ( ! empty( $_POST['axisbuilder-add-sidebar'] ) ) {
 
 			$this->sidebars = get_option( 'axisbuilder_sidebars' );
-			$sidebar_name	= $this->get_sidebar_name( $_POST['axisbuilder-add-widget'] );
+			$sidebar_name	= $this->get_sidebar_name( $_POST['axisbuilder-add-sidebar'] );
 
 			if ( empty( $this->sidebars ) ) {
 				$this->sidebars = array( $sidebar_name );

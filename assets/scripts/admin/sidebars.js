@@ -11,7 +11,7 @@
 
 		this.widgetArea = $( '#widgets-right' );
 		this.widgetWrap = $( '.widget-liquid-right' );
-		this.widgetTmpl = $( '#axisbuilder-add-widget-tmpl' );
+		this.widgetTmpl = $( '#axisbuilder-sidebar-tmpl' );
 
 		this.createForm();
 		this.deleteIcon();
@@ -51,7 +51,7 @@
 
 					var obj = this,
 						data = {
-							name: widget_name,
+							sidebar: widget_name,
 							action: 'axisbuilder_delete_custom_sidebar',
 							security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
 						};
@@ -65,7 +65,7 @@
 						},
 						success: function( response ) {
 
-							if ( response === 'axisbuilder-sidebar-deleted' ) {
+							if ( response === true ) {
 								widget.slideUp( 200, function() {
 
 									// Remove all Widgets inside

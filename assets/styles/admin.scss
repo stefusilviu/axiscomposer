@@ -700,11 +700,6 @@ body .ui-draggable-dragging {
 		border: 1px solid #e1e1e1;
 		text-align: center;
 		border-top: none; /* Added */
-
-		select {
-			width: auto;
-			max-width: 90%;
-		}
 	}
 }
 
@@ -1065,6 +1060,21 @@ body .ui-draggable-dragging {
 			&:hover {
 				background: #f8f8f8;
 			}
+		}
+	}
+}
+
+/**
+ * Shortcode Specific Styles
+ */
+.axisbuilder-sortable-element.ab_sidebar {
+
+	.axisbuilder-inner-shortcode {
+
+		select {
+			width: auto;
+			max-width: 90%;
+			min-width: 175px;
 		}
 	}
 }

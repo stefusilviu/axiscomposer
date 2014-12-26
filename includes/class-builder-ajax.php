@@ -41,28 +41,15 @@ class AB_AJAX {
 	}
 
 	/**
-	 * Output headers for JSON requests.
-	 *
-	 * @access private
-	 * @return void
-	 */
-	public static function json_headers() {
-		header( 'Content-Type: application/json; charset=utf-8' );
-	}
-
-	/**
 	 * AJAX Delete Custom Sidebar on Widgets Page.
 	 */
 	public static function delete_custom_sidebar() {
 
 		check_ajax_referer( 'delete-custom-sidebar', 'security' );
 
-		// Get post name
-		$post = esc_attr( $_POST['name'] );
+		$sidebar = esc_attr( $_POST['name'] );
 
-		if ( ! empty( $post ) ) {
-
-			self::json_headers();
+		if ( isset( $sidebar ) || ! empty( $sidebar ) ) {
 
 			$name = stripslashes( $_POST['name'] );
 			$data = get_option( 'axisbuilder_sidebars' );
@@ -72,11 +59,12 @@ class AB_AJAX {
 
 				unset( $data[$keys] );
 				update_option( 'axisbuilder_sidebars', $data );
-				echo json_encode( 'axisbuilder-sidebar-deleted' );
+
+				$response = 'axisbuilder-sidebar-deleted';
+				wp_send_json( $response );
 			}
 		}
 
-		// Quit out
 		die();
 	}
 
@@ -103,7 +91,6 @@ class AB_AJAX {
 		if ( isset( $_POST['text'] ) ) {
 			echo $text;
 
-			// Quit out
 			die();
 		} else {
 			return $text;

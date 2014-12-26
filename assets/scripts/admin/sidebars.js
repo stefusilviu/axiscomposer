@@ -20,28 +20,24 @@
 
 	$.AxisBuilderSidebars.prototype = {
 
-		// Create Widget Area Form
-		createForm : function() {
+		// Create Custom Widget Area Form
+		createForm: function() {
 			this.widgetArea.prepend( this.widgetTmpl.html() );
 		},
 
-		// Add Delete Icon to Widget Areas
-		deleteIcon : function() {
+		// Add Delete Icon to Custom Widget Areas
+		deleteIcon: function() {
 			this.widgetArea.find( '.sidebar-axisbuilder-custom' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
 		},
 
-		// Widget Area Delete or Bind Events
-		bindEvents : function() {
+		// Bind Events to delete Custom Widget Area
+		bindEvents: function() {
 			this.widgetWrap.on( 'click', '.axisbuilder-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
 		},
 
 		// Delete the Widget Area (Sidebar) with all Widgets within, then re-calculate the other sidebar ids and re-save the order
-		delete_sidebar : function( e ) {
-			var answer		= window.confirm( axisbuilder_admin_sidebars.i18n_delete_custom_sidebar ),
-				widget		= $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ),
-				title		= widget.find( '.sidebar-name h3' ),
-				spinner		= title.find( '.spinner' ),
-				widget_name	= $.trim( title.text() );
+		delete_sidebar: function( e ) {
+			var answer = window.confirm( axisbuilder_admin_sidebars.i18n_delete_custom_sidebar );
 
 			if( answer ) {
 
@@ -49,9 +45,13 @@
 
 				if ( answer ) {
 
-					var obj = this,
-						data = {
-							sidebar: widget_name,
+					var obj     = this,
+						widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ),
+						heading = widgets.find( '.sidebar-name h3' ),
+						spinner = heading.find( '.spinner' ),
+						sidebar	= $.trim( heading.text() ),
+						data    = {
+							sidebar: sidebar,
 							action: 'axisbuilder_delete_custom_sidebar',
 							security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
 						};
@@ -66,11 +66,11 @@
 						success: function( response ) {
 
 							if ( response === true ) {
-								widget.slideUp( 200, function() {
+								widgets.slideUp( 200, function() {
 
 									// Remove all Widgets inside
-									$( '.widget-control-remove', widget ).trigger( 'click' );
-									widget.remove();
+									$( '.widget-control-remove', widgets ).trigger( 'click' );
+									widgets.remove();
 
 									// Re-calculate Widget Id's
 									obj.widgetArea.find( '.widgets-holder-wrap .widgets-sortables' ).each( function( i ) {

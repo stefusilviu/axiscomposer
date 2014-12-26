@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-23 13:48:57+00:00\n"
+"POT-Creation-Date: 2014-12-26 08:13:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,63 +13,68 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: includes/admin/class-builder-admin-assets.php:87
+#: includes/admin/class-builder-admin-assets.php:91
 msgid "An error occured"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:88
+#: includes/admin/class-builder-admin-assets.php:92
 msgid "All right!"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:89
+#: includes/admin/class-builder-admin-assets.php:93
 msgid "Attention!"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:90
+#: includes/admin/class-builder-admin-assets.php:94
 msgid "Save"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:91
+#: includes/admin/class-builder-admin-assets.php:95
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:106
 msgid "Close"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:92
+#: includes/admin/class-builder-admin-assets.php:96
 msgid "Error fetching content - please reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:93
+#: includes/admin/class-builder-admin-assets.php:97
 msgid "It seems your are no longer logged in. Please reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:94
+#: includes/admin/class-builder-admin-assets.php:98
 msgid "Your session timed out. Simply reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:111
+#: includes/admin/class-builder-admin-assets.php:115
 msgid "The current number of cells does not allow any layout variations"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:112
+#: includes/admin/class-builder-admin-assets.php:116
 msgid "You need to add at least one cell"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:113
+#: includes/admin/class-builder-admin-assets.php:117
 msgid "You need to remove at least one cell"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:114
+#: includes/admin/class-builder-admin-assets.php:118
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:137
+#: includes/admin/class-builder-admin-assets.php:140
 msgid ""
 "Are you sure you want to delete all canvas element(s)? This cannot be "
 "undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:138
+#: includes/admin/class-builder-admin-assets.php:141
+#: includes/admin/class-builder-admin-assets.php:155
 msgid "Last warning, are you sure?"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:154
+msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
 msgstr ""
 
 #: includes/admin/class-builder-admin-editor.php:51
@@ -169,6 +174,18 @@ msgstr ""
 
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:103
 msgid "Save or Load templates"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-sidebars.php:13
+msgid "Custom Widget Area Builder"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-sidebars.php:14
+msgid "Enter New Widget Area Name"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-sidebars.php:16
+msgid "Add Widget Area"
 msgstr ""
 
 #: includes/admin/views/html-notice-theme-support.php:12

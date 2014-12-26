@@ -151,7 +151,7 @@ class AB_Admin_Assets {
 			$params = array(
 				'ajax_url'                    => admin_url( 'admin-ajax.php' ),
 				'delete_custom_sidebar_nonce' => wp_create_nonce( 'delete-custom-sidebar' ),
-				'i18n_delete_custom_sidebar'  => esc_js( __( 'Are you sure you wish to delete the sidebar now?', 'axisbuilder' ) ),
+				'i18n_delete_custom_sidebar'  => esc_js( __( 'Are you sure you want to delete the sidebar now? This cannot be undone.', 'axisbuilder' ) ),
 				'i18n_last_warning'           => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) )
 			);
 

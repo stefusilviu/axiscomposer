@@ -74,7 +74,7 @@ class AB_HTML_Helper {
 
 				if ( isset( self::$elementValues[$data['check-element']] ) ) {
 					$first_value = self::$elementValues[$data['check-element']];
-					$final_value = $data['check-value'];
+					$final_value = ( $data['check-value'] !== 'no-data' ) ? $data['check-value'] : '';
 
 					switch ( $data['check-logics'] ) {
 						case 'equals':

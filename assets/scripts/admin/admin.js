@@ -160,6 +160,13 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
+			// Re-calculate shortcode when select elements change occured on the Builder Canvas
+			this.axisBuilderCanvas.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
+				var	container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+				obj.recalculateShortcode( container );
+				return false;
+			});
+
 			// Reactivate sorting and dropping after Undo-Redo changes
 			this.axisBuilderCanvas.on( 'axisbuilder-history-update', function() {
 				obj.activateDragging( this.axisBuilderParent, '' );
@@ -664,6 +671,23 @@ function AB_Logger( text, type ) {
 			output += linebreak + linebreak;
 
 			return output;
+		},
+
+		/**
+		 * Executed if an element has no popup modal but is managed
+		 * via directly attached form (eg: sidebar with dropdown).
+		 */
+		recalculateShortcode: function( element_container ) {
+			var values  = [],
+				current = false,
+				recalcs = element_container.find( 'select.axisbuilder-recalculate-shortcode' );
+
+			for ( var i = recalcs.length - 1; i >= 0; i-- ) {
+				current = $( recalcs[i] );
+				values[current.data( 'attr' )] = current.val();
+			}
+
+			this.updateShortcode( values, element_container );
 		},
 
 		/**

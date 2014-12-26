@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_HTML_Helper {
 
 	public static $elementValues = array();
+	public static $elementHidden = array();
 
 	public static function render_multiple_elements( $elements, $parent_class = false, $display = true ) {
 		$output = '';
@@ -53,6 +54,72 @@ class AB_HTML_Helper {
 		return $element;
 	}
 
+	/**
+	 *
+	 */
+	public static function check_dependencies( $element ) {
+		$params = array( 'data_string' => '', 'class_string' => '' );
+
+		if ( ! empty( $element['required'] ) ) {
+			$data['check-element'] = empty( $element['required'][0] ) ? 'no-data' : $element['required'][0];
+			$data['check-logics']  = empty( $element['required'][1] ) ? 'no-data' : $element['required'][1];
+			$data['check-value']   = empty( $element['required'][2] ) ? 'no-data' : $element['required'][2];
+
+			// Crete a html data-string ;)
+			$params['data_string'] = axisbuilder_html_data_string( $data );
+			$return = false;
+
+			// Required element must not be hidden. Otherwise hide this one by default.
+			if ( ! isset( self::$elementHidden[$data['check-element']] ) ) {
+
+				if ( isset( self::$elementValues[$data['check-element']] ) ) {
+					$first_value = self::$elementValues[$data['check-element']];
+					$final_value = $data['check-value'];
+
+					switch ( $data['check-logics'] ) {
+						case 'equals':
+							$return = ( $first_value == $final_value ) ? true : false;
+						break;
+
+						case 'not':
+							$return = ( $first_value != $final_value ) ? true : false;
+						break;
+
+						case 'is_larger':
+							$return = ( $first_value > $final_value ) ? true : false;
+						break;
+
+						case 'is_smaller':
+							$return = ( $first_value < $final_value ) ? true : false;
+						break;
+
+						case 'contains':
+							$return = ( strpos( $first_value, $final_value ) !== false ) ? true : false;
+						break;
+
+						case 'doesnt_contain':
+							$return = ( strpos( $first_value, $final_value ) === false ) ? true : false;
+						break;
+
+						case 'is_empty_or':
+							$return = ( empty( $first_value) || ( $first_value == $final_value ) ) ? true : false;
+						break;
+
+						case 'not_empty_and':
+							$return = ( ! empty( $first_value) || ( $first_value != $final_value ) ) ? true : false;
+						break;
+					}
+				}
+			}
+
+			if ( ! $return ) {
+				$params['class_string'] = 'axisbuilder-hidden';
+			}
+		}
+
+		return $params;
+	}
+
 	public static function render_element( $element, $parent_class = false ) {
 		$data   = array();
 		$output = $target_string = '';
@@ -65,14 +132,14 @@ class AB_HTML_Helper {
 		self::$elementValues[$element['id']] = $element['std'];
 
 		// Create default data & class string and check the depedencies of an object
-		// extract( self::check_dependencies( $element ) );
+		extract( self::check_dependencies( $element ) );
 
 		// Check if its an ajax request and prepend a string to ensure ID's are unique
 		$element = self::ajax_modify_id( $element );
 
 		// ID and Class string
-		$id_string    = empty( $element['id'] ) ? '' : $element['id'] . '-form-container';
-		$class_string = empty( $element['container_class'] ) ? ' ' : $element['container_class'];
+		$id_string     = empty( $element['id'] ) ? '' : 'id="' . $element['id'] . '-form-container"';
+		$class_string .= empty( $element['container_class'] ) ? ' ' : $element['container_class'];
 
 		if ( ! empty( $target ) ) {
 			$data['target-element']  = $element['target'][0];
@@ -86,7 +153,7 @@ class AB_HTML_Helper {
 		}
 
 		if ( empty( $element['nodescription'] ) ) {
-			$output .= '<div id="' . $id_string . '" class="axisbuilder-clearfix axisbuilder-form-element-container axisbuilder-element-' . $element['type'] . ' ' . $class_string . '" ' . $target_string . '>';
+			$output .= '<div ' . $id_string . ' class="axisbuilder-clearfix axisbuilder-form-element-container axisbuilder-element-' . $element['type'] . ' ' . $class_string . '" ' . $data_string . ' ' . $target_string . '>';
 				if ( ! empty( $element['name'] ) || ! empty( $element['desc'] ) ) {
 					$output .= '<div class="axisbuilder-name-description">';
 

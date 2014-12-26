@@ -65,16 +65,16 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 				'desc'    => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axisbuilder' ),
 				'id'      => 'wrapper_element',
 				'type'    => 'input',
-				'std'     => '',
-				'require' => array( 'wrapper_element', 'not', '' )
+				'std'     => ''
 			),
 
 			array(
-				'name'  => __( 'Code Wrapper Element Attributes', 'axisbuilder' ),
-				'desc'  => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axisbuilder' ),
-				'id'    => 'wrapper_element_attributes',
-				'std'   => '',
-				'type'  => 'input'
+				'name'     => __( 'Code Wrapper Element Attributes', 'axisbuilder' ),
+				'desc'     => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axisbuilder' ),
+				'id'       => 'wrapper_element_attributes',
+				'std'      => '',
+				'required' => array( 'wrapper_element', 'not', '' ),
+				'type'     => 'input'
 			),
 
 			array(

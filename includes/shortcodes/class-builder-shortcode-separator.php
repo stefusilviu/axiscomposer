@@ -33,7 +33,7 @@ class AB_Shortcode_Separator extends AB_Shortcode {
 		$this->title     = __( 'Separator / Whitespace', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a delimiter/whitespace to separate elements', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 160,
+			'sort'    => 170,
 			'type'    => 'content',
 			'name'    => 'ab_separator',
 			'icon'    => 'icon-separator',

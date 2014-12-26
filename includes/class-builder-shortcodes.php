@@ -103,6 +103,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Separator',
 			'AB_Shortcode_Accordion',
 			'AB_Shortcode_Animatednumbers',
+			'AB_Shortcode_Tabs',
 
 			// Media Elements
 			'AB_Shortcode_Image',

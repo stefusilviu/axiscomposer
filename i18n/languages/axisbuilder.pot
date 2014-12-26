@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-23 13:48:22+00:00\n"
+"POT-Creation-Date: 2014-12-26 08:13:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,25 +129,25 @@ msgstr ""
 msgid "Axis Builder"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:160
-msgid "custom CSS Class"
+#: includes/abstracts/abstract-builder-shortcode.php:166
+msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:161
+#: includes/abstracts/abstract-builder-shortcode.php:167
 msgid ""
 "Add a custom css class for the element here. Ensure the use of allowed "
 "characters (latin characters, underscores, dashes and numbers)"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:234
+#: includes/abstracts/abstract-builder-shortcode.php:244
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:236
+#: includes/abstracts/abstract-builder-shortcode.php:246
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:237
+#: includes/abstracts/abstract-builder-shortcode.php:247
 msgid "Clone Element"
 msgstr ""
 
@@ -181,6 +181,10 @@ msgstr ""
 
 #: includes/class-builder-install.php:160
 msgid "Premium Support"
+msgstr ""
+
+#: includes/class-builder-sidebars.php:126
+msgid "Custom Widget Area of the site - %s "
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-button.php:33
@@ -323,6 +327,50 @@ msgid ""
 "shortcode is not recommended though)"
 msgstr ""
 
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:64
+msgid "Code Wrapper Element"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:65
+msgid ""
+"Wrap your code into a html tag (i.e. pre or code tag). Insert the tag "
+"without <>"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:73
+msgid "Code Wrapper Element Attributes"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:74
+msgid ""
+"Enter one or more attribute values which should be applied to the wrapper "
+"element. Leave the field empty if no attributes are required."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:81
+msgid "Escape HTML Code"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:82
+msgid "WordPress will convert the html tags to readable text."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:89
+msgid "Disable Shortcode Processing"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:90
+msgid "Check if you want to disable the shortcode processing for this code block."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:97
+msgid "Deactivate schema.org markup"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-codeblock.php:98
+msgid "Output the code without any additional wrapper elements. (not recommended)"
+msgstr ""
+
 #: includes/shortcodes/class-builder-shortcode-columns.php:76
 msgid "Decrease Column Size"
 msgstr ""
@@ -369,6 +417,14 @@ msgstr ""
 msgid "Add Cell"
 msgstr ""
 
+#: includes/shortcodes/class-builder-shortcode-heading.php:33
+msgid "Special Heading"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-heading.php:34
+msgid "Creates a Special Heading"
+msgstr ""
+
 #: includes/shortcodes/class-builder-shortcode-image.php:33
 msgid "Image"
 msgstr ""
@@ -403,6 +459,14 @@ msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-sidebar.php:34
 msgid "Display one of the themes widget areas"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:33
+msgid "Text Block"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:34
+msgid "Creates a simple text block"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-video.php:33

@@ -143,10 +143,10 @@ final class AxisBuilder {
 	 */
 	private function includes() {
 		include_once( 'includes/builder-core-functions.php' );
-		include_once( 'includes/builder-helper-functions.php' );
 		include_once( 'includes/builder-widget-functions.php' );
 		include_once( 'includes/class-builder-autoloader.php' );
 		include_once( 'includes/class-builder-install.php' );
+		include_once( 'includes/class-builder-sidebars.php' );
 
 		if ( $this->is_request( 'admin' ) ) {
 			include_once( 'includes/admin/class-builder-admin.php' );

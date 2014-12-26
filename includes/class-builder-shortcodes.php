@@ -99,7 +99,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Calltoaction',
 			'AB_Shortcode_Iconbox',
 			'AB_Shortcode_Notification',
-			'AB_Shortcode_ProgressBar',
+			'AB_Shortcode_Progressbar',
 			'AB_Shortcode_Separator',
 
 			// Media Elements

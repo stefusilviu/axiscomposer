@@ -23,7 +23,6 @@
 		// Create Widget Area Form
 		createForm : function() {
 			this.widgetArea.prepend( this.widgetTmpl.html() );
-			this.nonce = this.widgetWrap.find( 'input[name="_axisbuilder_custom_sidebar_nonce"]' ).val();
 		},
 
 		// Add Delete Icon to Widget Areas
@@ -52,21 +51,19 @@
 
 					var obj = this,
 						data = {
-							action: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce,
 							name: widget_name,
-							_wpnonce: obj.nonce
+							action: 'axisbuilder_delete_custom_sidebar',
+							security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
 						};
 
 					$.ajax( {
 						url: axisbuilder_admin_sidebars.ajax_url,
 						data: data,
 						type: 'POST',
-
-						beforeSend : function() {
+						beforeSend: function() {
 							spinner.css( 'display', 'inline-block' );
 						},
-
-						success : function( response ) {
+						success: function( response ) {
 
 							if ( response === 'axisbuilder-sidebar-deleted' ) {
 								widget.slideUp( 200, function() {

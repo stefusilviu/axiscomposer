@@ -121,9 +121,9 @@ class AB_Sidebars {
 
 		if ( is_array( $this->sidebars ) ) {
 			foreach ( (array) $this->sidebars as $sidebar ) {
-				$args['name']			= $sidebar;
-				$args['class']			= 'axisbuilder-custom';
-				$args['description']	= sprintf( __( 'Custom Widget Area of the site - %s ', 'axisbuilder' ), $sidebar );
+				$args['name']        = $sidebar;
+				$args['class']       = 'axisbuilder-custom';
+				$args['description'] = sprintf( __( 'Custom Widget Area of the site - %s ', 'axisbuilder' ), $sidebar );
 				register_sidebar( $args );
 			}
 		}

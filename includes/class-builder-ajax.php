@@ -55,7 +55,7 @@ class AB_AJAX {
 	 */
 	public static function delete_custom_sidebar() {
 
-		// check_ajax_referer( 'delete-custom-sidebar', 'security' );
+		check_ajax_referer( 'delete-custom-sidebar', 'security' );
 
 		// Get post name
 		$post = esc_attr( $_POST['name'] );

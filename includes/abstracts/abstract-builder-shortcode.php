@@ -68,6 +68,14 @@ abstract class AB_Shortcode {
 	abstract function shortcode_button();
 
 	/**
+	 * Abstract method for Shortcode Wrapper.
+	 * @param  mixed $function
+	 * @param  array $atts (default: array())
+	 * @return string
+	 */
+	// abstract function shortcode_wrapper(); // Until we have this method applied for all shortcode class we have to comment this.
+
+	/**
 	 * Auto-set shortcode configurations.
 	 */
 	protected function shortcode_config() {

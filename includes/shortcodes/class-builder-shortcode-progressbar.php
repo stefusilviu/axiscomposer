@@ -33,7 +33,7 @@ class AB_Shortcode_Progressbar extends AB_Shortcode {
 		$this->title     = __( 'Progress Bars', 'axisbuilder' );
 		$this->tooltip   = __( 'Create some progress bars', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 150,
+			'sort'    => 160,
 			'type'    => 'content',
 			'name'    => 'ab_progressbar',
 			'icon'    => 'icon-progressbar',

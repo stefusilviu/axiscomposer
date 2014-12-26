@@ -14,6 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Include core functions (available in both admin and frontend)
+include( 'builder-helper-functions.php' );
+
 if ( ! function_exists( 'get_builder_core_supported_themes' ) ) :
 
 /**

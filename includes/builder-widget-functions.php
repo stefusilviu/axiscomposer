@@ -25,4 +25,4 @@ include_once( 'widgets/class-builder-widget-advertisement.php' );
 function axisbuilder_register_widgets() {
 	register_widget( 'AB_Widget_Advertisement' );
 }
-add_action( 'widgets_init', 'axisbuilder_register_widgets' );
+// add_action( 'widgets_init', 'axisbuilder_register_widgets' );

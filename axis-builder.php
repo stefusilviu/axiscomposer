@@ -146,7 +146,6 @@ final class AxisBuilder {
 		include_once( 'includes/builder-widget-functions.php' );
 		include_once( 'includes/class-builder-autoloader.php' );
 		include_once( 'includes/class-builder-install.php' );
-		include_once( 'includes/class-builder-sidebars.php' );
 
 		if ( $this->is_request( 'admin' ) ) {
 			include_once( 'includes/admin/class-builder-admin.php' );
@@ -157,6 +156,7 @@ final class AxisBuilder {
 		}
 
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
+		include_once( 'includes/class-builder-sidebars.php' );                 // Sidebar Builder
 	}
 
 	/**

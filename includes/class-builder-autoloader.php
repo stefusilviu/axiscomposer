@@ -43,11 +43,8 @@ class AB_Autoloader {
 	 * @return string
 	 */
 	private function get_file_name_from_class( $class ) {
-		$search  = array( '_', 'ab' );
-		$replace = array( '-', 'builder' );
-
-		return 'class-' . str_replace( $search, $replace, strtolower( $class ) ) . '.php';
-	}
+        return 'class-builder-' . substr( str_replace( '_', '-', strtolower( $class ) ), 3 ) . '.php';
+    }
 
 	/**
 	 * Include a class file.

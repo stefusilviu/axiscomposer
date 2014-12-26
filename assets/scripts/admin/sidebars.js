@@ -78,11 +78,11 @@
 									// Re-calculate Widget Id's
 									obj.widgetArea.find( '.widgets-holder-wrap .widgets-sortables' ).each( function( i ) {
 										$(this).attr( 'id', 'sidebar-' + ( i + 1 ) );
-									} );
+									});
 
 									// Re-save the Widgets Order
 									wpWidgets.saveOrder();
-								} );
+								});
 
 								// Re-load the Window location
 								window.setTimeout( function() {

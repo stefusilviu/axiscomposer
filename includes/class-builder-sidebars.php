@@ -111,10 +111,10 @@ class AB_Sidebars {
 		}
 
 		$args = array(
-			'before_widget'	=>	'<aside id="%1$s" class="widget clearfix %2$s">',
-			'after_widget'	=>	'<span class="seperator extralight-border"></span></aside>',
-			'before_title'	=>	'<h3 class="widget-title">',
-			'after_title'	=>	'</h3>'
+			'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
+			'after_widget'  => '<span class="seperator extralight-border"></span></aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>'
 		);
 
 		$args = apply_filters( 'axisbuilder_custom_widget_args', $args );

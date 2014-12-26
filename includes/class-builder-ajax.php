@@ -46,7 +46,7 @@ class AB_AJAX {
 	 * @access private
 	 * @return void
 	 */
-	private function json_headers() {
+	public static function json_headers() {
 		header( 'Content-Type: application/json; charset=utf-8' );
 	}
 
@@ -55,7 +55,7 @@ class AB_AJAX {
 	 */
 	public static function delete_custom_sidebar() {
 
-		check_ajax_referer( 'delete-custom-sidebar', 'security' );
+		// check_ajax_referer( 'delete-custom-sidebar', 'security' );
 
 		// Get post name
 		$post = esc_attr( $_POST['name'] );
@@ -70,7 +70,7 @@ class AB_AJAX {
 
 			if ( $keys !== false ) {
 
-				unset( $data[ $keys ] );
+				unset( $data[$keys] );
 				update_option( 'axisbuilder_sidebars', $data );
 				echo json_encode( 'axisbuilder-sidebar-deleted' );
 			}

@@ -56,6 +56,10 @@ class AB_Admin_Assets {
 		if ( $color_scheme !== 'fresh' ) {
 			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array(), AB_VERSION );
 		}
+
+		if ( in_array( $screen->id, array( 'widgets' ) ) ) {
+			wp_enqueue_style( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/styles/sidebars.css', array(), AB_VERSION );
+		}
 	}
 
 	/**
@@ -138,6 +142,21 @@ class AB_Admin_Assets {
 			);
 
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
+		}
+
+		// Widgets Specific
+		if ( in_array( $screen->id, array( 'widgets' ) ) ) {
+			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+
+			$params = array(
+				'ajax_url'                    => admin_url( 'admin-ajax.php' ),
+				// 'delete_custom_sidebar_nonce' => wp_create_nonce( 'delete-custom-sidebar' ),
+				'i18n_delete_custom_sidebar'  => esc_js( __( 'Are you sure you wish to delete the sidebar now?', 'axisbuilder' ) ),
+				'i18n_last_warning'           => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) ),
+				'delete_custom_sidebar_nonce' => 'axisbuilder_delete_custom_sidebar',
+			);
+
+			wp_localize_script( 'axisbuilder-admin-sidebars', 'axisbuilder_admin_sidebars', $params );
 		}
 	}
 }

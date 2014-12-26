@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<script id="axisbuilder-add-widget-template" type="text/html">
+<script id="axisbuilder-add-widget-tmpl" type="text/html">
 	<form class="axisbuilder-add-widget" action="" method="post">
 		<?php wp_nonce_field( 'delete-custom-sidebar', '_axisbuilder_custom_sidebar_nonce', false ); ?>
 		<h3><?php _e( 'Custom Widget Area Builder', 'axisbuilder' ) ?></h3>

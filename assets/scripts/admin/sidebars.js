@@ -9,30 +9,30 @@
 
 	$.AxisBuilderSidebars = function() {
 
-		this.widget_add  = $( '#axisbuilder-add-widget-template' );
-		this.widget_wrap = $( '.widget-liquid-right' );
 		this.widget_area = $( '#widgets-right' );
+		this.widget_wrap = $( '.widget-liquid-right' );
+		this.widget_tmpl = $( '#axisbuilder-add-widget-tmpl' );
 
-		this.create_form();
-		this.delete_icon();
-		this.bind_events();
+		this.createForm();
+		this.deleteIcon();
+		this.bindEvents();
 	};
 
 	$.AxisBuilderSidebars.prototype = {
 
 		// Create Widget Area Form
-		create_form : function() {
-			this.widget_area.prepend( this.widget_add.html() );
+		createForm : function() {
+			this.widget_area.prepend( this.widget_tmpl.html() );
 			this.nonce = this.widget_wrap.find( 'input[name="_axisbuilder_custom_sidebar_nonce"]' ).val();
 		},
 
 		// Add Delete Icon to Widget Areas
-		delete_icon : function() {
+		deleteIcon : function() {
 			this.widget_area.find( '.sidebar-axisbuilder-custom' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
 		},
 
 		// Widget Area Delete or Bind Events
-		bind_events : function() {
+		bindEvents : function() {
 			this.widget_wrap.on( 'click', '.axisbuilder-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
 		},
 

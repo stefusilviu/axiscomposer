@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_ProgressBar Class
+ * AB_Shortcode_Progressbar Class
  */
-class AB_Shortcode_ProgressBar extends AB_Shortcode {
+class AB_Shortcode_Progressbar extends AB_Shortcode {
 
 	/**
 	 * Class Constructor Method.

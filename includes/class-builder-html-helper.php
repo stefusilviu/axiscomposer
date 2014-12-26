@@ -61,58 +61,61 @@ class AB_HTML_Helper {
 		$params = array( 'data_string' => '', 'class_string' => '' );
 
 		if ( ! empty( $element['required'] ) ) {
-			$data['check-element'] = empty( $element['required'][0] ) ? 'no-data' : $element['required'][0];
-			$data['check-logics']  = empty( $element['required'][1] ) ? 'no-data' : $element['required'][1];
-			$data['check-value']   = empty( $element['required'][2] ) ? 'no-data' : $element['required'][2];
+			$data = array();
+
+			// Store check depedencies ;)
+			$data['check-element']  = empty( $element['required'][0] ) ? 'no-logical-check' : $element['required'][0];
+			$data['check-operator'] = empty( $element['required'][1] ) ? 'no-logical-check' : $element['required'][1];
+			$data['check-value']    = empty( $element['required'][2] ) ? 'no-logical-check' : $element['required'][2];
 
 			// Crete a html data-string ;)
 			$params['data_string'] = axisbuilder_html_data_string( $data );
-			$return = false;
+			$visible = false;
 
 			// Required element must not be hidden. Otherwise hide this one by default.
 			if ( ! isset( self::$elementHidden[$data['check-element']] ) ) {
 
 				if ( isset( self::$elementValues[$data['check-element']] ) ) {
 					$first_value = self::$elementValues[$data['check-element']];
-					$final_value = ( $data['check-value'] !== 'no-data' ) ? $data['check-value'] : '';
+					$final_value = ( $data['check-value'] !== 'no-logical-check' ) ? $data['check-value'] : '';
 
-					switch ( $data['check-logics'] ) {
+					switch ( $data['check-operator'] ) {
 						case 'equals':
-							$return = ( $first_value == $final_value ) ? true : false;
+							$visible = ( $first_value == $final_value ) ? true : false;
 						break;
 
 						case 'not':
-							$return = ( $first_value != $final_value ) ? true : false;
+							$visible = ( $first_value != $final_value ) ? true : false;
 						break;
 
 						case 'is_larger':
-							$return = ( $first_value > $final_value ) ? true : false;
+							$visible = ( $first_value > $final_value ) ? true : false;
 						break;
 
 						case 'is_smaller':
-							$return = ( $first_value < $final_value ) ? true : false;
+							$visible = ( $first_value < $final_value ) ? true : false;
 						break;
 
 						case 'contains':
-							$return = ( strpos( $first_value, $final_value ) !== false ) ? true : false;
+							$visible = ( strpos( $first_value, $final_value ) !== false ) ? true : false;
 						break;
 
-						case 'doesnt_contain':
-							$return = ( strpos( $first_value, $final_value ) === false ) ? true : false;
+						case 'doesnot_contain':
+							$visible = ( strpos( $first_value, $final_value ) === false ) ? true : false;
 						break;
 
 						case 'is_empty_or':
-							$return = ( empty( $first_value) || ( $first_value == $final_value ) ) ? true : false;
+							$visible = ( empty( $first_value) || ( $first_value == $final_value ) ) ? true : false;
 						break;
 
 						case 'not_empty_and':
-							$return = ( ! empty( $first_value) || ( $first_value != $final_value ) ) ? true : false;
+							$visible = ( ! empty( $first_value) || ( $first_value != $final_value ) ) ? true : false;
 						break;
 					}
 				}
 			}
 
-			if ( ! $return ) {
+			if ( ! $visible ) {
 				$params['class_string'] = 'axisbuilder-hidden';
 			}
 		}

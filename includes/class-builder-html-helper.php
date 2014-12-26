@@ -207,7 +207,80 @@ class AB_HTML_Helper {
 	}
 
 	public static function select( $element ) {
-		$output = '<select class="' . $element['class'] . '"><option>Select Widget Area</option><option>Select Widget Area</option></select>';
+		$select = __( 'Select', 'axisbuilder' );
+
+		if ( $element['subtype'] == 'category' ) {
+			$taxonomy = empty( $element['taxonomy'] ) ? '' : '&taxonomy="' . $element['taxonomy'];
+			$entries  = get_categories( 'title_li=&orderby=name&hide_empty=0' . $taxonomy );
+		} elseif ( ! is_array( $element['subtype'] ) ) {
+			// Will do later on ;)
+		} else {
+			$entries = $element['subtype'];
+		}
+
+		// ID, Name and data string
+		$id_string   = empty( $element['id'] ) ? '' : 'id="' . $element['id'] . '"';
+		$name_string = empty( $element['name'] ) ? '' : 'name="' . $element['id'] . '"';
+		$data_string = empty( $element['data'] ) ? '' : axisbuilder_html_data_string( $element['data'] );
+
+		// Return if the entries are empty ;)
+		if ( empty( $entries ) ) {
+			return true;
+		}
+
+		// Multi Select option
+		$multi = $multi_class = '';
+		if ( isset( $element['multiple'] ) ) {
+			$multi          = 'multiple="multiple" size="' . $element['multiple'] . '"';
+			$multi_class    = ' axisbuilder-multiple-select';
+			$element['std'] = explode( ',', $element['std'] );
+		}
+
+		// Real output is here ;)
+		$output = '<select ' . $multi . ' class="' . $element['class'] . '" ' . $id_string . ' ' . $name_string . ' ' . $data_string . '>';
+
+		// Check with first option ;)
+		if ( isset( $element['with_first'] ) ) {
+			$fake_val = $select;
+			$output  .= '<option value="">' .$select . '</option>';
+		}
+
+		foreach ( $entries as $key => $value ) {
+
+			if ( $element['subtype'] == 'category' ) {
+
+			} else if ( ! is_array( $element['subtype'] ) ) {
+
+			} else {
+				$id    = $value;
+				$title = $key;
+			}
+
+			if ( ! empty( $title ) || ( isset( $title ) && $title === 0 ) ) {
+
+				if ( ! isset( $fake_val ) ) {
+					$fake_val = $title;
+				}
+
+				$selected = '';
+
+				if ( ( $element['std'] == $id ) || ( is_array( $element['std'] ) && in_array( $id, $element['std'] ) ) ) {
+					$fake_val = $title;
+					$selected = 'selected="selected"';
+				}
+
+				if ( strpos( $title, 'option_group' ) === 0 ) {
+					$output .= '<optgroup label="' . $id . '">';
+				} else if ( strpos( $title, 'close_option_group_' ) === 0 ) {
+					$output .= '</optgroup>';
+				} else {
+					$output .= '<option ' . $selected . ' value="' . $id . '">' . $title . '</option>';
+				}
+			}
+		}
+
+		$output .= '</select>';
+
 		return $output;
 	}
 }

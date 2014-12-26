@@ -52,6 +52,25 @@ function axisbuilder_html_data_string( $data ) {
 
 endif;
 
+if ( ! function_exists( 'axisbuilder_get_registered_sidebars' ) ) :
+
+/**
+ * Fetch all available sidebars.
+ */
+function axisbuilder_get_registered_sidebars( $sidebars = array(), $exclude = array() ) {
+	global $wp_registered_sidebars;
+
+	foreach ( $wp_registered_sidebars as $sidebar ) {
+		if ( ! in_array( $sidebar['name'], $exclude ) ) {
+			$sidebars[$sidebar['name']] = $sidebar['name'];
+		}
+	}
+
+	return $sidebars;
+}
+
+endif;
+
 if ( ! function_exists( 'ab_create_shortcode_data' ) ) :
 
 /**

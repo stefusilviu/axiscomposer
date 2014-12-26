@@ -62,7 +62,7 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 			'subtype' => $sidebars,
 			'data'    => array( 'attr' => 'widget_area' ),
 			'class'   => 'axisbuilder-recalculate-shortcode',
-			'std'     => htmlspecialchars_decode( $params['args']['widget_area'] )
+			'std'     => esc_html( $params['args']['widget_area'] ) // htmlspecialchars_decode( $params['args']['widget_area'] )
 		);
 
 		$params['innerHtml']  = '';

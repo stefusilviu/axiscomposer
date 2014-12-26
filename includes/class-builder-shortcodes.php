@@ -101,6 +101,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Notification',
 			'AB_Shortcode_Progressbar',
 			'AB_Shortcode_Separator',
+			'AB_Shortcode_Accordion',
 
 			// Media Elements
 			'AB_Shortcode_Image',

@@ -104,10 +104,17 @@ class AB_Shortcodes {
 			'AB_Shortcode_Accordion',
 			'AB_Shortcode_Animatednumbers',
 			'AB_Shortcode_Tabs',
+			'AB_Shortcode_Animatedcountdown',
+			'AB_Shortcode_Comments',
+			'AB_Shortcode_Teammembers',
+			'AB_Shortcode_Catalogue',
+			'AB_Shortcode_Contactform',
 
 			// Media Elements
 			'AB_Shortcode_Image',
 			'AB_Shortcode_Video',
+			'AB_Shortcode_Logoelement',
+			'AB_Shortcode_Googlemap',
 		);
 
 		// Filter

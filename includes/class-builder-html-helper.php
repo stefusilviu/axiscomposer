@@ -36,18 +36,14 @@ class AB_HTML_Helper {
 		return self::render_element( $meta_element );
 	}
 
-	public static function render_multiple_elements( $elements, $parent_class = false, $display = true ) {
+	public static function render_multiple_elements( $elements, $parent_class = false ) {
 		$output = '';
 
 		foreach ( $elements as $element ) {
 			$output .= self::render_element( $element, $parent_class );
 		}
 
-		if ( $display ) {
-			echo $output;
-		} else {
-			return $output;
-		}
+		return $output;
 	}
 
 	/**

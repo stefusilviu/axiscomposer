@@ -84,7 +84,6 @@ abstract class AB_Shortcode {
 	 * AJAX Events for shortcodes.
 	 */
 	public function shortcode_action() {
-		// Ajax action for element with modal window editor
 		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
 			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'popup_editor' ) );
 		}
@@ -135,7 +134,7 @@ abstract class AB_Shortcode {
 			if ( isset( $this->shortcode['nested'] ) ) {
 				foreach ( $this->shortcode['nested'] as $shortcode ) {
 					if ( method_exists( $this, $shortcode ) ) {
-						add_shortcode( $nested, array( $this, $nested ) );
+						add_shortcode( $shortcode, array( $this, $shortcode ) );
 					}
 				}
 			}

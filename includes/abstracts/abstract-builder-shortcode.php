@@ -76,12 +76,9 @@ abstract class AB_Shortcode {
 	abstract function shortcode_button();
 
 	/**
-	 * Abstract method for Shortcode Wrapper.
-	 * @param  mixed $function
-	 * @param  array $atts (default: array())
-	 * @return string
+	 * Abstract method for Frontend Shortcode Handle.
 	 */
-	// abstract function shortcode_wrapper(); // Until we have this method applied for all shortcode class we have to comment this.
+	abstract function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' );
 
 	/**
 	 * AJAX Events for shortcodes.
@@ -148,8 +145,30 @@ abstract class AB_Shortcode {
 	/**
 	 * Prepare Shortcode Wrapper.
 	 */
-	public function prepare_shortcode_wrapper() {
-		// return $this->title;
+	public function prepare_shortcode_wrapper( $atts, $content = '', $shortcode = '', $fake = false ) {
+		$meta = array();
+
+		// Inline shortcodes like dropcaps are basically nested shortcode and shouldn't be counted ;)
+		if ( empty( $this->shortcode['inline'] ) ) {
+			$meta = array(
+
+			);
+		}
+
+		if ( isset( $atts['custom_class'] ) ) {
+			$meta['el_class']    .= ' ' . $atts['custom_class'];
+			$meta['custom_class'] = $atts['custom_class'];
+		}
+
+		if ( ! isset( $meta['custom_markup'] ) ) {
+			$meta['custom_markup'] = '';
+		}
+
+		$meta = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
+
+		$content = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
+
+		return $content;
 	}
 
 	/**

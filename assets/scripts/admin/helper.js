@@ -238,7 +238,7 @@
 					current.slideDown();
 				} else if ( visible === false && ! current.is( '.axisbuilder-hidden' ) ) {
 					current.css({ display: 'block' }).addClass( 'axisbuilder-hidden' ).find( 'select, radio, input[type=checkbox]' ).trigger( 'change' );
-					current.slideDown();
+					current.slideUp();
 				}
 			});
 		});

@@ -109,6 +109,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Image',
 			'AB_Shortcode_Video',
 			'AB_Shortcode_Logoelement',
+			'AB_Shortcode_Googlemap',
 		);
 
 		// Filter

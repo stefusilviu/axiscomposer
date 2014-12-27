@@ -371,11 +371,15 @@ label[for="axisbuilder-editor-hide"] {
 
 	&:hover {
 		cursor: pointer;
-		border:1px solid #aaa;
+		border: 1px solid #aaa;
 	}
 
 	&:active {
-		border:1px solid #D54E21;
+		border: 1px solid #D54E21;
+	}
+
+	&:focus {
+		border: 1px solid #2ea2cc;
 	}
 
 	&:active, &:focus {

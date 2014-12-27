@@ -107,6 +107,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Animatedcountdown',
 			'AB_Shortcode_Comments',
 			'AB_Shortcode_Teammembers',
+			'AB_Shortcode_Catalogue',
 
 			// Media Elements
 			'AB_Shortcode_Image',

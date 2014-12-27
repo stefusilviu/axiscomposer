@@ -108,6 +108,7 @@ class AB_Shortcodes {
 			'AB_Shortcode_Comments',
 			'AB_Shortcode_Teammembers',
 			'AB_Shortcode_Catalogue',
+			'AB_Shortcode_Contactform',
 
 			// Media Elements
 			'AB_Shortcode_Image',

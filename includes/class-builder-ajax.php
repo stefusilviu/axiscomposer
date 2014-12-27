@@ -66,7 +66,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * Shortcodes to interface
+	 * AJAX Shortcodes to interface
 	 */
 	public static function shortcodes_to_interface( $text = null ) {
 		$allowed = false;

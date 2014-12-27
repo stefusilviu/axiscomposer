@@ -54,7 +54,15 @@ abstract class AB_Shortcode {
 	public function __construct() {
 		$this->shortcode_button();
 		$this->shortcode_config();
+
+		/**
+		 * Shortcode AJAX Events
+		 * @todo Include in AB_AJAX Class as soon.
+		 */
 		$this->shortcode_action();
+
+		// Define shortcodes
+		$this->add_shortcode();
 
 		// Hooks
 		if ( is_admin() ) {
@@ -74,6 +82,75 @@ abstract class AB_Shortcode {
 	 * @return string
 	 */
 	// abstract function shortcode_wrapper(); // Until we have this method applied for all shortcode class we have to comment this.
+
+	/**
+	 * AJAX Events for shortcodes.
+	 */
+	public function shortcode_action() {
+		// Ajax action for element with modal window editor
+		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
+			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'popup_editor' ) );
+		}
+	}
+
+	/**
+	 * AJAX Popup Editor.
+	 */
+	public function popup_editor() {
+
+		if ( empty( $this->elements ) ) {
+			die();
+		}
+
+		check_ajax_referer( 'get-modal-elements', 'security' );
+
+		// Display Custom CSS element
+		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {
+			$this->elements = $this->custom_css( $this->elements );
+		}
+
+		$elements = apply_filters( 'axisbuilder_shortcodes_elements', $this->elements );
+
+		// If the ajax request told us that we are fetching the sub-function iterate over the array elements :)
+		if ( ! empty( $_POST['params']['subelements'] ) ) {
+			foreach ( $elements as $element ) {
+				if ( isset( $element['subelements'] ) ) {
+					$elements = $element['subelements'];
+					break;
+				}
+			}
+		}
+
+		$elements = $this->set_defaults_value( $elements );
+		AB_HTML_Helper::render_multiple_elements( $elements );
+
+		die();
+	}
+
+	/**
+	 * Define shortcodes.
+	 */
+	protected function add_shortcode() {
+		if ( ! is_admin() ) {
+			add_shortcode( $this->shortcode['name'], array( $this, 'prepare_shortcode_wrapper' ) );
+
+			// If availabe nested shortcode define them.
+			if ( isset( $this->shortcode['nested'] ) ) {
+				foreach ( $this->shortcode['nested'] as $shortcode ) {
+					if ( method_exists( $this, $shortcode ) ) {
+						add_shortcode( $nested, array( $this, $nested ) );
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Prepare Shortcode Wrapper.
+	 */
+	public function prepare_shortcode_wrapper() {
+		// return $this->title;
+	}
 
 	/**
 	 * Auto-set shortcode configurations.
@@ -119,50 +196,6 @@ abstract class AB_Shortcode {
 		$params['innerHtml'] .= '<div class="axisbuilder-element-label">' . $this->title . '</div>';
 
 		return (array) $params;
-	}
-
-	/**
-	 * AJAX Events
-	 */
-	public function shortcode_action() {
-		// Ajax action for element with modal window editor
-		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
-			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'popup_editor' ) );
-		}
-	}
-
-	/**
-	 * Popup Editor.
-	 */
-	public function popup_editor() {
-
-		if ( empty( $this->elements ) ) {
-			die();
-		}
-
-		check_ajax_referer( 'get-modal-elements', 'security' );
-
-		// Display Custom CSS element
-		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {
-			$this->elements = $this->custom_css( $this->elements );
-		}
-
-		$elements = apply_filters( 'axisbuilder_shortcodes_elements', $this->elements );
-
-		// If the ajax request told us that we are fetching the sub-function iterate over the array elements :)
-		if ( ! empty( $_POST['params']['subelements'] ) ) {
-			foreach ( $elements as $element ) {
-				if ( isset( $element['subelements'] ) ) {
-					$elements = $element['subelements'];
-					break;
-				}
-			}
-		}
-
-		$elements = $this->set_defaults_value( $elements );
-		AB_HTML_Helper::render_multiple_elements( $elements );
-
-		die();
 	}
 
 	/**

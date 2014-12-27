@@ -118,6 +118,7 @@ class AB_Shortcodes {
 
 			// Plugin Additions
 			'AB_Shortcode_Productslider',
+			'AB_Shortcode_Productgrid',
 		);
 
 		// Filter

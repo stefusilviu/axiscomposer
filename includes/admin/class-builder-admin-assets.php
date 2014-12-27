@@ -40,7 +40,6 @@ class AB_Admin_Assets {
 
 		// Sitewide menu CSS
 		wp_enqueue_style( 'axisbuilder-menu', AB()->plugin_url() . '/assets/styles/menu.css', array(), AB_VERSION );
-		wp_enqueue_style( 'axisbuilder-example', AB()->plugin_url() . '/assets/example.css', array(), AB_VERSION );
 
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 

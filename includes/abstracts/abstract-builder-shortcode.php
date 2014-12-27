@@ -86,6 +86,15 @@ abstract class AB_Shortcode {
 	public function shortcode_action() {
 		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
 			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'popup_editor' ) );
+
+			// If availabe nested shortcode define them.
+			if ( isset( $this->shortcode['nested'] ) ) {
+				foreach ( $this->shortcode['nested'] as $shortcode ) {
+					if ( method_exists( $this, $shortcode ) ) {
+						add_action( 'wp_ajax_axisbuilder_' . $shortcode, array( $this, 'popup_editor' ) );
+					}
+				}
+			}
 		}
 	}
 

@@ -23,6 +23,7 @@
 			return false;
 		}
 
+		this.doc     = $( document );
 		this.options = $.extend( {}, defaults, options );
 
 		// Setup
@@ -78,6 +79,31 @@
 			this.button.on( 'click', 'a.redo-data', function() {
 				obj.redo();
 				return false;
+			});
+
+			// Undo-Redo events on CTRL+{Z/Y} or CTRL+SHIFT+{Z/Y} keypress.
+			this.doc.bind( 'keydown.AxisBuilderHistory', function( e ) {
+
+				// Ensure event is not null
+				e = e || window.event;
+
+				// Undo Event
+				if ( ( e.which === 90 ) && ( e.ctrlKey || ( e.ctrlKey && e.shiftKey ) ) ) {
+					setTimeout( function() {
+						obj.undo();
+					}, 100 );
+
+					e.stopImmediatePropagation();
+				}
+
+				// Redo Event
+				if ( ( e.which === 89 ) && ( e.ctrlKey || ( e.ctrlKey && e.shiftKey ) ) ) {
+					setTimeout( function() {
+						obj.redo();
+					}, 100 );
+
+					e.stopImmediatePropagation();
+				}
 			});
 		},
 

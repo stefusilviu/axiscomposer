@@ -57,6 +57,8 @@ class AB_Admin_Help {
 					'<li>' . __( 'Press TAB to navigate trough the various form fields of a popup window.', 'axisbuilder' ) . '</li>' .
 					'<li>' . __( 'Press ESC on your keyboard or the Close Button to close popup window.', 'axisbuilder' ) . '</li>' .
 					'<li>' . __( 'Press ENTER on your keyboard or the Save Button to save current state of a popup window.', 'axisbuilder' ) . '</li>' .
+					'<li>' . __( 'Press CTRL+Z or CTRL+SHIFT+Z on your keyboard to control History-Undo events on canvas area.', 'axisbuilder' ) . '</li>' .
+					'<li>' . __( 'Press CTRL+Y or CTRL+SHIFT+Y on your keyboard to control History-Redo events on canvas area.', 'axisbuilder' ) . '</li>' .
 				'</ul>'
 		) );
 	}

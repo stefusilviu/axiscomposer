@@ -186,8 +186,11 @@
 			this.doc.bind( 'keydown' + this.namespace, function( e ) {
 				if ( obj.linkOverlayClosed && obj.mediaOverlayClosed ) {
 
+					// Ensure event is not null
+					e = e || window.event;
+
 					// Save Event
-					if ( e.keyCode === 13 && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
+					if ( e.which === 13 && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
 						setTimeout( function() {
 							obj.executeCallback();
 						}, 100 );
@@ -196,7 +199,7 @@
 					}
 
 					// Close Event
-					if ( e.keyCode === 27 ) {
+					if ( e.which === 27 ) {
 						setTimeout( function() {
 							obj.close();
 						}, 100 );

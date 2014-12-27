@@ -108,6 +108,7 @@ class AB_Shortcodes {
 			// Media Elements
 			'AB_Shortcode_Image',
 			'AB_Shortcode_Video',
+			'AB_Shortcode_Logoelement',
 		);
 
 		// Filter

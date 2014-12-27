@@ -228,7 +228,7 @@ class AB_Admin_Meta_Boxes {
 			}
 
 			foreach ( $_POST as $key => $value ) {
-				if ( strpos( $key, $meta_element['id'] !== false ) ) {
+				if ( strpos( $key, $meta_element['id'] ) !== false ) {
 					update_post_meta( $post_id, $key, $_POST[$key] );
 				}
 			}

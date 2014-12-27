@@ -82,6 +82,22 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		$output = '';
 
+		if ( ! isset( $atts['widget_area'] ) ) {
+			return $output;
+		}
+
+		if ( is_dynamic_sidebar( $atts['widget_area'] ) ) {
+			ob_start();
+			dynamic_sidebar( $atts['widget_area'] );
+			$output = wpautop( ob_get_clean(), true );
+		}
+
+		if ( $output ) {
+			$output = '<div class="axisbuilder ab_sidebar clearfix">' . $output . '</div>';
+		}
+
+		return $output;
 	}
 }

@@ -181,8 +181,34 @@ class AB_Admin_Meta_Boxes {
 	/**
 	 * Output Additional Meta-Box Elements.
 	 */
-	public function output_meta_elements() {
-		return 'Additional Metabox Elements is returned in future :)';
+	public function output_meta_elements( $post, $metadata ) {
+		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
+
+		$output  = '';
+		$metabox = $metadata['args']['axisbuilder_current_meta_box'];
+
+		foreach ( self::$add_meta_elements as $meta_element ) {
+			$content = '';
+			$meta_element['current_post'] = $post->ID;
+
+			if ( $meta_element['slug'] == $metabox['id'] ) {
+				if ( is_array( $meta_element['type'] ) && method_exists( $meta_element['type'][0], $meta_element['type'][1] ) ) {
+					$content = call_user_func( $meta_element['type'], $meta_element );
+				} elseif ( method_exists( 'AB_HTML_Helper', $meta_element['type'] ) ) {
+					$content = AB_HTML_Helper::render_meta_box( $meta_element );
+				}
+			}
+
+			if ( ! empty( $content ) ) {
+				if ( empty( $meta_element['nodescription'] ) ) {
+					$output .= $content;
+				} else {
+					// Do Something Here ;)
+				}
+			}
+		}
+
+		echo $output;
 	}
 
 	/**

@@ -16,7 +16,7 @@ $elements = array(
 		'id'      => 'layout',
 		'type'    => 'select',
 		'std'     => '',
-		'class'   => 'avia-style',
+		'class'   => 'axisbuilder-style',
 		'subtype' => array(
 			__( 'Default Layout', 'axisbuilder' ) => '',
 			__( 'No Sidebar',     'axisbuilder' ) => 'fullsize',
@@ -32,9 +32,9 @@ $elements = array(
 		'id'       => 'sidebar',
 		'type'     => 'select',
 		'std'      => '',
-		'class'    => 'avia-style',
+		'class'    => 'axisbuilder-style',
 		'required' => array( 'layout', 'not', 'fullsize' ),
-		// 'subtype'  => AviaHelper::get_registered_sidebars( array( 'Default Sidebars' => '' ), array( 'Displayed Everywhere' ) )
+		'subtype'  => axisbuilder_get_registered_sidebars( array( 'Default Sidebars' => '' ), array( 'Displayed Everywhere' ) )
 	),
 
 	array(
@@ -44,7 +44,7 @@ $elements = array(
 		'id'      => 'header_title_bar',
 		'type'    => 'select',
 		'std'     => '',
-		'class'   => 'avia-style',
+		'class'   => 'axisbuilder-style',
 		'subtype' => array(
 			__( 'Default Layout',                'axisbuilder' ) => '',
 			__( 'Display title and breadcrumbs', 'axisbuilder' ) => 'title_bar_breadcrumb',
@@ -60,7 +60,7 @@ $elements = array(
 		'id'      => 'header_transparency',
 		'type'    => 'select',
 		'std'     => '',
-		'class'   => 'avia-style',
+		'class'   => 'axisbuilder-style',
 		'subtype' => array(
 			__( 'No transparency',             'axisbuilder' ) => '',
 			__( 'Transparent Header',          'axisbuilder' ) => 'header_transparent',
@@ -75,7 +75,7 @@ $elements = array(
 		'id'      => 'footer',
 		'type'    => 'select',
 		'std'     => '',
-		'class'   => 'avia-style',
+		'class'   => 'axisbuilder-style',
 		'subtype' => array(
 			__( 'Both Widgets and Socket',  'axisbuilder' ) => 'footer_both',
 			__( 'Only Widgets (No Socket)', 'axisbuilder' ) => 'widget_only',

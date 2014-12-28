@@ -132,7 +132,6 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 
 			$params = array(
-				'wp_ver'                          => $wp_version, // Used for Editor resizing Issue (No require for WP-4.1)
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),

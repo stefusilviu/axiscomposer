@@ -162,6 +162,26 @@ class AB_Shortcodes {
 	}
 
 	/**
+	 * Get TinyMCE shortcodes.
+	 * @return array
+	 */
+	public function get_mce_shortcodes() {
+		$_available_shortcodes = array();
+
+		if ( sizeof( $this->shortcodes ) > 0 ) {
+			foreach ( $this->shortcodes as $load_shortcodes ) {
+				if ( empty( $load_shortcodes->shortcode['tinymce']['disable'] ) ) {
+					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['type']    = $load_shortcodes->shortcode['type'];
+					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['title']   = $load_shortcodes->title;
+					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['tinyMCE'] = $load_shortcodes->shortcode['tinymce'];
+				}
+			}
+		}
+
+		return $_available_shortcodes;
+	}
+
+	/**
 	 * Get Editor Elements.
 	 * @return array
 	 */

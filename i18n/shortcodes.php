@@ -18,11 +18,10 @@ if ( ! class_exists( '_WP_Editors' ) ) {
 
 function axisbuilder_tinymce_plugin_translation() {
 
+	// Default TinyMCE strings
 	$mce_translation = array(
-		// Default TinyMCE strings
 		'shortcode_title' => __( 'Insert Builder Shortcode', 'axisbuilder' ),
 		'shortcode_text'  => __( 'Axis Builder', 'axisbuilder' ),
-
 		'layout_label'    => __( 'Layout Elements', 'axisbuilder' ),
 		'content_label'   => __( 'Content Elements', 'axisbuilder' ),
 		'media_label'     => __( 'Media Elements', 'axisbuilder' ),

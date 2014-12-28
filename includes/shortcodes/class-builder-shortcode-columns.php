@@ -312,7 +312,7 @@ class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 			'icon'        => 'icon-three-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/three-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '3/5', 'instantInsert' => '[ab_three_fifth first]2/5[/ab_three_fifth]' ),
+			'tinyMCE'     => array( 'name' => '3/5', 'instantInsert' => '[ab_three_fifth first]3/5[/ab_three_fifth]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false
@@ -339,7 +339,7 @@ class AB_Shortcode_Columns_Four_Fifth extends AB_Shortcode_Columns {
 			'icon'        => 'icon-four-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/four-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '4/5', 'instantInsert' => '[ab_four_fifth first]2/5[/ab_four_fifth]' ),
+			'tinyMCE'     => array( 'name' => '4/5', 'instantInsert' => '[ab_four_fifth first]4/5[/ab_four_fifth]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false

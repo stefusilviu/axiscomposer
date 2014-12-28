@@ -123,7 +123,7 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 			'icon'        => 'icon-one-half',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-half.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '1/2 + 1/2', 'instantInsert' => '[ab_one_half first]Add Content here[/ab_one_half]\n\n\n[ab_one_half]Add Content here[/ab_one_half]' ),
+			'tinyMCE'     => array( 'name' => '1/2 + 1/2', 'instantInsert' => '[ab_one_half first]Add Content here[/ab_one_half]' . "\n\n\n" . '[ab_one_half]Add Content here[/ab_one_half]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false
@@ -150,7 +150,7 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 			'icon'        => 'icon-one-third',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '1/3 + 1/3 + 1/3', 'instantInsert' => '[ab_one_third first]Add Content here[/ab_one_third]\n\n\n[ab_one_third]Add Content here[/av_one_third]\n\n\n[ab_one_third]Add Content here[/ab_one_third]' ),
+			'tinyMCE'     => array( 'name' => '1/3 + 1/3 + 1/3', 'instantInsert' => '[ab_one_third first]Add Content here[/ab_one_third]' . "\n\n\n" . '[ab_one_third]Add Content here[/av_one_third]' . "\n\n\n" . '[ab_one_third]Add Content here[/ab_one_third]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false
@@ -177,7 +177,7 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 			'icon'        => 'icon-two-third',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/two-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '2/3 + 1/3', 'instantInsert' => '[ab_two_third first]Add 2/3 Content here[/ab_two_third]\n\n\n[ab_one_third]Add 1/3 Content here[/ab_one_third]' ),
+			'tinyMCE'     => array( 'name' => '2/3 + 1/3', 'instantInsert' => '[ab_two_third first]Add 2/3 Content here[/ab_two_third]' . "\n\n\n" . '[ab_one_third]Add 1/3 Content here[/ab_one_third]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false
@@ -204,7 +204,7 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 			'icon'        => 'icon-one-fourth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-fourth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '1/4 + 1/4 + 1/4 + 1/4', 'instantInsert' => '[ab_one_fourth first]Add Content here[/ab_one_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]\n\n\n[ab_one_fourth]Add Content here[/ab_one_fourth]' ),
+			'tinyMCE'     => array( 'name' => '1/4 + 1/4 + 1/4 + 1/4', 'instantInsert' => '[ab_one_fourth first]Add Content here[/ab_one_fourth]' . "\n\n\n" . '[ab_one_fourth]Add Content here[/ab_one_fourth]' . "\n\n\n" . '[ab_one_fourth]Add Content here[/ab_one_fourth]' . "\n\n\n" . '[ab_one_fourth]Add Content here[/ab_one_fourth]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false
@@ -231,7 +231,7 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 			'icon'        => 'icon-three-fourth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/three-fourth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '3/4 + 1/4', 'instantInsert' => '[ab_three_fourth first]Add 3/4 Content here[/ab_three_fourth]\n\n\n[ab_one_fourth]Add 1/4 Content here[/ab_one_fourth]' ),
+			'tinyMCE'     => array( 'name' => '3/4 + 1/4', 'instantInsert' => '[ab_three_fourth first]Add 3/4 Content here[/ab_three_fourth]' . "\n\n\n" . '[ab_one_fourth]Add 1/4 Content here[/ab_one_fourth]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false
@@ -258,7 +258,7 @@ class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 			'icon'        => 'icon-one-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '1/5 + 1/5 + 1/5 + 1/5 + 1/5', 'instantInsert' => '[ab_one_fifth first]1/5[/ab_one_fifth]\n\n\n[ab_one_fifth]2/5[/ab_one_fifth]\n\n\n[ab_one_fifth]3/5[/ab_one_fifth]\n\n\n[ab_one_fifth]4/5[/ab_one_fifth]\n\n\n[ab_one_fifth]5/5[/ab_one_fifth]' ),
+			'tinyMCE'     => array( 'name' => '1/5 + 1/5 + 1/5 + 1/5 + 1/5', 'instantInsert' => '[ab_one_fifth first]1/5[/ab_one_fifth]' . "\n\n\n" . '[ab_one_fifth]2/5[/ab_one_fifth]' . "\n\n\n" . '[ab_one_fifth]3/5[/ab_one_fifth]' . "\n\n\n" . '[ab_one_fifth]4/5[/ab_one_fifth]' . "\n\n\n" . '[ab_one_fifth]5/5[/ab_one_fifth]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false

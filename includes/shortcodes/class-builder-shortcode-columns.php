@@ -150,7 +150,7 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 			'icon'        => 'icon-one-third',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinyMCE'     => array( 'name' => '1/3 + 1/3 + 1/3', 'instantInsert' => '[ab_one_third first]Add Content here[/ab_one_third]' . "\n\n\n" . '[ab_one_third]Add Content here[/av_one_third]' . "\n\n\n" . '[ab_one_third]Add Content here[/ab_one_third]' ),
+			'tinyMCE'     => array( 'name' => '1/3 + 1/3 + 1/3', 'instantInsert' => '[ab_one_third first]Add Content here[/ab_one_third]' . "\n\n\n" . '[ab_one_third]Add Content here[/ab_one_third]' . "\n\n\n" . '[ab_one_third]Add Content here[/ab_one_third]' ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false

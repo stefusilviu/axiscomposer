@@ -39,7 +39,7 @@ class AB_Shortcode_Productlist extends AB_Shortcode {
 			'icon'    => 'icon-productlist',
 			'image'   => AB()->plugin_url() . '/assets/images/plugin/productlist.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinyMCE' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => false ),
 		);
 	}
 

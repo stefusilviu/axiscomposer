@@ -1,36 +1,55 @@
 /*global tinymce */
 
-( function () {
+( function ( $ ) {
+
+	'use strict';
 
 	/**
-	 * Check is empty.
-	 *
-	 * @param  {string} value
-	 * @return {bool}
+	 * Create the Plugin.
 	 */
-	// function axisShortcodesIsEmpty( value ) {
-	// 	value = value.toString();
+	tinymce.create( 'tinymce.plugins.axisbuilder_shortcodes', {
 
-	// 	if ( 0 !== value.length ) {
-	// 		return false;
-	// 	}
+        /**
+         * Initializes the plugin, this will be executed after the plugin has been created.
+         * This call is done before the editor instance has finished it's initialization so use the on Init event
+         * of the editor instance to intercept that event.
+         *
+         * @param {tinymce.Editor} ed Editor instance that the plugin is initialized in.
+         */
+		init: function( editor ) {
+			var ed = tinymce.activeEditor, self = this;
 
-	// 	return true;
-	// }
+			editor.addButton( 'axisbuilder_shortcodes', {
+				title : ed.getLang( 'axisbuilder_shortcodes.shortcode_title' ),
+				text: ed.getLang( 'axisbuilder_shortcodes.shortcode_text' ),
+				icon: 'axisbuilder-shortcodes',
+				type: 'menubutton',
+				menu: self.createMenu( editor )
+			});
 
-	/**
-	 * Add the shortcodes downdown.
-	 */
-	tinymce.PluginManager.add( 'axisbuilder_shortcodes', function ( editor ) {
-		var ed = tinymce.activeEditor;
-		editor.addButton( 'axisbuilder_shortcodes', {
-			title : ed.getLang( 'axisbuilder_shortcodes.shortcode_title' ),
-			// text: ed.getLang( 'axisbuilder_shortcodes.shortcode_text' ),
-			icon: 'axisbuilder-shortcodes',
-			type: 'menubutton',
-			menu: [
+			editor.addCommand( 'Open_AxisBuilderModal', function( ui, params ) {
+				var modal = new $.AxisBuilderModal( params );
+				return false;
+			});
+		},
 
-			]
-		});
+		/**
+		 * Structure the Menu.
+		 */
+		createMenu: function( editor ) {
+			var self            = this,
+				counter         = 0,
+				submenu         = [],
+				final_options   = [],
+				open_modal      = $.AxisBuilderModal.openInstance || [];
+				// shortcode_array = axisbuilder_globals.shortcode['axisbuilder_shortcodes'].config;
+
+		}
 	});
-})();
+
+	/**
+	 * Register the Plugin.
+	 */
+	tinymce.PluginManager.add( 'axisbuilder_shortcodes', tinymce.plugins.axisbuilder_shortcodes );
+
+})( jQuery );

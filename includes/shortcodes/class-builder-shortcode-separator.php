@@ -39,7 +39,7 @@ class AB_Shortcode_Separator extends AB_Shortcode {
 			'icon'    => 'icon-separator',
 			'image'   => AB()->plugin_url() . '/assets/images/content/separator.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

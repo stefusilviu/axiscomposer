@@ -39,7 +39,7 @@ class AB_Shortcode_Iconbox extends AB_Shortcode {
 			'icon'    => 'icon-iconbox',
 			'image'   => AB()->plugin_url() . '/assets/images/content/iconbox.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

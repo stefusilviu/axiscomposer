@@ -39,7 +39,7 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 			'icon'    => 'icon-sidebar',
 			'image'   => AB()->plugin_url() . '/assets/images/content/sidebar.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'instantInsert' => '[ab_sidebar widget_area="Displayed Everywhere"]' ),
+			'tinyMCE' => array( 'instantInsert' => '[ab_sidebar widget_area="Displayed Everywhere"]' ),
 		);
 	}
 

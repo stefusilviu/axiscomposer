@@ -39,7 +39,7 @@ class AB_Shortcode_Accordion extends AB_Shortcode {
 			'icon'    => 'icon-accordion',
 			'image'   => AB()->plugin_url() . '/assets/images/content/accordion.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

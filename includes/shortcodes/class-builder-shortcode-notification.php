@@ -39,7 +39,7 @@ class AB_Shortcode_Notification extends AB_Shortcode {
 			'icon'    => 'icon-notification',
 			'image'   => AB()->plugin_url() . '/assets/images/content/notification.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

@@ -229,9 +229,11 @@ function AB_Logger( text, type ) {
 				// Add Loader and remove duplication of elements on canvas :)
 				this.axisBuilderCanvas.addClass( 'loader' ).find( '>*:not( .control-bar, .axisbuilder-insert-area )' ).remove();
 
-				// Turn WordPress editor resizing off ( No require for 4.1 )
-				if( typeof window.editorExpand === 'object' ) {
-					window.editorExpand.off();
+				// Turn WordPress editor resizing off (No require for WP-4.1)
+				if ( axisbuilder_admin.wp_ver < '4.1' ) {
+					if( typeof window.editorExpand === 'object' ) {
+						window.editorExpand.off();
+					}
 				}
 
 				// Debug Logger

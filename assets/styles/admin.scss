@@ -247,13 +247,13 @@ label[for="axisbuilder-editor-hide"] {
 			}
 		}
 
+		/* This Template & Fullscreen is not sure so hidden */
 		.content-sections {
 			float: right;
+			display: none; /* Hehe hidden na ;) */
 
-			/* This Template is not sure so hidden */
 			.template-action {
 				float: left;
-				display: none;
 			}
 
 			.fullscreen-action {

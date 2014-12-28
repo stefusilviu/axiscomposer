@@ -170,7 +170,7 @@ class AB_Shortcodes {
 
 		if ( sizeof( $this->shortcodes ) > 0 ) {
 			foreach ( $this->shortcodes as $load_shortcodes ) {
-				if ( empty( $load_shortcodes->shortcode['tinymce']['disable'] ) ) {
+				if ( empty( $load_shortcodes->shortcode['tinyMCE']['disable'] ) ) {
 					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['type']    = $load_shortcodes->shortcode['type'];
 					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['title']   = $load_shortcodes->title;
 					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['tinyMCE'] = $load_shortcodes->shortcode['tinyMCE'];

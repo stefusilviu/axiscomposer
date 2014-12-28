@@ -1,9 +1,9 @@
 === Axis Builder - #1 Page Builder ===
 Contributors: axisthemes, shivapoudel, RajeebTheGreat
-Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable
+Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@axisthemes.com&item_name=Donation+for+Axis+Builder
-Requires at least: 3.8
-Tested up to: 4.0
+Requires at least: 4.0
+Tested up to: 4.1
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -29,7 +29,7 @@ Translators can contribute new languages to Axis Builder through [Transifex](htt
 
 = Minimum Requirements =
 
-* WordPress 3.8 or greater
+* WordPress 4.0 or greater
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
 

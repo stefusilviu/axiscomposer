@@ -39,7 +39,7 @@ class AB_Shortcode_Comments extends AB_Shortcode {
 			'icon'    => 'icon-comments',
 			'image'   => AB()->plugin_url() . '/assets/images/content/comments.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

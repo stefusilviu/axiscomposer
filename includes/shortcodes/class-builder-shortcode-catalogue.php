@@ -39,7 +39,7 @@ class AB_Shortcode_Catalogue extends AB_Shortcode {
 			'icon'    => 'icon-catalogue',
 			'image'   => AB()->plugin_url() . '/assets/images/content/catalogue.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

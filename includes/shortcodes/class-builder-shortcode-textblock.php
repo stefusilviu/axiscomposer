@@ -39,7 +39,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 			'icon'    => 'icon-textblock',
 			'image'   => AB()->plugin_url() . '/assets/images/content/textblock.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

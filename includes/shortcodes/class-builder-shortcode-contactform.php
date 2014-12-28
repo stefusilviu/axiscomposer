@@ -39,7 +39,7 @@ class AB_Shortcode_Contactform extends AB_Shortcode {
 			'icon'    => 'icon-contactform',
 			'image'   => AB()->plugin_url() . '/assets/images/content/contactform.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

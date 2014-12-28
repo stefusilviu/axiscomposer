@@ -39,7 +39,7 @@ class AB_Shortcode_Teammembers extends AB_Shortcode {
 			'icon'    => 'icon-teammembers',
 			'image'   => AB()->plugin_url() . '/assets/images/content/teammembers.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

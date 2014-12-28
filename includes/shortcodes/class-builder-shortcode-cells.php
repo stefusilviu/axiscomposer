@@ -41,7 +41,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 			'icon'        => 'icon-one-full',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-full.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -131,7 +131,7 @@ class AB_Shortcode_Cells_One_Half extends AB_Shortcode_Cells {
 			'icon'        => 'icon-one-half',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-half.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -159,7 +159,7 @@ class AB_Shortcode_Cells_One_Third extends AB_Shortcode_Cells {
 			'icon'        => 'icon-one-third',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -187,7 +187,7 @@ class AB_Shortcode_Cells_Two_Third extends AB_Shortcode_Cells {
 			'icon'        => 'icon-two-third',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/two-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -215,7 +215,7 @@ class AB_Shortcode_Cells_One_Fourth extends AB_Shortcode_Cells {
 			'icon'        => 'icon-one-fourth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-fourth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -243,7 +243,7 @@ class AB_Shortcode_Cells_Three_Fourth extends AB_Shortcode_Cells {
 			'icon'        => 'icon-three-fourth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/three-fourth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 2,
 			'html-render' => false,
@@ -271,7 +271,7 @@ class AB_Shortcode_Cells_One_Fifth extends AB_Shortcode_Cells {
 			'icon'        => 'icon-one-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/one-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -299,7 +299,7 @@ class AB_Shortcode_Cells_Two_Fifth extends AB_Shortcode_Cells {
 			'icon'        => 'icon-two-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/two-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -327,7 +327,7 @@ class AB_Shortcode_Cells_Three_Fifth extends AB_Shortcode_Cells {
 			'icon'        => 'icon-three-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/three-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,
@@ -355,7 +355,7 @@ class AB_Shortcode_Cells_Four_Fifth extends AB_Shortcode_Cells {
 			'icon'        => 'icon-four-fifth',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/columns/four-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 2,
 			'drop-level'  => 1,
 			'html-render' => false,

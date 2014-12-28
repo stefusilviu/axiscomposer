@@ -39,7 +39,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			'icon'        => 'icon-gridrow',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/gridrow.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-target-insert',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 1,
 			'drop-level'  => 100,
 			'html-render' => false,

@@ -39,7 +39,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			'icon'        => 'icon-section',
 			'image'       => AB()->plugin_url() . '/assets/images/layouts/section.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-target-insert',
-			'tinymce'     => array( 'disable' => true ),
+			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 1,
 			'drop-level'  => 1,
 			'html-render' => false

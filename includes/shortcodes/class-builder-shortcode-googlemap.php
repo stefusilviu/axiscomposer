@@ -39,7 +39,7 @@ class AB_Shortcode_Googlemap extends AB_Shortcode {
 			'icon'    => 'icon-googlemap',
 			'image'   => AB()->plugin_url() . '/assets/images/media/googlemap.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinymce' => array( 'disable' => true ),
+			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
 

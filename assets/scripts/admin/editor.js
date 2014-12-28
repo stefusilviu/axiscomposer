@@ -7,14 +7,12 @@
 	/**
 	 * Create the Plugin.
 	 */
-	tinymce.create( 'tinymce.plugins.axisbuilder_shortcodes', {
+	tinymce.create( 'tinymce.plugins.AB_Shortcodes', {
 
 		/**
-		 * Initializes the plugin, this will be executed after the plugin has been created.
-		 * This call is done before the editor instance has finished it's initialization so use the on Init event
-		 * of the editor instance to intercept that event.
-		 *
-		 * @param {tinymce.Editor} ed Editor instance that the plugin is initialized in.
+		 * Initialize the Plugin.
+		 * @param  {tinymce.Editor} editor Editor instance that the plugin is initialized in.
+		 * @return {null}
 		 */
 		init: function( editor ) {
 			var ed = tinymce.activeEditor, self = this;
@@ -119,6 +117,6 @@
 	/**
 	 * Register the Plugin.
 	 */
-	tinymce.PluginManager.add( 'axisbuilder_shortcodes', tinymce.plugins.axisbuilder_shortcodes );
+	tinymce.PluginManager.add( 'axisbuilder_shortcodes', tinymce.plugins.AB_Shortcodes );
 
 })( jQuery );

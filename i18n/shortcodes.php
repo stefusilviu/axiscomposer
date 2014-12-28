@@ -16,9 +16,15 @@ if ( ! class_exists( '_WP_Editors' ) ) {
     require( ABSPATH . WPINC . '/class-wp-editor.php' );
 }
 
+if ( ! function_exists( 'axisbuilder_tinymce_plugin_translation' ) ) :
+
+/**
+ * TinyMCE Plugin Translation.
+ * @return array $translated TinyMCE language strings.
+ */
 function axisbuilder_tinymce_plugin_translation() {
 
-	// Default TinyMCE strings
+	// Default TinyMCE strings.
 	$mce_translation = array(
 		'shortcode_title' => __( 'Insert Builder Shortcode', 'axisbuilder' ),
 		'shortcode_text'  => __( 'Axis Builder', 'axisbuilder' ),
@@ -43,5 +49,7 @@ function axisbuilder_tinymce_plugin_translation() {
 
 	return $translated;
 }
+
+endif;
 
 $strings = axisbuilder_tinymce_plugin_translation();

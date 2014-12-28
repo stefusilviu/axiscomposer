@@ -173,7 +173,7 @@ class AB_Shortcodes {
 				if ( empty( $load_shortcodes->shortcode['tinymce']['disable'] ) ) {
 					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['type']    = $load_shortcodes->shortcode['type'];
 					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['title']   = $load_shortcodes->title;
-					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['tinyMCE'] = $load_shortcodes->shortcode['tinymce'];
+					$_available_shortcodes[ $load_shortcodes->shortcode['name'] ]['tinyMCE'] = $load_shortcodes->shortcode['tinyMCE'];
 				}
 			}
 		}

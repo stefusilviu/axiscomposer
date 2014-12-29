@@ -107,6 +107,7 @@
 
 			// Execute command ;)
 			ed.execCommand( 'mceInsertContent', false, window.switchEditors.wpautop( shortcode.tinyMCE.instantInsert ) );
+			// ed.insertContent( shortcode.tinyMCE.instantInsert );
 		},
 
 		modalInsert: function() {

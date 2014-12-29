@@ -20,7 +20,7 @@ if ( ! function_exists( 'axisbuilder_tinymce_plugin_translation' ) ) :
 
 /**
  * TinyMCE Plugin Translation.
- * @return array $translated TinyMCE language strings.
+ * @return string $translated TinyMCE language strings.
  */
 function axisbuilder_tinymce_plugin_translation() {
 

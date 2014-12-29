@@ -204,6 +204,11 @@ function AB_Logger( text, type ) {
 				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'active' );
 
+				// Turn off WordPress DFW for builder ;)
+				if( typeof window.wp.editor.dfw === 'object' ) {
+					window.wp.editor.dfw.off();
+				}
+
 				// Load Shortcodes to Interface :)
 				setTimeout( function() {
 					self.shortcodesToInterface();
@@ -217,7 +222,7 @@ function AB_Logger( text, type ) {
 				// Add Loader and remove duplication of elements on canvas :)
 				this.axisBuilderCanvas.addClass( 'loader' ).find( '>*:not( .control-bar, .axisbuilder-insert-area )' ).remove();
 
-				// Turn off WordPress editorExpand ;)
+				// Reset WordPress editorExpand ;)
 				if( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
 					window.editorExpand.on();

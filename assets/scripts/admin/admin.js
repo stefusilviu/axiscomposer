@@ -232,7 +232,7 @@ function AB_Logger( text, type ) {
 				// Turn off WordPress editorExpand ;)
 				if( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
-					// window.editorExpand.on();
+					window.editorExpand.on();
 				}
 
 				// Debug Logger

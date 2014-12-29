@@ -130,45 +130,33 @@ function AB_Logger( text, type ) {
 				return false;
 			});
 
-			// Clone element from the Builder Canvas
+			// Builder Canvas
 			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-clone', function() {
 				obj.shortcodes.cloneElement( this, obj );
 				return false;
-			});
-
-			// Remove element from the Builder Canvas
-			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-trash', function() {
+			})
+			.on( 'click', 'a.axisbuilder-trash', function() {
 				obj.shortcodes.trashElement( this, obj );
 				return false;
-			});
-
-			// Resize the layout element of the Builder Canvas
-			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', function() {
+			})
+			.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', function() {
 				obj.shortcodes.resizeLayout( this, obj );
 				return false;
-			});
-
-			// Set cell size for layout/grid row element of the Builder Canvas
-			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-cell-set', function() {
+			})
+			.on( 'click', 'a.axisbuilder-cell-set', function() {
 				obj.shortcodes.setCellSize( this, obj );
 				return false;
-			});
-
-			// Add new cell for layout/grid row element of the Builder Canvas
-			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-cell-add', function() {
+			})
+			.on( 'click', 'a.axisbuilder-cell-add', function() {
 				obj.shortcodes.addNewCell( this, obj );
 				return false;
-			});
-
-			// Re-calculate shortcode when select elements change occured on the Builder Canvas
-			this.axisBuilderCanvas.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
+			})
+			.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
 				var	container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
 				obj.recalculateShortcode( container );
 				return false;
-			});
-
-			// Reactivate sorting and dropping after Undo-Redo changes
-			this.axisBuilderCanvas.on( 'axisbuilder-history-update', function() {
+			})
+			.on( 'axisbuilder-history-update', function() {
 				obj.activateDragging( this.axisBuilderParent, '' );
 				obj.activateDropping( this.axisBuilderParent, '' );
 			});

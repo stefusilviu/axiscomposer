@@ -54,7 +54,7 @@
 		_target: undefined,
 		events: {
 			'click #btn-cancel': 'closeButton',
-			'click #btn-ok': 'addButton'
+			'click #btn-save': 'addButton'
 		},
 		initialize: function ( data ) {
 			this._target = data.target;

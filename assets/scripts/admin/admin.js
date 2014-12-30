@@ -134,7 +134,6 @@ function AB_Logger( text, type ) {
 				$( this ).AxisBuilderBackboneModal({
 					template: '#tmpl-axisbuilder-modal'
 				});
-
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-clone', function() {

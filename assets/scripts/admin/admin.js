@@ -109,7 +109,7 @@ function AB_Logger( text, type ) {
 			});
 
 			// Trash all element(s) from the Builder Canvas
-			this.axisBuilderHandle.on( 'click', 'a.trash-data', function( e ) {
+			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
 				var length = obj.axisBuilderCanvas.children().length;
 
 				if ( length > 0 ) {
@@ -126,7 +126,6 @@ function AB_Logger( text, type ) {
 					}
 				}
 
-				e.preventDefault();
 				return false;
 			});
 
@@ -135,6 +134,7 @@ function AB_Logger( text, type ) {
 				$( this ).AxisBuilderBackboneModal({
 					template: '#tmpl-axisbuilder-modal'
 				});
+
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-clone', function() {

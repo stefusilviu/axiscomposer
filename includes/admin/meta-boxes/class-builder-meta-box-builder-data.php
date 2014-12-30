@@ -115,12 +115,12 @@ class AB_Meta_Box_Builder_Data {
 				</div>
 			</div>
 		</div>
-		<script type="text/template" id="tmpl-axisbuilder-modal">
+		<script type="text/template" id="tmpl-axisbuilder-modal-edit-elements">
 			<div class="axisbuilder-backbone-modal popup-animation">
 				<div class="axisbuilder-backbone-modal-content">
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header>
-							<h1><?php _e( 'Shortcode Title', 'axisbuilder' ); ?></h1>
+							<h1><%= title %></h1>
 						</header>
 						<article>
 							<form action="" method="post"></form>

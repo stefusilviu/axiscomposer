@@ -131,9 +131,22 @@ function AB_Logger( text, type ) {
 
 			// Builder Canvas
 			this.axisBuilderCanvas.on( 'click', '.axisbuilder-edit', function() {
+				var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+
+				if ( ! parents.length ) {
+					parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
+
+					if ( ! parents.length ) {
+						parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+					}
+				}
+
+				// Load Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
-					template: '#tmpl-axisbuilder-modal'
+					title: parents.data('modal-title'),
+					template: '#tmpl-axisbuilder-modal-edit-elements'
 				});
+
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-clone', function() {
@@ -164,6 +177,15 @@ function AB_Logger( text, type ) {
 			.on( 'axisbuilder-history-update', function() {
 				obj.activateDragging( this.axisBuilderParent, '' );
 				obj.activateDropping( this.axisBuilderParent, '' );
+			});
+
+			// Adds element settings in builder canvas
+			body.on( 'axisbuilder_backbone_modal_response', function( e, target ) {
+				if ( '#tmpl-axisbuilder-modal' !== target ) {
+					return;
+				}
+
+				// Something goes here ;)
 			});
 
 			// Edit item via Modal Window

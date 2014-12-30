@@ -393,19 +393,26 @@
 			}
 
 			// Modal Notification
-			new $.AxisBuilderModalNotification({
-				scope: this,
-				button: button,
+			// new $.AxisBuilderModalNotification({
+			// 	scope: this,
+			// 	button: button,
+			// 	message: message,
+			// 	modal_class: modal_class,
+			// 	modal_title: axisbuilder_shortcodes.i18n_select_layout,
+			// 	on_save: this.saveModal,
+			// 	save_param: {
+			// 		obj: obj,
+			// 		row: row,
+			// 		cells: cells,
+			// 		variations: variations
+			// 	}
+			// });
+
+			// Load Backbone Modal
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_shortcodes.i18n_select_layout,
 				message: message,
-				modal_class: modal_class,
-				modal_title: axisbuilder_shortcodes.i18n_select_layout,
-				on_save: this.saveModal,
-				save_param: {
-					obj: obj,
-					row: row,
-					cells: cells,
-					variations: variations
-				}
+				template: '#tmpl-axisbuilder-modal-trash-data'
 			});
 		},
 

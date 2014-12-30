@@ -90,9 +90,9 @@ function AB_Logger( text, type ) {
 				body = $( 'body' );
 
 			// Toggle between default editor and page builder
-			this.axisBuilderButton.on( 'click', function( e ) {
-				e.preventDefault();
+			this.axisBuilderButton.click( function() {
 				obj.switchEditors();
+				return false;
 			});
 
 			// Add a new element to the Builder Canvas
@@ -174,7 +174,7 @@ function AB_Logger( text, type ) {
 			});
 
 			// Empty the Builder Canvas & Load empty Textarea
-			body.on( 'axisbuilder_backbone_modal_delete', function( e, target ) {
+			body.on( 'axisbuilder_backbone_modal_action', function( e, target ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' !== target ) {
 					return;
 				}

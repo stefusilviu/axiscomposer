@@ -128,8 +128,8 @@ class AB_Meta_Box_Builder_Data {
 						</article>
 						<footer>
 							<div class="inner">
-								<button id="btn-cancel" class="button button-large"><?php echo __( 'Cancel' , 'axisbuilder' ); ?></button>
-								<button id="btn-save" class="button button-primary button-large"><?php echo __( 'Save' , 'axisbuilder' ); ?></button>
+								<button id="button-action" class="button button-large button-primary"><?php _e( 'Save' , 'axisbuilder' ); ?></button>
+								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
 							</div>
 						</footer>
 					</section>
@@ -150,8 +150,8 @@ class AB_Meta_Box_Builder_Data {
 						</article>
 						<footer>
 							<div class="inner">
-								<button id="btn-cancel" class="button button-large"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
-								<button id="btn-delete" class="button button-primary button-large"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
+								<button id="button-action" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
+								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
 							</div>
 						</footer>
 					</section>

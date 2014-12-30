@@ -31,7 +31,7 @@
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
 				message: settings.message,
-				target: settings.template
+				template: settings.template
 			});
 		}
 	};
@@ -56,24 +56,26 @@
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
 		_title: undefined,
-		_target: undefined,
 		_message: undefined,
+		_template: undefined,
 		events: {
-			'click #btn-cancel': 'closeButton',
-			'click #btn-delete': 'deleteButton',
-			'click #btn-save': 'saveButton'
+			'click #button-cancel': 'cancelButton',
+			'click #button-action': 'actionButton'
 		},
-		initialize: function ( data ) {
+		initialize: function( data ) {
 			this._title = data.title;
-			this._target = data.target;
 			this._message = data.message;
+			this._template = data.template;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
-		render: function () {
-			var variables = { title: this._title, message: this._message };
+		render: function() {
+			var variables = {
+				title: this._title,
+				message: this._message
+			};
 
-			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
+			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._template ).html(), variables ) );
 
 			$( 'body' ).css({
 				'overflow': 'hidden'
@@ -103,9 +105,9 @@
 				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
 			});
 
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._target );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
 		},
-		closeButton: function ( e ) {
+		cancelButton: function( e ) {
 			e.preventDefault();
 			this.undelegateEvents();
 			$( document ).off( 'focusin' );
@@ -113,25 +115,20 @@
 				'overflow': 'auto'
 			});
 			this.remove();
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._target );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_cancel', this._template );
 		},
-		deleteButton: function ( e ) {
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_delete', this._target, this.getFormData() );
-			this.closeButton( e );
+		actionButton: function( e ) {
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_action', this._template, this.getFormData() );
+			this.cancelButton( e );
 		},
-		saveButton: function ( e ) {
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', this._target, this.getFormData() );
-			this.closeButton( e );
-		},
-		getFormData: function () {
+		getFormData: function() {
 			var data = {};
 
 			$.each( $( 'form', this.$el ).serializeArray(), function( index, item ) {
 				if ( data.hasOwnProperty( item.name ) ) {
 					data[ item.name ] = $.makeArray( data[ item.name ] );
 					data[ item.name ].push( item.value );
-				}
-				else {
+				} else {
 					data[ item.name ] = item.value;
 				}
 			});

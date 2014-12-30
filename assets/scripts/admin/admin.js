@@ -114,6 +114,7 @@ function AB_Logger( text, type ) {
 
 				if ( length > 0 ) {
 					$( this ).AxisBuilderBackboneModal({
+						action: true,
 						title: axisbuilder_admin.i18n_trash_all_elements_title,
 						message: axisbuilder_admin.i18n_trash_all_elements_message,
 						template: '#tmpl-axisbuilder-modal-trash-data'
@@ -137,7 +138,8 @@ function AB_Logger( text, type ) {
 
 				// Load Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
-					title: parents.data('modal-title'),
+					action: true,
+					title: parents.data( 'modal-title' ),
 					template: '#tmpl-axisbuilder-modal-edit-elements'
 				});
 

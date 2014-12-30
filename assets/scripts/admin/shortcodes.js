@@ -352,11 +352,10 @@
 				cells      = row.find( '.axisbuilder-layout-cell' ),
 				rowCount   = cells.length,
 				variations = this.cellSizeVariations[rowCount],
-				button, modal_class, message = '';
+				action, message = '';
 
 			if ( variations ) {
-				button = 'save';
-				modal_class = 'highscreen';
+				action = true;
 				message += '<form>';
 
 				for ( var x in variations ) {
@@ -379,8 +378,7 @@
 				message += '</form>';
 
 			} else {
-				button = 'close';
-				modal_class = 'flexscreen';
+				action = false;
 				message += '<p>' + axisbuilder_shortcodes.i18n_no_layout + '<br />';
 
 				if ( rowCount === 1 ) {
@@ -411,8 +409,9 @@
 			// Load Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				title: axisbuilder_shortcodes.i18n_select_layout,
+				action: action,
 				message: message,
-				template: '#tmpl-axisbuilder-modal-trash-data'
+				template: '#tmpl-axisbuilder-modal-cell-size'
 			});
 		},
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-28 16:18:15+00:00\n"
+"POT-Creation-Date: 2014-12-30 15:03:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Don't Display Both"
 msgstr ""
 
-#: i18n/shortcodes.php:23
+#: i18n/shortcodes.php:29
 msgid "Insert Builder Shortcode"
 msgstr ""
 
@@ -129,19 +129,19 @@ msgstr ""
 msgid "Axis Builder"
 msgstr ""
 
-#: i18n/shortcodes.php:26
+#: i18n/shortcodes.php:31
 msgid "Layout Elements"
 msgstr ""
 
-#: i18n/shortcodes.php:27
+#: i18n/shortcodes.php:32
 msgid "Content Elements"
 msgstr ""
 
-#: i18n/shortcodes.php:28
+#: i18n/shortcodes.php:33
 msgid "Media Elements"
 msgstr ""
 
-#: i18n/shortcodes.php:29
+#: i18n/shortcodes.php:34
 msgid "Plugin Additions"
 msgstr ""
 

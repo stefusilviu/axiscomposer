@@ -130,7 +130,7 @@ function AB_Logger( text, type ) {
 			});
 
 			// Builder Canvas
-			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-edit', function() {
+			this.axisBuilderCanvas.on( 'click', '.axisbuilder-edit', function() {
 				$( this ).AxisBuilderBackboneModal({
 					template: '#tmpl-axisbuilder-modal'
 				});

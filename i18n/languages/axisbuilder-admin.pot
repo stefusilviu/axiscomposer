@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-28 16:18:29+00:00\n"
+"POT-Creation-Date: 2014-12-30 01:23:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,18 +62,18 @@ msgstr ""
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:139
+#: includes/admin/class-builder-admin-assets.php:140
 msgid ""
 "Are you sure you want to delete all canvas element(s)? This cannot be "
 "undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:140
-#: includes/admin/class-builder-admin-assets.php:154
+#: includes/admin/class-builder-admin-assets.php:141
+#: includes/admin/class-builder-admin-assets.php:155
 msgid "Last warning, are you sure?"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:153
+#: includes/admin/class-builder-admin-assets.php:154
 msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
 msgstr ""
 

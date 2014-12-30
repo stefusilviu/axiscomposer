@@ -2,10 +2,10 @@
 /**
  * AxisBuilder Uninstall
  *
- * @package		AxisBuilder/Uninstaller
- * @category	Core
- * @author		AxisThemes
- * @since		1.0.0
+ * @package     AxisBuilder/Uninstaller
+ * @category    Core
+ * @author      AxisThemes
+ * @since       1.0.0
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

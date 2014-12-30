@@ -113,17 +113,11 @@ function AB_Logger( text, type ) {
 				var length = obj.axisBuilderCanvas.children().length;
 
 				if ( length > 0 ) {
-					var answer = window.confirm( axisbuilder_admin.i18n_delete_all_canvas_elements );
-
-					if ( answer ) {
-						answer = window.confirm( axisbuilder_admin.i18n_last_warning );
-
-						if ( answer ) {
-							// Empty the canvas & Update textarea with empty value :)
-							obj.axisBuilderCanvas.empty();
-							obj.updateTextarea();
-						}
-					}
+					$( this ).AxisBuilderBackboneModal({
+						title: axisbuilder_admin.i18n_trash_all_elements_title,
+						message: axisbuilder_admin.i18n_trash_all_elements_message,
+						template: '#tmpl-axisbuilder-modal-trash-data'
+					});
 				}
 
 				return false;
@@ -179,9 +173,19 @@ function AB_Logger( text, type ) {
 				obj.activateDropping( this.axisBuilderParent, '' );
 			});
 
+			// Empty the Builder Canvas & Load empty Textarea
+			body.on( 'axisbuilder_backbone_modal_delete', function( e, target ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' !== target ) {
+					return;
+				}
+
+				obj.axisBuilderCanvas.empty();
+				obj.updateTextarea();
+			});
+
 			// Adds element settings in builder canvas
 			body.on( 'axisbuilder_backbone_modal_response', function( e, target ) {
-				if ( '#tmpl-axisbuilder-modal' !== target ) {
+				if ( '#tmpl-axisbuilder-modal-edit-elements' !== target ) {
 					return;
 				}
 

@@ -138,8 +138,8 @@ class AB_Admin_Assets {
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'debug_mode'                      => current_theme_supports( 'axisbuilder-debug' ) ? 'enabled' : 'disabled',
-				'i18n_delete_all_canvas_elements' => esc_js( __( 'Are you sure you want to delete all canvas element(s)? This cannot be undone.', 'axisbuilder' ) ),
-				'i18n_last_warning'               => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) ),
+				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
+				'i18n_trash_all_elements_message' => esc_js( __( 'Are you sure you want to delete all canvas element(s)? This cannot be undone.', 'axisbuilder' ) ),
 			);
 
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );

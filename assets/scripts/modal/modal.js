@@ -30,6 +30,7 @@
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
+				message: settings.message,
 				target: settings.template
 			});
 		}
@@ -42,6 +43,7 @@
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
 		title: '',
+		message: '',
 		template: ''
 	};
 
@@ -55,18 +57,21 @@
 		id: 'axisbuilder-backbone-modal-dialog',
 		_title: undefined,
 		_target: undefined,
+		_message: undefined,
 		events: {
 			'click #btn-cancel': 'closeButton',
-			'click #btn-save': 'addButton'
+			'click #btn-delete': 'deleteButton',
+			'click #btn-save': 'saveButton'
 		},
 		initialize: function ( data ) {
 			this._title = data.title;
 			this._target = data.target;
+			this._message = data.message;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
 		render: function () {
-			var variables = { title: this._title };
+			var variables = { title: this._title, message: this._message };
 
 			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
 
@@ -110,7 +115,11 @@
 			this.remove();
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._target );
 		},
-		addButton: function ( e ) {
+		deleteButton: function ( e ) {
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_delete', this._target, this.getFormData() );
+			this.closeButton( e );
+		},
+		saveButton: function ( e ) {
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', this._target, this.getFormData() );
 			this.closeButton( e );
 		},

@@ -131,6 +131,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'jquery-ui-droppable' );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
+			wp_enqueue_script( 'jquery-ui-autocomplete' );
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',

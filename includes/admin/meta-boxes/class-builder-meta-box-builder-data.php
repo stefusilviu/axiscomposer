@@ -146,6 +146,7 @@ class AB_Meta_Box_Builder_Data {
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header>
 							<h1><%= title %></h1>
+							<a href="#close" id="button-cancel" class="close-modal trash-modal-icon"></a>
 						</header>
 						<article>
 							<form action="" method="post"><p><%= message %></p></form>

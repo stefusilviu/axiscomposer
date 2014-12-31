@@ -22,6 +22,13 @@
 }
 
 /**
+ * Animation Styles
+ */
+.popup-animation {
+	@include animation( popup .3s $ease-out-back );
+}
+
+/**
  * Full Screen No-Scroll
  */
 body.axisbuilder-noscroll-box {
@@ -1086,6 +1093,13 @@ body .ui-draggable-dragging {
 }
 
 /**
+ * Clear
+ */
+.clear {
+	clear: both;
+}
+
+/**
  * Clearfix
  */
 #axisbuilder-editor, .axisbuilder-clearfix,
@@ -1197,15 +1211,11 @@ body .ui-draggable-dragging {
 }
 
 .axisbuilder-backbone-modal-backdrop {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	opacity: 0.7;
+	z-index: 14000;
+	background: black;
 	min-height: 360px;
-	background: #000;
-	opacity: .7;
-	z-index: 159900;
+	@include position(fixed, 0px 0px 0px 0px);
 }
 
 .axisbuilder-backbone-modal-main {
@@ -1220,6 +1230,28 @@ body .ui-draggable-dragging {
 
 	header {
 		border-bottom: 1px solid #ddd;
+
+		.close-modal {
+			width: 25px;
+			height: 25px;
+			overflow: hidden;
+			@include animation-duration(0s);
+			@include position(absolute, 16px 16px null null);
+
+			&.trash-modal-icon {
+				color: #999;
+				font-size: 16px;
+
+				&:before {
+					@include icon( "\e014" );
+					line-height: 1.5;
+				}
+
+				&:hover {
+					color: #d54e21;
+				}
+			}
+		}
 	}
 
 	article {

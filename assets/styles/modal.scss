@@ -314,24 +314,3 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 		position: absolute;
 	}
 }
-
-/**
- * Animation Styles
- */
-.popup-animation {
-	@include animation( popup .3s $ease-out-back );
-}
-
-/**
- * Clear
- */
-.clear {
-	clear: both;
-}
-
-/**
- * Clearfix
- */
-.axisbuilder-clearfix {
-	@include clearfix();
-}

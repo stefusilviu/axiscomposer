@@ -124,7 +124,7 @@ class AB_Meta_Box_Builder_Data {
 							<h1><%= title %></h1>
 						</header>
 						<article>
-							<form action="" method="post"><p><%= message %></p></form>
+							<div class="ajax-element-settings"></div>
 						</article>
 						<footer>
 							<div class="inner">

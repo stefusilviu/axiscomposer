@@ -17,8 +17,6 @@
 				obj.sendToBuilderCanvas( template.html() );
 				obj.updateTextarea();
 				obj.historySnapshot(0);
-			} else {
-
 			}
 
 			return;
@@ -352,11 +350,10 @@
 				cells      = row.find( '.axisbuilder-layout-cell' ),
 				rowCount   = cells.length,
 				variations = this.cellSizeVariations[rowCount],
-				button, modal_class, message = '';
+				action, message = '';
 
 			if ( variations ) {
-				button = 'save';
-				modal_class = 'highscreen';
+				action = true;
 				message += '<form>';
 
 				for ( var x in variations ) {
@@ -373,14 +370,13 @@
 					}
 
 					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
-					message += '<input type="radio" name="layout" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					message += '<input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 				}
 
 				message += '</form>';
 
 			} else {
-				button = 'close';
-				modal_class = 'flexscreen';
+				action = false;
 				message += '<p>' + axisbuilder_shortcodes.i18n_no_layout + '<br />';
 
 				if ( rowCount === 1 ) {
@@ -392,33 +388,13 @@
 				message += '</p>';
 			}
 
-			// Modal Notification
-			new $.AxisBuilderModalNotification({
-				scope: this,
-				button: button,
+			// Load Backbone Modal
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_shortcodes.i18n_select_layout,
+				action: action,
 				message: message,
-				modal_class: modal_class,
-				modal_title: axisbuilder_shortcodes.i18n_select_layout,
-				on_save: this.saveModal,
-				save_param: {
-					obj: obj,
-					row: row,
-					cells: cells,
-					variations: variations
-				}
+				template: '#tmpl-axisbuilder-modal-cell-size'
 			});
-		},
-
-		saveModal: function( values, save_param ) {
-			var index = ( values && values.layout ) ? values.layout : false;
-			if ( ! index ) {
-				return true;
-			}
-
-			$.AxisBuilderLayoutRow.changeMultipleCellSize( save_param.cells, save_param.variations[index], save_param.obj, true );
-			save_param.obj.updateInnerTextarea( false, save_param.row );
-			save_param.obj.updateTextarea();
-			save_param.obj.historySnapshot(0);
 		}
 	};
 

@@ -115,6 +115,78 @@ class AB_Meta_Box_Builder_Data {
 				</div>
 			</div>
 		</div>
+
+		<script type="text/template" id="tmpl-axisbuilder-modal-edit-elements">
+			<div class="axisbuilder-backbone-modal popup-animation">
+				<div class="axisbuilder-backbone-modal-content">
+					<section class="axisbuilder-backbone-modal-main" role="main">
+						<header>
+							<h1><%= title %></h1>
+						</header>
+						<article>
+							<div class="ajax-element-settings"></div>
+						</article>
+						<footer>
+							<div class="inner">
+								<% if ( action ) { %>
+									<button id="button-action" class="button button-large button-primary"><?php _e( 'Save' , 'axisbuilder' ); ?></button>
+								<% } %>
+								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="axisbuilder-backbone-modal-backdrop">&nbsp;</div>
+		</script>
+
+		<script type="text/template" id="tmpl-axisbuilder-modal-trash-data">
+			<div class="axisbuilder-backbone-modal popup-animation">
+				<div class="axisbuilder-backbone-modal-content">
+					<section class="axisbuilder-backbone-modal-main" role="main">
+						<header>
+							<h1><%= title %></h1>
+						</header>
+						<article>
+							<form action="" method="post"><p><%= message %></p></form>
+						</article>
+						<footer>
+							<div class="inner">
+								<% if ( action ) { %>
+									<button id="button-action" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
+								<% } %>
+								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="axisbuilder-backbone-modal-backdrop">&nbsp;</div>
+		</script>
+
+		<script type="text/template" id="tmpl-axisbuilder-modal-cell-size">
+			<div class="axisbuilder-backbone-modal popup-animation">
+				<div class="axisbuilder-backbone-modal-content">
+					<section class="axisbuilder-backbone-modal-main" role="main">
+						<header>
+							<h1><%= title %></h1>
+						</header>
+						<article>
+							<form action="" method="post"><%= message %></form>
+						</article>
+						<footer>
+							<div class="inner">
+								<% if ( action ) { %>
+									<button id="button-action" class="button button-large button-primary"><?php _e( 'Add' , 'axisbuilder' ); ?></button>
+								<% } %>
+								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
+							</div>
+						</footer>
+					</section>
+				</div>
+			</div>
+			<div class="axisbuilder-backbone-modal-backdrop">&nbsp;</div>
+		</script>
 		<?php
 	}
 

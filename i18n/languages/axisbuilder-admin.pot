@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-30 01:23:15+00:00\n"
+"POT-Creation-Date: 2014-12-31 18:18:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,6 +26,7 @@ msgid "Attention!"
 msgstr ""
 
 #: includes/admin/class-builder-admin-assets.php:93
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:132
 msgid "Save"
 msgstr ""
 
@@ -62,19 +63,22 @@ msgstr ""
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:140
+#: includes/admin/class-builder-admin-assets.php:141
+msgid "Permanently Delete all Canvas Elements"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:142
 msgid ""
 "Are you sure you want to delete all canvas element(s)? This cannot be "
 "undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:141
 #: includes/admin/class-builder-admin-assets.php:155
-msgid "Last warning, are you sure?"
+msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:154
-msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
+#: includes/admin/class-builder-admin-assets.php:156
+msgid "Last warning, are you sure?"
 msgstr ""
 
 #: includes/admin/class-builder-admin-editor.php:51
@@ -186,6 +190,20 @@ msgstr ""
 
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:103
 msgid "Save or Load templates"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:134
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:158
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:182
+msgid "Cancel"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:156
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:180
+msgid "Add"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-sidebars.php:13

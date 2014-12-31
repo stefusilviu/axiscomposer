@@ -31,6 +31,7 @@
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
 				action: settings.action,
+				screen: settings.screen,
 				message: settings.message,
 				template: settings.template
 			});
@@ -45,6 +46,7 @@
 	$.AxisBuilderBackboneModal.defaultOptions = {
 		title: '',
 		action: '',
+		screen: '',
 		message: '',
 		template: ''
 	};
@@ -59,6 +61,7 @@
 		id: 'axisbuilder-backbone-modal-dialog',
 		_title: undefined,
 		_action: undefined,
+		_screen: undefined,
 		_message: undefined,
 		_template: undefined,
 		events: {
@@ -68,6 +71,7 @@
 		initialize: function( data ) {
 			this._title = data.title;
 			this._action = data.action;
+			this._screen = data.screen;
 			this._message = data.message;
 			this._template = data.template;
 			_.bindAll( this, 'render' );
@@ -77,6 +81,7 @@
 			var variables = {
 				title: this._title,
 				action: this._action,
+				screen: this._screen,
 				message: this._message
 			};
 
@@ -108,7 +113,7 @@
 
 			$( '.axisbuilder-backbone-modal-content' ).css({
 				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
-			});
+			}).addClass( this._screen );
 
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
 		},

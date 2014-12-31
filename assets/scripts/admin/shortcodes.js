@@ -393,6 +393,7 @@
 				title: axisbuilder_shortcodes.i18n_select_layout,
 				action: action,
 				message: message,
+				screen: 'flexscreen',
 				template: '#tmpl-axisbuilder-modal-cell-size'
 			});
 		}

@@ -115,6 +115,7 @@ function AB_Logger( text, type ) {
 				if ( length > 0 ) {
 					$( this ).AxisBuilderBackboneModal({
 						action: true,
+						screen: 'flexscreen',
 						title: axisbuilder_admin.i18n_trash_all_elements_title,
 						message: axisbuilder_admin.i18n_trash_all_elements_message,
 						template: '#tmpl-axisbuilder-modal-trash-data'

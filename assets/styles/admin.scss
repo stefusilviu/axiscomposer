@@ -1204,9 +1204,32 @@ body .ui-draggable-dragging {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		width: 500px;
 		background: #fff;
-		margin: -150px 0 0 -250px;
+		min-height: 210px;
+
+		@include position(fixed, 30px 15%);
+
+		&.bigscreen {
+			@include position(null, null 30px 30px);
+		}
+
+		&.mediumscreen {
+			@include position(null, 20%);
+		}
+
+		&.highscreen {
+			@include position(null, 5% 20% 5%);
+		}
+
+		&.flexscreen {
+			width: 500px;
+			min-height: 0;
+		}
+
+		&.flexscreen,
+		&.smallscreen {
+			@include position(null, 35% 50% auto);
+		}
 	}
 }
 

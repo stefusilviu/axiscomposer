@@ -90,8 +90,11 @@ class AB_Admin_Assets {
 			'error'                    => esc_js( __( 'An error occured', 'axisbuilder' ) ),
 			'success'                  => esc_js( __( 'All right!', 'axisbuilder' ) ),
 			'attention'                => esc_js( __( 'Attention!', 'axisbuilder' ) ),
+			'i18n_add_button'          => esc_js( __( 'Add', 'axisbuilder' ) ),
 			'i18n_save_button'         => esc_js( __( 'Save', 'axisbuilder' ) ),
 			'i18n_close_button'        => esc_js( __( 'Close', 'axisbuilder' ) ),
+			'i18n_cancel_button'       => esc_js( __( 'Cancel', 'axisbuilder' ) ),
+			'i18n_delete_button'       => esc_js( __( 'Delete', 'axisbuilder' ) ),
 			'i18n_ajax_error'          => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
 			'i18n_login_error'         => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
 			'i18n_session_error'       => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
@@ -139,7 +142,7 @@ class AB_Admin_Assets {
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'debug_mode'                      => current_theme_supports( 'axisbuilder-debug' ) ? 'enabled' : 'disabled',
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
-				'i18n_trash_all_elements_message' => esc_js( __( 'Are you sure you want to delete all canvas element(s)? This cannot be undone.', 'axisbuilder' ) ),
+				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
 			);
 
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );

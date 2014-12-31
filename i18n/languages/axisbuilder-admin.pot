@@ -1,0 +1,260 @@
+# Copyright (C) 2014 AxisThemes
+# This file is distributed under the same license as the Axis Builder package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
+"Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
+"POT-Creation-Date: 2014-12-31 18:06:55+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
+
+#: includes/admin/class-builder-admin-assets.php:90
+msgid "An error occured"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:91
+msgid "All right!"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:92
+msgid "Attention!"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:93
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:132
+msgid "Save"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:94
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:106
+msgid "Close"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:95
+msgid "Error fetching content - please reload the page and try again"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:96
+msgid "It seems your are no longer logged in. Please reload the page and try again"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:97
+msgid "Your session timed out. Simply reload the page and try again"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:114
+msgid "The current number of cells does not allow any layout variations"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:115
+msgid "You need to add at least one cell"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:116
+msgid "You need to remove at least one cell"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:117
+msgid "Select a cell layout"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:141
+msgid "Permanently Delete all Canvas Elements"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:142
+msgid ""
+"Are you sure you want to delete all canvas element(s)? This cannot be "
+"undone."
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:155
+msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:156
+msgid "Last warning, are you sure?"
+msgstr ""
+
+#: includes/admin/class-builder-admin-editor.php:51
+msgid "Use Page Builder"
+msgstr ""
+
+#: includes/admin/class-builder-admin-editor.php:52
+msgid "Use Default Editor"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:44
+#: includes/admin/class-builder-admin-meta-boxes.php:103
+msgid "Page Builder"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:47
+msgid "General Info"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:49
+msgid ""
+"To insert an Element either click the insert button for that element or "
+"drag the button onto the canvas."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:50
+msgid ""
+"If you place your mouse above the insert button a short info tooltip will "
+"appear."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:51
+msgid ""
+"To sort and arrange your elements just drag them to a position of your "
+"choice and release them."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:52
+msgid ""
+"Valid drop targets will be highlighted. Elements like fullwidth sliders "
+"&amp color section can't be dropped onto other elements."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:54
+msgid "Popup Elements"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:56
+msgid "Most elements open a popup window if you click them."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:57
+msgid "Press TAB to navigate trough the various form fields of a popup window."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:58
+msgid "Press ESC on your keyboard or the Close Button to close popup window."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:59
+msgid ""
+"Press ENTER on your keyboard or the Save Button to save current state of a "
+"popup window."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:60
+msgid ""
+"Press CTRL+Z or CTRL+SHIFT+Z on your keyboard to control History-Undo "
+"events on canvas area."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:61
+msgid ""
+"Press CTRL+Y or CTRL+SHIFT+Y on your keyboard to control History-Redo "
+"events on canvas area."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:46
+msgid "Layout Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:51
+msgid "Content Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:56
+msgid "Media Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:61
+msgid "Plugin Additions"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:93
+msgid "History"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:94
+msgid "Undo"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:95
+msgid "Redo"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:98
+msgid "Permanently delete all canvas elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:103
+msgid "Save or Load templates"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:134
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:158
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:182
+msgid "Cancel"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:156
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:180
+msgid "Add"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-sidebars.php:13
+msgid "Custom Widget Area Builder"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-sidebars.php:14
+msgid "Enter New Widget Area Name"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-sidebars.php:16
+msgid "Add Widget Area"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:12
+msgid ""
+"<strong>Your theme does not declare Axis Builder support</strong> &#8211; "
+"Please read our integration guide or check out our %sofficial themes%s "
+"which are designed specifically for use with Axis Builder."
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:14
+msgid "Official Themes"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:15
+msgid "Theme Integration Guide"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:16
+msgid "Dismiss this notice"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Axis Builder"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://axisthemes.com/axis-builder/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A drag and drop builder that helps you build modern and unique page layouts "
+"smartly. Beautifully."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "AxisThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://axisthemes.com"
+msgstr ""

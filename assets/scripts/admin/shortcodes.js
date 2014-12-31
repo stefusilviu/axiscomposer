@@ -17,8 +17,6 @@
 				obj.sendToBuilderCanvas( template.html() );
 				obj.updateTextarea();
 				obj.historySnapshot(0);
-			} else {
-
 			}
 
 			return;
@@ -372,7 +370,7 @@
 					}
 
 					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
-					message += '<input type="radio" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					message += '<input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 				}
 
 				message += '</form>';
@@ -397,46 +395,6 @@
 				message: message,
 				template: '#tmpl-axisbuilder-modal-cell-size'
 			});
-
-			// Set cell size on builder canvas
-			$( 'body' ).on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-cell-size' !== template ) {
-					return;
-				}
-
-				var add_cell_size = $( 'input[name=add_cell_size]:checked' ).val();
-
-				var index = add_cell_size ? add_cell_size : false;
-
-				if ( ! index ) {
-					return;
-				}
-
-				console.log(index);
-
-				$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, variations[index], obj, true );
-				obj.updateInnerTextarea( false, row );
-				obj.updateTextarea();
-				obj.historySnapshot(0);
-
-				console.log(add_cell_size);
-			});
-
-			// Modal Notification
-			// new $.AxisBuilderModalNotification({
-			// 	scope: this,
-			// 	button: button,
-			// 	message: message,
-			// 	modal_class: modal_class,
-			// 	modal_title: axisbuilder_shortcodes.i18n_select_layout,
-			// 	on_save: this.saveModal,
-			// 	save_param: {
-			// 		obj: obj,
-			// 		row: row,
-			// 		cells: cells,
-			// 		variations: variations
-			// 	}
-			// });
 		}
 	};
 

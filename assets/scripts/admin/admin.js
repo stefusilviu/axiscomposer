@@ -86,8 +86,8 @@ function AB_Logger( text, type ) {
 
 		// All event binding goes here
 		builderBehaviour: function() {
-			var obj  = this,
-				body = $( 'body' );
+			var obj        = this,
+				body       = $( 'body' );
 
 			// Toggle between default editor and page builder
 			this.axisBuilderButton.click( function() {
@@ -183,6 +183,31 @@ function AB_Logger( text, type ) {
 
 				obj.axisBuilderCanvas.empty();
 				obj.updateTextarea();
+			});
+
+			// Add cell size on builder canvas
+			// @todo: Refactor this procedure ;)
+			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-cell-size' !== template ) {
+					return;
+				}
+
+				// Need Refactor ;)
+				var row        = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells      = row.find( '.axisbuilder-layout-cell' ),
+					rowCount   = cells.length,
+					variations = $.AxisBuilderLayoutRow.cellSizeVariations[rowCount];
+
+				var add_cell_size = $( 'input[name=add_cell_size]:checked' ).val();
+
+				if ( ! add_cell_size ) {
+					return true;
+				}
+
+				$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, variations[add_cell_size], obj, true );
+				obj.updateInnerTextarea( false, row );
+				obj.updateTextarea();
+				obj.historySnapshot(0);
 			});
 
 			// Adds element settings in builder canvas

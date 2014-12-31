@@ -372,7 +372,7 @@
 					}
 
 					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
-					message += '<input type="radio" name="layout" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					message += '<input type="radio" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 				}
 
 				message += '</form>';
@@ -390,6 +390,38 @@
 				message += '</p>';
 			}
 
+			// Load Backbone Modal
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_shortcodes.i18n_select_layout,
+				action: action,
+				message: message,
+				template: '#tmpl-axisbuilder-modal-cell-size'
+			});
+
+			// Set cell size on builder canvas
+			$( 'body' ).on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-cell-size' !== template ) {
+					return;
+				}
+
+				var add_cell_size = $( 'input[name=add_cell_size]:checked' ).val();
+
+				var index = add_cell_size ? add_cell_size : false;
+
+				if ( ! index ) {
+					return;
+				}
+
+				console.log(index);
+
+				$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, variations[index], obj, true );
+				obj.updateInnerTextarea( false, row );
+				obj.updateTextarea();
+				obj.historySnapshot(0);
+
+				console.log(add_cell_size);
+			});
+
 			// Modal Notification
 			// new $.AxisBuilderModalNotification({
 			// 	scope: this,
@@ -405,26 +437,6 @@
 			// 		variations: variations
 			// 	}
 			// });
-
-			// Load Backbone Modal
-			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_shortcodes.i18n_select_layout,
-				action: action,
-				message: message,
-				template: '#tmpl-axisbuilder-modal-cell-size'
-			});
-		},
-
-		saveModal: function( values, save_param ) {
-			var index = ( values && values.layout ) ? values.layout : false;
-			if ( ! index ) {
-				return true;
-			}
-
-			$.AxisBuilderLayoutRow.changeMultipleCellSize( save_param.cells, save_param.variations[index], save_param.obj, true );
-			save_param.obj.updateInnerTextarea( false, save_param.row );
-			save_param.obj.updateTextarea();
-			save_param.obj.historySnapshot(0);
 		}
 	};
 

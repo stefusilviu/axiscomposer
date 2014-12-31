@@ -120,10 +120,10 @@
 				'overflow': 'auto'
 			});
 			this.remove();
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_cancel', this._template );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._template );
 		},
 		actionButton: function( e ) {
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_action', this._template, this.getFormData() );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', this._template, this.getFormData() );
 			this.cancelButton( e );
 		},
 		getFormData: function() {

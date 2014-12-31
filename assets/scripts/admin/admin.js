@@ -176,8 +176,8 @@ function AB_Logger( text, type ) {
 			});
 
 			// Empty the Builder Canvas & Load empty Textarea
-			body.on( 'axisbuilder_backbone_modal_action', function( e, target ) {
-				if ( '#tmpl-axisbuilder-modal-trash-data' !== target ) {
+			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' !== template ) {
 					return;
 				}
 
@@ -186,8 +186,8 @@ function AB_Logger( text, type ) {
 			});
 
 			// Adds element settings in builder canvas
-			body.on( 'axisbuilder_backbone_modal_response', function( e, target ) {
-				if ( '#tmpl-axisbuilder-modal-edit-elements' !== target ) {
+			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-edit-elements' !== template ) {
 					return;
 				}
 

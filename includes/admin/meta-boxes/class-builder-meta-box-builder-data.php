@@ -121,10 +121,10 @@ class AB_Meta_Box_Builder_Data {
 				<div class="axisbuilder-backbone-modal-content">
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header>
-							<h1> <%= title %> </h1>
+							<h1><%= title %></h1>
 						</header>
 						<article>
-							<form action="" method="post"></form>
+							<form action="" method="post"><p><%= message %></p></form>
 						</article>
 						<footer>
 							<div class="inner">
@@ -145,10 +145,10 @@ class AB_Meta_Box_Builder_Data {
 				<div class="axisbuilder-backbone-modal-content">
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header>
-							<h1> <%= title %> </h1>
+							<h1><%= title %></h1>
 						</header>
 						<article>
-							<p> <%= message %> </p>
+							<form action="" method="post"><p><%= message %></p></form>
 						</article>
 						<footer>
 							<div class="inner">
@@ -169,10 +169,10 @@ class AB_Meta_Box_Builder_Data {
 				<div class="axisbuilder-backbone-modal-content">
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header>
-							<h1> <%= title %> </h1>
+							<h1><%= title %></h1>
 						</header>
 						<article>
-							<p> <%= message %> </p>
+							<form action="" method="post"><%= message %></form>
 						</article>
 						<footer>
 							<div class="inner">

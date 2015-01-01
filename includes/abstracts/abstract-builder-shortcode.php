@@ -208,6 +208,27 @@ abstract class AB_Shortcode {
 			$this->popup_elements();
 			if ( isset( $this->elements ) ) {
 				$this->shortcode['popup_editor'] = true;
+
+				$this->element_iterator( $this->elements );
+
+				// Remove any duplicate values
+				if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
+					$this->shortcode['modal-on-load'] = array_unique( $this->shortcode['modal-on-load'] );
+				}
+			}
+		}
+	}
+
+	/**
+	 * Iterate recursively over element and sub-element trees.
+	 */
+	protected function element_iterator( $elements ) {
+		// Check for JS callbacks to be executed on popup modal load ;)
+		foreach ( $elements as $element ) {
+			switch ( $element['type'] ) {
+				case 'tinymce':
+					$this->shortcode['modal-on-load'][] = 'modal_load_tinymce';
+				break;
 			}
 		}
 	}
@@ -264,7 +285,7 @@ abstract class AB_Shortcode {
 		$params = array();
 
 		$params['args']    = $args;
-		$params['data']    = isset( $this->shortcode['modal_data'] ) ? $this->shortcode['modal_data'] : '';
+		$params['data']    = isset( $this->shortcode['modal-data'] ) ? $this->shortcode['modal-data'] : '';
 		$params['content'] = $content;
 
 		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)
@@ -304,6 +325,16 @@ abstract class AB_Shortcode {
 		$data['dragdrop-level']    = $this->shortcode['drag-level'];
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		if ( isset( $this->shortcode['shortcode-nested'] ) ) {
+			$data['shortcode-allowed']   = $this->shortcode['shortcode-nested'];
+			$data['shortcode-allowed'][] = $this->shortcode['name'];
+			$data['shortcode-allowed']   = implode( ',', $data['shortcode-allowed'] );
+		}
+
+		if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
+			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
+		}
 
 		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';

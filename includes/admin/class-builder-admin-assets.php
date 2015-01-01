@@ -72,7 +72,7 @@ class AB_Admin_Assets {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-modal', 'axisbuilder-helper', 'axisbuilder-history', 'axisbuilder-tooltip', 'axisbuilder-shortcodes' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-modal', 'axisbuilder-helper', 'axisbuilder-history', 'axisbuilder-tooltip', 'axisbuilder-shortcodes', 'media-editor' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 

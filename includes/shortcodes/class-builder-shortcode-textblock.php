@@ -44,6 +44,87 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 	}
 
 	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->elements = array(
+			array(
+				'type'   => 'open_tab_container',
+				'nodesc' => true
+			),
+
+			array(
+				'name'   => __( 'Content', 'axisbuilder' ),
+				'type'   => 'tab',
+				'nodesc' => true
+			),
+
+			array(
+				'name'    => __( 'Content', 'axisbuilder' ),
+				'desc'    => __( 'Enter some content for this textblock', 'axisbuilder' ),
+				'id'      => 'content',
+				'type'    => 'tinymce',
+				'std'     => __( 'Click here to add your own text', 'axisbuilder' )
+			),
+
+			array(
+				'name'    => __( 'Font Size', 'axisbuilder' ),
+				'desc'    => __( 'Select Size of the text in px', 'axisbuilder' ),
+				'id'      => 'size',
+				'type'    => 'select',
+				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Defalut Size', 'axisbuilder' ) => '' ) ),
+				'std'     => __( 'Click here to add your own text', 'axisbuilder' )
+			),
+
+			array(
+				'type'   => 'close_div',
+				'nodesc' => true
+			),
+
+			array(
+				'name'   => __( 'Colors', 'axisbuilder' ),
+				'type'   => 'tab',
+				'nodesc' => true
+			),
+
+			array(
+				'name'    => __( 'Font Colors', 'axisbuilder' ),
+				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axisbuilder' ),
+				'id'      => 'font_color',
+				'type'    => 'select',
+				'subtype' => array(
+					__( 'Defalut', 'axisbuilder' ) => '',
+					__( 'Define Custom Colors', 'axisbuilder' ) => 'custom'
+				),
+				'std'     => ''
+			),
+
+			array(
+				'name'            => __( 'Custom Font Color', 'axisbuilder' ),
+				'desc'            => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
+				'id'              => 'color',
+				'type'            => 'colorpicker',
+				"required"        => array( 'font_color','equals','custom' ),
+				'container_class' => 'ab_half ab_half_first',
+				'std'             => ''
+			),
+
+			array(
+				'type'   => 'close_div',
+				'nodesc' => true
+			),
+
+			array(
+				'type'   => 'close_div',
+				'nodesc' => true
+			),
+		);
+	}
+
+	/**
 	 * Frontend Shortcode Handle.
 	 * @param  array  $atts      Array of attributes.
 	 * @param  string $content   Text within enclosing form of shortcode element.

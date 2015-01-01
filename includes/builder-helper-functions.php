@@ -52,6 +52,22 @@ function axisbuilder_html_data_string( $data ) {
 
 endif;
 
+if ( ! function_exists( 'axisbuilder_num_to_array' ) ) :
+
+/**
+ * Converts a number into array.
+ */
+function axisbuilder_num_to_array( $from = 0, $to = 100, $steps = 1, $args = array(), $label = '' ) {
+
+	for ( $i = $from; $i <= $to; $i += $steps ) {
+		$args[ $i . $label ] = $i;
+	}
+
+	return $args;
+}
+
+endif;
+
 if ( ! function_exists( 'axisbuilder_get_registered_sidebars' ) ) :
 
 /**

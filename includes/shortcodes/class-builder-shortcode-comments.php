@@ -33,7 +33,7 @@ class AB_Shortcode_Comments extends AB_Shortcode {
 		$this->title     = __( 'Comments', 'axisbuilder' );
 		$this->tooltip   = __( 'Add a comment form and comments list to the template', 'axisbuilder' );
 		$this->shortcode = array(
-			'sort'    => 220,
+			'sort'    => 340,
 			'type'    => 'content',
 			'name'    => 'ab_comments',
 			'icon'    => 'icon-comments',

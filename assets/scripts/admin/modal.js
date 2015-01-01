@@ -215,9 +215,9 @@
 				value_array = this.convertValues( values );
 
 			// Filter function for the value array in case we got a special shortcode like tables :)
-			// if ( typeof $.AxisBuilderModal.registerCallback[ this.options.before_save ] !== 'undefined' ) {
-			// 	value_array = $.AxisBuilderModal.registerCallback[ this.options.before_save ].call( this.options.scope, value_array, this.options.save_param );
-			// }
+			if ( typeof $.AxisBuilderModal.registerCallback[ this.options.before_save ] !== 'undefined' ) {
+				value_array = $.AxisBuilderModal.registerCallback[ this.options.before_save ].call( this.options.scope, value_array, this.options.save_param );
+			}
 
 			var close_allowed = this.options.on_save.call( this.options.scope, value_array, this.options.save_param );
 
@@ -294,5 +294,14 @@
 		this.options = $.extend( {}, defaults, options );
 		return new $.AxisBuilderModal( this.options );
 	};
+
+	// Allowed callbacks once the modal opens.
+	$.AxisBuilderModal.registerCallback = $.AxisBuilderModal.registerCallback || {};
+
+	$.AxisBuilderModal.registerCallback.modal_load_tinymce = function( textareas ) {
+		textareas = textareas || this.modal.finc( '.axisbuilder-modal-inner-content .axisbuilder-tinymce' );
+
+		console.log(textareas);
+	}
 
 })( jQuery );

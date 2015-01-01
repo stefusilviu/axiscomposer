@@ -65,9 +65,6 @@ class AB_HTML_Helper {
 		return $element;
 	}
 
-	/**
-	 *
-	 */
 	public static function check_dependencies( $element ) {
 		$params = array( 'data_string' => '', 'class_string' => '' );
 
@@ -166,7 +163,7 @@ class AB_HTML_Helper {
 			$class_string .= ' axisbuilder-attach-templating';
 		}
 
-		if ( empty( $element['nodescription'] ) ) {
+		if ( empty( $element['nodesc'] ) ) {
 			$output .= '<div ' . $id_string . ' class="axisbuilder-clearfix axisbuilder-form-element-container axisbuilder-element-' . $element['type'] . ' ' . $class_string . '" ' . $data_string . ' ' . $target_string . '>';
 				if ( ! empty( $element['name'] ) || ! empty( $element['desc'] ) ) {
 					$output .= '<div class="axisbuilder-name-description">';
@@ -202,8 +199,28 @@ class AB_HTML_Helper {
 		return $output;
 	}
 
+	public static function open_tab_container( $element ) {
+		$output = '<div class="axisbuilder-modal-tab-container">';
+		return $output;
+	}
+
+	public static function tab( $element ) {
+		$output = '<div class="axisbuilder-modal-tab-container-inner" data-tab-name="' . $element['name'] . '">';
+		return $output;
+	}
+
+	public static function close_div( $element ) {
+		$output = '</div>';
+		return $output;
+	}
+
 	public static function input( $element ) {
 		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
+		return $output;
+	}
+
+	public static function colorpicker( $element ) {
+		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="colorpicker ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
 		return $output;
 	}
 
@@ -291,6 +308,34 @@ class AB_HTML_Helper {
 		}
 
 		$output .= '</select>';
+
+		return $output;
+	}
+
+
+	/**
+	 * Add TinyMCE visual editor
+	 */
+	public static function tinymce( $element ) {
+
+		// TinyMCE only allows ids in the range of [a-z] so we need to filter them.
+		// $element['id'] = preg_replace( '![^a-zA-Z_]!', '', $element['id'] );
+
+		// Monitor this: Seems only ajax elements need the replacement
+		$user_id = get_current_user_id();
+
+		if ( isset( $element['ajax'] ) && ( get_user_option( 'rich_editing' ) == 'true' ) ) {
+			$element['std'] = str_replace( '\n', '<br>', $element['std'] ); // Replace new-lines with brs, otherwise the editor will mess up ;)
+		}
+
+		// Settings
+		$settings = array(
+			'editor_class' => 'axisbuilder_advanced_textarea axisbuilder_tinymce'
+		);
+
+		ob_start();
+		wp_editor( $element['std'], $element['id'], $settings );
+		$output = ob_get_clean();
 
 		return $output;
 	}

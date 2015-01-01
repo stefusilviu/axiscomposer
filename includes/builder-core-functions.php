@@ -36,7 +36,7 @@ if ( ! function_exists( 'get_builder_core_supported_screens' ) ) :
  * @return string[]
  */
 function get_builder_core_supported_screens() {
-	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'portfolio', 'axis-portfolio', 'jetpack-portfolio' ) );
+	return apply_filters( 'axisbuilder_supported_screens', array( 'page', 'axis-portfolio', 'jetpack-portfolio' ) );
 }
 
 endif;

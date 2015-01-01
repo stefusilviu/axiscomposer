@@ -68,13 +68,6 @@ body.axisbuilder-noscroll {
 		padding: 15px;
 		height: 150px;
 		@include box-sizing( border-box );
-
-		&.wp-editor-area {
-			bottom: -4px;
-			position: relative;
-			display: inline-block;
-			border: none !important;
-		}
 	}
 
 	select {
@@ -322,3 +315,19 @@ div.axisbuilder-modal .axisbuilder-modal-inner-footer .button-large {
 		position: absolute;
 	}
 }
+
+
+/**
+ * TinyMCE Form Elements
+ */
+.axisbuilder-style .axisbuilder-advanced-textarea {
+	height: auto !important;
+}
+
+div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
+	bottom: -4px;
+	position: relative;
+	display: inline-block;
+	border: none !important;
+}
+

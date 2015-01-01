@@ -51,16 +51,16 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 	 */
 	public function popup_elements() {
 		$this->elements = array(
-			array(
-				'type'   => 'open_tab',
-				'nodesc' => true
-			),
+			// array(
+			// 	'type'   => 'open_tab',
+			// 	'nodesc' => true
+			// ),
 
-			array(
-				'name'   => __( 'Content', 'axisbuilder' ),
-				'type'   => 'tab',
-				'nodesc' => true
-			),
+			// array(
+			// 	'name'   => __( 'Content', 'axisbuilder' ),
+			// 	'type'   => 'tab',
+			// 	'nodesc' => true
+			// ),
 
 			array(
 				'name'    => __( 'Content', 'axisbuilder' ),
@@ -79,16 +79,16 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'std'     => __( 'Click here to add your own text', 'axisbuilder' )
 			),
 
-			array(
-				'type'   => 'close_div',
-				'nodesc' => true
-			),
+			// array(
+			// 	'type'   => 'close_div',
+			// 	'nodesc' => true
+			// ),
 
-			array(
-				'name'   => __( 'Colors', 'axisbuilder' ),
-				'type'   => 'tab',
-				'nodesc' => true
-			),
+			// array(
+			// 	'name'   => __( 'Colors', 'axisbuilder' ),
+			// 	'type'   => 'tab',
+			// 	'nodesc' => true
+			// ),
 
 			array(
 				'name'    => __( 'Font Colors', 'axisbuilder' ),
@@ -112,15 +112,15 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'std'             => ''
 			),
 
-			array(
-				'type'   => 'close_div',
-				'nodesc' => true
-			),
+			// array(
+			// 	'type'   => 'close_div',
+			// 	'nodesc' => true
+			// ),
 
-			array(
-				'type'   => 'close_div',
-				'nodesc' => true
-			),
+			// array(
+			// 	'type'   => 'close_div',
+			// 	'nodesc' => true
+			// ),
 		);
 	}
 

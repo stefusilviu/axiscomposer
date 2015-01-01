@@ -303,7 +303,7 @@
 
 		var self     = this,
 			modal    = textareas.parents( '.axisbuilder-modal:eq(0)' ),
-			save_btn = modal.find( '.axisbuilder-svae-modal' );
+			save_btn = modal.find( '.axisbuilder-save-modal' );
 
 		textareas.each( function() {
 			var el_id       = this.id,

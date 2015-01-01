@@ -328,14 +328,11 @@ class AB_HTML_Helper {
 			$element['std'] = str_replace( '\n', '<br>', $element['std'] ); // Replace new-lines with brs, otherwise the editor will mess up ;)
 		}
 
-		// Settings
-		$settings = array(
-			'media_buttons' => true,
-			'editor_class'  => 'axisbuilder-tinymce'
-		);
-
 		ob_start();
-		wp_editor( $element['std'], $element['id'], $settings );
+		wp_editor( $element['std'], $element['id'], array(
+			'media_buttons' => true,
+			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce'
+		));
 		$output = ob_get_clean();
 
 		return $output;

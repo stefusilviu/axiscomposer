@@ -126,7 +126,7 @@ function AB_Logger( text, type ) {
 			});
 
 			// Builder Canvas
-			this.axisBuilderCanvas.on( 'click', '.axisbuilder-edits', function() {
+			this.axisBuilderCanvas.on( 'click', '.axisbuilder-edit', function() {
 				var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
 
 				if ( ! parents.length ) {
@@ -137,28 +137,23 @@ function AB_Logger( text, type ) {
 					}
 				}
 
-				var data = {
-					fetch: true,
-					action: 'axisbuilder_' + parents.data( 'modal-action' ),
-					security: axisbuilder_modal.get_modal_elements_nonce,
+				var params  = parents.data(), modal;
+
+				params.scope        = obj;
+				params.modal_title  = parents.data( 'modal-title' );
+				params.modal_action = parents.data( 'modal-action' );
+				params.on_load      = parents.data( 'modal-on-load' );
+
+				params.before_save = parents.data( 'before_save' );
+				params.on_save     = obj.updateShortcode;
+				params.save_param  = parents;
+				params.ajax_param  = {
+					extract: true,
+					shortcode: parents.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData + ':eq(0)' ).val(),
+					allowed: params.allowedShortcodes
 				};
 
-				$.ajax({
-					url: axisbuilder_modal.ajax_url,
-					data: data,
-					type: 'POST',
-					success: function( response ) {
-						$('.ajax-element-settings').append(response);
-					}
-				});
-
-				// Load Backbone Modal
-				$( this ).AxisBuilderBackboneModal({
-					action: true,
-					title: parents.data( 'modal-title' ),
-					template: '#tmpl-axisbuilder-modal-edit-elements'
-				});
-
+				modal = new $.AxisBuilderModal( params );
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-clone', function() {
@@ -224,45 +219,6 @@ function AB_Logger( text, type ) {
 				obj.updateInnerTextarea( false, row );
 				obj.updateTextarea();
 				obj.historySnapshot(0);
-			});
-
-			// Adds element settings in builder canvas
-			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-edit-elements' !== template ) {
-					return;
-				}
-			});
-
-			// Edit item via Modal Window
-			body.on( 'click', '.axisbuilder-edit', function() {
-				var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-
-				if ( ! parents.length ) {
-					parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
-
-					if ( ! parents.length ) {
-						parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
-					}
-				}
-
-				var params  = parents.data(), modal;
-
-				params.scope        = obj;
-				params.modal_title  = parents.data( 'modal-title' );
-				params.modal_action = parents.data( 'modal-action' );
-				params.on_load      = parents.data( 'modal-on-load' );
-
-				params.before_save = parents.data( 'before_save' );
-				params.on_save     = obj.updateShortcode;
-				params.save_param  = parents;
-				params.ajax_param  = {
-					extract: true,
-					shortcode: parents.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData + ':eq(0)' ).val(),
-					allowed: params.allowedShortcodes
-				};
-
-				modal = new $.AxisBuilderModal( params );
-				return false;
 			});
 		},
 

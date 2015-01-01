@@ -107,7 +107,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'desc'            => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
 				'id'              => 'color',
 				'type'            => 'colorpicker',
-				"required"        => array( 'font_color','equals','custom' ),
+				// 'required'        => array( 'font_color','equals','custom' ),
 				'container_class' => 'ab_half ab_half_first',
 				'std'             => ''
 			),

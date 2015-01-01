@@ -52,7 +52,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 	public function popup_elements() {
 		$this->elements = array(
 			array(
-				'type'   => 'open_tab_container',
+				'type'   => 'open_tab',
 				'nodesc' => true
 			),
 

@@ -199,18 +199,18 @@ class AB_HTML_Helper {
 		return $output;
 	}
 
-	public static function open_tab_container( $element ) {
+	public static function open_tab() {
 		$output = '<div class="axisbuilder-modal-tab-container">';
+		return $output;
+	}
+
+	public static function close_div() {
+		$output = '</div>';
 		return $output;
 	}
 
 	public static function tab( $element ) {
 		$output = '<div class="axisbuilder-modal-tab-container-inner" data-tab-name="' . $element['name'] . '">';
-		return $output;
-	}
-
-	public static function close_div( $element ) {
-		$output = '</div>';
 		return $output;
 	}
 

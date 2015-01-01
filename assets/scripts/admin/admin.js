@@ -30,7 +30,7 @@ function AB_Logger( text, type ) {
 
 		// WordPress default tinyMCE Editor {Wrap|Area}
 		this.wpDefaultEditorWrap = $( '#postdivrich' );
-		this.wpDefaultEditorArea = $('#content.wp-editor-area');
+		this.wpDefaultEditorArea = $( '#content.wp-editor-area' );
 
 		// AxisBuilder Debug or Test Mode
 		this.axisBuilderDebug = axisbuilder_admin.debug_mode || {};

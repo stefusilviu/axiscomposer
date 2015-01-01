@@ -299,9 +299,74 @@
 	$.AxisBuilderModal.registerCallback = $.AxisBuilderModal.registerCallback || {};
 
 	$.AxisBuilderModal.registerCallback.modal_load_tinymce = function( textareas ) {
-		textareas = textareas || this.modal.finc( '.axisbuilder-modal-inner-content .axisbuilder-tinymce' );
+		textareas = textareas || this.modal.find( '.axisbuilder-modal-inner-content .axisbuilder-tinymce' );
 
-		console.log(textareas);
+		var self     = this,
+			modal    = textareas.parents( '.axisbuilder-modal:eq(0)' ),
+			save_btn = modal.find( '.axisbuilder-svae-modal' );
+
+		textareas.each( function() {
+			var el_id       = this.id,
+				current     = $( this ),
+				parents     = current.parents( '.wp-editor-wrap:eq(0)' ),
+				textarea    = parents.find( 'textarea.axisbuilder-tinymce' ),
+				switch_btn  = parents.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
+				tinyVersion = window.tinyMCE.majorVersion,
+				executeAdd  = 'mceAddControl',
+				executeRem  = 'mceRemoveControl',
+				open        = true,
+				settings    = {
+					id: this.id,
+					buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close'
+				};
+
+			if ( tinyVersion >= 4 ) {
+				executeAdd = 'mceAddEditor';
+				executeRem = 'mceRemoveEditor';
+			}
+
+			// Add quicktags for text editor
+			quicktags( settings );
+			QTags._buttonsInit(); // Workaround since DOM ready was triggered already and there would be no initialization ;)
+
+			// Modify behavior for html editor
+			switch_btn.bind( 'click', function() {
+				var button = $( this );
+
+				if ( button.is( '.switch-tmce' ) ) {
+					parents.removeClass( 'html-active' ).addClass( 'tmce-active' );
+					window.tinyMCE.execCommand( executeAdd, true, el_id );
+					window.tinyMCE.get( el_id ).setContent( window.switchEditors.wpautop( textarea.val() ), { format:'raw' });
+				} else {
+					var value = textarea.val();
+					if ( window.tinyMCE.get( el_id ) ) {
+						// Fixes the problem with galleries and more tag that got an image representation of the shortcode ;)
+						value = window.tinyMCE.get( el_id ).getContent();
+					}
+
+					parents.removeClass( 'tmce-active' ).addClass( 'html-active' );
+					window.tinyMCE.execCommand( executeRem, true, el_id );
+					if ( tinyVersion >= 4 ) {
+						textarea.val( window.switchEditors._wp_Nop( value ) );
+					}
+				}
+			}).trigger( 'click' );
+
+			// Ensure when save button is clicked, the textarea gets updated and sent to the editor
+			save_btn.bind( 'click', function() {
+				switch_btn.filter( '.switch-html' ).trigger( 'click' );
+			});
+
+			// Ensure that the instance is removed if the modal was clicked in anyway ;)
+			if ( tinyVersion >= 4 ) {
+				$( document ).bind( 'axisbuilder_modal_before_close' + self.namespace + 'tiny_close', function( e, modal ) {
+					if ( self.namespace = modal.namespace ) {
+						window.tinyMCE.execCommand( executeRem, true, el_id );
+						$( document ).bind( 'axisbuilder_modal_before_close' + self.namespace + 'tiny_close' );
+					}
+				});
+			}
+		});
 	}
 
 })( jQuery );

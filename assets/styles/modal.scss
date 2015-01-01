@@ -68,6 +68,13 @@ body.axisbuilder-noscroll {
 		padding: 15px;
 		height: 150px;
 		@include box-sizing( border-box );
+
+		&.wp-editor-area {
+			bottom: -4px;
+			position: relative;
+			display: inline-block;
+			border: none !important;
+		}
 	}
 
 	select {

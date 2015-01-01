@@ -324,13 +324,14 @@ class AB_HTML_Helper {
 		// Monitor this: Seems only ajax elements need the replacement
 		$user_id = get_current_user_id();
 
-		if ( isset( $element['ajax'] ) && ( get_user_option( 'rich_editing' ) == 'true' ) ) {
+		if ( isset( $element['ajax'] ) && ( get_user_meta($user_id, 'rich_editing', true) == "true" ) ) {
 			$element['std'] = str_replace( '\n', '<br>', $element['std'] ); // Replace new-lines with brs, otherwise the editor will mess up ;)
 		}
 
 		// Settings
 		$settings = array(
-			'editor_class' => 'axisbuilder_advanced_textarea axisbuilder_tinymce'
+			'media_buttons' => true,
+			'editor_class'  => 'axisbuilder-tinymce'
 		);
 
 		ob_start();

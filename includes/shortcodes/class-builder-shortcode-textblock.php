@@ -76,7 +76,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'id'      => 'size',
 				'type'    => 'select',
 				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Defalut Size', 'axisbuilder' ) => '' ) ),
-				'std'     => __( 'Click here to add your own text', 'axisbuilder' )
+				'std'     => ''
 			),
 
 			// array(
@@ -96,7 +96,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'id'      => 'font_color',
 				'type'    => 'select',
 				'subtype' => array(
-					__( 'Defalut', 'axisbuilder' ) => '',
+					__( 'Default', 'axisbuilder' ) => '123',
 					__( 'Define Custom Colors', 'axisbuilder' ) => 'custom'
 				),
 				'std'     => ''
@@ -108,7 +108,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'id'              => 'color',
 				'type'            => 'colorpicker',
 				// 'required'        => array( 'font_color','equals','custom' ),
-				'container_class' => 'ab_half ab_half_first',
+				// 'container_class' => 'ab_half ab_half_first',
 				'std'             => ''
 			),
 

@@ -25,7 +25,7 @@ class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
 	 */
 	public function test_get_builder_core_supported_screens() {
 
-		$expected_screens = array( 'page', 'axis-portfolio', 'jetpack-portfolio' );
+		$expected_screens = array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' );
 
 		$this->assertEquals( $expected_screens, get_builder_core_supported_screens() );
 	}

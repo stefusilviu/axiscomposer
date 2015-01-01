@@ -344,7 +344,7 @@
 			sizeString.text( nextSize[1] );
 		},
 
-		setCellSize: function( clicked, obj ) {
+		setCellSize: function( clicked ) {
 			var item       = $( clicked ),
 				row        = item.parents( '.axisbuilder-layout-row:eq(0)' ),
 				cells      = row.find( '.axisbuilder-layout-cell' ),

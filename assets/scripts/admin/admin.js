@@ -169,7 +169,7 @@ function AB_Logger( text, type ) {
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-cell-set', function() {
-				obj.shortcodes.setCellSize( this, obj );
+				obj.shortcodes.setCellSize( this );
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-cell-add', function() {

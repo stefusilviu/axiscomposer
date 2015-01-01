@@ -94,22 +94,21 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'name'    => __( 'Font Colors', 'axisbuilder' ),
 				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axisbuilder' ),
 				'id'      => 'font_color',
+				'std'     => '',
 				'type'    => 'select',
 				'subtype' => array(
-					__( 'Default', 'axisbuilder' ) => '123',
+					__( 'Default', 'axisbuilder' ) => 'default',
 					__( 'Define Custom Colors', 'axisbuilder' ) => 'custom'
-				),
-				'std'     => ''
+				)
 			),
 
 			array(
-				'name'            => __( 'Custom Font Color', 'axisbuilder' ),
-				'desc'            => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
-				'id'              => 'color',
-				'type'            => 'colorpicker',
-				// 'required'        => array( 'font_color','equals','custom' ),
-				// 'container_class' => 'ab_half ab_half_first',
-				'std'             => ''
+				'name'     => __( 'Custom Font Color', 'axisbuilder' ),
+				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
+				'id'       => 'color',
+				'std'      => '',
+				'required' => array( 'font_color', 'equals', 'custom' ),
+				'type'     => 'colorpicker'
 			),
 
 			// array(

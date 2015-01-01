@@ -1,6 +1,6 @@
 /*global tinymce */
 
-( function ( $ ) {
+( function () { // ($) Should be here in function
 
 	'use strict';
 
@@ -25,10 +25,10 @@
 				menu: self.createMenu()
 			});
 
-			editor.addCommand( 'Open_AxisBuilderModal', function( ui, params ) {
+			// editor.addCommand( 'Open_AxisBuilderModal', function( ui, params ) {
 				// var modal = new $.AxisBuilderModal( params );
-				return false;
-			});
+				// return false;
+			// });
 		},
 
 		/**
@@ -36,7 +36,7 @@
 		 */
 		createMenu: function() {
 			var ed         = tinymce.activeEditor,
-				modal      = $.AxisBuilderModal.openInstance || [],
+				// modal      = $.AxisBuilderModal.openInstance || [],
 				shortcodes = ed.getLang( 'axisbuilder_shortcodes.shortcodes' ),
 				title, dropdown, self = this, tabs = [], submenu = [], loop = 0;
 

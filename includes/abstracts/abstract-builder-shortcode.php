@@ -229,6 +229,14 @@ abstract class AB_Shortcode {
 				case 'tinymce':
 					$this->shortcode['modal-on-load'][] = 'modal_load_tinymce';
 				break;
+
+				case 'colorpicker':
+					$this->shortcode['modal-on-load'][] = 'modal_load_colorpicker';
+				break;
+
+				case 'datepicker':
+					$this->shortcode['modal-on-load'][] = 'modal_load_datepicker';
+				break;
 			}
 		}
 	}

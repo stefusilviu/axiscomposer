@@ -1,4 +1,4 @@
-/* global AB_Logger, axisbuilder_modal */
+/* global AB_Logger, axisbuilder_modal, quicktags, QTags */
 
 /**
  * AxisBuilder Modal JS
@@ -314,7 +314,6 @@
 				tinyVersion = window.tinyMCE.majorVersion,
 				executeAdd  = 'mceAddControl',
 				executeRem  = 'mceRemoveControl',
-				open        = true,
 				settings    = {
 					id: this.id,
 					buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close'
@@ -367,6 +366,46 @@
 				});
 			}
 		});
-	}
+	};
+
+	$.AxisBuilderModal.registerCallback.modal_load_colorpicker = function() {
+		this.modal.find( '.colorpicker' ).wpColorPicker();
+
+		// var scope        = this.modal,
+		// 	color_picker = scope.find( '.colorpicker' ),
+		// 	color_result = scope.find( '.wp-color-result' );
+
+		// color_picker.wpColorPicker().click( function() {
+		// 	var parent = $( this ).parents( '.wp-picker-container:eq(0)' ),
+		// 		picker = parent.find( '.wp-picker-holder .iris-picker' ),
+		// 		button = parent.find( '.wp-color-result' );
+
+		// 	if ( picker.css( 'display' ) !== 'block' ) {
+		// 		picker.css({ display: 'block' });
+		// 	}
+
+		// 	if ( ! button.hasClass( 'wp-picker-open' ) ) {
+		// 		button.addClass( 'wp-picker-open' );
+		// 	}
+
+		// 	scope.find( '.wp-picker-open' ).not( button ).trigger( 'click' );
+
+		// 	$( 'body' ).on( 'click', function() {
+		// 		if ( picker.css( 'display' ) === 'block' ) {
+		// 			picker.css({ display: 'none' });
+		// 		}
+
+		// 		if ( button.hasClass( 'wp-picker-open' ) ) {
+		// 			button.removeClass( 'wp-picker-open' );
+		// 		}
+		// 	});
+		// });
+
+		// color_result.click( function() {
+		// 	if ( typeof e.originalEvent !== 'undefined' ) {
+		// 		var open = scope.find( '.wp-picker-open' ).not( this ).trigger( 'click' );
+		// 	}
+		// });
+	};
 
 })( jQuery );

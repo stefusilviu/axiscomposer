@@ -101,7 +101,7 @@ body.axisbuilder-noscroll {
 }
 
 /**
- * Popup Modal
+ * Modal Dialog
  */
 .axisbuilder-modal-backdrop {
 	opacity: 0.7;
@@ -113,10 +113,18 @@ body.axisbuilder-noscroll {
 
 .axisbuilder-modal {
 	overflow: auto;
-	z-index: 15000;
+	z-index: 150000;
 	background: #fff;
 	min-height: 210px;
-	@include position(fixed, 30px 15%);
+	@include position(fixed, 50px 15%);
+
+	* {
+		@include box-sizing(content-box);
+	}
+
+	&.normalscreen {
+		@include position(null, 50px 15%);
+	}
 
 	&.bigscreen {
 		@include position(null, null 30px 30px);

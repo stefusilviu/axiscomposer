@@ -65,6 +65,7 @@
 		_message: undefined,
 		_template: undefined,
 		events: {
+			'keydown': 'keyboardActions',
 			'click #button-cancel': 'cancelButton',
 			'click #button-action': 'actionButton'
 		},
@@ -116,6 +117,19 @@
 			}).addClass( this._screen );
 
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
+		},
+		keyboardActions: function( e ) {
+			var button = e.keyCode || e.which;
+
+			// Enter key
+			if ( 13 === button && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
+				this.actionButton( e );
+			}
+
+			// ESC key
+			if ( 27 === button ) {
+				this.cancelButton( e );
+			}
 		},
 		cancelButton: function( e ) {
 			e.preventDefault();

@@ -1211,11 +1211,15 @@ body .ui-draggable-dragging {
 }
 
 .axisbuilder-backbone-modal-backdrop {
-	opacity: 0.7;
-	z-index: 14000;
-	background: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	min-height: 360px;
-	@include position(fixed, 0px 0px 0px 0px);
+	background: #000;
+	opacity: .7;
+	z-index: 159900;
 }
 
 .axisbuilder-backbone-modal-main {

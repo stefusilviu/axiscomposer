@@ -144,7 +144,7 @@
 			var button = e.keyCode || e.which;
 
 			// Enter key
-			if ( 13 === button && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'input' ) ) {
+			if ( 13 === button && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
 				this.addButton( e );
 			}
 

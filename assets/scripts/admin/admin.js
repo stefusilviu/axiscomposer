@@ -216,8 +216,6 @@ function AB_Logger( text, type ) {
 					return true;
 				}
 
-				AB_Logger(add_cell_size);
-
 				$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, variations[add_cell_size], obj, true );
 				obj.updateInnerTextarea( false, row );
 				obj.updateTextarea();

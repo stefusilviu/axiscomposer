@@ -141,6 +141,7 @@ function AB_Logger( text, type ) {
 
 				params.scope        = obj;
 				params.modal_title  = parents.data( 'modal-title' );
+				params.modal_class  = parents.data( 'modal-class' );
 				params.modal_action = parents.data( 'modal-action' );
 				params.on_load      = parents.data( 'modal-on-load' );
 

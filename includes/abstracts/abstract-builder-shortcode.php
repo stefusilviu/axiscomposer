@@ -293,7 +293,7 @@ abstract class AB_Shortcode {
 		$params = array();
 
 		$params['args']    = $args;
-		$params['data']    = isset( $this->shortcode['modal-data'] ) ? $this->shortcode['modal-data'] : '';
+		$params['data']    = isset( $this->shortcode['modal'] ) ? $this->shortcode['modal'] : '';
 		$params['content'] = $content;
 
 		// Fetch the parameters array from the child classes visual_appearance which should describe the html code :)

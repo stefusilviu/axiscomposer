@@ -131,7 +131,11 @@ class AB_Meta_Box_Builder_Data {
 						</article>
 						<footer>
 							<div class="inner">
-								<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
+								<% if ( dismiss ) { %>
+									<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
+								<% } else { %>
+									<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
+								<% } %>
 							</div>
 						</footer>
 					</section>
@@ -155,7 +159,11 @@ class AB_Meta_Box_Builder_Data {
 						</article>
 						<footer>
 							<div class="inner">
-								<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Add' , 'axisbuilder' ); ?></button>
+								<% if ( dismiss ) { %>
+									<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
+								<% } else { %>
+									<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Add' , 'axisbuilder' ); ?></button>
+								<% } %>
 							</div>
 						</footer>
 					</section>

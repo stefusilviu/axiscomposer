@@ -32,6 +32,7 @@
 				title: settings.title,
 				screen: settings.screen,
 				message: settings.message,
+				dismiss: settings.dismiss,
 				template: settings.template
 			});
 		}
@@ -46,6 +47,7 @@
 		title: '',
 		screen: '',
 		message: '',
+		dismiss: '',
 		template: ''
 	};
 
@@ -60,6 +62,7 @@
 		_title: undefined,
 		_screen: undefined,
 		_message: undefined,
+		_dismiss: undefined,
 		_template: undefined,
 		events: {
 			'click .modal-close': 'closeButton',
@@ -70,6 +73,7 @@
 			this._title = data.title;
 			this._screen = data.screen;
 			this._message = data.message;
+			this._dismiss = data.dismiss;
 			this._template = data.template;
 			_.bindAll( this, 'render' );
 			this.render();
@@ -77,7 +81,8 @@
 		render: function() {
 			var variables = {
 				title: this._title,
-				message: this._message
+				message: this._message,
+				dismiss: this._dismiss
 			};
 
 			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._template ).html(), variables ) );

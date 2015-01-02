@@ -21,6 +21,8 @@ module.exports = function( grunt ){
 				'Gruntfile.js',
 				'<%= dirs.scripts %>/admin/*.js',
 				'!<%= dirs.scripts %>/admin/*.min.js',
+				'<%= dirs.scripts %>/modal/*.js',
+				'!<%= dirs.scripts %>/modal/*.min.js',
 				'<%= dirs.scripts %>/frontend/*.js',
 				'!<%= dirs.scripts %>/frontend/*.min.js'
 			]
@@ -40,6 +42,18 @@ module.exports = function( grunt ){
 						'!*.min.js'
 					],
 					dest: '<%= dirs.scripts %>/admin/',
+					ext: '.min.js'
+				}]
+			},
+			modal: {
+				files: [{
+					expand: true,
+					cwd: '<%= dirs.scripts %>/modal/',
+					src: [
+						'*.js',
+						'!*.min.js'
+					],
+					dest: '<%= dirs.scripts %>/modal/',
 					ext: '.min.js'
 				}]
 			},
@@ -96,8 +110,10 @@ module.exports = function( grunt ){
 			scripts: {
 				files: [
 					'<%= dirs.scripts %>/admin/*.js',
+					'<%= dirs.scripts %>/modal/*.js',
 					'<%= dirs.scripts %>/frontend/*.js',
 					'!<%= dirs.scripts %>/admin/*.min.js',
+					'!<%= dirs.scripts %>/modal/*.min.js',
 					'!<%= dirs.scripts %>/frontend/*.min.js'
 				],
 				tasks: ['uglify']

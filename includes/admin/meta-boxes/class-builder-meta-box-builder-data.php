@@ -117,53 +117,51 @@ class AB_Meta_Box_Builder_Data {
 		</div>
 
 		<script type="text/template" id="tmpl-axisbuilder-modal-trash-data">
-			<div class="axisbuilder-backbone-modal popup-animation">
+			<div class="axisbuilder-backbone-modal">
 				<div class="axisbuilder-backbone-modal-content">
 					<section class="axisbuilder-backbone-modal-main" role="main">
-						<header>
+						<header class="axisbuilder-backbone-modal-header">
+							<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
 							<h1><%= title %></h1>
-							<a href="#close" id="button-cancel" class="close-modal trash-modal-icon"></a>
 						</header>
 						<article>
-							<form action="" method="post"><p><%= message %></p></form>
+							<form action="" method="post">
+								<p><%= message %></p>
+							</form>
 						</article>
 						<footer>
 							<div class="inner">
-								<% if ( action ) { %>
-									<button id="button-action" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
-								<% } %>
-								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
+								<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
 							</div>
 						</footer>
 					</section>
 				</div>
 			</div>
-			<div class="axisbuilder-backbone-modal-backdrop">&nbsp;</div>
+			<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
 		</script>
 
 		<script type="text/template" id="tmpl-axisbuilder-modal-cell-size">
-			<div class="axisbuilder-backbone-modal popup-animation">
+			<div class="axisbuilder-backbone-modal">
 				<div class="axisbuilder-backbone-modal-content">
 					<section class="axisbuilder-backbone-modal-main" role="main">
-						<header>
+						<header class="axisbuilder-backbone-modal-header">
+							<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
 							<h1><%= title %></h1>
-							<a href="#close" id="button-cancel" class="close-modal trash-modal-icon"></a>
 						</header>
 						<article>
-							<form action="" method="post"><%= message %></form>
+							<form action="" method="post">
+								<p><%= message %></p>
+							</form>
 						</article>
 						<footer>
 							<div class="inner">
-								<% if ( action ) { %>
-									<button id="button-action" class="button button-large button-primary"><?php _e( 'Add' , 'axisbuilder' ); ?></button>
-								<% } %>
-								<button id="button-cancel" class="button button-large button-secondary"><?php _e( 'Cancel' , 'axisbuilder' ); ?></button>
+								<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Add' , 'axisbuilder' ); ?></button>
 							</div>
 						</footer>
 					</section>
 				</div>
 			</div>
-			<div class="axisbuilder-backbone-modal-backdrop">&nbsp;</div>
+			<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
 		</script>
 		<?php
 	}

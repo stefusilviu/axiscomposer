@@ -30,7 +30,6 @@
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
-				action: settings.action,
 				screen: settings.screen,
 				message: settings.message,
 				template: settings.template
@@ -45,7 +44,6 @@
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
 		title: '',
-		action: '',
 		screen: '',
 		message: '',
 		template: ''
@@ -60,17 +58,16 @@
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
 		_title: undefined,
-		_action: undefined,
 		_screen: undefined,
 		_message: undefined,
 		_template: undefined,
 		events: {
-			'click #button-cancel': 'cancelButton',
-			'click #button-action': 'actionButton'
+			'click .modal-close': 'closeButton',
+			'click #btn-ok':      'addButton',
+			'keydown':            'keyboardActions'
 		},
 		initialize: function( data ) {
 			this._title = data.title;
-			this._action = data.action;
 			this._screen = data.screen;
 			this._message = data.message;
 			this._template = data.template;
@@ -80,8 +77,6 @@
 		render: function() {
 			var variables = {
 				title: this._title,
-				action: this._action,
-				screen: this._screen,
 				message: this._message
 			};
 
@@ -117,7 +112,7 @@
 
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
 		},
-		cancelButton: function( e ) {
+		closeButton: function ( e ) {
 			e.preventDefault();
 			this.undelegateEvents();
 			$( document ).off( 'focusin' );
@@ -127,9 +122,9 @@
 			this.remove();
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._template );
 		},
-		actionButton: function( e ) {
+		addButton: function ( e ) {
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', this._template, this.getFormData() );
-			this.cancelButton( e );
+			this.closeButton( e );
 		},
 		getFormData: function() {
 			var data = {};
@@ -144,6 +139,19 @@
 			});
 
 			return data;
+		},
+		keyboardActions: function( e ) {
+			var button = e.keyCode || e.which;
+
+			// Enter key
+			if ( 13 === button && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
+				this.addButton( e );
+			}
+
+			// ESC key
+			if ( 27 === button ) {
+				this.closeButton( e );
+			}
 		}
 	});
 

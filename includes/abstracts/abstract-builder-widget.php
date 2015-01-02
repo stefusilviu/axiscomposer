@@ -13,36 +13,41 @@ abstract class AB_Widget extends WP_Widget {
 
 	/**
 	 * CSS class
+	 *
 	 * @var string
 	 */
 	public $widget_cssclass;
 
 	/**
 	 * Widget description
+	 *
 	 * @var string
 	 */
 	public $widget_description;
 
 	/**
 	 * Widget ID
+	 *
 	 * @var string
 	 */
 	public $widget_id;
 
 	/**
 	 * Widget name
+	 *
 	 * @var string
 	 */
 	public $widget_name;
 
 	/**
 	 * Settings
+	 *
 	 * @var array
 	 */
 	public $settings;
 
 	/**
-	 * Class Constructor Method.
+	 * Constructor
 	 */
 	public function __construct() {
 
@@ -80,7 +85,7 @@ abstract class AB_Widget extends WP_Widget {
 	/**
 	 * Cache the widget
 	 *
-	 * @param  array  $args
+	 * @param  array $args
 	 * @param  string $content
 	 * @return string the content that was cached
 	 */
@@ -102,27 +107,25 @@ abstract class AB_Widget extends WP_Widget {
 	/**
 	 * Output the html at the start of a widget
 	 *
-	 * @param array $args
+	 * @param  array $args
+	 * @return string
 	 */
 	public function widget_start( $args, $instance ) {
-		extract( $args );
+		echo $args['before_widget'];
 
-		if ( $title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) ) {
-			echo $before_widget . $before_title . $title . $after_title;
-		} else {
-			echo $before_widget;
+		if ( $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base ) ) {
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
 	}
 
 	/**
 	 * Output the html at the end of a widget
 	 *
-	 * @param array $args
+	 * @param  array $args
+	 * @return string
 	 */
 	public function widget_end( $args ) {
-		extract( $args );
-
-		echo $after_widget;
+		echo $args['after_widget'];
 	}
 
 	/**
@@ -169,11 +172,11 @@ abstract class AB_Widget extends WP_Widget {
 
 		foreach ( $this->settings as $key => $setting ) {
 
-			$value   = isset( $instance[ $key ] ) ? $instance[ $key ] : $setting['std'];
+			$value = isset( $instance[ $key ] ) ? $instance[ $key ] : $setting['std'];
 
 			switch ( $setting['type'] ) {
 
-				case "text" :
+				case 'text' :
 					?>
 					<p>
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>
@@ -182,7 +185,7 @@ abstract class AB_Widget extends WP_Widget {
 					<?php
 				break;
 
-				case "number" :
+				case 'number' :
 					?>
 					<p>
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>
@@ -191,7 +194,7 @@ abstract class AB_Widget extends WP_Widget {
 					<?php
 				break;
 
-				case "select" :
+				case 'select' :
 					?>
 					<p>
 						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>
@@ -204,7 +207,7 @@ abstract class AB_Widget extends WP_Widget {
 					<?php
 				break;
 
-				case "checkbox" :
+				case 'checkbox' :
 					?>
 					<p>
 						<input id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="checkbox" value="1" <?php checked( $value, 1 ); ?> />

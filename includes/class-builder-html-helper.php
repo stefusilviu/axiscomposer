@@ -380,4 +380,40 @@ class AB_HTML_Helper {
 
 		return $output;
 	}
+
+	public static function gallery( $element ) {
+		if ( empty( $element['data'] ) ) {
+			$element['data'] =  array(
+				'target' => $element['id'],
+				'type'   => $element['type'],
+				'title'  => $element['title'],
+				'button' => $element['button'],
+				'class'  => 'media-frame axisbuilder-media-gallery-insert ' . $element['container_class'],
+				'frame'  => 'post',
+				'state'  => 'gallery-library',
+				'fetch'  => 'id',
+				'save_to'=> 'hidden'
+			);
+		}
+
+		return self::image( $element );
+	}
+
+	public static function gallery( $element ) {
+		if ( empty( $element['data'] ) ) {
+			$element['data'] =  array(
+				'target' => $element['id'],
+				'type'   => $element['type'],
+				'title'  => $element['title'],
+				'button' => $element['button'],
+				'class'  => 'media-frame axisbuilder-blank-insert ' . $element['container_class'],
+				'frame'  => 'select',
+				'state'  => 'axisbuilder_insert_video',
+				'fetch'  => 'url',
+				'save_to'=> 'input'
+			);
+		}
+
+		return self::image( $element );
+	}
 }

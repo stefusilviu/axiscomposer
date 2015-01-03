@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_HTML_Helper {
 
+	public static $imageCount    = 0;
 	public static $meta_data     = array();
 	public static $elementValues = array();
 	public static $elementHidden = array();
@@ -343,7 +344,40 @@ class AB_HTML_Helper {
 	 */
 	public static function image( $element ) {
 		if ( empty( $element['data'] ) ) {
+			$fetch = isset( $element['fetch'] ) ? $element['fetch'] : 'url';
+			$state = isset( $element['state'] ) ? $element['state'] : 'axisbuilder_insert_single';
 
+			if ( empty( $element['show_option'] ) ) {
+				$class = ( $fetch == 'id' ) ? 'axisbuilder-media-img-only-no-sidebars' : 'axisbuilder-media-img-only';
+			} else {
+				$class = 'axisbuilder-media-img-only';
+			}
+
+			$element['data'] =  array(
+				'target' => $element['id'],
+				'type'   => $element['type'],
+				'title'  => $element['title'],
+				'button' => $element['button'],
+				'class'  => 'media-frame ' . $class . ' ' . $element['container_class'],
+				'frame'  => 'select',
+				'state'  => $state,
+				'fetch'  => $fetch,
+				'save_to'=> 'hidden'
+			);
 		}
+
+		if ( isset( $element['modal-class'] ) ) {
+			$element['data']['class'] .= ' ' . $element['modal-class'];
+		}
+
+		$media  = 'button button-large axisbuilder-image-upload axisbuilder-image-insert';
+		$class  = empty( $element['class'] ) ? $media : $media . ' ' . $element['class'];
+		$output = '<a href="#" class="' . $class . '" title="' . esc_attr( $element['title'] ) . '"' . axisbuilder_html_data_string( $element['data'] ) . '>' . $element['title'] . '</a>';
+
+		if ( isset( $element['delete'] ) ) {
+			$output .= '<a href="#" class="button button-large axisbuilder-delete-gallery-button" title="' . esc_attr( $element['delete'] ) . '">' . $element['delete'] . '</a>';
+		}
+
+		return $output;
 	}
 }

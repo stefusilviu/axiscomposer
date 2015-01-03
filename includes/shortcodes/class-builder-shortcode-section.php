@@ -67,6 +67,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'desc'     => __( 'Either upload a new, or choose an existing image from your media library. Leave empty if you want to use the background image of the color scheme defined above.', 'axisbuilder' ),
 				'title'    => __( 'Insert Image', 'axisbuilder' ),
 				'button'   => __( 'Insert', 'axisbuilder' ),
+				// 'delete'   => __( 'Delete', 'axisbuilder' ),
 				'id'       => 'src',
 				'std'      => '',
 				'type'     => 'image'

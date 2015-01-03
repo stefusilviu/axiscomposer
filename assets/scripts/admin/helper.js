@@ -8,6 +8,7 @@
 	'use strict';
 
 	$.AxisBuilderHelper = $.AxisBuilderHelper || {};
+	$.AxisBuilderHelper.wp_media = $.AxisBuilderHelper.wp_media || [];
 
 	$( document ).ready( function() {
 
@@ -19,6 +20,9 @@
 
 		// Show/Hide the dependent elements.
 		$.AxisBuilderHelper.check_depedencies();
+
+		// Image Insert functionality
+		$.AxisBuilderHelper.wp_media_advanced();
 
 		// Default tooltips for various elements like shortcodes.
 		new $.AxisTooltip({
@@ -241,6 +245,72 @@
 					current.slideUp();
 				}
 			});
+		});
+	};
+
+	// WordPress Media Uploader Advanced.
+	$.AxisBuilderHelper.wp_media_advanced = function() {
+
+		var file_frame = [], media = wp.media;
+
+		// Click Event Upload Button
+		$( 'body' ).on( 'click', '.axisbuilder-image-upload', function( e ) {
+			e.preventDefault();
+
+			var clicked = $( this ),
+				options = clicked.data(),
+				parents = clicked.parents( '.axisbuilder-form-element-container:last' ),
+				targets = parents.find( '#' + options.target ),
+				frame_key = _.random(0, 999999999999999999);
+
+			// Set vars so we know that an editor is open
+			$.AxisBuilderHelper.wp_media.unshift( this );
+
+			// If the media frame alreay exist, reopen it.
+			if ( file_frame[frame_key] ) {
+				file_frame[frame_key].open();
+				return;
+			}
+
+			// Create the media frame.
+			file_frame[frame_key] = wp.media({
+				frame: options.frame,
+				state: options.state,
+				className: options.class,
+				button: {
+					text: options.button
+				},
+				library: {
+					type: 'image'
+				}
+			});
+
+			// Add the single insert state
+			file_frame[frame_key].states.add([
+				new wp.media.controller.Library({
+					id: 'axisbuilder_insert_single',
+					title: clicked.data( 'title' ),
+					priority: 20,
+					editable: true,
+					multiple: false,
+					toolbar: 'select',
+					filterable: 'uploaded',
+					allowLocalEdits: true,
+					displaySettings: true,
+					displayUserSettings: false,
+					library: media.query( file_frame[frame_key].options.library ),
+				})
+			]);
+
+			// On modal close remove the item from the global array so that the Backbone Modal accepts keyboard events again
+			file_frame[frame_key].on( 'close', function() {
+				_.defer( function() {
+					$.AxisBuilderHelper.wp_media.shift();
+				});
+			});
+
+			// Finally open the modal
+			file_frame[frame_key].open();
 		});
 	};
 

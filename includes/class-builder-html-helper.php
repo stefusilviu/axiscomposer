@@ -337,4 +337,13 @@ class AB_HTML_Helper {
 
 		return $output;
 	}
+
+	/**
+	 * Add Image upload button that allows the user to select an image from the media uploader and insert it.
+	 */
+	public static function image( $element ) {
+		if ( empty( $element['data'] ) ) {
+
+		}
+	}
 }

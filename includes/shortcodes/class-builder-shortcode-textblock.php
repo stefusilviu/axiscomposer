@@ -103,6 +103,15 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				)
 			),
 
+			array(
+				'name'     => __( 'Custom Font Color', 'axisbuilder' ),
+				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
+				'id'       => 'color',
+				'std'      => '',
+				'required' => array( 'font_color', 'equals', 'custom' ),
+				'type'     => 'colorpicker'
+			),
+
 			// array(
 			// 	'type'   => 'close_div',
 			// 	'nodesc' => true

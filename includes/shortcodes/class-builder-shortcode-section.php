@@ -63,11 +63,13 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'std'     => ''
 			),
 			array(
-				'name'     => __( 'Custom Font Color', 'axisbuilder' ),
-				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
-				'id'       => 'color',
+				'name'     => __( 'Custom Background Image', 'axisbuilder' ),
+				'desc'     => __( 'Either upload a new, or choose an existing image from your media library. Leave empty if you want to use the background image of the color scheme defined above.', 'axisbuilder' ),
+				'title'    => __( 'Insert Image', 'axisbuilder' ),
+				'button'   => __( 'Insert', 'axisbuilder' ),
+				'id'       => 'src',
 				'std'      => '',
-				'type'     => 'colorpicker'
+				'type'     => 'image'
 			),
 		);
 	}

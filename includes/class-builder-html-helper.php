@@ -399,7 +399,7 @@ class AB_HTML_Helper {
 		return self::image( $element );
 	}
 
-	public static function gallery( $element ) {
+	public static function video( $element ) {
 		if ( empty( $element['data'] ) ) {
 			$element['data'] =  array(
 				'target' => $element['id'],

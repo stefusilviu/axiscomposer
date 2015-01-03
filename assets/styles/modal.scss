@@ -346,18 +346,28 @@ div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
  * Color-Picker Form Element
  */
 .axisbuilder-style {
-	.iris-picker,
-	.wp-color-result,
-	.wp-color-result:after,
-	.wp-picker-input-wrap .button {
-		border-radius: 0;
-		-moz-border-radius: 0;
-		-webkit-border-radius: 0;
-	}
 
 	.wp-picker-container {
 		width: 100%;
 		position: relative;
+
+		.wp-color-result {
+			top: 0px;
+			height: 27px;
+			min-width: 80px;
+			float: left;
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:after {
+				line-height: 27px;
+			}
+		}
 
 		.wp-picker-input-wrap {
 			overflow: hidden;
@@ -384,24 +394,6 @@ div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
 			}
 		}
 
-		.wp-color-result {
-			top: 0px;
-			height: 27px;
-			min-width: 80px;
-			float: left;
-			display: block;
-			white-space: nowrap;
-			overflow: hidden;
-
-			&:focus {
-				box-shadow: none;
-			}
-
-			&:after {
-				line-height: 27px;
-			}
-		}
-
 		.wp-picker-holder {
 			z-index: 1001;
 			position: absolute;
@@ -410,5 +402,19 @@ div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
 				box-shadow: 0 1px 27px 0px rgba(0,0,0,0.3);
 			}
 		}
+	}
+}
+
+/**
+ * Media Form Element
+ */
+.axisbuilder-element-image,
+.axisbuilder-element-gallery,
+.axisbuilder-element-multi_image {
+	.button {
+		top: 17px;
+		width: 175px;
+		position: absolute;
+		text-align: center;
 	}
 }

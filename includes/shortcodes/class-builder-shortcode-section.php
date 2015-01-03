@@ -46,6 +46,32 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		);
 	}
 
+
+	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->elements = array(
+			array(
+				'name'    => __( 'Custom Background Color', 'axisbuilder' ),
+				'desc'    => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axisbuilder' ),
+				'id'      => 'color',
+				'type'    => 'colorpicker',
+				'std'     => ''
+			),
+			array(
+				'name'     => __( 'Custom Font Color', 'axisbuilder' ),
+				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
+				'id'       => 'color',
+				'std'      => '',
+				'type'     => 'colorpicker'
+			),
+		);
+	}
+
 	/**
 	 * Editor Elements.
 	 *
@@ -59,6 +85,10 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$data['dragdrop-level']    = $this->shortcode['drag-level'];
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
+			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
+		}
 
 		$output = '<div class="axisbuilder-layout-section popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';

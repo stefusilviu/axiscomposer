@@ -56,22 +56,110 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	public function popup_elements() {
 		$this->elements = array(
 			array(
-				'name'    => __( 'Custom Background Color', 'axisbuilder' ),
-				'desc'    => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axisbuilder' ),
-				'id'      => 'color',
-				'type'    => 'colorpicker',
-				'std'     => ''
+				'name'     => __( 'Custom Background Color', 'axisbuilder' ),
+				'desc'     => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axisbuilder' ),
+				'id'       => 'color',
+				'type'     => 'colorpicker',
+				'std'      => ''
 			),
 			array(
 				'name'     => __( 'Custom Background Image', 'axisbuilder' ),
 				'desc'     => __( 'Either upload a new, or choose an existing image from your media library. Leave empty if you want to use the background image of the color scheme defined above.', 'axisbuilder' ),
 				'title'    => __( 'Insert Image', 'axisbuilder' ),
 				'button'   => __( 'Insert', 'axisbuilder' ),
-				// 'delete'   => __( 'Delete', 'axisbuilder' ),
 				'id'       => 'src',
 				'std'      => '',
 				'type'     => 'image'
 			),
+			array(
+				'name'     => __( 'Background Video', 'axisbuilder' ),
+				'desc'     => __( 'You can also place a video as background for your section. Enter the URL to the Video. Currently supported are Youtube, Vimeo and direct linking of web-video files (mp4, webm, ogv)', 'axisbuilder' ) . '<br /><br />' . __( 'Working examples Vimeo &amp; YouTube:', 'axisbuilder' ) . '<br /><strong>http://vimeo.com/1084537</strong><br/><strong>https://www.youtube.com/watch?v=NJtPPbgdt7A</strong><br/><br/>',
+				'id'       => 'video',
+				'std'      => '',
+				'type'     => 'input'
+			),
+			array(
+				'name'     => __( 'Video Aspect Ratio', 'axisbuilder' ),
+				'desc'     => __( 'In order to calculate the correct height and width for the video slide you need to enter a aspect ratio (width:height). usually: 16:9 or 4:3.', 'axisbuilder' ),
+				'id'       => 'video_ratio',
+				'std'      => '16:9',
+				'type'     => 'input',
+				'required' => array( 'video', 'not', '' ),
+			),
+			array(
+				'name'     => __( 'Hide video on Mobile Devices?', 'axisbuilder' ),
+				'desc'     => __( 'You can chose to hide the video entirely on Mobile devices and instead display the Section Background image', 'axisbuilder' ),
+				'id'       => 'video_mobile',
+				'std'      => '',
+				'type'     => 'checkbox',
+				'required' => array( 'video', 'not', '' ),
+			),
+			array(
+				'name'     => __( 'Section Minimum Height', 'axisbuilder' ),
+				'desc'     => __( 'Define a minimum height for the section. Content within the section will be centered vertically within the section', 'axisbuilder' ),
+				'id'       => 'min_height',
+				'std'      => '',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'No minimum height, use content within section to define Section height', 'axisbuilder' ) => 'default',
+					__( 'At least 100&percnt; of Browser Window height', 'axisbuilder' ) => '100',
+					__( 'At least 75&percnt; of Browser Window height', 'axisbuilder' ) => '75',
+					__( 'At least 50&percnt; of Browser Window height', 'axisbuilder' ) => '50',
+					__( 'At least 25&percnt; of Browser Window height', 'axisbuilder' ) => '25',
+					__( 'Custom height in pixel', 'axisbuilder' ) => 'custom'
+				)
+			),
+			array(
+				'name'     => __( 'Section custom height', 'axisbuilder' ),
+				'desc'     => __( 'Define a minimum height for the section. Use a pixel value. eg: 500px', 'axisbuilder' ),
+				'id'       => 'custom_min_height',
+				'std'      => '500px',
+				'type'     => 'input',
+				'required' => array( 'min_height', 'equals', 'custom' ),
+			),
+			array(
+				'name'     => __( 'Section Padding', 'axisbuilder' ),
+				'desc'     => __( 'Define the sections top and bottom padding', 'axisbuilder' ),
+				'id'       => 'padding',
+				'std'      => 'default',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'No Padding', 'axisbuilder' ) => 'none',
+					__( 'Small Padding', 'axisbuilder' ) => 'small',
+					__( 'Default Padding', 'axisbuilder' ) => 'default',
+					__( 'Large Padding', 'axisbuilder' ) => 'large'
+				)
+			),
+			array(
+				'name'     => __( 'Section Top Border Styling', 'axisbuilder' ),
+				'desc'     => __( 'Chose a border styling for the top of your section', 'axisbuilder' ),
+				'id'       => 'shadow',
+				'std'      => 'no-shadow',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'Display simple top border', 'axisbuilder' ) => 'no-shadow',
+					__( 'Display a small styling shadow at the top of the section', 'axisbuilder' ) => 'shadow',
+					__( 'No border styling', 'axisbuilder' ) => 'no-border-styling'
+				)
+			),
+			array(
+				'name'     => __( 'Section Bottom Border Styling', 'axisbuilder' ),
+				'desc'     => __( 'Chose a border styling for the bottom of your section', 'axisbuilder' ),
+				'id'       => 'bottom_border',
+				'std'      => 'none',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'No border styling', 'axisbuilder' ) => 'none',
+					__( 'Display a small arrow that points down to the next section', 'axisbuilder' ) => 'arrow-down',
+				)
+			),
+			array(
+				'name'     => __( 'For Developers: Section ID', 'axisbuilder' ),
+				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axisbuilder' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axisbuilder' ),
+				'id'       => 'id',
+				'std'      => '',
+				'type'     => 'input'
+			)
 		);
 	}
 

@@ -8,4 +8,4 @@ Put your custom Axis Builder translations in your WordPress language directory, 
 `WP_LANG_DIR . "/axis-builder/{$textdomain}-{$locale}.mo";`
 
 #### Contributing your translating to Axis Builder
-If you want to help translate Axis Builder, please visit our [translation page](https://www.transifex.com/projects/p/axis-builder/).
+If you want to help translate Axis Builder, please join the [Axis Builder Transifex project](https://www.transifex.com/projects/p/axisbuilder/).

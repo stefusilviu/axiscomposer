@@ -190,7 +190,7 @@
 					e = e || window.event;
 
 					// Save Event
-					if ( e.which === 13 && ! ( e.target.tagName && e.target.tagName.toLowerCase() === 'textarea' ) ) {
+					if ( e.which === 13 && ! ( e.target.tagName && ( e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'textarea' ) ) ) {
 						setTimeout( function() {
 							obj.executeCallback();
 						}, 100 );

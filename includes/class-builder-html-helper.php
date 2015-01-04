@@ -216,7 +216,7 @@ class AB_HTML_Helper {
 	}
 
 	public static function input( $element ) {
-		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
+		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
 		return $output;
 	}
 

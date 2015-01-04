@@ -101,7 +101,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'std'      => '',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'No minimum height, use content within section to define Section height', 'axisbuilder' ) => 'default',
+					__( 'Use content within section to define Section height', 'axisbuilder' ) => 'default',
 					__( 'At least 100&percnt; of Browser Window height', 'axisbuilder' ) => '100',
 					__( 'At least 75&percnt; of Browser Window height', 'axisbuilder' ) => '75',
 					__( 'At least 50&percnt; of Browser Window height', 'axisbuilder' ) => '50',

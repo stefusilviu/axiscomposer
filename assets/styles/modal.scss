@@ -49,6 +49,8 @@ body.axisbuilder-noscroll {
 		@include margin(0 0 5px);
 		@include padding(6px 4px);
 		@include appearance(none);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
 	#{$all-text-inputs-focus}, textarea:focus, select:focus {
@@ -71,7 +73,6 @@ body.axisbuilder-noscroll {
 	}
 
 	select {
-		padding: 6px 35px 6px 4px;
 		background-image: url(../images/icons/select.png);
 		background-position: center right;
 		background-repeat: no-repeat;

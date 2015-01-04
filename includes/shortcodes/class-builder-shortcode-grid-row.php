@@ -47,6 +47,55 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 	}
 
 	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->elements = array(
+			array(
+				'name'     => __( 'Grid Borders', 'axisbuilder' ),
+				'desc'     => __( 'Choose if your layout grid should display any border.', 'axisbuilder' ),
+				'id'       => 'border',
+				'std'      => 'no-border',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'No Borders', 'axisbuilder' )                                  => 'no-border',
+					__( 'Borders on top and bottom', 'axisbuilder' )                   => 'axisbuilder-border-top-bottom',
+					__( 'Borders between cells', 'axisbuilder' )                       => 'axisbuilder-border-cells',
+					__( 'Borders on top and bottom and between cells', 'axisbuilder' ) => 'axisbuilder-border-top-bottom axisbuilder-border-cells'
+				)
+			),
+			array(
+				'name'    => __( 'Minimum height', 'axisbuilder' ),
+				'desc'    => __( 'Set the minimum height of all the cells in pixel. Eg: 400px', 'axisbuilder' ),
+				'id'      => 'min_height',
+				'type'    => 'input',
+				'std'     => '0'
+			),
+			array(
+				'name'     => __( 'Smartphones Behaviour', 'axisbuilder' ),
+				'desc'     => __( 'Choose how the cells inside the grid should behave on smartphones and small screens.', 'axisbuilder' ),
+				'id'       => 'smartphones',
+				'std'      => 'axisbuilder-flex-cells',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'By default each cell is displayed on its own', 'axisbuilder' )               => 'axisbuilder-flex-cells',
+					__( 'Cells appear beside each other, just like on large screens', 'axisbuilder' ) => 'axisbuilder-fixed-cells',
+				)
+			),
+			array(
+				'name'     => __( 'For Developers: Section ID', 'axisbuilder' ),
+				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axisbuilder' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axisbuilder' ),
+				'id'       => 'id',
+				'std'      => '',
+				'type'     => 'input'
+			)
+		);
+	}
+
+	/**
 	 * Editor Elements.
 	 *
 	 * This method defines the visual appearance of an element on the Builder canvas.

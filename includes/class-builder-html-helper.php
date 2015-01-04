@@ -266,7 +266,7 @@ class AB_HTML_Helper {
 		}
 
 		// Real output is here ;)
-		$output = '<select ' . $multi . ' class="' . $element['class'] . '" ' . $id_string . ' ' . $name_string . ' ' . $data_string . '>';
+		$output = '<select ' . $multi . ' class="widefat ' . $element['class'] . '" ' . $id_string . ' ' . $name_string . ' ' . $data_string . '>';
 
 		// Check with first option ;)
 		if ( isset( $element['with_first'] ) ) {

@@ -88,8 +88,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			),
 			array(
 				'name'     => __( 'Hide video on Mobile Devices?', 'axisbuilder' ),
-				'desc'     => __( 'You can chose to hide the video entirely on Mobile devices and instead display the Section Background image', 'axisbuilder' ),
-				'id'       => 'video_mobile',
+				'desc'     => __( 'You can chose to hide the video entirely on Mobile devices and instead display the Section Background image', 'axisbuilder' ) . '<br /><small>' . __( 'Most smartphones can\'t autoplay videos to prevent bandwidth problems for the user', 'axisbuilder' ) . '</small>',
+				'id'       => 'video_mobile_disabled',
 				'std'      => '',
 				'type'     => 'checkbox',
 				'required' => array( 'video', 'not', '' ),

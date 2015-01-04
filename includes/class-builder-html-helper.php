@@ -226,7 +226,7 @@ class AB_HTML_Helper {
 	}
 
 	public static function checkbox( $element ) {
-		$output = '<input type="checkbox" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '" value="' . $element['id'] . '" ' . checked( $element['std'], $element['id'], false ) . ' />';
+		$output = '<input type="checkbox" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '" value="' . $element['id'] . '" ' . checked( $element['std'], $element['id'], false ) . ' />';
 		return $output;
 	}
 

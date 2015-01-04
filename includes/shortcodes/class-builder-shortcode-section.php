@@ -74,7 +74,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			array(
 				'name'     => __( 'Background Attachment', 'axisbuilder' ),
 				'desc'     => __( 'Background can either scroll with the page, be fixed or scroll with a parallax motion.', 'axisbuilder' ),
-				'id'       => 'attach',
+				'id'       => 'background_attachment',
 				'std'      => 'scroll',
 				'type'     => 'select',
 				'required' => array( 'src', 'not', '' ),
@@ -86,7 +86,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			),
 			array(
 				'name'     => __( 'Background Position', 'axisbuilder' ),
-				'id'       => 'position',
+				'id'       => 'background_position',
 				'std'      => 'top left',
 				'type'     => 'select',
 				'required' => array( 'src', 'not', '' ),
@@ -104,7 +104,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			),
 			array(
 				'name'     => __( 'Background Repeat', 'axisbuilder' ),
-				'id'       => 'repeat',
+				'id'       => 'background_repeat',
 				'std'      => 'no-repeat',
 				'type'     => 'select',
 				'required' => array( 'src', 'not', '' ),

@@ -50,6 +50,103 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 	}
 
 	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->elements = array(
+			array(
+				'name'     => __( 'Vertical align', 'axisbuilder' ),
+				'desc'     => __( 'Choose the vertical alignment of your cells content.', 'axisbuilder' ),
+				'id'       => 'vertical_align',
+				'std'      => 'top',
+				'type'     => 'select',
+				'subtype'  => array(
+					__( 'Top', 'axisbuilder' )    => 'top',
+					__( 'Middle', 'axisbuilder' ) => 'middle',
+					__( 'Bottom', 'axisbuilder' ) => 'bottom'
+				)
+			),
+			// array(
+			// 	'name'     => __( 'Cell Padding', 'axisbuilder' ),
+			// 	'desc'     => __( 'Set the distance from the cell content to the border here. Both pixel and &percnt; based values are accepted. eg: 30px, 5&percnt;', 'axisbuilder' ),
+			// 	'id'       => 'padding',
+			// 	'std'      => '30px',
+			// 	'type'     => 'input', // Will be multi_input
+			// 	'sync'     => true,
+			// 	'subtype'  => array(
+			// 		__( 'Top', 'axisbuilder' )    => 'top',
+			// 		__( 'Right', 'axisbuilder' )  => 'right',
+			// 		__( 'Bottom', 'axisbuilder' ) => 'bottom',
+			// 		__( 'Left', 'axisbuilder' )   => 'left'
+			// 	)
+			// ),
+			array(
+				'name'     => __( 'Custom Background Color', 'axisbuilder' ),
+				'desc'     => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axisbuilder' ),
+				'id'       => 'background_color',
+				'type'     => 'colorpicker',
+				'std'      => ''
+			),
+			array(
+				'name'     => __( 'Custom Background Image', 'axisbuilder' ),
+				'desc'     => __( 'Either upload a new, or choose an existing image from your media library. Leave empty if you want to use the background image.', 'axisbuilder' ),
+				'title'    => __( 'Insert Image', 'axisbuilder' ),
+				'button'   => __( 'Insert', 'axisbuilder' ),
+				'id'       => 'src',
+				'std'      => '',
+				'type'     => 'image'
+			),
+			array(
+				'name'     => __( 'Background Attachment', 'axisbuilder' ),
+				'desc'     => __( 'Background can either scroll with the page, be fixed.', 'axisbuilder' ),
+				'id'       => 'background_attachment',
+				'std'      => 'scroll',
+				'type'     => 'select',
+				'required' => array( 'src', 'not', '' ),
+				'subtype'  => array(
+					__( 'Scroll', 'axisbuilder' )   => 'scroll',
+					__( 'Fixed', 'axisbuilder' )    => 'fixed'
+				)
+			),
+			array(
+				'name'     => __( 'Background Position', 'axisbuilder' ),
+				'id'       => 'background_position',
+				'std'      => 'top left',
+				'type'     => 'select',
+				'required' => array( 'src', 'not', '' ),
+				'subtype'  => array(
+					__( 'Top Left', 'axisbuilder' )       =>'top left',
+					__( 'Top Center', 'axisbuilder' )     =>'top center',
+					__( 'Top Right', 'axisbuilder' )      =>'top right',
+					__( 'Bottom Left', 'axisbuilder' )    =>'bottom left',
+					__( 'Bottom Center', 'axisbuilder' )  =>'bottom center',
+					__( 'Bottom Right', 'axisbuilder' )   =>'bottom right',
+					__( 'Center Left', 'axisbuilder' )    =>'center left',
+					__( 'Center Center', 'axisbuilder' )  =>'center center',
+					__( 'Center Right', 'axisbuilder' )   =>'center right'
+				)
+			),
+			array(
+				'name'     => __( 'Background Repeat', 'axisbuilder' ),
+				'id'       => 'background_repeat',
+				'std'      => 'no-repeat',
+				'type'     => 'select',
+				'required' => array( 'src', 'not', '' ),
+				'subtype'  => array(
+					__( 'No Repeat', 'axisbuilder' )         => 'no-repeat',
+					__( 'Tile', 'axisbuilder' )              => 'repeat',
+					__( 'Tile Horizontally', 'axisbuilder' ) => 'repeat-x',
+					__( 'Tile Vertically', 'axisbuilder' )   => 'repeat-y',
+					__( 'Stretch to Fit', 'axisbuilder' )    => 'stretch'
+				)
+			)
+		);
+	}
+
+	/**
 	 * Editor Elements.
 	 *
 	 * This method defines the visual appearance of an element on the Builder canvas.
@@ -71,11 +168,15 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 		);
 
 		$data['width']             = $this->shortcode['name'];
-		$data['modal-title']       = $this->title;
+		$data['modal-title']       = __( 'Edit Cell', 'axisbuilder' );
 		$data['modal-action']      = $this->shortcode['name'];
 		$data['dragdrop-level']    = $this->shortcode['drag-level'];
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
+			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
+		}
 
 		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell popup-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle">';

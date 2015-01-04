@@ -58,7 +58,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			array(
 				'name'     => __( 'Custom Background Color', 'axisbuilder' ),
 				'desc'     => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axisbuilder' ),
-				'id'       => 'color',
+				'id'       => 'background_color',
 				'type'     => 'colorpicker',
 				'std'      => ''
 			),

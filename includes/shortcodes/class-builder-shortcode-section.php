@@ -72,6 +72,51 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'type'     => 'image'
 			),
 			array(
+				'name'     => __( 'Background Attachment', 'axisbuilder' ),
+				'desc'     => __( 'Background can either scroll with the page, be fixed or scroll with a parallax motion.', 'axisbuilder' ),
+				'id'       => 'attach',
+				'std'      => 'scroll',
+				'type'     => 'select',
+				'required' => array( 'src', 'not', '' ),
+				'subtype'  => array(
+					__( 'Scroll', 'axisbuilder' )   => 'scroll',
+					__( 'Fixed', 'axisbuilder' )    => 'fixed',
+					__( 'Parallax', 'axisbuilder' ) => 'parallax'
+				)
+			),
+			array(
+				'name'     => __( 'Background Position', 'axisbuilder' ),
+				'id'       => 'position',
+				'std'      => 'top left',
+				'type'     => 'select',
+				'required' => array( 'src', 'not', '' ),
+				'subtype'  => array(
+					__( 'Top Left', 'axisbuilder' )       =>'top left',
+					__( 'Top Center', 'axisbuilder' )     =>'top center',
+					__( 'Top Right', 'axisbuilder' )      =>'top right',
+					__( 'Bottom Left', 'axisbuilder' )    =>'bottom left',
+					__( 'Bottom Center', 'axisbuilder' )  =>'bottom center',
+					__( 'Bottom Right', 'axisbuilder' )   =>'bottom right',
+					__( 'Center Left', 'axisbuilder' )    =>'center left',
+					__( 'Center Center', 'axisbuilder' )  =>'center center',
+					__( 'Center Right', 'axisbuilder' )   =>'center right'
+				)
+			),
+			array(
+				'name'     => __( 'Background Repeat', 'axisbuilder' ),
+				'id'       => 'repeat',
+				'std'      => 'no-repeat',
+				'type'     => 'select',
+				'required' => array( 'src', 'not', '' ),
+				'subtype'  => array(
+					__( 'No Repeat', 'axisbuilder' )         => 'no-repeat',
+					__( 'Tile', 'axisbuilder' )              => 'repeat',
+					__( 'Tile Horizontally', 'axisbuilder' ) => 'repeat-x',
+					__( 'Tile Vertically', 'axisbuilder' )   => 'repeat-y',
+					__( 'Stretch to Fit', 'axisbuilder' )    => 'stretch'
+				)
+			),
+			array(
 				'name'     => __( 'Background Video', 'axisbuilder' ),
 				'desc'     => __( 'You can also place a video as background for your section. Enter the URL to the Video. Currently supported are Youtube, Vimeo and direct linking of web-video files (mp4, webm, ogv)', 'axisbuilder' ) . '<br /><br />' . __( 'Working examples Vimeo &amp; YouTube:', 'axisbuilder' ) . '<br /><strong>http://vimeo.com/1084537</strong><br/><strong>https://www.youtube.com/watch?v=NJtPPbgdt7A</strong><br/><br/>',
 				'id'       => 'video',
@@ -102,11 +147,11 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'type'     => 'select',
 				'subtype'  => array(
 					__( 'Use content within section to define Section height', 'axisbuilder' ) => 'default',
-					__( 'At least 100&percnt; of Browser Window height', 'axisbuilder' ) => '100',
-					__( 'At least 75&percnt; of Browser Window height', 'axisbuilder' ) => '75',
-					__( 'At least 50&percnt; of Browser Window height', 'axisbuilder' ) => '50',
-					__( 'At least 25&percnt; of Browser Window height', 'axisbuilder' ) => '25',
-					__( 'Custom height in pixel', 'axisbuilder' ) => 'custom'
+					__( 'At least 100&percnt; of Browser Window height', 'axisbuilder' )       => '100',
+					__( 'At least 75&percnt; of Browser Window height', 'axisbuilder' )        => '75',
+					__( 'At least 50&percnt; of Browser Window height', 'axisbuilder' )        => '50',
+					__( 'At least 25&percnt; of Browser Window height', 'axisbuilder' )        => '25',
+					__( 'Custom height in pixel', 'axisbuilder' )                              => 'custom'
 				)
 			),
 			array(
@@ -124,10 +169,10 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'std'      => 'default',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'No Padding', 'axisbuilder' ) => 'none',
-					__( 'Small Padding', 'axisbuilder' ) => 'small',
+					__( 'No Padding', 'axisbuilder' )      => 'none',
+					__( 'Small Padding', 'axisbuilder' )   => 'small',
 					__( 'Default Padding', 'axisbuilder' ) => 'default',
-					__( 'Large Padding', 'axisbuilder' ) => 'large'
+					__( 'Large Padding', 'axisbuilder' )   => 'large'
 				)
 			),
 			array(

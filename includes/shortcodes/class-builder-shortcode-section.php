@@ -291,11 +291,11 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			$background .= 'background-image: url(' . $src . ');';
 			$background .= 'background-position: ' . $background_position;
 
-			if ( $repeat == 'stretch' ) {
+			if ( $background_repeat == 'stretch' ) {
 				$class      .= 'axisbuilder-full-stretch';
 				$background .= 'background-repeat: no-repeat';
 			} else {
-				$background .= 'background-repeat: ' . $repeat;
+				$background .= 'background-repeat: ' . $background_repeat;
 			}
 		}
 

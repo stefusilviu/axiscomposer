@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Section extends AB_Shortcode {
 
+	public static $section_count = 0;
+
 	/**
 	 * Class Constructor Method.
 	 */
@@ -256,6 +258,28 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		self::$section_count++;
+
+		$shortcode_atts = array(
+			'background_color'      => '',
+			'src'                   => '',
+			'background_attachment' => 'scroll',
+			'background_position'   => 'top left',
+			'background_repeat'     => 'no-repeat',
+			'video'                 => '',
+			'video_ratio'           => '16:9',
+			'video_mobile_disabled' => '',
+			'min_height'            => '',
+			'custom_min_height'     => '500px',
+			'padding'               => 'default',
+			'shadow'                => 'no-shadow',
+			'bottom_border'         => 'none',
+			'id'                    => ''
+		);
+
+		$atts = shortcode_atts( $shortcode_atts, $atts, $this->shortcode['name'] );
+
+		extract( $atts );
 
 	}
 }

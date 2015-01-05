@@ -91,7 +91,7 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 		if ( is_dynamic_sidebar( $atts['widget_area'] ) ) {
 			ob_start();
 			dynamic_sidebar( $atts['widget_area'] );
-			$output = wpautop( ob_get_clean(), true );
+			$output = axisbuilder_remove_autop( ob_get_clean(), true );
 		}
 
 		if ( $output ) {

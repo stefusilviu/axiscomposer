@@ -284,18 +284,19 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		extract( $atts );
 
 		$class      = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' background-' . $background_attachment . '';
-		$background = empty( $background_color ) ? '' : 'style="background-color: ' . $background_color . '"';
+		$background = empty( $background_color ) ? '' : 'style="background-color: ' . $background_color . '"; ';
 
 		// Set Background Image
-		if ( $src == '' ) {
-			$background .= 'background-image: url(' . $src . ');';
-			$background .= 'background-position: ' . $background_position;
+		if ( $src != '' ) {
+			$background .= 'background-image: url(' . $src . '); ';
+			$background .= 'background-position: ' . $background_position . '; ';
+			$background .= ( $background_attachment == 'parallax' ) ? "background-attachment: scroll; " : 'background-attachment: ' . $background_attachment . '; ';
 
 			if ( $background_repeat == 'stretch' ) {
 				$class      .= 'axisbuilder-full-stretch';
-				$background .= 'background-repeat: no-repeat';
+				$background .= 'background-repeat: no-repeat;" ';
 			} else {
-				$background .= 'background-repeat: ' . $background_repeat;
+				$background .= 'background-repeat: ' . $background_repeat . ';" ';
 			}
 		}
 
@@ -305,6 +306,6 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$params['custom_markup'] = $meta['custom_markup'];
 		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : $id;
 
-		// print_r( $background );
+		print_r( $background );
 	}
 }

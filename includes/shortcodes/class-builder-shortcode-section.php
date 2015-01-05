@@ -258,8 +258,9 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		$output = '';
 		$params = array();
+		$output = $background = '';
+
 		self::$section_count++;
 
 		$shortcode_atts = array(
@@ -277,15 +278,31 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			'shadow'                => 'no-shadow',
 			'bottom_border'         => 'none',
 			'id'                    => '',
-			'custom_markup'         => ''
+			'custom_markup'         => '',
+			'attachment'            => '',
+			'attachment_size'       => ''
 		);
 
 		$atts = shortcode_atts( $shortcode_atts, $atts, $this->shortcode['name'] );
 
 		extract( $atts );
 
-		$class      = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' background-' . $background_attachment . '';
-		$background = empty( $background_color ) ? '' : 'style="background-color: ' . $background_color . '"; ';
+		$class = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' background-' . $background_attachment . '';
+
+		$params['attach'] = '';
+		$params['custom_markup'] = $meta['custom_markup'];
+		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : sanitize_html_class( $id );
+
+		if ( ! empty( $attachment ) && ! empty( $attachment_size ) ) {
+			$attachment_entry = get_post( $attachment );
+
+			if ( ! empty( $attachment_size ) ) {
+				$src = wp_get_attachment_image_src( $attachment_entry->ID, $attachment_size );
+				$src = empty( $src[0] ) ? '' : $src[0];
+			}
+		} else {
+			$attachment = false;
+		}
 
 		// Set Background Image
 		if ( $src != '' ) {
@@ -295,16 +312,28 @@ class AB_Shortcode_Section extends AB_Shortcode {
 
 			if ( $background_repeat == 'stretch' ) {
 				$class      .= 'axisbuilder-full-stretch';
-				$background .= 'background-repeat: no-repeat;" ';
+				$background .= 'background-repeat: no-repeat; ';
 			} else {
-				$background .= 'background-repeat: ' . $background_repeat . ';" ';
+				$background .= 'background-repeat: ' . $background_repeat . '; ';
 			}
+
+			if ( $background_attachment == 'parallax' ) {
+				$class .= 'axisbuilder-parallax-section';
+				$speed  = apply_filters( 'axisbuilder_parallax_speed', '0.3', $params['id'] );
+				$attachment_class = ( $background_repeat == 'stretch' || $background_repeat == 'stretch' ) ? 'axisbuilder-full-stretch' : '';
+				$params['attach'] .= '<div class="axisbuilder-parallax ' . $attachment_class . '" data-axisbuilder-parallax-ratio="' . $speed . '" style="' . $background . '"></div>';
+				$background = '';
+			}
+
+			$params['data'] = 'data-section-background-repeat="' . $background_repeat . '"';
 		}
 
-		$params['attach'] = '';
-		$params['custom_markup'] = $meta['custom_markup'];
-		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : $id;
+		if ( $background_color != '' ) {
+			$background .= 'background-color: ' . $background_color . ';';
+		}
 
-		print_r( $background );
+		if ( $background ) {
+			$background = 'style="' . $background . '"';
+		}
 	}
 }

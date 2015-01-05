@@ -287,8 +287,9 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$background = empty( $background_color ) ? '' : 'style="background-color: ' . $background_color . '"';
 
 		// Set Background Image
-		if ( $src != '' ) {
+		if ( $src == '' ) {
 			$background .= 'background-image: url(' . $src . ');';
+			$background .= 'background-position: ' . $background_position;
 
 			if ( $repeat == 'stretch' ) {
 				$class      .= 'axisbuilder-full-stretch';
@@ -303,5 +304,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$params['attach'] = '';
 		$params['custom_markup'] = $meta['custom_markup'];
 		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : $id;
+
+		// print_r( $background );
 	}
 }

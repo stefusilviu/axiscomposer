@@ -286,6 +286,16 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$class      = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' background-' . $background_attachment . '';
 		$background = empty( $background_color ) ? '' : 'style="background-color: ' . $background_color . '"';
 
+		// Set Background Image
+		if ( $src != '' ) {
+			if ( $repeat == 'stretch' ) {
+				$class      .= 'axisbuilder-full-stretch';
+				$background .= 'background-repeat: no-repeat';
+			} else {
+				$background .= 'background-repeat: ' . $repeat;
+			}
+		}
+
 		$params = array();
 
 		$params['attach'] = '';

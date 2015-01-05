@@ -290,6 +290,6 @@ class AB_Shortcode_Section extends AB_Shortcode {
 
 		$params['attach'] = '';
 		$params['custom_markup'] = $meta['custom_markup'];
-		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . $self::$section_count : $id;
+		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : $id;
 	}
 }

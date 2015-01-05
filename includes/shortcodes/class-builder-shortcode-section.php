@@ -258,6 +258,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		$output = '';
 		self::$section_count++;
 
 		$shortcode_atts = array(
@@ -274,12 +275,21 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			'padding'               => 'default',
 			'shadow'                => 'no-shadow',
 			'bottom_border'         => 'none',
-			'id'                    => ''
+			'id'                    => '',
+			'custom_markup'         => ''
 		);
 
 		$atts = shortcode_atts( $shortcode_atts, $atts, $this->shortcode['name'] );
 
 		extract( $atts );
 
+		$class      = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' background-' . $background_attachment . '';
+		$background = empty( $background_color ) ? '' : 'style="background-color: ' . $background_color . '"';
+
+		$params = array();
+
+		$params['attach'] = '';
+		$params['custom_markup'] = $meta['custom_markup'];
+		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . $self::$section_count : $id;
 	}
 }

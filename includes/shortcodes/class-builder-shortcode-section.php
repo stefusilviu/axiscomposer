@@ -259,6 +259,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		$output = '';
+		$params = array();
 		self::$section_count++;
 
 		$shortcode_atts = array(
@@ -299,8 +300,6 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				$background .= 'background-repeat: ' . $background_repeat . ';" ';
 			}
 		}
-
-		$params = array();
 
 		$params['attach'] = '';
 		$params['custom_markup'] = $meta['custom_markup'];

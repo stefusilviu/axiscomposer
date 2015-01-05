@@ -225,3 +225,53 @@ function do_shortcode_tag_builder( $m ) {
 		return $m[0];
 	}
 }
+
+if ( ! function_exists( 'axisbuilder_apply_autop' ) ) :
+
+/**
+ * Applies WordPress autop filter.
+ * @param  string  $content      HTML content by the WordPress Editor.
+ * @param  boolean $do_shortcode Content with shortcodes filtered out.
+ * @return string  $content
+ */
+function axisbuilder_apply_autop( $content, $do_shortcode = true ) {
+	$content = wpautop( $content );
+
+	if ( $do_shortcode ) {
+		$content = do_shortcode( shortcode_unautop( $content ) );
+	}
+
+	return $content;
+}
+
+endif;
+
+if ( ! function_exists( 'axisbuilder_remove_autop' ) ) :
+
+/**
+ * Removes WordPress autop and invalid nesting of p & br tags.
+ * @param  string  $content      HTML content by the WordPress Editor.
+ * @param  boolean $do_shortcode Content with shortcodes filtered out.
+ * @return string  $content
+ */
+function axisbuilder_remove_autop( $content, $do_shortcode = false ) {
+	global $shortcode_tags;
+	$tagnames  = array_keys( $shortcode_tags );
+	$tagregexp = join( '|', array_map( 'preg_quote', $tagnames ) );
+
+	// Opening Tag
+	$content = preg_replace( "/(<p>)?\[($tagregexp)(\s[^\]]+)?\](<\/p>|<br \/>)?/", "[$2$3]", $content );
+
+	// Closing Tag
+	$content = preg_replace( "/(<p>)?\[\/($tagregexp)](<\/p>|<br \/>)?/", "[/$2]", $content );
+
+	if ( $do_shortcode ) {
+		$content = do_shortcode( shortcode_unautop( $content ) );
+	}
+
+	$content = preg_replace( '#^<\/p>|^<br\s?\/?>|<p>$|<p>\s*(&nbsp;)?\s*<\/p>#', '', $content );
+
+	return $content;
+}
+
+endif;

@@ -111,7 +111,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 		// }
 
 		$output  = '<div class="flex-column ' . $shortcode . ' ' . $first . '">';
-		$content = wpautop( $content, true );
+		$content = empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) : axisbuilder_remove_autop( $content, true );
 		$output .= trim( $content );
 		$output .= '</div>';
 

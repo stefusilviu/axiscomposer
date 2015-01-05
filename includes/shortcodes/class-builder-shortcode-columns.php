@@ -100,7 +100,24 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		global $axisbuilder_config;
 
+		$axisbuilder_config['current_column'] = $shortcode;
+
+		$first = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? 'first' : '';
+
+		// if ( $first ) {
+
+		// }
+
+		$output  = '<div class="flex-column ' . $shortcode . ' ' . $first . '">';
+		$content = wpautop( $content, true );
+		$output .= trim( $content );
+		$output .= '</div>';
+
+		unset( $axisbuilder_config['current_column'] );
+
+		return $output;
 	}
 }
 

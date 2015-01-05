@@ -164,7 +164,7 @@ abstract class AB_Shortcode {
 		}
 
 		if ( isset( $atts['custom_class'] ) ) {
-			$meta['el_class']    .= ' ' . $atts['custom_class'];
+			// $meta['el_class']    .= ' ' . $atts['custom_class'];
 			$meta['custom_class'] = $atts['custom_class'];
 		}
 

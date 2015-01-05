@@ -288,6 +288,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 
 		// Set Background Image
 		if ( $src != '' ) {
+			$background .= 'background-image: url(' . $src . ');';
+
 			if ( $repeat == 'stretch' ) {
 				$class      .= 'axisbuilder-full-stretch';
 				$background .= 'background-repeat: no-repeat';

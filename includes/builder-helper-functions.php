@@ -249,7 +249,7 @@ endif;
 if ( ! function_exists( 'axisbuilder_remove_autop' ) ) :
 
 /**
- * Removes WordPress autop and invalid nesting of p & br tags.
+ * Removes WordPress autop and invalid nesting of <p> & <br> tags.
  * @param  string  $content      HTML content by the WordPress Editor.
  * @param  boolean $do_shortcode Content with shortcodes filtered out.
  * @return string  $content

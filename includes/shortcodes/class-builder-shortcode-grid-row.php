@@ -187,6 +187,12 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			}
 		}
 
+		AB_Shortcode_Cells::$attributes = $atts;
 
+		$output .= axisbuilder_new_section( $params );
+		$output .= axisbuilder_remove_autop( $content, true );
+		$output .= axisbuilder_section_after_element_content( $meta, 'after-submenu', false );
+
+		return $output;
 	}
 }

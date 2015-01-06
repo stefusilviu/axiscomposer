@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Cells extends AB_Shortcode {
 
+	public static $attributes = array();
+
 	/**
 	 * Class Constructor Method.
 	 */

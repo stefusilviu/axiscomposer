@@ -471,3 +471,21 @@ function axisbuilder_section_markup_close() {
 }
 
 endif;
+
+if ( ! function_exists( 'axisbuilder_section_after_element_content' ) ) :
+
+/**
+ * Section after Element Content.
+ */
+function axisbuilder_section_after_element_content( $meta, $second_id = '', $skip_second = false, $extra = '' ) {
+	$output  = '</div><!-- Close Section -->';
+	$output .= $extra;
+
+	if ( empty( $skip_second ) ) {
+		$output .= axisbuilder_new_section( array( 'close' => false, 'id' => $second_id ) );
+	}
+
+	return $output;
+}
+
+endif;

@@ -210,6 +210,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		global $axisbuilder_config;
+		$extra_class = $outer_style = $inner_style = '';
 
 		// Entire list of supported attributes and their defaults
 		$pairs = array(

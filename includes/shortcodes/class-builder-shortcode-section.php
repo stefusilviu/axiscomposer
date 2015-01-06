@@ -358,6 +358,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		// $output .= axisbuilder_new_section( $params );
 		$output .= axisbuilder_remove_autop( $content, true );
 
+		unset( $axisbuilder_config['layout_container'] );
+
 		return $output;
 	}
 }

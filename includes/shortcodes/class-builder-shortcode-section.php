@@ -458,7 +458,16 @@ if ( ! function_exists( 'axisbuilder_section_markup_close' ) ) :
  * Close Section Markup.
  */
 function axisbuilder_section_markup_close() {
+	global  $axisbuilder_config, $_axisbuilder_section_markup;
 
+	if ( ! empty( $_axisbuilder_section_markup ) ) {
+		$_axisbuilder_section_markup = false;
+		$close_markup = '</main><!-- close content main element -->';
+	} else {
+		$close_markup = '</div><!-- close content main div -->';
+	}
+
+	return $close_markup;
 }
 
 endif;

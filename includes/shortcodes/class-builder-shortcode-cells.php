@@ -263,6 +263,71 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 				}
 			}
 		}
+
+		if ( ! empty( $atts['fetch_image'] ) ) {
+			$outer_style .= $this->style_string( $atts, 'fetch_image', 'background-image' );
+			$outer_style .= $this->style_string( $atts, 'background_position', 'background-position' );
+			$outer_style .= $this->style_string( $atts, 'background_repeat', 'background-repeat' );
+			$outer_style .= $this->style_string( $atts, 'background_attachment', 'background-attachment' );
+		}
+
+		$outer_style .= $this->style_string( $atts, 'vertical_align', 'vertical-align' );
+		$outer_style .= $this->style_string( $atts, 'padding' );
+		$outer_style .= $this->style_string( $atts, 'background_color', 'background-color' );
+
+		// Modify the shorycode name
+		$shortcode = str_replace( 'ab_cell_', 'ab_', $shortcode );
+
+		$axisbuilder_config['current_column'] = $shortcode;
+
+		if ( ! empty( $outer_style ) ) {
+			$outer_style = 'style="' . $outer_style . '"';
+		}
+
+		if ( ! empty( $inner_style ) ) {
+			$inner_style = 'style="' . $inner_style . '"';
+		}
+
+		$output  = '<div class="flex-cell no-margin ' . $shortcode . $meta['el_class'] . $extra_class . self::$cell_class . '" ' . $outer_style . '>';
+		$output .= '<div class="flex-cell-inner ' . $inner_style . '">';
+		$output .= empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) : axisbuilder_remove_autop( $content, true );
+		$output .= '</div></div>';
+
+		unset( $axisbuilder_config['current_column'] );
+
+		return $output;
+	}
+
+	/**
+	 * Style String.
+	 */
+	protected function style_string( $atts, $key, $new_key = false ) {
+		$style_string = '';
+
+		if ( empty( $new_key ) ) {
+			$new_key = $key;
+		}
+
+		if ( isset( $atts[$key] ) && $atts[$key] !== '' ) {
+			switch ( $new_key ) {
+				case 'background-image':
+					$style_string = $new_key . ':url(' . $atts[$key] . ');';
+				break;
+
+				case 'background-repeat':
+					if ( $atts[$key] == 'stretch' ) {
+						$atts[$key] = 'no-repeat';
+					}
+					$style_string = $new_key . ':' . $atts[$key] . ';';
+				break;
+
+				default:
+					$style_string = $new_key . ':' . $atts[$key] . ';';
+				break;
+			}
+		}
+
+		return $style_string;
 	}
 }
 

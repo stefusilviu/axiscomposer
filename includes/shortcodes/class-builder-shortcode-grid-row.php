@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Grid_Row extends AB_Shortcode {
 
-	public static $counter = 0;
+	public static $grid_count = 0;
 
 	/**
 	 * Class Constructor Method.
@@ -156,7 +156,9 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		$output = '';
-		self::$counter++;
+		$params = array();
+
+		self::$grid_count++;
 
 		// Entire list of supported attributes and their defaults
 		$pairs = array(
@@ -169,5 +171,22 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
 
 		extract( $atts );
+
+		$params['id'] = empty( $id ) ? 'axisbuilder-layout-grid-' . self::$grid_count : sanitize_html_class( $id );
+		$params['class'] = 'axisbuilder-layout-grid-container ' . $border . ' ' . $smartphones . ' ' . $meta['el_class'];
+		$params['custom_markup'] = $meta['custom_markup'];
+		$params['open_structure'] = false;
+
+		if ( isset( $meta['counter'] ) ) {
+			if ( $meta['counter'] == 0 ) {
+				$params['close'] = false;
+			}
+
+			if ( $meta['counter'] != 0 ) {
+				$params['class'] .= ' submenu-not-first';
+			}
+		}
+
+
 	}
 }

@@ -265,7 +265,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 
 		self::$section_count++;
 
-		$shortcode_atts = array(
+		// Entire list of supported attributes and their defaults
+		$pairs = array(
 			'background_color'      => '',
 			'src'                   => '',
 			'background_attachment' => 'scroll',
@@ -285,11 +286,11 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			'attachment_size'       => ''
 		);
 
-		$atts = shortcode_atts( $shortcode_atts, $atts, $this->shortcode['name'] );
+		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
 
 		extract( $atts );
 
-		$class = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' background-' . $background_attachment . '';
+		$class = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' section-background-' . $background_attachment . '';
 
 		$params['attach'] = '';
 		$params['custom_markup'] = $meta['custom_markup'];
@@ -338,7 +339,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			$background = 'style="' . $background . '"';
 		}
 
-		$params['class'] = $class;
+		$params['class'] = $class . ' ' . $meta['el_class'];
 		$params['background'] = $background;
 		$params['min_height'] = $min_height;
 		$params['custom_min_height'] = $custom_min_height;
@@ -346,8 +347,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$params['video_ratio'] = $video_ratio;
 		$params['video_mobile_disabled'] = $video_mobile_disabled;
 
-		if ( isset( $meta['index'] ) ) {
-			if ( $meta['index'] == 0 ) {
+		if ( isset( $meta['counter'] ) ) {
+			if ( $meta['counter'] == 0 ) {
 				$params['main_container'] = true;
 			}
 		}

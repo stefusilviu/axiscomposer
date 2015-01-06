@@ -49,6 +49,12 @@ abstract class AB_Shortcode {
 	protected $arguments;
 
 	/**
+	 * Shortcode Counter
+	 * @var int
+	 */
+	protected $counter = 0;
+
+	/**
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
@@ -159,8 +165,11 @@ abstract class AB_Shortcode {
 		// Inline shortcodes like dropcaps are basically nested shortcode and shouldn't be counted ;)
 		if ( empty( $this->shortcode['inline'] ) ) {
 			$meta = array(
-
+				'counter'  => $this->counter,
+				'el_class' => 'axisbuilder-el-' . $this->counter
 			);
+
+			$this->counter ++;
 		}
 
 		if ( isset( $atts['custom_class'] ) ) {

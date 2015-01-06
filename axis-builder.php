@@ -155,6 +155,10 @@ final class AxisBuilder {
 			$this->ajax_includes();
 		}
 
+		if ( $this->is_request( 'frontend' ) ) {
+			$this->frontend_includes();
+		}
+
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
 		include_once( 'includes/class-builder-sidebars.php' );                 // Sidebar Builder
 	}
@@ -164,6 +168,13 @@ final class AxisBuilder {
 	 */
 	public function ajax_includes() {
 		include_once( 'includes/class-builder-ajax.php' );                     // Ajax functions for admin and the front-end
+	}
+
+	/**
+	 * Include required frontend files.
+	 */
+	public function frontend_includes() {
+		include_once( 'includes/class-builder-frontend-scripts.php' );               // Frontend Scripts
 	}
 
 	/**

@@ -258,6 +258,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		global $axisbuilder_config;
+
 		$params = array();
 		$output = $background = '';
 
@@ -335,5 +337,26 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		if ( $background ) {
 			$background = 'style="' . $background . '"';
 		}
+
+		$params['class'] = $class;
+		$params['background'] = $background;
+		$params['min_height'] = $min_height;
+		$params['custom_min_height'] = $custom_min_height;
+		$params['video'] = $video;
+		$params['video_ratio'] = $video_ratio;
+		$params['video_mobile_disabled'] = $video_mobile_disabled;
+
+		if ( isset( $meta['index'] ) ) {
+			if ( $meta['index'] == 0 ) {
+				$params['main_container'] = true;
+			}
+		}
+
+		$axisbuilder_config['layout_container'] = 'section';
+
+		// $output .= axisbuilder_new_section( $params );
+		$output .= axisbuilder_remove_autop( $content, true );
+
+		return $output;
 	}
 }

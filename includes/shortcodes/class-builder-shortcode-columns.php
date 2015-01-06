@@ -104,9 +104,9 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 
 		$axisbuilder_config['current_column'] = $shortcode;
 
-		$first = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? 'first' : '';
+		$first = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? 'first ' : '';
 
-		$output  = '<div class="flex-column ' . $shortcode . ' ' . $first . '">';
+		$output  = '<div class="flex-column ' . $shortcode . ' ' . $first . $meta['el_class'] . '">';
 		$content = empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) : axisbuilder_remove_autop( $content, true );
 		$output .= trim( $content );
 		$output .= '</div>';

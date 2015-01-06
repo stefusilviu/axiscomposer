@@ -210,6 +210,23 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 
+		// Entire list of supported attributes and their defaults
+		$pairs = array(
+			'vertical_align'        => '',
+			'padding'               => '',
+			'color'                 => '',
+			'background_color'      => '',
+			'background_position'   => '',
+			'background_repeat'     => '',
+			'background_attachment' => '',
+			'fetch_image'           => '',
+			'attachment_size'       => '',
+			'attachment'            => ''
+		);
+
+		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
+
+		extract( $atts );
 	}
 }
 

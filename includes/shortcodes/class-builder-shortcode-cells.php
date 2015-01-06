@@ -300,8 +300,12 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 
 	/**
 	 * Style String.
+	 * @param  array  $atts    Array of attributes.
+	 * @param  string $key     Key for style string.
+	 * @param  string $new_key If needed new style string.
+	 * @return string          Returns the html style string.
 	 */
-	protected function style_string( $atts, $key, $new_key = false ) {
+	protected function style_string( $atts, $key, $new_key = null ) {
 		$style_string = '';
 
 		if ( empty( $new_key ) ) {

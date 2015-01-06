@@ -209,6 +209,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		global $axisbuilder_config;
 
 		// Entire list of supported attributes and their defaults
 		$pairs = array(

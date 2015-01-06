@@ -155,6 +155,19 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		self::$counter ++;
+		$output = '';
+		self::$counter++;
+
+		// Entire list of supported attributes and their defaults
+		$pairs = array(
+			'id'          => '',
+			'border'      => '',
+			'min_height'  => '0',
+			'smartphones' => 'axisbuilder-flex-cells'
+		);
+
+		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
+
+		extract( $atts );
 	}
 }

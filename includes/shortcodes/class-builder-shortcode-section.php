@@ -376,7 +376,7 @@ if ( ! function_exists( 'axisbuilder_new_section' ) ) :
  */
 function axisbuilder_new_section( $params = array() ) {
 	global  $axisbuilder_config, $_axisbuilder_section_markup;
-	$output = $post_class = $background_slider = $container_style = '';
+	$output = $post_class = $container_style = '';
 
 	$defaults = array(
 		'close'                 => true,

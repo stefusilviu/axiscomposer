@@ -228,7 +228,6 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 
 		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
 
-		extract( $atts );
 	}
 }
 

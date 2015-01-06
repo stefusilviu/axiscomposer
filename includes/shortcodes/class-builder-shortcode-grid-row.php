@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Grid_Row extends AB_Shortcode {
 
+	public static $counter = 0;
+
 	/**
 	 * Class Constructor Method.
 	 */
@@ -153,6 +155,6 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-
+		self::$counter ++;
 	}
 }

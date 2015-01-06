@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Cells extends AB_Shortcode {
 
+	public static $cell_class = '';
 	public static $attributes = array();
 
 	/**
@@ -224,12 +225,44 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 			'background_repeat'     => '',
 			'background_attachment' => '',
 			'fetch_image'           => '',
-			'attachment_size'       => '',
-			'attachment'            => ''
+			'attachment'            => '',
+			'attachment_size'       => ''
 		);
 
 		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
 
+		if ( ! empty( self::$attributes['min_height'] ) ) {
+			$min_height  = (int) self::$attr['min_height'];
+			$outer_style = 'height: ' . $min_height . 'px; min-height: ' . $min_height . 'px;';
+		}
+
+		if ( ! empty( $atts['attachment'] ) ) {
+			$src = wp_get_attachment_image_src( $atts['attachment'], $atts['attachment_size'] );
+			if ( ! empty( $src[0] ) ) {
+				$atts['fetch_image'] = $src[0];
+			}
+		}
+
+		if ( ! empty( $atts['colors'] ) ) {
+			$extra_class .= 'axisbuilder-inherit-color';
+		}
+
+		if ( $atts['background_repeat'] == 'stretch' ) {
+			$extra_class .= 'axisbuilder-full-stretch';
+		}
+
+		// Padding fetch
+		$explode_padding = explode( ',', $atts['padding'] );
+		if ( count( $explode_padding ) > 1 ) {
+			$atts['padding'] = '';
+
+			foreach ( $explode_padding as $padding ) {
+				if ( empty( $padding ) ) {
+					$padding = '0';
+					$atts['padding'] .= $padding . ' ';
+				}
+			}
+		}
 	}
 }
 

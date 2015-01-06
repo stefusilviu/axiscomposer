@@ -296,6 +296,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$params['custom_markup'] = $meta['custom_markup'];
 		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : sanitize_html_class( $id );
 
+		// Set Attachment Image
 		if ( ! empty( $attachment ) && ! empty( $attachment_size ) ) {
 			$attachment_entry = get_post( $attachment );
 
@@ -323,7 +324,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			if ( $background_attachment == 'parallax' ) {
 				$class .= 'axisbuilder-parallax-section';
 				$speed  = apply_filters( 'axisbuilder_parallax_speed', '0.3', $params['id'] );
-				$attachment_class = ( $background_repeat == 'stretch' || $background_repeat == 'stretch' ) ? 'axisbuilder-full-stretch' : '';
+				$attachment_class  = ( $background_repeat == 'stretch' || $background_repeat == 'stretch' ) ? 'axisbuilder-full-stretch' : '';
 				$params['attach'] .= '<div class="axisbuilder-parallax ' . $attachment_class . '" data-axisbuilder-parallax-ratio="' . $speed . '" style="' . $background . '"></div>';
 				$background = '';
 			}
@@ -351,11 +352,15 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			if ( $meta['counter'] == 0 ) {
 				$params['main_container'] = true;
 			}
+
+			if ( $meta['counter'] == 0 ) {
+				$params['close'] = false;
+			}
 		}
 
 		$axisbuilder_config['layout_container'] = 'section';
 
-		// $output .= axisbuilder_new_section( $params );
+		$output .= axisbuilder_new_section( $params );
 		$output .= axisbuilder_remove_autop( $content, true );
 
 		unset( $axisbuilder_config['layout_container'] );
@@ -363,3 +368,97 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		return $output;
 	}
 }
+
+if ( ! function_exists( 'axisbuilder_new_section' ) ) :
+
+/**
+ * Structure New Section.
+ */
+function axisbuilder_new_section( $params = array() ) {
+	global  $axisbuilder_config, $_axisbuilder_section_markup;
+	$output = $post_class = $background_slider = $container_style = '';
+
+	$defaults = array(
+		'close'                 => true,
+		'open'                  => true,
+		'open_structure'        => true,
+		'open_color_wrap'       => true,
+		'main_container'        => false,
+		'id'                    => '',
+		'class'                 => '',
+		'data'                  => '',
+		'style'                 => '',
+		'background'            => '',
+		'video'                 => '',
+		'video_ratio'           => '16:9',
+		'video_mobile_disabled' => '',
+		'min_height'            => '',
+		'custom_min_height'     => '500px',
+		'attach'                => '',
+		'before_new'            => '',
+		'custom_markup'         => ''
+	);
+
+	$defaults = array_merge( $defaults, $params );
+	extract( $defaults );
+
+	if ( $id ) {
+		$id = 'id="' . $id . '"';
+	}
+
+	// Close the Section structure when previous element was a section ;)
+	if ( $close ) {
+		$output .= '</div></div>' . axisbuilder_section_markup_close() . '</div></div>';
+	}
+
+	// Open the Section Structure
+	if ( $open ) {
+		$post_class = 'post-entry-' . get_the_ID();
+
+		if ( $open_color_wrap ) {
+			if ( ! empty( $min_height ) ) {
+				$class .= ' section-min-height-' . $min_height;
+
+				if ( $min_height == 'custom' && $custom_min_height != '' ) {
+					$custom_min_height = (int) $custom_min_height;
+					$container_style   = 'style="height: ' . $custom_min_height . 'px"';
+				}
+			}
+
+			$output .= $before_new;
+			$output .= '<div ' . $id . ' class="' . $class . ' container-wrap" ' . $background . $data . $style . '>';
+			$output .= $attach;
+			$output .= apply_filters( 'axisbuilder_add_section_container', '', $defaults );
+		}
+	}
+
+	// This applies only for the sections. Other fullwidth elements don't need the container for centering ;)
+	if ( $open_structure ) {
+		if ( ! empty( $main_container ) ) {
+			$markup = 'main';
+			$_axisbuilder_section_markup = 'main';
+		} else {
+			$markup = 'div';
+		}
+
+		$output .= '<div class="container" ' . $container_style . '>';
+		$output .= '<' . $markup . ' class="template-page content axisbuilder-content-full alpha units">';
+		$output .= '<div class="post-entry post-entry-type-page ' . $post_class . '">';
+		$output .= '<div class="entry-content-wrapper clearfix">';
+	}
+
+	return $output;
+}
+
+endif;
+
+if ( ! function_exists( 'axisbuilder_section_markup_close' ) ) :
+
+/**
+ * Close Section Markup.
+ */
+function axisbuilder_section_markup_close() {
+
+}
+
+endif;

@@ -353,7 +353,7 @@ abstract class AB_Shortcode {
 			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
 		}
 
-		$output = '<div class="axisbuilder-sortable-element popup-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-sortable-element modal-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['popup_editor'] ) ) {
 					$extra_class = 'axisbuilder-edit';

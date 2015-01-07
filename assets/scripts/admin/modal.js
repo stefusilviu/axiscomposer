@@ -28,7 +28,7 @@
 		this.wrap       = $( '#wpwrap' );
 		this.body       = $( 'body' ).addClass( 'axisbuilder-noscroll' );
 		this.options    = $.extend( {}, defaults, options );
-		this.modal      = $( '<div class="axisbuilder-modal axisbuilder-style popup-animation"></div>' );
+		this.modal      = $( '<div class="axisbuilder-modal axisbuilder-style modal-animation"></div>' );
 		this.backdrop   = $( '<div class="axisbuilder-modal-backdrop"></div>' );
 		this.instanceNr = $.AxisBuilderModal.openInstance.length;
 		this.namespace  = '.AxisBuilderModal' + this.instanceNr;

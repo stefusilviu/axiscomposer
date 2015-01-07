@@ -200,7 +200,7 @@
 				this.index = this.storage.length - 1;
 			}
 
-			var snapshot    = [ this.editor.val(), this.canvas.html().replace( /popup-animation/g, '' ) ],
+			var snapshot    = [ this.editor.val(), this.canvas.html().replace( /modal-animation/g, '' ) ],
 				lastStorage = this.storage[ this.index ];
 
 			// Create a new snapshot if none exists or if the last stored snapshot doesnt match the current state

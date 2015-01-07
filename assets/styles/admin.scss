@@ -453,20 +453,6 @@ label[for="axisbuilder-editor-hide"] {
 	}
 }
 
-/**
- * Animation Styles
- */
-.popup-animation {
-	@include animation( popup .3s $ease-out-back );
-}
-
-/**
- * Clear
- */
-.clear {
-	clear: both;
-}
-
 #normal-sortables .postbox.axisbuilder-expanded#axisbuilder-editor:first-child {
 	margin-top:-0;
 }
@@ -1093,7 +1079,7 @@ body .ui-draggable-dragging {
 }
 
 /**
- * Clear
+ * Utility classes
  */
 .clear {
 	clear: both;

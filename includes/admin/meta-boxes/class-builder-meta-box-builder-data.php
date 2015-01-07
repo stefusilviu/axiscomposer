@@ -118,7 +118,7 @@ class AB_Meta_Box_Builder_Data {
 
 		<script type="text/template" id="tmpl-axisbuilder-modal-trash-data">
 			<div class="axisbuilder-backbone-modal">
-				<div class="axisbuilder-backbone-modal-content">
+				<div class="axisbuilder-backbone-modal-content modal-animation">
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header class="axisbuilder-backbone-modal-header">
 							<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
@@ -146,7 +146,7 @@ class AB_Meta_Box_Builder_Data {
 
 		<script type="text/template" id="tmpl-axisbuilder-modal-cell-size">
 			<div class="axisbuilder-backbone-modal">
-				<div class="axisbuilder-backbone-modal-content">
+				<div class="axisbuilder-backbone-modal-content modal-animation">
 					<section class="axisbuilder-backbone-modal-main" role="main">
 						<header class="axisbuilder-backbone-modal-header">
 							<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>

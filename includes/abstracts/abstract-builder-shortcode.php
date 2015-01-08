@@ -165,6 +165,7 @@ abstract class AB_Shortcode {
 		// Inline shortcodes like dropcaps are basically nested shortcode and shouldn't be counted ;)
 		if ( empty( $this->shortcode['inline'] ) ) {
 			$meta = array(
+				'class'    => 'axisbuilder',
 				'counter'  => $this->counter,
 				'el_class' => 'axisbuilder-el-' . $this->counter
 			);
@@ -182,7 +183,6 @@ abstract class AB_Shortcode {
 		}
 
 		$meta      = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
-		$shortcode = substr( str_replace( '_', '-', strtolower( $shortcode ) ), 3 );
 		$content   = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
 
 		return $content;

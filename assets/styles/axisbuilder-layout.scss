@@ -11,12 +11,12 @@
 @import "variables";
 
 /**
- * Styling begins
+ * Styling Begins
  */
 .axisbuilder, .axisbuilder-page {
 
 	/**
-	 * General Layout styles
+	 * General Layout Styles
 	 */
 	&.flex-column {
 		float: left;
@@ -69,7 +69,17 @@
 }
 
 /**
- * Color section styles
+ * Container Styles
+ */
+.container {
+	clear: both;
+	margin: 0 auto;
+	padding: 0 50px;
+	position: relative;
+}
+
+/**
+ * Color-Section Styles
  */
 .axisbuilder-section {
 	width: 100%;
@@ -77,11 +87,20 @@
 	float: left;
 	position: static;
 	min-height: 100px;
-}
 
-.container {
-	clear: both;
-	margin: 0 auto;
-	padding: 0 50px;
-	position: relative;
+	/* Section Padding */
+	&.section-padding-none {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	&.section-padding-small {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	&.section-padding-large {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
 }

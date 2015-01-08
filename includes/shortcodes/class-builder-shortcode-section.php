@@ -173,8 +173,8 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'subtype'  => array(
 					__( 'No Padding', 'axisbuilder' )      => 'none',
 					__( 'Small Padding', 'axisbuilder' )   => 'small',
+					__( 'Large Padding', 'axisbuilder' )   => 'large',
 					__( 'Default Padding', 'axisbuilder' ) => 'default',
-					__( 'Large Padding', 'axisbuilder' )   => 'large'
 				)
 			),
 			array(

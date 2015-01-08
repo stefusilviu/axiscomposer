@@ -20,16 +20,50 @@
 	 */
 	&.flex-column {
 		float: left;
+		width: 100%;
+		min-height: 1px;
+		margin-left: 6%;
 		position: relative;
-		margin-left: 4%;
-		margin-bottom: 20px;
+
 
 		&.first {
 			margin-left: 0;
 		}
-	}
 
-	&.one-half {
-		width: 48%;
+		&.one-half {
+			width: flexgrid(1,2);
+		}
+
+		&.one-third {
+			width: flexgrid(1,3);
+		}
+
+		&.two-third {
+			width: flexgrid(2,3);
+		}
+
+		&.one-fourth {
+			width: flexgrid(1,4);
+		}
+
+		&.three-fourth {
+			width: flexgrid(3,4);
+		}
+
+		&.one-fifth {
+			width: flexgrid(1,5);
+		}
+
+		&.two-fifth {
+			width: flexgrid(2,5);
+		}
+
+		&.three-fifth {
+			width: flexgrid(3,5);
+		}
+
+		&.four-fifth {
+			width: flexgrid(4,5);
+		}
 	}
 }

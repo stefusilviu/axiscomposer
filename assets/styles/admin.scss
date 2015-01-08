@@ -1073,7 +1073,7 @@ body .ui-draggable-dragging {
 		select {
 			width: auto;
 			max-width: 90%;
-			min-width: 175px;
+			/*min-width: 175px;*/ /* This needs optimization for 1/5 column ;) */
 		}
 	}
 }

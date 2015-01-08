@@ -181,9 +181,9 @@ abstract class AB_Shortcode {
 			$meta['custom_markup'] = '';
 		}
 
-		$meta = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
-
-		$content = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
+		$meta      = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
+		$shortcode = substr( str_replace( '_', '-', strtolower( $shortcode ) ), 3 );
+		$content   = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
 
 		return $content;
 	}

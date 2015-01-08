@@ -1,14 +1,14 @@
-# Copyright (C) 2014 AxisThemes
+# Copyright (C) 2015 AxisThemes
 # This file is distributed under the same license as the Axis Builder package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-31 18:18:08+00:00\n"
+"POT-Creation-Date: 2015-01-08 17:20:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -26,58 +26,72 @@ msgid "Attention!"
 msgstr ""
 
 #: includes/admin/class-builder-admin-assets.php:93
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:132
-msgid "Save"
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:165
+msgid "Add"
 msgstr ""
 
 #: includes/admin/class-builder-admin-assets.php:94
+msgid "Save"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:95
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:106
 msgid "Close"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:95
-msgid "Error fetching content - please reload the page and try again"
-msgstr ""
-
 #: includes/admin/class-builder-admin-assets.php:96
-msgid "It seems your are no longer logged in. Please reload the page and try again"
+msgid "Cancel"
 msgstr ""
 
 #: includes/admin/class-builder-admin-assets.php:97
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:137
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:98
+msgid "Error fetching content - please reload the page and try again"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:99
+msgid "It seems your are no longer logged in. Please reload the page and try again"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:100
 msgid "Your session timed out. Simply reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:114
-msgid "The current number of cells does not allow any layout variations"
-msgstr ""
-
-#: includes/admin/class-builder-admin-assets.php:115
-msgid "You need to add at least one cell"
-msgstr ""
-
-#: includes/admin/class-builder-admin-assets.php:116
-msgid "You need to remove at least one cell"
-msgstr ""
-
 #: includes/admin/class-builder-admin-assets.php:117
+msgid "The current number of cells does not allow any layout variations."
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:118
+msgid "You need to add at least one cell."
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:119
+msgid "You need to remove at least one cell."
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:120
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:141
+#: includes/admin/class-builder-admin-assets.php:145
 msgid "Permanently Delete all Canvas Elements"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:142
+#: includes/admin/class-builder-admin-assets.php:146
 msgid ""
-"Are you sure you want to delete all canvas element(s)? This cannot be "
+"All content created in the Page Builder canvas area will be permanently "
+"lost. Are you sure you want to delete all canvas elements? This cannot be "
 "undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:155
+#: includes/admin/class-builder-admin-assets.php:159
 msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:156
+#: includes/admin/class-builder-admin-assets.php:160
 msgid "Last warning, are you sure?"
 msgstr ""
 
@@ -192,18 +206,9 @@ msgstr ""
 msgid "Save or Load templates"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:134
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:158
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:182
-msgid "Cancel"
-msgstr ""
-
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:156
-msgid "Delete"
-msgstr ""
-
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:180
-msgid "Add"
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:135
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:163
+msgid "Dismiss"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-sidebars.php:13

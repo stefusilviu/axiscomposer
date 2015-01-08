@@ -1,14 +1,14 @@
-# Copyright (C) 2014 AxisThemes
+# Copyright (C) 2015 AxisThemes
 # This file is distributed under the same license as the Axis Builder package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2014-12-31 18:17:37+00:00\n"
+"POT-Creation-Date: 2015-01-08 17:19:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -145,29 +145,29 @@ msgstr ""
 msgid "Plugin Additions"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:234
+#: includes/abstracts/abstract-builder-shortcode.php:272
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:235
+#: includes/abstracts/abstract-builder-shortcode.php:273
 msgid ""
 "Add a custom css class for the element here. Ensure the use of allowed "
 "characters (latin characters, underscores, dashes and numbers)"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:312
+#: includes/abstracts/abstract-builder-shortcode.php:360
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:314
+#: includes/abstracts/abstract-builder-shortcode.php:362
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:315
+#: includes/abstracts/abstract-builder-shortcode.php:363
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-builder-html-helper.php:221
+#: includes/class-builder-html-helper.php:239
 msgid "Select"
 msgstr ""
 
@@ -223,6 +223,104 @@ msgstr ""
 msgid "Display an count down to a specific date"
 msgstr ""
 
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:47
+msgid "Second"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:48
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:96
+msgid "Minute"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:49
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:86
+msgid "Hour"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:50
+msgid "Day"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:51
+msgid "Week"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:87
+msgid "Pick the hour of the day"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:97
+msgid "Pick the minute of the hour"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:106
+msgid "Smallest time unit"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:107
+msgid "The smallest unit that will be displayed"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:115
+msgid "Largest time unit"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:116
+msgid "The largest unit that will be displayed"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:124
+msgid "Text Alignment"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:125
+msgid "Choose here, how to align your text"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:130
+msgid "Left"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:131
+msgid "Right"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:132
+msgid "Center"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:137
+msgid "Number Font Size"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:138
+msgid "Size of your numbers in Pixel"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:142
+msgid "Default Size"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:157
+msgid "Colors"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:158
+msgid "Choose the colors here"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:163
+msgid "Theme Default"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:164
+msgid "Transparent Dark"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:165
+msgid "Transparent Light"
+msgstr ""
+
 #: includes/shortcodes/class-builder-shortcode-animatednumbers.php:33
 msgid "Animated Numbers"
 msgstr ""
@@ -255,115 +353,268 @@ msgstr ""
 msgid "Creates a pricing list"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:35
+#: includes/shortcodes/class-builder-shortcode-cells.php:38
 #: includes/shortcodes/class-builder-shortcode-columns.php:35
 msgid "1/1"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:36
+#: includes/shortcodes/class-builder-shortcode-cells.php:39
 #: includes/shortcodes/class-builder-shortcode-columns.php:36
 msgid "Creates a single column with full width"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:84
-msgid "Edit Cell"
+#: includes/shortcodes/class-builder-shortcode-cells.php:64
+msgid "Vertical align"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:86
-msgid "Delete Cell"
+#: includes/shortcodes/class-builder-shortcode-cells.php:65
+msgid "Choose the vertical alignment of your cells content."
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:87
-msgid "Clone Cell"
+#: includes/shortcodes/class-builder-shortcode-cells.php:70
+msgid "Top"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:71
+msgid "Middle"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:72
+msgid "Bottom"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:90
+#: includes/shortcodes/class-builder-shortcode-section.php:61
+msgid "Custom Background Color"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:91
+#: includes/shortcodes/class-builder-shortcode-section.php:62
+msgid ""
+"Select a custom background color for your Section here. Leave empty to use "
+"the default."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:97
+#: includes/shortcodes/class-builder-shortcode-section.php:68
+msgid "Custom Background Image"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:98
+msgid ""
+"Either upload a new, or choose an existing image from your media library. "
+"Leave empty if you want to use the background image."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:99
+#: includes/shortcodes/class-builder-shortcode-section.php:70
+msgid "Insert Image"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:100
+#: includes/shortcodes/class-builder-shortcode-section.php:71
+msgid "Insert"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:106
+#: includes/shortcodes/class-builder-shortcode-section.php:77
+msgid "Background Attachment"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:107
+msgid "Background can either scroll with the page, be fixed."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:113
+#: includes/shortcodes/class-builder-shortcode-section.php:84
+msgid "Scroll"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:114
+#: includes/shortcodes/class-builder-shortcode-section.php:85
+msgid "Fixed"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:118
+#: includes/shortcodes/class-builder-shortcode-section.php:90
+msgid "Background Position"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:124
+#: includes/shortcodes/class-builder-shortcode-section.php:96
+msgid "Top Left"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-cells.php:125
-#: includes/shortcodes/class-builder-shortcode-columns.php:117
-msgid "1/2"
+#: includes/shortcodes/class-builder-shortcode-section.php:97
+msgid "Top Center"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-cells.php:126
-#: includes/shortcodes/class-builder-shortcode-columns.php:118
-msgid "Creates a single column with 50&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-section.php:98
+msgid "Top Right"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:153
-#: includes/shortcodes/class-builder-shortcode-columns.php:144
-msgid "1/3"
+#: includes/shortcodes/class-builder-shortcode-cells.php:127
+#: includes/shortcodes/class-builder-shortcode-section.php:99
+msgid "Bottom Left"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:154
-#: includes/shortcodes/class-builder-shortcode-columns.php:145
-msgid "Creates a single column with 33&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:128
+#: includes/shortcodes/class-builder-shortcode-section.php:100
+msgid "Bottom Center"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:181
-#: includes/shortcodes/class-builder-shortcode-columns.php:171
-msgid "2/3"
+#: includes/shortcodes/class-builder-shortcode-cells.php:129
+#: includes/shortcodes/class-builder-shortcode-section.php:101
+msgid "Bottom Right"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:182
-#: includes/shortcodes/class-builder-shortcode-columns.php:172
-msgid "Creates a single column with 67&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:130
+#: includes/shortcodes/class-builder-shortcode-section.php:102
+msgid "Center Left"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:209
-#: includes/shortcodes/class-builder-shortcode-columns.php:198
-msgid "1/4"
+#: includes/shortcodes/class-builder-shortcode-cells.php:131
+#: includes/shortcodes/class-builder-shortcode-section.php:103
+msgid "Center Center"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:210
-#: includes/shortcodes/class-builder-shortcode-columns.php:199
-msgid "Creates a single column with 25&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:132
+#: includes/shortcodes/class-builder-shortcode-section.php:104
+msgid "Center Right"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:237
-#: includes/shortcodes/class-builder-shortcode-columns.php:225
-msgid "3/4"
+#: includes/shortcodes/class-builder-shortcode-cells.php:136
+#: includes/shortcodes/class-builder-shortcode-section.php:108
+msgid "Background Repeat"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:238
-#: includes/shortcodes/class-builder-shortcode-columns.php:226
-msgid "Creates a single column with 75&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:142
+#: includes/shortcodes/class-builder-shortcode-section.php:114
+msgid "No Repeat"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:265
-#: includes/shortcodes/class-builder-shortcode-columns.php:252
-msgid "1/5"
+#: includes/shortcodes/class-builder-shortcode-cells.php:143
+#: includes/shortcodes/class-builder-shortcode-section.php:115
+msgid "Tile"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:266
-#: includes/shortcodes/class-builder-shortcode-columns.php:253
-msgid "Creates a single column with 20&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:144
+#: includes/shortcodes/class-builder-shortcode-section.php:116
+msgid "Tile Horizontally"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:293
-#: includes/shortcodes/class-builder-shortcode-columns.php:279
-msgid "2/5"
+#: includes/shortcodes/class-builder-shortcode-cells.php:145
+#: includes/shortcodes/class-builder-shortcode-section.php:117
+msgid "Tile Vertically"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:294
-#: includes/shortcodes/class-builder-shortcode-columns.php:280
-msgid "Creates a single column with 40&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:146
+#: includes/shortcodes/class-builder-shortcode-section.php:118
+msgid "Stretch to Fit"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:321
-#: includes/shortcodes/class-builder-shortcode-columns.php:306
-msgid "3/5"
+#: includes/shortcodes/class-builder-shortcode-cells.php:174
+#: includes/shortcodes/class-builder-shortcode-cells.php:188
+msgid "Edit Cell"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:322
-#: includes/shortcodes/class-builder-shortcode-columns.php:307
-msgid "Creates a single column with 60&percnt; width"
+#: includes/shortcodes/class-builder-shortcode-cells.php:190
+msgid "Delete Cell"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:191
+msgid "Clone Cell"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:348
+#: includes/shortcodes/class-builder-shortcode-columns.php:131
+msgid "1/2"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-cells.php:349
-#: includes/shortcodes/class-builder-shortcode-columns.php:333
+#: includes/shortcodes/class-builder-shortcode-columns.php:132
+msgid "Creates a single column with 50&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:376
+#: includes/shortcodes/class-builder-shortcode-columns.php:158
+msgid "1/3"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:377
+#: includes/shortcodes/class-builder-shortcode-columns.php:159
+msgid "Creates a single column with 33&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:404
+#: includes/shortcodes/class-builder-shortcode-columns.php:185
+msgid "2/3"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:405
+#: includes/shortcodes/class-builder-shortcode-columns.php:186
+msgid "Creates a single column with 67&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:432
+#: includes/shortcodes/class-builder-shortcode-columns.php:212
+msgid "1/4"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:433
+#: includes/shortcodes/class-builder-shortcode-columns.php:213
+msgid "Creates a single column with 25&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:460
+#: includes/shortcodes/class-builder-shortcode-columns.php:239
+msgid "3/4"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:461
+#: includes/shortcodes/class-builder-shortcode-columns.php:240
+msgid "Creates a single column with 75&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:488
+#: includes/shortcodes/class-builder-shortcode-columns.php:266
+msgid "1/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:489
+#: includes/shortcodes/class-builder-shortcode-columns.php:267
+msgid "Creates a single column with 20&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:516
+#: includes/shortcodes/class-builder-shortcode-columns.php:293
+msgid "2/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:517
+#: includes/shortcodes/class-builder-shortcode-columns.php:294
+msgid "Creates a single column with 40&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:544
+#: includes/shortcodes/class-builder-shortcode-columns.php:320
+msgid "3/5"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:545
+#: includes/shortcodes/class-builder-shortcode-columns.php:321
+msgid "Creates a single column with 60&percnt; width"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-cells.php:572
+#: includes/shortcodes/class-builder-shortcode-columns.php:347
 msgid "4/5"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-cells.php:350
-#: includes/shortcodes/class-builder-shortcode-columns.php:334
+#: includes/shortcodes/class-builder-shortcode-cells.php:573
+#: includes/shortcodes/class-builder-shortcode-columns.php:348
 msgid "Creates a single column with 80&percnt; width"
 msgstr ""
 
@@ -471,33 +722,103 @@ msgstr ""
 msgid "Displays a google map with one or multiple locations"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-grid-row.php:33
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:35
 msgid "Grid Row"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-grid-row.php:34
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:36
 msgid ""
 "Add multiple Grid Rows below each other to create advanced grid layouts. "
 "Cells can be styled individually"
 msgstr ""
 
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:60
+msgid "Grid Borders"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:61
+msgid "Choose if your layout grid should display any border."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:66
+msgid "No Borders"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:67
+msgid "Borders on top and bottom"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:68
+msgid "Borders between cells"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:69
+msgid "Borders on top and bottom and between cells"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:73
+msgid "Minimum height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:74
+msgid "Set the minimum height of all the cells in pixel. Eg: 400px"
+msgstr ""
+
 #: includes/shortcodes/class-builder-shortcode-grid-row.php:80
-msgid "Edit Row"
+msgid "Smartphones Behaviour"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-grid-row.php:82
-msgid "Delete Row"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-grid-row.php:83
-msgid "Clone Row"
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:81
+msgid ""
+"Choose how the cells inside the grid should behave on smartphones and small "
+"screens."
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-grid-row.php:86
-msgid "Set Cell Size"
+msgid "By default each cell is displayed on its own"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-grid-row.php:87
+msgid "Cells appear beside each other, just like on large screens"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:91
+#: includes/shortcodes/class-builder-shortcode-section.php:204
+msgid "For Developers: Section ID"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:92
+#: includes/shortcodes/class-builder-shortcode-section.php:205
+msgid ""
+"Apply a custom ID Attribute to the section, so you can apply a unique style "
+"via CSS. This option is also helpful if you want to use anchor links to "
+"scroll to a sections when a link is clicked"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:92
+#: includes/shortcodes/class-builder-shortcode-section.php:205
+msgid ""
+"Use with caution and make sure to only use allowed characters. No special "
+"characters can be used."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:131
+msgid "Edit Row"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:133
+msgid "Delete Row"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:134
+msgid "Clone Row"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:137
+msgid "Set Cell Size"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-grid-row.php:138
 msgid "Add Cell"
 msgstr ""
 
@@ -573,23 +894,180 @@ msgstr ""
 msgid "Create some progress bars"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:33
+#: includes/shortcodes/class-builder-shortcode-section.php:35
 msgid "Color Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:34
+#: includes/shortcodes/class-builder-shortcode-section.php:36
 msgid "Creates a section with unique background image and colors"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:67
+#: includes/shortcodes/class-builder-shortcode-section.php:69
+msgid ""
+"Either upload a new, or choose an existing image from your media library. "
+"Leave empty if you want to use the background image of the color scheme "
+"defined above."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:78
+msgid ""
+"Background can either scroll with the page, be fixed or scroll with a "
+"parallax motion."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:86
+msgid "Parallax"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:122
+msgid "Background Video"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:123
+msgid ""
+"You can also place a video as background for your section. Enter the URL to "
+"the Video. Currently supported are Youtube, Vimeo and direct linking of "
+"web-video files (mp4, webm, ogv)"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:123
+msgid "Working examples Vimeo &amp; YouTube:"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:129
+msgid "Video Aspect Ratio"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:130
+msgid ""
+"In order to calculate the correct height and width for the video slide you "
+"need to enter a aspect ratio (width:height). usually: 16:9 or 4:3."
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:137
+msgid "Hide video on Mobile Devices?"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:138
+msgid ""
+"You can chose to hide the video entirely on Mobile devices and instead "
+"display the Section Background image"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:138
+msgid ""
+"Most smartphones can't autoplay videos to prevent bandwidth problems for "
+"the user"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:145
+msgid "Section Minimum Height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:146
+msgid ""
+"Define a minimum height for the section. Content within the section will be "
+"centered vertically within the section"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:151
+msgid "Use content within section to define Section height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:152
+msgid "At least 100&percnt; of Browser Window height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:153
+msgid "At least 75&percnt; of Browser Window height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:154
+msgid "At least 50&percnt; of Browser Window height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:155
+msgid "At least 25&percnt; of Browser Window height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:156
+msgid "Custom height in pixel"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:160
+msgid "Section custom height"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:161
+msgid "Define a minimum height for the section. Use a pixel value. eg: 500px"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:168
+msgid "Section Padding"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:169
+msgid "Define the sections top and bottom padding"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:174
+msgid "No Padding"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:175
+msgid "Small Padding"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:176
+msgid "Default Padding"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:177
+msgid "Large Padding"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:181
+msgid "Section Top Border Styling"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:182
+msgid "Chose a border styling for the top of your section"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:187
+msgid "Display simple top border"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:188
+msgid "Display a small styling shadow at the top of the section"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:189
+#: includes/shortcodes/class-builder-shortcode-section.php:199
+msgid "No border styling"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:193
+msgid "Section Bottom Border Styling"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:194
+msgid "Chose a border styling for the bottom of your section"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:200
+msgid "Display a small arrow that points down to the next section"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-section.php:235
 msgid "Edit Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:69
+#: includes/shortcodes/class-builder-shortcode-section.php:237
 msgid "Delete Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:70
+#: includes/shortcodes/class-builder-shortcode-section.php:238
 msgid "Clone Section"
 msgstr ""
 
@@ -631,6 +1109,54 @@ msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-textblock.php:34
 msgid "Creates a simple text block"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:67
+msgid "Content"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:68
+msgid "Enter some content for this textblock"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:71
+msgid "Click here to add your own text"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:75
+msgid "Font Size"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:76
+msgid "Select Size of the text in px"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:79
+msgid "Defalut Size"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:95
+msgid "Font Colors"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:96
+msgid "Either use the themes default colors or apply some custom ones"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:101
+msgid "Default"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:102
+msgid "Define Custom Colors"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:107
+msgid "Custom Font Color"
+msgstr ""
+
+#: includes/shortcodes/class-builder-shortcode-textblock.php:108
+msgid "Select a custom font color. Leave empty to use the default"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-video.php:33

@@ -214,7 +214,10 @@ abstract class AB_Shortcode {
 
 		// Activate popup editor if elements exist.
 		if ( method_exists( $this, 'popup_elements' ) ) {
+
+			// Load Popup Elements
 			$this->popup_elements();
+
 			if ( isset( $this->elements ) ) {
 				$this->shortcode['popup_editor'] = true;
 

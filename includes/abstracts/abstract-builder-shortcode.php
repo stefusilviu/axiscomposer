@@ -159,7 +159,7 @@ abstract class AB_Shortcode {
 	/**
 	 * Prepare Shortcode Wrapper.
 	 */
-	public function prepare_shortcode_wrapper( $atts, $content = '', $shortcode = '', $fake = false ) {
+	public function prepare_shortcode_wrapper( $atts, $content = '', $shortcode = '' ) {
 		$meta = array();
 
 		// Inline shortcodes like dropcaps are basically nested shortcode and shouldn't be counted ;)

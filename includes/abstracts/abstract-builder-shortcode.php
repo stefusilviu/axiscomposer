@@ -157,6 +157,33 @@ abstract class AB_Shortcode {
 	}
 
 	/**
+	 * Shortcode Wrapper.
+	 * @param  mixed $function
+	 * @param  array $atts (default: array())
+	 * @return string
+	 */
+	public static function shortcode_wrapper(
+		$function,
+		$atts    = array(),
+		$wrapper = array(
+			'class'  => 'axisbuilder',
+			'before' => null,
+			'after'  => null
+		)
+	) {
+		ob_start();
+
+		$before = empty( $wrapper['before'] ) ? '<div class="' . esc_attr( $wrapper['class'] ) . '">' : $wrapper['before'];
+		$after  = empty( $wrapper['after'] ) ? '</div>' : $wrapper['after'];
+
+		echo $before;
+		call_user_func( $function, $atts );
+		echo $after;
+
+		return ob_get_clean();
+	}
+
+	/**
 	 * Prepare Shortcode Wrapper.
 	 */
 	public function prepare_shortcode_wrapper( $atts, $content = '', $shortcode = '' ) {

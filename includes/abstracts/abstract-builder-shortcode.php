@@ -167,7 +167,7 @@ abstract class AB_Shortcode {
 			$meta = array(
 				'class'    => 'axisbuilder',
 				'counter'  => $this->counter,
-				'el_class' => 'axisbuilder-el-' . $this->counter
+				'el_class' => 'el-class-' . $this->counter
 			);
 
 			$this->counter ++;

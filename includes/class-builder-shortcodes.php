@@ -130,7 +130,7 @@ class AB_Shortcodes {
 
 		// Load shortcodes in order
 		foreach ( $load_shortcodes as $shortcode ) {
-			$load_shortcode = new $shortcode();
+			$load_shortcode = is_string( $shortcode ) ? new $shortcode() : $shortcode;
 
 			if ( isset( $load_shortcode->shortcode['sort'] ) && is_numeric( $load_shortcode->shortcode['sort'] ) ) {
 				// Add in position

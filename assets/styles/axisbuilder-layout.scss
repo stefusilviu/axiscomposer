@@ -20,11 +20,13 @@
 	 */
 	&.flex-column {
 		float: left;
+		position: relative;
 		min-height: 1px;
 		margin-left: 6%;
-		position: relative;
+		margin-bottom: 20px;
 
 		&.first {
+			clear: left;
 			margin-left: 0;
 		}
 

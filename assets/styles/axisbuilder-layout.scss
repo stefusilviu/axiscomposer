@@ -67,3 +67,21 @@
 		}
 	}
 }
+
+/**
+ * Color section styles
+ */
+.axisbuilder-section {
+	width: 100%;
+	clear: both;
+	float: left;
+	position: static;
+	min-height: 100px;
+}
+
+.container {
+	clear: both;
+	margin: 0 auto;
+	padding: 0 50px;
+	position: relative;
+}

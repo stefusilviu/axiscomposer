@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Animatedcountdown extends AB_Shortcode {
 
+	protected $time_config;
+
 	/**
 	 * Class Constructor Method.
 	 */

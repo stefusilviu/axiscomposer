@@ -15,4 +15,21 @@
  */
 .axisbuilder, .axisbuilder-page {
 
+	/**
+	 * General Layout styles
+	 */
+	&.flex-column {
+		float: left;
+		position: relative;
+		margin-left: 4%;
+		margin-bottom: 20px;
+
+		&.first {
+			margin-left: 0;
+		}
+	}
+
+	&.ab_one_half {
+		width: 48%;
+	}
 }

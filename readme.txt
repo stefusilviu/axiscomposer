@@ -86,6 +86,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Changelog ==
 
 = 0.1.0 =
+* Feature - Custom Widget Area Builder.
 * Feature - Initial release.
 
 == Upgrade Notice ==

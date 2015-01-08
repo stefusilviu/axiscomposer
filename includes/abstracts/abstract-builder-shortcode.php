@@ -193,11 +193,11 @@ abstract class AB_Shortcode {
 	 */
 	protected function shortcode_config() {
 		$load_shortcode_data = array(
-			'class'       => '',
-			'target'      => '',
-			'drag-level'  => 3,
-			'drop-level'  => -1,
-			'href-class'  => get_class( $this )
+			'class'      => '',
+			'target'     => '',
+			'drag-level' => 3,
+			'drop-level' => -1,
+			'href-class' => get_class( $this )
 		);
 
 		// Load the default shortcode data.

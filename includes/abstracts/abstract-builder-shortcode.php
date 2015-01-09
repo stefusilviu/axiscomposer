@@ -143,7 +143,7 @@ abstract class AB_Shortcode {
 	 */
 	protected function add_shortcode() {
 		if ( ! is_admin() ) {
-			add_shortcode( $this->shortcode['name'], array( $this, 'prepare_shortcode_wrapper' ) );
+			add_shortcode( $this->shortcode['name'], array( $this, 'shortcode_wrapper' ) );
 
 			// If availabe nested shortcode define them.
 			if ( isset( $this->shortcode['nested'] ) ) {
@@ -157,9 +157,9 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * Prepare Shortcode Wrapper.
+	 * Shortcode Wrapper.
 	 */
-	public function prepare_shortcode_wrapper( $atts, $content = '', $shortcode = '' ) {
+	public function shortcode_wrapper( $atts, $content = '', $shortcode = '' ) {
 		$meta = array();
 
 		// Inline shortcodes like dropcaps are basically nested shortcode and shouldn't be counted ;)
@@ -167,7 +167,7 @@ abstract class AB_Shortcode {
 			$meta = array(
 				'class'    => 'axisbuilder',
 				'counter'  => $this->counter,
-				'el_class' => 'axisbuilder-el-' . $this->counter
+				'el_class' => 'el-class-' . $this->counter
 			);
 
 			$this->counter ++;
@@ -182,8 +182,8 @@ abstract class AB_Shortcode {
 			$meta['custom_markup'] = '';
 		}
 
-		$meta      = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
-		$content   = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
+		$meta    = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
+		$content = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
 
 		return $content;
 	}
@@ -193,11 +193,11 @@ abstract class AB_Shortcode {
 	 */
 	protected function shortcode_config() {
 		$load_shortcode_data = array(
-			'class'       => '',
-			'target'      => '',
-			'drag-level'  => 3,
-			'drop-level'  => -1,
-			'href-class'  => get_class( $this )
+			'class'      => '',
+			'target'     => '',
+			'drag-level' => 3,
+			'drop-level' => -1,
+			'href-class' => get_class( $this )
 		);
 
 		// Load the default shortcode data.

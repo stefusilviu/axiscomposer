@@ -150,10 +150,10 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'type'     => 'select',
 				'subtype'  => array(
 					__( 'Use content within section to define Section height', 'axisbuilder' ) => 'default',
-					__( 'At least 100&percnt; of Browser Window height', 'axisbuilder' )       => '100',
-					__( 'At least 75&percnt; of Browser Window height', 'axisbuilder' )        => '75',
-					__( 'At least 50&percnt; of Browser Window height', 'axisbuilder' )        => '50',
-					__( 'At least 25&percnt; of Browser Window height', 'axisbuilder' )        => '25',
+					// __( 'At least 100&percnt; of Browser Window height', 'axisbuilder' )       => '100',
+					// __( 'At least 75&percnt; of Browser Window height', 'axisbuilder' )        => '75',
+					// __( 'At least 50&percnt; of Browser Window height', 'axisbuilder' )        => '50',
+					// __( 'At least 25&percnt; of Browser Window height', 'axisbuilder' )        => '25',
 					__( 'Custom height in pixel', 'axisbuilder' )                              => 'custom'
 				)
 			),

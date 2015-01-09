@@ -90,18 +90,25 @@
 
 	/* Section Padding */
 	&.section-padding-none {
-		padding-top: 0;
-		padding-bottom: 0;
+		.content, .sidebar {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
 	}
 
 	&.section-padding-small {
-		padding-top: 20px;
-		padding-bottom: 20px;
+		.content, .sidebar {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 	}
 
+
 	&.section-padding-large {
-		padding-top: 70px;
-		padding-bottom: 70px;
+		.content, .sidebar {
+			padding-top: 70px;
+			padding-bottom: 70px;
+		}
 	}
 }
 

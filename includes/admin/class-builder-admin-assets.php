@@ -130,6 +130,8 @@ class AB_Admin_Assets {
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'backbone' );
+			wp_enqueue_script( 'underscore' );
 			wp_enqueue_script( 'wp-color-picker' );
 			wp_enqueue_script( 'jquery-ui-core' );
 			wp_enqueue_script( 'jquery-ui-sortable' );

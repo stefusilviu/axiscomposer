@@ -15,6 +15,7 @@
 	position: relative;
 	border-left-color: #2ea2cc !important;
 	overflow: hidden;
+
 	.twitter-share-button {
 		margin-left: 3px;
 		margin-top: -3px;
@@ -24,6 +25,11 @@
 
 p.axisbuilder-actions,
 .axisbuilder-message {
+
+	a.button-primary,
+	a.button-secondary {
+		text-decoration:none !important;
+	}
 
 	.twitter-share-button {
 		margin-left: 3px;

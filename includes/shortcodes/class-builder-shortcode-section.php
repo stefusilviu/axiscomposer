@@ -366,7 +366,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 
 		// Set Extra arrow element
 		if ( strpos( $bottom_border, 'border-extra' ) !== false ) {
-			$arrow_bg = isset( $background_color ) ? $background_color : 'transparent';
+			$arrow_bg = empty( $background_color ) ? apply_filters( 'axisbuilder_background_color', '#fff' ) : $background_color;
 			self::$section_close = '<div class="axisbuilder-extra-border-element ' . $bottom_border . '"><div class="arrow-wrap"><div class="arrow-inner" style="background-color: ' . $arrow_bg . '"></div></div></div>';
 		} else {
 			self::$section_close = '';

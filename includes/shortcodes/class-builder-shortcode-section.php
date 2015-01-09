@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Shortcode_Section extends AB_Shortcode {
 
+	public static $section_close;
 	public static $section_count = 0;
 
 	/**
@@ -185,7 +186,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'type'     => 'select',
 				'subtype'  => array(
 					__( 'Display simple top border', 'axisbuilder' ) => 'no-shadow',
-					__( 'Display a small styling shadow at the top of the section', 'axisbuilder' ) => 'shadow',
+					__( 'Display a small styling shadow at the top of the section', 'axisbuilder' ) => 'axisbuilder-shadow',
 					__( 'No border styling', 'axisbuilder' ) => 'no-border-styling'
 				)
 			),
@@ -193,11 +194,11 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'name'     => __( 'Section Bottom Border Styling', 'axisbuilder' ),
 				'desc'     => __( 'Chose a border styling for the bottom of your section', 'axisbuilder' ),
 				'id'       => 'bottom_border',
-				'std'      => 'none',
+				'std'      => 'no-border-styling',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'No border styling', 'axisbuilder' ) => 'none',
-					__( 'Display a small arrow that points down to the next section', 'axisbuilder' ) => 'arrow-down',
+					__( 'No border styling', 'axisbuilder' ) => 'no-border-styling',
+					__( 'Display a small arrow that points down to the next section', 'axisbuilder' ) => 'border-extra-arrow-down',
 				)
 			),
 			array(
@@ -279,7 +280,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 			'custom_min_height'     => '500px',
 			'padding'               => 'default',
 			'shadow'                => 'no-shadow',
-			'bottom_border'         => 'none',
+			'bottom_border'         => '',
 			'id'                    => '',
 			'custom_markup'         => '',
 			'attachment'            => '',
@@ -290,7 +291,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 
 		extract( $atts );
 
-		$class = 'axisbuilder-section section-padding-' . $padding . ' section-' . $shadow . ' section-background-' . $background_attachment . '';
+		$class = 'axisbuilder-section section-padding-' . $padding . ' ' . $shadow . ' section-background-' . $background_attachment . '';
 
 		$params['attach'] = '';
 		$params['custom_markup'] = $meta['custom_markup'];
@@ -363,6 +364,14 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$output .= axisbuilder_new_section( $params );
 		$output .= axisbuilder_remove_autop( $content, true );
 
+		// Set Extra arrow element
+		if ( strpos( $bottom_border, 'border-extra' ) !== false ) {
+			$arrow_bg = isset( $background_color ) ? $background_color : 'transparent';
+			self::$section_close = '<div class="axisbuilder-extra-border-element ' . $bottom_border . '"><div class="arrow-wrap"><div class="arrow-inner" style="background-color: ' . $arrow_bg . '"></div></div></div>';
+		} else {
+			self::$section_close = '';
+		}
+
 		unset( $axisbuilder_config['layout_container'] );
 
 		return $output;
@@ -408,7 +417,7 @@ function axisbuilder_new_section( $params = array() ) {
 
 	// Close the Section structure when previous element was a section ;)
 	if ( $close ) {
-		$output .= '</div></div>' . axisbuilder_section_markup_close() . '</div></div>';
+		$output .= '</div></div>' . axisbuilder_section_markup_close() . '</div>' . AB_Shortcode_Section::$section_close . '</div>';
 	}
 
 	// Open the Section Structure

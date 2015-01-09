@@ -54,8 +54,6 @@ class AB_Shortcode_Comments extends AB_Shortcode {
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		ob_start();
 		comments_template();
-		$output = ob_get_clean();
-
-		return $output;
+		return ob_get_clean();
 	}
 }

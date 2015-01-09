@@ -87,8 +87,6 @@ final class AxisBuilder {
 
 	/**
 	 * AxisBuilder Constructor.
-	 * @access public
-	 * @return AxisBuilder
 	 */
 	public function __construct() {
 		$this->define_constants();

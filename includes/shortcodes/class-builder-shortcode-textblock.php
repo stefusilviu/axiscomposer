@@ -133,6 +133,38 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		$output = $class = '';
 
+		// Entire list of supported attributes and their defaults
+		$pairs = array(
+			'size'       => '',
+			'font_color' => '',
+			'color'      => ''
+		);
+
+		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
+
+		extract( $atts );
+
+		$class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
+
+		if ( $size ) {
+			$style = 'font-size: ' . $size . 'px; ';
+		}
+
+		if ( $font_color ) {
+			$class .= 'axisbuilder-inherit-color';
+			$style .= empty( $color ) ? '' : 'color: ' . $color . ';';
+		}
+
+		if ( $style ) {
+			$style = 'style="' . $style . '"';
+		}
+
+		$output .= '<section class="axisbuilder textblock-section">';
+		$output .= '<div class="axisbuilder-textblock ' . $class . '" ' . $style . '>' . axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) . '</div>';
+		$output .= '</section>';
+
+		return $output;
 	}
 }

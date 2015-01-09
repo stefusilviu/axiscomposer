@@ -119,29 +119,29 @@ class AB_Shortcode_Section extends AB_Shortcode {
 					__( 'Stretch to Fit', 'axisbuilder' )    => 'stretch'
 				)
 			),
-			array(
-				'name'     => __( 'Background Video', 'axisbuilder' ),
-				'desc'     => __( 'You can also place a video as background for your section. Enter the URL to the Video. Currently supported are Youtube, Vimeo and direct linking of web-video files (mp4, webm, ogv)', 'axisbuilder' ) . '<br /><br />' . __( 'Working examples Vimeo &amp; YouTube:', 'axisbuilder' ) . '<br /><strong>http://vimeo.com/1084537</strong><br/><strong>https://www.youtube.com/watch?v=NJtPPbgdt7A</strong><br/><br/>',
-				'id'       => 'video',
-				'std'      => '',
-				'type'     => 'input'
-			),
-			array(
-				'name'     => __( 'Video Aspect Ratio', 'axisbuilder' ),
-				'desc'     => __( 'In order to calculate the correct height and width for the video slide you need to enter a aspect ratio (width:height). usually: 16:9 or 4:3.', 'axisbuilder' ),
-				'id'       => 'video_ratio',
-				'std'      => '16:9',
-				'type'     => 'input',
-				'required' => array( 'video', 'not', '' ),
-			),
-			array(
-				'name'     => __( 'Hide video on Mobile Devices?', 'axisbuilder' ),
-				'desc'     => __( 'You can chose to hide the video entirely on Mobile devices and instead display the Section Background image', 'axisbuilder' ) . '<br /><small>' . __( 'Most smartphones can\'t autoplay videos to prevent bandwidth problems for the user', 'axisbuilder' ) . '</small>',
-				'id'       => 'video_mobile_disabled',
-				'std'      => '',
-				'type'     => 'checkbox',
-				'required' => array( 'video', 'not', '' ),
-			),
+			// array(
+			// 	'name'     => __( 'Background Video', 'axisbuilder' ),
+			// 	'desc'     => __( 'You can also place a video as background for your section. Enter the URL to the Video. Currently supported are Youtube, Vimeo and direct linking of web-video files (mp4, webm, ogv)', 'axisbuilder' ) . '<br /><br />' . __( 'Working examples Vimeo &amp; YouTube:', 'axisbuilder' ) . '<br /><strong>http://vimeo.com/1084537</strong><br/><strong>https://www.youtube.com/watch?v=NJtPPbgdt7A</strong><br/><br/>',
+			// 	'id'       => 'video',
+			// 	'std'      => '',
+			// 	'type'     => 'input'
+			// ),
+			// array(
+			// 	'name'     => __( 'Video Aspect Ratio', 'axisbuilder' ),
+			// 	'desc'     => __( 'In order to calculate the correct height and width for the video slide you need to enter a aspect ratio (width:height). usually: 16:9 or 4:3.', 'axisbuilder' ),
+			// 	'id'       => 'video_ratio',
+			// 	'std'      => '16:9',
+			// 	'type'     => 'input',
+			// 	'required' => array( 'video', 'not', '' ),
+			// ),
+			// array(
+			// 	'name'     => __( 'Hide video on Mobile Devices?', 'axisbuilder' ),
+			// 	'desc'     => __( 'You can chose to hide the video entirely on Mobile devices and instead display the Section Background image', 'axisbuilder' ) . '<br /><small>' . __( 'Most smartphones can\'t autoplay videos to prevent bandwidth problems for the user', 'axisbuilder' ) . '</small>',
+			// 	'id'       => 'video_mobile_disabled',
+			// 	'std'      => '',
+			// 	'type'     => 'checkbox',
+			// 	'required' => array( 'video', 'not', '' ),
+			// ),
 			array(
 				'name'     => __( 'Section Minimum Height', 'axisbuilder' ),
 				'desc'     => __( 'Define a minimum height for the section. Content within the section will be centered vertically within the section', 'axisbuilder' ),

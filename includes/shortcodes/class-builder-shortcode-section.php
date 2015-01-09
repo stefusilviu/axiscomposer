@@ -49,7 +49,6 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		);
 	}
 
-
 	/**
 	 * Popup Elements
 	 *

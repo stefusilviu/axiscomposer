@@ -52,6 +52,10 @@ class AB_Shortcode_Comments extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		ob_start();
+		comments_template();
+		$output = ob_get_clean();
 
+		return $output;
 	}
 }

@@ -93,6 +93,7 @@ final class AxisBuilder {
 		$this->includes();
 
 		// Hooks
+		add_filter( 'widget_text', 'do_shortcode' );
 		add_action( 'init', array( $this, 'init' ), 0 );
 
 		// Loaded action

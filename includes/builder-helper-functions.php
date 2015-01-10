@@ -131,19 +131,19 @@ function ab_create_shortcode_data( $name, $content = null, $args = array() ) {
 
 endif;
 
-if ( ! function_exists( 'ab_build_shortcode_pattern' ) ) :
+if ( ! function_exists( 'axisbuilder_shortcode_pattern' ) ) :
 
 /**
  * Creates the shortcode pattern that only matches builder shortcodes.
  * @param  array        $predefined_tags Prefefined Tags.
  * @return array|string Matched builder shortcode pattern.
  */
-function ab_build_shortcode_pattern( $predefined_tags = false ) {
+function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
 	global $shortcode_tags, $_axisbuilder_shortcode_tags;
 
 	// Store the {old|new} shortcode tags
 	$_old_shortcodes = $shortcode_tags;
-	$_new_shortcodes = ab_fetch_shortcode_data( 'name' );
+	$_new_shortcodes = axisbuilder_shortcode_data( 'name' );
 
 	// If builder has shortcodes build the pattern.
 	if ( ! empty( $_new_shortcodes ) ) {
@@ -167,14 +167,14 @@ function ab_build_shortcode_pattern( $predefined_tags = false ) {
 
 endif;
 
-if ( ! function_exists( 'ab_fetch_shortcode_data' ) ) :
+if ( ! function_exists( 'axisbuilder_shortcode_data' ) ) :
 
 /**
  * Fetch the builder shortcodes data.
  * @param  string $data Shortcode data type.
  * @return array        All shortcodes data.
  */
-function ab_fetch_shortcode_data( $data ) {
+function axisbuilder_shortcode_data( $data ) {
 	$builder_shortcodes = array();
 
 	foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
@@ -186,11 +186,42 @@ function ab_fetch_shortcode_data( $data ) {
 
 endif;
 
-function do_shortcode_builder( $text ) {
+if ( ! function_exists( 'do_shortcode_builder' ) ) :
+
+/**
+ * Search content for builder shortcodes and filter shortcodes through their hooks.
+ *
+ * If there are no shortcode tags defined, then the content will be returned
+ * without any filtering. This might cause issues when plugins are disabled but
+ * the shortcode will still show up in the post or content.
+ *
+ * @since 1.0.0
+ *
+ * @uses $_axisbuilder_shortcode_tags
+ *
+ * @param  string $content Content to search for shortcodes
+ * @return string Content with shortcodes filtered out.
+ */
+function do_shortcode_builder( $content ) {
 	global $_axisbuilder_shortcode_tags;
-	return preg_replace_callback( "/$_axisbuilder_shortcode_tags/s", 'do_shortcode_tag_builder', $text );
+	return preg_replace_callback( "/$_axisbuilder_shortcode_tags/s", 'do_shortcode_tag_builder', $content );
 }
 
+endif;
+
+if ( ! function_exists( 'do_shortcode_tag_builder' ) ) :
+
+/**
+ * Regular Expression callable for do_shortcode_builder() for calling shortcode hook.
+ * @see get_shortcode_regex for details of the match array contents.
+ *
+ * @since 1.0.0
+ * @access private
+ * @uses $shortcode_tags
+ *
+ * @param array $m Regular expression match array
+ * @return mixed False on failure.
+ */
 function do_shortcode_tag_builder( $m ) {
 	global $shortcode_tags;
 
@@ -218,13 +249,15 @@ function do_shortcode_tag_builder( $m ) {
 		return $m[0];
 	}
 
-	if ( in_array( $values['tag'], ab_fetch_shortcode_data( 'name' ) ) ) {
+	if ( in_array( $values['tag'], axisbuilder_shortcode_data( 'name' ) ) ) {
 		$_available_shortcodes = AB()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
 		return $_available_shortcodes[$values['tag']];
 	} else {
 		return $m[0];
 	}
 }
+
+endif;
 
 if ( ! function_exists( 'axisbuilder_apply_autop' ) ) :
 

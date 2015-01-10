@@ -66,7 +66,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Shortcodes to interface
+	 * AJAX Shortcodes to interface.
 	 */
 	public static function shortcodes_to_interface( $text = null ) {
 		$allowed = false;
@@ -81,7 +81,7 @@ class AB_AJAX {
 		}
 
 		// Build the shortcode pattern to check if the text that we want to check uses any of the builder shortcodes.
-		ab_build_shortcode_pattern( $allowed );
+		axisbuilder_shortcode_pattern( $allowed );
 
 		$text = do_shortcode_builder( $text );
 

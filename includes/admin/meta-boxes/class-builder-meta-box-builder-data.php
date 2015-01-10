@@ -98,13 +98,8 @@ class AB_Meta_Box_Builder_Data {
 							<a href="#trash" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
 						</div>
 					</div>
-					<div class="content-sections">
-						<div class="template-action">
-							<a href="#" class="button button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
-						</div>
-						<div class="fullscreen-action">
-							<a href="#" class="expand-icon axisbuilder-attach-expand"><?php _e( 'Close', 'axisbuilder' ); ?></a>
-						</div>
+					<div class="template-sections">
+						<a href="#template" class="button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
 					</div>
 				</div>
 			</div>
@@ -221,11 +216,6 @@ class AB_Meta_Box_Builder_Data {
 			$classes[] = 'axisbuilder-hidden';
 		}
 
-		// Class for expanded items
-		if ( ! empty( $_GET['axisbuilder-expanded'] ) && ( 'axisbuilder-editor' === $_GET['axisbuilder-expanded'] ) ) {
-			$classes[] = 'axisbuilder-expanded';
-		}
-
 		// Class for Debug or Test-mode
 		if ( current_theme_supports( 'axisbuilder-debug' ) ) {
 			$classes[] = 'axisbuilder-debug';
@@ -247,19 +237,5 @@ class AB_Meta_Box_Builder_Data {
 				update_post_meta( $post_id, '_' . $post_meta, $_POST[$post_meta] );
 			}
 		}
-
-		// Filter the redirect url in case we got a Meta-Box that is expanded.
-		if ( ! empty( $_POST['axisbuilder-expanded-hidden'] ) ) {
-			add_filter( 'redirect_post_location', array( __CLASS__, 'set_builder_expanded' ), 10, 2 );
-		}
-	}
-
-	/**
-	 * Set the correct Builder Expanded ID.
-	 * @param  $location
-	 * @return string
-	 */
-	public static function set_builder_expanded( $location ) {
-		return add_query_arg( 'axisbuilder-expanded', $_POST['axisbuilder-expanded-hidden'], $location );
 	}
 }

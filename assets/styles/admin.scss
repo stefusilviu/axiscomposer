@@ -255,6 +255,7 @@ label[for="axisbuilder-editor-hide"] {
 
 		.template-sections {
 			float: right;
+			display: none;
 			padding-right: 8px;
 		}
 	}
@@ -314,18 +315,6 @@ label[for="axisbuilder-editor-hide"] {
 
 	&.axisbuilder-hidden {
 		display: none !important;
-	}
-
-	&.axisbuilder-expanded {
-		position: fixed;
-		top:-3px;
-		left:0;
-		right:0;
-		bottom:0;
-		z-index: 10000;
-		margin:0;
-		overflow: auto;
-		overflow-x: hidden;
 	}
 }
 
@@ -425,8 +414,6 @@ label[for="axisbuilder-editor-hide"] {
 		border-top: 1px dashed #e1e1e1;
 	}
 }
-
-
 
 /* Interface tabs that hold shortcode tab-actives */
 .shortcode_tab-active_wrap {

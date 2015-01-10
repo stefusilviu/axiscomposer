@@ -21,7 +21,17 @@ var AB_Builder = AB_Builder || {};
 	});
 
 	// Views
-	AB_Builder.AppView = Backbone.View.extend({});
+	AB_Builder.AppView = Backbone.View.extend({
+		el: '#axis-pagebuilder',
+
+		initialize: function() {
+			_.bindAll( this, 'render' );
+			this.render();
+		},
+		render: function() {
+			console.log( 'Pagebuilder render goes here!' );
+		}
+	});
 
 	// Kick things off by creating the 'App'
 	$( document ).ready( function() {

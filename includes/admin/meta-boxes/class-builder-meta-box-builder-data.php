@@ -99,7 +99,7 @@ class AB_Meta_Box_Builder_Data {
 						</div>
 					</div>
 					<div class="template-sections">
-						<a href="#" class="button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
+						<a href="javascript:void(0);" class="button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
 					</div>
 				</div>
 			</div>

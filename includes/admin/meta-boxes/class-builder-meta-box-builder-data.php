@@ -37,7 +37,7 @@ class AB_Meta_Box_Builder_Data {
 
 		?>
 
-		<div class="axisbuilder-shortcodes axisbuilder-style panel-wrap">
+		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style panel-wrap">
 			<div id="axisbuilder-panels" class="panels-tab">
 				<ul class="axisbuilder-tabs">
 					<?php

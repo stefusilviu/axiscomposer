@@ -131,14 +131,14 @@ function ab_create_shortcode_data( $name, $content = null, $args = array() ) {
 
 endif;
 
-if ( ! function_exists( 'ab_build_shortcode_pattern' ) ) :
+if ( ! function_exists( 'axisbuilder_shortcode_pattern' ) ) :
 
 /**
  * Creates the shortcode pattern that only matches builder shortcodes.
  * @param  array        $predefined_tags Prefefined Tags.
  * @return array|string Matched builder shortcode pattern.
  */
-function ab_build_shortcode_pattern( $predefined_tags = false ) {
+function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
 	global $shortcode_tags, $_axisbuilder_shortcode_tags;
 
 	// Store the {old|new} shortcode tags

@@ -126,10 +126,13 @@ class AB_Admin_Assets {
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
 			wp_enqueue_script( 'axisbuilder-admin' );
+			wp_enqueue_script( 'axisbuilder-backbone-admin', AB()->plugin_url() . '/assets/scripts/backbone/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'underscore', 'backbone' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'underscore', 'backbone', 'axisbuilder-admin' ), AB_VERSION );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'backbone' );
+			wp_enqueue_script( 'underscore' );
 			wp_enqueue_script( 'wp-color-picker' );
 			wp_enqueue_script( 'jquery-ui-core' );
 			wp_enqueue_script( 'jquery-ui-sortable' );

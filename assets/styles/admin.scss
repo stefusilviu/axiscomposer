@@ -174,7 +174,6 @@ label[for="axisbuilder-editor-hide"] {
 		height: 40px;
 		display: block;
 		color: #7b7b7b;
-		line-height: 40px;
 		background: #fafafa;
 		border-top: 1px solid #eee;
 
@@ -254,35 +253,9 @@ label[for="axisbuilder-editor-hide"] {
 			}
 		}
 
-		/* This Template is not sure so hidden */
-		.content-sections {
+		.template-sections {
 			float: right;
-			/*display: none;  Hehe hidden na ;) */
-
-			.template-action {
-				float: left;
-				display: none;
-			}
-
-			.fullscreen-action {
-				float: right;
-				padding: 6px;
-				margin-left: 10px;
-
-				.expand-icon {
-					@include ir();
-					color: #7b7b7b;
-					font-size: 16px;
-
-					&:before {
-						@include icon( "\e00a" );
-					}
-
-					&:hover {
-						color: #2ea2cc;
-					}
-				}
-			}
+			padding-right: 8px;
 		}
 	}
 
@@ -453,124 +426,7 @@ label[for="axisbuilder-editor-hide"] {
 	}
 }
 
-#normal-sortables .postbox.axisbuilder-expanded#axisbuilder-editor:first-child {
-	margin-top:-0;
-}
 
-.axisbuilder-fullscreen-buttons {
-	float: right;
-	margin: 10px 20px 0;
-}
-
-/*.postbox.axisbuilder-expanded {
-	position: fixed;
-	top:-3px;
-	left:0;
-	right:0;
-	bottom:0;
-	z-index: 10000;
-	margin:0;
-	overflow: auto;
-	overflow-x: hidden;
-}*/
-
-.axisbuilder-expanded .axisbuilder-tab-container {
-	visibility: hidden;
-}
-
-.axisbuilder-expanded .axisbuilder-fixed-controls {
-	position: fixed;
-	top: 0px;
-	left: 0;
-	right: 0;
-	background: #F8F8F8;
-	padding: 41px 0px 10px 0;
-	z-index: 1;
-	-webkit-box-shadow: 0 1px 8px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 1px 8px 0px rgba(0,0,0,0.2);
-	box-shadow: 0 1px 8px 0px rgba(0,0,0,0.2);
-	visibility: visible;
-}
-
-.axisbuilder-expanded .axisbuilder-fixed-controls .axisbuilder-tab-container {
-	visibility: visible;
-}
-
-.postbox.axisbuilder-expanded .axisbuilder-expand-button {
-	position: fixed;
-	top:40px;
-}
-
-.axisbuilder-expanded-buttons {
-	position: absolute;
-	top:-6px;
-	right:0;
-}
-
-.axisbuilder-fixed-controls #publish {
-	float:left;
-	margin-right: 4px;
-}
-
-.axisbuilder-fixed-controls #post-preview {
-	float: left;
-	margin-right: 4px;
-	line-height: 30px;
-	height: 31px;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-/*expand button*/
-.axisbuilder-expanded .axisbuilder-fixed-controls  .axisbuilder-expand-button {
-	position: relative;
-	float: left;
-	top: 0;
-	right: 0;
-	background: none;
-	text-indent: 0;
-	width: auto;
-	display: inline-block;
-	text-decoration: none;
-	line-height: 29px;
-	height: 30px;
-	color: white;
-	opacity: 1;
-	border-color: #D54E21;
-	background-color: #D54E21;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#DD7C5C),to(#D54E21));
-	background-image: -webkit-linear-gradient(top,#DD7C5C,#D54E21);
-	background-image: -moz-linear-gradient(top,#DD7C5C,#D54E21);
-	background-image: -ms-linear-gradient(top,#DD7C5C,#D54E21);
-	background-image: -o-linear-gradient(top,#DD7C5C,#D54E21);
-	background-image: linear-gradient(to bottom,#DD7C5C,#D54E21);
-
-		-moz-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.3);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
-
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-}
-.axisbuilder-expanded .axisbuilder-fixed-controls .axisbuilder-expand-button:hover{ background-color: #DD7C5C; background-image:none;}
-.axisbuilder-expanded .axisbuilder-fixed-controls .axisbuilder-expand-button:active{
-	background-color: #F05F2F;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#D54E21),to(#DD7C5C));
-	background-image: -webkit-linear-gradient(top,#D54E21,#DD7C5C);
-	background-image: -moz-linear-gradient(top,#D54E21,#DD7C5C);
-	background-image: -ms-linear-gradient(top,#D54E21,#DD7C5C);
-	background-image: -o-linear-gradient(top,#D54E21,#DD7C5C);
-	background-image: linear-gradient(to bottom,#D54E21,#DD7C5C);
-}
-
-.axisbuilder-expand-fullscreen {
-	position: fixed;
-	top:0;
-	left:0;
-	bottom:0;
-	right:0;
-	background: #fff;
-	z-index: 99998;
-	display: none;
-}
 
 /* Interface tabs that hold shortcode tab-actives */
 .shortcode_tab-active_wrap {
@@ -1097,16 +953,12 @@ body .ui-draggable-dragging {
 /**
  * Small screen optimisation
  */
-@media only screen and (max-width: 1280px) {
-
-}
+@media only screen and (max-width: 1280px) {}
 
 /**
  * Optimisation for screens 900px and smaller
  */
-@media only screen and (max-width: 900px) {
-
-}
+@media only screen and (max-width: 900px) {}
 
 /**
  * Optimisation for screens 782px and smaller
@@ -1130,46 +982,12 @@ body .ui-draggable-dragging {
 			}
 		}
 	}
-
-	#axisbuilder-handle {
-		height: 52px;
-
-		.control-bar {
-			padding: 12px 6px;
-		}
-
-		.content-sections {
-
-			.template-action {
-				margin-top: -6px;
-				margin-right: 75px;
-			}
-		}
-	}
-
-	.axisbuilder-expanded-buttons #post-preview,
-	.axisbuilder-expanded-buttons #publish {
-		display: inline-block;
-		float: none;
-	}
-
-	.axisbuilder-expanded .inside .axisbuilder-shortcodes {
-		padding-bottom: 38px;
-	}
 }
 
 /**
  * Optimisation for screens 500px and smaller
  */
-@media only screen and (max-width: 500px) {
-
-	#axisbuilder-handle {
-
-		.control-bar {
-			padding: 12px;
-		}
-	}
-}
+@media only screen and (max-width: 500px) {}
 
 /**
  * Backbone Modal Dialog

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2015-01-08 17:19:32+00:00\n"
+"POT-Creation-Date: 2015-01-11 14:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -125,10 +125,6 @@ msgstr ""
 msgid "Insert Builder Shortcode"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "Axis Builder"
-msgstr ""
-
 #: i18n/shortcodes.php:31
 msgid "Layout Elements"
 msgstr ""
@@ -145,25 +141,25 @@ msgstr ""
 msgid "Plugin Additions"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:272
+#: includes/abstracts/abstract-builder-shortcode.php:275
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:273
+#: includes/abstracts/abstract-builder-shortcode.php:276
 msgid ""
 "Add a custom css class for the element here. Ensure the use of allowed "
 "characters (latin characters, underscores, dashes and numbers)"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:360
+#: includes/abstracts/abstract-builder-shortcode.php:363
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:362
+#: includes/abstracts/abstract-builder-shortcode.php:365
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-builder-shortcode.php:363
+#: includes/abstracts/abstract-builder-shortcode.php:366
 msgid "Clone Element"
 msgstr ""
 
@@ -215,109 +211,109 @@ msgstr ""
 msgid "Creates toggles or accordion"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:33
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:35
 msgid "Animated Countdown"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:34
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:36
 msgid "Display an count down to a specific date"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:47
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:49
 msgid "Second"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:48
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:96
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:50
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:98
 msgid "Minute"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:49
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:86
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:51
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:88
 msgid "Hour"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:50
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:52
 msgid "Day"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:51
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:53
 msgid "Week"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:87
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:89
 msgid "Pick the hour of the day"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:97
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:99
 msgid "Pick the minute of the hour"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:106
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:108
 msgid "Smallest time unit"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:107
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:109
 msgid "The smallest unit that will be displayed"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:115
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:117
 msgid "Largest time unit"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:116
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:118
 msgid "The largest unit that will be displayed"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:124
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:126
 msgid "Text Alignment"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:125
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:127
 msgid "Choose here, how to align your text"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:130
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:132
 msgid "Left"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:131
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:133
 msgid "Right"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:132
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:134
 msgid "Center"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:137
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:139
 msgid "Number Font Size"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:138
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:140
 msgid "Size of your numbers in Pixel"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:142
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:144
 msgid "Default Size"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:157
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:159
 msgid "Colors"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:158
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:160
 msgid "Choose the colors here"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:163
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:165
 msgid "Theme Default"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:164
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:166
 msgid "Transparent Dark"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:165
+#: includes/shortcodes/class-builder-shortcode-animatedcountdown.php:167
 msgid "Transparent Light"
 msgstr ""
 
@@ -894,11 +890,11 @@ msgstr ""
 msgid "Create some progress bars"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:35
+#: includes/shortcodes/class-builder-shortcode-section.php:36
 msgid "Color Section"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:36
+#: includes/shortcodes/class-builder-shortcode-section.php:37
 msgid "Creates a section with unique background image and colors"
 msgstr ""
 
@@ -919,47 +915,6 @@ msgstr ""
 msgid "Parallax"
 msgstr ""
 
-#: includes/shortcodes/class-builder-shortcode-section.php:122
-msgid "Background Video"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:123
-msgid ""
-"You can also place a video as background for your section. Enter the URL to "
-"the Video. Currently supported are Youtube, Vimeo and direct linking of "
-"web-video files (mp4, webm, ogv)"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:123
-msgid "Working examples Vimeo &amp; YouTube:"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:129
-msgid "Video Aspect Ratio"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:130
-msgid ""
-"In order to calculate the correct height and width for the video slide you "
-"need to enter a aspect ratio (width:height). usually: 16:9 or 4:3."
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:137
-msgid "Hide video on Mobile Devices?"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:138
-msgid ""
-"You can chose to hide the video entirely on Mobile devices and instead "
-"display the Section Background image"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:138
-msgid ""
-"Most smartphones can't autoplay videos to prevent bandwidth problems for "
-"the user"
-msgstr ""
-
 #: includes/shortcodes/class-builder-shortcode-section.php:145
 msgid "Section Minimum Height"
 msgstr ""
@@ -972,22 +927,6 @@ msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:151
 msgid "Use content within section to define Section height"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:152
-msgid "At least 100&percnt; of Browser Window height"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:153
-msgid "At least 75&percnt; of Browser Window height"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:154
-msgid "At least 50&percnt; of Browser Window height"
-msgstr ""
-
-#: includes/shortcodes/class-builder-shortcode-section.php:155
-msgid "At least 25&percnt; of Browser Window height"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:156
@@ -1019,11 +958,11 @@ msgid "Small Padding"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:176
-msgid "Default Padding"
+msgid "Large Padding"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:177
-msgid "Large Padding"
+msgid "Default Padding"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:181
@@ -1213,22 +1152,4 @@ msgstr ""
 
 #: includes/widgets/class-builder-widget-advertisement.php:66
 msgid "Open link in a new window/tab"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "http://axisthemes.com/axis-builder/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"A drag and drop builder that helps you build modern and unique page layouts "
-"smartly. Beautifully."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "AxisThemes"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://axisthemes.com"
 msgstr ""

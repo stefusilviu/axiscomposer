@@ -133,7 +133,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		$output = $class = '';
+		$output = '';
 
 		// Entire list of supported attributes and their defaults
 		$pairs = array(

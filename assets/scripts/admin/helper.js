@@ -106,8 +106,8 @@
 			dependent.each( function() {
 				var	visible     = false,
 					current     = $( this ),
-					operator    = current.data( 'check-operator'),
-					final_value = current.data( 'check-value');
+					operator    = current.data( 'check-operator' ),
+					final_value = current.data( 'check-value' ).toString();
 
 				if ( ! is_hidden ) {
 					switch( operator ) {

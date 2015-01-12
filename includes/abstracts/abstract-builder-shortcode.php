@@ -150,6 +150,8 @@ abstract class AB_Shortcode {
 				foreach ( $this->shortcode['nested'] as $shortcode ) {
 					if ( method_exists( $this, $shortcode ) ) {
 						add_shortcode( $shortcode, array( $this, $shortcode ) );
+					} elseif ( ! shortcode_exists( $shortcode ) ) {
+						add_shortcode( $shortcode, '__return_false' );
 					}
 				}
 			}

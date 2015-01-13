@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AB_Sidebars' ) ) :
-
 /**
  * AB_Sidebars Class
  */
@@ -129,7 +127,5 @@ class AB_Sidebars {
 		}
 	}
 }
-
-endif;
 
 return new AB_Sidebars();

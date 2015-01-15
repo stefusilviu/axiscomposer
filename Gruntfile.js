@@ -156,24 +156,6 @@ module.exports = function( grunt ){
 						'includes/admin/.*'
 					],
 					processPot: function ( pot ) {
-						var translation,
-							excluded_meta = [
-								'Plugin Name of the plugin/theme',
-								'Plugin URI of the plugin/theme',
-								'Description of the plugin/theme',
-								'Author of the plugin/theme',
-								'Author URI of the plugin/theme'
-							];
-
-						for ( translation in pot.translations[''] ) {
-							if ( 'undefined' !== typeof pot.translations[''][ translation ].comments.extracted ) {
-								if ( excluded_meta.indexOf( pot.translations[''][ translation ].comments.extracted ) >= 0 ) {
-									console.log( 'Excluded meta: ' + pot.translations[''][ translation ].comments.extracted );
-									delete pot.translations[''][ translation ];
-								}
-							}
-						}
-
 						pot.headers['project-id-version'] += ' Frontend';
 						return pot;
 					}

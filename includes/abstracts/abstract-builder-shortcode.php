@@ -369,7 +369,7 @@ abstract class AB_Shortcode {
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ab_create_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 			$output .= '</div>';
 		$output .= '</div>';
 
@@ -466,7 +466,7 @@ abstract class AB_Shortcode {
 				$nested_content = '';
 
 				foreach ( $content as $data ) {
-					$nested_content .= trim( ab_create_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
+					$nested_content .= trim( axisbuilder_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
 				}
 
 				$content = $nested_content;

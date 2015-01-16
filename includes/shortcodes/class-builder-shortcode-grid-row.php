@@ -113,7 +113,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 
 		if ( $content ) {
 			$eventual_content = do_shortcode_builder( $content );
-			$textarea_content = ab_create_shortcode_data( $this->shortcode['name'], $content, $args );
+			$textarea_content = axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args );
 		} else {
 			$eventual_content = '';
 			$ab_cell_one_half = new AB_Shortcode_Cells_One_Half();
@@ -121,7 +121,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			// Loading twice as we have to generate 2 cell :)
 			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
 			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
-			$textarea_content = ab_create_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
+			$textarea_content = axisbuilder_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
 		}
 
 		$output = '<div class="axisbuilder-layout-row axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';

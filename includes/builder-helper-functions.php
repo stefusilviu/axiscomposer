@@ -87,12 +87,12 @@ function axisbuilder_get_registered_sidebars( $sidebars = array(), $exclude = ar
 
 endif;
 
-if ( ! function_exists( 'ab_create_shortcode_data' ) ) :
+if ( ! function_exists( 'axisbuilder_shortcode_data' ) ) :
 
 /**
  * Create a new shortcode data programmatically.
  */
-function ab_create_shortcode_data( $name, $content = null, $args = array() ) {
+function axisbuilder_shortcode_data( $name, $content = null, $args = array() ) {
 	$_shortcode = '[' . $name;
 
 	if ( is_array( $args ) ) {
@@ -143,7 +143,7 @@ function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
 
 	// Store the {old|new} shortcode tags
 	$_old_shortcodes = $shortcode_tags;
-	$_new_shortcodes = axisbuilder_shortcode_data( 'name' );
+	$_new_shortcodes = axisbuilder_get_shortcode_data( 'name' );
 
 	// If builder has shortcodes build the pattern.
 	if ( ! empty( $_new_shortcodes ) ) {
@@ -167,14 +167,14 @@ function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
 
 endif;
 
-if ( ! function_exists( 'axisbuilder_shortcode_data' ) ) :
+if ( ! function_exists( 'axisbuilder_get_shortcode_data' ) ) :
 
 /**
  * Fetch the builder shortcodes data.
  * @param  string $data Shortcode data type.
  * @return array        All shortcodes data.
  */
-function axisbuilder_shortcode_data( $data ) {
+function axisbuilder_get_shortcode_data( $data ) {
 	$builder_shortcodes = array();
 
 	foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
@@ -249,7 +249,7 @@ function do_shortcode_tag_builder( $m ) {
 		return $m[0];
 	}
 
-	if ( in_array( $values['tag'], axisbuilder_shortcode_data( 'name' ) ) ) {
+	if ( in_array( $values['tag'], axisbuilder_get_shortcode_data( 'name' ) ) ) {
 		// @todo: Needs Refactor for the reason of AJAX Response. Took 3 days to figure out this issue ;)
 		$_available_shortcodes = AB()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
 		return $_available_shortcodes[$values['tag']];

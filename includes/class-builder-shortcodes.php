@@ -189,8 +189,8 @@ class AB_Shortcodes {
 		$_available_shortcodes = array();
 
 		if ( sizeof( $this->shortcodes ) > 0 ) {
-			foreach ( $this->shortcodes as $shortcode ) {
-				$_available_shortcodes[ $shortcode->shortcode['name'] ] = $shortcode->prepare_editor_element( $content, $args );
+			foreach ( $this->shortcodes as $load_shortcodes ) {
+				$_available_shortcodes[ $load_shortcodes->shortcode['name'] ] = $load_shortcodes->prepare_editor_element( $content, $args );
 			}
 		}
 

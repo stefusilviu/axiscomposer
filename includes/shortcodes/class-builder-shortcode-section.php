@@ -93,15 +93,15 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				'type'     => 'select',
 				'required' => array( 'src', 'not', '' ),
 				'subtype'  => array(
-					__( 'Top Left', 'axisbuilder' )       =>'top left',
-					__( 'Top Center', 'axisbuilder' )     =>'top center',
-					__( 'Top Right', 'axisbuilder' )      =>'top right',
-					__( 'Bottom Left', 'axisbuilder' )    =>'bottom left',
-					__( 'Bottom Center', 'axisbuilder' )  =>'bottom center',
-					__( 'Bottom Right', 'axisbuilder' )   =>'bottom right',
-					__( 'Center Left', 'axisbuilder' )    =>'center left',
-					__( 'Center Center', 'axisbuilder' )  =>'center center',
-					__( 'Center Right', 'axisbuilder' )   =>'center right'
+					__( 'Top Left', 'axisbuilder' )       => 'top left',
+					__( 'Top Center', 'axisbuilder' )     => 'top center',
+					__( 'Top Right', 'axisbuilder' )      => 'top right',
+					__( 'Bottom Left', 'axisbuilder' )    => 'bottom left',
+					__( 'Bottom Center', 'axisbuilder' )  => 'bottom center',
+					__( 'Bottom Right', 'axisbuilder' )   => 'bottom right',
+					__( 'Center Left', 'axisbuilder' )    => 'center left',
+					__( 'Center Center', 'axisbuilder' )  => 'center center',
+					__( 'Center Right', 'axisbuilder' )   => 'center right'
 				)
 			),
 			array(

@@ -250,9 +250,8 @@ function do_shortcode_tag_builder( $m ) {
 	}
 
 	if ( in_array( $values['tag'], axisbuilder_get_shortcode_data( 'name' ) ) ) {
-		// @todo: Needs Refactor for the reason of AJAX Response. Took 3 days to figure out this issue ;)
 		$_available_shortcodes = AB()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
-		return $_available_shortcodes[$values['tag']];
+		return $_available_shortcodes[ $values['tag'] ];
 	} else {
 		return $m[0];
 	}

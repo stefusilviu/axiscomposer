@@ -15,11 +15,14 @@ sftp-config.json
 # Sass
 .sass-cache/
 
-# ApiGen
-/api/
-
 # OS X metadata
 .DS_Store
 
 # Windows junk
 Thumbs.db
+
+# ApiGen
+/api/
+
+# Unit tests
+/tmp

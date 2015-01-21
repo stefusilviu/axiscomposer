@@ -1,7 +1,5 @@
 <?php
 /**
- * AxisBuilder Notices
- *
  * Display notices in admin.
  *
  * @class       AB_Admin_Notices
@@ -25,7 +23,7 @@ class AB_Admin_Notices {
 	 * @var array
 	 */
 	private $notices = array(
-		'theme_support'       => 'theme_check_notice',
+		'theme_support' => 'theme_check_notice',
 	);
 
 	/**

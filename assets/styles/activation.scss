@@ -31,6 +31,15 @@ p.axisbuilder-actions,
 		text-decoration:none !important;
 	}
 
+	a.skip,
+	a.docs {
+		opacity: 0.5;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+
 	.twitter-share-button {
 		margin-left: 3px;
 		margin-top: -3px;

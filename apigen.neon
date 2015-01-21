@@ -5,28 +5,23 @@ destination: api
 exclude:
 	- tmp/**
 	- i18n/**
+	- tests/**
 	- dummy/**
 	- config/**
 	- apigen/**
+	- .sass-cache/**
 	- node_modules/**
 	
+charset:
+	- UTF-8
+	
+main: AB
 title: Axis Builder
+baseUrl: http://docs.axisthemes.com/apidocs/axis-builder/
 templateTheme: bootstrap
-autocomplete:
-	- classes
-	- constants
-	- functions
-	- methods
-	- properties
-	- classconstants
-	
-accessLevels:
-	- public
-	- protected
-	- private
-	
 internal: true
-php: true
+php: false
+sourceCode: true
 tree: true
 deprecated: false
 todo: false

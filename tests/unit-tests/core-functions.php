@@ -13,7 +13,7 @@ class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
 	 */
 	public function test_builder_core_supported_themes() {
 
-		$expected_themes = array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentyeleven', 'twentytwelve', 'twentyten' );
+		$expected_themes = array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 
 		$this->assertEquals( $expected_themes, get_builder_core_supported_themes() );
 	}

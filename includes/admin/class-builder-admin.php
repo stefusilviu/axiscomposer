@@ -37,12 +37,12 @@ class AB_Admin {
 
 		// Classes we only need during non-ajax requests
 		if ( ! defined( 'DOING_AJAX' ) ) {
-			include( 'class-builder-admin-assets.php' );
-			include( 'class-builder-admin-notices.php' );
+			include_once( 'class-builder-admin-assets.php' );
+			include_once( 'class-builder-admin-notices.php' );
 
 			// Help
 			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {
-				include( 'class-builder-admin-help.php' );
+				include_once( 'class-builder-admin-help.php' );
 			}
 		}
 	}

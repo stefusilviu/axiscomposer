@@ -23,11 +23,20 @@ if ( ! class_exists( 'AB_Admin_Notices' ) ) :
 class AB_Admin_Notices {
 
 	/**
-	 * Hook in tabs.
+	 * Array of notices - name => callback
+	 * @var array
+	 */
+	private $notices = array(
+		'theme_support'       => 'theme_check_notice',
+	);
+
+	/**
+	 * Constructor
 	 */
 	public function __construct() {
 		add_action( 'switch_theme', array( $this, 'reset_admin_notices' ) );
 		add_action( 'axisbuilder_updated', array( $this, 'reset_admin_notices' ) );
+		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
 		add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
 	}
 
@@ -35,47 +44,70 @@ class AB_Admin_Notices {
 	 * Reset notices for themes when switched or a new version of AB is installed.
 	 */
 	public function reset_admin_notices() {
-		update_option( 'axisbuilder_admin_notices', array( 'theme_support' ) );
+		$show_notices = array();
+
+		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), get_builder_core_supported_themes() ) ) {
+			$show_notices[] = 'theme_support';
+		}
+
+		update_option( 'axisbuilder_admin_notices', $show_notices );
+	}
+
+	/**
+	 * Show a notice
+	 * @param string $name
+	 */
+	public static function add_notice( $name ) {
+		$notices = array_unique( array_merge( get_option( 'axisbuilder_admin_notices', array() ), array( $name ) ) );
+		update_option( 'axisbuilder_admin_notices', $notices );
+	}
+
+	/**
+	 * Remove a notice from being displayed
+	 * @param string $name
+	 */
+	public static function remove_notice( $name ) {
+		$notices = array_diff( get_option( 'axisbuilder_admin_notices', array() ), array( $name ) );
+		update_option( 'axisbuilder_admin_notices', $notices );
+	}
+
+	/**
+	 * See if a notice is being shown
+	 * @param  string  $name
+	 * @return boolean
+	 */
+	public static function has_notice( $name ) {
+		return in_array( $name, get_option( 'axisbuilder_admin_notices', array() ) );
+	}
+
+	/**
+	 * Hide a notice if the GET variable is set.
+	 */
+	public function hide_notices() {
+		if ( isset( $_GET['axisbuilder-hide-notice'] ) ) {
+			$hide_notice = sanitize_text_field( $_GET['axisbuilder-hide-notice'] );
+			self::remove_notice( $hide_notice );
+			do_action( 'axisbuilder_hide_' . $hide_notice . '_notice' );
+		}
 	}
 
 	/**
 	 * Add notices + styles if needed.
 	 */
 	public function add_notices() {
-
 		$notices = get_option( 'axisbuilder_admin_notices', array() );
 
-		if ( ! empty( $_GET['dismiss_theme_support_notice'] ) ) {
-			$notices = array_diff( $notices, array( 'theme_support' ) );
-			update_option( 'axisbuilder_admin_notices', $notices );
-		}
-
-		if ( in_array( 'theme_support', $notices ) && ! current_theme_supports( 'axisbuilder' ) ) {
-			$template = get_option( 'template' );
-
-			if ( ! in_array( $template, get_builder_core_supported_themes() ) ) {
-				wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/styles/activation.css', array(), AB_VERSION );
-				add_action( 'admin_notices', array( $this, 'theme_support_notice' ) );
-			}
+		foreach ( $notices as $notice ) {
+			wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/styles/activation.css', array(), AB_VERSION );
+			add_action( 'admin_notices', array( $this, $this->notices[ $notice ] ) );
 		}
 	}
 
 	/**
-	 * Show the Theme Support notice.
+	 * Show the Theme Check notice
 	 */
-	public function theme_support_notice() {
+	public function theme_check_notice() {
 		include( 'views/html-notice-theme-support.php' );
-	}
-
-	/**
-	 * Show the Translation Upgrade notice.
-	 */
-	public function translation_upgrade_notice() {
-		$screen = get_current_screen();
-
-		if ( 'update-core' !== $screen->id ) {
-			include( 'views/html-notice-translation-upgrade.php' );
-		}
 	}
 }
 

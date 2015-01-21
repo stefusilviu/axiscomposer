@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AB_Admin_Notices' ) ) :
-
 /**
  * AB_Admin_Notices Class
  */
@@ -111,6 +109,4 @@ class AB_Admin_Notices {
 	}
 }
 
-endif;
-
-return new AB_Admin_Notices();
+new AB_Admin_Notices();

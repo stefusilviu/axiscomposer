@@ -47,4 +47,13 @@ class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
 		$this->assertEquals( $this->ab->version, AB_VERSION );
 		$this->assertNotEquals( AB_CONFIG_DIR, '' );
 	}
+
+	/**
+	 * Test class instance
+	 *
+	 * @since 1.0
+	 */
+	public function test_ab_class_instances() {
+		$this->ab->init();
+	}
 }

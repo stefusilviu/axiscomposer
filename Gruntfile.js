@@ -206,10 +206,31 @@ module.exports = function( grunt ){
 				],
 				expand: true
 			}
+		},
+
+		// Exec shell commands.
+		shell: {
+			options: {
+				stdout: true,
+				stderr: true
+			},
+			apigen: {
+				command: [
+					'apigen generate'
+				].join( '&&' )
+			}
+		},
+
+		// Clean the directory.
+		clean: {
+			apigen: {
+				src: [ 'apidocs' ]
+			}
 		}
 	});
 
 	// Load NPM tasks to be used here
+	grunt.loadNpmTasks( 'grunt-shell' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
@@ -217,6 +238,7 @@ module.exports = function( grunt ){
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 
 	// Register tasks
 	grunt.registerTask( 'default', [
@@ -227,6 +249,11 @@ module.exports = function( grunt ){
 	grunt.registerTask( 'css', [
 		'sass',
 		'cssmin'
+	]);
+
+	grunt.registerTask( 'docs', [
+		'clean:apigen',
+		'shell:apigen'
 	]);
 
 	grunt.registerTask( 'dev', [

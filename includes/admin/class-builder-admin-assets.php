@@ -59,6 +59,10 @@ class AB_Admin_Assets {
 		if ( in_array( $screen->id, array( 'widgets' ) ) ) {
 			wp_enqueue_style( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/styles/sidebars.css', array(), AB_VERSION );
 		}
+
+		if ( in_array( $screen->id, array( 'settings_page_axisbuilder-iconfonts' ) ) ) {
+			wp_enqueue_style( 'axisbuilder-admin-iconfonts', AB()->plugin_url() . '/assets/styles/iconfonts.css', array(), AB_VERSION );
+		}
 	}
 
 	/**
@@ -164,6 +168,19 @@ class AB_Admin_Assets {
 			);
 
 			wp_localize_script( 'axisbuilder-admin-sidebars', 'axisbuilder_admin_sidebars', $params );
+		}
+
+		// Icon-Fonts Specific
+		if ( in_array( $screen->id, array( 'settings_page_axisbuilder-iconfonts' ) ) ) {
+			wp_enqueue_media();
+			wp_enqueue_script( 'media-upload' );
+			wp_enqueue_script( 'axisbuilder-admin-iconfonts', AB()->plugin_url() . '/assets/scripts/admin/iconfonts' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
+
+			$params = array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+			);
+
+			wp_localize_script( 'axisbuilder-admin-iconfonts', 'axisbuilder_admin_iconfonts', $params );
 		}
 	}
 }

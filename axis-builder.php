@@ -160,6 +160,7 @@ final class AxisBuilder {
 
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
 		include_once( 'includes/class-builder-sidebars.php' );                 // Sidebar Builder
+		include_once( 'includes/class-builder-iconfonts.php' );                // Iconfonts Manager
 	}
 
 	/**
@@ -173,7 +174,7 @@ final class AxisBuilder {
 	 * Include required frontend files.
 	 */
 	public function frontend_includes() {
-		include_once( 'includes/class-builder-frontend-scripts.php' );               // Frontend Scripts
+		include_once( 'includes/class-builder-frontend-scripts.php' );         // Frontend Scripts
 	}
 
 	/**

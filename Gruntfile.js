@@ -150,9 +150,9 @@ module.exports = function( grunt ){
 				options: {
 					potFilename: 'axisbuilder.pot',
 					exclude: [
-						'api/.*',
 						'tmp/.*',
 						'tests/.*',
+						'apigen/.*',
 						'includes/admin/.*'
 					],
 					processPot: function ( pot ) {
@@ -199,9 +199,9 @@ module.exports = function( grunt ){
 			files: {
 				src: [
 					'**/*.php',
-					'!api/**',
 					'!tmp/**',
 					'!tests/**',
+					'!apigen/**',
 					'!node_modules/**'
 				],
 				expand: true

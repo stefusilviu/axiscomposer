@@ -8,10 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="wrap">
+<div id="axisbuilder-iconfonts" class="wrap">
 	<h2>
 		<?php _e( 'Icon Fonts Manager', 'amity' ); ?>
-		<a href="#smile_upload_icon" class="add-new-h2 smile_upload_icon" data-target="iconfont_upload" data-title="Upload/Select Fontello Font Zip" data-type="application/octet-stream, application/zip" data-button="Insert Fonts Zip File" data-trigger="smile_insert_zip" data-class="media-frame ">
+		<a href="#add-iconfont" class="add-new-h2 add-iconfont" data-target="iconfont_upload" data-title="Upload/Select Fontello Font Zip" data-type="application/octet-stream, application/zip" data-button="Insert Fonts Zip File" data-trigger="smile_insert_zip" data-class="media-frame ">
 		<?php _e( 'Upload New Icons', 'amity' ); ?>
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>

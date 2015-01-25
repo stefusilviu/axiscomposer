@@ -6,6 +6,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
  * AxisBuilder Backbone Iconfonts JS
  */
 ( function ( $, Backbone, _ ) {
+	'use strict';
 
 	// Views
 	AB_Icon_Fonts.AppView = Backbone.View.extend({

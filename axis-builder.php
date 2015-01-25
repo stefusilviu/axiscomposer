@@ -123,7 +123,7 @@ final class AxisBuilder {
 			case 'ajax' :
 				return defined( 'DOING_AJAX' );
 			case 'frontend' :
-				return ! is_admin() || defined( 'DOING_AJAX' );
+				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 		}
 	}
 

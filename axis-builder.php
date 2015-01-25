@@ -114,7 +114,7 @@ final class AxisBuilder {
 	/**
 	 * What type of request is this?
 	 * @param  string $type ajax, frontend or admin
-	 * @return string
+	 * @return bool
 	 */
 	private function is_request( $type ) {
 		switch ( $type ) {

@@ -22,9 +22,23 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			console.log( 'Pagebuilder render goes here!' );
 		},
 		addButton: function ( e ) {
+			var clicked = $( '.add-iconfont' );
+
 			e.preventDefault();
 
-			console.log( 'add-iconfont triggered' );
+			var axisbuilder_file_frame = wp.media.frames.axisbuilder_file_frame = wp.media({
+				title: clicked.data( 'title' ),
+				library: {
+					type: clicked.data( 'type' )
+				},
+				button: {
+					text: clicked.data( 'button' )
+				},
+				multiple: false
+			});
+
+			// Open the Media Frame
+			axisbuilder_file_frame.open();
 		}
 	});
 

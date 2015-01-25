@@ -26,6 +26,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 			e.preventDefault();
 
+			// Create the media frame.
 			var axisbuilder_file_frame = wp.media.frames.axisbuilder_file_frame = wp.media({
 				title: clicked.data( 'title' ),
 				library: {
@@ -37,7 +38,16 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 				multiple: false
 			});
 
-			// Open the Media Frame
+			// When an ZIP file is selected, run a callback.
+			axisbuilder_file_frame.on( 'select', function() {
+				var attachment = axisbuilder_file_frame.state().get( 'selection' ).first().toJSON();
+
+				// Do something with attachment.id and/or attachment.url here
+				console.log( attachment.id );
+				console.log( attachment.url );
+			});
+
+			// Finally, open the modal
 			axisbuilder_file_frame.open();
 		}
 	});

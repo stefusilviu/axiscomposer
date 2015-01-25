@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="axisbuilder-iconfonts" class="wrap">
 	<h2>
 		<?php _e( 'Icon Fonts Manager', 'amity' ); ?>
-		<a href="#add-iconfont" class="add-new-h2 add-iconfont" data-title="<?php _e( 'Insert Font', 'axisbuilder' ) ?>" data-button="<?php _e( 'Insert Fonts Zip File', 'axisbuilder' ) ?>" data-type="application/octet-stream, application/zip" data-target="iconfont_upload" data-trigger="smile_insert_zip">
+		<a href="#add-iconfont" class="add-new-h2 add-iconfont" data-title="<?php _e( 'Choose a Font ZIP File', 'axisbuilder' ) ?>" data-button="<?php _e( 'Insert Font Zip File', 'axisbuilder' ) ?>" data-type="application/octet-stream, application/zip" data-target="iconfont_upload" data-trigger="smile_insert_zip">
 		<?php _e( 'Add New', 'amity' ); ?>
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>

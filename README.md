@@ -1,4 +1,4 @@
-# [Axis Builder](http://axisthemes.com/axis-builder/)[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# [Axis Builder](http://axisthemes.com/axis-builder/) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 [![Build Status](https://img.shields.io/travis/axisthemes/axis-builder/master.svg?style=flat-square)](https://travis-ci.org/axisthemes/axis-builder)
 [![Quality Score](https://img.shields.io/scrutinizer/g/axisthemes/axis-builder.svg?style=flat-square)](https://scrutinizer-ci.com/g/axisthemes/axis-builder)

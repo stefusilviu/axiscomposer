@@ -61,6 +61,8 @@ class AB_Icon_Fonts {
 	 * AJAX Add Zipped Icon Fonts.
 	 */
 	public function add_zipped_font() {
+		check_ajax_referer( 'add-custom-iconfont', 'security' );
+
 		$this->is_capable();
 
 		// Get the file Path if the Zip file
@@ -74,6 +76,8 @@ class AB_Icon_Fonts {
 	 * AJAX Add Zipped Icon Fonts.
 	 */
 	public function remove_zipped_font() {
+		check_ajax_referer( 'delete-custom-iconfont', 'security' );
+
 		$this->is_capable();
 	}
 }

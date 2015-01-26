@@ -177,7 +177,9 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-iconfonts', AB()->plugin_url() . '/assets/scripts/admin/iconfonts' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 
 			$params = array(
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'ajax_url'                     => admin_url( 'admin-ajax.php' ),
+				'add_custom_iconfont_nonce'    => wp_create_nonce( 'add-custom-iconfont' ),
+				'delete_custom_iconfont_nonce' => wp_create_nonce( 'delete-custom-iconfont' ),
 			);
 
 			wp_localize_script( 'axisbuilder-admin-iconfonts', 'axisbuilder_admin_iconfonts', $params );

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="axisbuilder-iconfonts" class="wrap">
 	<h2>
 		<?php _e( 'Icon Fonts Manager', 'amity' ); ?>
-		<a href="#add-iconfont" class="add-new-h2 add-iconfont" data-title="<?php _e( 'Choose a Font ZIP File', 'axisbuilder' ) ?>" data-button="<?php _e( 'Insert Font Zip File', 'axisbuilder' ) ?>" data-type="application/zip, application/octet-stream" data-target="iconfont_upload" data-trigger="smile_insert_zip">
+		<a href="#add-iconfont" class="add-new-h2 add-iconfont" data-title="<?php _e( 'Choose a Font ZIP File', 'axisbuilder' ) ?>" data-button="<?php _e( 'Insert Font Zip File', 'axisbuilder' ) ?>" data-type="application/zip, application/octet-stream" data-target="iconfont_upload" data-trigger="insert_iconfont_zip">
 		<?php _e( 'Add New', 'amity' ); ?>
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>
@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="metabox-holder meta-search">
 		<div class="postbox">
 			<h3>
-				<?php wp_create_nonce ( 'axis-iconfonts' ); ?>
 				<input class="search-icon" type="search" placeholder="Search" />
 				<span class="search-count"></span>
 			</h3>

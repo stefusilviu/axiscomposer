@@ -53,7 +53,6 @@ class AB_Icon_Fonts {
 	 * View Icon-Fonts page
 	 */
 	public function iconfonts_page() {
-		$iconfonts = get_option( 'axisbuilder_iconfonts' );
 		include_once( 'admin/views/html-admin-page-icon-fonts.php' );
 	}
 

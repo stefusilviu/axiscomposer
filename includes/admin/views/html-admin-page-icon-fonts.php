@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>
 	<div id="msg"></div>
-	<?php if ( is_array( $iconfonts ) ) : ?>
+	<?php if ( (array) get_option( 'axisbuilder_iconfonts' ) ) : ?>
 	<div class="metabox-holder meta-search">
 		<div class="postbox">
 			<h3>

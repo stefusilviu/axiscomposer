@@ -30,15 +30,6 @@ class AB_Icon_Fonts {
 	}
 
 	/**
-	 * Check for capability.
-	 */
-	public function is_capable() {
-		if ( ! current_user_can( 'update_plugins' ) ) {
-			exit( __( 'Using this feature is reserved for Super Admins. You unfortunately don\'t have the necessary permissions.', 'axisbuilder' ) );
-		}
-	}
-
-	/**
 	 * Add menu item
 	 */
 	public function iconfonts_menu() {

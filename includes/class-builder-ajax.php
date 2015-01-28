@@ -43,17 +43,21 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Add Zipped Icon Fonts.
+	 * AJAX Add Icon Font.
 	 */
-	public function add_iconfont() {
+	public static function add_iconfont() {
+
 		check_ajax_referer( 'add-custom-iconfont', 'security' );
+
 	}
 
 	/**
-	 * AJAX Add Zipped Icon Fonts.
+	 * AJAX Delete Icon Fonts.
 	 */
-	public function delete_iconfont() {
+	public static function delete_iconfont() {
+
 		check_ajax_referer( 'delete-custom-iconfont', 'security' );
+
 	}
 
 	/**

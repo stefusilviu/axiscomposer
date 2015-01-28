@@ -27,6 +27,8 @@ class AB_AJAX {
 
 		// axisbuilder_EVENT => nopriv
 		$ajax_events = array(
+			'add_iconfont'            => false,
+			'delete_iconfont'         => false,
 			'delete_custom_sidebar'   => false,
 			'shortcodes_to_interface' => false,
 		);
@@ -38,6 +40,21 @@ class AB_AJAX {
 				add_action( 'wp_ajax_nopriv_axisbuilder_' . $ajax_event, array( __CLASS__, $ajax_event ) );
 			}
 		}
+	}
+
+	/**
+	 * AJAX Add Zipped Icon Fonts.
+	 */
+	public function add_iconfont() {
+		check_ajax_referer( 'add-custom-iconfont', 'security' );
+		exit( 'axisbuilder_iconfont_added' );
+	}
+
+	/**
+	 * AJAX Add Zipped Icon Fonts.
+	 */
+	public function delete_iconfont() {
+		check_ajax_referer( 'delete-custom-iconfont', 'security' );
 	}
 
 	/**

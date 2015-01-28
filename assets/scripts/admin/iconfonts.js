@@ -79,7 +79,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 		var	data = {
 			value: attachment,
-			action: 'axisbuilder_add_zipped_font',
+			action: 'axisbuilder_add_iconfont',
 			security: axisbuilder_admin_iconfonts.add_custom_iconfont_nonce
 		};
 

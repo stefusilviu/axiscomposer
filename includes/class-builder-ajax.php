@@ -47,7 +47,6 @@ class AB_AJAX {
 	 */
 	public function add_iconfont() {
 		check_ajax_referer( 'add-custom-iconfont', 'security' );
-		exit( 'axisbuilder_iconfont_added' );
 	}
 
 	/**

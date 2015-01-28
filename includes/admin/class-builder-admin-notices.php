@@ -31,7 +31,7 @@ class AB_Admin_Notices {
 	 */
 	public function __construct() {
 		add_action( 'switch_theme', array( $this, 'reset_admin_notices' ) );
-		add_action( 'axisbuilder_updated', array( $this, 'reset_admin_notices' ) );
+		add_action( 'axisbuilder_installed', array( $this, 'reset_admin_notices' ) );
 		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
 		add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
 	}

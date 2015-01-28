@@ -2,7 +2,7 @@
 /**
  * AxisBuilder Shortcodes class
  *
- * Loads shortcodes via hooks for use in the theme.
+ * Handles shortcode and loads shortcode methods via hooks.
  *
  * @class       AB_Shortcodes
  * @package     AxisBuilder/Classes/Shortcode

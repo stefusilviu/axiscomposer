@@ -18,7 +18,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 if ( ! class_exists( 'AxisBuilder' ) ) :
@@ -91,13 +91,31 @@ final class AxisBuilder {
 	public function __construct() {
 		$this->define_constants();
 		$this->includes();
+		$this->init_hooks();
 
-		// Hooks
+		do_action( 'axisbuilder_loaded' );
+	}
+
+	/**
+	 * Hook into actions and filters
+	 */
+	private function init_hooks() {
+		register_activation_hook( __FILE__, array( 'AB_Install', 'install' ) );
 		add_filter( 'widget_text', 'do_shortcode' );
 		add_action( 'init', array( $this, 'init' ), 0 );
+	}
 
-		// Loaded action
-		do_action( 'axisbuilder_loaded' );
+	/**
+	 * Define AB Constants.
+	 */
+	private function define_constants() {
+		$upload_dir = wp_upload_dir();
+
+		$this->define( 'AB_PLUGIN_FILE', __FILE__ );
+		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+		$this->define( 'AB_VERSION', $this->version );
+		$this->define( 'AB_CONFIG_DIR', $this->plugin_path() . '/config/' );
+		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
 	}
 
 	/**
@@ -130,22 +148,9 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Define AB Constants.
-	 */
-	private function define_constants() {
-		$upload_dir = wp_upload_dir();
-
-		$this->define( 'AB_PLUGIN_FILE', __FILE__ );
-		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-		$this->define( 'AB_VERSION', $this->version );
-		$this->define( 'AB_CONFIG_DIR', $this->plugin_path() . '/config/' );
-		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
-	}
-
-	/**
 	 * Includes the required core files used in admin and on the frontend.
 	 */
-	private function includes() {
+	public function includes() {
 		include_once( 'includes/builder-core-functions.php' );
 		include_once( 'includes/builder-widget-functions.php' );
 		include_once( 'includes/class-builder-autoloader.php' );

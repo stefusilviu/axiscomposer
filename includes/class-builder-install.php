@@ -1,7 +1,5 @@
 <?php
 /**
- * AxisBuilder Install
- *
  * Installation related functions and actions.
  *
  * @class       AB_Install
@@ -24,8 +22,6 @@ class AB_Install {
 	 * Hook in tabs.
 	 */
 	public static function init() {
-		register_activation_hook( AB_PLUGIN_FILE, array( __CLASS__, 'install' ) );
-
 		add_action( 'admin_init', array( __CLASS__, 'check_version' ), 5 );
 		add_action( 'in_plugin_update_message-axis-builder/axis-builder.php', array( __CLASS__, 'in_plugin_update_message' ) );
 		add_filter( 'plugin_action_links_' . AB_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
@@ -50,6 +46,9 @@ class AB_Install {
 			define( 'AB_INSTALLING', true );
 		}
 
+		// Ensure needed classes are loaded
+		AB()->includes();
+
 		self::create_files();
 
 		// Update version
@@ -57,6 +56,9 @@ class AB_Install {
 
 		// Flush rules after install
 		flush_rewrite_rules();
+
+		// Trigger action
+		do_action( 'axisbuilder_installed' );
 	}
 
 	/**

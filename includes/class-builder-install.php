@@ -46,6 +46,10 @@ class AB_Install {
 	 * Install AB
 	 */
 	public static function install() {
+		if ( ! defined( 'AB_INSTALLING' ) ) {
+			define( 'AB_INSTALLING', true );
+		}
+
 		self::create_files();
 
 		// Update version

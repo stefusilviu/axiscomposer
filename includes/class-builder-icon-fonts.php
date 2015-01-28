@@ -79,6 +79,13 @@ class AB_Icon_Fonts {
 
 		$this->is_capable();
 	}
+
+	/**
+	 * Generate Icon Font Sets Preview
+	 */
+	public static function get_iconfont_sets() {
+
+	}
 }
 
 new AB_Icon_Fonts();

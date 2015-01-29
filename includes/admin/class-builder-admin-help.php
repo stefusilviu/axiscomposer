@@ -55,7 +55,7 @@ class AB_Admin_Help {
 
 				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', 'axisbuilder' ) . '</p>' .
 
-				'<p><a href="' . admin_url( 'admin.php?page=axisbuilder-status' ) . '" class="button button-primary">' . __( 'System Status', 'axisbuilder' ) . '</a> <a href="' . 'http://wordpress.org/support/plugin/axis-builder' . '" class="button">' . __( 'Community Support', 'axisbuilder' ) . '</a> <a href="' . 'http://support.woothemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axisbuilder' ) . '</a></p>'
+				'<p><a href="' . admin_url( 'admin.php?page=axisbuilder-status' ) . '" class="button button-primary">' . __( 'System Status', 'axisbuilder' ) . '</a> <a href="' . 'http://wordpress.org/support/plugin/axis-builder' . '" class="button">' . __( 'Community Support', 'axisbuilder' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axisbuilder' ) . '</a></p>'
 
 		) );
 

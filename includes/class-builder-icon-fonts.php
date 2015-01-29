@@ -20,12 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Icon_Fonts {
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-
-	}
 }
 
 new AB_Icon_Fonts();

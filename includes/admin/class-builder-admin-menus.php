@@ -158,7 +158,7 @@ class AB_Admin_Menu {
 	 * Init the settings page
 	 */
 	public function settings_page() {
-		// AB_Admin_Settings::output();
+		AB_Admin_Settings::output();
 	}
 
 	/**

@@ -256,7 +256,7 @@ function AB_Logger( text, type ) {
 				}
 
 				// Debug Logger
-				if ( this.axisBuilderDebug !== 'disabled' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
+				if ( this.axisBuilderDebug === 'yes' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
 					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
 					if ( this.tinyMceContent ) {
 						this.tinyMceContent.setContent( '', { format: 'html' } );
@@ -510,7 +510,7 @@ function AB_Logger( text, type ) {
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
 
 			// Debug Logger
-			if ( this.axisBuilderDebug !== 'disabled' ) {
+			if ( this.axisBuilderDebug === 'yes' ) {
 				new AB_Logger( values, false );
 			}
 

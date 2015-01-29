@@ -1,11 +1,11 @@
 <?php
 /**
- * AxisFramework Admin Functions
+ * AxisBuilder Admin Functions
  *
- * @package		AxisFramework/Admin/Functions
- * @category	Core
- * @author		AxisThemes
- * @since		Version 1.0.0
+ * @package     AxisBuilder/Admin/Functions
+ * @category    Core
+ * @author      AxisThemes
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -53,7 +53,7 @@ class AB_Admin_Help {
 			'title'     => __( 'Support', 'axisbuilder' ),
 			'content'   =>
 
-				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use our %scommunity forum%s if you get stuck. For help with premium add-ons from AxisThemes, or if you are a AxisThemes customer, you can %suse our helpdesk%s.', 'axisbuilder' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axis-builder/">', '</a>', '<a href="http://wordpress.org/support/plugin/axis-builder">', '</a>', '<a href="http://support.woothemes.com">', '</a>' ) . '</p>' .
+				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use our %scommunity forum%s if you get stuck. For help with premium add-ons from AxisThemes, or if you are a AxisThemes customer, you can %suse our helpdesk%s.', 'axisbuilder' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axis-builder/">', '</a>', '<a href="http://wordpress.org/support/plugin/axis-builder">', '</a>', '<a href="http://support.axisthemes.com">', '</a>' ) . '</p>' .
 
 				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', 'axisbuilder' ) . '</p>' .
 

@@ -32,9 +32,8 @@ class AB_Admin_Menu {
 			add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
 		}
 
-		// add_action( 'admin_head', array( $this, 'menu_highlight' ) );
-		// add_action( 'admin_head', array( $this, 'menu_order_count' ) );
-		// add_filter( 'menu_order', array( $this, 'menu_order' ) );
+		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
+		add_filter( 'menu_order', array( $this, 'menu_order' ) );
 		add_filter( 'custom_menu_order', array( $this, 'custom_menu_order' ) );
 	}
 
@@ -42,21 +41,27 @@ class AB_Admin_Menu {
 	 * Add menu items
 	 */
 	public function admin_menu() {
-		add_menu_page( __( 'Axis Builder', 'axisbuilder' ), __( 'Axis Builder', 'axisbuilder' ), 'update_plugins', 'axisbuilder', null, null, '59.5' );
+		global $menu;
+
+		if ( current_user_can( 'update_plugins' ) ) {
+			$menu[] = array( '', 'read', 'separator-axisbuilder', '', 'wp-menu-separator axisbuilder' );
+		}
+
+		add_menu_page( __( 'Axis Builder', 'axisbuilder' ), __( 'Axis Builder', 'axisbuilder' ), 'update_plugins', 'axisbuilder', null, null, '56.5' );
 	}
 
 	/**
 	 * Add menu item
 	 */
 	public function iconfonts_menu() {
-		add_submenu_page( 'axisbuilder', __( 'Icon Fonts', 'axisbuilder' ),  __( 'Icon Fonts', 'axisbuilder' ) , 'edit_theme_options', 'axisbuilder-iconfonts', array( $this, 'iconfonts_page' ) );
+		add_submenu_page( 'axisbuilder', __( 'Icon Fonts', 'axisbuilder' ),  __( 'Icon Fonts', 'axisbuilder' ) , 'update_plugins', 'axisbuilder-iconfonts', array( $this, 'iconfonts_page' ) );
 	}
 
 	/**
 	 * Add menu item
 	 */
 	public function settings_menu() {
-		$settings_page = add_submenu_page( 'axisbuilder', __( 'AxisBuilder Settings', 'axisbuilder' ),  __( 'Settings', 'axisbuilder' ) , 'edit_theme_options', 'axisbuilder-settings', array( $this, 'settings_page' ) );
+		$settings_page = add_submenu_page( 'axisbuilder', __( 'AxisBuilder Settings', 'axisbuilder' ),  __( 'Settings', 'axisbuilder' ) , 'update_plugins', 'axisbuilder-settings', array( $this, 'settings_page' ) );
 
 		add_action( 'load-' . $settings_page, array( $this, 'settings_page_init' ) );
 	}
@@ -72,7 +77,7 @@ class AB_Admin_Menu {
 	 * Add menu item
 	 */
 	public function status_menu() {
-		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Status', 'axisbuilder' ),  __( 'System Status', 'axisbuilder' ) , 'edit_theme_options', 'axisbuilder-status', array( $this, 'status_page' ) );
+		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Status', 'axisbuilder' ),  __( 'System Status', 'axisbuilder' ) , 'update_plugins', 'axisbuilder-status', array( $this, 'status_page' ) );
 		register_setting( 'axisbuilder_status_settings_fields', 'axisbuilder_status_options' );
 	}
 
@@ -80,7 +85,58 @@ class AB_Admin_Menu {
 	 * Addons menu item
 	 */
 	public function addons_menu() {
-		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Add-ons/Extensions', 'axisbuilder' ),  __( 'Add-ons', 'axisbuilder' ) , 'edit_theme_options', 'axisbuilder-addons', array( $this, 'addons_page' ) );
+		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Add-ons/Extensions', 'axisbuilder' ),  __( 'Add-ons', 'axisbuilder' ) , 'update_plugins', 'axisbuilder-addons', array( $this, 'addons_page' ) );
+	}
+
+	/**
+	 * Adds the order processing count to the menu
+	 */
+	public function menu_order_count() {
+		global $submenu;
+
+		if ( isset( $submenu['axisbuilder'] ) ) {
+			// Remove 'Axis Builder' sub menu item
+			unset( $submenu['axisbuilder'][0] );
+
+			// Add count if user has access
+			if ( current_user_can( 'update_plugins' ) && ( $order_count = 0 ) ) {
+				foreach ( $submenu['axisbuilder'] as $key => $menu_item ) {
+					if ( 0 === strpos( $menu_item[0], _x( 'Icon Fonts', 'Admin menu name', 'axisbuilder' ) ) ) {
+						$submenu['axisbuilder'][ $key ][0] .= ' <span class="awaiting-mod update-plugins count-' . $order_count . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>';
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Reorder the AB menu items in admin.
+	 * @param  mixed $menu_order
+	 * @return array
+	 */
+	public function menu_order( $menu_order ) {
+		// Initialize our custom order array
+		$axisbuilder_menu_order = array();
+
+		// Get the index of our custom separator
+		$axisbuilder_separator = array_search( 'separator-axisbuilder', $menu_order );
+
+		// Loop through menu order and do some rearranging
+		foreach ( $menu_order as $index => $item ) {
+
+			if ( ( ( 'axisbuilder' ) == $item ) ) {
+				$axisbuilder_menu_order[] = 'separator-axisbuilder';
+				$axisbuilder_menu_order[] = $item;
+				unset( $menu_order[ $axisbuilder_separator ] );
+			} elseif ( ! in_array( $item, array( 'separator-axisbuilder' ) ) ) {
+				$axisbuilder_menu_order[] = $item;
+			}
+
+		}
+
+		// Return order
+		return $axisbuilder_menu_order;
 	}
 
 	/**
@@ -88,7 +144,7 @@ class AB_Admin_Menu {
 	 * @return bool
 	 */
 	public function custom_menu_order() {
-		return current_user_can( 'edit_theme_options' );
+		return current_user_can( 'update_plugins' );
 	}
 
 	/**

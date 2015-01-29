@@ -43,7 +43,7 @@ class AB_Settings_General extends AB_Settings_Page {
 
 			array(
 				'title'   => __( 'Debug Mode', 'axisbuilder' ),
-				'desc'    => __( 'Enable the Builder Debug Mode', 'axisbuilder' ),
+				'desc'    => __( 'Enable the Debug Mode', 'axisbuilder' ),
 				'id'      => 'axisbuilder_debug_enabled',
 				'type'    => 'checkbox',
 				'default' => 'no',

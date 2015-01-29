@@ -1,8 +1,6 @@
 <?php
 /**
- * AxisBuilder Admin
- *
- * Central Admin Class.
+ * AxisBuilder Admin.
  *
  * @class       AB_Admin
  * @package     AxisBuilder/Admin
@@ -41,6 +39,7 @@ class AB_Admin {
 
 		// Classes we only need during non-ajax requests
 		if ( ! defined( 'DOING_AJAX' ) ) {
+			include_once( 'class-builder-admin-menus.php' );
 			include_once( 'class-builder-admin-assets.php' );
 			include_once( 'class-builder-admin-notices.php' );
 

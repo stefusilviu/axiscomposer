@@ -217,7 +217,7 @@ class AB_Meta_Box_Builder_Data {
 		}
 
 		// Class for Debug or Test-mode
-		if ( current_theme_supports( 'axisbuilder-debug' ) ) {
+		if ( ( get_option( 'axisbuilder_debug_enabled' ) === 'yes' ) ) {
 			$classes[] = 'axisbuilder-debug';
 		}
 

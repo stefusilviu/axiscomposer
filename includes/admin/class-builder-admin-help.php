@@ -1,8 +1,6 @@
 <?php
 /**
- * AxisBuilder Admin Help
- *
- * Handles the Contextual help tabs.
+ * Add some contextual help tabs.
  *
  * @class       AB_Admin_Help
  * @package     AxisBuilder/Admin
@@ -35,32 +33,53 @@ class AB_Admin_Help {
 	public function add_tabs() {
 		$screen = get_current_screen();
 
-		if ( ! in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( ! in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
 			return;
 		}
 
 		$screen->add_help_tab( array(
-			'id'		=> 'axisbuilder-help-tab',
-			'title'		=> __( 'Page Builder', 'axisbuilder' ),
-			'content'	=>
+			'id'        => 'axisbuilder_docs_tab',
+			'title'     => __( 'Documentation', 'axisbuilder' ),
+			'content'   =>
 
-				'<h4>' . __( 'General Info', 'axisbuilder' ) . '</h4>' .
-					'<ul>' .
-						'<li>' . __( 'To insert an Element either click the insert button for that element or drag the button onto the canvas.', 'axisbuilder' ) . '</li>' .
-						'<li>' . __( 'If you place your mouse above the insert button a short info tooltip will appear.', 'axisbuilder' ) . '</li>' .
-						'<li>' . __( 'To sort and arrange your elements just drag them to a position of your choice and release them.', 'axisbuilder' ) . '</li>' .
-						'<li>' . __( 'Valid drop targets will be highlighted. Elements like fullwidth sliders &amp color section can\'t be dropped onto other elements.', 'axisbuilder' ) . '</li>' .
-					'</ul>' .
-				'<h4>' . __( 'Popup Elements', 'axisbuilder' ) . '</h4>' .
-				'<ul>' .
-					'<li>' . __( 'Most elements open a popup window if you click them.', 'axisbuilder' ) . '</li>' .
-					'<li>' . __( 'Press TAB to navigate trough the various form fields of a popup window.', 'axisbuilder' ) . '</li>' .
-					'<li>' . __( 'Press ESC on your keyboard or the Close Button to close popup window.', 'axisbuilder' ) . '</li>' .
-					'<li>' . __( 'Press ENTER on your keyboard or the Save Button to save current state of a popup window.', 'axisbuilder' ) . '</li>' .
-					'<li>' . __( 'Press CTRL+Z or CTRL+SHIFT+Z on your keyboard to control History-Undo events on canvas area.', 'axisbuilder' ) . '</li>' .
-					'<li>' . __( 'Press CTRL+Y or CTRL+SHIFT+Y on your keyboard to control History-Redo events on canvas area.', 'axisbuilder' ) . '</li>' .
-				'</ul>'
+				'<p>' . __( 'Thank you for using Axis Builder :) Should you need help using or extending Axis Builder please read the documentation.', 'axisbuilder' ) . '</p>' .
+
+				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axis-builder/' . '" class="button button-primary">' . __( 'Axis Builder Documentation', 'axisbuilder' ) . '</a> <a href="' . 'http://docs.axisthemes.com/apidocs/axis-builder/' . '" class="button">' . __( 'Developer API Docs', 'axisbuilder' ) . '</a></p>'
+
 		) );
+
+		$screen->add_help_tab( array(
+			'id'        => 'axisbuilder_support_tab',
+			'title'     => __( 'Support', 'axisbuilder' ),
+			'content'   =>
+
+				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use our %scommunity forum%s if you get stuck. For help with premium add-ons from AxisThemes, or if you are a AxisThemes customer, you can %suse our helpdesk%s.', 'axisbuilder' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axis-builder/">', '</a>', '<a href="http://wordpress.org/support/plugin/axis-builder">', '</a>', '<a href="http://support.woothemes.com">', '</a>' ) . '</p>' .
+
+				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', 'axisbuilder' ) . '</p>' .
+
+				'<p><a href="' . admin_url( 'admin.php?page=axisbuilder-status' ) . '" class="button button-primary">' . __( 'System Status', 'axisbuilder' ) . '</a> <a href="' . 'http://wordpress.org/support/plugin/axis-builder' . '" class="button">' . __( 'Community Support', 'axisbuilder' ) . '</a> <a href="' . 'http://support.woothemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axisbuilder' ) . '</a></p>'
+
+		) );
+
+		$screen->add_help_tab( array(
+			'id'        => 'axisbuilder_bugs_tab',
+			'title'     => __( 'Found a bug?', 'axisbuilder' ),
+			'content'   =>
+
+				'<p>' . sprintf( __( 'If you find a bug within Axis Builder core you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. Be as descriptive as possible and please include your <a href="%s">system status report</a>.', 'axisbuilder' ), 'https://github.com/axisthemes/axis-builder/issues?state=open', 'https://github.com/axisthemes/axis-builder/blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=axisbuilder-status' ) ) . '</p>' .
+
+				'<p><a href="' . 'https://github.com/axisthemes/axis-builder/issues?state=open' . '" class="button button-primary">' . __( 'Report a bug', 'axisbuilder' ) . '</a> <a href="' . admin_url('admin.php?page=axisbuilder-status') . '" class="button">' . __( 'System Status', 'axisbuilder' ) . '</a></p>'
+
+		) );
+
+		$screen->set_help_sidebar(
+			'<p><strong>' . __( 'For more information:', 'axisbuilder' ) . '</strong></p>' .
+			'<p><a href="' . 'http://axisthemes.com/axis-builder/' . '" target="_blank">' . __( 'About Axis Builder', 'axisbuilder' ) . '</a></p>' .
+			'<p><a href="' . 'http://wordpress.org/extend/plugins/axis-builder/' . '" target="_blank">' . __( 'WordPress.org Project', 'axisbuilder' ) . '</a></p>' .
+			'<p><a href="' . 'https://github.com/axisthemes/axis-builder' . '" target="_blank">' . __( 'Github Project', 'axisbuilder' ) . '</a></p>' .
+			'<p><a href="' . 'http://axisthemes.com/product-category/themes/axis-builder/' . '" target="_blank">' . __( 'Official Themes', 'axisbuilder' ) . '</a></p>' .
+			'<p><a href="' . 'http://axisthemes.com/product-category/extensions/axisbuilder/' . '" target="_blank">' . __( 'Official Extensions', 'axisbuilder' ) . '</a></p>'
+		);
 	}
 }
 

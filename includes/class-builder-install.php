@@ -47,7 +47,6 @@ class AB_Install {
 		}
 
 		// Ensure needed classes are loaded
-		AB()->includes();
 		include_once( 'admin/class-builder-admin-notices.php' );
 
 		self::create_files();

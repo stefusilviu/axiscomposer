@@ -89,7 +89,7 @@ class AB_Admin_Menu {
 	}
 
 	/**
-	 * Adds the order processing count to the menu
+	 * Adds the iconfont processing count to the menu
 	 */
 	public function menu_order_count() {
 		global $submenu;
@@ -99,10 +99,10 @@ class AB_Admin_Menu {
 			unset( $submenu['axisbuilder'][0] );
 
 			// Add count if user has access
-			if ( current_user_can( 'update_plugins' ) && ( $order_count = 0 ) ) {
+			if ( current_user_can( 'update_plugins' ) && ( $iconfont_count = 0 ) ) {
 				foreach ( $submenu['axisbuilder'] as $key => $menu_item ) {
 					if ( 0 === strpos( $menu_item[0], _x( 'Icon Fonts', 'Admin menu name', 'axisbuilder' ) ) ) {
-						$submenu['axisbuilder'][ $key ][0] .= ' <span class="awaiting-mod update-plugins count-' . $order_count . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>';
+						$submenu['axisbuilder'][ $key ][0] .= ' <span class="awaiting-mod update-plugins count-' . $iconfont_count . '"><span class="processing-count">' . number_format_i18n( $iconfont_count ) . '</span></span>';
 						break;
 					}
 				}

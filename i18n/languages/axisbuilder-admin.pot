@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Axis Builder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axis-builder/issues\n"
-"POT-Creation-Date: 2015-01-11 14:36:13+00:00\n"
+"POT-Creation-Date: 2015-01-29 22:41:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,84 +13,88 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
 
-#: includes/admin/class-builder-admin-assets.php:90
+#. Plugin Name of the plugin/theme
+msgid "Axis Builder"
+msgstr ""
+
+#: includes/admin/class-builder-admin-assets.php:94
 msgid "An error occured"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:91
+#: includes/admin/class-builder-admin-assets.php:95
 msgid "All right!"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:92
+#: includes/admin/class-builder-admin-assets.php:96
 msgid "Attention!"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:93
+#: includes/admin/class-builder-admin-assets.php:97
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:160
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:94
+#: includes/admin/class-builder-admin-assets.php:98
 msgid "Save"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:95
+#: includes/admin/class-builder-admin-assets.php:99
 msgid "Close"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:96
+#: includes/admin/class-builder-admin-assets.php:100
 msgid "Cancel"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:97
+#: includes/admin/class-builder-admin-assets.php:101
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:132
 msgid "Delete"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:98
+#: includes/admin/class-builder-admin-assets.php:102
 msgid "Error fetching content - please reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:99
+#: includes/admin/class-builder-admin-assets.php:103
 msgid "It seems your are no longer logged in. Please reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:100
+#: includes/admin/class-builder-admin-assets.php:104
 msgid "Your session timed out. Simply reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:117
+#: includes/admin/class-builder-admin-assets.php:121
 msgid "The current number of cells does not allow any layout variations."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:118
+#: includes/admin/class-builder-admin-assets.php:122
 msgid "You need to add at least one cell."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:119
+#: includes/admin/class-builder-admin-assets.php:123
 msgid "You need to remove at least one cell."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:120
+#: includes/admin/class-builder-admin-assets.php:124
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:148
+#: includes/admin/class-builder-admin-assets.php:152
 msgid "Permanently Delete all Canvas Elements"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:149
+#: includes/admin/class-builder-admin-assets.php:153
 msgid ""
 "All content created in the Page Builder canvas area will be permanently "
 "lost. Are you sure you want to delete all canvas elements? This cannot be "
 "undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:162
+#: includes/admin/class-builder-admin-assets.php:166
 msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:163
+#: includes/admin/class-builder-admin-assets.php:167
 msgid "Last warning, are you sure?"
 msgstr ""
 
@@ -102,71 +106,144 @@ msgstr ""
 msgid "Use Default Editor"
 msgstr ""
 
-#: includes/admin/class-builder-admin-help.php:44
+#: includes/admin/class-builder-admin-help.php:40
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:43
+msgid ""
+"Thank you for using Axis Builder :) Should you need help using or extending "
+"Axis Builder please read the documentation."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:45
+msgid "Axis Builder Documentation"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:45
+msgid "Developer API Docs"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:51
+msgid "Support"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:54
+msgid ""
+"After %sreading the documentation%s, for further assistance you can use our "
+"%scommunity forum%s if you get stuck. For help with premium add-ons from "
+"AxisThemes, or if you are a AxisThemes customer, you can %suse our "
+"helpdesk%s."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:56
+msgid ""
+"Before asking for help we recommend checking the status page to identify "
+"any problems with your configuration."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:58
+#: includes/admin/class-builder-admin-help.php:69
+#: includes/admin/class-builder-admin-menus.php:80
+msgid "System Status"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:58
+msgid "Community Support"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:58
+msgid "AxisThemes Customer Support"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:64
+msgid "Found a bug?"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:67
+msgid ""
+"If you find a bug within Axis Builder core you can create a ticket via <a "
+"href=\"%s\">Github issues</a>. Ensure you read the <a "
+"href=\"%s\">contribution guide</a> prior to submitting your report. Be as "
+"descriptive as possible and please include your <a href=\"%s\">system "
+"status report</a>."
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:69
+msgid "Report a bug"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:74
+msgid "For more information:"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:75
+msgid "About Axis Builder"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:76
+msgid "WordPress.org Project"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:77
+msgid "Github Project"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:78
+#: includes/admin/views/html-notice-theme-support.php:14
+msgid "Official Themes"
+msgstr ""
+
+#: includes/admin/class-builder-admin-help.php:79
+msgid "Official Extensions"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:57
+msgid "Icon Fonts"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:64
+msgid "AxisBuilder Settings"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:64
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:80
+msgid "AxisBuilder Status"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:88
+msgid "AxisBuilder Add-ons/Extensions"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:88
+msgid "Add-ons"
+msgstr ""
+
 #: includes/admin/class-builder-admin-meta-boxes.php:103
 msgid "Page Builder"
 msgstr ""
 
-#: includes/admin/class-builder-admin-help.php:47
-msgid "General Info"
+#: includes/admin/class-builder-admin-settings.php:49
+msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
-#: includes/admin/class-builder-admin-help.php:49
+#: includes/admin/class-builder-admin-settings.php:60
+msgid "Your settings have been saved."
+msgstr ""
+
+#: includes/admin/class-builder-admin-settings.php:115
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: includes/admin/class-builder-admin.php:64
 msgid ""
-"To insert an Element either click the insert button for that element or "
-"drag the button onto the canvas."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:50
-msgid ""
-"If you place your mouse above the insert button a short info tooltip will "
-"appear."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:51
-msgid ""
-"To sort and arrange your elements just drag them to a position of your "
-"choice and release them."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:52
-msgid ""
-"Valid drop targets will be highlighted. Elements like fullwidth sliders "
-"&amp color section can't be dropped onto other elements."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:54
-msgid "Popup Elements"
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:56
-msgid "Most elements open a popup window if you click them."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:57
-msgid "Press TAB to navigate trough the various form fields of a popup window."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:58
-msgid "Press ESC on your keyboard or the Close Button to close popup window."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:59
-msgid ""
-"Press ENTER on your keyboard or the Save Button to save current state of a "
-"popup window."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:60
-msgid ""
-"Press CTRL+Z or CTRL+SHIFT+Z on your keyboard to control History-Undo "
-"events on canvas area."
-msgstr ""
-
-#: includes/admin/class-builder-admin-help.php:61
-msgid ""
-"Press CTRL+Y or CTRL+SHIFT+Y on your keyboard to control History-Redo "
-"events on canvas area."
+"Please rate <strong>AxisBuilder</strong> <a href=\"%1$s\" "
+"target=\"_blank\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a "
+"href=\"%1$s\" target=\"_blank\">WordPress.org</a> to help us keep this "
+"plugin free. A huge thank you from AxisThemes in advance!"
 msgstr ""
 
 #: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:46
@@ -210,6 +287,42 @@ msgstr ""
 msgid "Dismiss"
 msgstr ""
 
+#: includes/admin/settings/class-builder-settings-general.php:27
+msgid "General"
+msgstr ""
+
+#: includes/admin/settings/class-builder-settings-general.php:42
+msgid "General Options"
+msgstr ""
+
+#: includes/admin/settings/class-builder-settings-general.php:45
+msgid "Debug Mode"
+msgstr ""
+
+#: includes/admin/settings/class-builder-settings-general.php:46
+msgid "Enable the Debug Mode"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-icon-fonts.php:13
+msgid "Icon Fonts Manager"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-icon-fonts.php:14
+msgid "Choose a Font ZIP File"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-icon-fonts.php:14
+msgid "Insert Font Zip File"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-icon-fonts.php:15
+msgid "Add New"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-icon-fonts.php:31
+msgid "No font icons uploaded. Upload some font icons to display here."
+msgstr ""
+
 #: includes/admin/views/html-admin-page-sidebars.php:13
 msgid "Custom Widget Area Builder"
 msgstr ""
@@ -222,15 +335,15 @@ msgstr ""
 msgid "Add Widget Area"
 msgstr ""
 
+#: includes/admin/views/html-admin-settings.php:32
+msgid "Save changes"
+msgstr ""
+
 #: includes/admin/views/html-notice-theme-support.php:12
 msgid ""
 "<strong>Your theme does not declare Axis Builder support</strong> &#8211; "
 "Please read our integration guide or check out our %sofficial themes%s "
 "which are designed specifically for use with Axis Builder."
-msgstr ""
-
-#: includes/admin/views/html-notice-theme-support.php:14
-msgid "Official Themes"
 msgstr ""
 
 #: includes/admin/views/html-notice-theme-support.php:15
@@ -239,10 +352,6 @@ msgstr ""
 
 #: includes/admin/views/html-notice-theme-support.php:16
 msgid "Dismiss this notice"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "Axis Builder"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -261,4 +370,9 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://axisthemes.com"
+msgstr ""
+
+#: includes/admin/class-builder-admin-menus.php:104
+msgctxt "Admin menu name"
+msgid "Icon Fonts"
 msgstr ""

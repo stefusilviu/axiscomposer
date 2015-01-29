@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AB_Admin_Help' ) ) :
-
 /**
  * AB_Admin_Help Class
  */
@@ -82,7 +80,5 @@ class AB_Admin_Help {
 		);
 	}
 }
-
-endif;
 
 return new AB_Admin_Help();

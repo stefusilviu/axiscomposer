@@ -18,29 +18,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 include( 'builder-helper-functions.php' );
 include( 'builder-deprecated-functions.php' );
 
-if ( ! function_exists( 'get_builder_core_supported_themes' ) ) :
-
 /**
- * AxisBuilder Supported Themes
- * @return string[]
+ * AxisBuilder Core Supported Themes
+ * @return array
  */
 function get_builder_core_supported_themes() {
 	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 }
 
-endif;
+/**
+ * Get all Custom Post Types
+ * @return array
+ */
+function axisbuilder_get_screen_types() {
 
-if ( ! function_exists( 'get_builder_core_supported_screens' ) ) :
+	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
+		'post'              => __( 'Post', 'axisbuilder' ),
+		'page'              => __( 'Page', 'axisbuilder' ),
+		'portfolio'         => __( 'Portfolio', 'axisbuilder' ),
+		'axis-portfolio'    => __( 'Axis Portfolio', 'axisbuilder' ),
+		'jetpack-portfolio' => __( 'JetPack Portfolio', 'axisbuilder' )
+	));
+
+	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
+		asort( $screen_types );
+	}
+
+	return $screen_types;
+}
 
 /**
  * Get a Page Builder Supported Screens or Post types.
- * @return string[]
+ * @return array
  */
 function get_builder_core_supported_screens() {
 	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' ) );
 }
-
-endif;
 
 /**
  * Clean variables

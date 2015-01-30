@@ -475,7 +475,7 @@ class AB_Admin_Settings {
 					if ( ! empty( $value['options'] ) ) {
 						$screens = $value['options'];
 					} else {
-						$screens = get_builder_core_supported_screens();
+						$screens = axisbuilder_get_screen_types();
 					}
 
 					asort( $screens );

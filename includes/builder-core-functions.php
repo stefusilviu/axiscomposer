@@ -19,7 +19,16 @@ include( 'builder-helper-functions.php' );
 include( 'builder-deprecated-functions.php' );
 
 /**
- * Get all Custom Post Types Screen.
+ * Clean variables
+ * @param  string $var
+ * @return string
+ */
+function axisbuilder_clean( $var ) {
+	return sanitize_text_field( $var );
+}
+
+/**
+ * Get all Custom Post Types Screen
  * @return array
  */
 function axisbuilder_get_screen_types() {
@@ -43,14 +52,6 @@ function axisbuilder_get_screen_types() {
 }
 
 /**
- * Get a Page Builder Supported Screens or Post types.
- * @return array
- */
-function get_builder_core_supported_screens() {
-	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' ) );
-}
-
-/**
  * AxisBuilder Core Supported Themes
  * @return array
  */
@@ -59,10 +60,9 @@ function axisbuilder_get_core_supported_themes() {
 }
 
 /**
- * Clean variables
- * @param  string $var
- * @return string
+ * Get a Page Builder Supported Screens or Post types
+ * @return array
  */
-function axisbuilder_clean( $var ) {
-	return sanitize_text_field( $var );
+function get_builder_core_supported_screens() {
+	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' ) );
 }

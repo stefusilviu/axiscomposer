@@ -31,14 +31,13 @@ function get_builder_core_supported_themes() {
  * @return array
  */
 function axisbuilder_get_screen_types() {
+	global $wp_post_types;
+	$post_types   = get_post_types( array( 'public' => true, '_builtin' => false ), 'names' );
+	$screen_types = apply_filters( 'axisbuilder_screens_types', array( 'post' => __( 'Post', 'axisbuilder' ), 'page' => __( 'Page', 'axisbuilder' ) ) );
 
-	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
-		'post'              => __( 'Post', 'axisbuilder' ),
-		'page'              => __( 'Page', 'axisbuilder' ),
-		'portfolio'         => __( 'Portfolio', 'axisbuilder' ),
-		'axis-portfolio'    => __( 'Axis Portfolio', 'axisbuilder' ),
-		'jetpack-portfolio' => __( 'JetPack Portfolio', 'axisbuilder' )
-	));
+	foreach ( $post_types as $post_type ) {
+		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->name;
+	}
 
 	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
 		asort( $screen_types );

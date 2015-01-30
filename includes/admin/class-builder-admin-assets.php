@@ -41,12 +41,22 @@ class AB_Admin_Assets {
 		// Sitewide menu CSS
 		wp_enqueue_style( 'axisbuilder-menu', AB()->plugin_url() . '/assets/styles/menu.css', array(), AB_VERSION );
 
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
 
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
 			// Admin styles for AB pages only
 			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
+			wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), AB_VERSION );
+			wp_enqueue_style( 'wp-color-picker' );
+		}
+
+		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+
+			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
+
+			// Admin styles for AB pages only
+			wp_enqueue_style( 'axisbuilder-builder', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
 			wp_enqueue_style( 'axisbuilder-modal', AB()->plugin_url() . '/assets/styles/modal.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), AB_VERSION );
 			wp_enqueue_style( 'wp-color-picker' );
@@ -76,17 +86,36 @@ class AB_Admin_Assets {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Register Scripts
-		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-modal', 'axisbuilder-helper', 'axisbuilder-history', 'axisbuilder-tooltip', 'axisbuilder-shortcodes' ), AB_VERSION, true );
-
+		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-modal', 'axisbuilder-helper', 'axisbuilder-history', 'axisbuilder-tooltip', 'axisbuilder-shortcodes', 'jquery-tiptip' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
 		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
 		wp_register_script( 'axisbuilder-history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
 		wp_register_script( 'axisbuilder-tooltip', AB()->plugin_url() . '/assets/scripts/tooltip/tooltip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
 		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
+		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
+		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
+		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+		wp_register_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js', array( 'jquery' ), '3.5.2' );
+		wp_register_script( 'axisbuilder-enhanced-select', AB()->plugin_url() . '/assets/scripts/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AB_VERSION );
+		wp_localize_script( 'select2', 'wc_select_params', array(
+			'i18n_matches_1'            => _x( 'One result is available, press enter to select it.', 'enhanced select', 'axisbuilder' ),
+			'i18n_matches_n'            => _x( '%qty% results are available, use up and down arrow keys to navigate.', 'enhanced select', 'axisbuilder' ),
+			'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'axisbuilder' ),
+			'i18n_ajax_error'           => _x( 'Loading failed', 'enhanced select', 'axisbuilder' ),
+			'i18n_input_too_short_1'    => _x( 'Please enter 1 or more characters', 'enhanced select', 'axisbuilder' ),
+			'i18n_input_too_short_n'    => _x( 'Please enter %qty% or more characters', 'enhanced select', 'axisbuilder' ),
+			'i18n_input_too_long_1'     => _x( 'Please delete 1 character', 'enhanced select', 'axisbuilder' ),
+			'i18n_input_too_long_n'     => _x( 'Please delete %qty% characters', 'enhanced select', 'axisbuilder' ),
+			'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'axisbuilder' ),
+			'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'axisbuilder' ),
+			'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'axisbuilder' ),
+			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'axisbuilder' ),
+		) );
+		wp_localize_script( 'axisbuilder-enhanced-select', 'axisbuilder_enhanced_select_params', array(
+			'ajax_url'                  => admin_url( 'admin-ajax.php' )
+		) );
 
 		// Modal
 		$modal_params = array(
@@ -127,6 +156,21 @@ class AB_Admin_Assets {
 		wp_localize_script( 'axisbuilder-shortcodes', 'axisbuilder_shortcodes', $shortcodes_params );
 
 		// AxisBuilder admin pages
+		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
+			wp_enqueue_script( 'axisbuilder_admin' );
+			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'axisbuilder-enhanced-select' );
+			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'jquery-ui-autocomplete' );
+
+			$params = array(
+				'ajax_url'  => admin_url( 'admin-ajax.php' )
+			);
+
+			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );
+		}
+
+		// AxisBuilder pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
 			wp_enqueue_script( 'axisbuilder-admin' );

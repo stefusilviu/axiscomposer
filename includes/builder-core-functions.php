@@ -19,15 +19,7 @@ include( 'builder-helper-functions.php' );
 include( 'builder-deprecated-functions.php' );
 
 /**
- * AxisBuilder Core Supported Themes
- * @return array
- */
-function axisbuilder_get_core_supported_themes() {
-	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
-}
-
-/**
- * Get all Custom Post Types
+ * Get all Custom Post Types Screen.
  * @return array
  */
 function axisbuilder_get_screen_types() {
@@ -56,6 +48,14 @@ function axisbuilder_get_screen_types() {
  */
 function get_builder_core_supported_screens() {
 	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' ) );
+}
+
+/**
+ * AxisBuilder Core Supported Themes
+ * @return array
+ */
+function axisbuilder_get_core_supported_themes() {
+	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 }
 
 /**

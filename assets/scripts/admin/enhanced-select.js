@@ -53,7 +53,7 @@ jQuery( function( $ ) {
 
 	$( 'body' )
 
-		.on( 'wc-enhanced-select-init', function() {
+		.on( 'axisbuilder-enhanced-select-init', function() {
 
 			// Regular select boxes
 			$( ':input.axisbuilder-enhanced-select, :input.chosen_select' ).filter( ':not(.enhanced)' ).each( function() {
@@ -66,7 +66,7 @@ jQuery( function( $ ) {
 				$( this ).select2( select2_args ).addClass( 'enhanced' );
 			});
 
-			$( ':input.wc-enhanced-select-nostd, :input.chosen_select_nostd' ).filter( ':not(.enhanced)' ).each( function() {
+			$( ':input.axisbuilder-enhanced-select-nostd, :input.chosen_select_nostd' ).filter( ':not(.enhanced)' ).each( function() {
 				var select2_args = $.extend({
 					minimumResultsForSearch: 10,
 					allowClear:  true,
@@ -196,6 +196,6 @@ jQuery( function( $ ) {
 			});
 		} )
 
-		.trigger( 'wc-enhanced-select-init' );
+		.trigger( 'axisbuilder-enhanced-select-init' );
 
 });

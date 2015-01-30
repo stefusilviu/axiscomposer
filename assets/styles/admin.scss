@@ -1396,3 +1396,20 @@ img.tips {
 		text-align: right;
 	}
 }
+
+/**
+ * Select2
+ */
+.select2-drop {
+	z-index: 999999;
+}
+.select2-container-multi .select2-choices .select2-search-field input {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	padding: 3px 5px;
+}
+.select2-container {
+	line-height: 1.85em;
+	font-size: 14px;
+}

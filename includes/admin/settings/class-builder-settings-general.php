@@ -39,7 +39,36 @@ class AB_Settings_General extends AB_Settings_Page {
 
 		$settings = apply_filters( 'axisbuilder_general_settings', array(
 
-			array( 'title' => __( 'General Options', 'axisbuilder' ), 'type' => 'title', 'desc' => '', 'id' => 'general_options' ),
+			array(
+				'title' => __( 'General Options', 'axisbuilder' ),
+				'type'  => 'title',
+				'desc'  => '',
+				'id'    => 'general_options'
+			),
+
+			array(
+				'title'    => __( 'Custom Screen(s)', 'axisbuilder' ),
+				'desc'     => __( 'This option lets you limit which screens you are willing to display to.', 'axisbuilder' ),
+				'id'       => 'axisbuilder_allowed_screens',
+				'default'  => 'all',
+				'type'     => 'select',
+				'class'    => 'axisbuilder-enhanced-select',
+				'css'      => 'min-width: 350px;',
+				'desc_tip' =>  true,
+				'options'  => array(
+					'all'      => __( 'Enable to all screens', 'axisbuilder' ),
+					'specific' => __( 'Enable to specific screens only', 'axisbuilder' )
+				)
+			),
+
+			array(
+				'title'   => __( 'Specific Screens', 'axisbuilder' ),
+				'desc'    => '',
+				'id'      => 'axisbuilder_specific_allowed_screens',
+				'css'     => 'min-width: 350px;',
+				'default' => '',
+				'type'    => 'multi_select_screens'
+			),
 
 			array(
 				'title'   => __( 'Debug Mode', 'axisbuilder' ),
@@ -49,7 +78,10 @@ class AB_Settings_General extends AB_Settings_Page {
 				'default' => 'no',
 			),
 
-			array( 'type' => 'sectionend', 'id' => 'general_options')
+			array(
+				'type' => 'sectionend',
+				'id'   => 'general_options'
+			)
 
 		) );
 

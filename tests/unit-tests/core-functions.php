@@ -17,16 +17,4 @@ class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
 
 		$this->assertEquals( $expected_themes, axisbuilder_get_core_supported_themes() );
 	}
-
-	/**
-	 * Test get_builder_core_supported_screens()
-	 *
-	 * @since 1.0
-	 */
-	public function test_get_builder_core_supported_screens() {
-
-		$expected_screens = array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' );
-
-		$this->assertEquals( $expected_screens, get_builder_core_supported_screens() );
-	}
 }

@@ -36,8 +36,9 @@ function axisbuilder_get_screen_types() {
 	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
 		'post' => __( 'Post', 'axisbuilder' ),
 		'page' => __( 'Page', 'axisbuilder' )
-	));
+	) );
 
+	// Fetch Public Custom Post Types
 	foreach ( $post_types as $post_type ) {
 		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->name;
 	}

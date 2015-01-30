@@ -22,7 +22,7 @@ include( 'builder-deprecated-functions.php' );
  * AxisBuilder Core Supported Themes
  * @return array
  */
-function get_builder_core_supported_themes() {
+function axisbuilder_get_core_supported_themes() {
 	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 }
 

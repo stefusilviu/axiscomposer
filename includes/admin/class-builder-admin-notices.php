@@ -42,7 +42,7 @@ class AB_Admin_Notices {
 	public function reset_admin_notices() {
 		$show_notices = array();
 
-		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), get_builder_core_supported_themes() ) ) {
+		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), axisbuilder_get_core_supported_themes() ) ) {
 			$show_notices[] = 'theme_support';
 		}
 

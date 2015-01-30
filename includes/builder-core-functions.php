@@ -41,3 +41,12 @@ function get_builder_core_supported_screens() {
 }
 
 endif;
+
+/**
+ * Clean variables
+ * @param  string $var
+ * @return string
+ */
+function axisbuilder_clean( $var ) {
+	return sanitize_text_field( $var );
+}

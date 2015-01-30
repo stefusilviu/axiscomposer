@@ -109,7 +109,7 @@ class AB_Admin_Settings {
 
 		do_action( 'axisbuilder_settings_start' );
 
-		wp_enqueue_script( 'axisbuilder-settings', AB()->plugin_url() . '/assets/js/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'select2' ), AB_VERSION, true );
+		wp_enqueue_script( 'axisbuilder-settings', AB()->plugin_url() . '/assets/scripts/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'select2' ), AB_VERSION, true );
 
 		wp_localize_script( 'axisbuilder-settings', 'axisbuilder_settings_params', array(
 			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'axisbuilder' )
@@ -467,6 +467,36 @@ class AB_Admin_Settings {
 					}
 					break;
 
+				// Country multiselects
+				case 'multi_select_screens' :
+
+					$selections = (array) self::get_option( $value['id'] );
+
+					if ( ! empty( $value['options'] ) ) {
+						$screens = $value['options'];
+					} else {
+						$screens = get_builder_core_supported_screens();
+					}
+
+					asort( $screens );
+					?><tr valign="top">
+						<th scope="row" class="titledesc">
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php echo $tooltip_html; ?>
+						</th>
+						<td class="forminp">
+							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php _e( 'Choose screens&hellip;', 'axisbuilder' ); ?>" title="<?php _e( 'Screen', 'axisbuilder' ) ?>" class="axisbuilder-enhanced-select">
+								<?php
+									if ( $screens ) {
+										foreach ( $screens as $key => $val ) {
+											echo '<option value="' . esc_attr( $key ) . '" ' . selected( in_array( $key, $selections ), true, false ).'>' . $val . '</option>';
+										}
+									}
+								?>
+							</select> <?php echo ( $description ) ? $description : ''; ?> </br><a class="select_all button" href="#"><?php _e( 'Select all', 'axisbuilder' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axisbuilder' ); ?></a>
+						</td>
+					</tr><?php
+					break;
 				// Default: run an action
 				default:
 					do_action( 'axisbuilder_admin_field_' . $value['type'], $value );
@@ -574,8 +604,12 @@ class AB_Admin_Settings {
 						$option_value = is_null( $option_value ) ? 2 : absint( $option_value );
 
 					} else {
-						$option_value = sanitize_text_field( $option_value );
+						$option_value = axisbuilder_clean( $option_value );
 					}
+					break;
+				case 'multiselect' :
+				case 'multi_select_screens' :
+					$option_value = array_filter( array_map( 'axisbuilder_clean', (array) $option_value ) );
 					break;
 				default :
 					do_action( 'axisbuilder_update_option_' . sanitize_title( $value['type'] ), $value );

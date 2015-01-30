@@ -32,7 +32,7 @@ function get_builder_core_supported_themes() {
  */
 function axisbuilder_get_screen_types() {
 	global $wp_post_types;
-	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true ), 'names', '_builtin' => false );
+	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true, '_builtin' => false ), 'names' );
 	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
 		'post' => __( 'Post', 'axisbuilder' ),
 		'page' => __( 'Page', 'axisbuilder' )

@@ -192,7 +192,7 @@ class AB_Admin_Assets {
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
-				'debug_mode'                      => get_option( 'axisbuilder_debug_enabled' ),
+				'debug_mode'                      => get_option( 'axisbuilder_debug_enabled', 'no' ),
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
 			);

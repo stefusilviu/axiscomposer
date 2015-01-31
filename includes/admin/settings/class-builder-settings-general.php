@@ -81,6 +81,16 @@ class AB_Settings_General extends AB_Settings_Page {
 			),
 
 			array(
+				'title'   => __( 'Custom Widget Areas', 'axisbuilder' ),
+				'desc'    => __( 'Enable the Custom Widgets Area Builder', 'axisbuilder' ),
+				'id'      => 'axisbuilder_sidebar_enabled',
+				'default' => 'yes',
+				'type'    => 'checkbox',
+				'desc_tip' =>  __( 'Allows to register custom Sidebars or Widgets Area from the Widgets Page.', 'axisbuilder' ),
+				'autoload' => false
+			),
+
+			array(
 				'title'   => __( 'Debug Mode', 'axisbuilder' ),
 				'desc'    => __( 'Enable the Debug Mode', 'axisbuilder' ),
 				'id'      => 'axisbuilder_debug_enabled',

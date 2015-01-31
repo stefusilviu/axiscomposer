@@ -26,7 +26,6 @@ class AB_Admin_Menu {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 9 );
 		add_action( 'admin_menu', array( $this, 'iconfonts_menu' ), 20 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 50 );
-		add_action( 'admin_menu', array( $this, 'status_menu' ), 60 );
 
 		if ( apply_filters( 'axisbuilder_show_addons_page', true ) ) {
 			add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
@@ -71,14 +70,6 @@ class AB_Admin_Menu {
 	 */
 	public function settings_page_init() {
 		AB()->shortcodes();
-	}
-
-	/**
-	 * Add menu item
-	 */
-	public function status_menu() {
-		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Status', 'axisbuilder' ),  __( 'System Status', 'axisbuilder' ) , 'update_plugins', 'axisbuilder-status', array( $this, 'status_page' ) );
-		register_setting( 'axisbuilder_status_settings_fields', 'axisbuilder_status_options' );
 	}
 
 	/**
@@ -159,13 +150,6 @@ class AB_Admin_Menu {
 	 */
 	public function settings_page() {
 		AB_Admin_Settings::output();
-	}
-
-	/**
-	 * Init the status page
-	 */
-	public function status_page() {
-		// AB_Admin_Status::output();
 	}
 
 	/**

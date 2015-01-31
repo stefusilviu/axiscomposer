@@ -27,7 +27,7 @@ class AB_Admin_Menu {
 		add_action( 'admin_menu', array( $this, 'iconfonts_menu' ), 20 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 50 );
 
-		if ( apply_filters( 'axisbuilder_show_addons_page', true ) ) {
+		if ( apply_filters( 'axisbuilder_show_addons_page', false ) ) {
 			add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
 		}
 

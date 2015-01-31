@@ -94,8 +94,10 @@ class AB_Settings_General extends AB_Settings_Page {
 				'title'   => __( 'Debug Mode', 'axisbuilder' ),
 				'desc'    => __( 'Enable the Debug Mode', 'axisbuilder' ),
 				'id'      => 'axisbuilder_debug_enabled',
-				'type'    => 'checkbox',
 				'default' => 'no',
+				'type'    => 'checkbox',
+				'desc_tip' =>  __( 'Allows to log all the shortcodes attributes and stuffs via elements textarea.', 'axisbuilder' ),
+				'autoload' => false
 			),
 
 			array(

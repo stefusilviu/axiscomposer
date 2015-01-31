@@ -52,7 +52,7 @@ class AB_Sidebars {
 
 		if ( ! empty( $_POST['axisbuilder-add-sidebar'] ) ) {
 
-			$this->sidebars = get_option( 'axisbuilder_sidebars' );
+			$this->sidebars = get_option( 'axisbuilder_custom_sidebars' );
 			$sidebar_name	= $this->get_sidebar_name( $_POST['axisbuilder-add-sidebar'] );
 
 			if ( empty( $this->sidebars ) ) {
@@ -61,7 +61,7 @@ class AB_Sidebars {
 				$this->sidebars = array_merge( $this->sidebars, array( $sidebar_name ) );
 			}
 
-			update_option( 'axisbuilder_sidebars', $this->sidebars );
+			update_option( 'axisbuilder_custom_sidebars', $this->sidebars );
 			wp_redirect( admin_url( 'widgets.php' ) );
 			die();
 		}
@@ -105,7 +105,7 @@ class AB_Sidebars {
 	public function register_custom_sidebars() {
 
 		if ( empty( $this->sidebars ) ) {
-			$this->sidebars = get_option( 'axisbuilder_sidebars' );
+			$this->sidebars = get_option( 'axisbuilder_custom_sidebars' );
 		}
 
 		$args = array(

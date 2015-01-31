@@ -66,7 +66,7 @@ class AB_Admin_Assets {
 			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array(), AB_VERSION );
 		}
 
-		if ( in_array( $screen->id, array( 'widgets' ) ) ) {
+		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
 			wp_enqueue_style( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/styles/sidebars.css', array(), AB_VERSION );
 		}
 
@@ -201,7 +201,7 @@ class AB_Admin_Assets {
 		}
 
 		// Widgets Specific
-		if ( in_array( $screen->id, array( 'widgets' ) ) ) {
+		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 
 			$params = array(

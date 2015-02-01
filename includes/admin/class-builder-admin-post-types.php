@@ -31,6 +31,7 @@ class AB_Admin_Post_Types {
 
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
+		add_filter( 'media_view_strings', array( $this, 'change_insert_into_post' ) );
 
 		// Meta-Box Class
 		include_once( 'class-builder-admin-meta-boxes.php' );
@@ -111,6 +112,25 @@ class AB_Admin_Post_Types {
 		}
 
 		return $text;
+	}
+
+	/**
+	 * Change label for insert buttons.
+	 *
+	 * @param array $strings
+	 * @return array
+	 */
+	public function change_insert_into_post( $strings ) {
+		global $post_type;
+
+		if ( in_array( $post_type, array( 'portfolio' ) ) ) {
+			$obj = get_post_type_object( $post_type );
+
+			$strings['insertIntoPost']     = sprintf( __( 'Insert into %s', 'axisbuilder' ), $obj->labels->singular_name );
+			$strings['uploadedToThisPost'] = sprintf( __( 'Uploaded to this %s', 'axisbuilder' ), $obj->labels->singular_name );
+		}
+
+		return $strings;
 	}
 }
 

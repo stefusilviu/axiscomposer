@@ -42,6 +42,78 @@ class AB_Post_Types {
 				'public'            => false
 			) )
 		);
+
+		register_taxonomy( 'portfolio_cat',
+			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_cat', array( 'portfolio' ) ),
+			apply_filters( 'axisbuilder_taxonomy_args_portfolio_cat', array(
+				'hierarchical'          => true,
+				'update_count_callback' => '_axisbuilder_term_recount',
+				'label'                 => __( 'Project Categories', 'axisbuilder' ),
+				'labels' => array(
+						'name'              => __( 'Project Categories', 'axisbuilder' ),
+						'singular_name'     => __( 'Project Category', 'axisbuilder' ),
+						'menu_name'         => _x( 'Categories', 'Admin menu name', 'axisbuilder' ),
+						'search_items'      => __( 'Search Project Categories', 'axisbuilder' ),
+						'all_items'         => __( 'All Project Categories', 'axisbuilder' ),
+						'parent_item'       => __( 'Parent Project Category', 'axisbuilder' ),
+						'parent_item_colon' => __( 'Parent Project Category:', 'axisbuilder' ),
+						'edit_item'         => __( 'Edit Project Category', 'axisbuilder' ),
+						'update_item'       => __( 'Update Project Category', 'axisbuilder' ),
+						'add_new_item'      => __( 'Add New Project Category', 'axisbuilder' ),
+						'new_item_name'     => __( 'New Project Category Name', 'axisbuilder' )
+					),
+				'show_ui'               => true,
+				'query_var'             => true,
+				// 'capabilities'          => array(
+				// 	'manage_terms' => 'manage_portfolio_terms',
+				// 	'edit_terms'   => 'edit_portfolio_terms',
+				// 	'delete_terms' => 'delete_portfolio_terms',
+				// 	'assign_terms' => 'assign_portfolio_terms',
+				// ),
+				'rewrite'               => array(
+					'slug'         => _x( 'project-category', 'slug', 'axisbuilder' ),
+					'with_front'   => false,
+					'hierarchical' => true,
+				),
+			) )
+		);
+
+		register_taxonomy( 'portfolio_tag',
+			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_tag', array( 'portfolio' ) ),
+			apply_filters( 'axisbuilder_taxonomy_args_portfolio_tag', array(
+				'hierarchical'          => false,
+				'update_count_callback' => '_wc_term_recount',
+				'label'                 => __( 'Project Tags', 'axisbuilder' ),
+				'labels'                => array(
+						'name'                       => __( 'Project Tags', 'axisbuilder' ),
+						'singular_name'              => __( 'Project Tag', 'axisbuilder' ),
+						'menu_name'                  => _x( 'Tags', 'Admin menu name', 'axisbuilder' ),
+						'search_items'               => __( 'Search Project Tags', 'axisbuilder' ),
+						'all_items'                  => __( 'All Project Tags', 'axisbuilder' ),
+						'edit_item'                  => __( 'Edit Project Tag', 'axisbuilder' ),
+						'update_item'                => __( 'Update Project Tag', 'axisbuilder' ),
+						'add_new_item'               => __( 'Add New Project Tag', 'axisbuilder' ),
+						'new_item_name'              => __( 'New Project Tag Name', 'axisbuilder' ),
+						'popular_items'              => __( 'Popular Project Tags', 'axisbuilder' ),
+						'separate_items_with_commas' => __( 'Separate Project Tags with commas', 'axisbuilder'  ),
+						'add_or_remove_items'        => __( 'Add or remove Project Tags', 'axisbuilder' ),
+						'choose_from_most_used'      => __( 'Choose from the most used Project tags', 'axisbuilder' ),
+						'not_found'                  => __( 'No Project Tags found', 'axisbuilder' ),
+					),
+				'show_ui'               => true,
+				'query_var'             => true,
+				// 'capabilities'          => array(
+				// 	'manage_terms' => 'manage_portfolio_terms',
+				// 	'edit_terms'   => 'edit_portfolio_terms',
+				// 	'delete_terms' => 'delete_portfolio_terms',
+				// 	'assign_terms' => 'assign_portfolio_terms',
+				// ),
+				'rewrite'               => array(
+					'slug'       => _x( 'project-tag', 'slug', 'axisbuilder' ),
+					'with_front' => false
+				),
+			) )
+		);
 	}
 
 	/**
@@ -58,22 +130,22 @@ class AB_Post_Types {
 			apply_filters( 'axisbuilder_register_post_type_portfolio',
 				array(
 					'labels' => array(
-						'name'               => __( 'Projects', 'axisbuilder' ),
-						'singular_name'      => __( 'Project', 'axisbuilder' ),
-						'menu_name'          => _x( 'Portfolio', 'Admin menu name', 'axisbuilder' ),
-						'all_items'          => __( 'All Projects', 'axisbuilder' ),
-						'add_new'            => __( 'Add Project', 'axisbuilder' ),
-						'add_new_item'       => __( 'Add New Project', 'axisbuilder' ),
-						'edit'               => __( 'Edit', 'axisbuilder' ),
-						'edit_item'          => __( 'Edit Project', 'axisbuilder' ),
-						'new_item'           => __( 'New Project', 'axisbuilder' ),
-						'view'               => __( 'View Project', 'axisbuilder' ),
-						'view_item'          => __( 'View Project', 'axisbuilder' ),
-						'search_items'       => __( 'Search Projects', 'axisbuilder' ),
-						'not_found'          => __( 'No Projects found', 'axisbuilder' ),
-						'not_found_in_trash' => __( 'No Projects found in trash', 'axisbuilder' ),
-						'parent'             => __( 'Parent Project', 'axisbuilder' )
-					),
+							'name'               => __( 'Projects', 'axisbuilder' ),
+							'singular_name'      => __( 'Project', 'axisbuilder' ),
+							'menu_name'          => _x( 'Portfolio', 'Admin menu name', 'axisbuilder' ),
+							'all_items'          => __( 'All Projects', 'axisbuilder' ),
+							'add_new'            => __( 'Add Project', 'axisbuilder' ),
+							'add_new_item'       => __( 'Add New Project', 'axisbuilder' ),
+							'edit'               => __( 'Edit', 'axisbuilder' ),
+							'edit_item'          => __( 'Edit Project', 'axisbuilder' ),
+							'new_item'           => __( 'New Project', 'axisbuilder' ),
+							'view'               => __( 'View Project', 'axisbuilder' ),
+							'view_item'          => __( 'View Project', 'axisbuilder' ),
+							'search_items'       => __( 'Search Projects', 'axisbuilder' ),
+							'not_found'          => __( 'No Projects found', 'axisbuilder' ),
+							'not_found_in_trash' => __( 'No Projects found in trash', 'axisbuilder' ),
+							'parent'             => __( 'Parent Project', 'axisbuilder' )
+						),
 					'description'         => __( 'This is where you can add new portfolio items to your project.', 'axisbuilder' ),
 					'public'              => true,
 					'show_ui'             => true,
@@ -84,7 +156,7 @@ class AB_Post_Types {
 					'hierarchical'        => false,
 					'query_var'           => 'portfolio',
 					'menu_icon'           => 'dashicons-portfolio',
-					'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false, 'feeds' => true, 'pages' => true ),
+					'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false, 'feeds' => true ),
 					'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'custom-fields', 'page-attributes', 'publicize', 'wpcom-markdown' ),
 					'has_archive'         => true,
 					'show_in_nav_menus'   => true

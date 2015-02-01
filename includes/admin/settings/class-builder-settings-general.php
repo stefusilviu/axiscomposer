@@ -80,15 +80,15 @@ class AB_Settings_General extends AB_Settings_Page {
 				'autoload' => false
 			),
 
-			array(
-				'title'   => __( 'Responsive Elements', 'axisbuilder' ),
-				'desc'    => __( 'Enable Responsive Content Elements', 'axisbuilder' ),
-				'id'      => 'axisbuilder_enable_responsive',
-				'default' => 'yes',
-				'type'    => 'checkbox',
-				'desc_tip' =>  __( 'Prevent content elements from "stacking" one on top other (on small media screens, eg. mobile).', 'axisbuilder' ),
-				'autoload' => false
-			),
+			// array(
+			// 	'title'   => __( 'Responsive Elements', 'axisbuilder' ),
+			// 	'desc'    => __( 'Enable Responsive Content Elements', 'axisbuilder' ),
+			// 	'id'      => 'axisbuilder_enable_responsive',
+			// 	'default' => 'yes',
+			// 	'type'    => 'checkbox',
+			// 	'desc_tip' =>  __( 'Prevent content elements from "stacking" one on top other (on small media screens, eg. mobile).', 'axisbuilder' ),
+			// 	'autoload' => false
+			// ),
 
 			array(
 				'title'   => __( 'Debug Mode', 'axisbuilder' ),

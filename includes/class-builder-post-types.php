@@ -114,6 +114,8 @@ class AB_Post_Types {
 				),
 			) )
 		);
+
+		do_action( 'axisbuilder_after_register_taxonomy' );
 	}
 
 	/**

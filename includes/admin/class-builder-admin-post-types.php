@@ -26,6 +26,9 @@ class AB_Admin_Post_Types {
 	public function __construct() {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 
+		// Edit post screens
+		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
+
 		// Meta-Box Class
 		include_once( 'class-builder-admin-meta-boxes.php' );
 	}
@@ -55,6 +58,23 @@ class AB_Admin_Post_Types {
 		);
 
 		return $messages;
+	}
+
+	/**
+	 * Change title boxes in admin.
+	 *
+	 * @param  string $text
+	 * @param  object $post
+	 * @return string
+	 */
+	public function enter_title_here( $text, $post ) {
+		switch ( $post->post_type ) {
+			case 'portfolio' :
+				$text = __( 'Project name', 'axisbuilder' );
+			break;
+		}
+
+		return $text;
 	}
 }
 

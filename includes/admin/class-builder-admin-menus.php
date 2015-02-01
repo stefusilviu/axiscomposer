@@ -113,13 +113,18 @@ class AB_Admin_Menu {
 		// Get the index of our custom separator
 		$axisbuilder_separator = array_search( 'separator-axisbuilder', $menu_order );
 
+		// Get index of portfolio menu
+		$axisbuilder_portfolio = array_search( 'edit.php?post_type=portfolio', $menu_order );
+
 		// Loop through menu order and do some rearranging
 		foreach ( $menu_order as $index => $item ) {
 
 			if ( ( ( 'axisbuilder' ) == $item ) ) {
 				$axisbuilder_menu_order[] = 'separator-axisbuilder';
 				$axisbuilder_menu_order[] = $item;
+				$axisbuilder_menu_order[] = 'edit.php?post_type=portfolio';
 				unset( $menu_order[ $axisbuilder_separator ] );
+				unset( $menu_order[ $axisbuilder_portfolio ] );
 			} elseif ( ! in_array( $item, array( 'separator-axisbuilder' ) ) ) {
 				$axisbuilder_menu_order[] = $item;
 			}

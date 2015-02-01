@@ -21,6 +21,12 @@
 	font-size: 1.3em !important;
 }
 
+#adminmenu #menu-posts-portfolio .menu-icon-post div.wp-menu-image:before {
+	font-family: 'AxisBuilder' !important;
+	content: "\e002";
+	font-size: 1.3em !important;
+}
+
 span.mce_axisbuilder_shortcodes_button {
 	background-image: none !important;
 	@include ir();

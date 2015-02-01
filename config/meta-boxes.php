@@ -1,6 +1,9 @@
 <?php
 global $builder;
 
+// Block the use
+return true;
+
 $boxes = array(
 	array( 'title' =>__( 'Layout Settings', 'axisbuilder' ), 'id' => 'layout', 'page' => array( 'portfolio', 'page' , 'post' ), 'context' => 'side', 'priority' => 'low' ),
 );

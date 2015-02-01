@@ -26,6 +26,9 @@ class AB_Admin_Post_Types {
 	public function __construct() {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 
+		// WP List table columns. Defined here so they are always available for events such as inline editing.
+		add_filter( 'manage_edit-portfolio_columns', array( $this, 'portfolio_columns' ) );
+
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
 
@@ -58,6 +61,39 @@ class AB_Admin_Post_Types {
 		);
 
 		return $messages;
+	}
+
+	/**
+	 * Define custom columns for products
+	 * @param  array $existing_columns
+	 * @return array
+	 */
+	public function portfolio_columns( $existing_columns ) {
+
+		$current_screen = get_current_screen();
+
+		// Check we're on the correct post type
+		if ( 'portfolio' != $current_screen->post_type ) {
+			return $existing_columns;
+		}
+
+		if ( empty( $existing_columns ) && ! is_array( $existing_columns ) ) {
+			$existing_columns = array();
+		}
+
+		unset( $existing_columns['title'], $existing_columns['comments'], $existing_columns['date'] );
+
+		$columns                   = array();
+		$columns['cb']             = $existing_columns['cb'];
+		$columns['thumb']          = '<span class="axisbuilder-image tips" data-tip="' . __( 'Image', 'axisbuilder' ) . '">' . __( 'Image', 'axisbuilder' ) . '</span>';
+		$columns['name']           = __( 'Name', 'axisbuilder' );
+		$columns['portfolio_cat']  = __( 'Categories', 'axisbuilder' );
+		$columns['portfolio_tag']  = __( 'Tags', 'axisbuilder' );
+		$columns['portfolio_type'] = __( 'Types', 'axisbuilder' );
+		// $columns['featured']       = '<span class="axisbuilder-featured parent-tips" data-tip="' . __( 'Featured', 'axisbuilder' ) . '">' . __( 'Featured', 'axisbuilder' ) . '</span>';
+		$columns['date']           = __( 'Date', 'axisbuilder' );
+
+		return array_merge( $columns, $existing_columns );
 	}
 
 	/**

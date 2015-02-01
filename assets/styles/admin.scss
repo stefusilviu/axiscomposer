@@ -923,6 +923,88 @@ body .ui-draggable-dragging {
 }
 
 /**
+ * Post types
+ */
+table.wp-list-table {
+	.column-thumb {
+		width: 52px;
+		text-align: center;
+		white-space: nowrap
+	}
+
+	.column-name {
+		width: 22%;
+	}
+
+	.column-portfolio_cat,
+	.column-portfolio_tag,
+	.column-portfolio_type {
+		width: 11% !important;
+	}
+
+	.column-featured {
+		width: 48px;
+		text-align: left !important;
+	}
+
+	.manage-column.column-featured img {
+		padding-left: 2px;
+	}
+
+	img {
+		margin: 1px 2px;
+	}
+
+	.row-actions {
+		color: #999;
+	}
+
+	td.column-thumb img {
+		margin: 0;
+		vertical-align: middle;
+		width: auto;
+		height: auto;
+		max-width: 40px;
+		max-height: 40px;
+	}
+
+	span.na {
+		color: #999;
+	}
+
+	span.axisbuilder-image,
+	span.axisbuilder-featured {
+		@include ir();
+		margin: 0 auto;
+
+		&:before {
+			@include icon( "\e005" );
+		}
+	}
+
+	span.axisbuilder-featured {
+		margin: 0;
+		cursor: pointer;
+
+		&:before {
+			content: "\e002";
+		}
+
+		&.not-featured {
+			&:before {
+				content: "\e002";
+			}
+		}
+	}
+
+	td.column-featured {
+		span.axisbuilder-featured {
+			font-size: 1.2em;
+		}
+	}
+}
+
+/**
  * Settings Styles
  */
 .axisbuilder {

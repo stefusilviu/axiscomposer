@@ -24,7 +24,11 @@ function axisbuilder_get_screen_ids() {
 		$axis_screen_id . '_page_axisbuilder-iconfonts',
 		$axis_screen_id . '_page_axisbuilder-settings',
 		$axis_screen_id . '_page_axisbuilder-status',
-		$axis_screen_id . '_page_axisbuilder-addons'
+		$axis_screen_id . '_page_axisbuilder-addons',
+		'portfolio',
+		'edit-portfolio',
+		'edit-portfolio_cat',
+		'edit-portfolio_tag'
 	);
 
 	return apply_filters( 'axisbuilder_screen_ids', $screen_ids );

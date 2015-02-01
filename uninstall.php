@@ -12,6 +12,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit; // Exit if uninstall is not called from WordPress
 }
 
-/**
- * @todo Define uninstall functionality here
- */
+global $wpdb;
+
+// Delete options
+$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'axisbuilder_%';" );

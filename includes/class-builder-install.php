@@ -50,6 +50,11 @@ class AB_Install {
 		include_once( 'admin/class-builder-admin-notices.php' );
 
 		self::create_options();
+
+		// Register post types
+		AB_Post_Types::register_post_types();
+		AB_Post_Types::register_taxonomies();
+
 		self::create_files();
 
 		// Update version

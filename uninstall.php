@@ -8,8 +8,8 @@
  * @since       1.0.0
  */
 
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-	exit; // Exit if uninstall is not called from WordPress
+if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit;
 }
 
 global $wpdb;

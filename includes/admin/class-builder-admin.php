@@ -35,7 +35,7 @@ class AB_Admin {
 
 		// Classes
 		include_once( 'class-builder-admin-editor.php' );
-		include_once( 'class-builder-admin-meta-boxes.php' );
+		include_once( 'class-builder-admin-post-types.php' );
 
 		// Classes we only need during non-ajax requests
 		if ( ! defined( 'DOING_AJAX' ) ) {

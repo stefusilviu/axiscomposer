@@ -30,6 +30,18 @@ class AB_Post_Types {
 		}
 
 		do_action( 'axisbuilder_register_taxonomy' );
+
+		register_taxonomy( 'portfolio_type',
+			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_type', array( 'portfolio' ) ),
+			apply_filters( 'axisbuilder_taxonomy_args_portfolio_type', array(
+				'hierarchical'      => false,
+				'show_ui'           => false,
+				'show_in_nav_menus' => false,
+				'query_var'         => is_admin(),
+				'rewrite'           => false,
+				'public'            => false
+			) )
+		);
 	}
 
 	/**

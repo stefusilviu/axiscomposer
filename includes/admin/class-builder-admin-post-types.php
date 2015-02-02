@@ -28,6 +28,8 @@ class AB_Admin_Post_Types {
 
 		// WP List table columns. Defined here so they are always available for events such as inline editing.
 		add_filter( 'manage_edit-portfolio_columns', array( $this, 'portfolio_columns' ) );
+		add_action( 'manage_portfolio_posts_custom_column', array( $this, 'render_portfolio_columns' ), 2 );
+		add_filter( 'manage_edit-portfolio_sortable_columns', array( $this, 'portfolio_sortable_columns' ) );
 
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
@@ -39,7 +41,6 @@ class AB_Admin_Post_Types {
 
 	/**
 	 * Change messages when a post type is updated.
-	 *
 	 * @param  array $messages
 	 * @return array
 	 */
@@ -91,15 +92,58 @@ class AB_Admin_Post_Types {
 		$columns['portfolio_cat']  = __( 'Categories', 'axisbuilder' );
 		$columns['portfolio_tag']  = __( 'Tags', 'axisbuilder' );
 		$columns['portfolio_type'] = __( 'Types', 'axisbuilder' );
-		// $columns['featured']       = '<span class="axisbuilder-featured parent-tips" data-tip="' . __( 'Featured', 'axisbuilder' ) . '">' . __( 'Featured', 'axisbuilder' ) . '</span>';
+		$columns['featured']       = '<span class="axisbuilder-featured parent-tips" data-tip="' . __( 'Featured', 'axisbuilder' ) . '">' . __( 'Featured', 'axisbuilder' ) . '</span>';
 		$columns['date']           = __( 'Date', 'axisbuilder' );
 
 		return array_merge( $columns, $existing_columns );
 	}
 
 	/**
+	 * Ouput custom columns for products
+	 * @param  string $column
+	 */
+	public function render_product_columns( $column ) {
+		global $post;
+
+		switch ( $columns ) {
+			case 'thumb' :
+				# code...
+				break;
+			case 'name':
+				# code...
+				break;
+			case 'portfolio_cat':
+				# code...
+				break;
+			case 'portfolio_tag':
+				# code...
+				break;
+			case 'portfolio_type':
+				# code...
+				break;
+			case 'featured':
+				# code...
+				break;
+			default :
+				break;
+		}
+	}
+
+	/**
+	 * Make columns sortable - https://gist.github.com/906872
+	 * @param  array $columns
+	 * @return array
+	 */
+	public function portfolio_sortable_columns( $columns ) {
+		$custom = array(
+			'featured' => 'featured',
+			'name'     => 'title'
+		);
+		return wp_parse_args( $custom, $columns );
+	}
+
+	/**
 	 * Change title boxes in admin.
-	 *
 	 * @param  string $text
 	 * @param  object $post
 	 * @return string
@@ -116,8 +160,7 @@ class AB_Admin_Post_Types {
 
 	/**
 	 * Change label for insert buttons.
-	 *
-	 * @param array $strings
+	 * @param  array $strings
 	 * @return array
 	 */
 	public function change_insert_into_post( $strings ) {

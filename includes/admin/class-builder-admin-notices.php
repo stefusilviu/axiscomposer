@@ -40,13 +40,9 @@ class AB_Admin_Notices {
 	 * Reset notices for themes when switched or a new version of AB is installed.
 	 */
 	public function reset_admin_notices() {
-		$show_notices = array();
-
 		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), axisbuilder_get_core_supported_themes() ) ) {
-			$show_notices[] = 'theme_support';
+			self::add_notice( 'theme_support' );
 		}
-
-		update_option( 'axisbuilder_admin_notices', $show_notices );
 	}
 
 	/**

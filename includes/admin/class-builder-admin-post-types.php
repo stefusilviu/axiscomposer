@@ -102,10 +102,10 @@ class AB_Admin_Post_Types {
 	 * Ouput custom columns for products
 	 * @param  string $column
 	 */
-	public function render_product_columns( $column ) {
+	public function render_portfolio_columns( $column ) {
 		global $post;
 
-		switch ( $columns ) {
+		switch ( $column ) {
 			case 'thumb' :
 				# code...
 				break;

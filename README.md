@@ -3,7 +3,6 @@
 [![Build Status](https://img.shields.io/travis/axisthemes/axisbuilder/master.svg?style=flat-square)](https://travis-ci.org/axisthemes/axisbuilder)
 [![Quality Score](https://img.shields.io/scrutinizer/g/axisthemes/axisbuilder.svg?style=flat-square)](https://scrutinizer-ci.com/g/axisthemes/axisbuilder)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/axisthemes/axisbuilder.svg?style=flat-square)](https://coveralls.io/r/axisthemes/axisbuilder)
-[![Coverage Status](https://coveralls.io/repos/axisthemes/axisbuilder/badge.svg)](https://coveralls.io/r/axisthemes/axisbuilder)
 
 Welcome to the Axis Builder repository on GitHub. Here you can browse the source, look at open issues and keep track of development. We recommend all developers to follow the [Axis Builder development blog](http://dev.axisthemes.com/axisbuilder/) to stay up to date about everything happening in the project. You can also [follow @AxisThemes](https://twitter.com/AxisThemes) on Twitter for the latest development updates from AxisThemes Network.
 

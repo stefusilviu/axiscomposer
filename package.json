@@ -8,7 +8,6 @@
     "url": "https://github.com/axisthemes/axisbuilder.git"
   },
   "main": "Gruntfile.js",
-  "license": "GPLv3+",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-checktextdomain": "^0.1.1",

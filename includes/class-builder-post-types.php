@@ -10,10 +10,18 @@
  * @author      AxisThemes
  * @since       1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * AB_Post_Types Class
+ */
 class AB_Post_Types {
 
 	/**
-	 * Hook in methods
+	 * Hook in methods.
 	 */
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register_taxonomies' ), 5 );
@@ -168,14 +176,13 @@ class AB_Post_Types {
 	}
 
 	/**
-	 * Add Portfolio Support to Jetpack Omnisearch
+	 * Add Portfolio Support to Jetpack Omnisearch.
 	 */
 	public static function support_jetpack_omnisearch() {
 		if ( class_exists( 'Jetpack_Omnisearch_Posts' ) ) {
 			new Jetpack_Omnisearch_Posts( 'portfolio' );
 		}
 	}
-
 }
 
 AB_Post_Types::init();

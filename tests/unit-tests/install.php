@@ -37,6 +37,30 @@ class AB_Tests_Install extends AB_Unit_Test_Case {
 	}
 
 	/**
+	 * Test - create roles
+	 */
+	public function test_create_roles() {
+		// clean existing install first
+		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+			define( 'WP_UNINSTALL_PLUGIN', true );
+		}
+		include( dirname( dirname( dirname( __FILE__ ) ) ) . '/uninstall.php' );
+
+		AB_Install::create_roles();
+
+		$this->assertNotNull( get_role( 'moderator' ) );
+	}
+
+	/**
+	 * Test - remove roles
+	 */
+	public function test_remove_roles() {
+		AB_Install::remove_roles();
+
+		$this->assertNull( get_role( 'moderator' ) );
+	}
+
+	/**
 	 * Test - in_plugin_update_message
 	 */
 	public function test_in_plugin_update_message() {

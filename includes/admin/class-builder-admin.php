@@ -61,7 +61,7 @@ class AB_Admin {
 		// Check to make sure we're on a AxisBuilder admin page
 		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, axisbuilder_get_screen_ids() ) ) ) {
 			// Change the footer text
-			$footer_text = sprintf( __( 'If you like <strong>Axis Builder</strong> please leave us a <a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating on <a href="%1$s" target="_blank">WordPress.org</a>. A huge thank you from AxisThemes in advance!', 'axisbuilder' ), 'https://wordpress.org/support/view/plugin-reviews/axis-builder?filter=5#postform' );
+			$footer_text = sprintf( __( 'If you like <strong>Axis Builder</strong> please leave us a <a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating on <a href="%1$s" target="_blank">WordPress.org</a>. A huge thank you from AxisThemes in advance!', 'axisbuilder' ), 'https://wordpress.org/support/view/plugin-reviews/axisbuilder?filter=5#postform' );
 		}
 
 		return $footer_text;

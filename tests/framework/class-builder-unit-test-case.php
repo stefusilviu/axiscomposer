@@ -22,6 +22,10 @@ class AB_Unit_Test_Case extends WP_UnitTestCase {
 		parent::setUp();
 
 		$this->setOutputCallback( array( $this, 'filter_output' ) );
+
+		// Register post types before each test
+		AB_Post_Types::register_post_types();
+		AB_Post_Types::register_taxonomies();
 	}
 
 	/**

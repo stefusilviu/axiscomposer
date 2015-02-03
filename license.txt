@@ -698,4 +698,4 @@ Public License instead of this License.  But first, please read
 The source code for any program binaries or compressed scripts that are
 included with Axis Builder can be freely obtained at the following URL:
 
-	https://github.com/axisthemes/axis-builder
+	https://github.com/axisthemes/axisbuilder

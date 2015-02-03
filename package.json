@@ -1,19 +1,14 @@
 {
-  "name": "axis-builder",
+  "name": "axisbuilder",
+  "title": "AxisBuilder",
   "version": "1.0.0",
-  "title": "Axis Builder",
-  "description": "A drag and drop builder that helps you build modern and unique page layouts smartly. Beautifully.",
-  "main": "Gruntfile.js",
+  "homepage": "http://axisthemes.com/axisbuilder/",
   "repository": {
     "type": "git",
     "url": "https://github.com/axisthemes/axisbuilder.git"
   },
-  "author": "AxisThemes <axisthemes@gmail.com> (http://axisthemes.com)",
+  "main": "Gruntfile.js",
   "license": "GPLv3+",
-  "bugs": {
-    "url": "https://github.com/axisthemes/axisbuilder/issues"
-  },
-  "homepage": "http://axisthemes.com/axisbuilder/",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-checktextdomain": "^0.1.1",
@@ -28,7 +23,7 @@
     "node-bourbon": "^1.2.3"
   },
   "engines": {
-    "node": ">=0.10.0",
-    "npm": ">=1.4.0"
+    "node": ">=0.8.0",
+    "npm": ">=1.1.0"
   }
 }

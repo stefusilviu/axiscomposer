@@ -1,4 +1,4 @@
-# [Axis Builder](http://axisthemes.com/axis-builder/)
+# [Axis Builder](http://axisthemes.com/axisbuilder/)
 
 [![Build Status](https://img.shields.io/travis/axisthemes/axisbuilder/master.svg?style=flat-square)](https://travis-ci.org/axisthemes/axisbuilder)
 [![Quality Score](https://img.shields.io/scrutinizer/g/axisthemes/axisbuilder.svg?style=flat-square)](https://scrutinizer-ci.com/g/axisthemes/axisbuilder)

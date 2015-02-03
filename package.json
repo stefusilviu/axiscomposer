@@ -6,14 +6,14 @@
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/axisthemes/axis-builder.git"
+    "url": "https://github.com/axisthemes/axisbuilder.git"
   },
   "author": "AxisThemes <axisthemes@gmail.com> (http://axisthemes.com)",
   "license": "GPLv3+",
   "bugs": {
-    "url": "https://github.com/axisthemes/axis-builder/issues"
+    "url": "https://github.com/axisthemes/axisbuilder/issues"
   },
-  "homepage": "http://axisthemes.com/axis-builder/",
+  "homepage": "http://axisthemes.com/axisbuilder/",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-checktextdomain": "^0.1.1",

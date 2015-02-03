@@ -71,11 +71,11 @@ Yes; Axis Builder will work with any theme, but may require some styling to make
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [Axis Builder GitHub repository](https://github.com/axisthemes/axis-builder/issues).
+Bugs can be reported either in our support forum or preferably on the [Axis Builder GitHub repository](https://github.com/axisthemes/axisbuilder/issues).
 
 = Axis Builder is awesome! Can I contribute? =
 
-Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axis-builder/) :)
+Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axisbuilder/) :)
 
 == Screenshots ==
 

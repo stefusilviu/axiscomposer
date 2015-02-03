@@ -29,7 +29,7 @@ main: AB
 title: Axis Builder
 
 # base url used for sitemap (useful for public doc)
-baseUrl: http://docs.axisthemes.com/apidocs/axis-builder/
+baseUrl: http://docs.axisthemes.com/apidocs/axisbuilder/
 
 # choose ApiGen template theme
 templateTheme: default

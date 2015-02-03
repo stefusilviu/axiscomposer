@@ -50,6 +50,7 @@ class AB_Install {
 		include_once( 'admin/class-builder-admin-notices.php' );
 
 		self::create_options();
+		self::create_roles();
 
 		// Register post types
 		AB_Post_Types::register_post_types();
@@ -93,6 +94,103 @@ class AB_Install {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Create roles and capabilities.
+	 */
+	public static function create_roles() {
+		global $wp_roles;
+
+		if ( ! class_exists( 'WP_Roles' ) ) {
+			return;
+		}
+
+		if ( ! isset( $wp_roles ) ) {
+			$wp_roles = new WP_Roles();
+		}
+
+		// Moderator role
+		add_role( 'moderator', __( 'Moderator', 'axisbuilder' ), array(
+			'read'         => true,
+			'edit_posts'   => false,
+			'delete_posts' => false
+		) );
+
+		$capabilities = self::get_core_capabilities();
+
+		foreach ( $capabilities as $cap_group ) {
+			foreach ( $cap_group as $cap ) {
+				$wp_roles->add_cap( 'administrator', $cap );
+			}
+		}
+	}
+
+	/**
+	 * Get capabilities for AxisBuilder.
+	 * @return array
+	 */
+	 private static function get_core_capabilities() {
+		$capabilities = array();
+
+		$capabilities['core'] = array(
+			'manage_axisbuilder'
+		);
+
+		$capability_types = array( 'portfolio' );
+
+		foreach ( $capability_types as $capability_type ) {
+
+			$capabilities[ $capability_type ] = array(
+				// Post type
+				"edit_{$capability_type}",
+				"read_{$capability_type}",
+				"delete_{$capability_type}",
+				"edit_{$capability_type}s",
+				"edit_others_{$capability_type}s",
+				"publish_{$capability_type}s",
+				"read_private_{$capability_type}s",
+				"delete_{$capability_type}s",
+				"delete_private_{$capability_type}s",
+				"delete_published_{$capability_type}s",
+				"delete_others_{$capability_type}s",
+				"edit_private_{$capability_type}s",
+				"edit_published_{$capability_type}s",
+
+				// Terms
+				"manage_{$capability_type}_terms",
+				"edit_{$capability_type}_terms",
+				"delete_{$capability_type}_terms",
+				"assign_{$capability_type}_terms"
+			);
+		}
+
+		return $capabilities;
+	}
+
+	/**
+	 * axisbuilder_remove_roles function.
+	 */
+	public static function remove_roles() {
+		global $wp_roles;
+
+		if ( ! class_exists( 'WP_Roles' ) ) {
+			return;
+		}
+
+		if ( ! isset( $wp_roles ) ) {
+			$wp_roles = new WP_Roles();
+		}
+
+		$capabilities = self::get_core_capabilities();
+
+		foreach ( $capabilities as $cap_group ) {
+			foreach ( $cap_group as $cap ) {
+				$wp_roles->remove_cap( 'administrator', $cap );
+			}
+		}
+
+		remove_role( 'moderator' );
 	}
 
 	/**

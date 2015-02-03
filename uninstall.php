@@ -14,5 +14,9 @@ if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 global $wpdb;
 
+// Roles + caps
+include_once( 'includes/class-wc-install.php' );
+AB_Install::remove_roles();
+
 // Delete options
 $wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'axisbuilder_%';" );

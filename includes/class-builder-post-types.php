@@ -64,12 +64,12 @@ class AB_Post_Types {
 					),
 				'show_ui'               => true,
 				'query_var'             => true,
-				// 'capabilities'          => array(
-				// 	'manage_terms' => 'manage_portfolio_terms',
-				// 	'edit_terms'   => 'edit_portfolio_terms',
-				// 	'delete_terms' => 'delete_portfolio_terms',
-				// 	'assign_terms' => 'assign_portfolio_terms',
-				// ),
+				'capabilities'          => array(
+					'manage_terms' => 'manage_portfolio_terms',
+					'edit_terms'   => 'edit_portfolio_terms',
+					'delete_terms' => 'delete_portfolio_terms',
+					'assign_terms' => 'assign_portfolio_terms',
+				),
 				'rewrite'               => array(
 					'slug'         => _x( 'project-category', 'slug', 'axisbuilder' ),
 					'with_front'   => false,
@@ -102,12 +102,12 @@ class AB_Post_Types {
 					),
 				'show_ui'               => true,
 				'query_var'             => true,
-				// 'capabilities'          => array(
-				// 	'manage_terms' => 'manage_portfolio_terms',
-				// 	'edit_terms'   => 'edit_portfolio_terms',
-				// 	'delete_terms' => 'delete_portfolio_terms',
-				// 	'assign_terms' => 'assign_portfolio_terms',
-				// ),
+				'capabilities'          => array(
+					'manage_terms' => 'manage_portfolio_terms',
+					'edit_terms'   => 'edit_portfolio_terms',
+					'delete_terms' => 'delete_portfolio_terms',
+					'assign_terms' => 'assign_portfolio_terms',
+				),
 				'rewrite'               => array(
 					'slug'       => _x( 'project-tag', 'slug', 'axisbuilder' ),
 					'with_front' => false
@@ -151,12 +151,12 @@ class AB_Post_Types {
 					'description'         => __( 'This is where you can add new portfolio items to your project.', 'axisbuilder' ),
 					'public'              => true,
 					'show_ui'             => true,
-					'capability_type'     => 'page',
+					'capability_type'     => 'portfolio',
 					'map_meta_cap'        => true,
 					'publicly_queryable'  => true,
 					'exclude_from_search' => false,
 					'hierarchical'        => false,
-					'query_var'           => 'portfolio',
+					'query_var'           => true,
 					'menu_icon'           => 'dashicons-portfolio',
 					'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false, 'feeds' => true ),
 					'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'custom-fields', 'page-attributes', 'publicize', 'wpcom-markdown' ),

@@ -15,7 +15,7 @@ if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 global $wpdb;
 
 // Roles + caps
-include_once( 'includes/class-wc-install.php' );
+include_once( 'includes/class-builder-install.php' );
 AB_Install::remove_roles();
 
 // Delete options

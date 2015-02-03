@@ -484,6 +484,7 @@ if ( ! function_exists( 'axisbuilder_section_after_element_content' ) ) :
 
 /**
  * Section after Element Content.
+ * @param string $meta
  */
 function axisbuilder_section_after_element_content( $meta, $second_id = '', $skip_second = false, $extra = '' ) {
 	$output  = '</div><!-- Close Section -->';

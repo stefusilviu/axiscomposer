@@ -88,11 +88,11 @@ class AB_Frontend_Scripts {
 	 *
 	 * @uses   wp_enqueue_script()
 	 * @access private
-	 * @param  string  $handle    [description]
-	 * @param  string  $path      [description]
-	 * @param  array   $deps      [description]
-	 * @param  string  $version   [description]
-	 * @param  boolean $in_footer [description]
+	 * @param  string   $handle    [description]
+	 * @param  string   $path      [description]
+	 * @param  string[] $deps      [description]
+	 * @param  string   $version   [description]
+	 * @param  boolean  $in_footer [description]
 	 */
 	private static function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = AB_VERSION, $in_footer = true ) {
 		if ( ! in_array( $handle, self::$scripts ) && $path ) {

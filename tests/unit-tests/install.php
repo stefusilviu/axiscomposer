@@ -40,7 +40,7 @@ class AB_Tests_Install extends AB_Unit_Test_Case {
 	 * Test - create roles
 	 */
 	public function test_create_roles() {
-		// clean existing install first
+		// Clean existing install first
 		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 			define( 'WP_UNINSTALL_PLUGIN', true );
 		}

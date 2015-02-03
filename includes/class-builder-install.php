@@ -64,6 +64,9 @@ class AB_Install {
 		// Flush rules after install
 		flush_rewrite_rules();
 
+		// Redirect to welcome screen
+		set_transient( '_ab_activation_redirect', 1, HOUR_IN_SECONDS );
+
 		// Trigger action
 		do_action( 'axisbuilder_installed' );
 	}

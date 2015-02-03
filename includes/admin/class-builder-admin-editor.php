@@ -24,52 +24,9 @@ class AB_Admin_Editor {
 	 * Hook in tabs.
 	 */
 	public function __construct() {
-		add_action( 'admin_init', array( $this, 'add_editor_button' ) );
 		add_action( 'admin_init', array( $this, 'add_shortcode_button' ) );
 		add_filter( 'tiny_mce_version', array( $this, 'refresh_tiny_mce' ) );
 		add_filter( 'mce_external_languages', array( $this, 'add_tinymce_locales' ), 20, 1 );
-	}
-
-	/**
-	 * Add a button for toggle between the editors.
-	 */
-	public function add_editor_button() {
-		add_action( 'edit_form_after_title', array( $this, 'wrap_default_editor' ) );
-		add_action( 'edit_form_after_editor', array( $this, 'close_default_editor_wrap' ) );
-	}
-
-	/**
-	 * wrap_default_editor.
-	 * @return string
-	 */
-	public function wrap_default_editor() {
-		$screen = get_current_screen();
-
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
-			global $post_ID;
-
-			$builder_label   = __( 'Use Page Builder', 'axisbuilder' );
-			$default_label   = __( 'Use Default Editor', 'axisbuilder' );
-			$is_builder_used = get_post_meta( $post_ID, '_axisbuilder_status', true );
-			$active_label    = $is_builder_used == 'active' ? $default_label : $builder_label;
-			$button_class    = $is_builder_used == 'active' ? 'button-secondary' : 'button-primary';
-			$editor_class    = $is_builder_used == 'active' ? ' axisbuilder-hidden-editor' : '';
-
-			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-page-builder="' . $builder_label . '" data-default-editor="' . $default_label . '">' . $active_label . '</a>';
-			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
-		}
-	}
-
-	/**
-	 * close_default_editor_wrap.
-	 * @return string
-	 */
-	public function close_default_editor_wrap() {
-		$screen = get_current_screen();
-
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
-			echo '</div> <!-- #postdivrich_wrap -->';
-		}
 	}
 
 	/**

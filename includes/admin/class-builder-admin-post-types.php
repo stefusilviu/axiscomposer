@@ -34,6 +34,8 @@ class AB_Admin_Post_Types {
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
 		add_filter( 'media_view_strings', array( $this, 'change_insert_into_post' ) );
+		add_action( 'edit_form_after_title', array( $this, 'edit_form_after_title' ) );
+		add_action( 'edit_form_after_editor', array( $this, 'edit_form_after_editor' ) );
 
 		// Meta-Box Class
 		include_once( 'class-builder-admin-meta-boxes.php' );
@@ -174,6 +176,40 @@ class AB_Admin_Post_Types {
 		}
 
 		return $strings;
+	}
+
+	/**
+	 * edit_form_after_title function.
+	 * @return string
+	 */
+	public function edit_form_after_title() {
+		$screen = get_current_screen();
+
+		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+			global $post_ID;
+
+			$builder_label   = __( 'Use Page Builder', 'axisbuilder' );
+			$default_label   = __( 'Use Default Editor', 'axisbuilder' );
+			$is_builder_used = get_post_meta( $post_ID, '_axisbuilder_status', true );
+			$active_label    = $is_builder_used == 'active' ? $default_label : $builder_label;
+			$button_class    = $is_builder_used == 'active' ? 'button-secondary' : 'button-primary';
+			$editor_class    = $is_builder_used == 'active' ? ' axisbuilder-hidden-editor' : '';
+
+			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-page-builder="' . $builder_label . '" data-default-editor="' . $default_label . '">' . $active_label . '</a>';
+			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
+		}
+	}
+
+	/**
+	 * edit_form_after_editor function.
+	 * @return string
+	 */
+	public function edit_form_after_editor() {
+		$screen = get_current_screen();
+
+		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+			echo '</div> <!-- #postdivrich_wrap -->';
+		}
 	}
 }
 

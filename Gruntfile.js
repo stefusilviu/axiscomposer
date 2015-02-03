@@ -142,7 +142,7 @@ module.exports = function( grunt ){
 				type: 'wp-plugin',
 				domainPath: 'i18n/languages',
 				potHeaders: {
-					'report-msgid-bugs-to': 'https://github.com/axisthemes/axis-builder/issues',
+					'report-msgid-bugs-to': 'https://github.com/axisthemes/axisbuilder/issues',
 					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
 				}
 			},

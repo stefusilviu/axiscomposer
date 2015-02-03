@@ -130,7 +130,7 @@ class AB_Install {
 		$transient_name = 'ab_upgrade_notice_' . $args['Version'];
 
 		if ( false === ( $upgrade_notice = get_transient( $transient_name ) ) ) {
-			$response = wp_remote_get( 'https://plugins.svn.wordpress.org/axis-builder/trunk/readme.txt' );
+			$response = wp_remote_get( 'https://plugins.svn.wordpress.org/axisbuilder/trunk/readme.txt' );
 
 			if ( ! is_wp_error( $response ) && ! empty( $response['body'] ) ) {
 				$upgrade_notice = self::parse_update_notice( $response['body'] );
@@ -193,8 +193,8 @@ class AB_Install {
 	public static function plugin_row_meta( $links, $file ) {
 		if ( $file == AB_PLUGIN_BASENAME ) {
 			$row_meta = array(
-				'docs'		=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axis-builder/' ) ) . '" title="' . esc_attr( __( 'View Axis Builder Documentation', 'axisbuilder' ) ) . '">' . __( 'Docs', 'axisbuilder' ) . '</a>',
-				'apidocs'	=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_apidocs_url', 'http://docs.axisthemes.com/apidocs/axis-builder/' ) ) . '" title="' . esc_attr( __( 'View Axis Builder API Docs', 'axisbuilder' ) ) . '">' . __( 'API Docs', 'axisbuilder' ) . '</a>',
+				'docs'		=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/' ) ) . '" title="' . esc_attr( __( 'View Axis Builder Documentation', 'axisbuilder' ) ) . '">' . __( 'Docs', 'axisbuilder' ) . '</a>',
+				'apidocs'	=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_apidocs_url', 'http://docs.axisthemes.com/apidocs/axisbuilder/' ) ) . '" title="' . esc_attr( __( 'View Axis Builder API Docs', 'axisbuilder' ) ) . '">' . __( 'API Docs', 'axisbuilder' ) . '</a>',
 				'support'	=>	'<a href="' . esc_url( apply_filters( 'axisbuilder_support_url', 'http://support.axisthemes.com/' ) ) . '" title="' . esc_attr( __( 'Visit Premium Customer Support Forum', 'axisbuilder' ) ) . '">' . __( 'Premium Support', 'axisbuilder' ) . '</a>',
 			);
 

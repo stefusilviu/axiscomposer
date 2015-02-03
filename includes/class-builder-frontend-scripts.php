@@ -40,7 +40,7 @@ class AB_Frontend_Scripts {
 	}
 
 	/**
-	 * Get styles for the frontend
+	 * Get styles for the frontend.
 	 * @access private
 	 * @return array
 	 */
@@ -68,15 +68,15 @@ class AB_Frontend_Scripts {
 	}
 
 	/**
-	 * Register a script for use
+	 * Register a script for use.
 	 *
-	 * @uses   wp_register_script()
+	 * @uses   wp_enqueue_script()
 	 * @access private
-	 * @param  string  $handle    [description]
-	 * @param  string  $path      [description]
-	 * @param  array   $deps      [description]
-	 * @param  string  $version   [description]
-	 * @param  boolean $in_footer [description]
+	 * @param  string   $handle    [description]
+	 * @param  string   $path      [description]
+	 * @param  string[] $deps      [description]
+	 * @param  string   $version   [description]
+	 * @param  boolean  $in_footer [description]
 	 */
 	private static function register_script( $handle, $path, $deps = array( 'jquery' ), $version = AB_VERSION, $in_footer = true ) {
 		self::$scripts[] = $handle;
@@ -84,7 +84,7 @@ class AB_Frontend_Scripts {
 	}
 
 	/**
-	 * Register and enqueue a script for use
+	 * Register and enqueue a script for use.
 	 *
 	 * @uses   wp_enqueue_script()
 	 * @access private

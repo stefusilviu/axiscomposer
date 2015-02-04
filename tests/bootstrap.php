@@ -32,19 +32,19 @@ class AB_Unit_Tests_Bootstrap {
 		$this->plugin_dir   = dirname( $this->tests_dir );
 		$this->wp_tests_dir = getenv( 'WP_TESTS_DIR' ) ? getenv( 'WP_TESTS_DIR' ) : $this->plugin_dir . '/tmp/wordpress-tests-lib';
 
-		// load test function so tests_add_filter() is available
+		// Load test function so tests_add_filter() is available
 		require_once( $this->wp_tests_dir . '/includes/functions.php' );
 
-		// load AB
+		// Load AB
 		tests_add_filter( 'muplugins_loaded', array( $this, 'load_axisbuilder' ) );
 
-		// install AB
+		// Install AB
 		tests_add_filter( 'setup_theme', array( $this, 'install_axisbuilder' ) );
 
-		// load the WP testing environment
+		// Load the WP testing environment
 		require_once( $this->wp_tests_dir . '/includes/bootstrap.php' );
 
-		// load AB testing framework
+		// Load AB testing framework
 		$this->includes();
 	}
 
@@ -64,13 +64,13 @@ class AB_Unit_Tests_Bootstrap {
 	 */
 	public function install_axisbuilder() {
 
-		// clean existing install first
+		// Clean existing install first
 		define( 'WP_UNINSTALL_PLUGIN', true );
 		include( $this->plugin_dir . '/uninstall.php' );
 
 		AB_Install::install();
 
-		// reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
+		// Reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
 		$GLOBALS['wp_roles']->reinit();
 
 		echo "Installing Axis Builder..." . PHP_EOL;
@@ -83,7 +83,7 @@ class AB_Unit_Tests_Bootstrap {
 	 */
 	public function includes() {
 
-		// test cases
+		// Test Cases
 		require_once( $this->tests_dir . '/framework/class-builder-unit-test-case.php' );
 	}
 
@@ -97,7 +97,6 @@ class AB_Unit_Tests_Bootstrap {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
-
 		return self::$instance;
 	}
 }

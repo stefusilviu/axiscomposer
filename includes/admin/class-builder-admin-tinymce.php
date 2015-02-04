@@ -1,10 +1,8 @@
 <?php
 /**
- * AxisBuilder Editor
+ * AxisBuilder Admin TinyMCE Class.
  *
- * Central Editor Class.
- *
- * @class       AB_Admin_Editor
+ * @class       AB_Admin_TinyMCE
  * @package     AxisBuilder/Admin
  * @category    Admin
  * @author      AxisThemes
@@ -16,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Editor Class
+ * AB_Admin_TinyMCE Class
  */
-class AB_Admin_Editor {
+class AB_Admin_TinyMCE {
 
 	/**
 	 * Hook in tabs.
@@ -90,4 +88,4 @@ class AB_Admin_Editor {
 	}
 }
 
-return new AB_Admin_Editor();
+new AB_Admin_TinyMCE();

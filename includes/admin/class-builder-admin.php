@@ -34,7 +34,7 @@ class AB_Admin {
 		include_once( 'builder-admin-functions.php' );
 
 		// Classes
-		include_once( 'class-builder-admin-editor.php' );
+		include_once( 'class-builder-admin-tinymce.php' );
 		include_once( 'class-builder-admin-post-types.php' );
 
 		// Classes we only need during non-ajax requests

@@ -89,5 +89,5 @@ function axisbuilder_get_core_supported_themes() {
  * @return array
  */
 function get_builder_core_supported_screens() {
-	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'axis-portfolio', 'jetpack-portfolio' ) );
+	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }

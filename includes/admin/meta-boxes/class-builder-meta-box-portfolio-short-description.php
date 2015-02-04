@@ -4,10 +4,11 @@
  *
  * Replaces the standard excerpt box.
  *
- * @author      WooThemes
+ * @class       AB_Meta_Box_Portfolio_Short_Description
+ * @package     AxisBuilder/Admin/Meta Boxes
  * @category    Admin
- * @package     WooCommerce/Admin/Meta Boxes
- * @version     2.1.0
+ * @author      AxisThemes
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

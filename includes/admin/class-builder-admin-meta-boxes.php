@@ -31,8 +31,11 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20 );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
-		// Save Meta-Boxes
+		// Save Builder Meta Boxes
 		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
+
+		// Save Layout Meta Boxes
+		add_action( 'axisbuilder_process_layout_meta', 'AB_Meta_Box_Layout_Data::save', 10, 2 );
 
 		// Restores a post to the specified revision
 		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
@@ -85,6 +88,12 @@ class AB_Admin_Meta_Boxes {
 		// Portfolio
 		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
 
+		// Layouts
+		foreach ( get_builder_core_supported_screens() as $type ) {
+			$layout_type_object = get_post_type_object( $type );
+			add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout', 'axisbuilder' ), $layout_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
+		}
+
 		// Page Builder
 		foreach ( get_builder_core_supported_screens() as $type ) {
 			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
@@ -93,7 +102,7 @@ class AB_Admin_Meta_Boxes {
 	}
 
 	/**
-	 * Remove bloat
+	 * Remove bloat.
 	 */
 	public function remove_meta_boxes() {
 		remove_meta_box( 'postexcerpt', 'portfolio', 'normal' );
@@ -134,9 +143,14 @@ class AB_Admin_Meta_Boxes {
 		//	remove_action( current_filter(), __METHOD__ );
 		self::$saved_meta_boxes = true;
 
-		// Hook for Saving {Builder|Config} Meta-Box data.
+		// Check the post type
+		if ( in_array( $post->post_type, array( 'portfolio' ) ) ) {
+			do_action( 'axisbuilder_process_' . $post->post_type . '_meta', $post_id, $post );
+		} else {
+			do_action( 'axisbuilder_process_layout_meta', $post_id, $post );
+		}
+
 		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
-		do_action( 'axisbuilder_layout_configs_meta', $post_id, $post );
 	}
 
 	/**

@@ -9,9 +9,6 @@
  */
 class AB_Unit_Test_Case extends WP_UnitTestCase {
 
-	/** @var \AB_Unit_Test_Factory instance */
-	protected $factory;
-
 	/**
 	 * Setup test case
 	 *
@@ -66,6 +63,7 @@ class AB_Unit_Test_Case extends WP_UnitTestCase {
 	/**
 	 * Backport assertNotFalse to PHPUnit 3.6.12 which only runs in PHP 5.2
 	 *
+	 * @since  1.0
 	 * @param  $condition
 	 * @param  string $message
 	 * @return mixed

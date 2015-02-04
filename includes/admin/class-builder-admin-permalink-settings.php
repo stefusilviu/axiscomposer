@@ -27,7 +27,7 @@ class AB_Admin_Permalink_Settings {
 	}
 
 	/**
-	 * Init our settings
+	 * Init our settings.
 	 */
 	public function settings_init() {
 		// Add a section to the permalinks page

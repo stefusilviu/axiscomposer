@@ -39,6 +39,8 @@ class AB_Post_Types {
 
 		do_action( 'axisbuilder_register_taxonomy' );
 
+		$permalinks = get_option( 'axisbuilder_permalinks' );
+
 		register_taxonomy( 'portfolio_type',
 			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_type', array( 'portfolio' ) ),
 			apply_filters( 'axisbuilder_taxonomy_args_portfolio_type', array(
@@ -79,7 +81,7 @@ class AB_Post_Types {
 					'assign_terms' => 'assign_portfolio_terms',
 				),
 				'rewrite'               => array(
-					'slug'         => _x( 'project-category', 'slug', 'axisbuilder' ),
+					'slug'         => empty( $permalinks['category_base'] ) ? _x( 'portfolio-category', 'slug', 'axisbuilder' ) : $permalinks['category_base'],
 					'with_front'   => false,
 					'hierarchical' => true,
 				),
@@ -117,7 +119,7 @@ class AB_Post_Types {
 					'assign_terms' => 'assign_portfolio_terms',
 				),
 				'rewrite'               => array(
-					'slug'       => _x( 'project-tag', 'slug', 'axisbuilder' ),
+					'slug'       => empty( $permalinks['tag_base'] ) ? _x( 'portfolio-tag', 'slug', 'axisbuilder' ) : $permalinks['tag_base'],
 					'with_front' => false
 				),
 			) )
@@ -135,6 +137,9 @@ class AB_Post_Types {
 		}
 
 		do_action( 'axisbuilder_register_post_type' );
+
+		$permalinks          = get_option( 'axisbuilder_permalinks' );
+		$portfolio_permalink = empty( $permalinks['portfolio_base'] ) ? _x( 'portfolio', 'slug', 'axisbuilder' ) : $permalinks['portfolio_base'];
 
 		register_post_type( 'portfolio',
 			apply_filters( 'axisbuilder_register_post_type_portfolio',
@@ -166,7 +171,7 @@ class AB_Post_Types {
 					'hierarchical'        => false,
 					'query_var'           => true,
 					'menu_icon'           => 'dashicons-portfolio',
-					'rewrite'             => array( 'slug' => 'portfolio', 'with_front' => false, 'feeds' => true ),
+					'rewrite'             => $portfolio_permalink ? array( 'slug' => untrailingslashit( $portfolio_permalink ), 'with_front' => false, 'feeds' => true ) : false,
 					'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'custom-fields', 'page-attributes', 'publicize', 'wpcom-markdown' ),
 					'has_archive'         => true,
 					'show_in_nav_menus'   => true

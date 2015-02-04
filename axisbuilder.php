@@ -269,6 +269,14 @@ final class AxisBuilder {
 	}
 
 	/**
+	 * Get the template path.
+	 * @return string
+	 */
+	public function template_path() {
+		return apply_filters( 'axisbuilder_template_path', 'axisbuilder/' );
+	}
+
+	/**
 	 * Get Ajax URL.
 	 * @return string
 	 */

@@ -23,6 +23,7 @@ class AB_Admin {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'includes' ) );
+		add_action( 'current_screen', array( $this, 'conditonal_includes' ) );
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
 	}
 
@@ -51,6 +52,20 @@ class AB_Admin {
 		// TinyMCE
 		if ( 'yes' === get_option( 'axisbuilder_tinymce_enabled', 'yes' ) ) {
 			include_once( 'class-builder-admin-tinymce.php' );
+		}
+	}
+
+	/**
+	 * Include admin files conditionally.
+	 */
+	public function conditonal_includes() {
+
+		$screen = get_current_screen();
+
+		switch ( $screen->id ) {
+			case 'options-permalink' :
+				include( 'class-builder-admin-permalink-settings.php' );
+			break;
 		}
 	}
 

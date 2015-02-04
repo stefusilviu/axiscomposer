@@ -70,7 +70,7 @@ class AB_Frontend_Scripts {
 	/**
 	 * Register a script for use.
 	 *
-	 * @uses   wp_enqueue_script()
+	 * @uses   wp_register_script()
 	 * @access private
 	 * @param  string   $handle    [description]
 	 * @param  string   $path      [description]
@@ -109,7 +109,7 @@ class AB_Frontend_Scripts {
 		$assets_path          = str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'scripts/frontend/';
 
-		self::enqueue_script( 'select2', '//cdnjs.cloudflare.com/ajax/libs/select2/3.5.2/select2.min.js', array( 'jquery' ), '3.5.2' );
+		self::register_script( 'select2', $assets_path . 'js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
 		wp_localize_script( 'select2', 'axisbuilder_select_params', array(
 			'i18n_matches_1'            => _x( 'One result is available, press enter to select it.', 'enhanced select', 'axisbuilder' ),
 			'i18n_matches_n'            => _x( '%qty% results are available, use up and down arrow keys to navigate.', 'enhanced select', 'axisbuilder' ),

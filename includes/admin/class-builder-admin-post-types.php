@@ -27,9 +27,9 @@ class AB_Admin_Post_Types {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 
 		// WP List table columns. Defined here so they are always available for events such as inline editing.
-		add_filter( 'manage_edit-portfolio_columns', array( $this, 'portfolio_columns' ) );
-		add_action( 'manage_portfolio_posts_custom_column', array( $this, 'render_portfolio_columns' ), 2 );
-		add_filter( 'manage_edit-portfolio_sortable_columns', array( $this, 'portfolio_sortable_columns' ) );
+		// add_filter( 'manage_edit-portfolio_columns', array( $this, 'portfolio_columns' ) );
+		// add_action( 'manage_portfolio_posts_custom_column', array( $this, 'render_portfolio_columns' ), 2 );
+		// add_filter( 'manage_edit-portfolio_sortable_columns', array( $this, 'portfolio_sortable_columns' ) );
 
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );

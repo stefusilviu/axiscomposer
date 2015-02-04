@@ -22,6 +22,7 @@ class AB_Admin_Meta_Boxes {
 
 	private static $add_meta_boxes    = array();
 	private static $add_meta_elements = array();
+	private static $saved_meta_boxes  = false;
 	private static $meta_box_errors   = array();
 
 	/**
@@ -127,7 +128,7 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function save_meta_boxes( $post_id, $post ) {
 		// $post_id and $post are required
-		if ( empty( $post_id ) || empty( $post ) ) {
+		if ( empty( $post_id ) || empty( $post ) || self::$saved_meta_boxes ) {
 			return;
 		}
 
@@ -150,6 +151,10 @@ class AB_Admin_Meta_Boxes {
 		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
 		}
+
+		// We need this save event to run once to avoid potential endless loops. This would have been perfect:
+		//	remove_action( current_filter(), __METHOD__ );
+		self::$saved_meta_boxes = true;
 
 		// Hook for Saving {Builder|Config} Meta-Box data.
 		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );

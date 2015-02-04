@@ -28,7 +28,7 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function __construct() {
 		add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 10 );
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20 );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save Meta-Boxes
@@ -85,10 +85,8 @@ class AB_Admin_Meta_Boxes {
 		// Portfolio
 		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
 
-		$screens = get_builder_core_supported_screens();
-
 		// Page Builder
-		foreach ( $screens as $type ) {
+		foreach ( get_builder_core_supported_screens() as $type ) {
 			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', 'AB_Meta_Box_Builder_Data::postbox_classes' );
 		}
@@ -103,9 +101,8 @@ class AB_Admin_Meta_Boxes {
 
 	/**
 	 * Check if we're saving, the trigger an action based on the post type
-	 *
-	 * @param  int $post_id
-	 * @param  object $post
+	 * @param int $post_id
+	 * @param object $post
 	 */
 	public function save_meta_boxes( $post_id, $post ) {
 		// $post_id and $post are required

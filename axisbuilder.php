@@ -116,7 +116,6 @@ final class AxisBuilder {
 		$this->define( 'AB_PLUGIN_FILE', __FILE__ );
 		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		$this->define( 'AB_VERSION', $this->version );
-		$this->define( 'AB_CONFIG_DIR', $this->plugin_path() . '/config/' );
 		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
 	}
 

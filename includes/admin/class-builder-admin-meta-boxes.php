@@ -20,21 +20,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Admin_Meta_Boxes {
 
-	private static $add_meta_boxes    = array();
-	private static $add_meta_elements = array();
-	private static $saved_meta_boxes  = false;
-	private static $meta_box_errors   = array();
+	private static $saved_meta_boxes = false;
+	private static $meta_box_errors  = array();
 
 	/**
 	 * Hook in tabs.
 	 */
 	public function __construct() {
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10 );
+		add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 10 );
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save Meta-Boxes
 		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
-		add_action( 'axisbuilder_layout_configs_meta', array( $this, 'save_meta_data' ), 20, 2 );
 
 		// Restores a post to the specified revision
 		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
@@ -42,21 +40,6 @@ class AB_Admin_Meta_Boxes {
 		// Error handling (for showing errors from meta boxes on next page load)
 		add_action( 'admin_notices', array( $this, 'output_errors' ) );
 		add_action( 'shutdown', array( $this, 'save_errors' ) );
-	}
-
-	/**
-	 * Add Meta-box configurations.
-	 */
-	public static function add_meta_config() {
-		require( AB_CONFIG_DIR . 'meta-boxes.php' );
-
-		if ( isset( $boxes ) ) {
-			self::$add_meta_boxes = apply_filters( 'axisbuilder_add_meta_boxes', $boxes );
-		}
-
-		if ( isset( $elements ) ) {
-			self::$add_meta_elements = apply_filters( 'axisbuilder_add_meta_elements', $elements );
-		}
 	}
 
 	/**
@@ -83,9 +66,11 @@ class AB_Admin_Meta_Boxes {
 		if ( ! empty( $errors ) ) {
 
 			echo '<div id="axisbuilder_errors" class="error fade">';
+
 			foreach ( $errors as $error ) {
 				echo '<p>' . esc_html( $error ) . '</p>';
 			}
+
 			echo '</div>';
 
 			// Clear
@@ -97,6 +82,9 @@ class AB_Admin_Meta_Boxes {
 	 * Add AB Meta boxes.
 	 */
 	public function add_meta_boxes() {
+		// Portfolio
+		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
+
 		$screens = get_builder_core_supported_screens();
 
 		// Page Builder
@@ -104,20 +92,13 @@ class AB_Admin_Meta_Boxes {
 			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', 'AB_Meta_Box_Builder_Data::postbox_classes' );
 		}
+	}
 
-		// Load Configurations
-		self::add_meta_config();
-
-		// Additional
-		if ( ! empty( self::$add_meta_boxes ) && ! empty( self::$add_meta_elements ) ) {
-
-			foreach ( self::$add_meta_boxes as $key => $meta_box ) {
-
-				foreach ( $meta_box['page'] as $type ) {
-					add_meta_box( $meta_box['id'], $meta_box['title'], array( $this, 'output_meta_elements' ), $type, $meta_box['context'], $meta_box['priority'], array( 'axisbuilder_current_meta_box' => $meta_box ) );
-				}
-			}
-		}
+	/**
+	 * Remove bloat
+	 */
+	public function remove_meta_boxes() {
+		remove_meta_box( 'postexcerpt', 'portfolio', 'normal' );
 	}
 
 	/**
@@ -168,7 +149,6 @@ class AB_Admin_Meta_Boxes {
 	 * @return null
 	 */
 	public function restore_post_revision( $post_id, $revision_id ) {
-		// $post     = get_post( $post_id );
 		$revision = get_post( $revision_id );
 		$metadata = array( '_axisbuilder_canvas' );
 
@@ -179,63 +159,6 @@ class AB_Admin_Meta_Boxes {
 				update_post_meta( $post_id, $metafield, $builder_metadata );
 			} else {
 				delete_post_meta( $post_id, $metafield );
-			}
-		}
-	}
-
-	/**
-	 * Output Additional Meta-Box Elements.
-	 */
-	public function output_meta_elements( $post, $metadata ) {
-		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
-
-		$output  = '';
-		$metabox = $metadata['args']['axisbuilder_current_meta_box'];
-
-		foreach ( self::$add_meta_elements as $meta_element ) {
-			$content = '';
-			$meta_element['current_post'] = $post->ID;
-
-			if ( $meta_element['slug'] == $metabox['id'] ) {
-				if ( is_array( $meta_element['type'] ) && method_exists( $meta_element['type'][0], $meta_element['type'][1] ) ) {
-					$content = call_user_func( $meta_element['type'], $meta_element );
-				} elseif ( method_exists( 'AB_HTML_Helper', $meta_element['type'] ) ) {
-					$content = AB_HTML_Helper::render_meta_box( $meta_element );
-				}
-			}
-
-			if ( ! empty( $content ) ) {
-				if ( empty( $meta_element['nodescription'] ) ) {
-					$output .= $content;
-				} else {
-					// Do Something Here ;)
-				}
-			}
-		}
-
-		echo $output;
-	}
-
-	/**
-	 * Save Additional Meta-Box data.
-	 */
-	public function save_meta_data( $post_id ) {
-
-		// Load Configurations
-		self::add_meta_config();
-
-		// Let's bail the save method :)
-		foreach ( self::$add_meta_elements as $meta_element ) {
-			if ( isset( $meta_element['type'] ) && ( $meta_element['type'] == 'fake' || $meta_element['type'] == 'checkbox' ) ) {
-				if ( empty( $_POST[$meta_element['id']] ) ) {
-					$_POST[$meta_element['id']] = 0;
-				}
-			}
-
-			foreach ( $_POST as $key => $value ) {
-				if ( strpos( $key, $meta_element['id'] ) !== false ) {
-					update_post_meta( $post_id, $key, $_POST[$key] );
-				}
 			}
 		}
 	}

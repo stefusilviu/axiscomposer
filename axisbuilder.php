@@ -102,6 +102,7 @@ final class AxisBuilder {
 	private function init_hooks() {
 		register_activation_hook( __FILE__, array( 'AB_Install', 'install' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
+		add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
 		add_filter( 'widget_text', 'do_shortcode' );
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
@@ -190,6 +191,15 @@ final class AxisBuilder {
 	 */
 	public function frontend_includes() {
 		include_once( 'includes/class-builder-frontend-scripts.php' );         // Frontend Scripts
+	}
+
+	/**
+	 * Function used to Init AxisBuilder Template Functions - This makes them pluggable by plugins and themes.
+	 */
+	public function include_template_functions() {
+		if ( $this->is_request( 'frontend' ) ) {
+			include_once( 'includes/builder-template-functions.php' );
+		}
 	}
 
 	/**

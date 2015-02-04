@@ -33,6 +33,7 @@ class AB_Admin {
 	public function includes() {
 		// Functions
 		include_once( 'builder-admin-functions.php' );
+		include_once( 'builder-meta-box-functions.php' );
 
 		// Classes
 		include_once( 'class-builder-admin-post-types.php' );
@@ -65,7 +66,9 @@ class AB_Admin {
 		switch ( $screen->id ) {
 			case 'options-permalink' :
 				include( 'class-builder-admin-permalink-settings.php' );
-			break;
+				break;
+			default :
+				break;
 		}
 	}
 

@@ -28,6 +28,31 @@ function axisbuilder_clean( $var ) {
 }
 
 /**
+ * Get an image size.
+ *
+ * Variable is filtered by axisbuilder_get_image_size_{image_size}
+ *
+ * @param  string $image_size
+ * @return array
+ */
+function axisbuilder_get_image_size( $image_size ) {
+	if ( in_array( $image_size, array( 'portfolio_thumbnail', 'portfolio_single' ) ) ) {
+		$size           = get_option( $image_size . '_image_size', array() );
+		$size['width']  = isset( $size['width'] ) ? $size['width'] : '300';
+		$size['height'] = isset( $size['height'] ) ? $size['height'] : '300';
+		$size['crop']   = isset( $size['crop'] ) ? $size['crop'] : 0;
+	} else {
+		$size = array(
+			'width'  => '300',
+			'height' => '300',
+			'crop'   => 1
+		);
+	}
+
+	return apply_filters( 'axisbuilder_get_image_size_' . $image_size, $size );
+}
+
+/**
  * Get all Custom Post Types Screen
  * @return array
  */

@@ -36,11 +36,6 @@ class AB_Admin {
 		// Classes
 		include_once( 'class-builder-admin-post-types.php' );
 
-		// TinyMCE
-		if ( 'yes' === get_option( 'axisbuilder_tinymce_enabled', 'yes' ) ) {
-			include_once( 'class-builder-admin-tinymce.php' );
-		}
-
 		// Classes we only need during non-ajax requests
 		if ( ! defined( 'DOING_AJAX' ) ) {
 			include_once( 'class-builder-admin-menus.php' );
@@ -51,6 +46,11 @@ class AB_Admin {
 			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {
 				include_once( 'class-builder-admin-help.php' );
 			}
+		}
+
+		// TinyMCE
+		if ( 'yes' === get_option( 'axisbuilder_tinymce_enabled', 'yes' ) ) {
+			include_once( 'class-builder-admin-tinymce.php' );
 		}
 	}
 

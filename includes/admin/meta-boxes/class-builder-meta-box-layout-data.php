@@ -24,11 +24,13 @@ class AB_Meta_Box_Layout_Data {
 	 * Output the metabox
 	 */
 	public static function output( $post ) {
-		axisbuilder_wp_select( array( 'id' => 'discount_type', 'label' => __( 'Discount type', 'woocommerce' ), 'options' => axisbuilder_get_screen_types() ) );
+
 	}
 
 	/**
 	 * Save meta box data
 	 */
-	public static function save( $post_id, $post ) {}
+	public static function save( $post_id, $post ) {
+
+	}
 }

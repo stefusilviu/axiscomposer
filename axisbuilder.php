@@ -122,8 +122,8 @@ final class AxisBuilder {
 
 	/**
 	 * Define constant if not already set
-	 * @param  string $name
-	 * @param  string|bool $value
+	 * @param string $name
+	 * @param string|bool $value
 	 */
 	private function define( $name, $value ) {
 		if ( ! defined( $name ) ) {

@@ -101,6 +101,7 @@ final class AxisBuilder {
 	 */
 	private function init_hooks() {
 		register_activation_hook( __FILE__, array( 'AB_Install', 'install' ) );
+		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
 		add_filter( 'widget_text', 'do_shortcode' );
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
@@ -232,6 +233,23 @@ final class AxisBuilder {
 
 		load_textdomain( 'axisbuilder', WP_LANG_DIR . '/axis-builder/axisbuilder-' . $locale . '.mo' );
 		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
+	}
+
+	/**
+	 * Ensure theme compatibility.
+	 */
+	public function setup_environment() {
+		$this->add_thumbnail_support();
+	}
+
+	/**
+	 * Ensure post thumbnail support is turned on.
+	 */
+	private function add_thumbnail_support() {
+		if ( ! current_theme_supports( 'post-thumbnails' ) ) {
+			add_theme_support( 'post-thumbnails' );
+		}
+		add_post_type_support( 'portfolio', 'thumbnail' );
 	}
 
 	/**

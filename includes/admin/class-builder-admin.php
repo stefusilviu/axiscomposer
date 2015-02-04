@@ -34,8 +34,12 @@ class AB_Admin {
 		include_once( 'builder-admin-functions.php' );
 
 		// Classes
-		include_once( 'class-builder-admin-tinymce.php' );
 		include_once( 'class-builder-admin-post-types.php' );
+
+		// TinyMCE
+		if ( 'yes' === get_option( 'axisbuilder_tinymce_enabled', 'yes' ) ) {
+			include_once( 'class-builder-admin-tinymce.php' );
+		}
 
 		// Classes we only need during non-ajax requests
 		if ( ! defined( 'DOING_AJAX' ) ) {

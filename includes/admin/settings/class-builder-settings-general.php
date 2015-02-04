@@ -101,6 +101,16 @@ class AB_Settings_General extends AB_Settings_Page {
 			),
 
 			array(
+				'title'   => __( 'TinyMCE Shortcodes', 'axisbuilder' ),
+				'desc'    => __( 'Enable the TinyMCE Shortcodes', 'axisbuilder' ),
+				'id'      => 'axisbuilder_tinymce_enabled',
+				'default' => 'yes',
+				'type'    => 'checkbox',
+				'desc_tip' =>  __( 'Allows to insert shortcodes from the default editor.', 'axisbuilder' ),
+				'autoload' => false
+			),
+
+			array(
 				'type' => 'sectionend',
 				'id'   => 'general_options'
 			)

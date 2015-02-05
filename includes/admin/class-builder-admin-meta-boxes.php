@@ -91,7 +91,7 @@ class AB_Admin_Meta_Boxes {
 		// Layouts
 		foreach ( get_builder_core_supported_screens() as $type ) {
 			$layout_type_object = get_post_type_object( $type );
-			add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout', 'axisbuilder' ), $layout_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
+			add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout Data', 'axisbuilder' ), $layout_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
 		}
 
 		// Page Builder

@@ -114,24 +114,24 @@ class AB_Admin_Assets {
 			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'axisbuilder' ),
 		) );
 		wp_localize_script( 'axisbuilder-enhanced-select', 'axisbuilder_enhanced_select_params', array(
-			'ajax_url'                  => admin_url( 'admin-ajax.php' )
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
 		) );
 
 		// Modal
 		$modal_params = array(
-			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
-			'error'                    => esc_js( __( 'An error occured', 'axisbuilder' ) ),
-			'success'                  => esc_js( __( 'All right!', 'axisbuilder' ) ),
-			'attention'                => esc_js( __( 'Attention!', 'axisbuilder' ) ),
-			'i18n_add_button'          => esc_js( __( 'Add', 'axisbuilder' ) ),
-			'i18n_save_button'         => esc_js( __( 'Save', 'axisbuilder' ) ),
-			'i18n_close_button'        => esc_js( __( 'Close', 'axisbuilder' ) ),
-			'i18n_cancel_button'       => esc_js( __( 'Cancel', 'axisbuilder' ) ),
-			'i18n_delete_button'       => esc_js( __( 'Delete', 'axisbuilder' ) ),
-			'i18n_ajax_error'          => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_login_error'         => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_session_error'       => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
-			'get_modal_elements_nonce' => wp_create_nonce( 'get-modal-elements' )
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'error'                     => esc_js( __( 'An error occured', 'axisbuilder' ) ),
+			'success'                   => esc_js( __( 'All right!', 'axisbuilder' ) ),
+			'attention'                 => esc_js( __( 'Attention!', 'axisbuilder' ) ),
+			'i18n_add_button'           => esc_js( __( 'Add', 'axisbuilder' ) ),
+			'i18n_save_button'          => esc_js( __( 'Save', 'axisbuilder' ) ),
+			'i18n_close_button'         => esc_js( __( 'Close', 'axisbuilder' ) ),
+			'i18n_cancel_button'        => esc_js( __( 'Cancel', 'axisbuilder' ) ),
+			'i18n_delete_button'        => esc_js( __( 'Delete', 'axisbuilder' ) ),
+			'i18n_ajax_error'           => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_login_error'          => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_session_error'        => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
+			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
 		);
 
 		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', $modal_params );

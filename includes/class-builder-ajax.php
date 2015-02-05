@@ -29,7 +29,6 @@ class AB_AJAX {
 		$ajax_events = array(
 			'add_iconfont'            => false,
 			'delete_iconfont'         => false,
-			'json_search_sidebars'    => false,
 			'delete_custom_sidebar'   => false,
 			'shortcodes_to_interface' => false,
 		);
@@ -59,33 +58,6 @@ class AB_AJAX {
 
 		check_ajax_referer( 'delete-custom-iconfont', 'security' );
 
-	}
-
-	/**
-	 * Search for sidebars and return json.
-	 */
-	public static function json_search_sidebars() {
-		global $wp_registered_sidebars;
-
-		ob_start();
-
-		check_ajax_referer( 'search-sidebars', 'security' );
-
-		$term = (string) axisbuilder_clean( stripslashes( $_GET['term'] ) );
-
-		if ( empty( $term ) ) {
-			die();
-		}
-
-		$found_sidebars = array();
-
-		if ( $wp_registered_sidebars ) {
-			foreach ( $wp_registered_sidebars as $sidebar ) {
-				$found_sidebars[ $sidebar['name'] ] = $sidebar['name'];
-			}
-		}
-
-		wp_send_json( $found_sidebars );
 	}
 
 	/**

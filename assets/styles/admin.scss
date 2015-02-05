@@ -1006,6 +1006,15 @@ table.wp-list-table {
 /**
  * Settings Styles
  */
+img.help_tip {
+	vertical-align: middle;
+	margin: 0 0 0 9px;
+}
+
+.postbox img.help_tip {
+	margin-top: -4px;
+}
+
 .axisbuilder {
 	#template div {
 		margin: 0;

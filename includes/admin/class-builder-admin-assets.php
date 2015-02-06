@@ -41,7 +41,7 @@ class AB_Admin_Assets {
 		// Sitewide menu CSS
 		wp_enqueue_style( 'axisbuilder-menu', AB()->plugin_url() . '/assets/styles/menu.css', array(), AB_VERSION );
 
-		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 

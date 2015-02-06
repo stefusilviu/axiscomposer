@@ -193,6 +193,7 @@ class AB_Admin_Assets {
 		// Widgets Specific
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+			wp_enqueue_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'underscore', 'backbone', 'axisbuilder-admin-sidebars' ), AB_VERSION );
 
 			$params = array(
 				'ajax_url'                    => admin_url( 'admin-ajax.php' ),

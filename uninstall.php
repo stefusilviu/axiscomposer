@@ -2,7 +2,7 @@
 /**
  * AxisBuilder Uninstall
  *
- * Uninstalling AxisBuilder deletes user roles, options, tables, and pages.
+ * Uninstalling AxisBuilder deletes user roles and options.
  *
  * @package     AxisBuilder/Uninstaller
  * @category    Core

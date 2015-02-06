@@ -331,6 +331,7 @@ class AB_HTML_Helper {
 
 		ob_start();
 		wp_editor( $element['std'], $element['id'], array(
+			'dfw'           => true,
 			'media_buttons' => true,
 			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce'
 		));

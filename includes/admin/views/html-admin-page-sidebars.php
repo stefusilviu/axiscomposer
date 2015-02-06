@@ -17,3 +17,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</button>
 	</form>
 </script>
+
+<script type="text/template" id="tmpl-axisbuilder-modal-delete-sidebar">
+	<div class="axisbuilder-backbone-modal">
+		<div class="axisbuilder-backbone-modal-content modal-animation">
+			<section class="axisbuilder-backbone-modal-main" role="main">
+				<header class="axisbuilder-backbone-modal-header">
+					<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
+					<h1><%= title %></h1>
+				</header>
+				<article>
+					<form action="" method="post">
+						<p><%= message %></p>
+					</form>
+				</article>
+				<footer>
+					<div class="inner">
+						<% if ( dismiss ) { %>
+							<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
+						<% } else { %>
+							<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
+						<% } %>
+					</div>
+				</footer>
+			</section>
+		</div>
+	</div>
+	<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
+</script>

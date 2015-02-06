@@ -57,6 +57,7 @@ class AB_Admin_Assets {
 		}
 
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
+			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
 			wp_enqueue_style( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/styles/sidebars.css', array(), AB_VERSION );
 		}
 
@@ -84,6 +85,7 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
+		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
@@ -147,8 +149,8 @@ class AB_Admin_Assets {
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
-			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'iris' );
+			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-enhanced-select' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
@@ -164,8 +166,7 @@ class AB_Admin_Assets {
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
 			wp_enqueue_script( 'axisbuilder-admin' );
-			wp_enqueue_script( 'axisbuilder-backbone-admin', AB()->plugin_url() . '/assets/scripts/backbone/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'underscore', 'backbone' ), AB_VERSION );
-			wp_enqueue_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'underscore', 'backbone', 'axisbuilder-admin' ), AB_VERSION );
+			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
@@ -192,7 +193,7 @@ class AB_Admin_Assets {
 
 		// Widgets Specific
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
-			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery', 'axisbuilder-backbone-modal' ), AB_VERSION );
 
 			$params = array(
 				'ajax_url'                    => admin_url( 'admin-ajax.php' ),

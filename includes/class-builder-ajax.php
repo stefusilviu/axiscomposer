@@ -64,25 +64,28 @@ class AB_AJAX {
 	 * AJAX Delete Custom Sidebar on Widgets Page.
 	 */
 	public static function delete_custom_sidebar() {
+		ob_start();
 
 		check_ajax_referer( 'delete-custom-sidebar', 'security' );
 
 		$sidebar = esc_attr( $_POST['sidebar'] );
 
-		if ( isset( $sidebar ) || ! empty( $sidebar ) ) {
+		if ( empty( $sidebar ) ) {
+			die();
+		}
+
+		if ( $sidebar ) {
 
 			$name = stripslashes( $_POST['sidebar'] );
-			$data = get_option( 'axisbuilder_sidebars' );
+			$data = (array) get_option( 'axisbuilder_custom_sidebars' );
 			$keys = array_search( $name, $data );
 
 			if ( $keys !== false ) {
 				unset( $data[$keys] );
-				update_option( 'axisbuilder_sidebars', $data );
+				update_option( 'axisbuilder_custom_sidebars', $data );
 				wp_send_json( true );
 			}
 		}
-
-		die();
 	}
 
 	/**

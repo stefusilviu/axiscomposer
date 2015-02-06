@@ -72,12 +72,12 @@ class AB_AJAX {
 		if ( isset( $sidebar ) || ! empty( $sidebar ) ) {
 
 			$name = stripslashes( $_POST['sidebar'] );
-			$data = get_option( 'axisbuilder_sidebars' );
+			$data = (array) get_option( 'axisbuilder_custom_sidebars' );
 			$keys = array_search( $name, $data );
 
 			if ( $keys !== false ) {
 				unset( $data[$keys] );
-				update_option( 'axisbuilder_sidebars', $data );
+				update_option( 'axisbuilder_custom_sidebars', $data );
 				wp_send_json( true );
 			}
 		}

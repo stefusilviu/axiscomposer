@@ -164,7 +164,6 @@ class AB_Admin_Assets {
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
 			wp_enqueue_script( 'axisbuilder-admin' );
-			wp_enqueue_script( 'axisbuilder-backbone-admin', AB()->plugin_url() . '/assets/scripts/backbone/admin' . $suffix . '.js', array( 'jquery', 'jquery-ui-core', 'underscore', 'backbone' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'underscore', 'backbone', 'axisbuilder-admin' ), AB_VERSION );
 
 			// Core Essential Scripts :)

@@ -23,20 +23,24 @@
 
 ul.layout_data {
 
-	span,
-	label,
-	select {
-		width: 100%;
-	}
+	p.form-field {
+		margin: 15px 0;
 
-	label {
-		font-weight: 600;
-	}
+		span,
+		label,
+		select {
+			width: 100%;
+		}
 
-	span.description {
-		float: left;
-		color: #777;
-		margin-bottom: 5px;
+		label {
+			font-weight: 600;
+		}
+
+		span.description {
+			float: left;
+			color: #777;
+			margin-bottom: 5px;
+		}
 	}
 }
 

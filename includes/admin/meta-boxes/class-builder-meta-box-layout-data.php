@@ -75,7 +75,15 @@ class AB_Meta_Box_Layout_Data {
 	/**
 	 * Save meta box data
 	 */
-	public static function save( $post_id, $post ) {
+	public static function save( $post_id ) {
 
+		// Save the layout settings ;)
+		$layout_post_meta = array( 'layout', 'sidebar', 'header_title_bar', 'footer', 'header_transparency' );
+
+		foreach ( $layout_post_meta as $post_meta ) {
+			if ( isset( $_POST[ $post_meta ] ) ) {
+				update_post_meta( $post_id, $post_meta, $_POST[ $post_meta ] );
+			}
+		}
 	}
 }

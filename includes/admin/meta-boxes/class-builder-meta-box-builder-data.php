@@ -233,8 +233,8 @@ class AB_Meta_Box_Builder_Data {
 		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
 
 		foreach ( $builder_post_meta as $post_meta ) {
-			if ( isset( $_POST[$post_meta] ) ) {
-				update_post_meta( $post_id, '_' . $post_meta, $_POST[$post_meta] );
+			if ( isset( $_POST[ $post_meta ] ) ) {
+				update_post_meta( $post_id, '_' . $post_meta, $_POST[ $post_meta ] );
 			}
 		}
 	}

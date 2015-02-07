@@ -146,10 +146,10 @@ class AB_Admin_Meta_Boxes {
 		// Check the post type
 		if ( in_array( $post->post_type, array( 'portfolio' ) ) ) {
 			do_action( 'axisbuilder_process_' . $post->post_type . '_meta', $post_id, $post );
-		} else {
-			do_action( 'axisbuilder_process_layout_meta', $post_id, $post );
 		}
 
+		// Trigger action
+		do_action( 'axisbuilder_process_layout_meta', $post_id, $post );
 		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
 	}
 

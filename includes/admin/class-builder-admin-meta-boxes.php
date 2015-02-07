@@ -31,14 +31,14 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20 );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
-		// Save Builder Meta Boxes
-		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
-
 		// Save Portfolio Meta Boxes
 		add_action( 'axisbuilder_process_portfolio_meta', 'AB_Meta_Box_Portfolio_Breadcrumb::save', 10, 2 );
 
 		// Save Layout Meta Boxes
 		add_action( 'axisbuilder_process_layout_meta', 'AB_Meta_Box_Layout_Data::save', 10, 2 );
+
+		// Save Builder Meta Boxes
+		add_action( 'axisbuilder_process_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
 
 		// Restores a post to the specified revision
 		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
@@ -153,8 +153,10 @@ class AB_Admin_Meta_Boxes {
 		}
 
 		// Trigger action
-		do_action( 'axisbuilder_process_layout_meta', $post_id, $post );
-		do_action( 'axisbuilder_layout_builder_meta', $post_id, $post );
+		$process_actions = array( 'layout', 'builder' );
+		foreach ( $process_actions as $process_action ) {
+			do_action( 'axisbuilder_process_' . $process_action . '_meta', $post_id, $post );
+		}
 	}
 
 	/**

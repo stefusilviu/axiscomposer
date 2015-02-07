@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_Meta_Box_Layout_Data {
 
 	/**
-	 * Output the metabox
+	 * Output the meta box
 	 */
 	public static function output( $post ) {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );

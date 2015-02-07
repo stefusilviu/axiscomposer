@@ -49,6 +49,7 @@ function axisbuilder_wp_select( $field ) {
 	echo '<p class="form-field ' . esc_attr( $field['id'] ) . '_field ' . esc_attr( $field['wrapper_class'] ) . '"><label for="' . esc_attr( $field['id'] ) . '">' . wp_kses_post( $field['label'] ) . '</label>';
 
 	if ( isset( $field['desc_side'] ) && true === $field['desc_side'] ) {
+		$field['class'] .= ' side';
 		echo $description;
 	}
 

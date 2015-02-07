@@ -21,10 +21,10 @@ jQuery( function ( $ ) {
 
 	// Sidebars
 	jQuery( 'select.show_if_sidebar' ).change( function() {
-		if ( jQuery( this ).val() !== 'fullsize' ) {
-			jQuery( this ).parent().next( 'p.form-field' ).show();
+		if ( jQuery( this ).val() === 'fullsize' ) {
+			jQuery( this ).parent().next( 'p.form-field' ).slideUp();
 		} else {
-			jQuery( this ).parent().next( 'p.form-field' ).hide();
+			jQuery( this ).parent().next( 'p.form-field' ).slideDown();
 		}
 	}).change();
 });

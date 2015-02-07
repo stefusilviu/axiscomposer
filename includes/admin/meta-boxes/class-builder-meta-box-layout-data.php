@@ -38,10 +38,10 @@ class AB_Meta_Box_Layout_Data {
 					'fullsize'      => __( 'No Sidebar', 'axisbuilder' ),
 					'sidebar_left'  => __( 'Left Sidebar', 'axisbuilder' ),
 					'sidebar_right' => __( 'Right Sidebar', 'axisbuilder' )
-				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Select the specific layout for this entry.', 'axisbuilder' ) ) );
+				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Select the specific layout for this entry.', 'axisbuilder' ) ) );
 
 				// Sidebar
-				axisbuilder_wp_select( array( 'id' => 'sidebar', 'label' => __( 'Sidebar Settings', 'axisbuilder' ), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Choose a custom sidebar for this entry.', 'axisbuilder' ), 'options' => axisbuilder_get_registered_sidebars() ) );
+				axisbuilder_wp_select( array( 'id' => 'sidebar', 'label' => __( 'Sidebar Settings', 'axisbuilder' ), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Choose a custom sidebar for this entry.', 'axisbuilder' ), 'options' => axisbuilder_get_registered_sidebars() ) );
 
 				// Title Bar
 				axisbuilder_wp_select( array( 'id' => 'header_title_bar', 'label' => __( 'Title Bar Settings', 'axisbuilder' ), 'options' => array(
@@ -49,7 +49,7 @@ class AB_Meta_Box_Layout_Data {
 					'title_bar_breadcrumb' => __( 'Display title and breadcrumbs', 'axisbuilder' ),
 					'title_bar'            => __( 'Display only title', 'axisbuilder' ),
 					'hidden_title_bar'     => __( 'Hide both', 'axisbuilder' )
-				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Display the Title Bar with Page Title and Breadcrumb Navigation?', 'axisbuilder' ) ) );
+				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Display the Title Bar with Page Title and Breadcrumb Navigation?', 'axisbuilder' ) ) );
 
 				// Footer Settings
 				axisbuilder_wp_select( array( 'id' => 'footer', 'label' => __( 'Footer Settings', 'axisbuilder' ), 'options' => array(
@@ -57,14 +57,14 @@ class AB_Meta_Box_Layout_Data {
 					'widget_only' => __( 'Only Widgets (No Socket)', 'axisbuilder' ),
 					'socket_only' => __( 'Only Socket (No Widgets)', 'axisbuilder' ),
 					'footer_none' => __( 'Don\'t Display Both', 'axisbuilder' )
-				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Display the footer widgets?', 'axisbuilder' ) ) );
+				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Display the footer widgets?', 'axisbuilder' ) ) );
 
 				// Header Transparency
 				axisbuilder_wp_select( array( 'id' => 'header_transparency', 'label' => __( 'Header visibility and transparency', 'axisbuilder' ), 'options' => array(
 					'default'                          => __( 'No transparency', 'axisbuilder' ),
 					'header_transparent'               => __( 'Transparent Header', 'axisbuilder' ),
 					'header_transparent header_glassy' => __( 'Transparent & Glassy Header', 'axisbuilder' )
-				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Several options to change the header transparency and visibility on this page.', 'axisbuilder' ) ) );
+				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Several options to change the header transparency and visibility on this page.', 'axisbuilder' ) ) );
 
 				do_action( 'axisbuilder_layout_data_end', $post->ID );
 			?>

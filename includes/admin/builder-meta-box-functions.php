@@ -23,6 +23,7 @@ function axisbuilder_wp_select( $field ) {
 	$thepostid              = empty( $thepostid ) ? $post->ID : $thepostid;
 	$field['class']         = isset( $field['class'] ) ? $field['class'] : 'select short';
 	$field['style']         = isset( $field['style'] ) ? $field['style'] : '';
+	$field['desc_class']    = isset( $field['desc_class'] ) ? $field['desc_class'] : '';
 	$field['wrapper_class'] = isset( $field['wrapper_class'] ) ? $field['wrapper_class'] : '';
 	$field['value']         = isset( $field['value'] ) ? $field['value'] : get_post_meta( $thepostid, $field['id'], true );
 
@@ -42,14 +43,13 @@ function axisbuilder_wp_select( $field ) {
 		if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {
 			$description = '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( AB()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
 		} else {
-			$description = '<span class="description">' . wp_kses_post( $field['description'] ) . '</span>';
+			$description = '<span class="description ' . esc_attr( $field['desc_class'] ) . '">' . wp_kses_post( $field['description'] ) . '</span>';
 		}
 	}
 
 	echo '<p class="form-field ' . esc_attr( $field['id'] ) . '_field ' . esc_attr( $field['wrapper_class'] ) . '"><label for="' . esc_attr( $field['id'] ) . '">' . wp_kses_post( $field['label'] ) . '</label>';
 
 	if ( isset( $field['desc_side'] ) && true === $field['desc_side'] ) {
-		$field['class'] .= ' side';
 		echo $description;
 	}
 

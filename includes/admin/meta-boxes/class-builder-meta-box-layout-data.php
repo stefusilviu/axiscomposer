@@ -33,7 +33,7 @@ class AB_Meta_Box_Layout_Data {
 				do_action( 'axisbuilder_layout_data_start', $post->ID );
 
 				// Layout
-				axisbuilder_wp_select( array( 'id' => 'layout', 'label' => __( 'Layout Settings', 'axisbuilder' ), 'options' => array(
+				axisbuilder_wp_select( array( 'id' => 'layout', 'class' => 'select show_if_sidebar', 'label' => __( 'Layout Settings', 'axisbuilder' ), 'options' => array(
 					'default'       => __( 'Default Layout', 'axisbuilder' ),
 					'fullsize'      => __( 'No Sidebar', 'axisbuilder' ),
 					'sidebar_left'  => __( 'Left Sidebar', 'axisbuilder' ),

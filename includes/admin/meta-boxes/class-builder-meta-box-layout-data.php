@@ -43,14 +43,6 @@ class AB_Meta_Box_Layout_Data {
 				// Sidebar
 				axisbuilder_wp_select( array( 'id' => 'sidebar', 'label' => __( 'Sidebar Settings', 'axisbuilder' ), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Choose a custom sidebar for this entry.', 'axisbuilder' ), 'options' => axisbuilder_get_registered_sidebars() ) );
 
-				// Footer Settings
-				axisbuilder_wp_select( array( 'id' => 'footer', 'label' => __( 'Footer Settings', 'axisbuilder' ), 'options' => array(
-					'footer_both' => __( 'Both Widgets and Socket', 'axisbuilder' ),
-					'widget_only' => __( 'Only Widgets (No Socket)', 'axisbuilder' ),
-					'socket_only' => __( 'Only Socket (No Widgets)', 'axisbuilder' ),
-					'footer_none' => __( 'Don\'t Display Both', 'axisbuilder' )
-				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Display the footer widgets?', 'axisbuilder' ) ) );
-
 				// Title Bar
 				axisbuilder_wp_select( array( 'id' => 'header_title_bar', 'label' => __( 'Title Bar Settings', 'axisbuilder' ), 'options' => array(
 					'default'              => __( 'Default Layout', 'axisbuilder' ),
@@ -58,6 +50,14 @@ class AB_Meta_Box_Layout_Data {
 					'title_bar'            => __( 'Display only title', 'axisbuilder' ),
 					'hidden_title_bar'     => __( 'Hide both', 'axisbuilder' )
 				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Display the Title Bar with Page Title and Breadcrumb Navigation?', 'axisbuilder' ) ) );
+
+				// Footer Settings
+				axisbuilder_wp_select( array( 'id' => 'footer', 'label' => __( 'Footer Settings', 'axisbuilder' ), 'options' => array(
+					'footer_both' => __( 'Both Widgets and Socket', 'axisbuilder' ),
+					'widget_only' => __( 'Only Widgets (No Socket)', 'axisbuilder' ),
+					'socket_only' => __( 'Only Socket (No Widgets)', 'axisbuilder' ),
+					'footer_none' => __( 'Don\'t Display Both', 'axisbuilder' )
+				), 'desc_side' => true, 'desc_tip' => false, 'description' => __( 'Display the footer widgets?', 'axisbuilder' ) ) );
 
 				// Header Transparency
 				axisbuilder_wp_select( array( 'id' => 'header_transparency', 'label' => __( 'Header visibility and transparency', 'axisbuilder' ), 'options' => array(

@@ -34,6 +34,9 @@ class AB_Admin_Meta_Boxes {
 		// Save Builder Meta Boxes
 		add_action( 'axisbuilder_layout_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
 
+		// Save Portfolio Meta Boxes
+		add_action( 'axisbuilder_process_portfolio_meta', 'AB_Meta_Box_Portfolio_Breadcrumb::save', 10, 2 );
+
 		// Save Layout Meta Boxes
 		add_action( 'axisbuilder_process_layout_meta', 'AB_Meta_Box_Layout_Data::save', 10, 2 );
 
@@ -87,6 +90,7 @@ class AB_Admin_Meta_Boxes {
 	public function add_meta_boxes() {
 		// Portfolio
 		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
+		add_meta_box( 'axisbuilder-portfolio-breadcrumb', __( 'Breadcrumb Hierarchy ', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Breadcrumb::output', 'portfolio', 'side', 'default' );
 
 		// Layouts
 		foreach ( get_builder_core_supported_screens() as $type ) {

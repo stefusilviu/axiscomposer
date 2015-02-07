@@ -21,6 +21,12 @@
 	font-size: 1.3em !important;
 }
 
+ul.layout_data label {
+	float: left;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
 span.mce_axisbuilder_shortcodes_button {
 	background-image: none !important;
 	@include ir();

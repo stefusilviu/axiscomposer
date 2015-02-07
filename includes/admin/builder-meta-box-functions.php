@@ -36,15 +36,20 @@ function axisbuilder_wp_select( $field ) {
 		}
 	}
 
-	echo '<p class="form-field ' . esc_attr( $field['id'] ) . '_field ' . esc_attr( $field['wrapper_class'] ) . '"><label for="' . esc_attr( $field['id'] ) . '">' . wp_kses_post( $field['label'] ) . '</label>';
-
+	// Description handling
 	if ( ! empty( $field['description'] ) ) {
 
 		if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {
-			echo '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( AB()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
+			$description = '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( AB()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
 		} else {
-			echo '<span class="description">' . wp_kses_post( $field['description'] ) . '</span>';
+			$description = '<span class="description">' . wp_kses_post( $field['description'] ) . '</span>';
 		}
+	}
+
+	echo '<p class="form-field ' . esc_attr( $field['id'] ) . '_field ' . esc_attr( $field['wrapper_class'] ) . '"><label for="' . esc_attr( $field['id'] ) . '">' . wp_kses_post( $field['label'] ) . '</label>';
+
+	if ( isset( $field['desc_side'] ) && true === $field['desc_side'] ) {
+		echo $description;
 	}
 
 	echo '<select id="' . esc_attr( $field['id'] ) . '" name="' . esc_attr( $field['id'] ) . '" class="' . esc_attr( $field['class'] ) . '" style="' . esc_attr( $field['style'] ) . '" ' . implode( ' ', $custom_attributes ) . '>';
@@ -54,6 +59,10 @@ function axisbuilder_wp_select( $field ) {
 	}
 
 	echo '</select> ';
+
+	if ( isset( $field['desc_side'] ) && false === $field['desc_side'] ) {
+		echo $description;
+	}
 
 	echo '</p>';
 }

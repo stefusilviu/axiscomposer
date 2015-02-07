@@ -21,10 +21,23 @@
 	font-size: 1.3em !important;
 }
 
-ul.layout_data label {
-	float: left;
-	font-weight: 600;
-	margin-bottom: 10px;
+ul.layout_data {
+
+	span,
+	label,
+	select {
+		width: 100%;
+	}
+
+	label {
+		font-weight: 600;
+	}
+
+	span.description {
+		float: left;
+		color: #777;
+		margin-bottom: 5px;
+	}
 }
 
 span.mce_axisbuilder_shortcodes_button {

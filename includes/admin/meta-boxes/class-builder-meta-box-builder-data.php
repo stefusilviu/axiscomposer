@@ -23,7 +23,7 @@ class AB_Meta_Box_Builder_Data {
 	private static $load_shortcode;
 
 	/**
-	 * Output the Metabox
+	 * Output the meta box
 	 */
 	public static function output( $post ) {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
@@ -225,7 +225,7 @@ class AB_Meta_Box_Builder_Data {
 	}
 
 	/**
-	 * Save Meta-Box data.
+	 * Save meta box data
 	 */
 	public static function save( $post_id ) {
 

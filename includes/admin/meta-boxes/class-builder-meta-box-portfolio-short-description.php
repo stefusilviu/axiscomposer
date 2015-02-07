@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_Meta_Box_Portfolio_Short_Description {
 
 	/**
-	 * Output the metabox
+	 * Output the meta box
 	 */
 	public static function output( $post ) {
 

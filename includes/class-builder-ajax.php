@@ -126,7 +126,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * Search for pages and portfolio projects and return json
+	 * Search for pages & portfolio projects and return json
 	 * @see AB_AJAX::json_search_pages()
 	 */
 	public static function json_search_pages_and_portfolio() {

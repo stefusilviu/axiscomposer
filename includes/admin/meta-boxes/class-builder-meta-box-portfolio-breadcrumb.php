@@ -30,7 +30,7 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 			<p class="form-field"><label for="breadcrumb_parent"><?php _e( 'Breadcrumb Parent Page', 'axisbuilder' ) ?></label>
 				<span class="description side"><?php _e( 'Select a parent page for this entry. If no page is selected then session data will be used to build the breadcrumb.', 'axisbuilder' ); ?></span>
 				<?php
-					$page_id     = absint( get_post_meta( $post->ID, 'breadcrumb_parent', true ) );
+					$page_id     = absint( get_post_meta( $post->ID, '_breadcrumb_parent', true ) );
 					$page        = get_post( $page_id );
 					$identifier  = '#' . absint( $page->ID );
 					$page_string = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), $identifier, $page->post_title );
@@ -46,15 +46,7 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 	 * Save meta box data
 	 */
 	public static function save( $post_id ) {
-
-		// Save the breadcrumb settings ;)
-		$layout_post_meta = array( 'breadcrumb_parent' );
-
-		foreach ( $layout_post_meta as $post_meta ) {
-			if ( isset( $_POST[ $post_meta ] ) ) {
-				update_post_meta( $post_id, $post_meta, $_POST[ $post_meta ] );
-			}
-		}
+		// Update meta
+		update_post_meta( $post_id, '_breadcrumb_parent', absint( $_POST['breadcrumb_parent'] ) );
 	}
-
 }

@@ -92,7 +92,7 @@ jQuery( function( $ ) {
 						data: function( term, page ) {
 							return {
 								term:     term,
-								action:   $( this ).data( 'action' ) || 'axisbuilder_json_search_pages',
+								action:   $( this ).data( 'action' ) || 'axisbuilder_json_search_pages_and_portfolio',
 								security: axisbuilder_enhanced_select_params.search_post_types_nonce
 							};
 						},

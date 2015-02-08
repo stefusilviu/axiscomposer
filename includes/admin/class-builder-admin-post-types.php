@@ -69,7 +69,7 @@ class AB_Admin_Post_Types {
 	}
 
 	/**
-	 * Specify custom bulk actions messages for a post type.
+	 * Specify custom bulk actions messages for different post types.
 	 * @param  array $bulk_messages
 	 * @param  array $bulk_counts
 	 * @return array

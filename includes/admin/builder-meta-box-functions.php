@@ -38,6 +38,8 @@ function axisbuilder_wp_select( $field ) {
 	}
 
 	// Description handling
+	$description = '';
+
 	if ( ! empty( $field['description'] ) ) {
 
 		if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {

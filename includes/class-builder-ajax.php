@@ -63,10 +63,9 @@ class AB_AJAX {
 
 	/**
 	 * Search for pages and return json
-	 * @param string $x (default: '')
-	 * @param string $post_types (default: array('page'))
+	 * @param string $post_types (default: array( 'page' ))
 	 */
-	public static function json_search_pages(  $x = '', $post_types = array( 'page' ) ) {
+	public static function json_search_pages( $post_types = array( 'page' ) ) {
 		ob_start();
 
 		check_ajax_referer( 'search-pages', 'security' );

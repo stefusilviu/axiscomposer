@@ -38,7 +38,7 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 						$page_string = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );
 					}
 				?>
-				<input type="hidden" class="axisbuilder-page-search" id="breadcrumb_parent" name="breadcrumb_parent" data-placeholder="<?php _e( 'Search for a page&hellip;', 'axisbuilder' ); ?>" data-selected="<?php echo esc_attr( $page_string ); ?>" value="<?php echo $page_id; ?>" data-allow_clear="true" />
+				<input type="hidden" class="axisbuilder-page-search" id="breadcrumb_parent" name="breadcrumb_parent" data-placeholder="<?php _e( 'Search for a page&hellip;', 'axisbuilder' ); ?>" data-action="axisbuilder_json_search_pages" data-selected="<?php echo esc_attr( $page_string ); ?>" value="<?php echo $page_id; ?>" data-allow_clear="true" />
 			</p>
 			<?php do_action( 'axisbuilder_breadcrumb_data_end', $post->ID ); ?>
 		</ul>

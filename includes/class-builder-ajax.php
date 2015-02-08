@@ -27,11 +27,12 @@ class AB_AJAX {
 
 		// axisbuilder_EVENT => nopriv
 		$ajax_events = array(
-			'add_iconfont'            => false,
-			'delete_iconfont'         => false,
-			'json_search_pages'       => false,
-			'delete_custom_sidebar'   => false,
-			'shortcodes_to_interface' => false,
+			'add_iconfont'                    => false,
+			'delete_iconfont'                 => false,
+			'json_search_pages'               => false,
+			'json_search_pages_and_portfolio' => false,
+			'delete_custom_sidebar'           => false,
+			'shortcodes_to_interface'         => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -68,7 +69,7 @@ class AB_AJAX {
 	public static function json_search_pages( $post_types = array( 'page' ) ) {
 		ob_start();
 
-		check_ajax_referer( 'search-pages', 'security' );
+		check_ajax_referer( 'search-post-types', 'security' );
 
 		$term = axisbuilder_clean( stripslashes( $_GET['term'] ) );
 
@@ -122,6 +123,14 @@ class AB_AJAX {
 		$found_pages = apply_filters( 'axisbuilder_json_search_found_pages', $found_pages );
 
 		wp_send_json( $found_pages );
+	}
+
+	/**
+	 * Search for pages and portfolio projects and return json
+	 * @see AB_AJAX::json_search_pages()
+	 */
+	public static function json_search_pages_and_portfolio() {
+		self::json_search_pages( array( 'pages', 'portfolio' ) );
 	}
 
 	/**

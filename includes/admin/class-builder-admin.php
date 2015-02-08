@@ -66,9 +66,6 @@ class AB_Admin {
 		switch ( $screen->id ) {
 			case 'options-permalink' :
 				include( 'class-builder-admin-permalink-settings.php' );
-				break;
-			default :
-				break;
 		}
 	}
 

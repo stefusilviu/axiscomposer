@@ -167,6 +167,8 @@ class AB_Frontend_Scripts {
 					'ajax_url' => AB()->ajax_url(),
 				);
 			break;
+			default :
+				break;
 		}
 		return false;
 	}

@@ -107,6 +107,7 @@ class AB_Admin_Assets {
 		) );
 		wp_localize_script( 'axisbuilder-enhanced-select', 'axisbuilder_enhanced_select_params', array(
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'search_post_types_nonce'   => wp_create_nonce( 'search-post-types' ),
 		) );
 
 		// Modal

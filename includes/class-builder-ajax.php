@@ -27,10 +27,12 @@ class AB_AJAX {
 
 		// axisbuilder_EVENT => nopriv
 		$ajax_events = array(
-			'add_iconfont'            => false,
-			'delete_iconfont'         => false,
-			'delete_custom_sidebar'   => false,
-			'shortcodes_to_interface' => false,
+			'add_iconfont'                    => false,
+			'delete_iconfont'                 => false,
+			'json_search_pages'               => false,
+			'json_search_pages_and_portfolio' => false,
+			'delete_custom_sidebar'           => false,
+			'shortcodes_to_interface'         => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -43,7 +45,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Add Icon Font.
+	 * AJAX Add Icon Font
 	 */
 	public static function add_iconfont() {
 
@@ -52,7 +54,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Icon Fonts.
+	 * AJAX Delete Icon Fonts
 	 */
 	public static function delete_iconfont() {
 
@@ -61,7 +63,79 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Custom Sidebar on Widgets Page.
+	 * Search for pages and return json
+	 * @param string $x (default: '')
+	 * @param string $post_types (default: array( 'page' ))
+	 */
+	public static function json_search_pages( $x = '', $post_types = array( 'page' ) ) {
+		ob_start();
+
+		check_ajax_referer( 'search-post-types', 'security' );
+
+		$term = axisbuilder_clean( stripslashes( $_GET['term'] ) );
+
+		if ( empty( $term ) ) {
+			die();
+		}
+
+		if ( is_numeric( $term ) ) {
+
+			$args = array(
+				'post_type'      => $post_types,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'post__in'       => array(0, $term),
+				'fields'         => 'ids'
+			);
+
+			$args2 = array(
+				'post_type'      => $post_types,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'post_parent'    => $term,
+				'fields'         => 'ids'
+			);
+
+			$posts = array_unique( array_merge( get_posts( $args ), get_posts( $args2 ) ) );
+
+		} else {
+
+			$args = array(
+				'post_type'      => $post_types,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				's'              => $term,
+				'fields'         => 'ids'
+			);
+
+			$posts = array_unique( get_posts( $args ) );
+
+		}
+
+		$found_pages = array();
+
+		if ( $posts ) {
+			foreach ( $posts as $post ) {
+				$page = get_post( $post );
+				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );
+			}
+		}
+
+		$found_pages = apply_filters( 'axisbuilder_json_search_found_pages', $found_pages );
+
+		wp_send_json( $found_pages );
+	}
+
+	/**
+	 * Search for pages & portfolio projects and return json
+	 * @see AB_AJAX::json_search_pages()
+	 */
+	public static function json_search_pages_and_portfolio() {
+		self::json_search_pages( '', array( 'page', 'portfolio' ) );
+	}
+
+	/**
+	 * AJAX Delete Custom Sidebar on Widgets Page
 	 */
 	public static function delete_custom_sidebar() {
 		ob_start();
@@ -75,7 +149,6 @@ class AB_AJAX {
 		}
 
 		if ( $sidebar ) {
-
 			$name = stripslashes( $_POST['sidebar'] );
 			$data = (array) get_option( 'axisbuilder_custom_sidebars' );
 			$keys = array_search( $name, $data );
@@ -89,7 +162,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Shortcodes to interface.
+	 * AJAX Shortcodes to interface
 	 */
 	public static function shortcodes_to_interface( $text = null ) {
 		$allowed = false;

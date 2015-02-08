@@ -32,8 +32,7 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 				<?php
 					$page_id     = absint( get_post_meta( $post->ID, '_breadcrumb_parent', true ) );
 					$page        = get_post( $page_id );
-					$identifier  = '#' . absint( $page->ID );
-					$page_string = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), $identifier, $page->post_title );
+					$page_string = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );
 				?>
 				<input type="hidden" class="axisbuilder-page-search" id="breadcrumb_parent" name="breadcrumb_parent" data-placeholder="<?php _e( 'Search for a page&hellip;', 'axisbuilder' ); ?>" data-selected="<?php echo esc_attr( $page_string ); ?>" value="<?php echo $page_id; ?>" data-allow_clear="true" />
 			</p>

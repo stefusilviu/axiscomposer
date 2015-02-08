@@ -114,8 +114,7 @@ class AB_AJAX {
 		if ( $posts ) {
 			foreach ( $posts as $post ) {
 				$page = get_post( $post );
-				$identifier = '#' . absint( $page->ID );
-				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), $identifier, $page->post_title );
+				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );
 			}
 		}
 

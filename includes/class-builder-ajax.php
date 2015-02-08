@@ -64,9 +64,10 @@ class AB_AJAX {
 
 	/**
 	 * Search for pages and return json
+	 * @param string $x (default: '')
 	 * @param string $post_types (default: array( 'page' ))
 	 */
-	public static function json_search_pages( $post_types = array( 'page' ) ) {
+	public static function json_search_pages( $x = 'Hello', $post_types = array( 'page' ) ) {
 		ob_start();
 
 		check_ajax_referer( 'search-post-types', 'security' );
@@ -130,7 +131,7 @@ class AB_AJAX {
 	 * @see AB_AJAX::json_search_pages()
 	 */
 	public static function json_search_pages_and_portfolio() {
-		self::json_search_pages( array( 'pages', 'portfolio' ) );
+		self::json_search_pages( '', array( 'page', 'portfolio' ) );
 	}
 
 	/**
@@ -148,7 +149,6 @@ class AB_AJAX {
 		}
 
 		if ( $sidebar ) {
-
 			$name = stripslashes( $_POST['sidebar'] );
 			$data = (array) get_option( 'axisbuilder_custom_sidebars' );
 			$keys = array_search( $name, $data );

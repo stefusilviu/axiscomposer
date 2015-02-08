@@ -32,7 +32,7 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 				<?php
 					$page_id     = '';
 					$page_string = '';
-					if ( get_post_status( get_the_ID() ) === 'publish' ) {
+					if ( absint( get_post_meta( $post->ID, '_breadcrumb_parent', true ) ) ) {
 						$page_id     = absint( get_post_meta( $post->ID, '_breadcrumb_parent', true ) );
 						$page        = get_post( $page_id );
 						$page_string = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );

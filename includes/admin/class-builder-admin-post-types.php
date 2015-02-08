@@ -25,6 +25,7 @@ class AB_Admin_Post_Types {
 	 */
 	public function __construct() {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+		add_filter( 'bulk_post_updated_messages', array( $this, 'bulk_post_updated_messages' ), 10, 2 );
 
 		// WP List table columns. Defined here so they are always available for events such as inline editing.
 		// add_filter( 'manage_edit-portfolio_columns', array( $this, 'portfolio_columns' ) );
@@ -65,6 +66,25 @@ class AB_Admin_Post_Types {
 		);
 
 		return $messages;
+	}
+
+	/**
+	 * Specify custom bulk actions messages for a post type.
+	 * @param  array $bulk_messages
+	 * @param  array $bulk_counts
+	 * @return array
+	 */
+	public function bulk_post_updated_messages( $bulk_messages, $bulk_counts ) {
+
+		$bulk_messages['portfolio'] = array(
+			'updated'   => _n( '%s project updated.', '%s projects updated.', $bulk_counts['updated'] ),
+			'locked'    => _n( '%s project not updated, somebody is editing it.', '%s projects not updated, somebody is editing them.', $bulk_counts['locked'] ),
+			'deleted'   => _n( '%s project permanently deleted.', '%s projects permanently deleted.', $bulk_counts['deleted'] ),
+			'trashed'   => _n( '%s project moved to the Trash.', '%s projects moved to the Trash.', $bulk_counts['trashed'] ),
+			'untrashed' => _n( '%s project restored from the Trash.', '%s projects restored from the Trash.', $bulk_counts['untrashed'] ),
+		);
+
+		return $bulk_messages;
 	}
 
 	/**

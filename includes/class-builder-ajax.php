@@ -44,7 +44,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Add Icon Font.
+	 * AJAX Add Icon Font
 	 */
 	public static function add_iconfont() {
 
@@ -53,7 +53,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Icon Fonts.
+	 * AJAX Delete Icon Fonts
 	 */
 	public static function delete_iconfont() {
 
@@ -62,7 +62,9 @@ class AB_AJAX {
 	}
 
 	/**
-	 * Search for pages and return json.
+	 * Search for pages and return json
+	 * @param string $x (default: '')
+	 * @param string $post_types (default: array('page'))
 	 */
 	public static function json_search_pages(  $x = '', $post_types = array( 'page' ) ) {
 		ob_start();
@@ -124,7 +126,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Custom Sidebar on Widgets Page.
+	 * AJAX Delete Custom Sidebar on Widgets Page
 	 */
 	public static function delete_custom_sidebar() {
 		ob_start();
@@ -152,7 +154,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Shortcodes to interface.
+	 * AJAX Shortcodes to interface
 	 */
 	public static function shortcodes_to_interface( $text = null ) {
 		$allowed = false;

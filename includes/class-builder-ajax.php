@@ -29,6 +29,7 @@ class AB_AJAX {
 		$ajax_events = array(
 			'add_iconfont'            => false,
 			'delete_iconfont'         => false,
+			'json_search_pages'       => false,
 			'delete_custom_sidebar'   => false,
 			'shortcodes_to_interface' => false,
 		);
@@ -58,6 +59,69 @@ class AB_AJAX {
 
 		check_ajax_referer( 'delete-custom-iconfont', 'security' );
 
+	}
+
+	/**
+	 * Search for pages and return json.
+	 */
+	public static function json_search_pages(  $x = '', $post_types = array( 'page' ) ) {
+		ob_start();
+
+		check_ajax_referer( 'search-pages', 'security' );
+
+		$term = axisbuilder_clean( stripslashes( $_GET['term'] ) );
+
+		if ( empty( $term ) ) {
+			die();
+		}
+
+		if ( is_numeric( $term ) ) {
+
+			$args = array(
+				'post_type'      => $post_types,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'post__in'       => array(0, $term),
+				'fields'         => 'ids'
+			);
+
+			$args2 = array(
+				'post_type'      => $post_types,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'post_parent'    => $term,
+				'fields'         => 'ids'
+			);
+
+			$posts = array_unique( array_merge( get_posts( $args ), get_posts( $args2 ) ) );
+
+		} else {
+
+			$args = array(
+				'post_type'      => $post_types,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				's'              => $term,
+				'fields'         => 'ids'
+			);
+
+			$posts = array_unique( get_posts( $args ) );
+
+		}
+
+		$found_pages = array();
+
+		if ( $posts ) {
+			foreach ( $posts as $post ) {
+				$page = get_post( $post );
+				$identifier = '#' . absint( $page->ID );
+				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), $identifier, $page->post_title );
+			}
+		}
+
+		$found_pages = apply_filters( 'axisbuilder_json_search_found_pages', $found_pages );
+
+		wp_send_json( $found_pages );
 	}
 
 	/**

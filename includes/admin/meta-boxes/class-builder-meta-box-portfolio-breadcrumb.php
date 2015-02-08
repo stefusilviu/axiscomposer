@@ -24,17 +24,20 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 	public static function output( $post ) {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
+		// Breadcrumb Parent Page
 		?>
 		<ul class="breadcrumb_data">
-
-			<?php
-				do_action( 'axisbuilder_breadcrumb_data_start', $post->ID );
-
-				// Breadcrumb Parent Page
-				axisbuilder_wp_select( array( 'id' => 'breadcrumb_parent', 'label' => __( 'Breadcrumb Parent Page', 'axisbuilder' ), 'options' => array(), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Select a parent page for this entry. If no page is selected the them will use session data to build the breadcrumb.', 'axisbuilder' ) ) );
-
-				do_action( 'axisbuilder_breadcrumb_data_end', $post->ID );
-			?>
+			<p class="form-field"><label for="breadcrumb_parent"><?php _e( 'Breadcrumb Parent Page', 'axisbuilder' ) ?></label>
+				<span class="description side"><?php _e( 'Select a parent page for this entry. If no page is selected then session data will be used to build the breadcrumb.', 'axisbuilder' ); ?></span>
+				<?php
+					$page_id     = absint( get_post_meta( $post->ID, 'breadcrumb_parent', true ) );
+					$page        = get_post( $page_id );
+					$identifier  = '#' . absint( $page->ID );
+					$page_string = sprintf( __( '%s &ndash; %s', 'axisbuilder' ), $identifier, $page->post_title );
+				?>
+				<input type="hidden" class="axisbuilder-page-search" id="breadcrumb_parent" name="breadcrumb_parent" data-placeholder="<?php _e( 'Search for a page&hellip;', 'axisbuilder' ); ?>" data-selected="<?php echo esc_attr( $page_string ); ?>" value="<?php echo $page_id; ?>" data-allow_clear="true" />
+			</p>
+			<?php do_action( 'axisbuilder_breadcrumb_data_end', $post->ID ); ?>
 		</ul>
 		<?php
 	}

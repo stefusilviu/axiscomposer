@@ -50,8 +50,8 @@
 
 			// Load Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_sidebars.i18n_last_warning,
-				message: axisbuilder_admin_sidebars.i18n_delete_custom_sidebar,
+				title: axisbuilder_admin_sidebars.i18n_delete_custom_sidebar_title,
+				message: axisbuilder_admin_sidebars.i18n_delete_custom_sidebar_message,
 				dismiss: false,
 				template: '#tmpl-axisbuilder-modal-delete-sidebar'
 			});

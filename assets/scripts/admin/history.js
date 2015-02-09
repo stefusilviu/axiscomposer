@@ -1,4 +1,4 @@
-/* global AB_Logger, axisbuilder_history, axisbuilder_admin */
+/* global AB_Logger, axisbuilder_history */
 
 /**
  * AxisBuilder History JS
@@ -60,7 +60,7 @@
 
 		// Creates the array key for this post history
 		create_array_key: function() {
-			var key = 'axisbuilder' + axisbuilder_history.theme_name + axisbuilder_history.theme_version + axisbuilder_admin.post_id + axisbuilder_history.plugin_version;
+			var key = 'axisbuilder' + axisbuilder_history.theme_name + axisbuilder_history.theme_version + axisbuilder_history.post_id + axisbuilder_history.plugin_version;
 			return key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
 		},
 

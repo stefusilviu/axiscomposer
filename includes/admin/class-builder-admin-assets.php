@@ -130,6 +130,7 @@ class AB_Admin_Assets {
 
 		// History
 		$history_params = array(
+			'post_id'        => isset( $post->ID ) ? $post->ID : '',
 			'theme_name'     => $theme->get( 'Name' ),
 			'theme_version'  => $theme->get( 'Version' ),
 			'plugin_version' => AB_VERSION
@@ -180,7 +181,6 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
 
 			$params = array(
-				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'debug_mode'                      => get_option( 'axisbuilder_debug_enabled', 'no' ),

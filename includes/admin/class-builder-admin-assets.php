@@ -130,7 +130,7 @@ class AB_Admin_Assets {
 
 		// History
 		$history_params = array(
-			'post_id'        => isset( $post->ID ) ? $post->ID : '',
+			'post_id'        => get_the_ID(),
 			'theme_name'     => $theme->get( 'Name' ),
 			'theme_version'  => $theme->get( 'Version' ),
 			'plugin_version' => AB_VERSION

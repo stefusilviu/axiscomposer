@@ -69,7 +69,7 @@ class AB_Admin_Assets {
 	 * Enqueue scripts.
 	 */
 	public function admin_scripts() {
-		global $wp_version, $post;
+		global $wp_version;
 
 		$theme  = wp_get_theme();
 		$screen = get_current_screen();

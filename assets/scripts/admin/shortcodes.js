@@ -389,7 +389,7 @@
 
 			// Load Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_shortcodes.i18n_select_layout,
+				title: axisbuilder_shortcodes.i18n_select_cell_layout,
 				message: message,
 				dismiss: dismiss,
 				template: '#tmpl-axisbuilder-modal-cell-size'

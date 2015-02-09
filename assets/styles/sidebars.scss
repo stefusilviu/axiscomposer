@@ -7,7 +7,9 @@
  * Imports
  */
 @import "bourbon";
+@import "animation";
 @import "fonts";
+@import "modal";
 
 /**
  * Styling begins
@@ -44,4 +46,11 @@
 		color: #d54e21;
 		cursor: pointer;
 	}
+}
+
+/**
+ * Animation Styles
+ */
+.modal-animation {
+	@include animation( modal .3s $ease-out-back );
 }

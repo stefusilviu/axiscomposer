@@ -35,11 +35,11 @@ class AB_Admin_Assets {
 	 */
 	public function admin_styles() {
 		global $wp_scripts;
-		$screen       = get_current_screen();
-		$color_scheme = get_user_option( 'admin_color', get_current_user_id() );
 
 		// Sitewide menu CSS
 		wp_enqueue_style( 'axisbuilder-menu', AB()->plugin_url() . '/assets/styles/menu.css', array(), AB_VERSION );
+
+		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
@@ -52,7 +52,7 @@ class AB_Admin_Assets {
 			wp_enqueue_style( 'wp-color-picker' );
 		}
 
-		if ( $color_scheme !== 'fresh' ) {
+		if ( 'fresh' !== get_user_option( 'admin_color', get_current_user_id() ) ) {
 			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array(), AB_VERSION );
 		}
 

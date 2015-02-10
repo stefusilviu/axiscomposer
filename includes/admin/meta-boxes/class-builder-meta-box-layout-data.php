@@ -52,8 +52,13 @@ class AB_Meta_Box_Layout_Data {
 					'footer_hide' => __( 'Hide Socket and Widgets', 'axisbuilder' )
 				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Display the socket and footer widgets?', 'axisbuilder' ) ) );
 
-				// Title Bar
-				axisbuilder_wp_select( array( 'id' => 'header_title_bar', 'class' => 'select side', 'label' => __( 'Title Bar Settings', 'axisbuilder' ), 'options' => array(
+				/**
+				 * @todo Display a Conditional Header Notice
+				 * Below Header settings are only available for layouts with a main menu placed at the top ;)
+				 */
+
+				// Header Title and Breadcrumbs
+				axisbuilder_wp_select( array( 'id' => 'header_title_bar', 'class' => 'select side', 'label' => __( 'Header Title and Breadcrumbs', 'axisbuilder' ), 'options' => array(
 					'default'          => __( 'Default Title and Breadcrumb', 'axisbuilder' ),
 					'header_crumb_bar' => __( 'Display Title and Breadcrumb', 'axisbuilder' ),
 					'header_title_bar' => __( 'Display Title (No Breadcrumb)', 'axisbuilder' ),

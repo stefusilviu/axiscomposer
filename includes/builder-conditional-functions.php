@@ -25,7 +25,7 @@ function is_axisbuilder_capable() {
 if ( ! function_exists( 'is_ajax' ) ) {
 
 	/**
-	 * is_capable - Returns true when the page is loaded via ajax.
+	 * is_ajax - Returns true when the page is loaded via ajax.
 	 * @return bool
 	 */
 	function is_ajax() {

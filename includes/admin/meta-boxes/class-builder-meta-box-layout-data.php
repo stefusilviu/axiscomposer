@@ -41,7 +41,7 @@ class AB_Meta_Box_Layout_Data {
 				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Select the specific layout for this entry.', 'axisbuilder' ) ) );
 
 				// Sidebar
-				axisbuilder_wp_select( array( 'id' => 'sidebar', 'class' => 'select side', 'label' => __( 'Sidebar Settings', 'axisbuilder' ), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Choose a custom sidebar for this entry.', 'axisbuilder' ), 'options' => axisbuilder_get_registered_sidebars() ) );
+				axisbuilder_wp_select( array( 'id' => 'sidebar', 'class' => 'select side', 'label' => __( 'Sidebar Settings', 'axisbuilder' ), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Choose a custom sidebar for this entry.', 'axisbuilder' ), 'options' => axisbuilder_get_registered_sidebars( array( 'default' => 'Default Sidebar' ), array( 'Display Everywhere' ) ) ) );
 
 				// Title Bar
 				axisbuilder_wp_select( array( 'id' => 'header_title_bar', 'class' => 'select side', 'label' => __( 'Title Bar Settings', 'axisbuilder' ), 'options' => array(

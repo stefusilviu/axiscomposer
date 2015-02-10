@@ -54,10 +54,10 @@ class AB_Meta_Box_Layout_Data {
 
 				// Title Bar
 				axisbuilder_wp_select( array( 'id' => 'header_title_bar', 'class' => 'select side', 'label' => __( 'Title Bar Settings', 'axisbuilder' ), 'options' => array(
-					'default'              => __( 'Default Layout', 'axisbuilder' ),
-					'title_bar_breadcrumb' => __( 'Display title and breadcrumbs', 'axisbuilder' ),
-					'title_bar'            => __( 'Display only title', 'axisbuilder' ),
-					'hidden_title_bar'     => __( 'Hide both', 'axisbuilder' )
+					'default'          => __( 'Default Title and Breadcrumb', 'axisbuilder' ),
+					'header_crumb_bar' => __( 'Display Title and Breadcrumb', 'axisbuilder' ),
+					'header_title_bar' => __( 'Display Title (No Breadcrumb)', 'axisbuilder' ),
+					'hidden_title_bar' => __( 'Hide both Title and Breadcrumb', 'axisbuilder' )
 				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Display the Title Bar with Page Title and Breadcrumb Navigation?', 'axisbuilder' ) ) );
 
 				// Header Transparency

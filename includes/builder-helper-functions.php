@@ -14,22 +14,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'print_clean' ) ) :
-
 /**
  * Print formatted data passed.
  * @param  array|string $data Raw data.
  * @return array|string $data Clean data.
  */
-function print_clean( $data ) {
+function axisbuilder_print_clean( $data ) {
 	print '<pre>';
 	print_r( $data );
 	print '</pre>';
 }
-
-endif;
-
-if ( ! function_exists( 'axisbuilder_html_data_string' ) ) :
 
 /**
  * Converts an array into a html data string.
@@ -50,10 +44,6 @@ function axisbuilder_html_data_string( $data ) {
 	return $data_string;
 }
 
-endif;
-
-if ( ! function_exists( 'axisbuilder_num_to_array' ) ) :
-
 /**
  * Converts a number into array.
  */
@@ -65,10 +55,6 @@ function axisbuilder_num_to_array( $from = 0, $to = 100, $steps = 1, $args = arr
 
 	return $args;
 }
-
-endif;
-
-if ( ! function_exists( 'axisbuilder_get_registered_sidebars' ) ) :
 
 /**
  * Fetch all available sidebars.
@@ -84,10 +70,6 @@ function axisbuilder_get_registered_sidebars( $sidebars = array(), $exclude = ar
 
 	return $sidebars;
 }
-
-endif;
-
-if ( ! function_exists( 'axisbuilder_shortcode_data' ) ) :
 
 /**
  * Create a new shortcode data programmatically.
@@ -129,10 +111,6 @@ function axisbuilder_shortcode_data( $name, $content = null, $args = array() ) {
 	return $_shortcode;
 }
 
-endif;
-
-if ( ! function_exists( 'axisbuilder_shortcode_pattern' ) ) :
-
 /**
  * Creates the shortcode pattern that only matches builder shortcodes.
  * @param  array        $predefined_tags Prefefined Tags.
@@ -165,10 +143,6 @@ function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
 	return $_axisbuilder_shortcode_tags;
 }
 
-endif;
-
-if ( ! function_exists( 'axisbuilder_get_shortcode_data' ) ) :
-
 /**
  * Fetch the builder shortcodes data.
  * @param  string $data Shortcode data type.
@@ -183,10 +157,6 @@ function axisbuilder_get_shortcode_data( $data ) {
 
 	return $builder_shortcodes;
 }
-
-endif;
-
-if ( ! function_exists( 'do_shortcode_builder' ) ) :
 
 /**
  * Search content for builder shortcodes and filter shortcodes through their hooks.
@@ -206,10 +176,6 @@ function do_shortcode_builder( $content ) {
 	global $_axisbuilder_shortcode_tags;
 	return preg_replace_callback( "/$_axisbuilder_shortcode_tags/s", 'do_shortcode_tag_builder', $content );
 }
-
-endif;
-
-if ( ! function_exists( 'do_shortcode_tag_builder' ) ) :
 
 /**
  * Regular Expression callable for do_shortcode_builder() for calling shortcode hook.
@@ -257,10 +223,6 @@ function do_shortcode_tag_builder( $m ) {
 	}
 }
 
-endif;
-
-if ( ! function_exists( 'axisbuilder_apply_autop' ) ) :
-
 /**
  * Applies WordPress autop filter.
  * @param  string  $content      HTML content by the WordPress Editor.
@@ -276,10 +238,6 @@ function axisbuilder_apply_autop( $content, $do_shortcode = true ) {
 
 	return $content;
 }
-
-endif;
-
-if ( ! function_exists( 'axisbuilder_remove_autop' ) ) :
 
 /**
  * Removes WordPress autop and invalid nesting of <p> & <br> tags.
@@ -306,5 +264,3 @@ function axisbuilder_remove_autop( $content, $do_shortcode = false ) {
 
 	return $content;
 }
-
-endif;

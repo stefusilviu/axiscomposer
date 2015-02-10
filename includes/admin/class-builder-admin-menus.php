@@ -147,7 +147,7 @@ class AB_Admin_Menu {
 	 * Init the iconfonts page
 	 */
 	public function iconfonts_page() {
-		// AB_Admin_Iconfonts::output();
+		AB_Admin_Iconfonts::output();
 	}
 
 	/**

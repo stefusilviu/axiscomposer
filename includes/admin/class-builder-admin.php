@@ -39,7 +39,7 @@ class AB_Admin {
 		include_once( 'class-builder-admin-post-types.php' );
 
 		// Classes we only need during non-ajax requests
-		if ( ! defined( 'DOING_AJAX' ) ) {
+		if ( ! is_ajax() ) {
 			include_once( 'class-builder-admin-menus.php' );
 			include_once( 'class-builder-admin-assets.php' );
 			include_once( 'class-builder-admin-notices.php' );

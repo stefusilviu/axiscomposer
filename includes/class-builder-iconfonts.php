@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisBuilder Icon Fonts
+ * AxisBuilder Iconfonts
  *
- * Handles the Icon Fonts Upload easily.
+ * Handles the Iconfonts Upload easily.
  *
- * @class       AB_Icon_Fonts
+ * @class       AB_Iconfonts
  * @package     AxisBuilder/Classes
  * @category    Class
  * @author      AxisThemes
@@ -16,10 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Icon_Fonts Class
+ * AB_Iconfonts Class
  */
-class AB_Icon_Fonts {
+class AB_Iconfonts {}
 
-}
-
-new AB_Icon_Fonts();
+new AB_Iconfonts();

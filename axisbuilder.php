@@ -173,8 +173,8 @@ final class AxisBuilder {
 			include_once( 'includes/class-builder-sidebars.php' );             // Sidebar Builder
 		}
 
+		include_once( 'includes/class-builder-iconfonts.php' );                // Iconfonts Manager
 		include_once( 'includes/class-builder-post-types.php' );               // Registers post types
-		include_once( 'includes/class-builder-icon-fonts.php' );               // Iconfonts Manager
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
 	}
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Page - Icon-Fonts Manager
+ * Admin View: Page - Iconfonts
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

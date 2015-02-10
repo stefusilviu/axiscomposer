@@ -15,8 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Include core functions (available in both admin and frontend)
-include( 'builder-helper-functions.php' );
+include( 'builder-conditional-functions.php' );
 include( 'builder-deprecated-functions.php' );
+include( 'builder-helper-functions.php' );
 
 /**
  * Clean variables

@@ -18,15 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * AB_Iconfonts Class
  */
-class AB_Iconfonts {
-
-	/**
-	 * Check for capability
-	 * @return bool
-	 */
-	public function is_capable() {
-		return current_user_can( 'manage_axisbuilder' );
-	}
-}
+class AB_Iconfonts {}
 
 new AB_Iconfonts();

@@ -3,7 +3,7 @@
 /**
  * AxisBuilder Backbone Modal JS
  */
-( function ( $, Backbone, _ ) {
+( function( $, Backbone, _ ) {
 	'use strict';
 
 	/**
@@ -12,7 +12,7 @@
 	 * @param {object} options
 	 */
 	$.fn.AxisBuilderBackboneModal = function( options ) {
-		return this.each( function () {
+		return this.each( function() {
 			( new $.AxisBuilderBackboneModal( $( this ), options ) );
 		});
 	};
@@ -117,8 +117,9 @@
 
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
 		},
-		closeButton: function ( e ) {
+		closeButton: function( e ) {
 			e.preventDefault();
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_before_remove', this._target );
 			this.undelegateEvents();
 			$( document ).off( 'focusin' );
 			$( 'body' ).css({
@@ -127,7 +128,7 @@
 			this.remove();
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._template );
 		},
-		addButton: function ( e ) {
+		addButton: function( e ) {
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', [ this._template, this.getFormData() ] );
 			this.closeButton( e );
 		},

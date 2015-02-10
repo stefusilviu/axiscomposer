@@ -135,7 +135,12 @@ jQuery( function( $ ) {
 
 				$( this ).select2( select2_args ).addClass( 'enhanced' );
 			});
-		} )
+		})
+
+		// AxisBuilder Backbone Modal
+		.on( 'axisbuilder_backbone_modal_before_remove', function() {
+			$( ':input.axisbuilder-enhanced-select, :input.axisbuilder-page-search' ).select2( 'close' );
+		})
 
 		.trigger( 'axisbuilder-enhanced-select-init' );
 

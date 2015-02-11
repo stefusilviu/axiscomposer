@@ -84,6 +84,8 @@ class AB_Iconfonts {
 			// Iterate the archive files array
 			for ( $i = 0; $i < $zip->numFiles; $i++ ) {
 				$entry = $zip->getNameIndex( $i );
+
+				echo 'Filename: ' . $entry . '<br />';
 			}
 
 			$zip->close();

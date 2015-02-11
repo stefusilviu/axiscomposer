@@ -62,6 +62,18 @@ class AB_Iconfonts {
 
 		@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
+		$directory = AB_UPLOAD_DIR . '/axisfonts-temp';
+
+		// If temp dir exists, remove it?
+		if ( is_dir( $directory ) ) {
+			self::delete_folder( $directory );
+		}
+
+		// Create a new temp dir
+		$tempdir = self::create_folder( $directory, false );
+		if ( ! $tempdir ) {
+			exit( 'Wasn\'t able to create temp folder' );
+		}
 	}
 
 	/**

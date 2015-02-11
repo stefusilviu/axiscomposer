@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Iconfonts {
 
+	public static $font_name = 'unknown';
+
 	/**
 	 * Hook in methods
 	 */
@@ -50,6 +52,69 @@ class AB_Iconfonts {
 	public static function check_capability() {
 		if ( ! current_user_can( 'manage_axisbuilder' ) ) {
 			exit( __( 'Using this feature is reserved for Super Admins. You unfortunately don\'t have the necessary permissions.', 'axisbuilder' ) );
+		}
+	}
+
+	/**
+	 * Extract the zip file to get flat folder and remove the files that are not needed.
+	 */
+	public static function zip_flatten( $zipfile, $filter ) {
+
+		@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
+
+	}
+
+	/**
+	 * Iterate over xml file and extract the glyphs for the font.
+	 */
+	public static function crete_config() {
+
+	}
+
+	/**
+	 * Create a folder
+	 */
+	public static function create_folder( $folder, $addindex = true ) {
+		if ( is_dir( $folder ) && $addindex == false ) {
+			return true;
+		}
+
+		$created = wp_mkdir_p( trailingslashit( $folder ) );
+		@chmod( $folder, 0777 );
+
+		if ( $addindex == false ) {
+			return $created;
+		}
+
+		$index_file = trailingslashit( $folder ) . 'index.php';
+		if ( file_exists( $index_file, 'w' ) ) {
+			return $created;
+		}
+
+		$handle = @fopen( $index_file, 'w' );
+		if ( $handle ) {
+			fwrite( $handle, "<?php\r\necho 'Sorry, browsing the directory is not allowed!';\r\n?>" );
+			fclose( $handle );
+		}
+
+		return $created;
+	}
+
+	/**
+	 * Delete a folder and content if they already exists
+	 */
+	public static function delete_folder( $folder ) {
+		if ( is_dir( $folder ) ) {
+			$scan = scandir( $folder );
+
+			foreach ( $scan as $object ) {
+				if ( $object != '.' && $object != '..' ) {
+					unlink( $folder . '/' . $object );
+				}
+			}
+
+			reset( $scan );
+			rmdir( $folder );
 		}
 	}
 }

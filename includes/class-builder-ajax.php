@@ -53,6 +53,23 @@ class AB_AJAX {
 
 		AB_Iconfonts::check_capability();
 
+		// Get the file path if the zip file
+		$attachment = $_POST['values'];
+		$zipfile    = realpath( get_attached_file( $attachment['id'] ) );
+		$flatten    = AB_Iconfonts::zip_flatten( $zipfile, array( '\.eot', '\.svg', '\.ttf', '\.woff', '\.json' ) );
+
+		// If zip is flatten, save it to our temp folder and extract the svg file.
+		if ( $flatten ) {
+			AB_Iconfonts::create_config();
+		}
+
+		// If we got no name for the font don't add it and delete the temp folder.
+		if ( AB_Iconfonts::$font_name == 'unknown' ) {
+			AB_Iconfonts::delete_folder( 'axisfonts-temp' );
+			exit( 'Was not able to retrieve the Font name from your Uploaded Folder' );
+		}
+
+		exit( 'axisbuilder_font_added:' . AB_Iconfonts::$font_name );
 	}
 
 	/**

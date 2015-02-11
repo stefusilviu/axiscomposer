@@ -51,6 +51,8 @@ class AB_AJAX {
 
 		check_ajax_referer( 'add-custom-iconfont', 'security' );
 
+		AB_Iconfonts::check_capability();
+
 	}
 
 	/**
@@ -59,6 +61,8 @@ class AB_AJAX {
 	public static function delete_iconfont() {
 
 		check_ajax_referer( 'delete-custom-iconfont', 'security' );
+
+		AB_Iconfonts::check_capability();
 
 	}
 

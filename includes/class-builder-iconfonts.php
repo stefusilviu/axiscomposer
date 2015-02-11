@@ -29,8 +29,7 @@ class AB_Iconfonts {
 	}
 
 	/**
-	 * Outputs some styles in the wp <head> to show iconsfonts font-face.
-	 * @return string $output
+	 * Outputs some styles in the wp <head> to show iconsfonts font-face
 	 */
 	public function iconfont_style() {
 
@@ -43,6 +42,15 @@ class AB_Iconfonts {
 			}
 		</style>
 		<?php
+	}
+
+	/**
+	 * Check for capability
+	 */
+	public static function check_capability() {
+		if ( ! current_user_can( 'manage_axisbuilder' ) ) {
+			exit( __( 'Using this feature is reserved for Super Admins. You unfortunately don\'t have the necessary permissions.', 'axisbuilder' ) );
+		}
 	}
 }
 

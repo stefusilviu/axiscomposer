@@ -24,7 +24,8 @@ class AB_Iconfonts {
 	 * Hook in methods
 	 */
 	public static function init() {
-		add_action( 'wp_head', array( __CLASS__, 'iconfont_style' ) );
+		add_action( 'wp_head',    array( __CLASS__, 'iconfont_style' ) );
+		add_action( 'admin_head', array( __CLASS__, 'iconfont_style' ) );
 	}
 
 	/**

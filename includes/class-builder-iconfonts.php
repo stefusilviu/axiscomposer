@@ -31,7 +31,7 @@ class AB_Iconfonts {
 	}
 
 	/**
-	 * Outputs some styles in the wp <head> to show iconsfonts font-face
+	 * Outputs some styles in the wp <head> to load iconfonts font-face
 	 */
 	public function iconfont_style() {
 

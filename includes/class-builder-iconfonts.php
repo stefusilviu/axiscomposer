@@ -74,6 +74,22 @@ class AB_Iconfonts {
 		if ( ! $tempdir ) {
 			exit( 'Wasn\'t able to create temp folder' );
 		}
+
+		// Create a ZipArchive instance
+		$zip = new ZipArchive();
+
+		// Open the Zip Archive
+		if ( $zip->open( $zipfile ) === true ) {
+
+			// Iterate the archive files array
+			for ( $i = 0; $i < $zip->numFiles; $i++ ) {
+				$entry = $zip->getNameIndex( $i );
+			}
+
+			$zip->close();
+		} else {
+			die( 'Failed to open the Zip Archive!' );
+		}
 	}
 
 	/**

@@ -54,7 +54,7 @@ class AB_AJAX {
 		AB_Iconfonts::check_capability();
 
 		// Get the file path if the zip file
-		$attachment = $_POST['values'];
+		$attachment = $_POST['value'];
 		$zipfile    = realpath( get_attached_file( $attachment['id'] ) );
 		$flatten    = AB_Iconfonts::zip_flatten( $zipfile, array( '\.eot', '\.svg', '\.ttf', '\.woff', '\.json' ) );
 

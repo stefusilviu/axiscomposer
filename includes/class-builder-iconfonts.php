@@ -58,7 +58,7 @@ class AB_Iconfonts {
 
 	/**
 	 * Extract the zip file to get flat folder and remove the files that are not needed.
-	 * @param string $zipfile
+	 * @param string   $zipfile
 	 * @param string[] $filter
 	 */
 	public static function zip_flatten( $zipfile, $filter ) {

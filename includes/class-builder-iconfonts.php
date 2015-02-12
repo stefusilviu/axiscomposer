@@ -64,13 +64,12 @@ class AB_Iconfonts {
 
 		$tempdir = AB_UPLOAD_DIR . '/axisfonts-temp';
 
-		// If temp dir exists, remove it?
+		// Control temp directory?
 		if ( is_dir( $tempdir ) ) {
-			self::delete_folder( $tempdir );
+			self::delete_files( $tempdir );
+		} else {
+			self::create_files( $tempdir );
 		}
-
-		// Create a new temp dir
-		self::create_files( $tempdir );
 
 		// Create a ZipArchive instance
 		$zip = new ZipArchive();
@@ -135,7 +134,7 @@ class AB_Iconfonts {
 	 * Create files/directories
 	 */
 	public static function create_files( $folder ) {
-		if ( is_dir( $folder ) && $addindex == false ) {
+		if ( is_dir( $folder ) ) {
 			return true;
 		}
 
@@ -146,9 +145,9 @@ class AB_Iconfonts {
 	}
 
 	/**
-	 * Delete a folder and content if they already exists
+	 * Delete files/directories
 	 */
-	public static function delete_folder( $folder ) {
+	public static function delete_files( $folder ) {
 		if ( is_dir( $folder ) ) {
 			$scan = scandir( $folder );
 

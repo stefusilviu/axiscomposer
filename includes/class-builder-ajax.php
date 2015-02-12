@@ -64,8 +64,9 @@ class AB_AJAX {
 		}
 
 		// If we got no name for the font don't add it and delete the temp folder.
+		$tempdir = AB_UPLOAD_DIR . '/axisfonts-temp';
 		if ( AB_Iconfonts::$font_name == 'unknown' ) {
-			AB_Iconfonts::delete_folder( 'axisfonts-temp' );
+			AB_Iconfonts::delete_files( $tempdir );
 			exit( 'Was not able to retrieve the Font name from your Uploaded Folder' );
 		}
 

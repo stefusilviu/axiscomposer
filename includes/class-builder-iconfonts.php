@@ -62,9 +62,8 @@ class AB_Iconfonts {
 
 		@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
-		$tempdir = AB_UPLOAD_DIR . '/axisfonts-temp';
-
 		// Control temp directory?
+		$tempdir = AB_UPLOAD_DIR . 'axisfonts-temp';
 		if ( is_dir( $tempdir ) ) {
 			self::delete_files( $tempdir );
 		} else {
@@ -112,7 +111,7 @@ class AB_Iconfonts {
 				}
 
 				fclose( $fp );
-				fclose( $fop );
+				fclose( $ofp );
 			}
 
 			$zip->close();
@@ -127,7 +126,63 @@ class AB_Iconfonts {
 	 * Iterate over xml file and extract the glyphs for the font.
 	 */
 	public static function create_config() {
+		$svg     = self::find_svg();
+		$tempdir = AB_UPLOAD_DIR . 'axisfonts-temp';
+		$tempurl = AB_UPLOAD_URL . 'axisfonts-temp';
 
+		// If we got no SVG file, remove it?
+		if ( empty( $svg ) ) {
+			self::delete_files( $tempdir );
+			exit( 'Found no SVG file with font information in your folder. Was not able to create the necessary config files' );
+		}
+
+		// Fetch the SVG file content
+		$response = file_get_contents( trailingslashit( $tempdir ) . $svg );
+
+		// If we weren't able to get the content try to fetch it by using WordPress
+		if ( empty( $response ) || trim( $response ) == "" || strpos( $response, '<svg' ) === false ) {
+			$response = wp_remote_fopen( trailingslashit( $tempdir ) . $svg );
+		}
+
+		// Filter the response
+		$response = apply_filters( 'axisbuilder_iconfont_uploader_response', $response, $svg, $tempdir );
+
+		if ( ! is_wp_error( $response ) && ! empty( $response ) ) {
+			$xml   = simplexml_load_string( $response );
+			$glyph = $xml->defs->font->children();
+			$attrs = $xml->defs->font->attributes();
+
+			// Store font name ;)
+			self::$font_name = (string) $attrs['id'];
+
+			foreach ( $glyph as $key => $value ) {
+
+				if ( $key == 'glyph' ) {
+					$attr    = $value->attributes();
+					$class   =  (string) $attr['class'];
+					$unicode =  (string) $attr['unicode'];
+
+					if ( $class != 'hidden' ) {
+						$unicode_key = trim( json_encode( $unicode ), '\\\"' );
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Find the file with extension we need to create the config
+	 */
+	public static function find_svg() {
+		$files = scandir( AB_UPLOAD_DIR . 'axisfonts-temp' );
+
+		foreach ( $files as $file ) {
+			if ( strpos( strtolower( $file ), '.svg' ) !== false && $file[0] != '.' ) {
+				return $file;
+			}
+		}
 	}
 
 	/**

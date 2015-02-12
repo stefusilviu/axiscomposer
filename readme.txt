@@ -92,4 +92,4 @@ Fix - Query in uninstall script.
 == Upgrade Notice ==
 
 = 1.0.0 =
-0.1 is a major update. Test extensions and your theme prior to updating, and ensure that you keep backups. Developers should catch up with [develop.axisthemes.com](http://develop.axisthemes.com/) to see what has been happening in core.
+1.0.0 is a major update so it is important that you make backups, test extensions and your theme prior to updating, and ensure extensions are 1.0 compatible. Developers should catch up with [develop.axisthemes.com](http://develop.axisthemes.com/) to see what has been happening in core.

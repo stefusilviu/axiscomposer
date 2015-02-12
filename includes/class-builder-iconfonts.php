@@ -241,7 +241,6 @@ class AB_Iconfonts {
 	 */
 	private static function get_svg_file() {
 		$files = scandir( AB_UPLOAD_DIR . 'axisfonts-temp' );
-
 		foreach ( $files as $file ) {
 			if ( strpos( strtolower( $file ), '.svg' ) !== false && $file[0] != '.' ) {
 				return $file;
@@ -265,6 +264,24 @@ class AB_Iconfonts {
 	}
 
 	/**
+	 * Delete files/directories
+	 * @param string $folder
+	 */
+	public static function delete_files( $folder ) {
+		if ( is_dir( $folder ) ) {
+			$scan = scandir( $folder );
+			foreach ( $scan as $object ) {
+				if ( $object != '.' && $object != '..' ) {
+					unlink( $folder . '/' . $object );
+				}
+			}
+
+			reset( $scan );
+			rmdir( $folder );
+		}
+	}
+
+	/**
 	 * Rename files/directories
 	 */
 	public static function rename_files() {
@@ -275,34 +292,16 @@ class AB_Iconfonts {
 		// Rename files
 		foreach ( glob( $temp_dir . '*' ) as $file ) {
 			$path_parts = pathinfo( $file );
-			if ( strpos( $path_parts['filename'], '.dev' ) === false && in_array( $path_parts['extension'], $font_ext ) ) {
+			if ( ( strpos( $path_parts['filename'], '.dev' ) === false ) && in_array( $path_parts['extension'], $font_ext ) ) {
 				rename( $file, trailingslashit( $path_parts['dirname'] ) . self::$font_name . '.' . $path_parts['extension'] );
 			}
 		}
 
-		// Delete folder and content if they alreay exists ;)
+		// Delete files/directories
 		self::delete_files( $font_dir );
 
-		// Rename the temp folder and all its font files ;)
+		// Rename files/directories
 		rename( $temp_dir, $font_dir );
-	}
-
-	/**
-	 * Delete files/directories
-	 */
-	public static function delete_files( $folder ) {
-		if ( is_dir( $folder ) ) {
-			$scan = scandir( $folder );
-
-			foreach ( $scan as $object ) {
-				if ( $object != '.' && $object != '..' ) {
-					unlink( $folder . '/' . $object );
-				}
-			}
-
-			reset( $scan );
-			rmdir( $folder );
-		}
 	}
 }
 

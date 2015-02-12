@@ -267,7 +267,7 @@ class AB_Iconfonts {
 	public static function rename_files() {
 		$extensions = array( 'eot', 'svg', 'ttf', 'woff' );
 		$temp_dir   = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
-		$font_dir   = trailingslashit( AB_UPLOAD_DIR . 'iconfonts/' . self::$font_name );
+		$font_dir   = trailingslashit( AB_UPLOAD_DIR . self::$font_name );
 
 		// Rename files
 		foreach ( glob( $temp_dir . '*' ) as $file ) {

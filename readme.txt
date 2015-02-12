@@ -86,6 +86,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Changelog ==
 
 Fix - Change hooks used to output post columns - fixes columns after quick edit.
+Fix - Query in uninstall script.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
 
 == Upgrade Notice ==

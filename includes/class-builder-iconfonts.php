@@ -20,7 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Iconfonts {
 
-	public static $font_name = 'unknown';
+	public static $font_name  = 'unknown';
+	public static $svg_config = array();
 
 	/**
 	 * Hook in methods
@@ -63,11 +64,11 @@ class AB_Iconfonts {
 		@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
 		// Control temp directory?
-		$tempdir = AB_UPLOAD_DIR . 'axisfonts-temp';
-		if ( is_dir( $tempdir ) ) {
-			self::delete_files( $tempdir );
+		$temp_dir = AB_UPLOAD_DIR . 'axisfonts-temp';
+		if ( is_dir( $temp_dir ) ) {
+			self::delete_files( $temp_dir );
 		} else {
-			self::create_files( $tempdir );
+			self::create_files( $temp_dir );
 		}
 
 		// Create a ZipArchive instance
@@ -100,7 +101,7 @@ class AB_Iconfonts {
 				}
 
 				$fp  = $zip->getStream( $entry );
-				$ofp = fopen( $tempdir . '/' . basename( $entry ), 'w' );
+				$ofp = fopen( $temp_dir . '/' . basename( $entry ), 'w' );
 
 				if ( ! $fp ) {
 					exit( 'Unable to extract the file.' );
@@ -126,26 +127,26 @@ class AB_Iconfonts {
 	 * Iterate over xml file and extract the glyphs for the font.
 	 */
 	public static function create_config() {
-		$svg     = self::find_svg();
-		$tempdir = AB_UPLOAD_DIR . 'axisfonts-temp';
-		$tempurl = AB_UPLOAD_URL . 'axisfonts-temp';
+		$file_svg = self::get_svg_file();
+		$temp_dir = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
+		$temp_url = trailingslashit( AB_UPLOAD_URL . 'axisfonts-temp' );
 
 		// If we got no SVG file, remove it?
-		if ( empty( $svg ) ) {
-			self::delete_files( $tempdir );
+		if ( empty( $file_svg ) ) {
+			self::delete_files( $temp_dir );
 			exit( 'Found no SVG file with font information in your folder. Was not able to create the necessary config files' );
 		}
 
 		// Fetch the SVG file content
-		$response = file_get_contents( trailingslashit( $tempdir ) . $svg );
+		$response = file_get_contents( $temp_dir . $file_svg );
 
 		// If we weren't able to get the content try to fetch it by using WordPress
 		if ( empty( $response ) || trim( $response ) == "" || strpos( $response, '<svg' ) === false ) {
-			$response = wp_remote_fopen( trailingslashit( $tempdir ) . $svg );
+			$response = wp_remote_fopen( $temp_url . $file_svg );
 		}
 
 		// Filter the response
-		$response = apply_filters( 'axisbuilder_iconfont_uploader_response', $response, $svg, $tempdir );
+		$response = apply_filters( 'axisbuilder_iconfont_uploader_response', $response, $file_svg, $temp_dir );
 
 		if ( ! is_wp_error( $response ) && ! empty( $response ) ) {
 			$xml   = simplexml_load_string( $response );
@@ -164,8 +165,15 @@ class AB_Iconfonts {
 
 					if ( $class != 'hidden' ) {
 						$unicode_key = trim( json_encode( $unicode ), '\\\"' );
+						if ( $key == 'glyph' && ! empty( $unicode_key ) && trim( $unicode_key ) != '' ) {
+							self::$svg_config[self::$font_name][$unicode_key] = $unicode_key;
+						}
 					}
 				}
+			}
+
+			if ( ! empty( self::$svg_config ) && self::$font_name != 'unknown' ) {
+				self::add_iconfonts();
 			}
 		}
 
@@ -173,9 +181,28 @@ class AB_Iconfonts {
 	}
 
 	/**
+	 * Add Iconfonts
+	 */
+	public static function add_iconfonts() {
+		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
+
+		if ( ! empty( $fonts ) ) {
+			$fonts = array();
+		}
+
+		$fonts[ self::$font_name ] = array(
+			'config'  => 'charmap.php',
+			'folder'  => 'iconfonts/' . self::$font_name,
+			'include' => 'iconfonts/' . self::$font_name
+		);
+
+		update_option( 'axisbuilder_custom_iconfonts', $fonts );
+	}
+
+	/**
 	 * Find the file with extension we need to create the config
 	 */
-	public static function find_svg() {
+	private static function get_svg_file() {
 		$files = scandir( AB_UPLOAD_DIR . 'axisfonts-temp' );
 
 		foreach ( $files as $file ) {

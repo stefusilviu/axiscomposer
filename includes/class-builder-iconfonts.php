@@ -173,11 +173,46 @@ class AB_Iconfonts {
 			}
 
 			if ( ! empty( self::$svg_config ) && self::$font_name != 'unknown' ) {
+				self::charmap_file();
+				self::rename_files();
 				self::add_iconfonts();
 			}
 		}
 
 		return false;
+	}
+
+	/**
+	 * Write the charmap config file for the font
+	 */
+	public static function charmap_file() {
+		$temp_dir = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
+		$charmap  = $temp_dir . '/charmap.php';
+		$handle   = @fopen( $charmap, 'w' );
+
+		if ( $handle ) {
+			fwrite( $handle, '<?php $chars = array();' );
+
+			foreach ( self::$svg_config[self::$font_name] as $unicode ) {
+
+				if ( ! empty( $unicode ) ) {
+					$delimiter = "'";
+					if ( strpos( $unicode, $delimiter ) !== false ) {
+						$delimiter = '"';
+					}
+
+					fwrite( $handle, "\r\n" . '$chars[\'' . self::$font_name . '\'][' . $delimiter . $unicode . $delimiter . '] = ' . $delimiter . $unicode . $delimiter . ';' );
+				}
+			}
+
+			// Necessary for EOL-End of Line ;)
+			fwrite( $handle, "\r\n" );
+
+			fclose( $handle );
+		} else {
+			self::delete_files( $temp_dir );
+			exit( 'Unable to write a charmap config file' );
+		}
 	}
 
 	/**
@@ -224,6 +259,29 @@ class AB_Iconfonts {
 		@chmod( $folder, 0777 );
 
 		return $created;
+	}
+
+	/**
+	 * Rename files/directories
+	 */
+	public static function rename_files() {
+		$extensions = array( 'eot', 'svg', 'ttf', 'woff' );
+		$temp_dir   = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
+		$font_dir   = trailingslashit( AB_UPLOAD_DIR . 'iconfonts/' . self::$font_name );
+
+		// Rename files
+		foreach ( glob( $temp_dir . '*' ) as $file ) {
+			$path_parts = pathinfo( $file );
+			if ( strpos( $path_parts['filename'], '.dev' ) === false && in_array( $path_parts['extension'], $extensions ) ) {
+				rename( $file, trailingslashit( $path_parts['dirname'] ) . self::$font_name . '.' . $path_parts['extension'] );
+			}
+		}
+
+		// Delete folder and content if they alreay exists ;)
+		self::delete_files( $font_dir );
+
+		// Rename the temp folder and all its font files ;)
+		rename( $temp_dir, $font_dir );
 	}
 
 	/**

@@ -265,14 +265,14 @@ class AB_Iconfonts {
 	 * Rename files/directories
 	 */
 	public static function rename_files() {
-		$extensions = array( 'eot', 'svg', 'ttf', 'woff' );
-		$temp_dir   = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
-		$font_dir   = trailingslashit( AB_UPLOAD_DIR . self::$font_name );
+		$font_ext = array( 'eot', 'svg', 'ttf', 'woff' );
+		$font_dir = trailingslashit( AB_UPLOAD_DIR . self::$font_name );
+		$temp_dir = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
 
 		// Rename files
 		foreach ( glob( $temp_dir . '*' ) as $file ) {
 			$path_parts = pathinfo( $file );
-			if ( strpos( $path_parts['filename'], '.dev' ) === false && in_array( $path_parts['extension'], $extensions ) ) {
+			if ( strpos( $path_parts['filename'], '.dev' ) === false && in_array( $path_parts['extension'], $font_ext ) ) {
 				rename( $file, trailingslashit( $path_parts['dirname'] ) . self::$font_name . '.' . $path_parts['extension'] );
 			}
 		}

@@ -70,7 +70,7 @@ class AB_Iconfonts {
 		}
 
 		// Create a new temp dir
-		$tempdir = self::create_folder( $directory, false );
+		$tempdir = self::create_files( $directory, true );
 		if ( ! $tempdir ) {
 			exit( 'Unable to create temp folder' );
 		}
@@ -130,14 +130,14 @@ class AB_Iconfonts {
 	/**
 	 * Iterate over xml file and extract the glyphs for the font.
 	 */
-	public static function crete_config() {
+	public static function create_config() {
 
 	}
 
 	/**
-	 * Create a folder
+	 * Create files/directories
 	 */
-	public static function create_folder( $folder, $addindex = true ) {
+	public static function create_files( $folder, $addindex = true ) {
 		if ( is_dir( $folder ) && $addindex == false ) {
 			return true;
 		}
@@ -156,7 +156,7 @@ class AB_Iconfonts {
 
 		$handle = @fopen( $index_file, 'w' );
 		if ( $handle ) {
-			fwrite( $handle, "<?php\r\necho 'Sorry, browsing the directory is not allowed!';\r\n?>" );
+			fwrite( $handle, "<?php\r\n# Silence is golden.\r\n" );
 			fclose( $handle );
 		}
 

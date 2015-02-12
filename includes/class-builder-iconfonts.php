@@ -62,18 +62,15 @@ class AB_Iconfonts {
 
 		@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
-		$directory = AB_UPLOAD_DIR . '/axisfonts-temp';
+		$tempdir = AB_UPLOAD_DIR . '/axisfonts-temp';
 
 		// If temp dir exists, remove it?
-		if ( is_dir( $directory ) ) {
-			self::delete_folder( $directory );
+		if ( is_dir( $tempdir ) ) {
+			self::delete_folder( $tempdir );
 		}
 
 		// Create a new temp dir
-		$tempdir = self::create_files( $directory, true );
-		if ( ! $tempdir ) {
-			exit( 'Unable to create temp folder' );
-		}
+		self::create_files( $tempdir );
 
 		// Create a ZipArchive instance
 		$zip = new ZipArchive();
@@ -105,7 +102,7 @@ class AB_Iconfonts {
 				}
 
 				$fp  = $zip->getStream( $entry );
-				$ofp = fopen( $directory . '/' . basename( $entry ), 'w' );
+				$ofp = fopen( $tempdir . '/' . basename( $entry ), 'w' );
 
 				if ( ! $fp ) {
 					exit( 'Unable to extract the file.' );
@@ -137,28 +134,13 @@ class AB_Iconfonts {
 	/**
 	 * Create files/directories
 	 */
-	public static function create_files( $folder, $addindex = true ) {
+	public static function create_files( $folder ) {
 		if ( is_dir( $folder ) && $addindex == false ) {
 			return true;
 		}
 
 		$created = wp_mkdir_p( trailingslashit( $folder ) );
 		@chmod( $folder, 0777 );
-
-		if ( $addindex == false ) {
-			return $created;
-		}
-
-		$index_file = trailingslashit( $folder ) . 'index.php';
-		if ( file_exists( $index_file, 'w' ) ) {
-			return $created;
-		}
-
-		$handle = @fopen( $index_file, 'w' );
-		if ( $handle ) {
-			fwrite( $handle, "<?php\r\n# Silence is golden.\r\n" );
-			fclose( $handle );
-		}
 
 		return $created;
 	}

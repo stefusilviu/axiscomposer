@@ -72,7 +72,7 @@ class AB_Iconfonts {
 		// Create a new temp dir
 		$tempdir = self::create_folder( $directory, false );
 		if ( ! $tempdir ) {
-			exit( 'Wasn\'t able to create temp folder' );
+			exit( 'Unable to create temp folder' );
 		}
 
 		// Create a ZipArchive instance
@@ -85,13 +85,46 @@ class AB_Iconfonts {
 			for ( $i = 0; $i < $zip->numFiles; $i++ ) {
 				$entry = $zip->getNameIndex( $i );
 
-				echo 'Filename: ' . $entry . '<br />';
+				if ( ! empty( $filter ) ) {
+					$delete  = true;
+					$matches = array();
+
+					foreach ( $filter as $regex ) {
+						preg_match( '!' . $regex. '!', $entry, $matches );
+
+						if ( ! empty( $matches ) ) {
+							$delete = false;
+							break;
+						}
+					}
+				}
+
+				// Skip directories and non matching files
+				if ( ( substr( $entry, -1 ) == '/' ) || ( ! empty( $delete ) ) ) {
+					continue;
+				}
+
+				$fp  = $zip->getStream( $entry );
+				$ofp = fopen( $directory . '/' . basename( $entry ), 'w' );
+
+				if ( ! $fp ) {
+					exit( 'Unable to extract the file.' );
+				}
+
+				while ( ! feof( $fp ) ) {
+					fwrite( $ofp, fread( $fp, 8192 ) );
+				}
+
+				fclose( $fp );
+				fclose( $fop );
 			}
 
 			$zip->close();
 		} else {
-			die( 'Failed to open the Zip Archive!' );
+			exit( 'Failed to open the Zip Archive!' );
 		}
+
+		return true;
 	}
 
 	/**

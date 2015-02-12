@@ -92,3 +92,18 @@ function axisbuilder_get_core_supported_themes() {
 function get_builder_core_supported_screens() {
 	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }
+
+/**
+ * Enables template debug mode
+ */
+function axisbuilder_template_debug_mode() {
+	if ( ! defined( 'AB_TEMPLATE_DEBUG_MODE' ) ) {
+		$status_options = get_option( 'axisbuilder_status_options', array() );
+		if ( ! empty( $status_options['template_debug_mode'] ) && current_user_can( 'manage_options' ) ) {
+			define( 'AB_TEMPLATE_DEBUG_MODE', true );
+		} else {
+			define( 'AB_TEMPLATE_DEBUG_MODE', false );
+		}
+	}
+}
+add_action( 'after_setup_theme', 'axisbuilder_template_debug_mode', 20 );

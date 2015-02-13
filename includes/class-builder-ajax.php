@@ -67,10 +67,10 @@ class AB_AJAX {
 		$tempdir = AB_UPLOAD_DIR . '/axisfonts-temp';
 		if ( AB_Iconfonts::$font_name == 'unknown' ) {
 			AB_Iconfonts::delete_files( $tempdir );
-			exit( 'Was not able to retrieve the Font name from your Uploaded Folder' );
+			die( 'Was not able to retrieve the Font name from your Uploaded Folder' );
 		}
 
-		exit( 'axisbuilder_font_added:' . AB_Iconfonts::$font_name );
+		die( 'axisbuilder_iconfont_added:' . AB_Iconfonts::$font_name );
 	}
 
 	/**
@@ -82,6 +82,7 @@ class AB_AJAX {
 
 		AB_Iconfonts::check_capability();
 
+		die( 'Was not able to remove Font' );
 	}
 
 	/**

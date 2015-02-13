@@ -129,14 +129,16 @@ class AB_Iconfonts {
 	 * Iterate over xml file and extract the glyphs for the font.
 	 */
 	public static function create_config() {
-		$file_svg = self::get_filename( 'svg' );
 		$temp_dir = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
 		$temp_url = trailingslashit( AB_UPLOAD_URL . 'axisfonts-temp' );
 
+		$file_svg  = self::get_filename( 'svg' );
+		$file_json = self::get_filename( 'json' );
+
 		// If we got no SVG file, remove it?
-		if ( empty( $file_svg ) ) {
+		if ( empty( $file_svg ) || empty( $file_json ) ) {
 			self::delete_files( $temp_dir );
-			exit( 'Found no SVG file with font information in your folder. Was not able to create the necessary config files' );
+			exit( 'SVG or JSON file with font information is needed to create the necessary config files.' );
 		}
 
 		// Fetch the SVG file content
@@ -172,6 +174,13 @@ class AB_Iconfonts {
 						}
 					}
 				}
+			}
+
+			// Existence
+			$font_dir = trailingslashit( AB_UPLOAD_DIR . self::$font_name );
+			if ( is_dir( $font_dir ) ) {
+				self::delete_files( $temp_dir );
+				die( 'It seems that the font with the same name is already exists! Please upload the font with different name.' );
 			}
 
 			if ( ! empty( self::$svg_config ) && self::$font_name != 'unknown' ) {

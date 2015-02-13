@@ -103,17 +103,17 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 					message.html( '<div class="updated"><p>Font icon added successfully! Reloading the page... </p></div>' );
 					message.show();
 
-					// setTimeout( function() {
-					// 	message.slideUp();
-					// 	location.reload();
-					// }, 5000 );
+					setTimeout( function() {
+						message.slideUp();
+						// location.reload();
+					}, 5000 );
 				} else {
 					message.html( '<div class="error"><p>Couldn\'t add the font.<br/>The script returned the following error: ' + response + '</p></div>' );
 					message.show();
 
-					// setTimeout( function() {
-					// 	message.slideUp();
-					// }, 5000 );
+					setTimeout( function() {
+						message.slideUp();
+					}, 5000 );
 				}
 			}
 		});

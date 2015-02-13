@@ -247,7 +247,7 @@ class AB_Iconfonts {
 
 	/**
 	 * Retrieve the filename based on the extension name.
-	 * @param  string $ext The extension to search.
+	 * @param  string $extension The extension to search.
 	 * @return string The filename if found.
 	 */
 	private static function get_filename( $extension ) {

@@ -203,14 +203,14 @@ class AB_Install {
 		// Install files and folders for uploading files and prevent hotlinking
 		$files = array(
 			// array(
-			// 	'base' 		=> AB_UPLOAD_DIR,
-			// 	'file' 		=> '.htaccess',
-			// 	'content' 	=> 'deny from all'
+			// 	'base'    => AB_UPLOAD_DIR,
+			// 	'file'    => '.htaccess',
+			// 	'content' => 'deny from all'
 			// ),
 			array(
-				'base' 		=> AB_UPLOAD_DIR,
-				'file' 		=> 'index.html',
-				'content' 	=> ''
+				'base'    => AB_UPLOAD_DIR,
+				'file'    => 'index.html',
+				'content' => ''
 			)
 		);
 

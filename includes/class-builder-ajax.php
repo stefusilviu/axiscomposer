@@ -51,6 +51,26 @@ class AB_AJAX {
 
 		check_ajax_referer( 'add-custom-iconfont', 'security' );
 
+		AB_Iconfonts::check_capability();
+
+		// Get the file path if the zip file
+		$attachment = $_POST['value'];
+		$zipfile    = realpath( get_attached_file( $attachment['id'] ) );
+		$flatten    = AB_Iconfonts::zip_flatten( $zipfile, array( '\.eot', '\.svg', '\.ttf', '\.woff', '\.json' ) );
+
+		// If zip is flatten, save it to our temp folder and extract the svg file.
+		if ( $flatten ) {
+			AB_Iconfonts::create_config();
+		}
+
+		// If we got no name for the font don't add it and delete the temp folder.
+		$tempdir = AB_UPLOAD_DIR . '/axisfonts-temp';
+		if ( AB_Iconfonts::$font_name == 'unknown' ) {
+			AB_Iconfonts::delete_files( $tempdir );
+			die( 'Was not able to retrieve the Font name from your Uploaded Folder' );
+		}
+
+		die( 'axisbuilder_iconfont_added:' . AB_Iconfonts::$font_name );
 	}
 
 	/**
@@ -60,6 +80,9 @@ class AB_AJAX {
 
 		check_ajax_referer( 'delete-custom-iconfont', 'security' );
 
+		AB_Iconfonts::check_capability();
+
+		die( 'Was not able to remove Font' );
 	}
 
 	/**

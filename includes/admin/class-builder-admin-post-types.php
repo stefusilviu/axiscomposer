@@ -28,7 +28,7 @@ class AB_Admin_Post_Types {
 		add_filter( 'bulk_post_updated_messages', array( $this, 'bulk_post_updated_messages' ), 10, 2 );
 
 		// WP List table columns. Defined here so they are always available for events such as inline editing.
-		// add_filter( 'manage_edit-portfolio_columns', array( $this, 'portfolio_columns' ) );
+		// add_filter( 'manage_portfolio_posts_columns', array( $this, 'portfolio_columns' ) );
 		// add_action( 'manage_portfolio_posts_custom_column', array( $this, 'render_portfolio_columns' ), 2 );
 		// add_filter( 'manage_edit-portfolio_sortable_columns', array( $this, 'portfolio_sortable_columns' ) );
 
@@ -93,14 +93,6 @@ class AB_Admin_Post_Types {
 	 * @return array
 	 */
 	public function portfolio_columns( $existing_columns ) {
-
-		$current_screen = get_current_screen();
-
-		// Check we're on the correct post type
-		if ( 'portfolio' != $current_screen->post_type ) {
-			return $existing_columns;
-		}
-
 		if ( empty( $existing_columns ) && ! is_array( $existing_columns ) ) {
 			$existing_columns = array();
 		}

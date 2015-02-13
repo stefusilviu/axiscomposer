@@ -76,7 +76,7 @@ class AB_Autoloader {
 			$path = $this->include_path . 'admin/';
 		}
 
-		if ( ! $this->load_file( $path . $file ) && strpos( $class, 'ab_' ) === 0 ) {
+		if ( empty( $path ) || ( ! $this->load_file( $path . $file ) && strpos( $class, 'ab_' ) === 0 ) ) {
 			$this->load_file( $this->include_path . $file );
 		}
 	}

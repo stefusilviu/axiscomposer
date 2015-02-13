@@ -253,14 +253,12 @@ class AB_Iconfonts {
 	 * @param string $folder
 	 */
 	public static function create_files( $folder ) {
-		if ( is_dir( $folder ) ) {
-			return true;
+		if ( ! is_dir( $folder ) ) {
+			wp_mkdir_p( trailingslashit( $folder ) );
 		}
 
-		$created = wp_mkdir_p( trailingslashit( $folder ) );
+		// Permission ;)
 		@chmod( $folder, 0777 );
-
-		return $created;
 	}
 
 	/**

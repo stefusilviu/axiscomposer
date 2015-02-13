@@ -129,7 +129,7 @@ class AB_Iconfonts {
 	 * Iterate over xml file and extract the glyphs for the font.
 	 */
 	public static function create_config() {
-		$file_svg = self::get_svg_file();
+		$file_svg = self::get_filename( 'svg' );
 		$temp_dir = trailingslashit( AB_UPLOAD_DIR . 'axisfonts-temp' );
 		$temp_url = trailingslashit( AB_UPLOAD_URL . 'axisfonts-temp' );
 
@@ -237,12 +237,15 @@ class AB_Iconfonts {
 	}
 
 	/**
-	 * Find the file with extension we need to create the config
+	 * Retrieve the filename based on the extension name.
+	 * @param  string $ext The extension to search.
+	 * @return string The filename if found.
 	 */
-	private static function get_svg_file() {
+	private static function get_filename( $extension ) {
 		$files = scandir( AB_UPLOAD_DIR . 'axisfonts-temp' );
 		foreach ( $files as $file ) {
-			if ( strpos( strtolower( $file ), '.svg' ) !== false && $file[0] != '.' ) {
+			$ext = ! empty( $extension ) ? '.' . strtolower( $extension ) : '';
+			if ( strpos( strtolower( $file ), $ext ) !== false && $file[0] != '.' ) {
 				return $file;
 			}
 		}

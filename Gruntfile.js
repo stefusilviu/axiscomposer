@@ -124,12 +124,12 @@ module.exports = function( grunt ){
 			scripts: {
 				files: [
 					'<%= dirs.scripts %>/admin/*.js',
-					'<%= dirs.scripts %>/modal/*.js',
-					'<%= dirs.scripts %>/backbone/*.js',
-					'<%= dirs.scripts %>/frontend/*.js',
 					'!<%= dirs.scripts %>/admin/*.min.js',
+					'<%= dirs.scripts %>/modal/*.js',
 					'!<%= dirs.scripts %>/modal/*.min.js',
+					'<%= dirs.scripts %>/backbone/*.js',
 					'!<%= dirs.scripts %>/backbone/*.min.js',
+					'<%= dirs.scripts %>/frontend/*.js',
 					'!<%= dirs.scripts %>/frontend/*.min.js'
 				],
 				tasks: ['uglify']

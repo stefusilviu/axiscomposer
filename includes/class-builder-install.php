@@ -113,13 +113,6 @@ class AB_Install {
 			$wp_roles = new WP_Roles();
 		}
 
-		// Moderator role
-		add_role( 'moderator', __( 'Moderator', 'axisbuilder' ), array(
-			'read'         => true,
-			'edit_posts'   => false,
-			'delete_posts' => false
-		) );
-
 		$capabilities = self::get_core_capabilities();
 
 		foreach ( $capabilities as $cap_group ) {
@@ -192,8 +185,6 @@ class AB_Install {
 				$wp_roles->remove_cap( 'administrator', $cap );
 			}
 		}
-
-		remove_role( 'moderator' );
 	}
 
 	/**

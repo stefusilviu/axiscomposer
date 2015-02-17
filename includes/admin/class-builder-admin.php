@@ -77,9 +77,15 @@ class AB_Admin {
 	 */
 	public function admin_footer_text( $footer_text ) {
 		$current_screen = get_current_screen();
+		$ab_pages       = axisbuilder_get_screen_ids();
+
+		// Add the dashboard pages
+		$ab_pages[] = 'dashboard_page_axisbuilder-about';
+		$ab_pages[] = 'dashboard_page_axisbuilder-credits';
+		$ab_pages[] = 'dashboard_page_axisbuilder-translators';
 
 		// Check to make sure we're on a AxisBuilder admin page
-		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, axisbuilder_get_screen_ids() ) ) ) {
+		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, $ab_pages ) ) ) {
 			// Change the footer text
 			$footer_text = sprintf( __( 'If you like <strong>Axis Builder</strong> please leave us a <a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating on <a href="%1$s" target="_blank">WordPress.org</a>. A huge thank you from AxisThemes in advance!', 'axisbuilder' ), 'https://wordpress.org/support/view/plugin-reviews/axisbuilder?filter=5#postform' );
 		}

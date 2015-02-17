@@ -77,11 +77,11 @@ class AB_Admin_Post_Types {
 	public function bulk_post_updated_messages( $bulk_messages, $bulk_counts ) {
 
 		$bulk_messages['portfolio'] = array(
-			'updated'   => _n( '%s project updated.', '%s projects updated.', $bulk_counts['updated'] ),
-			'locked'    => _n( '%s project not updated, somebody is editing it.', '%s projects not updated, somebody is editing them.', $bulk_counts['locked'] ),
-			'deleted'   => _n( '%s project permanently deleted.', '%s projects permanently deleted.', $bulk_counts['deleted'] ),
-			'trashed'   => _n( '%s project moved to the Trash.', '%s projects moved to the Trash.', $bulk_counts['trashed'] ),
-			'untrashed' => _n( '%s project restored from the Trash.', '%s projects restored from the Trash.', $bulk_counts['untrashed'] ),
+			'updated'   => _n( '%s project updated.', '%s projects updated.', $bulk_counts['updated'], 'axisbuilder' ),
+			'locked'    => _n( '%s project not updated, somebody is editing it.', '%s projects not updated, somebody is editing them.', $bulk_counts['locked'], 'axisbuilder' ),
+			'deleted'   => _n( '%s project permanently deleted.', '%s projects permanently deleted.', $bulk_counts['deleted'], 'axisbuilder' ),
+			'trashed'   => _n( '%s project moved to the Trash.', '%s projects moved to the Trash.', $bulk_counts['trashed'], 'axisbuilder' ),
+			'untrashed' => _n( '%s project restored from the Trash.', '%s projects restored from the Trash.', $bulk_counts['untrashed'], 'axisbuilder' ),
 		);
 
 		return $bulk_messages;

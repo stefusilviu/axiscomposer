@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function axisbuilder_get_screen_ids() {
 
-	$axis_screen_id = sanitize_title( __( 'Axis Builder', 'axisbuilder' ) );
-	$screen_ids     = array(
-		'toplevel_page_' . $axis_screen_id,
-		$axis_screen_id . '_page_axisbuilder-iconfonts',
-		$axis_screen_id . '_page_axisbuilder-settings',
-		$axis_screen_id . '_page_axisbuilder-status',
-		$axis_screen_id . '_page_axisbuilder-addons',
+	$ab_screen_id = sanitize_title( __( 'Axis Builder', 'axisbuilder' ) );
+	$screen_ids   = array(
+		'toplevel_page_' . $ab_screen_id,
+		$ab_screen_id . '_page_axisbuilder-iconfonts',
+		$ab_screen_id . '_page_axisbuilder-settings',
+		$ab_screen_id . '_page_axisbuilder-status',
+		$ab_screen_id . '_page_axisbuilder-addons',
 		'portfolio',
 		'edit-portfolio',
 		'edit-portfolio_cat',

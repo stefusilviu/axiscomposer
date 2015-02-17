@@ -43,6 +43,7 @@ class AB_Admin {
 			include_once( 'class-builder-admin-menus.php' );
 			include_once( 'class-builder-admin-assets.php' );
 			include_once( 'class-builder-admin-notices.php' );
+			include_once( 'class-builder-admin-welcome.php' );
 
 			// Help
 			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {

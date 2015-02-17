@@ -66,6 +66,9 @@ class AB_Install {
 
 		// Redirect to welcome screen
 		set_transient( '_ab_activation_redirect', 1, HOUR_IN_SECONDS );
+		if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
+			set_transient( '_ab_activation_redirect', 1, 30 );
+		}
 
 		// Trigger action
 		do_action( 'axisbuilder_installed' );

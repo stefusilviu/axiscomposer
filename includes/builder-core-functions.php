@@ -33,11 +33,22 @@ function axisbuilder_clean( $var ) {
  *
  * Variable is filtered by axisbuilder_get_image_size_{image_size}
  *
- * @param  string $image_size
+ * @param  mixed $image_size
  * @return array
  */
 function axisbuilder_get_image_size( $image_size ) {
-	if ( in_array( $image_size, array( 'portfolio_thumbnail', 'portfolio_single' ) ) ) {
+	if ( is_array( $image_size ) ) {
+		$width  = isset( $image_size[0] ) ? $image_size[0] : '300';
+		$height = isset( $image_size[1] ) ? $image_size[1] : '300';
+		$crop   = isset( $image_size[2] ) ? $image_size[2] : 1;
+
+		$size = array(
+			'width'  => $width,
+			'height' => $height,
+			'crop'   => $crop
+		);
+		$image_size = $width . '_' . $height;
+	} elseif ( in_array( $image_size, array( 'portfolio_thumbnail', 'portfolio_single' ) ) ) {
 		$size           = get_option( $image_size . '_image_size', array() );
 		$size['width']  = isset( $size['width'] ) ? $size['width'] : '300';
 		$size['height'] = isset( $size['height'] ) ? $size['height'] : '300';

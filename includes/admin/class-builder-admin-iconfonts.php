@@ -29,7 +29,6 @@ class AB_Admin_Iconfonts {
 
 	/**
 	 * Returns the iconfonts to show in admin.
-	 * @todo get_iconfonts to load entire list of liconfonts for admin.
 	 */
 	public static function get_iconfonts() {
 		$iconfonts = get_option( 'axisbuilder_custom_iconfonts' );

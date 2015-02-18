@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>
 	<div id="msg"></div>
-	<?php if ( (array) get_option( 'axisbuilder_custom_iconfonts' ) ) : ?>
+	<?php if ( is_array( get_option( 'axisbuilder_custom_iconfonts' ) ) ) : ?>
 	<div class="metabox-holder meta-search">
 		<div class="postbox">
 			<h3>
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</h3>
 		</div>
 	</div>
-	<?php echo $iconfonts; ?>
+	<?php $iconfonts; ?>
 	<?php else: ?>
 	<div class="error">
 		<p><?php _e( 'No font icons uploaded. Upload some font icons to display here.', 'axisbuilder' ); ?></p>

@@ -31,5 +31,33 @@ class AB_Admin_Iconfonts {
 	 * Returns the iconfonts to show in admin.
 	 * @todo get_iconfonts to load entire list of liconfonts for admin.
 	 */
-	public static function get_iconfonts() {}
+	public static function get_iconfonts() {
+		$iconfonts = get_option( 'axisbuilder_custom_iconfonts' );
+		$counter   = count( $iconfonts );
+
+		foreach ( $iconfonts as $iconfont => $info ) {
+			$icons    = array();
+			$icon_set = array();
+
+			$output   = '<div class="icon_set-' . $iconfont . ' metabox-holder">';
+			$output  .= '<div class="postbox">';
+
+			// Include Config file xD
+			include( AB_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );
+
+			if ( ! empty( $icons ) ) {
+				$icon_set = array_merge( $icon_set, $icons );
+			}
+
+			if ( ! empty( $icon_set ) ) {
+				foreach ( $icon_set as $icons ) {
+					$count = count( $icons );
+				}
+
+				$output .= '</div><!-- .postbox-->';
+				$output .= '</div><!-- .icon_set-' . $iconfont . ' -->';
+				echo $output;
+			}
+		}
+	}
 }

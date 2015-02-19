@@ -232,7 +232,7 @@ class AB_Iconfonts {
 	public static function add_iconfonts() {
 		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
 
-		if ( ! empty( $fonts ) ) {
+		if ( empty( $fonts ) ) {
 			$fonts = array();
 		}
 

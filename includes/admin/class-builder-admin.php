@@ -80,7 +80,6 @@ class AB_Admin {
 
 		// Check to make sure we're on a AxisBuilder admin page
 		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, axisbuilder_get_screen_ids() ) ) ) {
-
 			// Change the footer text
 			if ( ! get_option( 'axisbuilder_admin_footer_text_rated' ) ) {
 				$footer_text = sprintf( __( 'If you like <strong>AxisBuilder</strong> please leave us a %s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating. A huge thank you from AxisThemes in advance!', 'axisbuilder' ), '<a href="https://wordpress.org/support/view/plugin-reviews/axisbuilder?filter=5#postform" target="_blank" class="axisbuilder-rating-link" data-rated="' . __( 'Thanks :)', 'axisbuilder' ) . '">', '</a>' );
@@ -91,11 +90,11 @@ class AB_Admin {
 					});
 				" );
 			} else {
-				$footer_text = __( 'Thank you for building with AxisBuilder.', 'axisbuilder' );
+				$footer_text = sprintf( __( 'Thank you for building with %sAxisBuilder%s.', 'axisbuilder' ), '<a href="http://axisthemes.com/axisbuilder" target="_blank">', '</a>' );
 			}
 		}
 
-		return $footer_text;
+		return apply_filters( 'axisbuilder_admin_footer_text', '<span id="footer-thankyou">' . $footer_text . '</span>' );
 	}
 }
 

@@ -38,7 +38,8 @@ class AB_Admin_Iconfonts {
 			$chars   = array();
 			$charmap = array();
 
-			$output   = '<div class="iconfont-' . $iconfont . ' metabox-holder">';
+			$output   = '<div id="dashboard-widgets" class="metabox-holder">';
+			$output  .= '<div id="postbox-container-' . count( $iconfont ) . '" class="postbox-container">';
 			$output  .= '<div class="postbox">';
 
 			// Include Charmap config file
@@ -60,8 +61,7 @@ class AB_Admin_Iconfonts {
 
 			}
 
-			$output .= '</div><!-- .postbox -->';
-			$output .= '</div><!-- .charmap-' . $iconfont . ' -->';
+			$output .= '</div></div></div>';
 
 			return $output;
 		}

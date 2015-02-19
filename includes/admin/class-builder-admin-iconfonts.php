@@ -22,7 +22,7 @@ class AB_Admin_Iconfonts {
 	 * Handles output of the iconfonts page in admin.
 	 */
 	public static function output() {
-		$iconfonts = self::get_iconfonts();
+		// $iconfonts = self::get_iconfonts();
 
 		include_once( 'views/html-admin-page-iconfonts.php' );
 	}
@@ -63,7 +63,7 @@ class AB_Admin_Iconfonts {
 
 			$output .= '</div></div></div>';
 
-			return $output;
+			echo $output;
 		}
 	}
 }

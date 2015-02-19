@@ -105,7 +105,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 					setTimeout( function() {
 						message.slideUp();
-						// location.reload();
+						location.reload();
 					}, 5000 );
 				} else {
 					message.html( '<div class="error"><p>Couldn\'t add the font.<br/>The script returned the following error: ' + response + '</p></div>' );

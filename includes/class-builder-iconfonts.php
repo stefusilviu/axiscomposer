@@ -237,9 +237,9 @@ class AB_Iconfonts {
 		}
 
 		$fonts[ self::$font_name ] = array(
+			'include' => self::$font_name,
+			'folder'  => self::$font_name,
 			'config'  => 'charmap.php',
-			'folder'  => 'iconfonts/' . self::$font_name,
-			'include' => 'iconfonts/' . self::$font_name
 		);
 
 		update_option( 'axisbuilder_custom_iconfonts', $fonts );

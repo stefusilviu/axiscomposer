@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</h3>
 		</div>
 	</div>
-	<?php $iconfonts; ?>
+	<?php echo $iconfonts; ?>
 	<?php else: ?>
 	<div class="error">
 		<p><?php _e( 'No font icons uploaded. Upload some font icons to display here.', 'axisbuilder' ); ?></p>

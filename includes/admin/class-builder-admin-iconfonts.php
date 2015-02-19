@@ -35,28 +35,35 @@ class AB_Admin_Iconfonts {
 		$counter   = count( $iconfonts );
 
 		foreach ( $iconfonts as $iconfont => $info ) {
-			$icons    = array();
-			$icon_set = array();
+			$chars   = array();
+			$charmap = array();
 
-			$output   = '<div class="icon_set-' . $iconfont . ' metabox-holder">';
+			$output   = '<div class="iconfont-' . $iconfont . ' metabox-holder">';
 			$output  .= '<div class="postbox">';
 
-			// Include Config file xD
+			// Include Charmap config file
 			include( AB_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );
 
-			if ( ! empty( $icons ) ) {
-				$icon_set = array_merge( $icon_set, $icons );
+			if ( ! empty( $chars ) ) {
+				$charmap = array_merge( $charmap, $chars );
 			}
 
-			if ( ! empty( $icon_set ) ) {
-				foreach ( $icon_set as $icons ) {
-					$count = count( $icons );
+			if ( ! empty( $charmap ) ) {
+				foreach ( $charmap as $chars ) {
+					$count = count( $chars );
 				}
 
-				$output .= '</div><!-- .postbox-->';
-				$output .= '</div><!-- .icon_set-' . $iconfont . ' -->';
-				echo $output;
+				$title  = ( $iconfont === 'icomoon' || $iconfont === 'Fontawesome' ) ? __( 'Default Icons', 'axisbuilder' ) : ucfirst( $iconfont );
+				$delete = ( $counter !== 1 ) ? '<button class="button button-secondary button-small del-iconfont" data-delete="' . $iconfont . '" data-title="' . __( 'Delete This Icon Set', 'axisbuilder' ) . '">' . __( 'Delete Icon Set', 'axisbuilder' ) . '</button></h3>' : '</h3>';
+
+				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong><span class="fonts-count count-' . $iconfont . '">' . $count . '</span>' . $delete;
+
 			}
+
+			$output .= '</div><!-- .postbox -->';
+			$output .= '</div><!-- .charmap-' . $iconfont . ' -->';
+
+			return $output;
 		}
 	}
 }

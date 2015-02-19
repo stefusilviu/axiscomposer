@@ -33,6 +33,7 @@ class AB_AJAX {
 			'json_search_pages_and_portfolio' => false,
 			'delete_custom_sidebar'           => false,
 			'shortcodes_to_interface'         => false,
+			'rated'                           => false
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -211,6 +212,14 @@ class AB_AJAX {
 		} else {
 			return $text;
 		}
+	}
+
+	/**
+	 * Triggered when clicking the rating footer.
+	 */
+	public static function rated() {
+		update_option( 'axisbuilder_admin_footer_text_rated', 1 );
+		die();
 	}
 }
 

@@ -63,7 +63,7 @@ class AB_Admin_Iconfonts {
 
 				foreach ( $charmap as $chars ) {
 					foreach ( $chars as $char ) {
-						$output .= '';
+						$output .= '<li title="' . $char . '"><i class="' . $iconfont . '-' . $char . '"></i><label class="iconfont">' . $char . '</label></li>';
 					}
 				}
 

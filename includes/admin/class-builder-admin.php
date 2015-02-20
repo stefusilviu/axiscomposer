@@ -90,11 +90,11 @@ class AB_Admin {
 					});
 				" );
 			} else {
-				$footer_text = sprintf( __( 'Thank you for building with %sAxisBuilder%s.', 'axisbuilder' ), '<a href="http://axisthemes.com/axisbuilder" target="_blank">', '</a>' );
+				$footer_text = __( 'Thank you for building with AxisBuilder.', 'axisbuilder' );
 			}
 		}
 
-		return apply_filters( 'axisbuilder_admin_footer_text', '<span id="footer-thankyou">' . $footer_text . '</span>' );
+		return $footer_text;
 	}
 }
 

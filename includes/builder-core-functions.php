@@ -65,6 +65,41 @@ function axisbuilder_get_image_size( $image_size ) {
 }
 
 /**
+ * Queue some JavaScript code to be output in the footer.
+ * @param string $code
+ */
+function axisbuilder_enqueue_js( $code ) {
+	global $axisbuilder_queued_js;
+
+	if ( empty( $axisbuilder_queued_js ) ) {
+		$axisbuilder_queued_js = '';
+	}
+
+	$axisbuilder_queued_js .= "\n" . $code . "\n";
+}
+
+/**
+ * Output any queued javascript code in the footer.
+ */
+function axisbuilder_print_js() {
+	global $axisbuilder_queued_js;
+
+	if ( ! empty( $axisbuilder_queued_js ) ) {
+
+		echo "<!-- AxisBuilder JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) {";
+
+		// Sanitize
+		$axisbuilder_queued_js = wp_check_invalid_utf8( $axisbuilder_queued_js );
+		$axisbuilder_queued_js = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", $axisbuilder_queued_js );
+		$axisbuilder_queued_js = str_replace( "\r", '', $axisbuilder_queued_js );
+
+		echo $axisbuilder_queued_js . "});\n</script>\n";
+
+		unset( $axisbuilder_queued_js );
+	}
+}
+
+/**
  * Get all Custom Post Types Screen
  * @return array
  */

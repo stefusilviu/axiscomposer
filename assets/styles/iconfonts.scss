@@ -12,3 +12,45 @@
 /**
  * Styling begins
  */
+[class^="iconfonts-container-"],
+[class*=" iconfonts-container-"] {
+	max-width: 50%;
+	width: 48%;
+	float: left;
+	margin-right: 2%;
+
+	&:nth-child(even) {
+		float: left;
+	}
+
+	&:nth-child(odd) {
+		float: right;
+	}
+}
+
+.iconfont-title {
+	margin-bottom: 10px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #DDD;
+
+	button {
+		float: right;
+		margin-top: -2px !important;
+	}
+}
+
+.iconfont-count {
+	display: inline-block;
+	font-size: 1em;
+	line-height: 17px;
+	font-weight: 600;
+	margin: 1px 0 0 2px;
+	vertical-align: top;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	z-index: 26;
+	background-color: #D54E21;
+	color: #FFF;
+	padding: 0 6px;
+	margin-left: 10px;
+}

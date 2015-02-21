@@ -108,3 +108,52 @@
 		display: none;
 	}
 }
+
+/**
+ * Modal Way xD
+ */
+.modal-close-link {
+	cursor: pointer;
+	color: #777;
+	background-color: transparent;
+	height: 35px;
+	width: 35px;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+	border: 0;
+	border-left: 1px solid #ddd;
+	-webkit-transition: color .1s ease-in-out,background .1s ease-in-out;
+	transition: color .1s ease-in-out,background .1s ease-in-out;
+	top: 0;
+	right: 0;
+	text-decoration: none;
+
+	&:hover {
+		background: #ddd;
+		border-color: #ccc;
+		color: #000;
+		outline: 0;
+		text-decoration: none;
+	}
+
+	.close-icon {
+		display: block;
+		height: 15px;
+		background-image: none;
+		text-align: center;
+		margin: 7px;
+		width: 22px;
+
+		&:before {
+			content: '\f335';
+			font-size: 22px;
+			font: 400 20px/1 dashicons;
+			speak: none;
+			vertical-align: middle;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			color: #666;
+		}
+	}
+}

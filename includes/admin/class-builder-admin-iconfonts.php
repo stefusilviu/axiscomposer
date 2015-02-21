@@ -32,7 +32,6 @@ class AB_Admin_Iconfonts {
 	 */
 	public static function get_iconfonts() {
 		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
-		$count = count( $fonts );
 
 		foreach ( $fonts as $iconfont => $info ) {
 			$chars   = array();
@@ -54,9 +53,11 @@ class AB_Admin_Iconfonts {
 				}
 
 				$title  = ( $iconfont === 'icomoon' || $iconfont === 'Fontawesome' ) ? __( 'Default Icons', 'axisbuilder' ) : ucfirst( $iconfont );
-				$delete = ( $count !== 1 ) ? '<button class="button button-secondary button-small del-iconfont" data-delete="' . $iconfont . '" data-title="' . __( 'Delete This Icon Set', 'axisbuilder' ) . '">' . __( 'Delete Icon Set', 'axisbuilder' ) . '</button></h3>' : '</h3>';
 
-				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong><span class="iconfont-count count-' . $iconfont_count . '">' . number_format_i18n( $iconfont_count ) . '</span>' . $delete;
+				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong><span class="iconfont-count count-' . $iconfont_count . '">' . number_format_i18n( $iconfont_count ) . '</span></h3>';
+
+				$output .= '<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>';
+
 				$output .= '<div class="inside"><div class="iconfont-action"></div>';
 				$output .= '<div class="iconfont-search">';
 				$output .= '<ul class="iconfont-lists icon">';

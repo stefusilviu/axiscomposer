@@ -12,15 +12,15 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 	AB_Icon_Fonts.AppView = Backbone.View.extend({
 		el: '#axisbuilder-iconfonts',
 		events: {
-			'click .add-iconfont': 'addButton',
-			'click .del-iconfont': 'delButton'
+			'click .modal-close': 'closeButton',
+			'click #btn-ok': 'addButton'
 		},
 		initialize: function() {
 			_.bindAll( this, 'render' );
 			this.render();
 		},
 		render: function() {
-			console.log( 'Pagebuilder render goes here!' );
+			console.log( 'Iconfonts Manager render goes here!' );
 		},
 		addButton: function ( e ) {
 			var clicked = $( '.add-iconfont' );
@@ -49,9 +49,8 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			// Finally, open the modal
 			axisbuilder_file_frame.open();
 		},
-		delButton: function( e ) {
+		closeButton: function( e ) {
 			e.preventDefault();
-			this.undelegateEvents();
 		}
 	});
 

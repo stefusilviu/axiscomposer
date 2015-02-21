@@ -55,6 +55,20 @@
 	margin-left: 10px;
 }
 
+.iconfont-search {
+	width: 99%;
+	height: auto;
+	overflow: scroll;
+	overflow-x: hidden;
+	max-height: 106px;
+	margin-bottom: -10px;
+	border: 1px solid #c7c7c7;
+
+	> ul {
+		margin: 0;
+	}
+}
+
 .iconfont-lists li {
 	margin: 0;
 	float: left;

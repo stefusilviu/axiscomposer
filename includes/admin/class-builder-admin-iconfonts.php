@@ -59,7 +59,7 @@ class AB_Admin_Iconfonts {
 				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong><span class="iconfont-count count-' . $iconfont_count . '">' . number_format_i18n( $iconfont_count ) . '</span>' . $delete;
 				$output .= '<div class="inside"><div class="iconfont-action"></div>';
 				$output .= '<div class="iconfont-search">';
-				$output .= '<ul class="icons-list icon">';
+				$output .= '<ul class="iconfont-lists icon">';
 
 				foreach ( $charmap as $chars ) {
 					foreach ( $chars as $char ) {

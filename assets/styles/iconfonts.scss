@@ -54,3 +54,24 @@
 	padding: 0 6px;
 	margin-left: 10px;
 }
+
+.iconfont-lists li {
+	margin: 0;
+	float: left;
+	width: 36px;
+	height: 36px;
+	display: block;
+	text-align: center;
+	box-shadow: 0 0 0 1px #ddd;
+
+	> i {
+		font-size: 18px;
+		line-height: 36px;
+		display: inline-block;
+		vertical-align: text-bottom;
+	}
+
+	label {
+		display: none;
+	}
+}

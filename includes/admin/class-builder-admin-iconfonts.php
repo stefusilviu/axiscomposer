@@ -34,31 +34,25 @@ class AB_Admin_Iconfonts {
 		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
 
 		foreach ( $fonts as $iconfont => $info ) {
-			$chars   = array();
-			$charmap = array();
-
-			$output  = '<div class="iconfonts-container-' . count( $iconfont ) . ' metabox-holder">';
-			$output .= '<div class="postbox">';
+			$chars = $charmap = array();
+			$title = ( $iconfont === 'Fontawesome' ) ? __( 'Default Icons', 'axisbuilder' ) : ucfirst( $iconfont );
 
 			// Include Charmap config file
 			include( AB_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );
 
 			if ( ! empty( $chars ) ) {
 				$charmap = array_merge( $charmap, $chars );
-			}
-
-			if ( ! empty( $charmap ) ) {
 				foreach ( $charmap as $chars ) {
 					$iconfont_count = count( $chars );
 				}
+			}
 
-				$title  = ( $iconfont === 'icomoon' || $iconfont === 'Fontawesome' ) ? __( 'Default Icons', 'axisbuilder' ) : ucfirst( $iconfont );
-
+			if ( ! empty( $charmap ) ) {
+				$output  = '<div class="iconfonts-container-' . esc_attr( $iconfont ) . ' metabox-holder">';
+				$output .= '<div class="postbox">';
 				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong><span class="iconfont-count count-' . $iconfont_count . '">' . number_format_i18n( $iconfont_count ) . '</span></h3>';
-
 				$output .= '<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>';
-
-				$output .= '<div class="inside"><div class="iconfont-action"></div>';
+				$output .= '<div class="inside">';
 				$output .= '<div class="iconfont-search">';
 				$output .= '<ul class="iconfont-lists icon">';
 

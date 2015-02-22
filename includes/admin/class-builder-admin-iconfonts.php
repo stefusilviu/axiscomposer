@@ -33,7 +33,7 @@ class AB_Admin_Iconfonts {
 
 		foreach ( $fonts as $iconfont => $info ) {
 			$chars = $charmap = array();
-			$title = ( $iconfont === 'Fontawesome' ) ? __( 'Default Icons', 'axisbuilder' ) : ucfirst( $iconfont );
+			$title = ( 'Fontawesome' == $iconfont ) ? __( 'Default Icons', 'axisbuilder' ) : esc_html( ucfirst( $iconfont ) );
 
 			// Include Charmap config file
 			include( AB_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );

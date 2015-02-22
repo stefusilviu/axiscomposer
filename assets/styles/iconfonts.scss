@@ -12,6 +12,22 @@
 /**
  * Styling begins
  */
+#axisbuilder-iconfonts {
+	.iconfont-wrap {
+		width: 48%;
+		max-width: 50%;
+		margin-right: 2%;
+
+		&:nth-child(even) {
+			float: left;
+		}
+
+		&:nth-child(odd) {
+			float: right;
+		}
+	}
+}
+
 .metabox-holder.meta-search {
 	max-width: 98%;
 }
@@ -29,22 +45,6 @@
 
 .postbox .search-icon {
 	width: 25%;
-}
-
-[class^="iconfonts-container-"],
-[class*=" iconfonts-container-"] {
-	max-width: 50%;
-	width: 48%;
-	float: left;
-	margin-right: 2%;
-
-	&:nth-child(even) {
-		float: left;
-	}
-
-	&:nth-child(odd) {
-		float: right;
-	}
 }
 
 .iconfont-title {

@@ -41,7 +41,11 @@ class AB_Admin_Iconfonts {
 			if ( ! empty( $chars ) ) {
 				$charmap = array_merge( $charmap, $chars );
 				foreach ( $charmap as $chars ) {
+					$iconfont_lists = '';
 					$iconfont_count = count( $chars );
+					foreach ( $chars as $char ) {
+						$iconfont_lists .= '<li title="' . $char . '"><i class="' . $iconfont . '-' . $char . '"></i><label class="iconfont">' . $char . '</label></li>';
+					}
 				}
 			}
 
@@ -53,13 +57,7 @@ class AB_Admin_Iconfonts {
 				$output .= '<div class="inside">';
 				$output .= '<div class="iconfont-search">';
 				$output .= '<ul class="iconfont-lists icon">';
-
-				foreach ( $charmap as $chars ) {
-					foreach ( $chars as $char ) {
-						$output .= '<li title="' . $char . '"><i class="' . $iconfont . '-' . $char . '"></i><label class="iconfont">' . $char . '</label></li>';
-					}
-				}
-
+				$output .= $iconfont_lists;
 				$output .= '</ul></div></div></div></div>';
 				echo $output;
 			}

@@ -59,19 +59,17 @@
 }
 
 .iconfont-count {
-	display: inline-block;
-	font-size: 1em;
-	line-height: 17px;
-	font-weight: 600;
-	margin: 1px 0 0 2px;
-	vertical-align: top;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
 	z-index: 26;
-	background-color: #D54E21;
-	color: #FFF;
+	color: #fff;
 	padding: 0 6px;
-	margin-left: 10px;
+	font-size: 1em;
+	font-weight: 400;
+	line-height: 17px;
+	margin: 1px 0 0 1px;
+	vertical-align: top;
+	border-radius: 10px;
+	display: inline-block;
+	background-color: #D54E21;
 }
 
 .iconfont-search {

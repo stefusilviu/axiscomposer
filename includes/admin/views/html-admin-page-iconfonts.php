@@ -17,14 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</h2>
 	<div id="msg"></div>
 	<?php if ( is_array( get_option( 'axisbuilder_custom_iconfonts' ) ) ) : ?>
-	<div class="metabox-holder meta-search">
+	<!-- <div class="metabox-holder meta-search">
 		<div class="postbox">
 			<h3>
 				<input class="search-icon" type="search" placeholder="Search" />
 				<span class="search-count"></span>
 			</h3>
 		</div>
-	</div>
+	</div> -->
 	<?php self::get_iconfonts(); ?>
 	<?php else: ?>
 	<div class="error">

@@ -55,10 +55,11 @@ class AB_Admin_Iconfonts {
 				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong> &mdash; <span class="iconfont-count count-' . $iconfont_count . '">' . number_format_i18n( $iconfont_count ) . '</span></h3>';
 				$output .= '<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>';
 				$output .= '<div class="inside">';
-				$output .= '<div class="iconfont-search">';
+				$output .= '<div class="icons-container">';
 				$output .= '<ul class="iconfont-lists icon">';
 				$output .= $iconfont_lists;
-				$output .= '</ul></div></div></div></div>';
+				$output .= '</ul>';
+				$output .= '</div></div></div></div>';
 				echo $output;
 			}
 		}

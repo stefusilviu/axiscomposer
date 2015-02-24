@@ -95,8 +95,8 @@ class AB_Iconfonts {
 				$output .= "
 @font-face {
 	font-family: '{$font_name}';
-	src:url('{$fstring}.eot{$append}');
-	src:url('{$fstring}.eot{$qmark}#iefix') format('embedded-opentype'),
+	src:	url('{$fstring}.eot{$append}');
+	src:	url('{$fstring}.eot{$qmark}#iefix') format('embedded-opentype'),
 		url('{$fstring}.woff{$append}') format('woff'),
 		url('{$fstring}.ttf{$append}') format('truetype'),
 		url('{$fstring}.svg{$append}#{$font_name}') format('svg');

@@ -96,7 +96,7 @@ class AB_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
-		$term = axisbuilder_clean( stripslashes( $_GET['term'] ) );
+		$term = (string) axisbuilder_clean( stripslashes( $_GET['term'] ) );
 
 		if ( empty( $term ) ) {
 			die();

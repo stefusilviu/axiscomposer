@@ -23,31 +23,39 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			console.log( 'Iconfonts Manager render goes here!' );
 		},
 		addButton: function ( e ) {
-			var clicked = $( '.add-iconfont' );
+			var $el = $( '.add-iconfont' );
+			var iconfont_media_frame = '';
 
 			e.preventDefault();
 
+			// If the media frame already exists, reopen it.
+			if ( iconfont_media_frame ) {
+				iconfont_media_frame.open();
+				return;
+			}
+
 			// Create the media frame.
-			var axisbuilder_file_frame = wp.media.frames.axisbuilder_file_frame = wp.media({
-				title: clicked.data( 'title' ),
-				library: {
-					type: clicked.data( 'type' )
-				},
+			iconfont_media_frame = wp.media.frames.iconfont_media_frame = wp.media({
+				// Set the title of the modal.
+				title: $el.data( 'choose' ),
 				button: {
-					text: clicked.data( 'button' )
+					text: $el.data( 'update' )
+				},
+				library: {
+					type: $el.data( 'mime' )
 				},
 				multiple: false
 			});
 
 			// When an ZIP file is selected, run a callback.
-			axisbuilder_file_frame.on( 'select', function() {
-				var attachment = axisbuilder_file_frame.state().get( 'selection' ).first().toJSON();
-				$( '#' + clicked.data( 'target' ) ).val( attachment.id ).trigger( 'change' );
-				$( 'body' ).trigger( clicked.data( 'trigger' ), [ attachment, clicked ] );
+			iconfont_media_frame.on( 'select', function() {
+				var attachment = iconfont_media_frame.state().get( 'selection' ).first().toJSON();
+				$( '#' + $el.data( 'target' ) ).val( attachment.id ).trigger( 'change' );
+				$( 'body' ).trigger( $el.data( 'trigger' ), [ attachment, $el ] );
 			});
 
 			// Finally, open the modal
-			axisbuilder_file_frame.open();
+			iconfont_media_frame.open();
 		},
 		closeButton: function( e ) {
 			e.preventDefault();

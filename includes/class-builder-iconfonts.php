@@ -93,17 +93,20 @@ class AB_Iconfonts {
 				$fstring = $font_list['folder'] . '/' . $font_name;
 
 				$output .= "
-@font-face {font-family: '{$font_name}'; font-weight: normal; font-style: normal;
-src: url('{$fstring}.eot{$append}');
-src: url('{$fstring}.eot{$qmark}#iefix') format('embedded-opentype'),
-url('{$fstring}.woff{$append}') format('woff'),
-url('{$fstring}.ttf{$append}') format('truetype'),
-url('{$fstring}.svg{$append}#{$font_name}') format('svg');
-} #top .axis-font-{$font_name}, body .axisbuilder-font-{$font_name}, html body [data-axisbuilder_iconfont='{$font_name}']:before{ font-family: '{$font_name}'; }
-";
+@font-face {
+	font-family: '{$font_name}';
+	src:url('{$fstring}.eot{$append}');
+	src:url('{$fstring}.eot{$qmark}#iefix') format('embedded-opentype'),
+		url('{$fstring}.woff{$append}') format('woff'),
+		url('{$fstring}.ttf{$append}') format('truetype'),
+		url('{$fstring}.svg{$append}#{$font_name}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+#top .axisbuilder-font-{$font_name}, body .axisbuilder-font-{$font_name}, html body [data-axisbuilder_iconfont='{$font_name}']:before { font-family: '{$font_name}'; }\n\r";
 			}
 
-			$output .= '</style>';
+			$output .= "</style>\n\r";
 		}
 
 		echo $output;

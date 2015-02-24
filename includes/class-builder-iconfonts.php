@@ -251,7 +251,7 @@ class AB_Iconfonts {
 			if ( ! empty( self::$svg_config ) && self::$font_name != 'unknown' ) {
 				self::charmap_file();
 				self::rename_files();
-				self::add_iconfonts();
+				self::add_iconfont();
 			}
 		}
 
@@ -292,9 +292,9 @@ class AB_Iconfonts {
 	}
 
 	/**
-	 * Add Iconfonts
+	 * Add Iconfont
 	 */
-	public static function add_iconfonts() {
+	public static function add_iconfont() {
 		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
 
 		if ( empty( $fonts ) ) {
@@ -308,6 +308,18 @@ class AB_Iconfonts {
 		);
 
 		update_option( 'axisbuilder_custom_iconfonts', $fonts );
+	}
+
+	/**
+	 * Remove Iconfont
+	 */
+	public static function remove_iconfont( $fontname ) {
+		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
+
+		if ( isset( $fonts[ $fontname ] ) ) {
+			unset( $fonts[ $fontname ] );
+			update_option( 'axisbuilder_custom_iconfonts', $fonts );
+		}
 	}
 
 	/**

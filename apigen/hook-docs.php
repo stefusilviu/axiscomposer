@@ -45,9 +45,9 @@ class AB_HookFinder {
 
 	private static function get_hook_link( $hook, $details = array() ) {
 		if ( ! empty( $details['class'] ) ) {
-			$link = 'http://docs.axisthemes.com/apidocs/axisbuilder/source-class-' . $details['class'] . '.html#' . $details['line'];
+			$link = 'source-class-' . $details['class'] . '.html#' . $details['line'];
 		} elseif ( ! empty( $details['function'] ) ) {
-			$link = 'http://docs.axisthemes.com/apidocs/axisbuilder/source-function-' . $details['function'] . '.html#' . $details['line'];
+			$link = 'source-function-' . $details['function'] . '.html#' . $details['line'];
 		} else {
 			$link = 'https://github.com/axisthemes/axisbuilder/search?utf8=%E2%9C%93&q=' . $hook;
 		}

@@ -53,7 +53,7 @@ class AB_Admin_Iconfonts {
 				$output  = '<div id="' . esc_attr( strtolower( $iconfont ) ) . '" class="metabox-holder iconfont-wrap">';
 				$output .= '<div class="postbox">';
 				$output .= '<h3 class="iconfont-title"><strong>' . $title . '</strong> &mdash; <span class="iconfont-count count-' . $iconfont_count . '">' . number_format_i18n( $iconfont_count ) . '</span></h3>';
-				$output .= '<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>';
+				$output .= '<a class="modal-close modal-close-link del-iconfont" href="#" data-delete="' . $iconfont . '"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>';
 				$output .= '<div class="inside">';
 				$output .= '<div class="icons-container">';
 				$output .= '<ul class="iconfont-lists icon">';

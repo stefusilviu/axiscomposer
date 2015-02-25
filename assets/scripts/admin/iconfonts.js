@@ -58,7 +58,62 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			iconfont_media_frame.open();
 		},
 		closeButton: function( e ) {
+			var	$el = $( '.del-iconfont' );
+			var message = $( '#msg' );
+
 			e.preventDefault();
+
+			var data = {
+				term: $el.data( 'delete' ),
+				action: 'axisbuilder_delete_iconfont',
+				security: axisbuilder_admin_iconfonts.delete_custom_iconfont_nonce
+			};
+
+			$.ajax({
+				url: axisbuilder_admin_iconfonts.ajax_url,
+				data: data,
+				type: 'POST',
+				beforeSend: function() {
+					$( '.spinner' ).css({
+						opacity: 0,
+						display: 'block',
+						position: 'absolute',
+						top: '21px',
+						left: '300px'
+					}).animate({ opacity: 1 });
+				},
+				error: function() {
+					$( '.spinner' ).hide();
+
+					message.html( '<div class="error"><p>Unable to remove the font because the server didn\'t respond.<br />Please reload the page, then try again</p></div>' );
+					message.show();
+
+					setTimeout( function() {
+						message.slideUp();
+					}, 5000 );
+				},
+				success: function( response ) {
+					$( '.spinner' ).hide();
+
+					if ( response.match( /axisbuilder_iconfont_removed/ ) ) {
+						message.html( '<div class="updated"><p>Font icon removed successfully! Reloading the page... </p></div>' );
+						message.show();
+
+						setTimeout( function() {
+							message.slideUp();
+							location.reload();
+						}, 5000 );
+					} else {
+						message.html( '<div class="error"><p>Unable to remove the font. Reloading the page... </p></div>' );
+						message.show();
+
+						setTimeout( function() {
+							message.slideUp();
+							location.reload();
+						}, 5000 );
+					}
+				}
+			});
 		}
 	});
 

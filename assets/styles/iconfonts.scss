@@ -18,11 +18,11 @@
 		max-width: 50%;
 		margin-right: 2%;
 
-		&:nth-child(even) {
+		&:nth-child(odd) {
 			float: left;
 		}
 
-		&:nth-child(odd) {
+		&:nth-child(even) {
 			float: right;
 		}
 	}

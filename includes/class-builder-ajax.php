@@ -83,14 +83,14 @@ class AB_AJAX {
 
 		AB_Iconfonts::check_capability();
 
-		$term = (string) axisbuilder_clean( stripslashes( $_GET['term'] ) );
+		$term = (string) axisbuilder_clean( stripslashes( $_POST['term'] ) );
 
 		if ( empty( $term ) ) {
 			die();
 		}
 
 		$list   = AB_Iconfonts::load_iconfont_list();
-		$delete = isset( $list[ $term ] ) ? $list[ $font ] : false;
+		$delete = isset( $list[ $term ] ) ? $list[ $term ] : false;
 
 		if ( $delete ) {
 			AB_Iconfonts::delete_files( $delete['includes'] );

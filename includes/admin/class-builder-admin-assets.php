@@ -168,6 +168,7 @@ class AB_Admin_Assets {
 		// AxisBuilder pages
 		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
 
+			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 

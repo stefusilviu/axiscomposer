@@ -20,11 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AB_Iconfonts {
 
-	public static $default_iconfont = '';
-	public static $font_name        = 'unknown';
-	public static $svg_config       = array();
-	public static $iconlist         = array();
-	public static $charlist         = array();
+	public static $default_iconfont  = '';
+	public static $font_name         = 'unknown';
+	public static $svg_config        = array();
+	public static $iconlist          = array();
+	public static $charlist          = array();
+	public static $charlist_fallback = array();
 
 	/**
 	 * Hook in methods
@@ -386,6 +387,91 @@ class AB_Iconfonts {
 		self::$charlist = $charset;
 
 		return $charset;
+	}
+
+	/**
+	 * Get the character to display
+	 */
+	public static function get_display_char( $icon, $font ) {
+
+		// load a list of all fonts + characters that are used by the builder (includes default font and custom uploads merged into a single array)
+		$chars = self::load_charlist();
+
+		// If this function is called by the backend on a new element use the first icon in the list
+		$icon = self::set_new_backend( $icon, $chars );
+
+		// Check if we need to modify the $icon value (which represents the array key)
+		$icon  = self::try_modify_key( $icon );
+
+		// Set the display character if it exists
+		$display_char = isset( $chars[$font][$icon] ) ? $chars[$font][$icon] : '';
+
+		// Json decode the character if necessary
+		$display_char = self::try_decode_icon( $display_char );
+
+		return $display_char;
+	}
+
+	/**
+	 * Set a default backend icon
+	 */
+	public static function set_new_backend( $icon, $chars ) {
+		if ( $icon == 'new' ) {
+			$charlist = key( $chars );
+			asort( $chars[ $charlist ] );
+			$icon = key( $chars[ $charlist ] );
+		}
+
+		return $icon;
+	}
+
+	/**
+	 * Decode icon from \ueXXX; format to actual icon
+	 */
+	public static function try_decode_icon( $icon ) {
+
+		if ( strpos( $icon, 'u' ) === 0 ) {
+			$icon = json_decode( '"\\' . $icon . '"' );
+		}
+
+		return $icon;
+	}
+
+	/**
+	 * Modify icon if necessary for compat reasons with special chars or older builder versions
+	 */
+	public static function try_modify_key( $key ) {
+
+		// Compatibility for the old iconfont that was based on numeric values
+		if ( is_numeric( $key ) ) {
+			$key = self::get_char_from_fallback( $key );
+		}
+
+		// Chars that are based on multiple chars like \ueXXX\ueXXX; need to be modified before passed
+		if ( ! empty( $key ) && strpos( $key, 'u', 1 ) !== false ) {
+			$key = explode( 'u', $key );
+			$key = implode( '\u', $key );
+			$key = substr( $key, 1 );
+		}
+
+		return $key;
+	}
+
+	public static function get_char_from_fallback( $key ) {
+
+		$font = key( self::$default_iconfont );
+		if ( empty( self::$charlist_fallback ) ) {
+			$config = self::$default_iconfont[$font];
+			$chars  = array();
+
+			@include( $config['include'] . '/' . $config['compat'] );
+			self::$charlist_fallback = $chars;
+		}
+
+		$key = ( $key - 1 );
+		$key = self::$charlist_fallback[$font][$key];
+
+		return $key;
 	}
 
 	/**

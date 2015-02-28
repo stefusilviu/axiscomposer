@@ -59,7 +59,6 @@ class AB_HookFinder {
 		// If we have one, get the PHP files from it.
 		$template_files 	= self::get_files( '*.php', GLOB_MARK, '../templates/' );
 		$template_files[]	= '../includes/builder-template-functions.php';
-		// $template_files[]	= '../includes/builder-template-hooks.php';
 
 		$shortcode_files 	= self::get_files( '*.php', GLOB_MARK, '../includes/shortcodes/' );
 		$widget_files	 	= self::get_files( '*.php', GLOB_MARK, '../includes/widgets/' );
@@ -171,7 +170,6 @@ class AB_HookFinder {
 
 		$html   = file_get_contents( '../apidocs/todo.html' );
 		$header = current( explode( '<div id="content">', $html ) );
-		$header = str_replace( '<title>Todo', '<title>Hooks', $header );
 		$header = str_replace( '<li class="active">', '<li>', $header );
 		$header = str_replace( '<li class="hooks">', '<li class="active">', $header );
 		$footer = end( explode( '<div id="footer">', $html ) );

@@ -22,8 +22,9 @@ class AB_Iconfonts {
 
 	public static $default_iconfont = '';
 	public static $font_name        = 'unknown';
-	public static $iconlist         = array();
 	public static $svg_config       = array();
+	public static $iconlist         = array();
+	public static $charlist         = array();
 
 	/**
 	 * Hook in methods
@@ -43,73 +44,6 @@ class AB_Iconfonts {
 		// Actions
 		add_action( 'wp_head',    array( __CLASS__, 'iconfont_style' ) );
 		add_action( 'admin_head', array( __CLASS__, 'iconfont_style' ) );
-	}
-
-	/**
-	 * Load Iconfonts list
-	 */
-	public static function load_iconfont_list() {
-		if ( ! empty( self::$iconlist ) ) {
-			return self::$iconlist;
-		}
-
-		$custom_fonts = get_option( 'axisbuilder_custom_iconfonts' );
-		if ( empty( $custom_fonts ) ) {
-			$custom_fonts = array();
-		}
-
-		$font_configs = array_merge( self::$default_iconfont, $custom_fonts );
-
-		// If we got any include the charmaps and add the chars to an array
-		$upload_dir = wp_upload_dir();
-		$basedir    = trailingslashit( $upload_dir['basedir'] );
-		$baseurl    = trailingslashit( $upload_dir['baseurl'] );
-
-		foreach ( $font_configs as $key => $value ) {
-			if ( empty( $value['full_path'] ) ) {
-				$font_configs[$key]['include'] = $basedir . $font_configs[$key]['include'];
-				$font_configs[$key]['folder']  = $baseurl . $font_configs[$key]['folder'];
-			}
-		}
-
-		// Cache the Result
-		self::$iconlist = $font_configs;
-
-		return $font_configs;
-	}
-
-	/**
-	 * Outputs some styles in the wp <head> to load iconfonts font-face
-	 */
-	public function iconfont_style() {
-		$output       = '';
-		$font_configs = self::load_iconfont_list();
-
-		if ( current_user_can( 'manage_axisbuilder' ) && ! empty( $font_configs ) ) {
-			$output .= '<style type="text/css">';
-			foreach ( $font_configs as $font_name => $font_list ) {
-				$append  = empty( $font_list['append'] ) ? '' : $font_list['append'];
-				$qmark   = empty( $append ) ? '?' : $append;
-				$fstring = $font_list['folder'] . '/' . $font_name;
-
-				$output .= "
-@font-face {
-	font-family: '{$font_name}';
-	src:	url('{$fstring}.eot{$append}');
-	src:	url('{$fstring}.eot{$qmark}#iefix') format('embedded-opentype'),
-		url('{$fstring}.woff{$append}') format('woff'),
-		url('{$fstring}.ttf{$append}') format('truetype'),
-		url('{$fstring}.svg{$append}#{$font_name}') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-#top .axisbuilder-font-{$font_name}, body .axisbuilder-font-{$font_name}, html body [data-axisbuilder_iconfont='{$font_name}']:before { font-family: '{$font_name}'; }\n\r";
-			}
-
-			$output .= "</style>\n\r";
-		}
-
-		echo $output;
 	}
 
 	/**
@@ -389,6 +323,103 @@ class AB_Iconfonts {
 
 		// Rename files/directories
 		rename( $temp_dir, $font_dir );
+	}
+
+	/**
+	 * Load Iconfonts list
+	 */
+	public static function load_iconfont_list() {
+		if ( ! empty( self::$iconlist ) ) {
+			return self::$iconlist;
+		}
+
+		$custom_fonts = get_option( 'axisbuilder_custom_iconfonts' );
+		if ( empty( $custom_fonts ) ) {
+			$custom_fonts = array();
+		}
+
+		$font_configs = array_merge( self::$default_iconfont, $custom_fonts );
+
+		// If we got any include the charmaps and add the chars to an array
+		$upload_dir = wp_upload_dir();
+		$basedir    = trailingslashit( $upload_dir['basedir'] );
+		$baseurl    = trailingslashit( $upload_dir['baseurl'] );
+
+		foreach ( $font_configs as $key => $value ) {
+			if ( empty( $value['full_path'] ) ) {
+				$font_configs[$key]['include'] = $basedir . $font_configs[$key]['include'];
+				$font_configs[$key]['folder']  = $baseurl . $font_configs[$key]['folder'];
+			}
+		}
+
+		// Cache the Result
+		self::$iconlist = $font_configs;
+
+		return $font_configs;
+	}
+
+	/**
+	 * Load Iconfonts charlist
+	 */
+	public static function load_charlist() {
+		if ( ! empty( self::$charlist ) ) {
+			return self::$charlist;
+		}
+
+		$charset      = array();
+		$font_configs = self::load_iconfont_list();
+
+		// If we got any include the charmaps and add the chars to an array
+		$upload_dir = wp_upload_dir();
+		$basedir    = trailingslashit( $upload_dir['basedir'] );
+
+		foreach ( $font_configs as $value ) {
+			$chars = array();
+			include( $value['include'] . '/' . $value['config'] );
+
+			if ( ! empty( $chars ) ) {
+				$charset = array_merge( $charset, $chars );
+			}
+		}
+
+		// Cache the Result
+		self::$charlist = $charset;
+
+		return $charset;
+	}
+
+	/**
+	 * Outputs some styles in the wp <head> to load iconfonts font-face
+	 */
+	public function iconfont_style() {
+		$output       = '';
+		$font_configs = self::load_iconfont_list();
+
+		if ( current_user_can( 'manage_axisbuilder' ) && ! empty( $font_configs ) ) {
+			$output .= '<style type="text/css">';
+			foreach ( $font_configs as $font_name => $font_list ) {
+				$append  = empty( $font_list['append'] ) ? '' : $font_list['append'];
+				$qmark   = empty( $append ) ? '?' : $append;
+				$fstring = $font_list['folder'] . '/' . $font_name;
+
+				$output .= "
+@font-face {
+	font-family: '{$font_name}';
+	src:	url('{$fstring}.eot{$append}');
+	src:	url('{$fstring}.eot{$qmark}#iefix') format('embedded-opentype'),
+		url('{$fstring}.woff{$append}') format('woff'),
+		url('{$fstring}.ttf{$append}') format('truetype'),
+		url('{$fstring}.svg{$append}#{$font_name}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+#top .axisbuilder-font-{$font_name}, body .axisbuilder-font-{$font_name}, html body [data-axisbuilder_iconfont='{$font_name}']:before { font-family: '{$font_name}'; }\n\r";
+			}
+
+			$output .= "</style>\n\r";
+		}
+
+		echo $output;
 	}
 }
 

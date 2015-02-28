@@ -390,6 +390,37 @@ class AB_Iconfonts {
 	}
 
 	/**
+	 * Helper function that displays the icon symbol string in the frontend
+	 */
+	public static function frontend_icon( $icon, $font = false, $return = true ) {
+		if ( empty( $font ) ) {
+			$font = key( self::$default_iconfont );
+		}
+
+		// Fetch the character to display
+		$display_char = self::get_display_char( $icon, $font );
+
+		// Return the html string that gets attached to the element. css classes for font display are generated automatically
+		if ( $return ) {
+			return "aria-hidden='true' data-axisbuilder_icon='{$display_char}' data-axisbuilder_iconfont='{$font}'";
+		} else {
+			return $display_char;
+		}
+	}
+
+	/**
+	 * Helper function that displays the icon symbol string in the backend
+	 */
+	public static function backend_icon( $params ) {
+		$font = isset( $params['args']['font'] ) ? $params['args']['font'] : key( self::$default_iconfont );
+		$icon = empty( $params['args']['icon'] ) ? 'new' : $params['args']['icon'];
+
+		$display_char = self::get_display_char( $icon, $font );
+
+		return array( 'display_char' => $display_char, 'font' => $font );
+	}
+
+	/**
 	 * Get the character to display
 	 */
 	public static function get_display_char( $icon, $font ) {

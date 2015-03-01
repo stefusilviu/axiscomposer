@@ -508,7 +508,7 @@ class AB_Iconfonts {
 	/**
 	 * Outputs some styles in the wp <head> to load iconfonts font-face
 	 */
-	public function iconfont_style() {
+	public static function iconfont_style() {
 		$output       = '';
 		$font_configs = self::load_iconfont_list();
 

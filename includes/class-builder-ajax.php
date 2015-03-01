@@ -75,7 +75,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Icon Fonts
+	 * AJAX Delete Icon Font
 	 */
 	public static function delete_iconfont() {
 
@@ -83,7 +83,22 @@ class AB_AJAX {
 
 		AB_Iconfonts::check_capability();
 
-		die( 'Was not able to remove Font' );
+		$term = (string) axisbuilder_clean( stripslashes( $_POST['term'] ) );
+
+		if ( empty( $term ) ) {
+			die();
+		}
+
+		$list   = AB_Iconfonts::load_iconfont_list();
+		$delete = isset( $list[ $term ] ) ? $list[ $term ] : false;
+
+		if ( $delete ) {
+			AB_Iconfonts::delete_files( $delete['includes'] );
+			AB_Iconfonts::remove_iconfont( $term );
+			die( 'axisbuilder_iconfont_removed:' . $term );
+		}
+
+		die( 'Unable to remove Font' );
 	}
 
 	/**

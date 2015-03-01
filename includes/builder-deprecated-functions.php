@@ -17,6 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * @deprecated
  */
-function get_builder_core_supported_screens() {
-	return axisbuilder_get_layout_supported_screens();
+function is_axisbuilder_capable() {
+	_deprecated_function( 'is_axisbuilder_capable', '1.0' );
 }

@@ -14,14 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * is_axisbuilder_capable - Returns true when the user can manage AxisBuilder.
- * @return bool
- */
-function is_axisbuilder_capable() {
-	return current_user_can( 'manage_axisbuilder' );
-}
-
 if ( ! function_exists( 'is_ajax' ) ) {
 
 	/**

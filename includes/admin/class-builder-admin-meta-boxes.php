@@ -94,8 +94,10 @@ class AB_Admin_Meta_Boxes {
 
 		// Layouts
 		foreach ( axisbuilder_get_layout_supported_screens() as $type ) {
-			$layout_type_object = get_post_type_object( $type );
-			add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout', 'axisbuilder' ), $layout_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
+			if ( post_type_exists( $type ) ) {
+				$post_type_object = get_post_type_object( $type );
+				add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout', 'axisbuilder' ), $post_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
+			}
 		}
 
 		// Page Builder

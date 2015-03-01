@@ -194,6 +194,11 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
 		}
 
+		// Layout Specific
+		if ( in_array( $screen->id, axisbuilder_get_layout_supported_screens() ) ) {
+			wp_enqueue_script( 'axisbuilder_admin' );
+		}
+
 		// Widgets Specific
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/scripts/admin/sidebars' . $suffix . '.js', array( 'jquery', 'axisbuilder-backbone-modal' ), AB_VERSION );

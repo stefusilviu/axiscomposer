@@ -15,5 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * @deprecated Define {soft|hard} deprecated functionality here
+ * @deprecated
  */
+function get_builder_core_supported_screens() {
+	return axisbuilder_get_layout_supported_screens();
+}

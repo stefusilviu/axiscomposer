@@ -197,7 +197,7 @@ class AB_Admin_Post_Types {
 	public function edit_form_after_title() {
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			global $post_ID;
 
 			$builder_label   = __( 'Use Page Builder', 'axisbuilder' );
@@ -219,7 +219,7 @@ class AB_Admin_Post_Types {
 	public function edit_form_after_editor() {
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			echo '</div> <!-- #postdivrich_wrap -->';
 		}
 	}

@@ -100,31 +100,7 @@ function axisbuilder_print_js() {
 }
 
 /**
- * Get all Custom Post Types Screen
- * @return array
- */
-function axisbuilder_get_screen_types() {
-	global $wp_post_types;
-	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true, '_builtin' => false ), 'names' );
-	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
-		'post' => __( 'Post', 'axisbuilder' ),
-		'page' => __( 'Page', 'axisbuilder' )
-	) );
-
-	// Fetch Public Custom Post Types
-	foreach ( $post_types as $post_type ) {
-		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->menu_name;
-	}
-
-	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
-		asort( $screen_types );
-	}
-
-	return $screen_types;
-}
-
-/**
- * AxisBuilder Core Supported Themes
+ * AxisBuilder Core Supported Themes.
  * @return array
  */
 function axisbuilder_get_core_supported_themes() {
@@ -132,9 +108,9 @@ function axisbuilder_get_core_supported_themes() {
 }
 
 /**
- * Get a Page Builder Supported Screens or Post types
+ * Get a Page Builder Layout Supported Screens or Post types.
  * @return array
  */
-function get_builder_core_supported_screens() {
-	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
+function axisbuilder_get_layout_supported_screens() {
+	return apply_filters( 'axisbuilder_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }

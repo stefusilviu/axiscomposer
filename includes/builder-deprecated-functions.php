@@ -18,6 +18,5 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @deprecated
  */
 function get_builder_core_supported_screens() {
-	_deprecated_function( 'get_builder_core_supported_screens', '1.1', 'axisbuilder_get_layout_supported_screens' );
-	axisbuilder_get_layout_supported_screens();
+	return axisbuilder_get_layout_supported_screens();
 }

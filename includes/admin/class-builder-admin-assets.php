@@ -41,7 +41,7 @@ class AB_Admin_Assets {
 
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
@@ -166,7 +166,7 @@ class AB_Admin_Assets {
 		}
 
 		// AxisBuilder pages
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 
 			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-admin' );

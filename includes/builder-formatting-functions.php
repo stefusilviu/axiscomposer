@@ -15,18 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Gets the filename part of a download URL.
- * @param  string $file_url
- * @return string
- */
-function axisbuilder_get_filename_from_url( $file_url ) {
-	$parts = parse_url( $file_url );
-	if ( isset( $parts['path'] ) ) {
-		return basename( $parts['path'] );
-	}
-}
-
-/**
  * Clean variables
  * @param  string $var
  * @return string

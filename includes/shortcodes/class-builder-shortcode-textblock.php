@@ -76,7 +76,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'desc'    => __( 'Select Size of the text in px', 'axisbuilder' ),
 				'id'      => 'size',
 				'type'    => 'select',
-				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Defalut Size', 'axisbuilder' ) => '' ) ),
+				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Default Size', 'axisbuilder' ) => '' ) ),
 				'std'     => ''
 			),
 

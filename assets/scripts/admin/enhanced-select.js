@@ -4,47 +4,47 @@ jQuery( function( $ ) {
 		var formatString = {
 			formatMatches: function( matches ) {
 				if ( 1 === matches ) {
-					return axisbuilder_select_params.i18n_matches_1;
+					return axisbuilder_enhanced_select_params.i18n_matches_1;
 				}
 
-				return axisbuilder_select_params.i18n_matches_n.replace( '%qty%', matches );
+				return axisbuilder_enhanced_select_params.i18n_matches_n.replace( '%qty%', matches );
 			},
 			formatNoMatches: function() {
-				return axisbuilder_select_params.i18n_no_matches;
+				return axisbuilder_enhanced_select_params.i18n_no_matches;
 			},
 			formatAjaxError: function( jqXHR, textStatus, errorThrown ) {
-				return axisbuilder_select_params.i18n_ajax_error;
+				return axisbuilder_enhanced_select_params.i18n_ajax_error;
 			},
 			formatInputTooShort: function( input, min ) {
 				var number = min - input.length;
 
 				if ( 1 === number ) {
-					return axisbuilder_select_params.i18n_input_too_short_1
+					return axisbuilder_enhanced_select_params.i18n_input_too_short_1
 				}
 
-				return axisbuilder_select_params.i18n_input_too_short_n.replace( '%qty%', number );
+				return axisbuilder_enhanced_select_params.i18n_input_too_short_n.replace( '%qty%', number );
 			},
 			formatInputTooLong: function( input, max ) {
 				var number = input.length - max;
 
 				if ( 1 === number ) {
-					return axisbuilder_select_params.i18n_input_too_long_1
+					return axisbuilder_enhanced_select_params.i18n_input_too_long_1
 				}
 
-				return axisbuilder_select_params.i18n_input_too_long_n.replace( '%qty%', number );
+				return axisbuilder_enhanced_select_params.i18n_input_too_long_n.replace( '%qty%', number );
 			},
 			formatSelectionTooBig: function( limit ) {
 				if ( 1 === limit ) {
-					return axisbuilder_select_params.i18n_selection_too_long_1;
+					return axisbuilder_enhanced_select_params.i18n_selection_too_long_1;
 				}
 
-				return axisbuilder_select_params.i18n_selection_too_long_n.replace( '%qty%', number );
+				return axisbuilder_enhanced_select_params.i18n_selection_too_long_n.replace( '%qty%', number );
 			},
 			formatLoadMore: function( pageNumber ) {
-				return axisbuilder_select_params.i18n_load_more;
+				return axisbuilder_enhanced_select_params.i18n_load_more;
 			},
 			formatSearching: function() {
-				return axisbuilder_select_params.i18n_searching;
+				return axisbuilder_enhanced_select_params.i18n_searching;
 			}
 		};
 

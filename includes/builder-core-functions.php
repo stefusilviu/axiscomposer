@@ -17,16 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Include core functions (available in both admin and frontend)
 include( 'builder-conditional-functions.php' );
 include( 'builder-deprecated-functions.php' );
+include( 'builder-formatting-functions.php' );
 include( 'builder-helper-functions.php' );
-
-/**
- * Clean variables
- * @param  string $var
- * @return string
- */
-function axisbuilder_clean( $var ) {
-	return sanitize_text_field( $var );
-}
 
 /**
  * Get an image size.

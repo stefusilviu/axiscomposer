@@ -42,6 +42,69 @@ class AB_Shortcode_Heading extends AB_Shortcode {
 			'tinyMCE' => array( 'disable' => true ),
 		);
 	}
+	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->elements = array(
+			array(
+				'name' => __( 'Heading Text', 'axisbuilder' ),
+				'desc' => __( 'Enter the heading text', 'axisbuilder' ),
+				'id'   => 'text',
+				'type' => 'input',
+				'std'  => __( 'Click here to add your heading text', 'axisbuilder' )
+			),
+
+			array(
+				'name'  => __( 'Heading Type', 'axisbuilder' ),
+				'desc'  => __( 'Choose the type of your heading', 'axisbuilder' ),
+				'id'    => 'type',
+				'type'  => 'select',
+				'std'   => 'H3',
+				'subtype'	=> array(
+					__( 'H1', 'axisbuilder' ) => 'H1',
+					__( 'H2', 'axisbuilder' ) => 'H2',
+					__( 'H3', 'axisbuilder' ) => 'H3',
+					__( 'H4', 'axisbuilder' ) => 'H4',
+					__( 'H5', 'axisbuilder' ) => 'H5',
+					__( 'H6', 'axisbuilder' ) => 'H6',
+				)
+			),
+
+			array(
+				'name'    => __( 'Heading Font Size', 'axisbuilder' ),
+				'desc'    => __( 'Choose the font size of your heading in px', 'axisbuilder' ),
+				'id'      => 'type',
+				'type'    => 'select',
+				'std'     => '',
+				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Default Size', 'axisbuilder' ) => '' ) ),
+			),
+
+			array(
+				'name'    => __( 'Font Colors', 'axisbuilder' ),
+				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axisbuilder' ),
+				'id'      => 'font_color',
+				'std'     => '',
+				'type'    => 'select',
+				'subtype' => array(
+					__( 'Default', 'axisbuilder' ) => 'default',
+					__( 'Define Custom Colors', 'axisbuilder' ) => 'custom'
+				)
+			),
+
+			array(
+				'name'     => __( 'Custom Font Color', 'axisbuilder' ),
+				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
+				'id'       => 'color',
+				'std'      => '',
+				'required' => array( 'font_color', 'equals', 'custom' ),
+				'type'     => 'colorpicker'
+			),
+		);
+	}
 
 	/**
 	 * Frontend Shortcode Handle.

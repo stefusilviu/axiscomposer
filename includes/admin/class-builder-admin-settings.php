@@ -467,7 +467,7 @@ class AB_Admin_Settings {
 					}
 					break;
 
-				// Country multiselects
+				// Screen multiselects
 				case 'multi_select_screens' :
 
 					$selections = (array) self::get_option( $value['id'] );

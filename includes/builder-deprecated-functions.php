@@ -15,5 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * @deprecated Define {soft|hard} deprecated functionality here
+ * @deprecated
  */
+function is_axisbuilder_capable() {
+	_deprecated_function( 'is_axisbuilder_capable', '1.0' );
+}

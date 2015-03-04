@@ -41,7 +41,7 @@ class AB_Admin_Assets {
 
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
@@ -90,9 +90,13 @@ class AB_Admin_Assets {
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+
+		// Select2 is the replacement for chosen
 		wp_register_script( 'select2', AB()->plugin_url() . '/assets/scripts/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
 		wp_register_script( 'axisbuilder-enhanced-select', AB()->plugin_url() . '/assets/scripts/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AB_VERSION );
-		wp_localize_script( 'select2', 'axisbuilder_select_params', array(
+		wp_localize_script( 'axisbuilder-enhanced-select', 'axisbuilder_enhanced_select_params', array(
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'search_post_types_nonce'   => wp_create_nonce( 'search-post-types' ),
 			'i18n_matches_1'            => _x( 'One result is available, press enter to select it.', 'enhanced select', 'axisbuilder' ),
 			'i18n_matches_n'            => _x( '%qty% results are available, use up and down arrow keys to navigate.', 'enhanced select', 'axisbuilder' ),
 			'i18n_no_matches'           => _x( 'No matches found', 'enhanced select', 'axisbuilder' ),
@@ -104,11 +108,7 @@ class AB_Admin_Assets {
 			'i18n_selection_too_long_1' => _x( 'You can only select 1 item', 'enhanced select', 'axisbuilder' ),
 			'i18n_selection_too_long_n' => _x( 'You can only select %qty% items', 'enhanced select', 'axisbuilder' ),
 			'i18n_load_more'            => _x( 'Loading more results&hellip;', 'enhanced select', 'axisbuilder' ),
-			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'axisbuilder' ),
-		) );
-		wp_localize_script( 'axisbuilder-enhanced-select', 'axisbuilder_enhanced_select_params', array(
-			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
-			'search_post_types_nonce'   => wp_create_nonce( 'search-post-types' ),
+			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'axisbuilder' )
 		) );
 
 		// Modal
@@ -166,8 +166,9 @@ class AB_Admin_Assets {
 		}
 
 		// AxisBuilder pages
-		if ( in_array( $screen->id, get_builder_core_supported_screens() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 
+			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 
@@ -191,6 +192,11 @@ class AB_Admin_Assets {
 			);
 
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
+		}
+
+		// Layout Specific
+		if ( in_array( $screen->id, axisbuilder_get_layout_supported_screens() ) ) {
+			wp_enqueue_script( 'axisbuilder_admin' );
 		}
 
 		// Widgets Specific

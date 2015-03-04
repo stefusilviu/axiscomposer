@@ -44,6 +44,58 @@ class AB_Shortcode_Button extends AB_Shortcode {
 	}
 
 	/**
+	 * Popup Elements
+	 *
+	 * If this method is defined the elements automatically gets an edit button.
+	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 */
+	public function popup_elements() {
+		$this->elements = array(
+			array(
+				'name'		=> __( 'Button Label', 'axisbuilder' ),
+				'desc'		=> __( 'Enter the text for button', 'axisbuilder' ),
+				'id'		=> 'label',
+				'type'		=> 'input',
+				'std'		=> __( 'Click here to add your button label', 'axisbuilder' )
+			),
+
+			array(
+				'name'		=> __( 'Button Link', 'axisbuilder' ),
+				'desc'		=> __( 'Enter the button link', 'axisbuilder' ),
+				'id'		=> 'link',
+				'type'		=> 'input',
+				'std'		=> ''
+			),
+
+			array(
+				'name'		=> __( 'Button Size', 'axisbuilder' ),
+				'desc'		=> __( 'Choose the size of your button', 'axisbuilder' ),
+				'id'		=> 'size',
+				'type'		=> 'select',
+				'std'		=> 'medium',
+				'subtype'	=> array(
+					__( 'Small', 'axisbuilder' )	=> 'small',
+					__( 'Medium', 'axisbuilder' )	=> 'medium',
+					__( 'Large', 'axisbuilder' )	=> 'large',
+				)
+			),
+
+			array(
+				'name'		=> __( 'Button Position', 'axisbuilder' ),
+				'desc'		=> __( 'Choose alignment of your button', 'axisbuilder' ),
+				'id'		=> 'position',
+				'type'		=> 'select',
+				'std'		=> 'center',
+				'subtype'	=> array(
+					__( 'Left Align', 'axisbuilder' )	=> 'left',
+					__( 'Center Align', 'axisbuilder' )	=> 'center',
+					__( 'Right Align', 'axisbuilder' )	=> 'right',
+				)
+			),
+		);
+	}
+
+	/**
 	 * Frontend Shortcode Handle.
 	 * @param  array  $atts      Array of attributes.
 	 * @param  string $content   Text within enclosing form of shortcode element.

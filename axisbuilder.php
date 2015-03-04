@@ -197,9 +197,7 @@ final class AxisBuilder {
 	 * Function used to Init AxisBuilder Template Functions - This makes them pluggable by plugins and themes.
 	 */
 	public function include_template_functions() {
-		if ( $this->is_request( 'frontend' ) ) {
-			include_once( 'includes/builder-template-functions.php' );
-		}
+		include_once( 'includes/builder-template-functions.php' );
 	}
 
 	/**

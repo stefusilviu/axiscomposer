@@ -33,6 +33,7 @@ class AB_AJAX {
 			'json_search_pages_and_portfolio' => false,
 			'delete_custom_sidebar'           => false,
 			'shortcodes_to_interface'         => false,
+			'rated'                           => false
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -74,7 +75,7 @@ class AB_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Icon Fonts
+	 * AJAX Delete Icon Font
 	 */
 	public static function delete_iconfont() {
 
@@ -82,7 +83,22 @@ class AB_AJAX {
 
 		AB_Iconfonts::check_capability();
 
-		die( 'Was not able to remove Font' );
+		$term = (string) axisbuilder_clean( stripslashes( $_POST['term'] ) );
+
+		if ( empty( $term ) ) {
+			die();
+		}
+
+		$list   = AB_Iconfonts::load_iconfont_list();
+		$delete = isset( $list[ $term ] ) ? $list[ $term ] : false;
+
+		if ( $delete ) {
+			AB_Iconfonts::delete_files( $delete['includes'] );
+			AB_Iconfonts::remove_iconfont( $term );
+			die( 'axisbuilder_iconfont_removed:' . $term );
+		}
+
+		die( 'Unable to remove Font' );
 	}
 
 	/**
@@ -95,23 +111,31 @@ class AB_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
-		$term = axisbuilder_clean( stripslashes( $_GET['term'] ) );
+		$term = (string) axisbuilder_clean( stripslashes( $_GET['term'] ) );
 
 		if ( empty( $term ) ) {
 			die();
 		}
 
+		$args = array(
+			'post_type'      => $post_types,
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			's'              => $term,
+			'fields'         => 'ids'
+		);
+
 		if ( is_numeric( $term ) ) {
 
-			$args = array(
+			$args2 = array(
 				'post_type'      => $post_types,
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
-				'post__in'       => array(0, $term),
+				'post__in'       => array( 0, $term ),
 				'fields'         => 'ids'
 			);
 
-			$args2 = array(
+			$args3 = array(
 				'post_type'      => $post_types,
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
@@ -119,20 +143,9 @@ class AB_AJAX {
 				'fields'         => 'ids'
 			);
 
-			$posts = array_unique( array_merge( get_posts( $args ), get_posts( $args2 ) ) );
-
+			$posts = array_unique( array_merge( get_posts( $args ), get_posts( $args2 ), get_posts( $args3 ) ) );
 		} else {
-
-			$args = array(
-				'post_type'      => $post_types,
-				'post_status'    => 'publish',
-				'posts_per_page' => -1,
-				's'              => $term,
-				'fields'         => 'ids'
-			);
-
 			$posts = array_unique( get_posts( $args ) );
-
 		}
 
 		$found_pages = array();
@@ -211,6 +224,14 @@ class AB_AJAX {
 		} else {
 			return $text;
 		}
+	}
+
+	/**
+	 * Triggered when clicking the rating footer.
+	 */
+	public static function rated() {
+		update_option( 'axisbuilder_admin_footer_text_rated', 1 );
+		die();
 	}
 }
 

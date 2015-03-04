@@ -17,16 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Include core functions (available in both admin and frontend)
 include( 'builder-conditional-functions.php' );
 include( 'builder-deprecated-functions.php' );
+include( 'builder-formatting-functions.php' );
 include( 'builder-helper-functions.php' );
-
-/**
- * Clean variables
- * @param  string $var
- * @return string
- */
-function axisbuilder_clean( $var ) {
-	return sanitize_text_field( $var );
-}
 
 /**
  * Get an image size.
@@ -65,31 +57,42 @@ function axisbuilder_get_image_size( $image_size ) {
 }
 
 /**
- * Get all Custom Post Types Screen
- * @return array
+ * Queue some JavaScript code to be output in the footer.
+ * @param string $code
  */
-function axisbuilder_get_screen_types() {
-	global $wp_post_types;
-	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true, '_builtin' => false ), 'names' );
-	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
-		'post' => __( 'Post', 'axisbuilder' ),
-		'page' => __( 'Page', 'axisbuilder' )
-	) );
+function axisbuilder_enqueue_js( $code ) {
+	global $axisbuilder_queued_js;
 
-	// Fetch Public Custom Post Types
-	foreach ( $post_types as $post_type ) {
-		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->menu_name;
+	if ( empty( $axisbuilder_queued_js ) ) {
+		$axisbuilder_queued_js = '';
 	}
 
-	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
-		asort( $screen_types );
-	}
-
-	return $screen_types;
+	$axisbuilder_queued_js .= "\n" . $code . "\n";
 }
 
 /**
- * AxisBuilder Core Supported Themes
+ * Output any queued javascript code in the footer.
+ */
+function axisbuilder_print_js() {
+	global $axisbuilder_queued_js;
+
+	if ( ! empty( $axisbuilder_queued_js ) ) {
+
+		echo "<!-- AxisBuilder JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) {";
+
+		// Sanitize
+		$axisbuilder_queued_js = wp_check_invalid_utf8( $axisbuilder_queued_js );
+		$axisbuilder_queued_js = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", $axisbuilder_queued_js );
+		$axisbuilder_queued_js = str_replace( "\r", '', $axisbuilder_queued_js );
+
+		echo $axisbuilder_queued_js . "});\n</script>\n";
+
+		unset( $axisbuilder_queued_js );
+	}
+}
+
+/**
+ * AxisBuilder Core Supported Themes.
  * @return array
  */
 function axisbuilder_get_core_supported_themes() {
@@ -97,9 +100,9 @@ function axisbuilder_get_core_supported_themes() {
 }
 
 /**
- * Get a Page Builder Supported Screens or Post types
+ * Get a Page Builder Layout Supported Screens or Post types.
  * @return array
  */
-function get_builder_core_supported_screens() {
-	return apply_filters( 'axisbuilder_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
+function axisbuilder_get_layout_supported_screens() {
+	return apply_filters( 'axisbuilder_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }

@@ -53,7 +53,7 @@ class AB_Admin_Menu {
 	 * Add menu item
 	 */
 	public function iconfonts_menu() {
-		add_submenu_page( 'axisbuilder', __( 'Icon Fonts', 'axisbuilder' ),  __( 'Icon Fonts', 'axisbuilder' ) , 'manage_axisbuilder', 'axisbuilder-iconfonts', array( $this, 'iconfonts_page' ) );
+		add_submenu_page( 'axisbuilder', __( 'Iconfonts', 'axisbuilder' ),  __( 'Iconfonts', 'axisbuilder' ) , 'manage_axisbuilder', 'axisbuilder-iconfonts', array( $this, 'iconfonts_page' ) );
 	}
 
 	/**

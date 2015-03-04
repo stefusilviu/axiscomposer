@@ -253,7 +253,6 @@ class AB_Admin_Welcome {
 
 	/**
 	 * Render Contributors List.
-	 *
 	 * @return string $contributor_list HTML formatted list of contributors.
 	 */
 	public function contributors() {
@@ -285,7 +284,6 @@ class AB_Admin_Welcome {
 
 	/**
 	 * Retrieve list of contributors from GitHub.
-	 *
 	 * @return mixed
 	 */
 	public function get_contributors() {

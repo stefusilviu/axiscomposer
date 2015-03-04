@@ -21,38 +21,6 @@
 	font-size: 1.3em !important;
 }
 
-ul.layout_data,
-ul.breadcrumb_data {
-
-	p.form-field {
-		margin: 15px 0;
-
-		label {
-			float: left;
-			font-weight: 600;
-		}
-
-		span,
-		label,
-		select {
-			width: 100%;
-		}
-
-		span,
-		select {
-			&.side {
-				color: #777;
-			}
-		}
-
-		span.side {
-			display: block;
-			font-style: normal;
-			margin-bottom: 5px;
-		}
-	}
-}
-
 span.mce_axisbuilder_shortcodes_button {
 	background-image: none !important;
 	@include ir();
@@ -94,5 +62,42 @@ i.mce-i-axisbuilder-shortcodes {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		vertical-align: top;
+	}
+}
+
+/**
+ * Layout + Breadcrumb Styles
+ */
+ul {
+	&.layout_data,
+	&.breadcrumb_data {
+
+		p.form-field {
+			margin: 15px 0;
+
+			label {
+				float: left;
+				font-weight: 600;
+			}
+
+			span,
+			label,
+			select {
+				width: 100%;
+			}
+
+			span,
+			select {
+				&.side {
+					color: #777;
+				}
+			}
+
+			span.side {
+				display: block;
+				font-style: normal;
+				margin-bottom: 5px;
+			}
+		}
 	}
 }

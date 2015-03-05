@@ -158,8 +158,8 @@ class AB_Admin_Welcome {
 
 		// Random tweet - must be kept to 102 chars to "fit"
 		$tweets        = array(
-			'AxisBuilder kickstarts unique and modern page layouts. It\'s free and has been downloaded multiple times.',
-			'Building a modern page layouts? AxisBuilder is the leading #builder plugin for WordPress (and it\'s free).',
+			'AxisBuilder kickstarts unique page layouts. It\'s free and has been downloaded multiple times.',
+			'Building a modern layout? AxisBuilder is the leading #builder plugin for WordPress (and it\'s free).',
 			'AxisBuilder is a free #builder plugin for #WordPress for building #allthethings smartly, beautifully.',
 			'Ready to show your idea? AxisBuilder is the fastest growing #builder plugin for WordPress on the web.',
 		);

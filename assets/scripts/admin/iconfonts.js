@@ -20,7 +20,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			this.render();
 		},
 		render: function() {
-			console.log( 'Iconfonts Manager render goes here!' );
+			// console.log( 'Iconfonts Manager render goes here!' );
 		},
 		addButton: function ( e ) {
 			var $el = $( '.add-iconfont' );
@@ -124,7 +124,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 		$( 'body' ).on( 'insert_iconfont_zip', AB_Icon_Fonts.icon_insert );
 	});
 
-	AB_Icon_Fonts.icon_insert = function( event, attachment, clicked ) {
+	AB_Icon_Fonts.icon_insert = function( event, attachment ) {
 		var message = $( '#msg' );
 
 		if ( attachment.subtype !== 'zip' ) {

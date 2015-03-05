@@ -167,8 +167,6 @@
 
 			var clicked = $( this ),
 				options = clicked.data(),
-				parents = clicked.parents( '.axisbuilder-form-element-container:last' ),
-				targets = parents.find( '#' + options.target ),
 				frame_key = _.random(0, 999999999999999999);
 
 			// Set vars so we know that an editor is open
@@ -184,7 +182,7 @@
 			file_frame[frame_key] = wp.media({
 				frame: options.frame,
 				state: options.state,
-				className: options.class,
+				className: options['class'],
 				button: {
 					text: options.button
 				},
@@ -206,7 +204,7 @@
 					allowLocalEdits: true,
 					displaySettings: true,
 					displayUserSettings: false,
-					library: media.query( file_frame[frame_key].options.library ),
+					library: media.query( file_frame[frame_key].options.library )
 				})
 			]);
 

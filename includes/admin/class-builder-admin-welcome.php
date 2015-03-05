@@ -185,7 +185,7 @@ class AB_Admin_Welcome {
 
 		<p class="axisbuilder-actions">
 			<a href="<?php echo admin_url( 'admin.php?page=axisbuilder-settings' ); ?>" class="button button-primary"><?php _e( 'Settings', 'axisbuilder' ); ?></a>
-			<a href="<?php echo esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/', 'axisbuilder' ) ); ?>" class="button button-secondary"><?php _e( 'Documentation', 'axisbuilder' ); ?></a>
+			<a href="<?php echo esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/', 'axisbuilder' ) ); ?>" class="docs button button-primary"><?php _e( 'Documentation', 'axisbuilder' ); ?></a>
 			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://axisthemes.com/axisbuilder/" data-text="<?php echo esc_attr( $tweets[0] ); ?>" data-via="AxisThemes" data-size="large">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</p>

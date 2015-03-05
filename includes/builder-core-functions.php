@@ -96,7 +96,7 @@ function axisbuilder_print_js() {
  * @return array
  */
 function axisbuilder_get_core_supported_themes() {
-	return array( 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
+	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 }
 
 /**

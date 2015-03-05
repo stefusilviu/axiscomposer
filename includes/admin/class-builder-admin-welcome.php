@@ -198,6 +198,44 @@ class AB_Admin_Welcome {
 
 			<!--<div class="changelog point-releases"></div>-->
 
+			<div class="changelog">
+				<h4><?php _e( 'UI Overhaul', 'axisbuilder' ); ?></h4>
+				<p><?php _e( 'We\'ve updated the user interface on both the front and backend of AxisBuilder 1.0 "Kickstart Hippo".', 'axisbuilder' ); ?></p>
+
+				<div class="changelog about-integrations">
+					<div class="wc-feature feature-section col three-col">
+						<div>
+							<h4><?php _e( 'Frontend UI Improvements', 'axisbuilder' ); ?></h4>
+							<p><?php _e( 'On the frontend there are several UX enhancements such as the responsive table design as well as a fresh, modern look which meshes more fluidly with the current design trends of default WordPress themes.', 'axisbuilder' ); ?></p>
+						</div>
+						<div>
+							<h4><?php _e( 'Backend UI Improvements', 'axisbuilder' ); ?></h4>
+							<p><?php _e( 'On the backend, settings have been re-organised and perform better on hand-held devices for an all round improved user experience. ', 'axisbuilder' ); ?></p>
+						</div>
+						<div class="last-feature">
+							<h4><?php _e( 'Pagebuilder UI', 'axisbuilder' ); ?></h4>
+							<p><?php _e( 'As part of the Builder, we\'ve introduced a UI for the Pagebuilder system in 1.0. This makes it easier for 3rd party apps to integrate with AxisBuilder.', 'axisbuilder' ); ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="changelog">
+				<div class="feature-section col three-col">
+					<div>
+						<h4><?php _e( 'Custom Widgets Area Builder', 'axisbuilder' ); ?></h4>
+						<p><?php printf( __( 'We have added a new option to create the "Custom Widgets Area". Coupled with ability to delete the unused Widget Area or Sidebar. Enable or disable this in the %ssettings%s.', 'axisbuilder' ), '<a href="' . admin_url( 'admin.php?page=axisbuilder-settings&tab=general' ) . '">', '</a>' ); ?></p>
+					</div>
+					<div>
+						<h4><?php _e( 'Simplified Iconfonts Upload', 'axisbuilder' ); ?></h4>
+						<p><?php printf( __( 'We have added a new option to upload the "Custom Iconfonts". Coupled with some of the additional hooks for developers to load and store your custom iconfonts. View %sIconfont Settings%s.', 'axisbuilder' ), '<a href="' . admin_url( 'admin.php?page=axisbuilder-iconfonts' ) . '">', '</a>' ); ?></p>
+					</div>
+					<div class="last-feature">
+						<h4><?php _e( 'Color Customization', 'axisbuilder' ); ?></h4>
+						<p><?php printf( __( 'If you\'re looking to customise the look and feel of the frontend in 1.0, take a look at the free %sAxisBuilder Colors plugin%s. This lets you change the colors with a live preview.', 'axisbuilder' ), '<a href="https://wordpress.org/plugins/axisbuilder-colors/">', '</a>' ); ?></p>
+					</div>
+				</div>
+			</div>
+
 			<hr />
 
 			<div class="return-to-dashboard">

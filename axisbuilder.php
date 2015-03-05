@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Axis Builder
+ * Plugin Name: AxisBuilder
  * Plugin URI: http://axisthemes.com/axisbuilder/
  * Description: A drag and drop builder that helps you build modern and unique page layouts smartly. Beautifully.
  * Author: AxisThemes

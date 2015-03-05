@@ -24,7 +24,7 @@ class AB_Widget_Advertisement extends AB_Widget {
 		$this->widget_cssclass    = 'axisbuilder widget_advertisement';
 		$this->widget_description = __( 'Displays Advertisements Slots.', 'axisbuilder' );
 		$this->widget_id          = 'axisbuilder_widget_advertisement';
-		$this->widget_name        = __( 'Axis Builder Advertisement', 'axisbuilder' );
+		$this->widget_name        = __( 'AxisBuilder Advertisement', 'axisbuilder' );
 		$this->settings           = array(
 			'title'  => array(
 				'type'  => 'text',

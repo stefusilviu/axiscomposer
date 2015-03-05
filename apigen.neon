@@ -26,7 +26,7 @@ charset: [UTF-8]
 main: AB
 
 # title of generated documentation
-title: Axis Builder
+title: AxisBuilder
 
 # base url used for sitemap (useful for public doc)
 baseUrl: http://docs.axisthemes.com/apidocs/axisbuilder/

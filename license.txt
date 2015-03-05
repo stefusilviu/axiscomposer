@@ -1,8 +1,8 @@
-Axis Builder - #1 Page Builder
+AxisBuilder - #1 Page Builder
  
 Copyright 2015 by the contributors
 
-Axis Builder is released under the GPL
+AxisBuilder is released under the GPL
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -698,6 +698,6 @@ Public License instead of this License.  But first, please read
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 The source code for any program binaries or compressed scripts that are
-included with Axis Builder can be freely obtained at the following URL:
+included with AxisBuilder can be freely obtained at the following URL:
 
 	https://github.com/axisthemes/axisbuilder

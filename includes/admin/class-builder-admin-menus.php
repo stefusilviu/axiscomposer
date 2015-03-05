@@ -46,7 +46,7 @@ class AB_Admin_Menu {
 			$menu[] = array( '', 'read', 'separator-axisbuilder', '', 'wp-menu-separator axisbuilder' );
 		}
 
-		add_menu_page( __( 'Axis Builder', 'axisbuilder' ), __( 'Axis Builder', 'axisbuilder' ), 'manage_axisbuilder', 'axisbuilder', null, null, '56.5' );
+		add_menu_page( __( 'AxisBuilder', 'axisbuilder' ), __( 'AxisBuilder', 'axisbuilder' ), 'manage_axisbuilder', 'axisbuilder', null, null, '56.5' );
 	}
 
 	/**
@@ -86,7 +86,7 @@ class AB_Admin_Menu {
 		global $submenu;
 
 		if ( isset( $submenu['axisbuilder'] ) ) {
-			// Remove 'Axis Builder' sub menu item
+			// Remove 'AxisBuilder' sub menu item
 			unset( $submenu['axisbuilder'][0] );
 
 			// Add count if user has access

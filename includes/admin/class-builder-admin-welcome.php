@@ -115,6 +115,21 @@ class AB_Admin_Welcome {
 				top: 0;
 				<?php echo is_rtl() ? 'left' : 'right'; ?>: 0;
 			}
+			.about-wrap .axisbuilder-feature {
+				overflow: visible !important;
+				*zoom:1;
+			}
+			.about-wrap h3 + .axisbuilder-feature {
+				margin-top: 0;
+			}
+			.about-wrap .axisbuilder-feature:before,
+			.about-wrap .axisbuilder-feature:after {
+				content: " ";
+				display: table;
+			}
+			.about-wrap .axisbuilder-feature:after {
+				clear: both;
+			}
 			.about-integrations {
 				background: #fff;
 				margin: 20px 0;
@@ -203,7 +218,7 @@ class AB_Admin_Welcome {
 				<p><?php _e( 'We\'ve updated the user interface on both the front and backend of AxisBuilder 1.0 "Kickstart Hippo".', 'axisbuilder' ); ?></p>
 
 				<div class="changelog about-integrations">
-					<div class="wc-feature feature-section col three-col">
+					<div class="axisbuilder-feature feature-section col three-col">
 						<div>
 							<h4><?php _e( 'Frontend UI Improvements', 'axisbuilder' ); ?></h4>
 							<p><?php _e( 'On the frontend there are several UX enhancements such as the responsive table design as well as a fresh, modern look which meshes more fluidly with the current design trends of default WordPress themes.', 'axisbuilder' ); ?></p>

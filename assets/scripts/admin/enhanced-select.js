@@ -1,8 +1,4 @@
 /* global axisbuilder_enhanced_select_params */
-
-/**
- * AxisBuilder Enhanced Select JS
- */
 jQuery( function( $ ) {
 
 	function getEnhancedSelectFormatString() {
@@ -43,7 +39,7 @@ jQuery( function( $ ) {
 					return axisbuilder_enhanced_select_params.i18n_selection_too_long_1;
 				}
 
-				return axisbuilder_enhanced_select_params.i18n_selection_too_long_n.replace( '%qty%', number );
+				return axisbuilder_enhanced_select_params.i18n_selection_too_long_n.replace( '%qty%', limit );
 			},
 			formatLoadMore: function( pageNumber ) {
 				return axisbuilder_enhanced_select_params.i18n_load_more;
@@ -134,7 +130,6 @@ jQuery( function( $ ) {
 						return callback( data );
 					};
 				}
-
 
 				select2_args = $.extend( select2_args, getEnhancedSelectFormatString() );
 

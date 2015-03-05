@@ -1,6 +1,6 @@
 # How to contribute
 
-Community made patches, localisations, bug reports and contributions are always welcome and are crucial to ensure Axis Builder remains the #1 builder for WordPress ;)
+Community made patches, localisations, bug reports and contributions are always welcome and are crucial to ensure AxisBuilder remains the #1 builder for WordPress ;)
 
 When contributing please ensure you follow the guidelines below so that we can keep on top of things.
 
@@ -25,9 +25,9 @@ GitHub is for *bug reports and contributions only* - if you have a support quest
   * **Ensure you stick to the [WordPress Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/php/).**
   * Ensure you use LF line endings - no crazy windows line endings. :)
 * When committing, reference your issue (#1234) and include a note about the fix.
-* Push the changes to your fork and submit a pull request on the master branch of the Axis Builder repository. Existing maintenance branches will be maintained of by Axis Builder developers.
-* Please **don't** modify the changelog - this will be maintained by the Axis Builder developers.
-* Please **don't** add your localizations or update the .pot files - this will be maintanied by the Axis Builder developers. To contribute to the localization of Axis Builder, please join the [Axis Builder Transifex project](https://www.transifex.com/projects/p/axisbuilder/).
+* Push the changes to your fork and submit a pull request on the master branch of the AxisBuilder repository. Existing maintenance branches will be maintained of by AxisBuilder developers.
+* Please **don't** modify the changelog - this will be maintained by the AxisBuilder developers.
+* Please **don't** add your localizations or update the .pot files - this will be maintanied by the AxisBuilder developers. To contribute to the localization of AxisBuilder, please join the [AxisBuilder Transifex project](https://www.transifex.com/projects/p/axisbuilder/).
 
 At this point you're waiting on us to merge your pull request. We'll review all pull requests, and make suggestions and changes if necessary.
 

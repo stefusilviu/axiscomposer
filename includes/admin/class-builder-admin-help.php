@@ -40,9 +40,9 @@ class AB_Admin_Help {
 			'title'     => __( 'Documentation', 'axisbuilder' ),
 			'content'   =>
 
-				'<p>' . __( 'Thank you for using Axis Builder :) Should you need help using or extending Axis Builder please read the documentation.', 'axisbuilder' ) . '</p>' .
+				'<p>' . __( 'Thank you for using AxisBuilder :) Should you need help using or extending AxisBuilder please read the documentation.', 'axisbuilder' ) . '</p>' .
 
-				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/' . '" class="button button-primary">' . __( 'Axis Builder Documentation', 'axisbuilder' ) . '</a> <a href="' . 'http://docs.axisthemes.com/apidocs/axisbuilder/' . '" class="button">' . __( 'Developer API Docs', 'axisbuilder' ) . '</a></p>'
+				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/' . '" class="button button-primary">' . __( 'AxisBuilder Documentation', 'axisbuilder' ) . '</a> <a href="' . 'http://docs.axisthemes.com/apidocs/axisbuilder/' . '" class="button">' . __( 'Developer API Docs', 'axisbuilder' ) . '</a></p>'
 
 		) );
 
@@ -64,7 +64,7 @@ class AB_Admin_Help {
 			'title'     => __( 'Found a bug?', 'axisbuilder' ),
 			'content'   =>
 
-				'<p>' . sprintf( __( 'If you find a bug within Axis Builder core you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. Be as descriptive as possible and please include your <a href="%s">system status report</a>.', 'axisbuilder' ), 'https://github.com/axisthemes/axisbuilder/issues?state=open', 'https://github.com/axisthemes/axisbuilder/blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=axisbuilder-status' ) ) . '</p>' .
+				'<p>' . sprintf( __( 'If you find a bug within AxisBuilder core you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. Be as descriptive as possible and please include your <a href="%s">system status report</a>.', 'axisbuilder' ), 'https://github.com/axisthemes/axisbuilder/issues?state=open', 'https://github.com/axisthemes/axisbuilder/blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=axisbuilder-status' ) ) . '</p>' .
 
 				'<p><a href="' . 'https://github.com/axisthemes/axisbuilder/issues?state=open' . '" class="button button-primary">' . __( 'Report a bug', 'axisbuilder' ) . '</a> <a href="' . admin_url('admin.php?page=axisbuilder-status') . '" class="button">' . __( 'System Status', 'axisbuilder' ) . '</a></p>'
 
@@ -72,7 +72,7 @@ class AB_Admin_Help {
 
 		$screen->set_help_sidebar(
 			'<p><strong>' . __( 'For more information:', 'axisbuilder' ) . '</strong></p>' .
-			'<p><a href="' . 'http://axisthemes.com/axisbuilder/' . '" target="_blank">' . __( 'About Axis Builder', 'axisbuilder' ) . '</a></p>' .
+			'<p><a href="' . 'http://axisthemes.com/axisbuilder/' . '" target="_blank">' . __( 'About AxisBuilder', 'axisbuilder' ) . '</a></p>' .
 			'<p><a href="' . 'http://wordpress.org/extend/plugins/axisbuilder/' . '" target="_blank">' . __( 'WordPress.org Project', 'axisbuilder' ) . '</a></p>' .
 			'<p><a href="' . 'https://github.com/axisthemes/axisbuilder' . '" target="_blank">' . __( 'Github Project', 'axisbuilder' ) . '</a></p>' .
 			'<p><a href="' . 'http://axisthemes.com/product-category/themes/axisbuilder/' . '" target="_blank">' . __( 'Official Themes', 'axisbuilder' ) . '</a></p>' .

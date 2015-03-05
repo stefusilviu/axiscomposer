@@ -71,7 +71,7 @@ class AB_Settings_General extends AB_Settings_Page {
 			),
 
 			array(
-				'title'   => __( 'Custom Widget Areas', 'axisbuilder' ),
+				'title'   => __( 'Custom Widgets Area', 'axisbuilder' ),
 				'desc'    => __( 'Enable Custom Widgets Area Builder', 'axisbuilder' ),
 				'id'      => 'axisbuilder_sidebar_enabled',
 				'default' => 'yes',

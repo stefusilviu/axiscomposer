@@ -12,24 +12,13 @@
  * Styling begins
  */
 .axisbuilder-message {
+	overflow: hidden;
 	position: relative;
 	border-left-color: #2ea2cc !important;
-	overflow: hidden;
-
-	.twitter-share-button {
-		margin-left: 3px;
-		margin-top: -3px;
-		vertical-align: middle;
-	}
 }
 
 p.axisbuilder-actions,
 .axisbuilder-message {
-
-	a.button-primary,
-	a.button-secondary {
-		text-decoration:none !important;
-	}
 
 	a.skip,
 	a.docs {
@@ -40,6 +29,11 @@ p.axisbuilder-actions,
 		}
 	}
 
+	a.button-primary,
+	a.button-secondary {
+		text-decoration: none !important;
+	}
+
 	.twitter-share-button {
 		margin-left: 3px;
 		margin-top: -3px;
@@ -47,6 +41,7 @@ p.axisbuilder-actions,
 	}
 }
 
-p.axisbuilder-actions {
+p.axisbuilder-actions,
+.axisbuilder-about-text {
 	margin-bottom: 1em !important;
 }

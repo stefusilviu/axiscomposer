@@ -73,7 +73,7 @@ class AB_Unit_Tests_Bootstrap {
 		// Reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
 		$GLOBALS['wp_roles']->reinit();
 
-		echo "Installing Axis Builder..." . PHP_EOL;
+		echo "Installing AxisBuilder..." . PHP_EOL;
 	}
 
 	/**

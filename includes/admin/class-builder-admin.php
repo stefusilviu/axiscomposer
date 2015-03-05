@@ -44,6 +44,7 @@ class AB_Admin {
 			include_once( 'class-builder-admin-menus.php' );
 			include_once( 'class-builder-admin-assets.php' );
 			include_once( 'class-builder-admin-notices.php' );
+			include_once( 'class-builder-admin-welcome.php' );
 
 			// Help
 			if ( apply_filters( 'axisbuilder_enable_admin_help_tab', true ) ) {
@@ -77,9 +78,15 @@ class AB_Admin {
 	 */
 	public function admin_footer_text( $footer_text ) {
 		$current_screen = get_current_screen();
+		$ab_pages       = axisbuilder_get_screen_ids();
+
+		// Add the dashboard pages
+		$ab_pages[] = 'dashboard_page_axisbuilder-about';
+		$ab_pages[] = 'dashboard_page_axisbuilder-credits';
+		$ab_pages[] = 'dashboard_page_axisbuilder-translators';
 
 		// Check to make sure we're on a AxisBuilder admin page
-		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, axisbuilder_get_screen_ids() ) ) ) {
+		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, $ab_pages ) ) ) {
 			// Change the footer text
 			if ( ! get_option( 'axisbuilder_admin_footer_text_rated' ) ) {
 				$footer_text = sprintf( __( 'If you like <strong>AxisBuilder</strong> please leave us a %s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating. A huge thank you from AxisThemes in advance!', 'axisbuilder' ), '<a href="https://wordpress.org/support/view/plugin-reviews/axisbuilder?filter=5#postform" target="_blank" class="axisbuilder-rating-link" data-rated="' . __( 'Thanks :)', 'axisbuilder' ) . '">', '</a>' );

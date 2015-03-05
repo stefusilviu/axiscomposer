@@ -68,9 +68,6 @@ class AB_Admin_Welcome {
 
 	/**
 	 * Add styles just for this page, and remove dashboard page links.
-	 *
-	 * @access public
-	 * @return void
 	 */
 	public function admin_head() {
 		remove_submenu_page( 'index.php', 'axisbuilder-about' );
@@ -143,6 +140,15 @@ class AB_Admin_Welcome {
 
 		// Drop minor version if 0
 		$major_version = substr( AB()->version, 0, 3 );
+
+		// Random tweet - must be kept to 102 chars to "fit"
+		$tweets        = array(
+			'AxisBuilder kickstarts unique and modern page layouts. It\'s free and has been downloaded multiple times.',
+			'Building a modern page layouts? AxisBuilder is the leading #builder plugin for WordPress (and it\'s free).',
+			'AxisBuilder is a free #builder plugin for #WordPress for building #allthethings smartly, beautifully.',
+			'Ready to show your idea? AxisBuilder is the fastest growing #builder plugin for WordPress on the web.',
+		);
+		shuffle( $tweets );
 		?>
 		<h1><?php printf( __( 'Welcome to AxisBuilder %s', 'axisbuilder' ), $major_version ); ?></h1>
 
@@ -163,9 +169,9 @@ class AB_Admin_Welcome {
 		<div class="axisbuilder-badge"><?php printf( __( 'Version %s', 'axisbuilder' ), AB()->version ); ?></div>
 
 		<p class="axisbuilder-actions">
-			<a href="<?php echo admin_url('admin.php?page=axisbuilder-settings'); ?>" class="button button-primary"><?php _e( 'Settings', 'axisbuilder' ); ?></a>
+			<a href="<?php echo admin_url( 'admin.php?page=axisbuilder-settings' ); ?>" class="button button-primary"><?php _e( 'Settings', 'axisbuilder' ); ?></a>
 			<a href="<?php echo esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/', 'axisbuilder' ) ); ?>" class="button button-secondary"><?php _e( 'Documentation', 'axisbuilder' ); ?></a>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://axisthemes.com/axisbuilder/" data-text="A open-source (free) #builder plugin for #WordPress that helps you build unique and modern page layouts smartly. Beautifully." data-via="AxisThemes" data-size="large" data-hashtags="AxisThemes">Tweet</a>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://axisthemes.com/axisbuilder/" data-text="<?php echo esc_attr( $tweets[0] ); ?>" data-via="AxisThemes" data-size="large">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</p>
 
@@ -192,6 +198,11 @@ class AB_Admin_Welcome {
 
 			<!--<div class="changelog point-releases"></div>-->
 
+			<hr />
+
+			<div class="return-to-dashboard">
+				<a href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'axisbuilder-settings' ), 'admin.php' ) ) ); ?>"><?php _e( 'Go to AxisBuilder Settings', 'axisbuilder' ); ?></a>
+			</div>
 		</div>
 		<?php
 	}

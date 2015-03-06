@@ -183,10 +183,12 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
 
+			$status_options = get_option( 'axisbuilder_status_options', array() );
+
 			$params = array(
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
-				'debug_mode'                      => get_option( 'axisbuilder_debug_enabled', 'no' ),
+				'debug_mode'                      => empty( $status_options['builder_debug_mode'] ) ? 'no' : 'yes',
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
 			);

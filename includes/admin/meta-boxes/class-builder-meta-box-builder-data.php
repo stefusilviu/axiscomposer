@@ -210,15 +210,16 @@ class AB_Meta_Box_Builder_Data {
 	 * @return array
 	 */
 	public static function postbox_classes( $classes ) {
+		$status_options = get_option( 'axisbuilder_status_options', array() );
+
+		// Class for Debug Mode
+		if ( ! empty( $status_options['builder_debug_mode'] ) ) {
+			$classes[] = 'axisbuilder-debug';
+		}
 
 		// Class for hidden items
 		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
 			$classes[] = 'axisbuilder-hidden';
-		}
-
-		// Class for Debug or Test-mode
-		if ( ( get_option( 'axisbuilder_debug_enabled' ) === 'yes' ) ) {
-			$classes[] = 'axisbuilder-debug';
 		}
 
 		return $classes;

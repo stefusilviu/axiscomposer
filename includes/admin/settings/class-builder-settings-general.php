@@ -71,26 +71,6 @@ class AB_Settings_General extends AB_Settings_Page {
 			),
 
 			array(
-				'title'   => __( 'Custom Widgets Area', 'axisbuilder' ),
-				'desc'    => __( 'Enable Custom Widgets Area Builder', 'axisbuilder' ),
-				'id'      => 'axisbuilder_sidebar_enabled',
-				'default' => 'yes',
-				'type'    => 'checkbox',
-				'desc_tip' =>  __( 'Allows to register custom Sidebars or Widgets Area from the Widgets Page.', 'axisbuilder' ),
-				'autoload' => false
-			),
-
-			// array(
-			// 	'title'   => __( 'Responsive Elements', 'axisbuilder' ),
-			// 	'desc'    => __( 'Enable Responsive Content Elements', 'axisbuilder' ),
-			// 	'id'      => 'axisbuilder_enable_responsive',
-			// 	'default' => 'yes',
-			// 	'type'    => 'checkbox',
-			// 	'desc_tip' =>  __( 'Prevent content elements from "stacking" one on top other (on small media screens, eg. mobile).', 'axisbuilder' ),
-			// 	'autoload' => false
-			// ),
-
-			array(
 				'title'   => __( 'TinyMCE Shortcodes', 'axisbuilder' ),
 				'desc'    => __( 'Enable the TinyMCE Shortcodes', 'axisbuilder' ),
 				'id'      => 'axisbuilder_tinymce_enabled',
@@ -101,12 +81,12 @@ class AB_Settings_General extends AB_Settings_Page {
 			),
 
 			array(
-				'title'   => __( 'Debug Mode', 'axisbuilder' ),
-				'desc'    => __( 'Enable the Debug Mode', 'axisbuilder' ),
-				'id'      => 'axisbuilder_debug_enabled',
-				'default' => 'no',
+				'title'   => __( 'Custom Widgets Area', 'axisbuilder' ),
+				'desc'    => __( 'Enable Custom Widgets Area Builder', 'axisbuilder' ),
+				'id'      => 'axisbuilder_sidebar_enabled',
+				'default' => 'yes',
 				'type'    => 'checkbox',
-				'desc_tip' =>  __( 'Allows to log all the shortcodes attributes and stuffs via elements textarea.', 'axisbuilder' ),
+				'desc_tip' =>  __( 'Allows to register custom Sidebars or Widgets Area from the Widgets Page.', 'axisbuilder' ),
 				'autoload' => false
 			),
 

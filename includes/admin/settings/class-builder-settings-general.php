@@ -71,22 +71,22 @@ class AB_Settings_General extends AB_Settings_Page {
 			),
 
 			array(
-				'title'   => __( 'Custom Widgets Area', 'axisbuilder' ),
-				'desc'    => __( 'Enable Custom Widgets Area Builder', 'axisbuilder' ),
-				'id'      => 'axisbuilder_sidebar_enabled',
-				'default' => 'yes',
-				'type'    => 'checkbox',
-				'desc_tip' =>  __( 'Allows to register custom Sidebars or Widgets Area from the Widgets Page.', 'axisbuilder' ),
-				'autoload' => false
-			),
-
-			array(
 				'title'   => __( 'TinyMCE Shortcodes', 'axisbuilder' ),
 				'desc'    => __( 'Enable the TinyMCE Shortcodes', 'axisbuilder' ),
 				'id'      => 'axisbuilder_tinymce_enabled',
 				'default' => 'yes',
 				'type'    => 'checkbox',
 				'desc_tip' =>  __( 'Allows to insert shortcodes from the default editor.', 'axisbuilder' ),
+				'autoload' => false
+			),
+
+			array(
+				'title'   => __( 'Custom Widgets Area', 'axisbuilder' ),
+				'desc'    => __( 'Enable Custom Widgets Area Builder', 'axisbuilder' ),
+				'id'      => 'axisbuilder_sidebar_enabled',
+				'default' => 'yes',
+				'type'    => 'checkbox',
+				'desc_tip' =>  __( 'Allows to register custom Sidebars or Widgets Area from the Widgets Page.', 'axisbuilder' ),
 				'autoload' => false
 			),
 

@@ -149,6 +149,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
 	<thead>
 		<tr>
+			<th colspan="3" data-export-label="Settings"><?php _e( 'Settings', 'axisbuilder' ); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td data-export-label="TinyMCE Enabled"><?php _e( 'TinyMCE Enabled', 'axisbuilder' ) ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have tinyMCE enabled?', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php echo 'yes' === get_option( 'axisbuilder_tinymce_enabled' ) ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
+		</tr>
+		<tr>
+			<td data-export-label="Sidebar Builder Enabled"><?php _e( 'Sidebar Builder Enabled', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have Sidebar Builder enabled?', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php echo 'yes' === get_option( 'axisbuilder_sidebar_enabled' ) ? '<mark class="yes">'.'&#10004;'.'</mark>' : '<mark class="no">'.'&ndash;'.'</mark>'; ?></td>
+		</tr>
+	</tbody>
+</table>
+<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+	<thead>
+		<tr>
 			<th colspan="3" data-export-label="Theme"><?php _e( 'Theme', 'axisbuilder' ); ?></th>
 		</tr>
 	</thead>
@@ -182,12 +201,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<tbody>
 		<tr>
 			<td data-export-label="Name"><?php _e( 'Name', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the current active theme.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the current active theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $active_theme->Name; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Version"><?php _e( 'Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the current active theme.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the current active theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				echo $active_theme->Version;
 
@@ -198,12 +217,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 		<tr>
 			<td data-export-label="Author URL"><?php _e( 'Author URL', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The theme developers URL.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The theme developers URL.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $active_theme->{'Author URI'}; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Child Theme"><?php _e( 'Child Theme', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				echo is_child_theme() ? '<mark class="yes">' . '&#10004;' . '</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisBuilder or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axisbuilder' ), 'http://codex.wordpress.org/Child_Themes' );
 			?></td>
@@ -214,23 +233,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 		<tr>
 			<td data-export-label="Parent Theme Name"><?php _e( 'Parent Theme Name', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the parent theme.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the parent theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $parent_theme->Name; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Parent Theme Version"><?php _e( 'Parent Theme Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the parent theme.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the parent theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo  $parent_theme->Version; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Parent Theme Author URL"><?php _e( 'Parent Theme Author URL', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The parent theme developers URL.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The parent theme developers URL.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $parent_theme->{'Author URI'}; ?></td>
 		</tr>
 		<?php endif ?>
 		<tr>
 			<td data-export-label="AxisBuilder Support"><?php _e( 'AxisBuilder Support', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declares AxisBuilder support.', 'axisbuilder'  ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declares AxisBuilder support.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( $active_theme->template, axisbuilder_get_core_supported_themes() ) ) {
 					echo '<mark class="error">' . __( 'Not Declared', 'axisbuilder' ) . '</mark>';

@@ -195,8 +195,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 				<tr>
 					<td data-export-label="<?php echo esc_html( $post['name'] ); ?>"><?php echo esc_html( $post['name'] ); ?>:</td>
-					<td><?php echo isset( $post['help'] ) ? $post['help'] : ''; ?></td>
-					<td class="help">
+					<td class="help"><?php echo isset( $post['help'] ) ? $post['help'] : ''; ?></td>
+					<td>
 						<mark class="<?php echo $mark; ?>">
 							<?php echo ! empty( $post['success'] ) ? '&#10004' : '&#10005'; ?>
 							<?php echo ! empty( $post['note'] ) ? wp_kses_data( $post['note'] ) : ''; ?>

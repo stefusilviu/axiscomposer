@@ -114,9 +114,9 @@ body.axisbuilder-noscroll {
 	@include position(fixed, 50px 15%);
 
 	* {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
 	}
 
 	&.normalscreen {

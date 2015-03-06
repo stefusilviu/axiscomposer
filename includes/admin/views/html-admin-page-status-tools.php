@@ -25,6 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<td>
 						<p>
 							<a href="<?php echo wp_nonce_url( admin_url('admin.php?page=axisbuilder-status&tab=tools&action=' . $action ), 'debug_action' ); ?>" class="button"><?php echo esc_html( $tool['button'] ); ?></a>
+						</p>
+						<p>
 							<span class="description"><?php echo wp_kses_post( $tool['desc'] ); ?></span>
 						</p>
 					</td>

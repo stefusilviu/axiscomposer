@@ -13,7 +13,9 @@
  */
 .axisbuilder-backbone-modal {
 	* {
-		@include box-sizing(content-box);
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 	}
 
 	.axisbuilder-backbone-modal-content {

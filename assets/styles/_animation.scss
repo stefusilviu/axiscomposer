@@ -2,51 +2,17 @@
  * _animation.scss
  * Custom AxisBuilder Animations.
  */
-@-moz-keyframes spin {
+@include keyframes( spin ) {
 	100% {
-		-moz-transform: rotate(360deg);
+		@include transform( rotate(360deg) );
 	}
 }
 
-@-webkit-keyframes spin {
-	100% {
-		-webkit-transform: rotate(360deg);
+@include keyframes( modal ) {
+	from {
+		@include transform( scale(0.7) );
+	}
+	to {
+		@include transform( scale(1) );
 	}
 }
-
-@keyframes spin {
-	100% {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-
-@-moz-keyframes modal {
-	0% {
-		-moz-transform: scale(0.7);
-	}
-	100% {
-		-moz-transform: scale(1);
-	}
-}
-
-@-webkit-keyframes modal {
-	0% {
-		-webkit-transform: scale(0.7);
-	}
-	100% {
-		-webkit-transform: scale(1);
-	}
-}
-
-@keyframes modal {
-	0% {
-		-webkit-transform: scale(0.7);
-		transform: scale(0.7);
-	}
-	100% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
-}
-

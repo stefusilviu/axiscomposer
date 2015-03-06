@@ -75,6 +75,77 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 	</tbody>
 </table>
+<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+	<thead>
+		<tr>
+			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axisbuilder' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		$active_plugins = (array) get_option( 'active_plugins', array() );
+
+		if ( is_multisite() ) {
+			$active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
+		}
+
+		foreach ( $active_plugins as $plugin ) {
+
+			$plugin_data    = @get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
+			$dirname        = dirname( $plugin );
+			$version_string = '';
+			$network_string = '';
+
+			if ( ! empty( $plugin_data['Name'] ) ) {
+
+				// link the plugin name to the plugin url if available
+				$plugin_name = esc_html( $plugin_data['Name'] );
+
+				if ( ! empty( $plugin_data['PluginURI'] ) ) {
+					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage' , 'axisbuilder' ) . '" target="_blank">' . $plugin_name . '</a>';
+				}
+
+				if ( strstr( $dirname, 'axisbuilder-' ) ) {
+
+					if ( false === ( $version_data = get_transient( md5( $plugin ) . '_version_data' ) ) ) {
+						$changelog = wp_remote_get( 'http://axisthemes.com/changelogs/' . $dirname . '/changelog.txt' );
+						$cl_lines  = explode( "\n", wp_remote_retrieve_body( $changelog ) );
+						if ( ! empty( $cl_lines ) ) {
+							foreach ( $cl_lines as $line_num => $cl_line ) {
+								if ( preg_match( '/^[0-9]/', $cl_line ) ) {
+
+									$date         = str_replace( '.' , '-' , trim( substr( $cl_line , 0 , strpos( $cl_line , '-' ) ) ) );
+									$version      = preg_replace( '~[^0-9,.]~' , '' ,stristr( $cl_line , "version" ) );
+									$update       = trim( str_replace( "*" , "" , $cl_lines[ $line_num + 1 ] ) );
+									$version_data = array( 'date' => $date , 'version' => $version , 'update' => $update , 'changelog' => $changelog );
+									set_transient( md5( $plugin ) . '_version_data', $version_data, DAY_IN_SECONDS );
+									break;
+								}
+							}
+						}
+					}
+
+					if ( ! empty( $version_data['version'] ) && version_compare( $version_data['version'], $plugin_data['Version'], '>' ) ) {
+						$version_string = ' &ndash; <strong style="color:red;">' . esc_html( sprintf( _x( '%s is available', 'Version info', 'axisbuilder' ), $version_data['version'] ) ) . '</strong>';
+					}
+
+					if ( $plugin_data['Network'] != false ) {
+						$network_string = ' &ndash; <strong style="color:black;">' . __( 'Network enabled', 'axisbuilder' ) . '</strong>';
+					}
+				}
+
+				?>
+				<tr>
+					<td><?php echo $plugin_name; ?></td>
+					<td class="help">&nbsp;</td>
+					<td><?php echo sprintf( _x( 'by %s', 'by author', 'axisbuilder' ), $plugin_data['Author'] ) . ' &ndash; ' . esc_html( $plugin_data['Version'] ) . $version_string . $network_string; ?></td>
+				</tr>
+				<?php
+			}
+		}
+		?>
+	</tbody>
+</table>
 
 <?php do_action( 'axisbuilder_system_status_report' ); ?>
 

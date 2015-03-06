@@ -78,6 +78,139 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
 	<thead>
 		<tr>
+			<th colspan="3" data-export-label="Server Environment"><?php _e( 'Server Environment', 'axisbuilder' ); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td data-export-label="Server Info"><?php _e( 'Server Info', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Information about the web server that is currently hosting your site.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php echo esc_html( $_SERVER['SERVER_SOFTWARE'] ); ?></td>
+		</tr>
+		<tr>
+			<td data-export-label="PHP Version"><?php _e( 'PHP Version', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php if ( function_exists( 'phpversion' ) ) echo esc_html( phpversion() ); ?></td>
+		</tr>
+		<?php if ( function_exists( 'ini_get' ) ) : ?>
+			<tr>
+				<td data-export-label="PHP Post Max Size"><?php _e( 'PHP Post Max Size', 'axisbuilder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td><?php echo size_format( axisbuilder_let_to_num( ini_get('post_max_size') ) ); ?></td>
+			</tr>
+			<tr>
+				<td data-export-label="PHP Time Limit"><?php _e( 'PHP Time Limit', 'axisbuilder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td><?php echo ini_get('max_execution_time'); ?></td>
+			</tr>
+			<tr>
+				<td data-export-label="PHP Max Input Vars"><?php _e( 'PHP Max Input Vars', 'axisbuilder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td><?php echo ini_get('max_input_vars'); ?></td>
+			</tr>
+			<tr>
+				<td data-export-label="SUHOSIN Installed"><?php _e( 'SUHOSIN Installed', 'axisbuilder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td><?php echo extension_loaded( 'suhosin' ) ? '&#10004;' : '&ndash;'; ?></td>
+			</tr>
+		<?php endif; ?>
+		<tr>
+			<td data-export-label="MySQL Version"><?php _e( 'MySQL Version', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td>
+				<?php
+				/** @global wpdb $wpdb */
+				global $wpdb;
+				echo $wpdb->db_version();
+				?>
+			</td>
+		</tr>
+		<tr>
+			<td data-export-label="Max Upload Size"><?php _e( 'Max Upload Size', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be uploaded to your WordPress installation.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php echo size_format( wp_max_upload_size() ); ?></td>
+		</tr>
+		<tr>
+			<td data-export-label="Default Timezone is UTC"><?php _e( 'Default Timezone is UTC', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The default timezone for your server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php
+				$default_timezone = date_default_timezone_get();
+				if ( 'UTC' !== $default_timezone ) {
+					echo '<mark class="error">' . '&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'axisbuilder' ), $default_timezone ) . '</mark>';
+				} else {
+					echo '<mark class="yes">' . '&#10004;' . '</mark>';
+				} ?>
+			</td>
+		</tr>
+		<?php
+			$posting = array();
+
+			// WP Remote Post Check
+			$posting['wp_remote_post']['name'] = __( 'Remote Post', 'axisbuilder' );
+			$posting['wp_remote_post']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisBuilder plugins may uses this method of communication when sending back information.', 'axisbuilder' ) . '">[?]</a>';
+
+			$response = wp_remote_post( 'https://www.paypal.com/cgi-bin/webscr', array(
+				'sslverify'  => false,
+				'timeout'    => 60,
+				'user-agent' => 'AxisBuilder/' . AB()->version,
+				'body'       => array(
+					'cmd'    => '_notify-validate'
+				)
+			) );
+
+			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
+				$posting['wp_remote_post']['success'] = true;
+			} else {
+				$posting['wp_remote_post']['note']    = __( 'wp_remote_post() failed. Contact your hosting provider.', 'axisbuilder' );
+				if ( is_wp_error( $response ) ) {
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), wc_clean( $response->get_error_message() ) );
+				} else {
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), wc_clean( $response['response']['code'] ) );
+				}
+				$posting['wp_remote_post']['success'] = false;
+			}
+
+			// WP Remote Get Check
+			$posting['wp_remote_get']['name'] = __( 'Remote Get', 'axisbuilder' );
+			$posting['wp_remote_get']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisBuilder plugins may use this method of communication when checking for plugin updates.', 'axisbuilder' ) . '">[?]</a>';
+
+			$response = wp_remote_get( 'https://api.github.com/repos/axisthemes/axisbuilder/contributors', array( 'sslverify' => false ) );
+
+			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
+				$posting['wp_remote_get']['success'] = true;
+			} else {
+				$posting['wp_remote_get']['note']    = __( 'wp_remote_get() failed. The AxisBuilder plugin updater won\'t work with your server. Contact your hosting provider.', 'axisbuilder' );
+				if ( is_wp_error( $response ) ) {
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), axisbuilder_clean( $response->get_error_message() ) );
+				} else {
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), axisbuilder_clean( $response['response']['code'] ) );
+				}
+				$posting['wp_remote_get']['success'] = false;
+			}
+
+			$posting = apply_filters( 'axisbuilder_debug_posting', $posting );
+
+			foreach ( $posting as $post ) {
+				$mark = ! empty( $post['success'] ) ? 'yes' : 'error';
+				?>
+				<tr>
+					<td data-export-label="<?php echo esc_html( $post['name'] ); ?>"><?php echo esc_html( $post['name'] ); ?>:</td>
+					<td><?php echo isset( $post['help'] ) ? $post['help'] : ''; ?></td>
+					<td class="help">
+						<mark class="<?php echo $mark; ?>">
+							<?php echo ! empty( $post['success'] ) ? '&#10004' : '&#10005'; ?>
+							<?php echo ! empty( $post['note'] ) ? wp_kses_data( $post['note'] ) : ''; ?>
+						</mark>
+					</td>
+				</tr>
+				<?php
+			}
+		?>
+	</tbody>
+</table>
+<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+	<thead>
+		<tr>
 			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axisbuilder' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
 		</tr>
 	</thead>

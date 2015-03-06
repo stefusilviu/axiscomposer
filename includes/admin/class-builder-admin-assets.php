@@ -215,6 +215,11 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder-admin-sidebars', 'axisbuilder_admin_sidebars', $params );
 		}
 
+		// System status
+		if ( 'axisbuilder_page_axisbuilder-status' === $screen->id ) {
+			wp_enqueue_script( 'zeroclipboard', AB()->plugin_url() . '/assets/scripts/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+		}
+
 		// Iconfonts Specific
 		if ( in_array( $screen->id, array( 'axisbuilder_page_axisbuilder-iconfonts' ) ) ) {
 			wp_enqueue_media();

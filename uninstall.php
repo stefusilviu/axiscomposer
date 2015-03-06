@@ -14,7 +14,7 @@ if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-$status_options = get_option( 'axisbuilder_status_options', array() ) );
+$status_options = get_option( 'axisbuilder_status_options', array() );
 
 if ( ! empty( $status_options['uninstall_data'] ) ) {
 

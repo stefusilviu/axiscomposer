@@ -85,9 +85,13 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 
 == Changelog ==
 
-Fix - Change hooks used to output post columns - fixes columns after quick edit.
-Fix - Query in uninstall script.
+* Feature - Language pack downloader. po and mo files removed from core (too heavy).
+* Refactor - Improved the Iconfont Uploader Class.
+* Fix - Change hooks used to output post columns - fixes columns after quick edit.
+* Fix - Query in uninstall script.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
+* Dev - Switched to .scss for all styles.
+* Localisation - Removed language files from core to made the package lighter (see language pack downloader feature).
 
 == Upgrade Notice ==
 

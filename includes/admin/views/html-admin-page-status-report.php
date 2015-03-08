@@ -163,9 +163,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			} else {
 				$posting['wp_remote_post']['note']    = __( 'wp_remote_post() failed. Contact your hosting provider.', 'axisbuilder' );
 				if ( is_wp_error( $response ) ) {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), wc_clean( $response->get_error_message() ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), axisbuilder_clean( $response->get_error_message() ) );
 				} else {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), wc_clean( $response['response']['code'] ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), axisbuilder_clean( $response['response']['code'] ) );
 				}
 				$posting['wp_remote_post']['success'] = false;
 			}

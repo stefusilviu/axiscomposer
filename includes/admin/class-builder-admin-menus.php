@@ -175,6 +175,7 @@ class AB_Admin_Menu {
 
 	/**
 	 * Init the addons page
+	 * @todo Need the Add-Ons Page after getting some extensions ready ;)
 	 */
 	public function addons_page() {
 		// AB_Admin_Addons::output();

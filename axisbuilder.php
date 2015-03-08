@@ -176,6 +176,7 @@ final class AxisBuilder {
 
 		include_once( 'includes/class-builder-iconfonts.php' );                // Iconfonts Manager
 		include_once( 'includes/class-builder-post-types.php' );               // Registers post types
+		include_once( 'includes/class-builder-localization.php' );             // Download/update languages
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
 	}
 

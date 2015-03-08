@@ -23,7 +23,8 @@ class AB_Admin_Notices {
 	 * @var array
 	 */
 	private $notices = array(
-		'theme_support' => 'theme_check_notice',
+		'theme_support'       => 'theme_check_notice',
+		'translation_upgrade' => 'translation_upgrade_notice'
 	);
 
 	/**
@@ -33,6 +34,7 @@ class AB_Admin_Notices {
 		add_action( 'switch_theme', array( $this, 'reset_admin_notices' ) );
 		add_action( 'axisbuilder_installed', array( $this, 'reset_admin_notices' ) );
 		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
+		add_action( 'axisbuilder_hide_translation_upgrade_notice', array( $this, 'hide_translation_upgrade_notice' ) );
 		add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
 	}
 
@@ -84,6 +86,13 @@ class AB_Admin_Notices {
 	}
 
 	/**
+	 * Hide translation upgrade message
+	 */
+	public function hide_translation_upgrade_notice() {
+		update_option( 'axisbuilder_language_pack_version', array( AB_VERSION , get_locale() ) );
+	}
+
+	/**
 	 * Add notices + styles if needed.
 	 */
 	public function add_notices() {
@@ -101,6 +110,17 @@ class AB_Admin_Notices {
 	public function theme_check_notice() {
 		if ( ! current_theme_supports( 'axisbuilder' ) ) {
 			include( 'views/html-notice-theme-support.php' );
+		}
+	}
+
+	/**
+	 * Show the translation upgrade notice
+	 */
+	public function translation_upgrade_notice() {
+		$screen = get_current_screen();
+
+		if ( 'update-core' !== $screen->id ) {
+			include( 'views/html-notice-translation-upgrade.php' );
 		}
 	}
 }

@@ -595,6 +595,7 @@ body .ui-draggable-dragging {
 		@include ir();
 		width: 25px;
 		height: 25px;
+		text-indent: inherit;
 	}
 
 	.axisbuilder-element-title {

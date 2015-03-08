@@ -70,7 +70,7 @@ class AB_Localization {
 	 * @return bool
 	 */
 	public function has_available_update() {
-		$locale  = get_locale();
+		$locale = get_locale();
 
 		if ( 'en_US' !== $locale ) {
 			return false;

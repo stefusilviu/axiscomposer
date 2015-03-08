@@ -17,12 +17,4 @@ jQuery( function ( $ ) {
 		$(this).closest( 'a, th' ).attr( 'data-tip', $(this).data( 'tip' ) ).tipTip( tiptip_args ).css( 'cursor', 'help' );
 	});
 
-	// Sidebars
-	jQuery( 'select.show_if_sidebar' ).change( function() {
-		if ( jQuery( this ).val() === 'fullsize' ) {
-			jQuery( this ).parent().next( 'p.form-field' ).slideUp(300);
-		} else {
-			jQuery( this ).parent().next( 'p.form-field' ).slideDown(300);
-		}
-	}).change();
 });

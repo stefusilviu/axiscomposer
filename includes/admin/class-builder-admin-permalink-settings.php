@@ -180,4 +180,4 @@ class AB_Admin_Permalink_Settings {
 	}
 }
 
-return new AB_Admin_Permalink_Settings();
+new AB_Admin_Permalink_Settings();

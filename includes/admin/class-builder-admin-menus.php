@@ -182,4 +182,4 @@ class AB_Admin_Menu {
 	}
 }
 
-return new AB_Admin_Menu();
+new AB_Admin_Menu();

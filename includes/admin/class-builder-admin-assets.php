@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AB_Admin_Assets' ) ) :
-
 /**
  * AB_Admin_Assets Class
  */
@@ -236,6 +234,4 @@ class AB_Admin_Assets {
 	}
 }
 
-endif;
-
-return new AB_Admin_Assets();
+new AB_Admin_Assets();

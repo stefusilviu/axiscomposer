@@ -81,4 +81,4 @@ class AB_Admin_Help {
 	}
 }
 
-return new AB_Admin_Help();
+new AB_Admin_Help();

@@ -105,4 +105,4 @@ class AB_Admin {
 	}
 }
 
-return new AB_Admin();
+new AB_Admin();

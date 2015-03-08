@@ -24,7 +24,6 @@ class AB_Admin_Notices {
 	 */
 	private $notices = array(
 		'theme_support'       => 'theme_check_notice',
-		'frontend_colors'     => 'frontend_colors_notice',
 		'translation_upgrade' => 'translation_upgrade_notice'
 	);
 
@@ -35,7 +34,6 @@ class AB_Admin_Notices {
 		add_action( 'switch_theme', array( $this, 'reset_admin_notices' ) );
 		add_action( 'axisbuilder_installed', array( $this, 'reset_admin_notices' ) );
 		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
-		add_action( 'axisbuilder_hide_frontend_colors_notice', array( $this, 'hide_frontend_colors_notice' ) );
 		add_action( 'axisbuilder_hide_translation_upgrade_notice', array( $this, 'hide_translation_upgrade_notice' ) );
 		add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
 	}
@@ -44,10 +42,6 @@ class AB_Admin_Notices {
 	 * Reset notices for themes when switched or a new version of AB is installed.
 	 */
 	public function reset_admin_notices() {
-		if ( $this->has_frontend_colors() ) {
-			self::add_notice( 'frontend_colors' );
-		}
-
 		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), axisbuilder_get_core_supported_themes() ) ) {
 			self::add_notice( 'theme_support' );
 		}
@@ -92,13 +86,6 @@ class AB_Admin_Notices {
 	}
 
 	/**
-	 * Delete frontend colors option
-	 */
-	public function hide_frontend_colors_notice() {
-		delete_option( 'axisbuilder_frontend_css_colors' );
-	}
-
-	/**
 	 * Hide translation upgrade message
 	 */
 	public function hide_translation_upgrade_notice() {
@@ -127,13 +114,6 @@ class AB_Admin_Notices {
 	}
 
 	/**
-	 * Show the Frontend Colors options notice
-	 */
-	public function frontend_colors_notice() {
-		include( 'views/html-notice-frontend-colors.php' );
-	}
-
-	/**
 	 * Show the translation upgrade notice
 	 */
 	public function translation_upgrade_notice() {
@@ -142,33 +122,6 @@ class AB_Admin_Notices {
 		if ( 'update-core' !== $screen->id ) {
 			include( 'views/html-notice-translation-upgrade.php' );
 		}
-	}
-
-	/**
-	 * Checks if there is any change in axisbuilder_frontend_css_colors
-	 * @return bool
-	 */
-	public function has_frontend_colors() {
-		$styles = (array) AB_Frontend_Scripts::get_styles();
-
-		if ( ! array_key_exists( 'axisbuilder-general', $styles ) ) {
-			return false;
-		}
-
-		$colors  = get_option( 'axisbuilder_frontend_css_colors' );
-		$default = array(
-			'primary'    => '#ad74a2',
-			'secondary'  => '#f7f6f7',
-			'highlight'  => '#85ad74',
-			'content_bg' => '#ffffff',
-			'subtext'    => '#777777'
-		);
-
-		if ( ! $colors || $colors === $default ) {
-			return false;
-		}
-
-		return true;
 	}
 }
 

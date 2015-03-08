@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * AB_Localization Class
+ */
 class AB_Localization {
 
 	/**

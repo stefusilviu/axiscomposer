@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisBuilder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axisbuilder/issues\n"
-"POT-Creation-Date: 2015-03-06 23:49:00+00:00\n"
+"POT-Creation-Date: 2015-03-08 13:34:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -83,35 +83,35 @@ msgid ""
 "have the necessary permissions."
 msgstr ""
 
-#: includes/class-builder-install.php:271
+#: includes/class-builder-install.php:270
 msgid "View AxisBuilder Settings"
 msgstr ""
 
-#: includes/class-builder-install.php:271
+#: includes/class-builder-install.php:270
 msgid "Settings"
 msgstr ""
 
-#: includes/class-builder-install.php:286
+#: includes/class-builder-install.php:285
 msgid "View AxisBuilder Documentation"
 msgstr ""
 
-#: includes/class-builder-install.php:286
+#: includes/class-builder-install.php:285
 msgid "Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:287
+#: includes/class-builder-install.php:286
 msgid "View AxisBuilder API Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:287
+#: includes/class-builder-install.php:286
 msgid "API Docs"
 msgstr ""
 
-#: includes/class-builder-install.php:288
+#: includes/class-builder-install.php:287
 msgid "Visit Premium Customer Support Forum"
 msgstr ""
 
-#: includes/class-builder-install.php:288
+#: includes/class-builder-install.php:287
 msgid "Premium Support"
 msgstr ""
 

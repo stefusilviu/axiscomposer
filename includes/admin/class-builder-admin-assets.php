@@ -132,9 +132,9 @@ class AB_Admin_Assets {
 		// History
 		$history_params = array(
 			'post_id'        => get_the_ID(),
+			'plugin_version' => AB()->version,
 			'theme_name'     => $theme->get( 'Name' ),
-			'theme_version'  => $theme->get( 'Version' ),
-			'plugin_version' => AB_VERSION
+			'theme_version'  => $theme->get( 'Version' )
 		);
 
 		wp_localize_script( 'axisbuilder-history', 'axisbuilder_history', $history_params );

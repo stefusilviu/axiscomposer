@@ -90,7 +90,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<tr>
 			<td data-export-label="PHP Version"><?php _e( 'PHP Version', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php if ( function_exists( 'phpversion' ) ) echo esc_html( phpversion() ); ?></td>
+			<td><?php
+				// Check if phpversion function exists
+				if ( ! function_exists( 'phpversion' ) ) {
+					$php_version = phpversion();
+					if ( version_compare( $php_version, '5.4', '<' ) ) {
+						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: <a href="%s" target="_blank">How to update your PHP version</a>', 'axisbuilder' ), esc_html( $php_version ), ' http://docs.axisthemes.com/document/how-to-update-your-php-version/' ) . '</mark>';
+					} else {
+						echo '<mark class="yes">' . esc_html( $php_version ) . '</mark>';
+					}
+				} else {
+					_e( "Couldn't determine PHP version because phpversion() doesn't exist.", 'axisbuilder' );
+				}
+			?></td>
 		</tr>
 		<?php if ( function_exists( 'ini_get' ) ) : ?>
 			<tr>
@@ -117,13 +129,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<tr>
 			<td data-export-label="MySQL Version"><?php _e( 'MySQL Version', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td>
-				<?php
+			<td><?php
 				/** @global wpdb $wpdb */
 				global $wpdb;
 				echo $wpdb->db_version();
-				?>
-			</td>
+			?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Max Upload Size"><?php _e( 'Max Upload Size', 'axisbuilder' ); ?>:</td>
@@ -139,8 +149,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo '<mark class="error">' . '&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'axisbuilder' ), $default_timezone ) . '</mark>';
 				} else {
 					echo '<mark class="yes">' . '&#10004;' . '</mark>';
-				} ?>
-			</td>
+				}
+			?></td>
 		</tr>
 		<?php
 			$posting = array();
@@ -361,7 +371,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?></td>
 		</tr>
 		<?php
-		if( is_child_theme() ) :
+		if ( is_child_theme() ) :
 			$parent_theme = wp_get_theme( $active_theme->Template );
 		?>
 		<tr>

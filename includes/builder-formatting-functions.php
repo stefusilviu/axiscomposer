@@ -96,9 +96,9 @@ function axisbuilder_trim_string( $string, $chars = 200, $suffix = '...' ) {
 
 /**
  * Format content to display shortcodes.
- * @param  string $string
+ * @param  string $raw_string
  * @return string
  */
-function axisbuilder_format_content( $string ) {
-	return do_shortcode( shortcode_unautop( wpautop( $string ) ) );
+function axisbuilder_format_content( $raw_string ) {
+	return apply_filters( 'axisbuilder_format_content', do_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ), $raw_string );
 }

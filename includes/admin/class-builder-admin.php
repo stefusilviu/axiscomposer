@@ -62,7 +62,6 @@ class AB_Admin {
 	 * Include admin files conditionally.
 	 */
 	public function conditonal_includes() {
-
 		$screen = get_current_screen();
 
 		switch ( $screen->id ) {

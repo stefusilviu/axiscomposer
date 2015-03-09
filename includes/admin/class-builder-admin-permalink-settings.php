@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * AB_Admin_Permalink_Settings Class
+ * @todo Refactor the Permalink Settings Class Smartly xD
  */
 class AB_Admin_Permalink_Settings {
 
@@ -180,4 +181,4 @@ class AB_Admin_Permalink_Settings {
 	}
 }
 
-new AB_Admin_Permalink_Settings();
+// new AB_Admin_Permalink_Settings();

@@ -192,7 +192,7 @@ class AB_Meta_Box_Builder_Data {
 					$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
 
 					// Create a button Link :)
-					self::$load_shortcode = '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-axis-tooltip="' . $tooltip . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
+					self::$load_shortcode = '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode help_tip ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-tip="' . esc_attr( $tooltip ) . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
 
 					if ( $display ) {
 						echo self::$load_shortcode;

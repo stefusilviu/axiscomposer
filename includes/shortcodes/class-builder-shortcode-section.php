@@ -34,7 +34,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	public function shortcode_button() {
 		$this->id        = 'axisbuilder_section';
 		$this->title     = __( 'Color Section', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a section with unique background image and colors', 'axisbuilder' );
+		$this->tooltip   = __( 'Creates a color section with custom styles', 'axisbuilder' );
 		$this->shortcode = array(
 			'sort'        => 11,
 			'type'        => 'layout',

@@ -21,12 +21,6 @@
 		// Image Insert functionality
 		$.AxisBuilderHelper.wp_media_advanced();
 
-		// Default tooltips for various elements like shortcodes.
-		new $.AxisTooltip({
-			scope: '#axisbuilder-editor',
-			attach: 'body'
-		});
-
 		// Control the History Undo-Redo button.
 		new $.AxisBuilderHistory({
 			button: '.history-action',

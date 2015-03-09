@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisBuilder 1.0-bleeding Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axisbuilder/issues\n"
-"POT-Creation-Date: 2015-03-08 13:34:46+00:00\n"
+"POT-Creation-Date: 2015-03-09 11:03:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,85 +25,85 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:117
+#: includes/admin/class-builder-admin-assets.php:115
 msgid "An error occured"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:118
+#: includes/admin/class-builder-admin-assets.php:116
 msgid "All right!"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:119
+#: includes/admin/class-builder-admin-assets.php:117
 msgid "Attention!"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:120
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:160
+#: includes/admin/class-builder-admin-assets.php:118
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:156
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:121
+#: includes/admin/class-builder-admin-assets.php:119
 msgid "Save"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:122
+#: includes/admin/class-builder-admin-assets.php:120
 msgid "Close"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:123
+#: includes/admin/class-builder-admin-assets.php:121
 msgid "Cancel"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:124
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:132
+#: includes/admin/class-builder-admin-assets.php:122
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:128
 #: includes/admin/views/html-admin-page-sidebars.php:39
 msgid "Delete"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:125
+#: includes/admin/class-builder-admin-assets.php:123
 msgid "Error fetching content - please reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:126
+#: includes/admin/class-builder-admin-assets.php:124
 msgid "It seems your are no longer logged in. Please reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:127
+#: includes/admin/class-builder-admin-assets.php:125
 msgid "Your session timed out. Simply reload the page and try again"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:145
+#: includes/admin/class-builder-admin-assets.php:143
 msgid "The current number of cells does not allow any layout variations."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:146
+#: includes/admin/class-builder-admin-assets.php:144
 msgid "You need to add at least one cell."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:147
+#: includes/admin/class-builder-admin-assets.php:145
 msgid "You need to remove at least one cell."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:148
+#: includes/admin/class-builder-admin-assets.php:146
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:192
+#: includes/admin/class-builder-admin-assets.php:189
 msgid "Permanently Delete all Canvas Elements"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:193
+#: includes/admin/class-builder-admin-assets.php:190
 msgid ""
 "All content created in the Page Builder canvas area will be permanently "
 "lost. Are you sure you want to delete all canvas elements? This cannot be "
 "undone."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:211
+#: includes/admin/class-builder-admin-assets.php:208
 msgid "Last warning, are you sure?"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:212
+#: includes/admin/class-builder-admin-assets.php:209
 msgid "Are you sure you want to delete the sidebar now? This cannot be undone."
 msgstr ""
 
@@ -698,28 +698,32 @@ msgstr ""
 msgid "Plugin Additions"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:93
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:89
 msgid "History"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:94
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:90
 msgid "Undo"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:95
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:91
 msgid "Redo"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:98
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:93
 msgid "Permanently delete all canvas elements"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:102
-msgid "Save or Load templates"
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:97
+msgid "Save or Load the Page Builder Templates"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:130
-#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:158
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:98
+msgid "Templates"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:126
+#: includes/admin/meta-boxes/class-builder-meta-box-builder-data.php:154
 #: includes/admin/views/html-admin-page-sidebars.php:37
 msgid "Dismiss"
 msgstr ""
@@ -1362,62 +1366,62 @@ msgstr ""
 msgid "http://axisthemes.com"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:100
+#: includes/admin/class-builder-admin-assets.php:98
 msgctxt "enhanced select"
 msgid "One result is available, press enter to select it."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:101
+#: includes/admin/class-builder-admin-assets.php:99
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:102
+#: includes/admin/class-builder-admin-assets.php:100
 msgctxt "enhanced select"
 msgid "No matches found"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:103
+#: includes/admin/class-builder-admin-assets.php:101
 msgctxt "enhanced select"
 msgid "Loading failed"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:104
+#: includes/admin/class-builder-admin-assets.php:102
 msgctxt "enhanced select"
 msgid "Please enter 1 or more characters"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:105
+#: includes/admin/class-builder-admin-assets.php:103
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:106
+#: includes/admin/class-builder-admin-assets.php:104
 msgctxt "enhanced select"
 msgid "Please delete 1 character"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:107
+#: includes/admin/class-builder-admin-assets.php:105
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:108
+#: includes/admin/class-builder-admin-assets.php:106
 msgctxt "enhanced select"
 msgid "You can only select 1 item"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:109
+#: includes/admin/class-builder-admin-assets.php:107
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:110
+#: includes/admin/class-builder-admin-assets.php:108
 msgctxt "enhanced select"
 msgid "Loading more results&hellip;"
 msgstr ""
 
-#: includes/admin/class-builder-admin-assets.php:111
+#: includes/admin/class-builder-admin-assets.php:109
 msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""

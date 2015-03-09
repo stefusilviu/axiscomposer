@@ -75,16 +75,32 @@ class AB_Admin_Assets {
 		$screen = get_current_screen();
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+		// @deprecated in favour of Backbone Modal, but is registered for backwards compat
+		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', array(
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'error'                     => esc_js( __( 'An error occured', 'axisbuilder' ) ),
+			'success'                   => esc_js( __( 'All right!', 'axisbuilder' ) ),
+			'attention'                 => esc_js( __( 'Attention!', 'axisbuilder' ) ),
+			'i18n_add_button'           => esc_js( __( 'Add', 'axisbuilder' ) ),
+			'i18n_save_button'          => esc_js( __( 'Save', 'axisbuilder' ) ),
+			'i18n_close_button'         => esc_js( __( 'Close', 'axisbuilder' ) ),
+			'i18n_cancel_button'        => esc_js( __( 'Cancel', 'axisbuilder' ) ),
+			'i18n_delete_button'        => esc_js( __( 'Delete', 'axisbuilder' ) ),
+			'i18n_ajax_error'           => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_login_error'          => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_session_error'        => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
+			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
+		) );
+
 		// Register Scripts
 		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-modal', 'axisbuilder-helper', 'axisbuilder-history', 'axisbuilder-shortcodes', 'jquery-tiptip' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
 		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-layouts', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_layouts' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
+		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
@@ -109,44 +125,21 @@ class AB_Admin_Assets {
 			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'axisbuilder' )
 		) );
 
-		// Modal
-		$modal_params = array(
-			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
-			'error'                     => esc_js( __( 'An error occured', 'axisbuilder' ) ),
-			'success'                   => esc_js( __( 'All right!', 'axisbuilder' ) ),
-			'attention'                 => esc_js( __( 'Attention!', 'axisbuilder' ) ),
-			'i18n_add_button'           => esc_js( __( 'Add', 'axisbuilder' ) ),
-			'i18n_save_button'          => esc_js( __( 'Save', 'axisbuilder' ) ),
-			'i18n_close_button'         => esc_js( __( 'Close', 'axisbuilder' ) ),
-			'i18n_cancel_button'        => esc_js( __( 'Cancel', 'axisbuilder' ) ),
-			'i18n_delete_button'        => esc_js( __( 'Delete', 'axisbuilder' ) ),
-			'i18n_ajax_error'           => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_login_error'          => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_session_error'        => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
-			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
-		);
-
-		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', $modal_params );
-
 		// History
-		$history_params = array(
+		wp_localize_script( 'axisbuilder-history', 'axisbuilder_history', array(
 			'post_id'        => get_the_ID(),
 			'plugin_version' => AB()->version,
 			'theme_name'     => $theme->get( 'Name' ),
 			'theme_version'  => $theme->get( 'Version' )
-		);
-
-		wp_localize_script( 'axisbuilder-history', 'axisbuilder_history', $history_params );
+		) );
 
 		// Shortcodes
-		$shortcodes_params = array(
+		wp_localize_script( 'axisbuilder-shortcodes', 'axisbuilder_shortcodes', array(
 			'i18n_no_layout'          => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
 			'i18n_add_one_cell'       => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
 			'i18n_remove_one_cell'    => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),
 			'i18n_select_cell_layout' => esc_js( __( 'Select a cell layout', 'axisbuilder' ) )
-		);
-
-		wp_localize_script( 'axisbuilder-shortcodes', 'axisbuilder_shortcodes', $shortcodes_params );
+		) );
 
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {

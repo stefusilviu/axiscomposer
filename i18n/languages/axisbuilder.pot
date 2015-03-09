@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisBuilder 1.0-bleeding Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axisbuilder/issues\n"
-"POT-Creation-Date: 2015-03-08 13:34:23+00:00\n"
+"POT-Creation-Date: 2015-03-09 11:03:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1106,7 +1106,7 @@ msgid "Color Section"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:37
-msgid "Creates a section with unique background image and colors"
+msgid "Creates a color section with custom styles"
 msgstr ""
 
 #: includes/shortcodes/class-builder-shortcode-section.php:69

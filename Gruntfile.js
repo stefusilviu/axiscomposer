@@ -21,10 +21,6 @@ module.exports = function( grunt ){
 				'Gruntfile.js',
 				'<%= dirs.scripts %>/admin/*.js',
 				'!<%= dirs.scripts %>/admin/*.min.js',
-				'<%= dirs.scripts %>/modal/*.js',
-				'!<%= dirs.scripts %>/modal/*.min.js',
-				'<%= dirs.scripts %>/backbone/*.js',
-				'!<%= dirs.scripts %>/backbone/*.min.js',
 				'<%= dirs.scripts %>/frontend/*.js',
 				'!<%= dirs.scripts %>/frontend/*.min.js'
 			]
@@ -44,30 +40,6 @@ module.exports = function( grunt ){
 						'!*.min.js'
 					],
 					dest: '<%= dirs.scripts %>/admin/',
-					ext: '.min.js'
-				}]
-			},
-			modal: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.scripts %>/modal/',
-					src: [
-						'*.js',
-						'!*.min.js'
-					],
-					dest: '<%= dirs.scripts %>/modal/',
-					ext: '.min.js'
-				}]
-			},
-			backbone: {
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.scripts %>/backbone/',
-					src: [
-						'*.js',
-						'!*.min.js'
-					],
-					dest: '<%= dirs.scripts %>/backbone/',
 					ext: '.min.js'
 				}]
 			},
@@ -125,10 +97,6 @@ module.exports = function( grunt ){
 				files: [
 					'<%= dirs.scripts %>/admin/*.js',
 					'!<%= dirs.scripts %>/admin/*.min.js',
-					'<%= dirs.scripts %>/modal/*.js',
-					'!<%= dirs.scripts %>/modal/*.min.js',
-					'<%= dirs.scripts %>/backbone/*.js',
-					'!<%= dirs.scripts %>/backbone/*.min.js',
 					'<%= dirs.scripts %>/frontend/*.js',
 					'!<%= dirs.scripts %>/frontend/*.min.js'
 				],

@@ -76,7 +76,7 @@ class AB_Admin_Assets {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// @deprecated in favour of Backbone Modal, but is registered for backwards compat
-		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/modal/modal' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/modal/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', array(
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
 			'error'                     => esc_js( __( 'An error occured', 'axisbuilder' ) ),

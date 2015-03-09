@@ -79,27 +79,23 @@ class AB_Meta_Box_Builder_Data {
 				<div id="media_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
 				<div id="plugin_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
 
-				<?php
-
-					do_action( 'axisbuilder_shortcode_data_panels' );
-				?>
+				<?php do_action( 'axisbuilder_shortcode_data_panels' ); ?>
 
 				<div class="clear"></div>
-
 			</div>
 			<div id="axisbuilder-handle" class="handle-bar">
 				<div class="control-bar">
 					<div class="history-sections">
-						<div class="history-action" data-axis-tooltip="<?php _e( 'History', 'axisbuilder' ); ?>">
+						<div class="history-action help_tip" data-tip="<?php _e( 'History', 'axisbuilder' ); ?>">
 							<a href="#undo" class="undo-icon undo-data" title="<?php _e( 'Undo', 'axisbuilder' ); ?>"></a>
 							<a href="#redo" class="redo-icon redo-data" title="<?php _e( 'Redo', 'axisbuilder' ); ?>"></a>
 						</div>
-						<div class="delete-action">
-							<a href="#trash" class="trash-icon trash-data" data-axis-tooltip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>"></a>
+						<div class="delete-action help_tip" data-tip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>">
+							<a href="#trash" class="trash-icon trash-data"></a>
 						</div>
 					</div>
-					<div class="template-sections">
-						<a href="#template" class="button-secondary" data-axis-tooltip="<?php _e( 'Save or Load templates', 'axisbuilder' ); ?>">Templates</a>
+					<div class="template-sections help_tip" data-tip="<?php _e( 'Save or Load the Page Builder Templates', 'axisbuilder' ); ?>">
+						<a href="#template" class="button-secondary"><?php _e( 'Templates', 'axisbuilder' ); ?></a>
 					</div>
 				</div>
 			</div>

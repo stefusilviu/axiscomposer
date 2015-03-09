@@ -112,13 +112,12 @@ function AB_Logger( text, type ) {
 			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
 				var length = obj.axisBuilderCanvas.children().length;
 
-				if ( length > 0 ) {
-					$( this ).AxisBuilderBackboneModal({
-						title: axisbuilder_admin.i18n_trash_all_elements_title,
-						message: axisbuilder_admin.i18n_trash_all_elements_message,
-						template: '#tmpl-axisbuilder-modal-trash-data'
-					});
-				}
+				$( this ).AxisBuilderBackboneModal({
+					title: axisbuilder_admin.i18n_trash_all_elements_title,
+					message: ( length > 0 ) ? axisbuilder_admin.i18n_trash_all_elements_message : axisbuilder_admin.i18n_trash_all_elements_atleast,
+					dismiss: ( length > 0 ) ? false : true,
+					template: '#tmpl-axisbuilder-modal-trash-data'
+				});
 
 				return false;
 			});

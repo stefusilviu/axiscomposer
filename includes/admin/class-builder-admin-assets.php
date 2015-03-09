@@ -180,6 +180,7 @@ class AB_Admin_Assets {
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'debug_mode'                      => empty( $status_options['builder_debug_mode'] ) ? 'no' : 'yes',
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
+				'i18n_trash_all_elements_atleast' => esc_js( __( 'You need to add at least one element to the canvas area to perform this action.', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
 			);
 

@@ -99,13 +99,13 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder-history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
-		wp_register_script( 'axisbuilder-layouts', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_layouts' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
+		wp_register_script( 'axisbuilder-admin-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable', 'axisbuilder-enhanced-select' ), AB_VERSION );
+
+		// Register External Scripts
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
-
-		// Select2 is the replacement for chosen
 		wp_register_script( 'select2', AB()->plugin_url() . '/assets/scripts/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
 		wp_register_script( 'axisbuilder-enhanced-select', AB()->plugin_url() . '/assets/scripts/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AB_VERSION );
 		wp_localize_script( 'axisbuilder-enhanced-select', 'axisbuilder_enhanced_select_params', array(
@@ -156,7 +156,7 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );
 		}
 
-		// AxisBuilder pages
+		// Page Builder
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-admin' );
@@ -187,9 +187,9 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
 		}
 
-		// Layout Specific
+		// Meta boxes
 		if ( in_array( $screen->id, axisbuilder_get_layout_supported_screens() ) ) {
-			wp_enqueue_script( 'axisbuilder-layouts' );
+			wp_enqueue_script( 'axisbuilder-admin-layout-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-layout' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		}
 
 		// Widgets Specific

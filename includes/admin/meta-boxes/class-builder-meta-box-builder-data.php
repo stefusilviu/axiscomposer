@@ -36,12 +36,11 @@ class AB_Meta_Box_Builder_Data {
 		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
 
 		?>
-
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style panel-wrap">
 			<div id="axisbuilder-panels" class="panels-tab">
 				<ul class="axisbuilder-tabs">
 					<?php
-						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_tabs', array(
+						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_data_tabs', array(
 							'layout'  => array(
 								'label'  => __( 'Layout Elements', 'axisbuilder' ),
 								'target' => 'layout_builder_data',

@@ -150,7 +150,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
 
 			$params = array(
-				'ajax_url'  => admin_url( 'admin-ajax.php' )
+				'ajax_url' => admin_url( 'admin-ajax.php' )
 			);
 
 			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );

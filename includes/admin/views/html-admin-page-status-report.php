@@ -55,7 +55,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				$memory = axisbuilder_let_to_num( WP_MEMORY_LIMIT );
-
 				if ( $memory < 67108864 ) {
 					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'axisbuilder' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
 				} else {
@@ -67,6 +66,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td data-export-label="WP Debug Mode"><?php _e( 'WP Debug Mode', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php if ( defined('WP_DEBUG') && WP_DEBUG ) echo '<mark class="yes">' . '&#10004;' . '</mark>'; else echo '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
+		</tr>
+		<tr>
+			<td data-export-label="WP Script Debug"><?php _e( 'WP Script Debug', 'axisbuilder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress load non-minified assets.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td><?php if ( defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) echo '<mark class="yes">' . '&#10004;' . '</mark>'; else echo '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Language"><?php _e( 'Language', 'axisbuilder' ); ?>:</td>

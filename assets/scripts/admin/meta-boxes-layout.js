@@ -1,6 +1,3 @@
-/**
- * AxisBuilder Layouts JS
- */
 jQuery( function ( $ ) {
 
 	$( 'select.show_if_sidebar' ).change( function() {

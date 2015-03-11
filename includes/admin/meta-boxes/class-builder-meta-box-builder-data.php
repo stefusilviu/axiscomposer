@@ -40,7 +40,7 @@ class AB_Meta_Box_Builder_Data {
 			<div id="axisbuilder-panels" class="panel-wrap">
 				<ul class="axisbuilder-tabs">
 					<?php
-						$builder_data_tabs = apply_filters( 'axisbuilder_builder_data_tabs', array(
+						$shortcode_data_tabs = apply_filters( 'axisbuilder_shortcode_data_tabs', array(
 							'layout'  => array(
 								'label'  => __( 'Layout Elements', 'axisbuilder' ),
 								'target' => 'layout_builder_data',
@@ -63,13 +63,13 @@ class AB_Meta_Box_Builder_Data {
 							),
 						) );
 
-						foreach ( $builder_data_tabs as $key => $tab ) {
+						foreach ( $shortcode_data_tabs as $key => $tab ) {
 							?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
 								<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
 							</li><?php
 						}
 
-						do_action( 'axisbuilder_builder_write_panel_tabs' );
+						do_action( 'axisbuilder_shortcode_write_panel_tabs' );
 					?>
 				</ul>
 
@@ -78,7 +78,7 @@ class AB_Meta_Box_Builder_Data {
 				<div id="media_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
 				<div id="plugin_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
 
-				<?php do_action( 'axisbuilder_builder_data_panels' ); ?>
+				<?php do_action( 'axisbuilder_shortcode_data_panels' ); ?>
 
 				<div class="clear"></div>
 			</div>

@@ -161,6 +161,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'axisbuilder-backbone-modal' );
+			wp_enqueue_script( 'axisbuilder-admin-meta-boxes' );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );

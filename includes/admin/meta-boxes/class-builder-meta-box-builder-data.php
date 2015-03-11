@@ -36,9 +36,9 @@ class AB_Meta_Box_Builder_Data {
 		echo '<input type="hidden" name="axisbuilder_status" value="' . esc_attr( $builder_status ? $builder_status : 'inactive' ) . '"/>';
 
 		?>
-		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style panel-wrap">
-			<div id="axisbuilder-panels" class="panels-tab">
-				<ul class="axisbuilder-tabs">
+		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style">
+			<div id="axisbuilder-panels" class="builder_data panel-wrap">
+				<ul class="builder_data_tabs axisbuilder-tabs" style="display:none">
 					<?php
 						$builder_data_tabs = apply_filters( 'axisbuilder_shortcode_data_tabs', array(
 							'layout'  => array(
@@ -73,10 +73,10 @@ class AB_Meta_Box_Builder_Data {
 					?>
 				</ul>
 
-				<div id="layout_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
-				<div id="content_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
-				<div id="media_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
-				<div id="plugin_builder_data" class="panel axisbuilder-shortcodes-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
+				<div id="layout_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
 
 				<?php do_action( 'axisbuilder_shortcode_data_panels' ); ?>
 

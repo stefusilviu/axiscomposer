@@ -13,7 +13,7 @@
 	$( document ).ready( function() {
 
 		// Can be removed once all browser support css only tabs (:target support needed)
-		$.AxisBuilderHelper.tabs( '.panel-wrap' );
+		// $.AxisBuilderHelper.tabs( '.panel-wrap' );
 
 		// Show/Hide the dependent elements.
 		$.AxisBuilderHelper.check_depedencies();

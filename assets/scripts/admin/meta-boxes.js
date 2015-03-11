@@ -2,7 +2,6 @@
 jQuery( function ( $ ) {
 
 	// TABS
-	$( 'ul.axisbuilder-tabs' ).show();
 	$( 'div.panel-wrap' ).each( function() {
 		$( this ).find( 'div.panel:not(:first)' ).hide();
 	});
@@ -17,4 +16,3 @@ jQuery( function ( $ ) {
 	$( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
 
 });
-

@@ -13,7 +13,7 @@
 	$( document ).ready( function() {
 
 		// Can be removed once all browser support css only tabs (:target support needed)
-		// $.AxisBuilderHelper.tabs( '.panels-tab' );
+		$.AxisBuilderHelper.tabs( '.panel-wrap' );
 
 		// Show/Hide the dependent elements.
 		$.AxisBuilderHelper.check_depedencies();
@@ -30,47 +30,49 @@
 	});
 
 	// Since css only tabs are not fully working by now this script adds tab behavior to a tab container of choice
-	// $.AxisBuilderHelper.tabs = function( tab_container, mirror_container ) {
+	$.AxisBuilderHelper.tabs = function( tab_container, mirror_container ) {
 
-	// 	$( tab_container ).each( function( i ) {
-	// 		var active_tab = 0,
-	// 			storage    = false,
-	// 			postid     = 'axisbuilder_post_' + i + '_' + axisbuilder_admin.post_id;
+		$( tab_container ).each( function( i ) {
+			var active_tab = 0,
+				storage    = false,
+				postid     = 'axisbuilder_post_' + i + '_' + axisbuilder_admin.post_id;
 
-	// 		if ( typeof( storage ) !== 'undefined' ) {
-	// 			storage = true,
-	// 			active_tab = sessionStorage[postid] || 0;
-	// 		}
+				console.log(postid);
 
-	// 		var	current = $( this ),
-	// 			items   = current.find( '.axisbuilder-tabs li' ),
-	// 			tabs    = current.find( '.axisbuilder-shortcodes-panel' ),
-	// 			current_item;
+			if ( typeof( storage ) !== 'undefined' ) {
+				storage = true,
+				active_tab = sessionStorage[postid] || 0;
+			}
 
-	// 		items.unbind( 'click' ).bind( 'click', function() {
-	// 			items.removeClass( 'active' );
-	// 			current_item = $( this ).addClass( 'active' );
+			var	current = $( this ),
+				items   = current.find( '.axisbuilder-tabs li' ),
+				tabs    = current.find( '.axisbuilder-shortcodes-panel' ),
+				current_item;
 
-	// 			var index = items.index( current_item );
+			items.unbind( 'click' ).bind( 'click', function() {
+				items.removeClass( 'active' );
+				current_item = $( this ).addClass( 'active' );
 
-	// 			tabs.css({ display: 'none' }).filter( ':eq(' + index + ')' ).css({ display:'block' });
-	// 			if ( storage ) {
-	// 				sessionStorage[postid] = index;
-	// 			}
+				var index = items.index( current_item );
 
-	// 			// mirror_container should be defined when the tab element is cloned for the fullscreen view
-	// 			if ( typeof mirror_container !== 'undefined' ) {
-	// 				mirror_container.find( '.axisbuilder-tabs a' ).eq( index ).trigger( 'click' );
-	// 			}
+				tabs.css({ display: 'none' }).filter( ':eq(' + index + ')' ).css({ display:'block' });
+				if ( storage ) {
+					sessionStorage[postid] = index;
+				}
 
-	// 			return false;
-	// 		});
+				// mirror_container should be defined when the tab element is cloned for the fullscreen view
+				if ( typeof mirror_container !== 'undefined' ) {
+					mirror_container.find( '.axisbuilder-tabs a' ).eq( index ).trigger( 'click' );
+				}
 
-	// 		if ( ! items.filter( '.active' ).length ) {
-	// 			items.filter( ':eq(' + active_tab + ')' ).addClass( 'active' ).trigger( 'click' );
-	// 		}
-	// 	});
-	// };
+				return false;
+			});
+
+			if ( ! items.filter( '.active' ).length ) {
+				items.filter( ':eq(' + active_tab + ')' ).addClass( 'active' ).trigger( 'click' );
+			}
+		});
+	};
 
 	// Depedency checker for selected elements.
 	$.AxisBuilderHelper.check_depedencies = function() {

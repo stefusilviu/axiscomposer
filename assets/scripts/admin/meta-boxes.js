@@ -14,6 +14,7 @@ jQuery( function ( $ ) {
 		$( $( this ).attr( 'href' ) ).show();
 		return false;
 	});
-	$( 'ul.axisbuilder-tabs li:visible' ).eq(0).find( 'a' ).click();
+	$( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
 
 });
+

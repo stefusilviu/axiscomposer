@@ -37,8 +37,8 @@ class AB_Meta_Box_Builder_Data {
 
 		?>
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style">
-			<div id="axisbuilder-panels" class="builder_data panel-wrap">
-				<ul class="builder_data_tabs axisbuilder-tabs" style="display:none">
+			<div id="axisbuilder-panels" class="panel-wrap">
+				<ul class="axisbuilder-tabs">
 					<?php
 						$builder_data_tabs = apply_filters( 'axisbuilder_builder_data_tabs', array(
 							'layout'  => array(

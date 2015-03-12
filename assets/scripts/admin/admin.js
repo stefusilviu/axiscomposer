@@ -222,6 +222,10 @@ function AB_Logger( text, type ) {
 
 		// Switch between the {WordPress|AxisBuilder} Editors
 		switchEditors: function() {
+			if ( this.axisBuilderButton.is( '.disabled' ) ) {
+				return;
+			}
+
 			var self = this;
 
 			if ( this.axisBuilderStatus.val() !== 'active' ) {

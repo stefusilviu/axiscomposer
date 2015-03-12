@@ -32,6 +32,6 @@ if ( ! function_exists( 'is_pagebuilder_active' ) ) {
 	 * @return bool
 	 */
 	function is_pagebuilder_active( $post_ID ) {
-		return apply_filters( 'axisbuilder_pagebuilder_active', get_post_meta( $post_ID, '_axisbuilder_status', true ), $post_ID );
+		return apply_filters( 'axisbuilder_is_pagebuilder_active', get_post_meta( $post_ID, '_axisbuilder_status', true ), $post_ID );
 	}
 }

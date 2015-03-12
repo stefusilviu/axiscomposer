@@ -201,7 +201,7 @@ class AB_Admin_Post_Types {
 			global $post_ID;
 
 			$status = is_pagebuilder_active( $post_ID );
-			$params = apply_filters( 'axisbuilder_pagebuilder_button_params', array(
+			$params = apply_filters( 'axisbuilder_editors_toggle_params', array(
 				'class'         => '',
 				'notice'        => '',
 				'disabled'      => false,

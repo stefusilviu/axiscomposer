@@ -41,6 +41,7 @@ i.mce-i-axisbuilder-shortcodes {
 	}
 }
 
+.axisbuilder-plugin-display-notice,
 .axisbuilder-plugin-upgrade-notice {
 	font-weight: normal;
 	color: #fff;
@@ -63,6 +64,10 @@ i.mce-i-axisbuilder-shortcodes {
 		-moz-osx-font-smoothing: grayscale;
 		vertical-align: top;
 	}
+}
+
+.axisbuilder-plugin-display-notice {
+	margin: 15px 0 0;
 }
 
 /**

@@ -56,33 +56,6 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Pagebuilder Notice
- */
-.axisbuilder-notice {
-	font-weight: normal;
-	color: #fff;
-	background: #d54d21;
-	padding: 1em;
-	margin-top: 15px;
-
-	a {
-		color: #fff;
-		text-decoration: underline;
-	}
-
-	&:before {
-		content: "\f348";
-		display: inline-block;
-		font: 400 18px/1 dashicons;
-		speak: none;
-		margin: 0 8px 0 -2px;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		vertical-align: top;
-	}
-}
-
-/**
  * Hide Default Editor
  */
 #postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {

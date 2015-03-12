@@ -226,7 +226,7 @@ class AB_Admin_Post_Types {
 			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axisbuilder ' . $editor_class . '">';
 			if ( $params['notice'] ) {
-				echo '<div class="axisbuilder-notice">' . $params['notice'] . '</div>';
+				echo '<div class="axisbuilder-plugin-display-notice">' . $params['notice'] . '</div>';
 			}
 		}
 	}

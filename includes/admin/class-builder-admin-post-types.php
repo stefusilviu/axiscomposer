@@ -200,15 +200,34 @@ class AB_Admin_Post_Types {
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			global $post_ID;
 
-			$builder_label   = __( 'Use Page Builder', 'axisbuilder' );
-			$default_label   = __( 'Use Default Editor', 'axisbuilder' );
-			$is_builder_used = get_post_meta( $post_ID, '_axisbuilder_status', true );
-			$active_label    = $is_builder_used == 'active' ? $default_label : $builder_label;
-			$button_class    = $is_builder_used == 'active' ? 'button-secondary' : 'button-primary';
-			$editor_class    = $is_builder_used == 'active' ? ' axisbuilder-hidden-editor' : '';
+			$status = is_pagebuilder_active( $post_ID );
+			$params = apply_filters( 'axisbuilder_editors_toggle_params', array(
+				'notice'        => '',
+				'disabled'      => false,
+				'builder_label' => __( 'Use Page Builder', 'axisbuilder' ),
+				'default_label' => __( 'Use Default Editor', 'axisbuilder' ),
+				'disable_label' => __( 'Page Builder Disabled', 'axisbuilder' )
+			) );
 
-			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-page-builder="' . $builder_label . '" data-default-editor="' . $default_label . '">' . $active_label . '</a>';
-			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
+			if ( $status == 'active' ) {
+				$active_label = $params['default_label'];
+				$button_class = 'button-secondary';
+				$editor_class = 'axisbuilder-hidden-editor';
+			} elseif ( $params['disabled'] ) {
+				$active_label = $params['disable_label'];
+				$button_class = 'button-secondary disabled';
+				$editor_class = 'axisbuilder-visible-editor';
+			} else {
+				$active_label = $params['builder_label'];
+				$button_class = 'button-primary';
+				$editor_class = 'axisbuilder-visible-editor';
+			}
+
+			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
+			echo '<div id="postdivrich_wrap" class="axisbuilder ' . $editor_class . '">';
+			if ( $params['notice'] ) {
+				echo '<div class="axisbuilder-plugin-display-notice">' . $params['notice'] . '</div>';
+			}
 		}
 	}
 

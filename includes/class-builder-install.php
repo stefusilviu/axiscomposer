@@ -59,7 +59,8 @@ class AB_Install {
 		self::create_files();
 
 		// Update version
-		update_option( 'axisbuilder_version', AB()->version );
+		delete_option( 'axisbuilder_version' );
+		add_option( 'axisbuilder_version', AB()->version );
 
 		// Flush rules after install
 		flush_rewrite_rules();
@@ -247,7 +248,7 @@ class AB_Install {
 
 			if ( version_compare( AB_VERSION, $version, '<' ) ) {
 
-				$upgrade_notice .= '<div class="axisbuilder_plugin_upgrade_notice">';
+				$upgrade_notice .= '<div class="axisbuilder-plugin-upgrade-notice">';
 
 				foreach ( $notices as $index => $line ) {
 					$upgrade_notice .= wp_kses_post( preg_replace( '~\[([^\]]*)\]\(([^\)]*)\)~', '<a href="${2}">${1}</a>', $line ) );

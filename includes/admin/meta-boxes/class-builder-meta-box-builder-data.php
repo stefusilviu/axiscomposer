@@ -213,7 +213,7 @@ class AB_Meta_Box_Builder_Data {
 		}
 
 		// Class for hidden items
-		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && get_post_meta( $_GET['post'], '_axisbuilder_status', true ) != 'active' ) ) {
+		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && is_pagebuilder_active( $_GET['post'] ) != 'active' ) ) {
 			$classes[] = 'axisbuilder-hidden';
 		}
 

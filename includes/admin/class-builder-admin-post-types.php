@@ -211,6 +211,7 @@ class AB_Admin_Post_Types {
 
 			if ( $params['disabled'] ) {
 				$status = false;
+				$params['class'] = 'disabled';
 			}
 
 			$active_label = $status == 'active' ? $params['default_label'] : $params['builder_label'];
@@ -219,7 +220,7 @@ class AB_Admin_Post_Types {
 
 			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . ' ' . $params['class'] . '" data-page-builder="' . $params['builder_label'] . '" data-default-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
-			if ( $params['notice'] ) {
+			if ( isset( $params['notice'] ) ) {
 				echo '<div class="axisbuilder-notice">' . $params['notice'] . '</div>';
 			}
 		}

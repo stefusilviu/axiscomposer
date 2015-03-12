@@ -263,7 +263,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$params = array();
 		$output = $background = '';
 
-		self::$section_count++;
+		self::$section_count ++;
 
 		// Entire list of supported attributes and their defaults
 		$pairs = array(

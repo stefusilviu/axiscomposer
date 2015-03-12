@@ -247,6 +247,7 @@ class AB_Iconfonts {
 
 	/**
 	 * Remove Iconfont
+	 * @param string $fontname
 	 */
 	public static function remove_iconfont( $fontname ) {
 		$fonts = get_option( 'axisbuilder_custom_iconfonts' );

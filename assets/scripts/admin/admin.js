@@ -230,7 +230,7 @@ function AB_Logger( text, type ) {
 
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
 				this.wpDefaultEditorWrap.parent().addClass( 'axisbuilder-hidden-editor' );
-				this.axisBuilderButton.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'default-editor' ) );
+				this.axisBuilderButton.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'editor' ) );
 				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'active' );
 
@@ -245,7 +245,7 @@ function AB_Logger( text, type ) {
 				}, 10 );
 			} else {
 				this.wpDefaultEditorWrap.parent().removeClass( 'axisbuilder-hidden-editor' );
-				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'page-builder' ) );
+				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'builder' ) );
 				this.axisBuilderParent.addClass( 'axisbuilder-hidden');
 				this.axisBuilderStatus.val( 'inactive' );
 

@@ -223,7 +223,7 @@ class AB_Admin_Post_Types {
 				$editor_class = 'axisbuilder-visible-editor';
 			}
 
-			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-page-builder="' . $params['builder_label'] . '" data-default-editor="' . $params['default_label'] . '" data-disable-label="' . $params['disable_label'] . '">' . $active_label . '</a>';
+			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '" data-disable-label="' . $params['disable_label'] . '">' . $active_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axisbuilder ' . $editor_class . '">';
 			if ( $params['notice'] ) {
 				echo '<div class="axisbuilder-notice">' . $params['notice'] . '</div>';

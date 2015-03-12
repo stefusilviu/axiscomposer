@@ -24,7 +24,6 @@ class AB_Meta_Box_Portfolio_Breadcrumb {
 	public static function output( $post ) {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
-		// Breadcrumb Parent Page
 		?>
 		<ul class="breadcrumb_data">
 			<p class="form-field"><label for="breadcrumb_parent"><?php _e( 'Breadcrumb Parent Page', 'axisbuilder' ) ?></label>

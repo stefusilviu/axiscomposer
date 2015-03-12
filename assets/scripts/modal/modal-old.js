@@ -311,13 +311,17 @@
 				parents     = current.parents( '.wp-editor-wrap:eq(0)' ),
 				textarea    = parents.find( 'textarea.axisbuilder-tinymce' ),
 				switch_btn  = parents.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
-				tinyVersion = window.tinyMCE.majorVersion,
+				tinyVersion = false,
 				executeAdd  = 'mceAddControl',
 				executeRem  = 'mceRemoveControl',
 				settings    = {
 					id: this.id,
 					buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close'
 				};
+
+			if ( window.tinyMCE ) {
+				tinyVersion = window.tinyMCE.majorVersion;
+			}
 
 			if ( tinyVersion >= 4 ) {
 				executeAdd = 'mceAddEditor';
@@ -349,7 +353,10 @@
 						textarea.val( window.switchEditors._wp_Nop( value ) );
 					}
 				}
-			}).trigger( 'click' );
+			})
+
+			// Activate the visual editor
+			switch_btn.filter( '.switch-tmce' ).trigger( 'click' );
 
 			// Ensure when save button is clicked, the textarea gets updated and sent to the editor
 			save_btn.bind( 'click', function() {

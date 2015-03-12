@@ -59,7 +59,8 @@ class AB_Install {
 		self::create_files();
 
 		// Update version
-		update_option( 'axisbuilder_version', AB()->version );
+		delete_option( 'axisbuilder_version' );
+		add_option( 'axisbuilder_version', AB()->version );
 
 		// Flush rules after install
 		flush_rewrite_rules();

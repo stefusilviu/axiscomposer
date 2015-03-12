@@ -200,24 +200,27 @@ class AB_Admin_Post_Types {
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			global $post_ID;
 
-			// Page Builder Toggle Buttons Params
+			$status = is_pagebuilder_active( $post_ID );
 			$params = apply_filters( 'axisbuilder_pagebuilder_button_params', array(
-				'class'         => ''
+				'class'         => '',
 				'notice'        => '',
 				'disabled'      => false,
 				'builder_label' => __( 'Use Page Builder', 'axisbuilder' ),
 				'default_label' => __( 'Use Default Editor', 'axisbuilder' ),
 			) );
 
-			$builder_used = ( $params['disabled'] ) ? false : is_pagebuilder_active( $post_ID );
-			$active_label = $builder_used == 'active' ? $params['default_label'] : $params['builder_label'];
-			$button_class = $builder_used == 'active' ? 'button-secondary' : 'button-primary';
-			$editor_class = $builder_used == 'active' ? ' axisbuilder-hidden-editor' : '';
+			if ( $params['disabled'] ) {
+				$status = false;
+			}
+
+			$active_label = $status == 'active' ? $params['default_label'] : $params['builder_label'];
+			$button_class = $status == 'active' ? 'button-secondary' : 'button-primary';
+			$editor_class = $status == 'active' ? ' axisbuilder-hidden-editor' : '';
 
 			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . ' ' . $params['class'] . '" data-page-builder="' . $params['builder_label'] . '" data-default-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
 			if ( $params['notice'] ) {
-				echo '<div class="axisbuilder-disable-notice">' . $params['note'] . '</div>';
+				echo '<div class="axisbuilder-notice">' . $params['notice'] . '</div>';
 			}
 		}
 	}

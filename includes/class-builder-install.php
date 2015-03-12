@@ -247,7 +247,7 @@ class AB_Install {
 
 			if ( version_compare( AB_VERSION, $version, '<' ) ) {
 
-				$upgrade_notice .= '<div class="axisbuilder_plugin_upgrade_notice">';
+				$upgrade_notice .= '<div class="axisbuilder-plugin-notice">';
 
 				foreach ( $notices as $index => $line ) {
 					$upgrade_notice .= wp_kses_post( preg_replace( '~\[([^\]]*)\]\(([^\)]*)\)~', '<a href="${2}">${1}</a>', $line ) );

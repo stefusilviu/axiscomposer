@@ -209,19 +209,22 @@ class AB_Admin_Post_Types {
 				'disable_label' => __( 'Page Builder Disabled', 'axisbuilder' )
 			) );
 
-			if ( $params['disabled'] ) {
-				$status = false;
-				axisbuilder_enqueue_js( "
-					jQuery( '#axisbuilder-button' ).removeClass( 'button-primary' ).addClass( 'button-secondary disabled' ).text( jQuery(  '#axisbuilder-button' ).data( 'disable-label' ) );
-				" );
+			if ( $status == 'active' ) {
+				$active_label = $params['default_label'];
+				$button_class = 'button-secondary';
+				$editor_class = 'axisbuilder-hidden-editor';
+			} elseif ( $params['disabled'] ) {
+				$active_label = $params['disable_label'];
+				$button_class = 'button-secondary disabled';
+				$editor_class = 'axisbuilder-visible-editor';
+			} else {
+				$active_label = $params['builder_label'];
+				$button_class = 'button-primary';
+				$editor_class = 'axisbuilder-visible-editor';
 			}
 
-			$active_label = $status == 'active' ? $params['default_label'] : $params['builder_label'];
-			$button_class = $status == 'active' ? 'button-secondary' : 'button-primary';
-			$editor_class = $status == 'active' ? ' axisbuilder-hidden-editor' : '';
-
 			echo '<a href="#" id="axisbuilder-button" class="button button-large ' . $button_class . '" data-page-builder="' . $params['builder_label'] . '" data-default-editor="' . $params['default_label'] . '" data-disable-label="' . $params['disable_label'] . '">' . $active_label . '</a>';
-			echo '<div id="postdivrich_wrap" class="axisbuilder' . $editor_class . '">';
+			echo '<div id="postdivrich_wrap" class="axisbuilder ' . $editor_class . '">';
 			if ( $params['notice'] ) {
 				echo '<div class="axisbuilder-notice">' . $params['notice'] . '</div>';
 			}

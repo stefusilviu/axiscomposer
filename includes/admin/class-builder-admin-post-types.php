@@ -200,7 +200,6 @@ class AB_Admin_Post_Types {
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			global $post_ID;
 
-			$status = is_pagebuilder_active( $post_ID );
 			$params = apply_filters( 'axisbuilder_editors_toggle_params', array(
 				'notice'        => '',
 				'disabled'      => false,
@@ -209,7 +208,7 @@ class AB_Admin_Post_Types {
 				'disable_label' => __( 'Page Builder Disabled', 'axisbuilder' )
 			) );
 
-			if ( $status == 'active' ) {
+			if ( is_pagebuilder_active( $post_ID ) ) {
 				$active_label = $params['default_label'];
 				$button_class = 'button-secondary';
 				$editor_class = 'axisbuilder-hidden-editor';

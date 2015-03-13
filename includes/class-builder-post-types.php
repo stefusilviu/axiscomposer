@@ -56,10 +56,9 @@ class AB_Post_Types {
 		register_taxonomy( 'portfolio_cat',
 			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_cat', array( 'portfolio' ) ),
 			apply_filters( 'axisbuilder_taxonomy_args_portfolio_cat', array(
-				'hierarchical'          => true,
-				'update_count_callback' => '_axisbuilder_term_recount',
-				'label'                 => __( 'Project Categories', 'axisbuilder' ),
-				'labels' => array(
+				'hierarchical' => true,
+				'label'        => __( 'Project Categories', 'axisbuilder' ),
+				'labels'       => array(
 						'name'              => __( 'Project Categories', 'axisbuilder' ),
 						'singular_name'     => __( 'Project Category', 'axisbuilder' ),
 						'menu_name'         => _x( 'Categories', 'Admin menu name', 'axisbuilder' ),
@@ -72,9 +71,9 @@ class AB_Post_Types {
 						'add_new_item'      => __( 'Add New Project Category', 'axisbuilder' ),
 						'new_item_name'     => __( 'New Project Category Name', 'axisbuilder' )
 					),
-				'show_ui'               => true,
-				'query_var'             => true,
-				'capabilities'          => array(
+				'show_ui'      => true,
+				'query_var'    => true,
+				'capabilities' => array(
 					'manage_terms' => 'manage_portfolio_terms',
 					'edit_terms'   => 'edit_portfolio_terms',
 					'delete_terms' => 'delete_portfolio_terms',
@@ -91,10 +90,9 @@ class AB_Post_Types {
 		register_taxonomy( 'portfolio_tag',
 			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_tag', array( 'portfolio' ) ),
 			apply_filters( 'axisbuilder_taxonomy_args_portfolio_tag', array(
-				'hierarchical'          => false,
-				'update_count_callback' => '_axisbuilder_term_recount',
-				'label'                 => __( 'Project Tags', 'axisbuilder' ),
-				'labels'                => array(
+				'hierarchical' => false,
+				'label'        => __( 'Project Tags', 'axisbuilder' ),
+				'labels'       => array(
 						'name'                       => __( 'Project Tags', 'axisbuilder' ),
 						'singular_name'              => __( 'Project Tag', 'axisbuilder' ),
 						'menu_name'                  => _x( 'Tags', 'Admin menu name', 'axisbuilder' ),
@@ -110,9 +108,9 @@ class AB_Post_Types {
 						'choose_from_most_used'      => __( 'Choose from the most used Project tags', 'axisbuilder' ),
 						'not_found'                  => __( 'No Project Tags found', 'axisbuilder' ),
 					),
-				'show_ui'               => true,
-				'query_var'             => true,
-				'capabilities'          => array(
+				'show_ui'      => true,
+				'query_var'    => true,
+				'capabilities' => array(
 					'manage_terms' => 'manage_portfolio_terms',
 					'edit_terms'   => 'edit_portfolio_terms',
 					'delete_terms' => 'delete_portfolio_terms',

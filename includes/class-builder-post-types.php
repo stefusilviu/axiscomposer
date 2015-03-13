@@ -92,7 +92,7 @@ class AB_Post_Types {
 			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_tag', array( 'portfolio' ) ),
 			apply_filters( 'axisbuilder_taxonomy_args_portfolio_tag', array(
 				'hierarchical'          => false,
-				'update_count_callback' => '_wc_term_recount',
+				'update_count_callback' => '_axisbuilder_term_recount',
 				'label'                 => __( 'Project Tags', 'axisbuilder' ),
 				'labels'                => array(
 						'name'                       => __( 'Project Tags', 'axisbuilder' ),

@@ -25,7 +25,7 @@ function axisbuilder_clean( $var ) {
 
 /**
  * Sanitize a string destined to be a tooltip. Prevents XSS.
- * @param string $var
+ * @param  string $var
  * @return string
  */
 function axisbuilder_sanitize_tooltip( $var ) {

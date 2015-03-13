@@ -91,6 +91,8 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 * Fix - Query in uninstall script.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
 * Dev - Switched to .scss for all styles.
+* Dev - Included bourbon for scss mixins.
+* Dev - Added new filter to disable and display notice for specific post by ID.
 * Localisation - Removed language files from core to made the package lighter (see language pack downloader feature).
 
 == Upgrade Notice ==

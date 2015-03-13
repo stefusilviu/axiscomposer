@@ -142,7 +142,7 @@ class AB_Post_Types {
 		register_post_type( 'portfolio',
 			apply_filters( 'axisbuilder_register_post_type_portfolio',
 				array(
-					'labels' => array(
+					'labels'              => array(
 							'name'               => __( 'Projects', 'axisbuilder' ),
 							'singular_name'      => __( 'Project', 'axisbuilder' ),
 							'menu_name'          => _x( 'Portfolio', 'Admin menu name', 'axisbuilder' ),

@@ -79,7 +79,7 @@ class AB_Post_Types {
 					'delete_terms' => 'delete_portfolio_terms',
 					'assign_terms' => 'assign_portfolio_terms',
 				),
-				'rewrite'               => array(
+				'rewrite'      => array(
 					'slug'         => empty( $permalinks['category_base'] ) ? _x( 'portfolio-category', 'slug', 'axisbuilder' ) : $permalinks['category_base'],
 					'with_front'   => false,
 					'hierarchical' => true,
@@ -116,7 +116,7 @@ class AB_Post_Types {
 					'delete_terms' => 'delete_portfolio_terms',
 					'assign_terms' => 'assign_portfolio_terms',
 				),
-				'rewrite'               => array(
+				'rewrite'      => array(
 					'slug'       => empty( $permalinks['tag_base'] ) ? _x( 'portfolio-tag', 'slug', 'axisbuilder' ) : $permalinks['tag_base'],
 					'with_front' => false
 				),

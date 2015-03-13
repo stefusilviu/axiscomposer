@@ -24,6 +24,24 @@ function axisbuilder_clean( $var ) {
 }
 
 /**
+ * Sanitize a string destined to be a tooltip. Prevents XSS.
+ * @param string $var
+ * @return string
+ */
+function axisbuilder_sanitize_tooltip( $var ) {
+	return wp_kses( html_entity_decode( $var ), array(
+		'br'     => array(),
+		'em'     => array(),
+		'strong' => array(),
+		'span'   => array(),
+		'ul'     => array(),
+		'li'     => array(),
+		'ol'     => array(),
+		'p'      => array(),
+    ) );
+}
+
+/**
  * Merge two arrays
  * @param  array $a1
  * @param  array $a2

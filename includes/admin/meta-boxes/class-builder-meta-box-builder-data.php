@@ -58,7 +58,7 @@ class AB_Meta_Box_Builder_Data {
 						) );
 
 						foreach ( $shortcode_data_tabs as $key => $tab ) {
-							?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ' , $tab['class'] ); ?>">
+							?><li class="<?php echo $key; ?>_options <?php echo $key; ?>_tab <?php echo implode( ' ', $tab['class'] ); ?>">
 								<a href="#<?php echo $tab['target']; ?>"><?php echo esc_html( $tab['label'] ); ?></a>
 							</li><?php
 						}

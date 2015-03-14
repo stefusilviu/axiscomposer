@@ -17,13 +17,6 @@
 
 		// Image Insert functionality
 		$.AxisBuilderHelper.wp_media_advanced();
-
-		// Control the History Undo-Redo button.
-		new $.AxisBuilderHistory({
-			button: '.history-action',
-			canvas: '.canvas-area',
-			editor: '.canvas-data'
-		});
 	});
 
 	// Depedency checker for selected elements.

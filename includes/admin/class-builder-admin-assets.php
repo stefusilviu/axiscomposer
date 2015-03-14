@@ -46,8 +46,10 @@ class AB_Admin_Assets {
 			// Admin styles for AB pages only
 			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//code.jquery.com/ui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), $jquery_version );
-			wp_enqueue_style( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/styles/modal-old.css', array(), AB_VERSION );
 			wp_enqueue_style( 'wp-color-picker' );
+
+			// @deprecated softly
+			wp_enqueue_style( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/styles/modal-old.css', array(), AB_VERSION );
 		}
 
 		if ( 'fresh' !== get_user_option( 'admin_color', get_current_user_id() ) ) {
@@ -76,9 +78,9 @@ class AB_Admin_Assets {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// @deprecated softly
-		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/modal/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', array(
+		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/compat/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/scripts/compat/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_localize_script( 'axisbuilder-modal-old', 'axisbuilder_modal', array(
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
 			'error'                     => esc_js( __( 'An error occured', 'axisbuilder' ) ),
 			'success'                   => esc_js( __( 'All right!', 'axisbuilder' ) ),
@@ -95,7 +97,7 @@ class AB_Admin_Assets {
 		) );
 
 		// Register Scripts (Internal)
-		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-history', 'axisbuilder-shortcodes', 'jquery-tiptip', 'axisbuilder-modal', 'axisbuilder-helper' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-history', 'axisbuilder-shortcodes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );

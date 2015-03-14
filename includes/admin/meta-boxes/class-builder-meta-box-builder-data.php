@@ -176,7 +176,7 @@ class AB_Meta_Box_Builder_Data {
 									<% if ( dismiss ) { %>
 										<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
 									<% } else { %>
-										<button id="btn-ok" class="button button-large button-primary"><?php echo $template['button']; ?></button>
+										<button id="btn-ok" class="button button-large button-primary"><?php echo esc_html( $template['button'] ); ?></button>
 									<% } %>
 								</div>
 							</footer>

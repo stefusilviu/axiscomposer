@@ -28,6 +28,9 @@ class AB_Meta_Box_Builder_Data {
 	public static function output( $post ) {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
+		// Backbone Modal Templates
+		$modal_templates = apply_filters( 'axisbuilder_shortcode_modal_templates', array( 'trash-data', 'cell-size' ) );
+
 		?>
 		<input type="hidden" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style">
@@ -99,63 +102,35 @@ class AB_Meta_Box_Builder_Data {
 				</div>
 			</div>
 		</div>
-
-		<script type="text/template" id="tmpl-axisbuilder-modal-trash-data">
-			<div class="axisbuilder-backbone-modal">
-				<div class="axisbuilder-backbone-modal-content modal-animation">
-					<section class="axisbuilder-backbone-modal-main" role="main">
-						<header class="axisbuilder-backbone-modal-header">
-							<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
-							<h1><%= title %></h1>
-						</header>
-						<article>
-							<form action="" method="post">
-								<p><%= message %></p>
-							</form>
-						</article>
-						<footer>
-							<div class="inner">
-								<% if ( dismiss ) { %>
-									<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
-								<% } else { %>
-									<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
-								<% } %>
-							</div>
-						</footer>
-					</section>
+		<?php foreach ( $modal_templates as $template ) : ?>
+			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template ); ?>">
+				<div class="axisbuilder-backbone-modal">
+					<div class="axisbuilder-backbone-modal-content modal-animation">
+						<section class="axisbuilder-backbone-modal-main" role="main">
+							<header class="axisbuilder-backbone-modal-header">
+								<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
+								<h1><%= title %></h1>
+							</header>
+							<article>
+								<form action="" method="post">
+									<p><%= message %></p>
+								</form>
+							</article>
+							<footer>
+								<div class="inner">
+									<% if ( dismiss ) { %>
+										<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
+									<% } else { %>
+										<button id="btn-ok" class="button button-large button-primary"><?php ( $template !== 'trash-data' ) ? _e( 'Add' , 'axisbuilder' ) : _e( 'Delete', 'axisbuilder' ); ?></button>
+									<% } %>
+								</div>
+							</footer>
+						</section>
+					</div>
 				</div>
-			</div>
-			<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
-		</script>
-
-		<script type="text/template" id="tmpl-axisbuilder-modal-cell-size">
-			<div class="axisbuilder-backbone-modal">
-				<div class="axisbuilder-backbone-modal-content modal-animation">
-					<section class="axisbuilder-backbone-modal-main" role="main">
-						<header class="axisbuilder-backbone-modal-header">
-							<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
-							<h1><%= title %></h1>
-						</header>
-						<article>
-							<form action="" method="post">
-								<p><%= message %></p>
-							</form>
-						</article>
-						<footer>
-							<div class="inner">
-								<% if ( dismiss ) { %>
-									<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
-								<% } else { %>
-									<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Add' , 'axisbuilder' ); ?></button>
-								<% } %>
-							</div>
-						</footer>
-					</section>
-				</div>
-			</div>
-			<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
-		</script>
-		<?php
+				<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
+			</script>
+		<?php endforeach;
 	}
 
 	/**

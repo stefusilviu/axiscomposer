@@ -97,11 +97,11 @@ class AB_Meta_Box_Builder_Data {
 				<div class="canvas-secure-data">
 					<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_axisbuilder_canvas', true ) ); ?></textarea> <!-- readonly="readonly" later -->
 				</div>
-			</div><?php
-				// Output Backbone Templates
-				self::output_backbone_tmpl();
-			?></div>
-		<?php
+			</div>
+		</div><?php
+
+		// Output Backbone Templates
+		self::output_backbone_tmpl();
 	}
 
 	/**

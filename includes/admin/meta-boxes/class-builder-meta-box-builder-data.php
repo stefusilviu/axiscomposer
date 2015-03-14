@@ -143,11 +143,20 @@ class AB_Meta_Box_Builder_Data {
 	 * Show Backbone Modal Templates.
 	 */
 	protected static function output_backbone_tmpl() {
-		$modal_templates = apply_filters( 'axisbuilder_shortcode_modal_templates', array( 'trash-data', 'cell-size' ) );
+		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_modal_tmpl', array(
+			'trash' => array(
+				'id'     => 'trash-data',
+				'button' => __( 'Delete', 'axisbuilder' )
+			),
+			'cells' => array(
+				'id'     => 'cell-size',
+				'button' => __( 'Add', 'axisbuilder' )
+			)
+		) );
 
-		foreach ( $modal_templates as $template ) {
+		foreach ( $shortcode_modal_tmpl as $key => $template ) {
 			?>
-			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template ); ?>">
+			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template['id'] ); ?>">
 				<div class="axisbuilder-backbone-modal">
 					<div class="axisbuilder-backbone-modal-content modal-animation">
 						<section class="axisbuilder-backbone-modal-main" role="main">
@@ -165,7 +174,7 @@ class AB_Meta_Box_Builder_Data {
 									<% if ( dismiss ) { %>
 										<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
 									<% } else { %>
-										<button id="btn-ok" class="button button-large button-primary"><?php ( $template !== 'trash-data' ) ? _e( 'Add' , 'axisbuilder' ) : _e( 'Delete', 'axisbuilder' ); ?></button>
+										<button id="btn-ok" class="button button-large button-primary"><?php echo $template['button']; ?></button>
 									<% } %>
 								</div>
 							</footer>

@@ -143,7 +143,7 @@ class AB_Meta_Box_Builder_Data {
 	 * Show Backbone Modal Templates.
 	 */
 	protected static function output_backbone_tmpl() {
-		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_modal_tmpl', array(
+		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_backbone_modal_tmpl', array(
 			'trash' => array(
 				'id'     => 'trash-data',
 				'button' => __( 'Delete', 'axisbuilder' )

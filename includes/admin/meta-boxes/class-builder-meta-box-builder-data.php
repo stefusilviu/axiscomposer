@@ -145,20 +145,22 @@ class AB_Meta_Box_Builder_Data {
 	protected static function output_backbone_tmpl() {
 		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_backbone_modal_tmpl', array(
 			'trash' => array(
-				'id'     => 'trash-data',
-				'button' => __( 'Delete', 'axisbuilder' )
+				'tmpl'   => 'trash-data',
+				'button' => __( 'Delete', 'axisbuilder' ),
+				'class'  => array( 'modal-animation' ),
 			),
 			'cells' => array(
-				'id'     => 'cell-size',
-				'button' => __( 'Add', 'axisbuilder' )
+				'tmpl'   => 'cell-size',
+				'button' => __( 'Add', 'axisbuilder' ),
+				'class'  => array( 'modal-animation' )
 			)
 		) );
 
 		foreach ( $shortcode_modal_tmpl as $key => $template ) {
 			?>
-			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template['id'] ); ?>">
+			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
 				<div class="axisbuilder-backbone-modal">
-					<div class="axisbuilder-backbone-modal-content modal-animation">
+					<div class="axisbuilder-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="axisbuilder-backbone-modal-main" role="main">
 							<header class="axisbuilder-backbone-modal-header">
 								<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>

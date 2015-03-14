@@ -75,7 +75,8 @@ class AB_Admin_Assets {
 		$screen = get_current_screen();
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		// @deprecated in favour of Backbone Modal, but is registered for backwards compat
+		// @deprecated softly
+		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-modal', AB()->plugin_url() . '/assets/scripts/modal/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_localize_script( 'axisbuilder-modal', 'axisbuilder_modal', array(
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
@@ -93,10 +94,7 @@ class AB_Admin_Assets {
 			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
 		) );
 
-		// @deprecated softly so we can includes needed functionality into other scripts
-		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/admin/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
-		// Register Scripts
+		// Register Scripts (Internal)
 		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'axisbuilder-history', 'axisbuilder-shortcodes', 'jquery-tiptip', 'axisbuilder-modal', 'axisbuilder-helper' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-history', AB()->plugin_url() . '/assets/scripts/admin/history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'axisbuilder-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
@@ -104,7 +102,7 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-admin-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable', 'axisbuilder-enhanced-select' ), AB_VERSION );
 
-		// Register External Scripts
+		// Register Scripts (External)
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );

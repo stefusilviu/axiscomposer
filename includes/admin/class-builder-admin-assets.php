@@ -102,7 +102,7 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		// Register Scripts (Internal)
-		wp_register_script( 'axisbuilder_admin', AB()->plugin_url() . '/assets/scripts/admin/axisbuilder_admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
+		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-admin-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'axisbuilder-enhanced-select' ), AB_VERSION );
 
@@ -148,16 +148,16 @@ class AB_Admin_Assets {
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
 			wp_enqueue_script( 'iris' );
-			wp_enqueue_script( 'axisbuilder_admin' );
-			wp_enqueue_script( 'axisbuilder-enhanced-select' );
+			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
+			wp_enqueue_script( 'axisbuilder-enhanced-select' );
 
 			$params = array(
 				'ajax_url' => admin_url( 'admin-ajax.php' )
 			);
 
-			wp_localize_script( 'axisbuilder_admin', 'axisbuilder_admin', $params );
+			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
 		}
 
 		// Page Builder

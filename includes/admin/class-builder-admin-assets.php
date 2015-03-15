@@ -130,7 +130,7 @@ class AB_Admin_Assets {
 		) );
 
 		// History
-		wp_localize_script( 'axisbuilder-history', 'axisbuilder_history', array(
+		wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder_history', array(
 			'post_id'        => get_the_ID(),
 			'plugin_version' => AB()->version,
 			'theme_name'     => $theme->get( 'Name' ),
@@ -138,7 +138,7 @@ class AB_Admin_Assets {
 		) );
 
 		// Shortcodes
-		wp_localize_script( 'axisbuilder-shortcodes', 'axisbuilder_shortcodes', array(
+		wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'axisbuilder_shortcodes', array(
 			'i18n_no_layout'          => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
 			'i18n_add_one_cell'       => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
 			'i18n_remove_one_cell'    => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),

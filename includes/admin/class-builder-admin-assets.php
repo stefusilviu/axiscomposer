@@ -162,9 +162,9 @@ class AB_Admin_Assets {
 
 		// Page Builder
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 			wp_enqueue_script( 'axisbuilder-admin-meta-boxes' );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes' );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
@@ -188,7 +188,7 @@ class AB_Admin_Assets {
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
 			);
 
-			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
+			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes', 'axisbuilder_admin', $params );
 		}
 
 		// Meta boxes

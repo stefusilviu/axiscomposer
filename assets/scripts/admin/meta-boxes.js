@@ -30,7 +30,7 @@ jQuery( function ( $ ) {
 		$( '.date-picker-field, .date-picker' ).datepicker({
 			dateFormat: 'yy-mm-dd',
 			numberOfMonths: 1,
-			showButtonPanel: true,
+			showButtonPanel: true
 		});
 	});
 	$( 'body' ).trigger( 'axisbuilder-init-datepickers' );

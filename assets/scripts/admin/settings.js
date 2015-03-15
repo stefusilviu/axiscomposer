@@ -1,9 +1,5 @@
 /* global axisbuilder_settings_params */
-
-/**
- * AxisBuilder Settings JS
- */
-jQuery( window ).load(function(){
+jQuery( window ).load( function() {
 
 	// Screens
 	jQuery( 'select#axisbuilder_allowed_screens' ).change( function() {
@@ -15,14 +11,14 @@ jQuery( window ).load(function(){
 	}).change();
 
 	// Edit prompt
-	jQuery(function(){
+	jQuery( function() {
 		var changed = false;
 
-		jQuery( 'input, textarea, select, checkbox' ).change(function(){
+		jQuery( 'input, textarea, select, checkbox' ).change( function() {
 			changed = true;
 		});
 
-		jQuery( '.axisbuilder-nav-tab-wrapper a' ).click(function(){
+		jQuery( '.axisbuilder-nav-tab-wrapper a' ).click( function() {
 			if ( changed ) {
 				window.onbeforeunload = function() {
 				    return axisbuilder_settings_params.i18n_nav_warning;

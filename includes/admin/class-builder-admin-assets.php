@@ -96,15 +96,13 @@ class AB_Admin_Assets {
 			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
 		) );
 
-		// Register Scripts (Builder)
-		wp_register_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'jquery', 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
 		// Register Scripts (Internal)
 		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-admin-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'axisbuilder-enhanced-select' ), AB_VERSION );
+		wp_register_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'jquery', 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 		// Register Scripts (External)
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );

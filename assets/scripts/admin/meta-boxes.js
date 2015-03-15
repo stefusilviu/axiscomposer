@@ -1,7 +1,16 @@
 /*global axisbuilder_admin_meta_boxes */
 jQuery( function ( $ ) {
 
-	// TABS
+	// Tooltips
+	var tiptip_args = {
+		'attribute' : 'data-tip',
+		'fadeIn' : 50,
+		'fadeOut' : 50,
+		'delay' : 200
+	};
+	$( '.tips, .help_tip' ).tipTip( tiptip_args );
+
+	// Tabs
 	$( 'div.panel-wrap' ).each( function() {
 		$( this ).find( 'div.panel:not(:first)' ).hide();
 	});
@@ -15,7 +24,7 @@ jQuery( function ( $ ) {
 	});
 	$( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
 
-	// DATE PICKER
+	// Date Picker
 	$( 'body' ).on( 'axisbuilder-init-datepickers', function() {
 		$( '.date-picker-field, .date-picker' ).datepicker({
 			dateFormat: 'yy-mm-dd',

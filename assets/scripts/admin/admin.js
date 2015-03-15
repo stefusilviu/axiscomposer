@@ -1,6 +1,3 @@
-/**
- * AxisBuilder Admin JS
- */
 jQuery( function ( $ ) {
 
 	// Tooltips

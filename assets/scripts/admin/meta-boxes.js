@@ -11,6 +11,7 @@ jQuery( function ( $ ) {
 	$( '.tips, .help_tip' ).tipTip( tiptip_args );
 
 	// Tabs
+	$( 'ul.axisbuilder-tabs' ).show();
 	$( 'div.panel-wrap' ).each( function() {
 		$( this ).find( 'div.panel:not(:first)' ).hide();
 	});

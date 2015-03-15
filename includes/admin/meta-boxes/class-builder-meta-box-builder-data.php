@@ -32,7 +32,7 @@ class AB_Meta_Box_Builder_Data {
 		<input type="hidden" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style">
 			<div id="axisbuilder-panels" class="panel-wrap">
-				<ul class="axisbuilder-tabs">
+				<ul class="axisbuilder-tabs" style="display:none">
 					<?php
 						$shortcode_data_tabs = apply_filters( 'axisbuilder_shortcode_data_tabs', array(
 							'layout'  => array(

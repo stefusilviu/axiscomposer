@@ -160,7 +160,6 @@ class AB_Admin_Assets {
 
 		// Page Builder
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'axisbuilder_admin' );
 			wp_enqueue_script( 'axisbuilder-admin' );
 			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 			wp_enqueue_script( 'axisbuilder-admin-meta-boxes' );

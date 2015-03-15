@@ -1,4 +1,3 @@
-/*global axisbuilder_admin_meta_boxes */
 jQuery( function ( $ ) {
 
 	// Tooltips

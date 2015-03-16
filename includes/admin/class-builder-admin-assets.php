@@ -96,15 +96,10 @@ class AB_Admin_Assets {
 			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
 		) );
 
-		// Register Scripts (Internal)
+		// Register Scripts
 		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/scripts/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/scripts/admin/backbone-modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-admin-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'axisbuilder-enhanced-select' ), AB_VERSION );
-		wp_register_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'jquery', 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-		wp_register_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
-		// Register Scripts (External)
 		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/scripts/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/scripts/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
@@ -127,22 +122,6 @@ class AB_Admin_Assets {
 			'i18n_searching'            => _x( 'Searching&hellip;', 'enhanced select', 'axisbuilder' )
 		) );
 
-		// History
-		wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder_history', array(
-			'post_id'        => get_the_ID(),
-			'plugin_version' => AB()->version,
-			'theme_name'     => $theme->get( 'Name' ),
-			'theme_version'  => $theme->get( 'Version' )
-		) );
-
-		// Shortcodes
-		wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'axisbuilder_shortcodes', array(
-			'i18n_no_layout'          => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
-			'i18n_add_one_cell'       => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
-			'i18n_remove_one_cell'    => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),
-			'i18n_select_cell_layout' => esc_js( __( 'Select a cell layout', 'axisbuilder' ) )
-		) );
-
 		// AxisBuilder admin pages
 		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) ) {
 			wp_enqueue_script( 'iris' );
@@ -160,6 +139,10 @@ class AB_Admin_Assets {
 
 		// Page Builder
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
+			wp_register_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'jquery', 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
+			wp_register_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+			wp_register_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
 			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 			wp_enqueue_script( 'axisbuilder-admin-meta-boxes' );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes' );
@@ -187,11 +170,32 @@ class AB_Admin_Assets {
 			);
 
 			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes', 'axisbuilder_admin', $params );
+
+			// History
+			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder_history', array(
+				'post_id'        => get_the_ID(),
+				'plugin_version' => AB()->version,
+				'theme_name'     => $theme->get( 'Name' ),
+				'theme_version'  => $theme->get( 'Version' )
+			) );
+
+			// Shortcodes
+			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'axisbuilder_shortcodes', array(
+				'i18n_no_layout'          => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
+				'i18n_add_one_cell'       => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
+				'i18n_remove_one_cell'    => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),
+				'i18n_select_cell_layout' => esc_js( __( 'Select a cell layout', 'axisbuilder' ) )
+			) );
 		}
 
 		// Meta boxes
 		if ( in_array( $screen->id, axisbuilder_get_layout_supported_screens() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-layout-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-layout' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes' ), AB_VERSION );
+		}
+
+		// System status
+		if ( 'axisbuilder_page_axisbuilder-status' === $screen->id ) {
+			wp_enqueue_script( 'zeroclipboard', AB()->plugin_url() . '/assets/scripts/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		}
 
 		// Widgets Specific
@@ -206,11 +210,6 @@ class AB_Admin_Assets {
 			);
 
 			wp_localize_script( 'axisbuilder-admin-sidebars', 'axisbuilder_admin_sidebars', $params );
-		}
-
-		// System status
-		if ( 'axisbuilder_page_axisbuilder-status' === $screen->id ) {
-			wp_enqueue_script( 'zeroclipboard', AB()->plugin_url() . '/assets/scripts/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		}
 
 		// Iconfonts Specific

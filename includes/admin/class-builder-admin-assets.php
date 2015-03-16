@@ -139,10 +139,9 @@ class AB_Admin_Assets {
 
 		// Page Builder
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
-			wp_register_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-			wp_register_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
-
-			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes', 'axisbuilder-backbone-modal' 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder-admin-builder-meta-boxes-shortcodes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes', 'jquery-tiptip', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION, true );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION, true );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );
@@ -154,6 +153,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-droppable' );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
+			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 
 			$status_options = get_option( 'axisbuilder_status_options', array() );
 

@@ -27,11 +27,6 @@ class AB_Admin_Menu {
 		add_action( 'admin_menu', array( $this, 'iconfonts_menu' ), 20 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'status_menu' ), 60 );
-
-		if ( apply_filters( 'axisbuilder_show_addons_page', false ) ) {
-			add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
-		}
-
 		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
 		add_filter( 'menu_order', array( $this, 'menu_order' ) );
 		add_filter( 'custom_menu_order', array( $this, 'custom_menu_order' ) );
@@ -79,13 +74,6 @@ class AB_Admin_Menu {
 	public function status_menu() {
 		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Status', 'axisbuilder' ),  __( 'System Status', 'axisbuilder' ) , 'manage_axisbuilder', 'axisbuilder-status', array( $this, 'status_page' ) );
 		register_setting( 'axisbuilder_status_settings_fields', 'axisbuilder_status_options' );
-	}
-
-	/**
-	 * Addons menu item
-	 */
-	public function addons_menu() {
-		add_submenu_page( 'axisbuilder', __( 'AxisBuilder Add-ons/Extensions', 'axisbuilder' ),  __( 'Add-ons', 'axisbuilder' ) , 'manage_axisbuilder', 'axisbuilder-addons', array( $this, 'addons_page' ) );
 	}
 
 	/**
@@ -171,14 +159,6 @@ class AB_Admin_Menu {
 	 */
 	public function status_page() {
 		AB_Admin_Status::output();
-	}
-
-	/**
-	 * Init the addons page
-	 * @todo Need the Add-Ons Page after getting some extensions ready ;)
-	 */
-	public function addons_page() {
-		// AB_Admin_Addons::output();
 	}
 }
 

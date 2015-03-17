@@ -7,14 +7,13 @@
  * Imports
  */
 @import "bourbon";
-@import "mixins";
 
 /**
  * Styling begins
  */
 .axisbuilder-backbone-modal {
 	* {
-		@include borderbox();
+		box-sizing: content-box;
 	}
 
 	.axisbuilder-backbone-modal-content {

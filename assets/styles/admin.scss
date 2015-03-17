@@ -88,7 +88,7 @@ label[for="axisbuilder-editor-hide"] {
 			position: relative;
 			background: #fafafa;
 			border-bottom: 1px solid #eee;
-			@include borderbox();
+			box-sizing: border-box;
 
 			li {
 				margin: 0;
@@ -889,7 +889,7 @@ body .ui-draggable-dragging {
 				text-align: center;
 				border: 1px solid #e1e1e1;
 				border-right: none;
-				@include borderbox();
+				box-sizing: border-box;
 			}
 		}
 
@@ -1139,7 +1139,7 @@ img.help_tip {
 				width: 100%;
 				margin: 0;
 				font-family: monospace;
-				@include borderbox();
+				box-sizing: border-box;
 			}
 
 			.iris-picker {

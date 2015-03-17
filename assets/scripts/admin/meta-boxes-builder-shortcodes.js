@@ -1,10 +1,5 @@
-/* global axisbuilder_shortcodes */
-
-/**
- * AxisBuilder Shortcodes JS
- */
+/* global axisbuilder_admin_meta_boxes_builder */
 ( function( $ ) {
-
 	'use strict';
 
 	$.AxisBuilderShortcodes = $.AxisBuilderShortcodes || {};
@@ -376,12 +371,12 @@
 
 			} else {
 				dismiss = true;
-				message += '<p>' + axisbuilder_shortcodes.i18n_no_layout + '<br />';
+				message += '<p>' + axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
 
 				if ( rowCount === 1 ) {
-					message += axisbuilder_shortcodes.i18n_add_one_cell;
+					message += axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell;
 				} else {
-					message += axisbuilder_shortcodes.i18n_remove_one_cell;
+					message += axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
 				}
 
 				message += '</p>';
@@ -389,7 +384,7 @@
 
 			// Load Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_shortcodes.i18n_select_cell_layout,
+				title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
 				message: message,
 				dismiss: dismiss,
 				template: '#tmpl-axisbuilder-modal-cell-size'

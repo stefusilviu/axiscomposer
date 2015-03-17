@@ -1,10 +1,5 @@
-/* global AB_Logger, axisbuilder_history */
-
-/**
- * AxisBuilder History JS
- */
+/* global axisbuilder_admin_meta_boxes_builder, AB_Logger */
 ( function( $ ) {
-
 	'use strict';
 
 	$.AxisBuilderHistory = $.AxisBuilderHistory || {};
@@ -60,7 +55,7 @@
 
 		// Creates the array key for this post history
 		create_array_key: function() {
-			var key = 'axisbuilder' + axisbuilder_history.theme_name + axisbuilder_history.theme_version + axisbuilder_history.post_id + axisbuilder_history.plugin_version;
+			var key = 'axisbuilder' + axisbuilder_admin_meta_boxes_builder.theme_name + axisbuilder_admin_meta_boxes_builder.theme_version + axisbuilder_admin_meta_boxes_builder.post_id + axisbuilder_admin_meta_boxes_builder.plugin_version;
 			return key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
 		},
 

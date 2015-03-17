@@ -161,7 +161,7 @@ class AB_Admin_Assets {
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
 			);
 
-			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes', 'axisbuilder_admin', $params );
+			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes', 'axisbuilder_admin_meta_boxes_builder', $params );
 
 			// History
 			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder_history', array(

@@ -1,6 +1,8 @@
-/* global console, axisbuilder_admin, pagenow */
+/* global axisbuilder_admin_meta_boxes_builder, console, pagenow */
 
-// global AxisBuilder Logger Helper
+/**
+ * AxisBuilder Logger
+ */
 function AB_Logger( text, type ) {
 
 	if ( typeof console === 'undefined' ) {
@@ -33,7 +35,7 @@ function AB_Logger( text, type ) {
 		this.wpDefaultEditorArea = $( '#content.wp-editor-area' );
 
 		// AxisBuilder Debug or Test Mode
-		this.axisBuilderDebug = axisbuilder_admin.debug_mode || {};
+		this.axisBuilderDebug = axisbuilder_admin_meta_boxes_builder.debug_mode || {};
 
 		// Axis Page Builder {Button|Handle|Canvas|Values|Parent|Status}
 		this.axisBuilderButton = $( '#axisbuilder-button' );
@@ -113,8 +115,8 @@ function AB_Logger( text, type ) {
 				var length = obj.axisBuilderCanvas.children().length;
 
 				$( this ).AxisBuilderBackboneModal({
-					title: axisbuilder_admin.i18n_trash_all_elements_title,
-					message: ( length > 0 ) ? axisbuilder_admin.i18n_trash_all_elements_message : axisbuilder_admin.i18n_trash_all_elements_atleast,
+					title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
+					message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
 					dismiss: ( length > 0 ) ? false : true,
 					template: '#tmpl-axisbuilder-modal-trash-data'
 				});
@@ -303,7 +305,7 @@ function AB_Logger( text, type ) {
 				};
 
 			$.ajax({
-				url: axisbuilder_admin.ajax_url,
+				url: axisbuilder_admin_meta_boxes_builder.ajax_url,
 				data: data,
 				type: 'POST',
 				success: function( response ) {

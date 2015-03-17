@@ -144,9 +144,6 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
 			// Core Essential Scripts :)
-			wp_enqueue_script( 'iris' );
-			wp_enqueue_script( 'backbone' );
-			wp_enqueue_script( 'underscore' );
 			wp_enqueue_script( 'wp-color-picker' );
 			wp_enqueue_script( 'jquery-ui-core' );
 			wp_enqueue_script( 'jquery-ui-sortable' );

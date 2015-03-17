@@ -26,6 +26,7 @@ function axisbuilder_wp_select( $field ) {
 	$field['desc_class']    = isset( $field['desc_class'] ) ? $field['desc_class'] : '';
 	$field['wrapper_class'] = isset( $field['wrapper_class'] ) ? $field['wrapper_class'] : '';
 	$field['value']         = isset( $field['value'] ) ? $field['value'] : get_post_meta( $thepostid, $field['id'], true );
+	$field['name']          = isset( $field['name'] ) ? $field['name'] : $field['id'];
 
 	// Custom attribute handling
 	$custom_attributes = array();

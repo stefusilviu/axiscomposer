@@ -2,6 +2,11 @@
  * _mixins.scss
  * AxisBuilder Mixins
  */
+@function flexgrid( $columns: 1, $container-columns: 1 ) {
+	$width: ( ( ( 100% - ( $flex-gutter * ( $container-columns - 1 ) ) ) / $container-columns ) * $columns ) + ( $flex-gutter * ( $columns - 1 ) );
+	@return $width;
+}
+
 @mixin active_tab( $tab-active-color, $text-color: white ) {
 	color: $text-color;
 	background: $tab-active-color;
@@ -13,14 +18,6 @@
 		background: darken( $tab-active-color, 5% );
 		border-color: darken( $tab-active-color, 15% );
 	}
-}
-
-/**
- * Flexible Grid
- */
-@function flexgrid( $columns: 1, $container-columns: 1 ) {
-	$width: ( ( ( 100% - ( $flex-gutter * ( $container-columns - 1 ) ) ) / $container-columns ) * $columns ) + ( $flex-gutter * ( $columns - 1 ) );
-	@return $width;
 }
 
 /**

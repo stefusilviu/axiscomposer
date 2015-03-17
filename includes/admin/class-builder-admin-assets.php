@@ -73,8 +73,9 @@ class AB_Admin_Assets {
 
 		get_currentuserinfo();
 
-		$theme  = wp_get_theme();
+		$themes = wp_get_theme();
 		$screen = get_current_screen();
+		$status = get_option( 'axisbuilder_status_options', array() );
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// @deprecated softly
@@ -143,12 +144,10 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
-			$status_options = get_option( 'axisbuilder_status_options', array() );
-
 			$params = array(
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
-				'debug_mode'                      => empty( $status_options['builder_debug_mode'] ) ? 'no' : 'yes',
+				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_atleast' => esc_js( __( 'You need to add at least one element to the canvas area to perform this action.', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
@@ -160,8 +159,8 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes-history', 'axisbuilder_history', array(
 				'post_id'        => get_the_ID(),
 				'plugin_version' => AB()->version,
-				'theme_name'     => $theme->get( 'Name' ),
-				'theme_version'  => $theme->get( 'Version' )
+				'theme_name'     => $themes->get( 'Name' ),
+				'theme_version'  => $themes->get( 'Version' )
 			) );
 
 			// Shortcodes

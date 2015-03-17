@@ -141,6 +141,9 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
+			// Page Builder Position
+			wp_enqueue_script( 'axisbuilder-admin-meta-boxes-position', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-position' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
+
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),

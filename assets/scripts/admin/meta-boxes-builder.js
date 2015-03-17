@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder, console, pagenow */
+/* global axisbuilder_admin_meta_boxes_builder, console */
 
 /**
  * AxisBuilder Logger
@@ -68,22 +68,8 @@ function AB_Logger( text, type ) {
 
 		// Activate the Whole Interface
 		builderActivate: function() {
-			// this.builderPosition();
 			this.shortcodesToInterface();
 			this.builderBehaviour();
-		},
-
-		// Always make Builder available at the first position
-		builderPosition: function() {
-			var meta_box = $( '#normal-sortables' ),
-				post_box = meta_box.find( '.postbox' );
-
-			if ( this.axisBuilderParent.length && ( post_box.index( this.axisBuilderParent ) !== 0 ) ) {
-				this.axisBuilderParent.prependTo( meta_box );
-
-				// Re-save the postbox Order
-				window.postboxes.save_order( pagenow );
-			}
 		},
 
 		// All event binding goes here

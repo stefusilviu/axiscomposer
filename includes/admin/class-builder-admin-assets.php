@@ -139,7 +139,7 @@ class AB_Admin_Assets {
 
 		// Meta boxes
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes' ), AB_VERSION );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes', 'axisbuilder-backbone-modal' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
@@ -153,7 +153,6 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'jquery-ui-droppable' );
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
-			wp_enqueue_script( 'axisbuilder-backbone-modal' );
 
 			$status_options = get_option( 'axisbuilder_status_options', array() );
 

@@ -145,9 +145,17 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
 			$params = array(
+				'post_id'                         => get_the_ID(),
+				'plugin_version'                  => AB()->version,
+				'theme_name'                      => $themes->get( 'Name' ),
+				'theme_version'                   => $themes->get( 'Version' ),
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',
+				'i18n_no_layout'                  => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
+				'i18n_add_one_cell'               => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
+				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),
+				'i18n_select_cell_layout'         => esc_js( __( 'Select a cell layout', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_atleast' => esc_js( __( 'You need to add at least one element to the canvas area to perform this action.', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_message' => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),

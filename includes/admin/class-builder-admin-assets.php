@@ -137,7 +137,7 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder-admin', 'axisbuilder_admin', $params );
 		}
 
-		// Page Builder
+		// Meta boxes
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'jquery-tiptip', 'axisbuilder-admin-meta-boxes', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION, true );
@@ -185,7 +185,7 @@ class AB_Admin_Assets {
 			) );
 		}
 
-		// Meta boxes
+		// Layouts
 		if ( in_array( $screen->id, axisbuilder_get_layout_supported_screens() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-layout-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-layout' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes' ), AB_VERSION );
 		}

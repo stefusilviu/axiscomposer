@@ -88,9 +88,7 @@ label[for="axisbuilder-editor-hide"] {
 			position: relative;
 			background: #fafafa;
 			border-bottom: 1px solid #eee;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
+			@include borderbox();
 
 			li {
 				margin: 0;
@@ -891,9 +889,7 @@ body .ui-draggable-dragging {
 				text-align: center;
 				border: 1px solid #e1e1e1;
 				border-right: none;
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
+				@include borderbox();
 			}
 		}
 
@@ -1143,9 +1139,7 @@ img.help_tip {
 				width: 100%;
 				margin: 0;
 				font-family: monospace;
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
+				@include borderbox();
 			}
 
 			.iris-picker {

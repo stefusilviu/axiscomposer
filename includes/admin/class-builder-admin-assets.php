@@ -69,7 +69,7 @@ class AB_Admin_Assets {
 	 * Enqueue scripts.
 	 */
 	public function admin_scripts() {
-		global $wp_query;
+		global $post;
 
 		get_currentuserinfo();
 
@@ -145,7 +145,7 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
 			$params = array(
-				'post_id'                         => get_the_ID(),
+				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'plugin_url'                      => AB()->plugin_url(),
 				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',

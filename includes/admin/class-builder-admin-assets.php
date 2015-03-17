@@ -82,19 +82,16 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder-helper', AB()->plugin_url() . '/assets/scripts/compat/helper' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/scripts/compat/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		wp_localize_script( 'axisbuilder-modal-old', 'axisbuilder_modal', array(
-			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
-			'error'                     => esc_js( __( 'An error occured', 'axisbuilder' ) ),
-			'success'                   => esc_js( __( 'All right!', 'axisbuilder' ) ),
-			'attention'                 => esc_js( __( 'Attention!', 'axisbuilder' ) ),
-			'i18n_add_button'           => esc_js( __( 'Add', 'axisbuilder' ) ),
-			'i18n_save_button'          => esc_js( __( 'Save', 'axisbuilder' ) ),
-			'i18n_close_button'         => esc_js( __( 'Close', 'axisbuilder' ) ),
-			'i18n_cancel_button'        => esc_js( __( 'Cancel', 'axisbuilder' ) ),
-			'i18n_delete_button'        => esc_js( __( 'Delete', 'axisbuilder' ) ),
-			'i18n_ajax_error'           => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_login_error'          => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_session_error'        => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
-			'get_modal_elements_nonce'  => wp_create_nonce( 'get-modal-elements' )
+			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+			'error'                    => esc_js( __( 'An error occured', 'axisbuilder' ) ),
+			'success'                  => esc_js( __( 'All right!', 'axisbuilder' ) ),
+			'attention'                => esc_js( __( 'Attention!', 'axisbuilder' ) ),
+			'i18n_save_button'         => esc_js( __( 'Save', 'axisbuilder' ) ),
+			'i18n_close_button'        => esc_js( __( 'Close', 'axisbuilder' ) ),
+			'i18n_ajax_error'          => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_login_error'         => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
+			'i18n_session_error'       => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
+			'get_modal_elements_nonce' => wp_create_nonce( 'get-modal-elements' )
 		) );
 
 		// Register Scripts

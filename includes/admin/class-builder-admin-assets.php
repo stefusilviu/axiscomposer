@@ -140,8 +140,8 @@ class AB_Admin_Assets {
 		// Meta boxes
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'jquery-tiptip', 'axisbuilder-admin-meta-boxes', 'axisbuilder-helper', 'axisbuilder-modal-old' ), AB_VERSION, true );
-			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION, true );
-			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION, true );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-history', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-history' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
+			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-shortcodes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder-shortcodes' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION );
 
 			// Core Essential Scripts :)
 			wp_enqueue_script( 'iris' );

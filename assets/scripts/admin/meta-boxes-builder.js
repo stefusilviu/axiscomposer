@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder */
+/* global axisbuilder_admin_meta_boxes_builder, axisbuilder_log */
 ( function( $ ) {
 	'use strict';
 
@@ -222,7 +222,7 @@
 
 				// Debug Logger
 				if ( this.axisBuilderDebug === 'yes' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
-					new AB_Logger( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
+					new axisbuilder_log( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
 					if ( this.tinyMceContent ) {
 						this.tinyMceContent.setContent( '', { format: 'html' } );
 						this.wpDefaultEditorArea.val( '' );
@@ -476,7 +476,7 @@
 
 			// Debug Logger
 			if ( this.axisBuilderDebug === 'yes' ) {
-				new AB_Logger( values, false );
+				new axisbuilder_log( values, false );
 			}
 
 			// If we got a string value passed insert the string, otherwise calculate the shortcode ;)
@@ -726,7 +726,7 @@
 			}
 
 			if ( fix_active ) {
-				new AB_Logger( 'Drag and drop Positioning fix active' );
+				new axisbuilder_log( 'Drag and drop Positioning fix active' );
 			}
 
 			// Drag
@@ -828,7 +828,7 @@
 
 						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
 
-						// new AB_Logger( 'dragging:' + ui.draggable.find( 'h2' ).text() + ' to position: ' + ui.offset.top + '/' + ui.offset.left );
+						// new axisbuilder_log( 'dragging:' + ui.draggable.find( 'h2' ).text() + ' to position: ' + ui.offset.top + '/' + ui.offset.left );
 
 						// Iterate over all elements and check their positions
 						for ( i = 0; i < elements.length; i++ ) {
@@ -856,7 +856,7 @@
 									maxheight: current.outerHeight() + offset.top
 								});
 
-								// new AB_Logger( current.find( 'h2' ).text() + ' element offset: ' + offset.top + '/' + offset.left );
+								// new axisbuilder_log( current.find( 'h2' ).text() + ' element offset: ' + offset.top + '/' + offset.left );
 							} else {
 								break;
 							}
@@ -866,7 +866,7 @@
 						if ( last_pos && position_array[ 'top_' + last_pos.top ].length > 1 && ( max_height - 40 ) > ui.offset.top ) {
 							var real_element = false;
 
-							// new AB_Logger( 'Checking right Positions' );
+							// new axisbuilder_log( 'Checking right Positions' );
 
 							for ( i = 0; i < position_array[ 'top_' + last_pos.top ].length; i++ ) {
 
@@ -880,7 +880,7 @@
 							}
 
 							if ( real_element === false ) {
-								// new AB_Logger( 'No right Position Element found, using first element' );
+								// new axisbuilder_log( 'No right Position Element found, using first element' );
 								real_element = position_array[ 'top_' + last_pos.top ][0].index;
 								method = 'before';
 							}
@@ -890,16 +890,16 @@
 
 						// If we got an index get that element from the list, else delete the toEL var because we need to append the draggable to the start and the next check will do that for us ;)
 						if ( toEl === false ) {
-							// new AB_Logger( 'No Element Found' );
+							// new axisbuilder_log( 'No Element Found' );
 							toEl = droppable;
 							method = 'prepend';
 						}
 
-						// new AB_Logger( ui.draggable.find( 'h2' ).text() + ' dragable top: ' + ui.offset.top + '/' + ui.offset.left );
+						// new axisbuilder_log( ui.draggable.find( 'h2' ).text() + ' dragable top: ' + ui.offset.top + '/' + ui.offset.left );
 
 						// If the draggable and the new el are the same do nothing
 						if ( toEl[0] === ui.draggable[0] ) {
-							// new AB_Logger( 'Same Element Selected: stoping script' );
+							// new axisbuilder_log( 'Same Element Selected: stoping script' );
 							return true;
 						}
 
@@ -917,7 +917,7 @@
 						// Move the real draggable element to the new position
 						toEl[ method ]( ui.draggable );
 
-						// new AB_Logger( 'Appended to: ' + toEl.find( 'h2' ).text() );
+						// new axisbuilder_log( 'Appended to: ' + toEl.find( 'h2' ).text() );
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {
@@ -929,7 +929,7 @@
 						var insertedInto = method === 'after' ? toEl.parents( '.axisbuilder-drop' ) : toEl;
 
 						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
-							// new AB_Logger( 'Inner update necessary. Level: ' + insertedInto.data( 'dragdrop-level' ) );
+							// new axisbuilder_log( 'Inner update necessary. Level: ' + insertedInto.data( 'dragdrop-level' ) );
 							obj.updateTextarea(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
 							obj.updateInnerTextarea( ui.draggable );
 						}
@@ -945,7 +945,7 @@
 						}
 
 						obj.historySnapshot();
-						// new AB_Logger( '_______________' );
+						// new axisbuilder_log( '_______________' );
 					}
 				};
 

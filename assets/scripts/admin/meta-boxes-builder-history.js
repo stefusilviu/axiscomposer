@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder, AB_Logger */
+/* global axisbuilder_admin_meta_boxes_builder, axisbuilder_log */
 ( function( $ ) {
 	'use strict';
 
@@ -116,8 +116,8 @@
 			}
 
 			catch( e ) {
-				new AB_Logger( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', 'Storage' );
-				new AB_Logger( e, 'Storage' );
+				new axisbuilder_log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', 'Storage' );
+				new axisbuilder_log( e, 'Storage' );
 				this.clear();
 				this.redoButton.addClass( 'inactive-history' );
 				this.undoButton.addClass( 'inactive-history' );

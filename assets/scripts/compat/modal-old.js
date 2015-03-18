@@ -1,4 +1,4 @@
-/* global AB_Logger, axisbuilder_modal, quicktags, QTags */
+/* global axisbuilder_log, axisbuilder_modal, quicktags, QTags */
 
 /**
  * AxisBuilder Modal JS
@@ -147,8 +147,8 @@
 					if ( $.AxisBuilderModal.registerCallback[ execute[index] ] !== 'undefined' ) {
 						$.AxisBuilderModal.registerCallback[ execute[index] ].call( this );
 					} else {
-						new AB_Logger( 'Not defined modal_on_load function: $.AxisBuilderModal.register_callback.' + execute[index], 'error' );
-						new AB_Logger( 'Ensure that the modal_on_load function is defined in your Shortcodes Configurations.', 'help' );
+						new axisbuilder_log( 'Not defined modal_on_load function: $.AxisBuilderModal.register_callback.' + execute[index], 'error' );
+						new axisbuilder_log( 'Ensure that the modal_on_load function is defined in your Shortcodes Configurations.', 'help' );
 					}
 				}
 			} else if ( typeof callbacks === 'function' ) {

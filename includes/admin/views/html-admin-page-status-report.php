@@ -68,11 +68,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td><?php if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) echo '<mark class="yes">' . '&#10004;' . '</mark>'; else echo '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="WP Script Debug"><?php _e( 'WP Script Debug', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress load non-minified assets.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) echo '<mark class="yes">' . '&#10004;' . '</mark>'; else echo '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
-		</tr>
-		<tr>
 			<td data-export-label="Language"><?php _e( 'Language', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The current language used by WordPress. Default = English', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo get_locale() ?></td>

@@ -1,3 +1,4 @@
+/* global console */
 jQuery( function ( $ ) {
 
 	// Tooltips
@@ -35,3 +36,21 @@ jQuery( function ( $ ) {
 	$( 'body' ).trigger( 'axisbuilder-init-datepickers' );
 
 });
+
+// Logger
+function AB_Logger( text, type ) {
+	if ( typeof console === 'undefined' ) {
+		return true;
+	}
+
+	if ( typeof type === 'undefined' ) {
+		type = 'logger';
+	}
+
+	if ( type === false ) {
+		console.log( text );
+	} else {
+		type = 'AB_' + type.toUpperCase();
+		console.log( '[' + type + '] - ' + text );
+	}
+}

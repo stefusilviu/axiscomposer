@@ -1,31 +1,5 @@
-/* global axisbuilder_admin_meta_boxes_builder, console */
-
-/**
- * AxisBuilder Logger
- */
-function AB_Logger( text, type ) {
-
-	if ( typeof console === 'undefined' ) {
-		return true;
-	}
-
-	if ( typeof type === 'undefined' ) {
-		type = 'logger';
-	}
-
-	if ( type === false ) {
-		console.log( text );
-	} else {
-		type = 'AB_' + type.toUpperCase();
-		console.log( '[' + type + '] - ' + text );
-	}
-}
-
-/**
- * AxisBuilder Admin JS
- */
+/* global axisbuilder_admin_meta_boxes_builder */
 ( function( $ ) {
-
 	'use strict';
 
 	$.AxisBuilder = function() {

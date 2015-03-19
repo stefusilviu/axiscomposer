@@ -8,7 +8,7 @@ function axisbuilder_log( string, type ) {
 	console.log( type ? logger : string );
 }
 
-// Logger
+// Debug Logger
 if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
-	new axisbuilder_log( 'Page Builder Debug Mode is enabled', 'debug' );
+	new axisbuilder_log( 'AxisBuilder Debug Mode is enabled', 'debug' );
 }

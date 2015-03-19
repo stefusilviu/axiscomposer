@@ -33,3 +33,43 @@ function axisbuilder_get_screen_ids() {
 
 	return apply_filters( 'axisbuilder_screen_ids', $screen_ids );
 }
+
+/**
+ * Output admin fields.
+ * @param array $options
+ */
+function axisbuilder_admin_fields( $options ) {
+
+	if ( ! class_exists( 'AB_Admin_Settings' ) ) {
+		include 'class-builder-admin-settings.php';
+	}
+
+	AB_Admin_Settings::output_fields( $options );
+}
+
+/**
+ * Update all settings which are passed.
+ * @param array $options
+ */
+function axisbuilder_update_options( $options ) {
+
+	if ( ! class_exists( 'AB_Admin_Settings' ) ) {
+		include 'class-builder-admin-settings.php';
+	}
+
+	AB_Admin_Settings::save_fields( $options );
+}
+
+/**
+ * Get a setting from the settings API.
+ * @param  mixed $option_name
+ * @return string
+ */
+function axisbuilder_settings_get_option( $option_name, $default = '' ) {
+
+	if ( ! class_exists( 'AB_Admin_Settings' ) ) {
+		include 'class-builder-admin-settings.php';
+	}
+
+	return AB_Admin_Settings::get_option( $option_name, $default );
+}

@@ -138,7 +138,7 @@ class AB_Admin_Assets {
 		// Meta boxes
 		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-builder' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes', 'axisbuilder-backbone-modal' ), AB_VERSION );
-			wp_enqueue_script( 'axisbuilder-admin-meta-boxes-position', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-position' . $suffix . '.js', array( 'axisbuilder-admin-builder-meta-boxes' ), AB_VERSION, true );
+			wp_enqueue_script( 'axisbuilder-admin-meta-boxes-position', AB()->plugin_url() . '/assets/scripts/admin/meta-boxes-position' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',

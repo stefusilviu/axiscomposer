@@ -1,15 +1,6 @@
 /* global axisbuilder_settings_params */
 jQuery( window ).load( function() {
 
-	// Screens
-	jQuery( 'select#axisbuilder_allowed_screens' ).change( function() {
-		if ( jQuery( this ).val() === 'specific' ) {
-			jQuery( this ).parent().parent().next( 'tr' ).show();
-		} else {
-			jQuery( this ).parent().parent().next( 'tr' ).hide();
-		}
-	}).change();
-
 	// Edit prompt
 	jQuery( function() {
 		var changed = false;

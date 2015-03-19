@@ -52,7 +52,7 @@ class AB_Settings_General extends AB_Settings_Page {
 				'id'       => 'axisbuilder_allowed_screens',
 				'default'  => 'all',
 				'type'     => 'select',
-				'class'    => 'axisbuilder-enhanced-select',
+				'class'    => 'availability axisbuilder-enhanced-select',
 				'css'      => 'min-width: 350px;',
 				'desc_tip' =>  true,
 				'options'  => array(

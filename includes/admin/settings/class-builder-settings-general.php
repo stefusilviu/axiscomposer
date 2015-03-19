@@ -69,7 +69,7 @@ class AB_Settings_General extends AB_Settings_Page {
 				'css'     => 'min-width: 350px;',
 				'default' => '',
 				'options' => axisbuilder_get_screen_types(),
-				'buttons' => false,
+				'buttons' => true,
 				'custom_attributes' => array(
 					'data-placeholder' => __( 'Choose some screens&hellip;', 'axisbuilder' )
 				)

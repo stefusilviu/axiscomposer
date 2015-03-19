@@ -51,6 +51,11 @@ function axisbuilder_get_screen_types() {
 		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->menu_name;
 	}
 
+	// Sort screens
+	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
+		asort( $screen_types );
+	}
+
 	return $screen_types;
 }
 

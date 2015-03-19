@@ -989,3 +989,641 @@
 	});
 
 })( jQuery );
+
+/**
+ * AxisBuilder Shortcodes JS
+ */
+( function( $ ) {
+	'use strict';
+
+	$.AxisBuilderShortcodes = $.AxisBuilderShortcodes || {};
+
+	$.AxisBuilderShortcodes.fetchShortcodeEditorElement = function( shortcode, insert_target, obj ) {
+		var template = $( '#axisbuilder-tmpl-' + shortcode );
+
+		if ( template.length ) {
+			if ( insert_target === 'instant-insert' ) {
+				obj.sendToBuilderCanvas( template.html() );
+				obj.updateTextarea();
+				obj.historySnapshot(0);
+			}
+
+			return;
+		}
+	};
+
+	$.AxisBuilderShortcodes.cloneElement = function( clicked, obj ) {
+		var trigger    = $( clicked ),
+			element    = trigger.parents( '.axisbuilder-sortable-element:eq(0)' ),
+			layoutCell = false;
+
+		// Check if it is a column
+		if ( ! element.length ) {
+			element = trigger.parents( '.axisbuilder-layout-column:eq(0)' );
+
+			// Check if it is a section
+			if ( ! element.length ) {
+				element = trigger.parents( '.axisbuilder-layout-section:eq(0)' );
+			}
+		}
+
+		// Check if its a layout cell and if we can add one to the row :)
+		if ( element.is( '.axisbuilder-layout-cell' ) ) {
+			var counter = element.parents( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
+			if ( typeof $.AxisBuilderLayoutRow.newCellOrder[counter] !== 'undefined' ) {
+				layoutCell = true;
+			} else {
+				return false;
+			}
+		}
+
+		// Make sure the elements actual html code matches the value so cloning works properly.
+		element.find( 'textarea' ).each( function() {
+			this.innerHTML = this.value;
+		});
+
+		var cloned  = element.clone(),
+			wrapped = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
+
+		// Remove all previous drag-drop classes so we can apply new ones.
+		cloned.removeClass( 'ui-draggable ui-droppable' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
+		cloned.insertAfter( element );
+
+		if ( layoutCell ) {
+			$.AxisBuilderShortcodes.recalcCell( clicked, obj );
+		}
+
+		if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapped.length ) {
+			if ( wrapped.length ) {
+				obj.updateTextarea();
+				obj.updateInnerTextarea( element );
+			}
+		}
+
+		// Activate Element Drag and Drop
+		obj.activateDragging();
+		obj.activateDropping();
+
+		// Update Text-Area and Snapshot history
+		obj.updateTextarea();
+		obj.historySnapshot();
+	};
+
+	$.AxisBuilderShortcodes.trashElement = function( clicked, obj ) {
+		var trigger = $( clicked ),
+			element = trigger.parents( '.axisbuilder-sortable-element:eq(0)' ),
+			parents = false, removeCell = false, element_hide = 200;
+
+		// Check if it is a column
+		if ( ! element.length ) {
+			element = trigger.parents( '.axisbuilder-layout-column:eq(0)' );
+			parents = trigger.parents( '.axisbuilder-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
+
+			// Check if it is a section
+			if ( ! element.length ) {
+				element = trigger.parents( '.axisbuilder-layout-section:eq(0)' );
+				parents = false;
+			}
+		} else {
+			parents = trigger.parents( '.axisbuilder-inner-shortcode:eq(0)' );
+		}
+
+		// Check if it a cell
+		if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
+			if ( parents.find( '.axisbuilder-layout-cell' ).length > 1 ) {
+				removeCell   = true;
+				element_hide = 0;
+			} else {
+				return false;
+			}
+		}
+
+		// obj.targetInsertInActive();
+
+		element.hide( element_hide, function() {
+			if ( removeCell ) {
+				$.AxisBuilderShortcodes.removeCell( clicked, obj );
+			}
+
+			element.remove();
+
+			if ( parents && parents.length ) {
+				obj.updateInnerTextarea( parents );
+			}
+
+			obj.updateTextarea();
+
+			// Bugfix for column delete that renders the canvas undropbable for unknown reason
+			if ( obj.axisBuilderValues.val() === '' ) {
+				obj.activateDropping( obj.axisBuilderParent, 'destroy' );
+			}
+
+			obj.historySnapshot();
+		});
+	};
+
+	$.AxisBuilderShortcodes.resizeLayout = function( clicked, obj ) {
+		var element     = $( clicked ),
+			container   = element.parents( '.axisbuilder-layout-column:eq(0)' ),
+			section     = container.parents( '.axisbuilder-layout-section:eq(0)' ),
+			currentSize = container.data( 'width' ),
+			nextSize    = [],
+			direction   = element.is( '.axisbuilder-increase' ) ? 1 : -1,
+			sizeString  = container.find( '.axisbuilder-column-size' ),
+			dataStorage = container.find( '.axisbuilder-inner-shortcode > ' + obj.shortcodesData ),
+			dataString  = dataStorage.val(),
+			sizes       = [
+				['ab_one_full',     '1/1'],
+				['ab_four_fifth',   '4/5'],
+				['ab_three_fourth', '3/4'],
+				['ab_two_third',    '2/3'],
+				['ab_three_fifth',  '3/5'],
+				['ab_one_half',     '1/2'],
+				['ab_two_fifth',    '2/5'],
+				['ab_one_third',    '1/3'],
+				['ab_one_fourth',   '1/4'],
+				['ab_one_fifth',    '1/5']
+			];
+
+		for ( var i = 0; i < sizes.length; i++ ) {
+			if ( sizes[i][0] === currentSize ) {
+				nextSize = sizes[ i - direction ];
+			}
+		}
+
+		if ( typeof nextSize !== 'undefined' ) {
+
+			// Regular Expression
+			dataString = dataString.replace( new RegExp( '^\\[' + currentSize, 'g' ), '[' + nextSize[0] );
+			dataString = dataString.replace( new RegExp( currentSize + '\\]', 'g' ), nextSize[0] + ']' );
+
+			// Data Storage
+			dataStorage.val( dataString );
+
+			// Remove and Add Layout flex-grid class for column
+			container.removeClass( currentSize ).addClass( nextSize[0] );
+
+			// Make sure to also set the data attr so html() functions fetch the correct value
+			container.attr( 'data-width', nextSize[0] ).data( 'width', nextSize[0] ); // Ensure to set data attr so html() functions fetch the correct value :)
+
+			// Change the column size text
+			sizeString.text( nextSize[1] );
+
+			// Textarea Update and History snapshot :)
+			obj.updateTextarea();
+
+			if ( section.length ) {
+				obj.updateInnerTextarea( false, section );
+				obj.updateTextarea();
+			}
+
+			obj.historySnapshot(0);
+		}
+	};
+
+	// --------------------------------------------
+	// Functions necessary for Row/Cell Management
+	// --------------------------------------------
+	$.AxisBuilderShortcodes.addNewCell = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, 0 );
+	};
+
+	$.AxisBuilderShortcodes.recalcCell = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -1 );
+	};
+
+	$.AxisBuilderShortcodes.removeCell = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
+	};
+
+	$.AxisBuilderShortcodes.setCellSize = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.setCellSize( clicked, obj );
+	};
+
+	// Main Row/Cell control
+	$.AxisBuilderLayoutRow = {
+
+		cellSize: [
+			[ 'ab_cell_one_full'     , '1/1', 1.00 ],
+			[ 'ab_cell_four_fifth'   , '4/5', 0.80 ],
+			[ 'ab_cell_three_fourth' , '3/4', 0.75 ],
+			[ 'ab_cell_two_third'    , '2/3', 0.66 ],
+			[ 'ab_cell_three_fifth'  , '3/5', 0.60 ],
+			[ 'ab_cell_one_half'     , '1/2', 0.50 ],
+			[ 'ab_cell_two_fifth'    , '2/5', 0.40 ],
+			[ 'ab_cell_one_third'    , '1/3', 0.33 ],
+			[ 'ab_cell_one_fourth'   , '1/4', 0.25 ],
+			[ 'ab_cell_one_fifth'    , '1/5', 0.20 ]
+		],
+
+		newCellOrder: [
+			[ 'ab_cell_one_full'     , '1/1' ],
+			[ 'ab_cell_one_half'     , '1/2' ],
+			[ 'ab_cell_one_third'    , '1/3' ],
+			[ 'ab_cell_one_fourth'   , '1/4' ],
+			[ 'ab_cell_one_fifth'    , '1/5' ]
+		],
+
+		cellSizeVariations: {
+
+			4 : {
+				1 : [ 'ab_cell_one_fourth' , 'ab_cell_one_fourth' , 'ab_cell_one_fourth' , 'ab_cell_one_fourth' ],
+				2 : [ 'ab_cell_one_fifth'  , 'ab_cell_one_fifth'  , 'ab_cell_one_fifth'  , 'ab_cell_two_fifth'  ],
+				3 : [ 'ab_cell_one_fifth'  , 'ab_cell_one_fifth'  , 'ab_cell_two_fifth'  , 'ab_cell_one_fifth'  ],
+				4 : [ 'ab_cell_one_fifth'  , 'ab_cell_two_fifth'  , 'ab_cell_one_fifth'  , 'ab_cell_one_fifth'  ],
+				5 : [ 'ab_cell_two_fifth'  , 'ab_cell_one_fifth'  , 'ab_cell_one_fifth'  , 'ab_cell_one_fifth'  ]
+			},
+
+			3 : {
+				1 : [ 'ab_cell_one_third'   , 'ab_cell_one_third'   , 'ab_cell_one_third'   ],
+				2 : [ 'ab_cell_one_fourth'  , 'ab_cell_one_fourth'  , 'ab_cell_one_half'    ],
+				3 : [ 'ab_cell_one_fourth'  , 'ab_cell_one_half'    , 'ab_cell_one_fourth'  ],
+				4 : [ 'ab_cell_one_half'    , 'ab_cell_one_fourth'  , 'ab_cell_one_fourth'  ],
+				5 : [ 'ab_cell_one_fifth'   , 'ab_cell_one_fifth'   , 'ab_cell_three_fifth' ],
+				6 : [ 'ab_cell_one_fifth'   , 'ab_cell_three_fifth' , 'ab_cell_one_fifth'   ],
+				7 : [ 'ab_cell_three_fifth' , 'ab_cell_one_fifth'   , 'ab_cell_one_fifth'   ],
+				8 : [ 'ab_cell_one_fifth'   , 'ab_cell_two_fifth'   , 'ab_cell_two_fifth'   ],
+				9 : [ 'ab_cell_two_fifth'   , 'ab_cell_one_fifth'   , 'ab_cell_two_fifth'   ],
+				10: [ 'ab_cell_two_fifth'   , 'ab_cell_two_fifth'   , 'ab_cell_one_fifth'   ]
+			},
+
+			2 : {
+				1 : [ 'ab_cell_one_half'     , 'ab_cell_one_half'     ],
+				2 : [ 'ab_cell_two_third'    , 'ab_cell_one_third'    ],
+				3 : [ 'ab_cell_one_third'    , 'ab_cell_two_third'    ],
+				4 : [ 'ab_cell_one_fourth'   , 'ab_cell_three_fourth' ],
+				5 : [ 'ab_cell_three_fourth' , 'ab_cell_one_fourth'   ],
+				6 : [ 'ab_cell_one_fifth'    , 'ab_cell_four_fifth'   ],
+				7 : [ 'ab_cell_four_fifth'   , 'ab_cell_one_fifth'    ],
+				8 : [ 'ab_cell_two_fifth'    , 'ab_cell_three_fifth'  ],
+				9 : [ 'ab_cell_three_fifth'  , 'ab_cell_two_fifth'    ]
+			}
+		},
+
+		modifyCellCount: function( clicked, obj, direction ) {
+			var item    = $( clicked ),
+				row     = item.parents( '.axisbuilder-layout-row:eq(0)' ),
+				cells   = row.find( '.axisbuilder-layout-cell' ),
+				counter = ( cells.length + direction ),
+				newEl   = $.AxisBuilderLayoutRow.newCellOrder[counter];
+
+			if ( typeof newEl !== 'undefined' ) {
+				if ( counter !== cells.length ) {
+					$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, newEl, obj );
+				} else {
+					$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, newEl, obj );
+					$.AxisBuilderLayoutRow.appendCell( row, newEl );
+					obj.activateDropping();
+				}
+
+				obj.updateInnerTextarea( false, row );
+				obj.updateTextarea();
+				obj.historySnapshot(0);
+			}
+		},
+
+		appendCell: function ( row, newEl ) {
+			var dataStorage    = row.find( '> .axisbuilder-inner-shortcode' ),
+				shortcodeClass = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
+				template       = $( $( '#axisbuilder-tmpl-' + shortcodeClass ).html() );
+
+			dataStorage.append( template );
+		},
+
+		changeMultipleCellSize: function( cells, newEl, obj, multi ) {
+			var key      = '',
+				new_size = newEl;
+
+			cells.each( function( i ) {
+				if ( multi ) {
+					key = newEl[i];
+					for ( var x in $.AxisBuilderLayoutRow.cellSize ) {
+						if ( key === $.AxisBuilderLayoutRow.cellSize[x][0] ) {
+							new_size = $.AxisBuilderLayoutRow.cellSize[x];
+						}
+					}
+				}
+
+				$.AxisBuilderLayoutRow.changeSingleCellSize( $( this ), new_size, obj );
+			});
+		},
+
+		changeSingleCellSize: function( cell, nextSize, obj ) {
+			var currentSize = cell.data( 'width' ),
+				sizeString  = cell.find( '> .axisbuilder-sorthandle > .axisbuilder-column-size' ),
+				dataStorage = cell.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData ),
+				dataString  = dataStorage.val();
+
+			// Regular Expression
+			dataString = dataString.replace( new RegExp( '^\\[' + currentSize, 'g' ), '[' + nextSize[0] );
+			dataString = dataString.replace( new RegExp( currentSize + '\\]', 'g' ), nextSize[0] + ']' );
+
+			// Data Storage
+			dataStorage.val( dataString );
+
+			// Remove and Add layout flex-grid class for cell
+			cell.removeClass( currentSize ).addClass( nextSize[0] );
+
+			// Make sure to also set the data attr so html() functions fetch the correct value
+			cell.attr( 'data-width', nextSize[0] ).data( 'width', nextSize[0] );
+			cell.attr( 'data-shortcode-handler', nextSize[0] ).data( 'shortcode-handler', nextSize[0] );
+			cell.attr( 'data-shortcode-allowed', nextSize[0] ).data( 'shortcode-allowed', nextSize[0] );
+
+			// Change the cell size text
+			sizeString.text( nextSize[1] );
+		},
+
+		setCellSize: function( clicked ) {
+			var item       = $( clicked ),
+				row        = item.parents( '.axisbuilder-layout-row:eq(0)' ),
+				cells      = row.find( '.axisbuilder-layout-cell' ),
+				rowCount   = cells.length,
+				variations = this.cellSizeVariations[rowCount],
+				dismiss, message = '';
+
+			if ( variations ) {
+				message += '<form>';
+
+				for ( var x in variations ) {
+					var label = '',	labeltext = '';
+
+					for ( var y in variations[x] ) {
+						for ( var z in this.cellSize ) {
+							if ( this.cellSize[z][0] === variations[x][y] ) {
+								labeltext = this.cellSize[z][1];
+							}
+						}
+
+						label += '<span class="axisbuilder-modal-label ' + variations[x][y] + '">' + labeltext + '</span>';
+					}
+
+					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
+					message += '<input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+				}
+
+				message += '</form>';
+
+			} else {
+				dismiss = true;
+				message += '<p>' + axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+
+				if ( rowCount === 1 ) {
+					message += axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell;
+				} else {
+					message += axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+				}
+
+				message += '</p>';
+			}
+
+			// Load Backbone Modal
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
+				message: message,
+				dismiss: dismiss,
+				template: '#tmpl-axisbuilder-modal-cell-size'
+			});
+		}
+	};
+
+})( jQuery );
+
+/**
+ * AxisBuilder History JS
+ */
+( function( $ ) {
+	'use strict';
+
+	$.AxisBuilderHistory = $.AxisBuilderHistory || {};
+
+	$.AxisBuilderHistory = function( options ) {
+		var defaults = {
+			steps: 40,
+			button: '',
+			canvas: '',
+			editor: '',
+			event: 'axisbuilder-storage-update'
+		};
+
+		// No web storage? stop here :)
+		if ( typeof Storage === 'undefined' ) {
+			return false;
+		}
+
+		this.doc     = $( document );
+		this.options = $.extend( {}, defaults, options );
+
+		// Setup
+		this.setups();
+	};
+
+	$.AxisBuilderHistory.prototype = {
+
+		setups: function() {
+			this.button = $( this.options.button );
+			this.canvas = $( this.options.canvas );
+			this.editor = $( this.options.editor );
+
+			// Create a unique array key for this post
+			this.key     = this.create_array_key();
+			this.storage = this.get() || [];
+			this.maximum = this.storage.length - 1;
+			this.index   = this.get( this.key + 'index' );
+
+			if ( typeof this.index === 'undefined' || this.index === null ) {
+				this.index = this.maximum;
+			}
+
+			// Undo-Redo Buttons
+			this.undoButton = this.button.find( '.undo-data' );
+			this.redoButton = this.button.find( '.redo-data' );
+
+			// Clear storage for testing purpose
+			this.clear();
+
+			// Bind Events
+			this.bindEvents();
+		},
+
+		// Creates the array key for this post history
+		create_array_key: function() {
+			var key = 'axisbuilder' + axisbuilder_admin_meta_boxes_builder.theme_name + axisbuilder_admin_meta_boxes_builder.theme_version + axisbuilder_admin_meta_boxes_builder.post_id + axisbuilder_admin_meta_boxes_builder.plugin_version;
+			return key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
+		},
+
+		bindEvents: function() {
+			var obj = this;
+
+			this.canvas.on( 'axisbuilder-storage-update', function() {
+				obj.snapshot();
+			});
+
+			this.button.on( 'click', 'a.undo-data', function() {
+				obj.undo();
+				return false;
+			});
+
+			this.button.on( 'click', 'a.redo-data', function() {
+				obj.redo();
+				return false;
+			});
+
+			// Undo-Redo events on CTRL+{Z/Y} or CTRL+SHIFT+{Z/Y} keypress.
+			this.doc.bind( 'keydown.AxisBuilderHistory', function( e ) {
+
+				// Ensure event is not null
+				e = e || window.event;
+
+				// Undo Event
+				if ( ( e.which === 90 ) && ( e.ctrlKey || ( e.ctrlKey && e.shiftKey ) ) ) {
+					setTimeout( function() {
+						obj.undo();
+					}, 100 );
+
+					e.stopImmediatePropagation();
+				}
+
+				// Redo Event
+				if ( ( e.which === 89 ) && ( e.ctrlKey || ( e.ctrlKey && e.shiftKey ) ) ) {
+					setTimeout( function() {
+						obj.redo();
+					}, 100 );
+
+					e.stopImmediatePropagation();
+				}
+			});
+		},
+
+		get: function( passed_key ) {
+			var key = passed_key || this.key;
+			return JSON.parse( sessionStorage.getItem( key ) );
+		},
+
+		set: function( passed_key, passed_value ) {
+			var key   = passed_key || this.key,
+				value = passed_value || JSON.stringify( this.storage );
+
+			try {
+				sessionStorage.setItem( key, value );
+			}
+
+			catch( e ) {
+				new axisbuilder_log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', 'Storage' );
+				new axisbuilder_log( e, 'Storage' );
+				this.clear();
+				this.redoButton.addClass( 'inactive-history' );
+				this.undoButton.addClass( 'inactive-history' );
+			}
+		},
+
+		clear: function() {
+			sessionStorage.removeItem( this.key );
+			sessionStorage.removeItem( this.key + 'index' );
+			this.storage = [];
+			this.index   = null;
+		},
+
+		undo: function() {
+			if ( ( this.index - 1 ) >= 0 ) {
+				this.index --;
+				this.canvasUpdate( this.storage[ this.index ] );
+			}
+
+			return false;
+		},
+
+		redo: function() {
+			if ( ( this.index + 1 ) <= this.maximum ) {
+				this.index ++;
+				this.canvasUpdate( this.storage[ this.index ] );
+			}
+
+			return false;
+		},
+
+		canvasUpdate: function( values ) {
+
+			if ( typeof this.tinyMCE === 'undefined' ) {
+				this.tinyMCE = typeof window.tinyMCE === 'undefined' ? false : window.tinyMCE.get( this.options.editor.replace( '#', '' ) );
+			}
+
+			if ( this.tinyMCE ) {
+				this.tinyMCE.setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
+			}
+
+			this.editor.val( values[0] );
+			this.canvas.html( values[1] );
+			sessionStorage.setItem( this.key + 'index', this.index );
+
+			// Control Undo inactive class
+			if ( this.index <= 0 ) {
+				this.undoButton.addClass( 'inactive-history' );
+			} else {
+				this.undoButton.removeClass( 'inactive-history' );
+			}
+
+			// Control Redo inactive class
+			if ( this.index + 1 > this.maximum ) {
+				this.redoButton.addClass( 'inactive-history' );
+			} else {
+				this.redoButton.removeClass( 'inactive-history' );
+			}
+
+			// Trigger storage event
+			this.canvas.trigger( 'axisbuilder-history-update' );
+		},
+
+		snapshot: function() {
+
+			// Update all textarea html with actual value, otherwise jquerys html() fetches the values that were present on page load
+			this.canvas.find( 'textarea' ).each( function() {
+				this.innerHTML = this.value;
+			});
+
+			// Set Storage, index
+			this.storage = this.storage || this.get() || [];
+			this.index   = this.index || this.get( this.key + 'index' );
+			if ( typeof this.index === 'undefined' || this.index === null ) {
+				this.index = this.storage.length - 1;
+			}
+
+			var snapshot    = [ this.editor.val(), this.canvas.html().replace( /modal-animation/g, '' ) ],
+				lastStorage = this.storage[ this.index ];
+
+			// Create a new snapshot if none exists or if the last stored snapshot doesnt match the current state
+			if ( typeof lastStorage === 'undefined' || ( lastStorage[0] !== snapshot[0] ) ) {
+				this.index ++;
+
+				// Remove all steps after the current one
+				this.storage = this.storage.slice( 0, this.index );
+
+				// Add the latest step to the array
+				this.storage.push( snapshot );
+
+				// If we got more steps than defined in our options, remove the first step
+				if ( this.options.steps < this.storage.length ) {
+					this.storage.shift();
+				}
+
+				// Set the browser storage object
+				this.set();
+			}
+
+			this.maximum = this.storage.length - 1;
+
+			// Set Undo and Redo button if storage is on the last index
+			if ( this.storage.length === 1 || this.index === 0 ) {
+				this.undoButton.addClass( 'inactive-history' );
+			} else {
+				this.undoButton.removeClass( 'inactive-history' );
+			}
+
+			if ( this.storage.length - 1 === this.index ) {
+				this.redoButton.addClass( 'inactive-history' );
+			} else {
+				this.redoButton.removeClass( 'inactive-history' );
+			}
+		}
+	};
+
+})( jQuery );

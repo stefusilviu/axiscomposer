@@ -23,17 +23,4 @@ jQuery( window ).load( function() {
 			window.onbeforeunload = '';
 		});
 	});
-
-	// Select all/none
-	jQuery( '.axisbuilder' ).on( 'click', '.select_all', function() {
-		jQuery( this ).closest( 'td' ).find( 'select option' ).attr( 'selected', 'selected' );
-		jQuery( this ).closest( 'td' ).find( 'select' ).trigger( 'change' );
-		return false;
-	});
-
-	jQuery( '.axisbuilder' ).on( 'click', '.select_none', function() {
-		jQuery( this ).closest( 'td' ).find( 'select option' ).removeAttr( 'selected' );
-		jQuery( this ).closest( 'td' ).find( 'select' ).trigger( 'change' );
-		return false;
-	});
 });

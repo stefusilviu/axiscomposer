@@ -358,7 +358,12 @@ class AB_Admin_Settings {
 										<?php
 									}
 								?>
-						   </select> <?php echo $description; ?>
+							</select><?php
+								echo $description;
+
+								if ( 'multiselect' == $value['type'] && $value['buttons'] ) { ?>
+									</br><a class="select_all button" href="#"><?php _e( 'Select all', 'axisbuilder' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axisbuilder' ); ?></a>
+								<?php } ?>
 						</td>
 					</tr><?php
 					break;

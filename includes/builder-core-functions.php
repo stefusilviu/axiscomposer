@@ -92,6 +92,50 @@ function axisbuilder_print_js() {
 }
 
 /**
+ * Get all Custom Post Types Screen.
+ * @return array
+ */
+function axisbuilder_get_screen_types() {
+	global $wp_post_types;
+	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true, '_builtin' => false ), 'names' );
+	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
+		'post' => __( 'Post', 'axisbuilder' ),
+		'page' => __( 'Page', 'axisbuilder' )
+	) );
+
+	// Fetch Public Custom Post Types
+	foreach ( $post_types as $post_type ) {
+		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->menu_name;
+	}
+
+	// Sort screens
+	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
+		asort( $screen_types );
+	}
+
+	return $screen_types;
+}
+
+/**
+ * Get allowed specific Custom Post Types Screen.
+ * @return array
+ */
+function axisbuilder_get_allowed_screen_types() {
+	if ( get_option( 'axisbuilder_allowed_screens' ) !== 'specific' ) {
+		return array_keys( axisbuilder_get_screen_types() );
+	}
+
+	$screens    = array();
+	$post_types = get_option( 'axisbuilder_specific_allowed_screens' );
+
+	foreach ( $post_types as $key => $post_type ) {
+		$screens[ $key ] = $post_type;
+	}
+
+	return apply_filters( 'axisbuilder_allowed_screen_types', $screens );
+}
+
+/**
  * AxisBuilder Core Supported Themes.
  * @return array
  */

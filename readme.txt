@@ -87,6 +87,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 
 * Feature - Language pack downloader. po and mo files removed from core (too heavy).
 * Refactor - Improved the Iconfont Uploader Class.
+* Refactor - Compressed the Page Builder Scripts in single file.
 * Fix - Change hooks used to output post columns - fixes columns after quick edit.
 * Fix - Query in uninstall script.
 * Fix - Prevent potential XSS within tooltips.

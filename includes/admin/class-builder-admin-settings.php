@@ -217,6 +217,9 @@ class AB_Admin_Settings {
 			if ( ! isset( $value['desc_tip'] ) ) {
 				$value['desc_tip'] = false;
 			}
+			if ( ! isset( $value['buttons'] ) ) {
+				$value['buttons'] = false;
+			}
 			if ( ! isset( $value['placeholder'] ) ) {
 				$value['placeholder'] = '';
 			}
@@ -360,11 +363,10 @@ class AB_Admin_Settings {
 								?>
 							</select><?php
 								echo $description;
-
-								if ( 'multiselect' == $value['type'] && $value['buttons'] ) { ?>
-									</br><a class="select_all button" href="#"><?php _e( 'Select all', 'axisbuilder' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axisbuilder' ); ?></a>
-								<?php } ?>
-						</td>
+								if ( 'multiselect' == $value['type'] && $value['buttons'] ) : ?>
+									</br><a class="select_all button" href="#"><?php _e( 'Select all', 'axisbuilder' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axisbuilder' ); ?></a><?php
+								endif;
+						?></td>
 					</tr><?php
 					break;
 
@@ -470,37 +472,6 @@ class AB_Admin_Settings {
 							</fieldset>
 						<?php
 					}
-					break;
-
-				// Screen multiselects
-				case 'multi_select_screens' :
-
-					$selections = (array) self::get_option( $value['id'] );
-
-					if ( ! empty( $value['options'] ) ) {
-						$screens = $value['options'];
-					} else {
-						$screens = axisbuilder_get_screen_types();
-					}
-
-					asort( $screens );
-					?><tr valign="top">
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
-							<?php echo $tooltip_html; ?>
-						</th>
-						<td class="forminp">
-							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php _e( 'Choose screens&hellip;', 'axisbuilder' ); ?>" title="<?php _e( 'Screen', 'axisbuilder' ) ?>" class="axisbuilder-enhanced-select">
-								<?php
-									if ( $screens ) {
-										foreach ( $screens as $key => $val ) {
-											echo '<option value="' . esc_attr( $key ) . '" ' . selected( in_array( $key, $selections ), true, false ).'>' . $val . '</option>';
-										}
-									}
-								?>
-							</select> <?php echo ( $description ) ? $description : ''; ?> </br><a class="select_all button" href="#"><?php _e( 'Select all', 'axisbuilder' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axisbuilder' ); ?></a>
-						</td>
-					</tr><?php
 					break;
 				// Default: run an action
 				default:

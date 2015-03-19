@@ -61,15 +61,6 @@ class AB_Settings_General extends AB_Settings_Page {
 				)
 			),
 
-			// array(
-			// 	'title'   => __( 'Specific Screens', 'axisbuilder' ),
-			// 	'desc'    => '',
-			// 	'id'      => 'axisbuilder_specific_allowed_screens',
-			// 	'css'     => 'min-width: 350px;',
-			// 	'default' => '',
-			// 	'type'    => 'multi_select_screens'
-			// ),
-
 			array(
 				'title'   => __( 'Specific Screens', 'axisbuilder' ),
 				'id'      => 'axisbuilder_specific_allowed_screens',
@@ -78,9 +69,9 @@ class AB_Settings_General extends AB_Settings_Page {
 				'css'     => 'min-width: 350px;',
 				'default' => '',
 				'options' => axisbuilder_get_screen_types(),
-				'buttons' => true,
+				'buttons' => false,
 				'custom_attributes' => array(
-					'data-placeholder' => __( 'Select some screens', 'axisbuilder' )
+					'data-placeholder' => __( 'Choose some screens&hellip;', 'axisbuilder' )
 				)
 			),
 

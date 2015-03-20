@@ -15,17 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Print formatted data passed.
- * @param  array|string $data Raw data.
- * @return array|string $data Clean data.
- */
-function axisbuilder_print_clean( $data ) {
-	print '<pre>';
-	print_r( $data );
-	print '</pre>';
-}
-
-/**
  * Converts an array into a html data string.
  * @param  array  $data        Array for html data.
  * @return string $data_string converted html data.

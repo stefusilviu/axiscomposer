@@ -149,7 +149,8 @@ class AB_Frontend_Scripts {
 		switch ( $handle ) {
 			case 'axisbuilder' :
 				return array(
-					'ajax_url' => AB()->ajax_url(),
+					'ajax_url'    => AB()->ajax_url(),
+					'ab_ajax_url' => AB_AJAX::get_endpoint(),
 				);
 			break;
 			case 'axisbuilder-enhanced-select' :

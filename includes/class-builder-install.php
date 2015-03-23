@@ -56,6 +56,9 @@ class AB_Install {
 		AB_Post_Types::register_post_types();
 		AB_Post_Types::register_taxonomies();
 
+		// Also register endpoints - this needs to be done prior to rewrite rule flush
+		AB_AJAX::add_endpoint();
+
 		self::create_files();
 
 		// Update version

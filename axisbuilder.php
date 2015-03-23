@@ -157,13 +157,10 @@ final class AxisBuilder {
 		include_once( 'includes/builder-widget-functions.php' );
 		include_once( 'includes/class-builder-autoloader.php' );
 		include_once( 'includes/class-builder-install.php' );
+		include_once( 'includes/class-builder-ajax.php' );
 
 		if ( $this->is_request( 'admin' ) ) {
 			include_once( 'includes/admin/class-builder-admin.php' );
-		}
-
-		if ( $this->is_request( 'ajax' ) ) {
-			$this->ajax_includes();
 		}
 
 		if ( $this->is_request( 'frontend' ) ) {
@@ -178,13 +175,6 @@ final class AxisBuilder {
 		include_once( 'includes/class-builder-post-types.php' );               // Registers post types
 		include_once( 'includes/class-builder-localization.php' );             // Download/update languages
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
-	}
-
-	/**
-	 * Include required ajax files.
-	 */
-	public function ajax_includes() {
-		include_once( 'includes/class-builder-ajax.php' );                     // Ajax functions for admin and the front-end
 	}
 
 	/**

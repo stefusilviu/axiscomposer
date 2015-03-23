@@ -21,10 +21,72 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_AJAX {
 
 	/**
-	 * Hooks in methods
+	 * Hooks in ajax handlers
 	 */
 	public static function init() {
+		add_action( 'init', array( __CLASS__, 'add_endpoint') );
+		add_action( 'parse_query', array( __CLASS__, 'do_ab_ajax'), 0 );
 
+		self::add_ajax_events();
+	}
+
+	/**
+	 * Add our endpoint for frontend ajax requests
+	 */
+	public static function add_endpoint() {
+		add_rewrite_tag( '%ab-ajax%', '([^/]*)' );
+		add_rewrite_rule( 'ab-ajax/([^/]*)/?', 'index.php?ab-ajax=$matches[1]', 'top' );
+	}
+
+	/**
+	 * Get AB Ajax Endpoint
+	 * @param  string $request Optional
+	 * @param  string $ssl     Optional
+	 * @return string
+	 */
+	public static function get_endpoint( $request = '', $ssl = null ) {
+		if ( is_null( $ssl ) ) {
+			$scheme = parse_url( home_url(), PHP_URL_SCHEME );
+		} elseif ( $ssl ) {
+			$scheme = 'https';
+		} else {
+			$scheme = 'http';
+		}
+
+		if ( strstr( get_option( 'permalink_structure' ), '/index.php/' ) ) {
+			$endpoint = trailingslashit( home_url( '/index.php/ab-ajax/' . $request, $scheme ) );
+		} elseif ( get_option( 'permalink_structure' ) ) {
+			$endpoint = trailingslashit( home_url( '/ab-ajax/' . $request, $scheme ) );
+		} else {
+			$endpoint = add_query_arg( 'ab-ajax=', $request, trailingslashit( home_url( '', $scheme ) ) );
+		}
+
+		return esc_url_raw( $endpoint );
+	}
+
+	/**
+	 * Check for WC Ajax request and fire action
+	 */
+	public static function do_wc_ajax() {
+		global $wp_query;
+
+		if ( ! empty( $_GET['ab-ajax'] ) ) {
+			$wp_query->set( 'ab-ajax', sanitize_text_field( $_GET['ab-ajax'] ) );
+		}
+
+		if ( $action = $wp_query->get( 'ab-ajax' ) ) {
+			if ( ! defined( 'DOING_AJAX' ) ) {
+				define( 'DOING_AJAX', true );
+			}
+			do_action( 'ab_ajax_' . sanitize_text_field( $action ) );
+			die();
+		}
+	}
+
+	/**
+	 * Hook in methods - uses WordPress ajax handlers (admin-ajax)
+	 */
+	public static function add_ajax_events() {
 		// axisbuilder_EVENT => nopriv
 		$ajax_events = array(
 			'add_iconfont'                    => false,
@@ -41,6 +103,9 @@ class AB_AJAX {
 
 			if ( $nopriv ) {
 				add_action( 'wp_ajax_nopriv_axisbuilder_' . $ajax_event, array( __CLASS__, $ajax_event ) );
+
+				// AB AJAX can be used for frontend ajax requests
+				add_action( 'ab_ajax_' . $ajax_event, array( __CLASS__, $ajax_event ) );
 			}
 		}
 	}

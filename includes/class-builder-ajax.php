@@ -65,9 +65,9 @@ class AB_AJAX {
 	}
 
 	/**
-	 * Check for WC Ajax request and fire action
+	 * Check for AB Ajax request and fire action
 	 */
-	public static function do_wc_ajax() {
+	public static function do_ab_ajax() {
 		global $wp_query;
 
 		if ( ! empty( $_GET['ab-ajax'] ) ) {

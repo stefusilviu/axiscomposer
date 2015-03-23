@@ -201,9 +201,6 @@ final class AxisBuilder {
 		// Set up localisation
 		$this->load_plugin_textdomain();
 
-		// Set up shortcodes
-		$this->shortcodes();
-
 		// Init action
 		do_action( 'axisbuilder_init' );
 	}

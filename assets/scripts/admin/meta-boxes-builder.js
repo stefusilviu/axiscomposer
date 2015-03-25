@@ -113,24 +113,35 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 					}
 				}
 
-				var params = parents.data(), modal;
+				// Load Backbone Modal
+				$( this ).AxisBuilderBackboneModal({
+					title: parents.data('modal-title'),
+					message: 'Hello',
+					dismiss: false,
+					template: '#tmpl-axisbuilder-modal-cell-size'
+				});
 
-				params.scope        = obj;
-				params.modal_title  = parents.data( 'modal-title' );
-				params.modal_class  = parents.data( 'modal-class' );
-				params.modal_action = parents.data( 'modal-action' );
-				params.on_load      = parents.data( 'modal-on-load' );
 
-				params.before_save = parents.data( 'before_save' );
-				params.on_save     = obj.updateShortcode;
-				params.save_param  = parents;
-				params.ajax_param  = {
-					extract: true,
-					shortcode: parents.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData + ':eq(0)' ).val(),
-					allowed: params.allowedShortcodes
-				};
+				// @deprecated Replaced by Backbone Modal
 
-				modal = new $.AxisBuilderModal( params );
+				// var params = parents.data();
+
+				// params.scope        = obj;
+				// params.modal_title  = parents.data( 'modal-title' );
+				// params.modal_class  = parents.data( 'modal-class' );
+				// params.modal_action = parents.data( 'modal-action' );
+				// params.on_load      = parents.data( 'modal-on-load' );
+
+				// params.before_save = parents.data( 'before_save' );
+				// params.on_save     = obj.updateShortcode;
+				// params.save_param  = parents;
+				// params.ajax_param  = {
+				// 	extract: true,
+				// 	shortcode: parents.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData + ':eq(0)' ).val(),
+				// 	allowed: params.allowedShortcodes
+				// };
+
+				// modal = new $.AxisBuilderModal( params );
 				return false;
 			})
 			.on( 'click', 'a.axisbuilder-clone', function() {

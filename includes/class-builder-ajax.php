@@ -24,8 +24,8 @@ class AB_AJAX {
 	 * Hooks in ajax handlers
 	 */
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'add_endpoint') );
-		add_action( 'parse_query', array( __CLASS__, 'do_ab_ajax'), 0 );
+		add_action( 'init', array( __CLASS__, 'add_endpoint' ) );
+		add_action( 'parse_query', array( __CLASS__, 'do_ab_ajax' ), 0 );
 
 		self::add_ajax_events();
 	}

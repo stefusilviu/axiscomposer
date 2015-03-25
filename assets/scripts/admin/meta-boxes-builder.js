@@ -115,12 +115,14 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 
 				// Load Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
-					title: parents.data('modal-title'),
+					title: parents.data( 'modal-title' ),
+					screen: parents.data( 'modal-class' ),
 					message: 'Hello',
 					dismiss: false,
-					template: '#tmpl-axisbuilder-modal-cell-size'
+					template: '#tmpl-axisbuilder-modal-edit-element'
 				});
 
+				return false;
 
 				// @deprecated Replaced by Backbone Modal
 
@@ -142,7 +144,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				// };
 
 				// modal = new $.AxisBuilderModal( params );
-				return false;
 			})
 			.on( 'click', 'a.axisbuilder-clone', function() {
 				obj.shortcodes.cloneElement( this, obj );

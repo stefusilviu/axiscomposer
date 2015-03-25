@@ -113,7 +113,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 					}
 				}
 
-				var params  = parents.data(), modal;
+				var params = parents.data(), modal;
 
 				params.scope        = obj;
 				params.modal_title  = parents.data( 'modal-title' );

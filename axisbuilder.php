@@ -193,6 +193,7 @@ final class AxisBuilder {
 
 	/**
 	 * Init AxisBuilder when WordPress Initialises.
+	 * @todo Remove the call of shortcodes after modal is deprecated
 	 */
 	public function init() {
 		// Before init action
@@ -200,6 +201,9 @@ final class AxisBuilder {
 
 		// Set up localisation
 		$this->load_plugin_textdomain();
+
+		// Set up shortcodes
+		$this->shortcodes();
 
 		// Init action
 		do_action( 'axisbuilder_init' );

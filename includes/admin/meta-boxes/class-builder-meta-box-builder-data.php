@@ -144,20 +144,20 @@ class AB_Meta_Box_Builder_Data {
 	 */
 	protected static function output_backbone_tmpl() {
 		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_backbone_modal_tmpl', array(
-			'cells' => array(
-				'tmpl'   => 'cell-size',
-				'button' => __( 'Add', 'axisbuilder' ),
-				'class'  => array( 'modal-animation' )
+			'trash' => array(
+				'tmpl'   => 'trash-data',
+				'button' => __( 'Delete', 'axisbuilder' ),
+				'class'  => array( 'modal-animation' ),
 			),
 			'edit' => array(
 				'tmpl'   => 'edit-element',
 				'button' => __( 'Save', 'axisbuilder' ),
 				'class'  => array( 'modal-animation' )
 			),
-			'trash' => array(
-				'tmpl'   => 'trash-data',
-				'button' => __( 'Delete', 'axisbuilder' ),
-				'class'  => array( 'modal-animation' ),
+			'cells' => array(
+				'tmpl'   => 'cell-size',
+				'button' => __( 'Add', 'axisbuilder' ),
+				'class'  => array( 'modal-animation' )
 			)
 		) );
 

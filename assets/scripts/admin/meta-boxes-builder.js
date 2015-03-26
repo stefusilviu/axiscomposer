@@ -175,24 +175,13 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.activateDropping( this.axisBuilderParent, '' );
 			});
 
-			// Empty the Builder Canvas & Load empty Textarea
-			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-trash-data' !== template ) {
-					return;
-				}
-
-				obj.axisBuilderCanvas.empty();
-				obj.updateTextarea();
-			});
-
 			// Add cell size on builder canvas
-			// @todo: Refactor this procedure ;)
 			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-cell-size' !== template ) {
 					return;
 				}
 
-				// Need Refactor ;)
+				// @todo Need Refactor ;)
 				var row        = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells      = row.find( '.axisbuilder-layout-cell' ),
 					rowCount   = cells.length,
@@ -208,6 +197,23 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.updateInnerTextarea( false, row );
 				obj.updateTextarea();
 				obj.historySnapshot(0);
+			});
+
+			// Save the elements on builder canvas
+			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-edit-element' !== template ) {
+					return;
+				}
+			});
+
+			// Empty the Builder Canvas & Load empty Textarea
+			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' !== template ) {
+					return;
+				}
+
+				obj.axisBuilderCanvas.empty();
+				obj.updateTextarea();
 			});
 		},
 

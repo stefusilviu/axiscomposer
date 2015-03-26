@@ -69,7 +69,54 @@ jQuery( function( $ ) {
 		},
 
 		cell_size: function() {
+			var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
+				cells                = $row.find( '.axisbuilder-layout-cell' ),
+				cell_size            = axisbuilder_meta_boxes_builder_cells.cell_size,
+				cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length],
+				dismiss, message = '';
 
+			if ( cell_size_variations ) {
+				message += '<form>';
+
+				for ( var x in cell_size_variations ) {
+					var label = '',	labeltext = '';
+
+					for ( var y in cell_size_variations[x] ) {
+						for ( var z in cell_size ) {
+							if ( cell_size[z][0] === cell_size_variations[x][y] ) {
+								labeltext = cell_size[z][1];
+							}
+						}
+
+						label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
+					}
+
+					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
+					message += '<input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+				}
+
+				message += '</form>';
+			} else {
+				dismiss = true;
+				message += '<p>' + axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+
+				if ( cells.length === 1 ) {
+					message += axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell;
+				} else {
+					message += axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+				}
+
+				message += '</p>';
+			}
+
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
+				message: message,
+				dismiss: dismiss,
+				template: '#tmpl-axisbuilder-modal-cell-size'
+			});
+
+			return false;
 		},
 
 		backbone: {
@@ -129,12 +176,12 @@ jQuery( function( $ ) {
 
 	var axisbuilder_meta_boxes_builder_cells = {
 
-		cell_size: [
-			[ 'ab_cell_one_full', '1/1', 1.00 ], [ 'ab_cell_four_fifth', '4/5', 0.80 ], [ 'ab_cell_three_fourth', '3/4', 0.75 ], [ 'ab_cell_two_third', '2/3', 0.66 ], [ 'ab_cell_three_fifth', '3/5', 0.60 ], [ 'ab_cell_one_half', '1/2', 0.50 ], [ 'ab_cell_two_fifth', '2/5', 0.40 ], [ 'ab_cell_one_third', '1/3', 0.33 ], [ 'ab_cell_one_fourth', '1/4', 0.25 ], [ 'ab_cell_one_fifth', '1/5', 0.20 ]
+		cell_list: [
+			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]
 		],
 
-		new_cell_order: [
-			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]
+		cell_size: [
+			[ 'ab_cell_one_full', '1/1', 1.00 ], [ 'ab_cell_four_fifth', '4/5', 0.80 ], [ 'ab_cell_three_fourth', '3/4', 0.75 ], [ 'ab_cell_two_third', '2/3', 0.66 ], [ 'ab_cell_three_fifth', '3/5', 0.60 ], [ 'ab_cell_one_half', '1/2', 0.50 ], [ 'ab_cell_two_fifth', '2/5', 0.40 ], [ 'ab_cell_one_third', '1/3', 0.33 ], [ 'ab_cell_one_fourth', '1/4', 0.25 ], [ 'ab_cell_one_fifth', '1/5', 0.20 ]
 		],
 
 		cell_size_variations: {

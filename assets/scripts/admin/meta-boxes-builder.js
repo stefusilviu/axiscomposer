@@ -100,10 +100,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.shortcodes.resizeLayout( this, obj );
 				return false;
 			})
-			.on( 'click', 'a.axisbuilder-cell-set', function() {
-				obj.shortcodes.setCellSize( this );
-				return false;
-			})
 			.on( 'click', 'a.axisbuilder-cell-add', function() {
 				obj.shortcodes.addNewCell( this, obj );
 				return false;
@@ -369,6 +365,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				scope = $( '.axisbuilder-data > div > .axisbuilder-inner-shortcode' );
 			}
 
+			// @todo sizes is similar to axisbuilder_meta_boxes_builder_cells.cell_size xD
 			var content        = '',
 				sizeCount      = 0,
 				content_fields = scope.find( '>' + this.shortcodesData ),
@@ -1164,10 +1161,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
 	};
 
-	$.AxisBuilderShortcodes.setCellSize = function( clicked, obj ) {
-		$.AxisBuilderLayoutRow.setCellSize( clicked, obj );
-	};
-
 	// Main Row/Cell control
 	$.AxisBuilderLayoutRow = {
 
@@ -1299,58 +1292,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 
 			// Change the cell size text
 			sizeString.text( nextSize[1] );
-		},
-
-		setCellSize: function( clicked ) {
-			var item       = $( clicked ),
-				row        = item.parents( '.axisbuilder-layout-row:eq(0)' ),
-				cells      = row.find( '.axisbuilder-layout-cell' ),
-				rowCount   = cells.length,
-				variations = this.cellSizeVariations[rowCount],
-				dismiss, message = '';
-
-			if ( variations ) {
-				message += '<form>';
-
-				for ( var x in variations ) {
-					var label = '',	labeltext = '';
-
-					for ( var y in variations[x] ) {
-						for ( var z in this.cellSize ) {
-							if ( this.cellSize[z][0] === variations[x][y] ) {
-								labeltext = this.cellSize[z][1];
-							}
-						}
-
-						label += '<span class="axisbuilder-modal-label ' + variations[x][y] + '">' + labeltext + '</span>';
-					}
-
-					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
-					message += '<input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
-				}
-
-				message += '</form>';
-
-			} else {
-				dismiss = true;
-				message += '<p>' + axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-
-				if ( rowCount === 1 ) {
-					message += axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell;
-				} else {
-					message += axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
-				}
-
-				message += '</p>';
-			}
-
-			// Load Backbone Modal
-			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
-				message: message,
-				dismiss: dismiss,
-				template: '#tmpl-axisbuilder-modal-cell-size'
-			});
 		}
 	};
 

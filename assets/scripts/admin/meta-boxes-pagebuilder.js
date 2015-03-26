@@ -137,7 +137,7 @@ jQuery( function( $ ) {
 				}
 
 				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
-					axisbuilder_meta_boxes_builder_items.backbone.cell_size();
+					axisbuilder_meta_boxes_builder_items.backbone.cell_size( data.add_cell_size );
 				}
 			},
 
@@ -145,12 +145,16 @@ jQuery( function( $ ) {
 				$( '.canvas-area' ).empty();
 			},
 
-			edit_element: function() {
+			edit_element: function() {},
 
-			},
+			cell_size: function( add_cell_size ) {
+				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells                = $row.find( '.axisbuilder-layout-cell' ),
+					cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length];
 
-			cell_size: function() {
-
+				if ( add_cell_size ) {
+					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
+				}
 			}
 		},
 
@@ -215,6 +219,50 @@ jQuery( function( $ ) {
 				8 : [ 'ab_cell_two_fifth',    'ab_cell_three_fifth'  ],
 				9 : [ 'ab_cell_three_fifth',  'ab_cell_two_fifth'    ]
 			}
+		},
+
+		change_multiple_cell_size: function( cells, newEl, multi ) {
+			var key       = '',
+				new_size  = newEl,
+				cell_size = axisbuilder_meta_boxes_builder_cells.cell_size;
+
+			cells.each( function( i ) {
+				if ( multi ) {
+					key = newEl[i];
+					for ( var x in cell_size ) {
+						if ( key === cell_size[x][0] ) {
+							new_size = cell_size[x];
+						}
+					}
+				}
+
+				axisbuilder_meta_boxes_builder_cells.change_single_cell_size( $( this ), new_size );
+			});
+		},
+
+		change_single_cell_size: function( cell, next_size ) {
+			var current_size = cell.data( 'width' ),
+				size_string  = cell.find( '> .axisbuilder-sorthandle > .axisbuilder-column-size' ),
+				data_storage = cell.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
+				data_string  = data_storage.val();
+
+			// Regular Expression
+			data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
+			data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
+
+			// Data storage
+			data_storage.val( data_string );
+
+			// Remove and Add Layout flex-grid class for cell
+			cell.removeClass( current_size ).addClass( next_size[0] );
+
+			// Make sure to also set the data attr so html() functions fetch the correct value
+			cell.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] );
+			cell.attr( 'data-shortcode-handler', next_size[0] ).data( 'shortcode-handler', next_size[0] );
+			cell.attr( 'data-shortcode-allowed', next_size[0] ).data( 'shortcode-allowed', next_size[0] );
+
+			// Change the cell size text
+			size_string.text( next_size[1] );
 		}
 	};
 

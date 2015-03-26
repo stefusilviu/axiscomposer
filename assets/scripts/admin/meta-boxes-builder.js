@@ -116,26 +116,18 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 
 			// Add cell size on builder canvas
 			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-cell-size' !== template ) {
-					return;
+				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
+					var add_cell_size = $( 'input[name=add_cell_size]:checked' ).val(),
+						row = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' );
+
+					if ( ! add_cell_size ) {
+						return true;
+					}
+
+					obj.updateInnerTextarea( false, row );
+					obj.updateTextarea();
+					obj.historySnapshot(0);
 				}
-
-				// @todo Need Refactor ;)
-				var row        = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
-					cells      = row.find( '.axisbuilder-layout-cell' ),
-					rowCount   = cells.length,
-					variations = $.AxisBuilderLayoutRow.cellSizeVariations[rowCount];
-
-				var add_cell_size = $( 'input[name=add_cell_size]:checked' ).val();
-
-				if ( ! add_cell_size ) {
-					return true;
-				}
-
-				$.AxisBuilderLayoutRow.changeMultipleCellSize( cells, variations[add_cell_size], obj, true );
-				obj.updateInnerTextarea( false, row );
-				obj.updateTextarea();
-				obj.historySnapshot(0);
 			});
 
 			// Trash builder canvas data

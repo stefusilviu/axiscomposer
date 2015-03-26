@@ -76,8 +76,6 @@ jQuery( function( $ ) {
 				dismiss, message = '';
 
 			if ( cell_size_variations ) {
-				message += '<form>';
-
 				for ( var x in cell_size_variations ) {
 					var label = '',	labeltext = '';
 
@@ -91,22 +89,12 @@ jQuery( function( $ ) {
 						label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
 					}
 
-					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label">';
-					message += '<input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 				}
-
-				message += '</form>';
 			} else {
 				dismiss = true;
-				message += '<p>' + axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-
-				if ( cells.length === 1 ) {
-					message += axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell;
-				} else {
-					message += axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
-				}
-
-				message += '</p>';
+				message += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+				message += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
 			}
 
 			$( this ).AxisBuilderBackboneModal({

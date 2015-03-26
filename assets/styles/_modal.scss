@@ -127,10 +127,10 @@
 		border: 0 solid #dfdfdf;
 		border-width: 1px 0 0 0;
 		box-shadow: 0 -4px 4px -4px rgba(0,0,0,0.1);
-	}
 
-	footer .inner {
-		padding: 0 10px;
-		text-align: right;
+		.inner {
+			padding: 0 10px;
+			text-align: right;
+		}
 	}
 }

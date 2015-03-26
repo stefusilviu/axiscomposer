@@ -173,7 +173,15 @@ class AB_Meta_Box_Builder_Data {
 							</header>
 							<article>
 								<form action="" method="post">
-									<p><%= message %></p>
+									<?php if ( $template['tmpl'] !== 'trash-data' ) : ?>
+										<% if ( dismiss ) { %>
+											<p><%= message %></p>
+										<% } else { %>
+											<%= message %>
+										<% } %>
+									<?php else : ?>
+										<p><%= message %></p>
+									<?php endif; ?>
 								</form>
 							</article>
 							<footer>

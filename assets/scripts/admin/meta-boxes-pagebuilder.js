@@ -51,7 +51,8 @@ jQuery( function( $ ) {
 
 			response: function( e, template, data ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
-					$( '.canvas-area, .canvas-secure-data textarea' ).empty();
+					$( '.canvas-area' ).empty();
+					$( '.canvas-secure-data textarea' ).val('').empty();
 				}
 			}
 		}

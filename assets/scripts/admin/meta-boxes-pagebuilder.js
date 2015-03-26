@@ -9,7 +9,9 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 
 			$( '#axisbuilder-editor' )
-				.on( 'click', 'a.trash-data', this.trash_data );
+				.on( 'click', 'a.trash-data', this.trash_data )
+				.on( 'click', 'a.axisbuilder-edit', this.edit_element );
+				.on( 'click', 'a.axisbuilder-cell-set', this.cell_size );
 
 			$( 'body' )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
@@ -43,6 +45,30 @@ jQuery( function( $ ) {
 			return false;
 		},
 
+		edit_element: function() {
+			var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+
+			if ( ! parents.length ) {
+				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
+
+				if ( ! parents.length ) {
+					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+				}
+			}
+
+			$( this ).AxisBuilderBackboneModal({
+				title: parents.data( 'modal-title' ),
+				message: 'Fetch options field with validation using AJAX...',
+				template: '#tmpl-axisbuilder-modal-edit-element'
+			});
+
+			return false;
+		},
+
+		cell_size: function() {
+
+		},
+
 		backbone: {
 
 			init: function( e, template ) {
@@ -55,10 +81,26 @@ jQuery( function( $ ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
 					axisbuilder_meta_boxes_builder_items.backbone.trash_data();
 				}
+
+				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					axisbuilder_meta_boxes_builder_items.backbone.edit_element();
+				}
+
+				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
+					axisbuilder_meta_boxes_builder_items.backbone.cell_size();
+				}
 			},
 
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
+			},
+
+			edit_element: function() {
+
+			},
+
+			cell_size: function() {
+
 			}
 		},
 

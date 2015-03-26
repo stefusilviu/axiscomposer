@@ -88,50 +88,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 			});
 
 			// Builder Canvas
-			this.axisBuilderCanvas.on( 'click', '.axisbuilder-edit', function() {
-				var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-
-				if ( ! parents.length ) {
-					parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
-
-					if ( ! parents.length ) {
-						parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
-					}
-				}
-
-				// Load Backbone Modal
-				$( this ).AxisBuilderBackboneModal({
-					title: parents.data( 'modal-title' ),
-					screen: parents.data( 'modal-class' ),
-					message: 'Hello',
-					dismiss: false,
-					template: '#tmpl-axisbuilder-modal-edit-element'
-				});
-
-				return false;
-
-				// @deprecated Replaced by Backbone Modal
-
-				// var params = parents.data();
-
-				// params.scope        = obj;
-				// params.modal_title  = parents.data( 'modal-title' );
-				// params.modal_class  = parents.data( 'modal-class' );
-				// params.modal_action = parents.data( 'modal-action' );
-				// params.on_load      = parents.data( 'modal-on-load' );
-
-				// params.before_save = parents.data( 'before_save' );
-				// params.on_save     = obj.updateShortcode;
-				// params.save_param  = parents;
-				// params.ajax_param  = {
-				// 	extract: true,
-				// 	shortcode: parents.find( '> .axisbuilder-inner-shortcode > ' + obj.shortcodesData + ':eq(0)' ).val(),
-				// 	allowed: params.allowedShortcodes
-				// };
-
-				// modal = new $.AxisBuilderModal( params );
-			})
-			.on( 'click', 'a.axisbuilder-clone', function() {
+			this.axisBuilderCanvas.on( 'click', 'a.axisbuilder-clone', function() {
 				obj.shortcodes.cloneElement( this, obj );
 				return false;
 			})
@@ -183,13 +140,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.updateInnerTextarea( false, row );
 				obj.updateTextarea();
 				obj.historySnapshot(0);
-			});
-
-			// Save the elements on builder canvas
-			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-edit-element' !== template ) {
-					return;
-				}
 			});
 
 			// Trash builder canvas data

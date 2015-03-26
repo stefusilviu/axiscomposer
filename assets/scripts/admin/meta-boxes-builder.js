@@ -87,20 +87,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				return false;
 			});
 
-			// Trash all element(s) from the Builder Canvas
-			this.axisBuilderHandle.on( 'click', 'a.trash-data', function() {
-				var length = obj.axisBuilderCanvas.children().length;
-
-				$( this ).AxisBuilderBackboneModal({
-					title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
-					message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
-					dismiss: ( length > 0 ) ? false : true,
-					template: '#tmpl-axisbuilder-modal-trash-data'
-				});
-
-				return false;
-			});
-
 			// Builder Canvas
 			this.axisBuilderCanvas.on( 'click', '.axisbuilder-edit', function() {
 				var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
@@ -204,16 +190,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' !== template ) {
 					return;
 				}
-			});
-
-			// Empty the Builder Canvas & Load empty Textarea
-			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-trash-data' !== template ) {
-					return;
-				}
-
-				obj.axisBuilderCanvas.empty();
-				obj.updateTextarea();
 			});
 		},
 

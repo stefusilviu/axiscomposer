@@ -191,6 +191,13 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 					return;
 				}
 			});
+
+			// Trash builder canvas data
+			body.on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
+					obj.updateTextarea();
+				}
+			});
 		},
 
 		// Switch between the {WordPress|AxisBuilder} Editors

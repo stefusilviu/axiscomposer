@@ -51,9 +51,12 @@ jQuery( function( $ ) {
 
 			response: function( e, template, data ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
-					$( '.canvas-area' ).empty();
-					$( '.canvas-secure-data textarea' ).val('').empty();
+					axisbuilder_meta_boxes_builder_items.backbone.trash_data();
 				}
+			},
+
+			trash_data: function() {
+				$( '.canvas-area' ).empty();
 			}
 		}
 	};

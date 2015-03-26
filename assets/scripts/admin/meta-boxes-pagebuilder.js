@@ -6,6 +6,8 @@ jQuery( function( $ ) {
 	 */
 	var axisbuilder_meta_boxes_builder_items = {
 		init: function() {
+			this.stupidtable.init();
+
 			$( '#axisbuilder-editor' )
 				.on( 'click', 'a.trash-data', this.trash_data );
 
@@ -57,6 +59,25 @@ jQuery( function( $ ) {
 
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
+			}
+		},
+
+		stupidtable: {
+			init: function() {
+				$( '.axisbuilder_editor' ).stupidtable().on( 'aftertablesort', this.add_arrows );
+			},
+
+			add_arrows: function( event, data ) {
+				var th    = $( this ).find( 'th' );
+				var arrow = data.direction === 'asc' ? '&uarr;' : '&darr;';
+				var index = data.column;
+
+				if ( 1 < index ) {
+					index = index - 1;
+				}
+
+				th.find( '.axisbuilder-arrow' ).remove();
+				th.eq( index ).append( '<span class="axisbuilder-arrow">' + arrow + '</span>' );
 			}
 		}
 	};

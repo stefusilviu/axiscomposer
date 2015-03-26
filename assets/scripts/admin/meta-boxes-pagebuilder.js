@@ -60,6 +60,7 @@ jQuery( function( $ ) {
 
 			$( this ).AxisBuilderBackboneModal({
 				title: parents.data( 'modal-title' ),
+				screen: parents.data( 'modal-class' ),
 				message: 'Fetch options field with validation using AJAX...',
 				template: '#tmpl-axisbuilder-modal-edit-element'
 			});

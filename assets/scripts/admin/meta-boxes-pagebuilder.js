@@ -9,6 +9,8 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 
 			$( '#axisbuilder-editor' )
+
+				// Backbone Modal
 				.on( 'click', 'a.trash-data', this.trash_data )
 				.on( 'click', 'a.axisbuilder-edit', this.edit_element );
 				.on( 'click', 'a.axisbuilder-cell-set', this.cell_size );

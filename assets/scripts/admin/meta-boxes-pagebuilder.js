@@ -56,40 +56,6 @@ jQuery( function( $ ) {
 			}, timeout ? timeout : 150 );
 		},
 
-		trash_data: function() {
-			var length = $( '.canvas-area' ).children().length;
-
-			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
-				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
-				dismiss: ( length > 0 ) ? false : true,
-				template: '#tmpl-axisbuilder-modal-trash-data'
-			});
-
-			return false;
-		},
-
-		edit_element: function() {
-			var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-
-			if ( ! parents.length ) {
-				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
-
-				if ( ! parents.length ) {
-					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
-				}
-			}
-
-			$( this ).AxisBuilderBackboneModal({
-				title: parents.data( 'modal-title' ),
-				screen: parents.data( 'modal-class' ),
-				message: 'Fetch options field with validation using AJAX...',
-				template: '#tmpl-axisbuilder-modal-edit-element'
-			});
-
-			return false;
-		},
-
 		resize_layout: function() {
 			var	direction    = $( this ).is( '.axisbuilder-increase' ) ? 1 : -1,
 				column       = $( this ).parents( '.axisbuilder-layout-column:eq(0)' ),
@@ -135,6 +101,40 @@ jQuery( function( $ ) {
 				}
 				axisbuilder_meta_boxes_builder.history_snapshot();
 			}
+		},
+
+		trash_data: function() {
+			var length = $( '.canvas-area' ).children().length;
+
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
+				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
+				dismiss: ( length > 0 ) ? false : true,
+				template: '#tmpl-axisbuilder-modal-trash-data'
+			});
+
+			return false;
+		},
+
+		edit_element: function() {
+			var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+
+			if ( ! parents.length ) {
+				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
+
+				if ( ! parents.length ) {
+					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+				}
+			}
+
+			$( this ).AxisBuilderBackboneModal({
+				title: parents.data( 'modal-title' ),
+				screen: parents.data( 'modal-class' ),
+				message: 'Fetch options field with validation using AJAX...',
+				template: '#tmpl-axisbuilder-modal-edit-element'
+			});
+
+			return false;
 		},
 
 		cell_size: function() {

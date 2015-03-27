@@ -99,8 +99,8 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.textarea.outer();
 
 				// Bugfix for column delete that renders the canvas undropbable for unknown reason
-				// if ( $( '.canvas-data' ).val() === '' ) {
-				// 	axisbuilder_meta_boxes_builder.activate_dropping($( '.canvas-data' ).parents( '.postbox:eq(0)' ), 'destroy' );
+				// if ( obj.axisBuilderValues.val() === '' ) {
+				// 	obj.activateDropping( obj.axisBuilderParent, 'destroy' );
 				// }
 
 				axisbuilder_meta_boxes_builder.history_snapshot();

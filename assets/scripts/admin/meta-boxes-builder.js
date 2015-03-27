@@ -95,10 +95,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.shortcodes.trashElement( this, obj );
 				return false;
 			})
-			.on( 'click', 'a.axisbuilder-cell-add', function() {
-				obj.shortcodes.addNewCell( this, obj );
-				return false;
-			})
 			.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
 				var	container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
 				obj.recalculateShortcode( container );
@@ -1054,16 +1050,12 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 	// --------------------------------------------
 	// Functions necessary for Row/Cell Management
 	// --------------------------------------------
-	$.AxisBuilderShortcodes.addNewCell = function( clicked, obj ) {
-		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, 0 );
+	$.AxisBuilderShortcodes.removeCell = function( clicked, obj ) {
+		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
 	};
 
 	$.AxisBuilderShortcodes.recalcCell = function( clicked, obj ) {
 		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -1 );
-	};
-
-	$.AxisBuilderShortcodes.removeCell = function( clicked, obj ) {
-		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
 	};
 
 	// Main Row/Cell control

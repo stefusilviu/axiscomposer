@@ -13,6 +13,7 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 
 			$( '#axisbuilder-editor' )
+				.on( 'click', 'a.axisbuilder-cell-add', this.add_cell )
 				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
 
 				// Backbone Modal
@@ -54,6 +55,10 @@ jQuery( function( $ ) {
 			setTimeout( function() {
 				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
 			}, timeout ? timeout : 150 );
+		},
+
+		add_cell: function() {
+			axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), 0 );
 		},
 
 		resize_layout: function() {
@@ -434,9 +439,38 @@ jQuery( function( $ ) {
 			}
 		},
 
+		modify_cell_count: function( clicked, direction ) {
+			var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
+				cells = $row.find( '.axisbuilder-layout-cell' ),
+				count = ( cells.length + direction ),
+				newEl = axisbuilder_meta_boxes_builder_cells.cell_list[count];
+
+			if ( typeof newEl !== 'undefined' ) {
+				if ( count !== cells.length ) {
+					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
+				} else {
+					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
+					axisbuilder_meta_boxes_builder_cells.append_cell( $row, newEl );
+					// axisbuilder_meta_boxes_builder.dropping();
+				}
+
+				axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
+				axisbuilder_meta_boxes_builder.textarea.inner();
+				axisbuilder_meta_boxes_builder.history_snapshot();
+			}
+		},
+
+		append_cell: function( row, newEl ) {
+			var data_storage    = row.find( '> .axisbuilder-inner-shortcode' ),
+				shortcode_class = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
+				template        = $( $( '#axisbuilder-tmpl-' + shortcode_class ).html() );
+
+			data_storage.append( template );
+		},
+
 		change_multiple_cell_size: function( cells, newEl, multi ) {
 			var key       = '',
-				new_size  = newEl,
+				next_size = newEl,
 				cell_size = axisbuilder_meta_boxes_builder_cells.cell_size;
 
 			cells.each( function( i ) {
@@ -444,12 +478,12 @@ jQuery( function( $ ) {
 					key = newEl[i];
 					for ( var x in cell_size ) {
 						if ( key === cell_size[x][0] ) {
-							new_size = cell_size[x];
+							next_size = cell_size[x];
 						}
 					}
 				}
 
-				axisbuilder_meta_boxes_builder_cells.change_single_cell_size( $( this ), new_size );
+				axisbuilder_meta_boxes_builder_cells.change_single_cell_size( $( this ), next_size );
 			});
 		},
 

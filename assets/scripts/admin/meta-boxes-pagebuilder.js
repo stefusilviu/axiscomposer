@@ -13,6 +13,7 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 
 			$( '#axisbuilder-editor' )
+				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
 
 				// Backbone Modal
 				.on( 'click', 'a.trash-data', this.trash_data )
@@ -87,6 +88,53 @@ jQuery( function( $ ) {
 			});
 
 			return false;
+		},
+
+		resize_layout: function() {
+			var	direction    = $( this ).is( '.axisbuilder-increase' ) ? 1 : -1,
+				column       = $( this ).parents( '.axisbuilder-layout-column:eq(0)' ),
+				section      = column.parents( '.axisbuilder-layout-section:eq(0)' ),
+				current_size = column.data( 'width' ),
+				size_string  = column.find( '.axisbuilder-column-size' ),
+				data_storage = column.find( '.axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
+				data_string  = data_storage.val(),
+				next_size    = [],
+				layout_sizes = [
+					[ 'ab_one_full', '1/1' ], [ 'ab_four_fifth', '4/5' ], [ 'ab_three_fourth', '3/4' ], [ 'ab_two_third', '2/3' ], [ 'ab_three_fifth', '3/5' ], [ 'ab_one_half', '1/2' ], [ 'ab_two_fifth', '2/5' ], [ 'ab_one_third', '1/3' ], [ 'ab_one_fourth', '1/4' ], [ 'ab_one_fifth', '1/5' ]
+				];
+
+			for ( var i = 0; i < layout_sizes.length; i++ ) {
+				if ( layout_sizes[i][0] === current_size ) {
+					next_size = layout_sizes[ i - direction ];
+				}
+			}
+
+			if ( typeof next_size !== 'undefined' ) {
+
+				// Regular Expression
+				data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
+				data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
+
+				// Data Storage
+				data_storage.val( data_string );
+
+				// Remove and Add Layout flex-grid class for column
+				column.removeClass( current_size ).addClass( next_size[0] );
+
+				// Make sure to also set the data attr so html() functions fetch the correct value
+				column.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] ); // Ensure to set data attr so html() functions fetch the correct value :)
+
+				// Change the column size text
+				size_string.text( next_size[1] );
+
+				// Textarea Update and History snapshot :)
+				axisbuilder_meta_boxes_builder.textarea.outer();
+				if ( section.length ) {
+					axisbuilder_meta_boxes_builder.textarea.inner( false, section );
+					axisbuilder_meta_boxes_builder.textarea.outer();
+				}
+				axisbuilder_meta_boxes_builder.history_snapshot();
+			}
 		},
 
 		cell_size: function() {
@@ -166,12 +214,13 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
 					axisbuilder_meta_boxes_builder.textarea.outer();
-					axisbuilder_meta_boxes_builder.history_snapshot(0);
+					axisbuilder_meta_boxes_builder.history_snapshot();
 				}
 			}
 		},
 
 		textarea: {
+
 			inner: function( element, container ) {
 
 				// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section

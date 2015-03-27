@@ -29,7 +29,7 @@ class AB_Meta_Box_Builder_Data {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
 		?>
-		<input type="hidden" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
+		<input type="hidden" class="axisbuilder-status" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style">
 			<div id="axisbuilder-panels" class="panel-wrap">
 				<ul class="axisbuilder-tabs" style="display:none">

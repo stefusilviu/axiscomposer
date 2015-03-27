@@ -2,6 +2,21 @@
 jQuery( function( $ ) {
 
 	/**
+	 * Page Builder Panel
+	 */
+	var axisbuilder_meta_boxes_builder = {
+		init: function() {
+
+		},
+
+		history_snapshot: function( timeout ) {
+			setTimeout( function() {
+				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
+			}, timeout ? timeout : 150 );
+		}
+	}
+
+	/**
 	 * Page Builder Items Panel
 	 */
 	var axisbuilder_meta_boxes_builder_items = {
@@ -142,6 +157,7 @@ jQuery( function( $ ) {
 
 				if ( add_cell_size ) {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
+					axisbuilder_meta_boxes_builder.history_snapshot(0);
 				}
 			}
 		},
@@ -254,5 +270,6 @@ jQuery( function( $ ) {
 		}
 	};
 
+	axisbuilder_meta_boxes_builder.init();
 	axisbuilder_meta_boxes_builder_items.init();
 });

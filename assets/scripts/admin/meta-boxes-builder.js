@@ -126,7 +126,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 
 					obj.updateInnerTextarea( false, row );
 					obj.updateTextarea();
-					obj.historySnapshot(0);
 				}
 			});
 

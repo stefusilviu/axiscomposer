@@ -12,6 +12,8 @@ jQuery( function( $ ) {
 			// Stupid table
 			this.stupidtable.init();
 
+			$( 'a.axisbuilder-toggle-editor' ).click( this.toggle_editor );
+
 			$( '#axisbuilder-editor' )
 				.on( 'click', 'a.axisbuilder-clone', this.clone_element )
 				.on( 'click', 'a.axisbuilder-trash', this.trash_element )
@@ -51,6 +53,10 @@ jQuery( function( $ ) {
 				'fadeOut': 50,
 				'delay': 200
 			});
+		},
+
+		toggle_editor: function( e ) {
+			e.preventDefault();
 		},
 
 		history_snapshot: function( timeout ) {

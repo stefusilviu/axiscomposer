@@ -65,8 +65,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 
 		// All event binding goes here
 		builderBehaviour: function() {
-			var obj  = this,
-				body = $( 'body' );
+			var obj  = this;
 
 			// Toggle between default editor and page builder
 			this.axisBuilderButton.click( function() {

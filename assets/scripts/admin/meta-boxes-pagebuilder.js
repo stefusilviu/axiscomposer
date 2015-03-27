@@ -152,7 +152,7 @@ jQuery( function( $ ) {
 
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
-				axisbuilder_meta_boxes_builder.update_textarea();
+				axisbuilder_meta_boxes_builder.outer_textarea();
 			},
 
 			edit_element: function() {},
@@ -164,7 +164,8 @@ jQuery( function( $ ) {
 
 				if ( add_cell_size ) {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
-					axisbuilder_meta_boxes_builder.update_textarea();
+					axisbuilder_meta_boxes_builder.inner_textarea( false, $row );
+					axisbuilder_meta_boxes_builder.outer_textarea();
 					axisbuilder_meta_boxes_builder.history_snapshot(0);
 				}
 			}
@@ -189,7 +190,86 @@ jQuery( function( $ ) {
 			}
 		},
 
-		update_textarea: function( scope ) {
+		inner_textarea: function( element, container ) {
+
+			// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section
+			if ( typeof container === 'undefined' ) {
+				container = $( element ).parents( '.axisbuilder-layout-section:eq(0)' );
+			}
+
+			// If we got no section and no container yet check if the container is a column
+			if ( ! container.length ) {
+				container = $( element ).parents( '.axisbuilder-layout-column:eq(0)' );
+			}
+
+			// Still no container? No need for an inner update
+			if ( ! container.length ) {
+				return true;
+			}
+
+			// variable declarations are hoisted to the top of the scope :)
+			var i, content, main_storage, content_fields, open_tags, currentName, currentSize;
+
+			// If we are in section iterate over all columns inside and set the value before setting the section value
+			if ( container.is( '.axisbuilder-layout-section' ) ) {
+				var columns = container.find( '.axisbuilder-layout-column-no-cell' );
+				for ( i = 0; i < columns.length; i++ ) {
+					axisbuilder_meta_boxes_builder.inner_textarea( false, $( columns[i] ) );
+				}
+
+				columns = container.find( '.axisbuilder-layout-cell' );
+				for ( i = 0; i < columns.length; i++ ) {
+					axisbuilder_meta_boxes_builder.inner_textarea( false, $( columns[i] ) );
+				}
+
+				content        = '';
+				currentName    = container.data( 'shortcode-handler' );
+				main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
+				content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .axisbuilder-layout-column .axisbuilder-sortable-element textarea[data-name="text-shortcode"], .axisbuilder-layout-cell .axisbuilder-layout-column textarea[data-name="text-shortcode"] )' );
+				open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
+
+				for ( i = 0; i < content_fields.length; i++ ) {
+					content += $( content_fields[i] ).val();
+				}
+
+				content = open_tags[0] + '\n\n' + content + '[/' + currentName + ']';
+				main_storage.val( content );
+			}
+
+			if ( container.is( '.axisbuilder-layout-cell' ) ) {
+				content        = '';
+				currentSize    = container.data( 'width' );
+				main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
+				content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .axisbuilder-layout-column-no-cell .axisbuilder-sortable-element textarea[data-name="text-shortcode"] )' );
+				open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
+
+				for ( i = 0; i < content_fields.length; i++ ) {
+					content += $( content_fields[i] ).val();
+				}
+
+				content = open_tags[0] + '\n\n' + content + '[/' + currentSize + ']';
+				main_storage.val( content );
+			}
+
+			if ( container.is( '.axisbuilder-layout-column:not(.axisbuilder-layout-cell)' ) ) {
+				var	currentFirst   = container.is( '.axisbuilder-first-column' ) ? ' first' : '';
+
+				content        = '';
+				currentSize    = container.data( 'width' );
+				content_fields = container.find( '.axisbuilder-sortable-element textarea[data-name="text-shortcode"]' );
+				main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
+
+				for ( i = 0; i < content_fields.length; i++ ) {
+					content += $( content_fields[i] ).val();
+				}
+
+				content = '[' + currentSize + currentFirst + ']\n\n' + content + '[/' + currentSize + ']';
+				main_storage.val( content );
+			}
+		},
+
+		outer_textarea: function( scope ) {
+
 			// Prevent if we don't have the pagebuilder active
 			if ( axisbuilder_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
 				return;
@@ -201,11 +281,11 @@ jQuery( function( $ ) {
 						col_in_grid_cell = $( this ).find( '.axisbuilder-layout-cell .axisbuilder-layout-column-no-cell > .axisbuilder-inner-shortcode' );
 
 					if ( col_in_section.length ) {
-						axisbuilder_meta_boxes_builder.update_textarea( col_in_section );
+						axisbuilder_meta_boxes_builder.outer_textarea( col_in_section );
 					}
 
 					if ( col_in_grid_cell.length ) {
-						axisbuilder_meta_boxes_builder.update_textarea( col_in_grid_cell );
+						axisbuilder_meta_boxes_builder.outer_textarea( col_in_grid_cell );
 					}
 				});
 

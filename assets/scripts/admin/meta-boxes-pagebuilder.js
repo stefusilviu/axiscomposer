@@ -13,7 +13,7 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 
 			$( '#axisbuilder-editor' )
-				.on( 'click', 'a.axisbuilder-cell-add', this.add_cell )
+				.on( 'click', 'a.axisbuilder-cell-add', this.cell.add_cell )
 				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
 
 				// Backbone Modal
@@ -55,10 +55,6 @@ jQuery( function( $ ) {
 			setTimeout( function() {
 				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
 			}, timeout ? timeout : 150 );
-		},
-
-		add_cell: function() {
-			axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), 0 );
 		},
 
 		resize_layout: function() {
@@ -373,6 +369,20 @@ jQuery( function( $ ) {
 
 				$( '.canvas-data' ).val( content_value );
 				$( '#content.wp-editor-area' ).val( content_value );
+			}
+		},
+
+		cell: {
+			add_cell: function() {
+				axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), 0 );
+			},
+
+			recalc_cell: function() {
+				axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), -1 );
+			},
+
+			remove_cell: function() {
+				axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), -2 );
 			}
 		},
 

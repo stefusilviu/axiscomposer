@@ -78,12 +78,6 @@ jQuery( function( $ ) {
 
 			$( '.canvas-data' ).val( content_value );
 			$( '#content.wp-editor-area' ).val( content_value );
-		},
-
-		history_snapshot: function( timeout ) {
-			setTimeout( function() {
-				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
-			}, timeout ? timeout : 150 );
 		}
 	}
 
@@ -118,6 +112,12 @@ jQuery( function( $ ) {
 
 		unblock: function() {
 			$( '#axisbuilder-editor' ).unblock();
+		},
+
+		history_snapshot: function( timeout ) {
+			setTimeout( function() {
+				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
+			}, timeout ? timeout : 150 );
 		},
 
 		trash_data: function() {
@@ -230,7 +230,7 @@ jQuery( function( $ ) {
 				if ( add_cell_size ) {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
 					axisbuilder_meta_boxes_builder.update_textarea();
-					axisbuilder_meta_boxes_builder.history_snapshot(0);
+					axisbuilder_meta_boxes_builder_items.history_snapshot(0);
 				}
 			}
 		},

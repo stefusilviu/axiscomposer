@@ -91,10 +91,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.shortcodes.cloneElement( this, obj );
 				return false;
 			})
-			.on( 'click', 'a.axisbuilder-trash', function() {
-				obj.shortcodes.trashElement( this, obj );
-				return false;
-			})
 			.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
 				var	container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
 				obj.recalculateShortcode( container );
@@ -994,66 +990,9 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		obj.historySnapshot();
 	};
 
-	$.AxisBuilderShortcodes.trashElement = function( clicked, obj ) {
-		var trigger = $( clicked ),
-			element = trigger.parents( '.axisbuilder-sortable-element:eq(0)' ),
-			parents = false, removeCell = false, element_hide = 200;
-
-		// Check if it is a column
-		if ( ! element.length ) {
-			element = trigger.parents( '.axisbuilder-layout-column:eq(0)' );
-			parents = trigger.parents( '.axisbuilder-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
-
-			// Check if it is a section
-			if ( ! element.length ) {
-				element = trigger.parents( '.axisbuilder-layout-section:eq(0)' );
-				parents = false;
-			}
-		} else {
-			parents = trigger.parents( '.axisbuilder-inner-shortcode:eq(0)' );
-		}
-
-		// Check if it a cell
-		if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
-			if ( parents.find( '.axisbuilder-layout-cell' ).length > 1 ) {
-				removeCell   = true;
-				element_hide = 0;
-			} else {
-				return false;
-			}
-		}
-
-		// obj.targetInsertInActive();
-
-		element.hide( element_hide, function() {
-			if ( removeCell ) {
-				$.AxisBuilderShortcodes.removeCell( clicked, obj );
-			}
-
-			element.remove();
-
-			if ( parents && parents.length ) {
-				obj.updateInnerTextarea( parents );
-			}
-
-			obj.updateTextarea();
-
-			// Bugfix for column delete that renders the canvas undropbable for unknown reason
-			if ( obj.axisBuilderValues.val() === '' ) {
-				obj.activateDropping( obj.axisBuilderParent, 'destroy' );
-			}
-
-			obj.historySnapshot();
-		});
-	};
-
 	// --------------------------------------------
 	// Functions necessary for Row/Cell Management
 	// --------------------------------------------
-	$.AxisBuilderShortcodes.removeCell = function( clicked, obj ) {
-		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -2 );
-	};
-
 	$.AxisBuilderShortcodes.recalcCell = function( clicked, obj ) {
 		$.AxisBuilderLayoutRow.modifyCellCount( clicked, obj, -1 );
 	};

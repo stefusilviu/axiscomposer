@@ -845,7 +845,7 @@ jQuery( function( $ ) {
 			},
 
 			draggable: function( scope, exclude ) {
-				var scope = axisbuilder_meta_boxes_builder.is_scope( scope );
+				var scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
 				if ( typeof exclude === 'undefined' ) {
 					exclude = ':not(.ui-draggable)';
 				}
@@ -861,17 +861,21 @@ jQuery( function( $ ) {
 						left : 20
 					},
 					start: function( event ) {
+						var target = $( event.target );
 
+						target.css({ opacity: 0.4 });
+						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + target.data( 'dragdrop-level' ) );
 					},
 					drag: function( event, ui ) {
-						var fix_active = axisbuilder_meta_boxes_builder.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
+						var fix_active = axisbuilder_meta_boxes_builder.dragdrop.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
 						if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
 							fix_active = false;
 						}
 
-						/**
+						/*
 						 * Temp fix for ui.draggable version 1.10.3 which positions element wrong. 1.11 contains the fix
-						 * http://stackoverflow.com/questions/5791886/jquery-draggable-shows-helper-in-wrong-place-when-scrolled-down-page
+						 * @see http://stackoverflow.com/questions/5791886/jquery-draggable-shows-helper-in-wrong-place-when-scrolled-down-page
 						 */
 						if ( fix_active ) {
 							console.log( 'Drag-Drop positioning fix active' );
@@ -879,13 +883,27 @@ jQuery( function( $ ) {
 						}
 					},
 					stop: function( event ) {
+						var target = $( event.target );
 
+						target.css({ opacity: 1 });
+						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+						$( '.canvas-area' ).removeClass( 'axisbuilder-select-target-1 axisbuilder-select-target-2 axisbuilder-select-target-3 axisbuilder-select-target-4' );
 					}
 				};
+
+				// Draggable
+				scope.find( '.axisbuilder-drag' + exclude ).draggable( data );
+				scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable({
+					handle: false,
+					cursorAt: {
+						top: 33,
+						left: 33
+					}
+				});
 			},
 
 			droppable: function( scope, exclude ) {
-				var scope = axisbuilder_meta_boxes_builder.is_scope( scope );
+				var scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
 				if ( typeof exclude === 'undefined' ) {
 					exclude = ':not(.ui-droppable)';
 				}
@@ -898,7 +916,7 @@ jQuery( function( $ ) {
 					},
 					out: function() {
 						$( this ).removeClass( 'axisbuilder-hover-active' );
-					}
+					},
 					drop: function( event, ui ) {
 
 					}

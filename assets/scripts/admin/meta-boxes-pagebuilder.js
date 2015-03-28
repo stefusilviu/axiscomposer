@@ -817,6 +817,10 @@ jQuery( function( $ ) {
 
 		dragdrop: {
 
+			is_scope: function( passed_scope ) {
+				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
+			},
+
 			is_droppable: function( draggable, droppable ) {
 				if ( draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
 					return true;
@@ -838,6 +842,67 @@ jQuery( function( $ ) {
 				}
 
 				return a.length - b.length;
+			},
+
+			draggable: function( scope, exclude ) {
+				var scope = axisbuilder_meta_boxes_builder.is_scope( scope );
+				if ( typeof exclude === 'undefined' ) {
+					exclude = ':not(.ui-draggable)';
+				}
+
+				var data = {
+					appendTo : 'body',
+					handle   : '>.menu-item-handle',
+					helper   : 'clone',
+					scroll   : true,
+					revert	 : false,
+					zIndex   : 20000,
+					cursorAt : {
+						left : 20
+					},
+					start: function( event ) {
+
+					},
+					drag: function( event, ui ) {
+						var fix_active = axisbuilder_meta_boxes_builder.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
+						if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
+							fix_active = false;
+						}
+
+						/**
+						 * Temp fix for ui.draggable version 1.10.3 which positions element wrong. 1.11 contains the fix
+						 * http://stackoverflow.com/questions/5791886/jquery-draggable-shows-helper-in-wrong-place-when-scrolled-down-page
+						 */
+						if ( fix_active ) {
+							console.log( 'Drag-Drop positioning fix active' );
+							ui.position.top -= parseInt( $( window ).scrollTop(), 10 );
+						}
+					},
+					stop: function( event ) {
+
+					}
+				};
+			},
+
+			droppable: function( scope, exclude ) {
+				var scope = axisbuilder_meta_boxes_builder.is_scope( scope );
+				if ( typeof exclude === 'undefined' ) {
+					exclude = ':not(.ui-droppable)';
+				}
+
+				var data = {
+					greedy: true,
+					tolerance: 'pointer',
+					over: function( event, ui ) {
+
+					},
+					out: function() {
+						$( this ).removeClass( 'axisbuilder-hover-active' );
+					}
+					drop: function( event, ui ) {
+
+					}
+				};
 			}
 		},
 

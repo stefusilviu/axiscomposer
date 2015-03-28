@@ -821,15 +821,12 @@ jQuery( function( $ ) {
 
 		dragdrop: {
 
-			is_scope: function( passed_scope ) {
-				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
-			},
-
-			is_droppable: function( draggable, droppable ) {
-				if ( draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
-					return true;
+			position_fix: function() {
+				var fix_active = axisbuilder_meta_boxes_builder.dragdrop.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
+				if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
+					fix_active = false;
 				}
-				return false;
+				return fix_active;
 			},
 
 			version_compare: function( a, b ) {
@@ -848,12 +845,15 @@ jQuery( function( $ ) {
 				return a.length - b.length;
 			},
 
-			position_fix: function() {
-				var fix_active = axisbuilder_meta_boxes_builder.dragdrop.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
-				if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
-					fix_active = true;
+			is_scope: function( passed_scope ) {
+				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
+			},
+
+			is_droppable: function( draggable, droppable ) {
+				if ( draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
+					return true;
 				}
-				return fix_active;
+				return false;
 			},
 
 			draggable: function( scope, exclude ) {

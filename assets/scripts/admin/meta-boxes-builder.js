@@ -234,9 +234,6 @@
 	};
 
 	$( document ).ready( function () {
-		$.AxisBuilderObj = new $.AxisBuilder();
-
-		// Control the History Undo-Redo button.
 		new $.AxisBuilderHistory({
 			button: '.history-action',
 			canvas: '.canvas-area',

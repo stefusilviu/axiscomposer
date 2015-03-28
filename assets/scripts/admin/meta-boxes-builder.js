@@ -786,8 +786,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 			steps: 40,
 			button: '',
 			canvas: '',
-			editor: '',
-			event: 'axisbuilder-storage-update'
+			editor: ''
 		};
 
 		// No web storage? stop here :)

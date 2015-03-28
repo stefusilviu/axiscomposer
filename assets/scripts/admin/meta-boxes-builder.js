@@ -52,41 +52,15 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		this.updateTimeout = false;
 
 		// Activate the Builder
-		this.builderActivate();
+		this.builderBehaviour();
 	};
 
 	$.AxisBuilder.prototype = {
 
-		// Activate the Whole Interface
-		builderActivate: function() {
-			this.shortcodesToInterface();
-			this.builderBehaviour();
-		},
-
 		// All event binding goes here
 		builderBehaviour: function() {
-			var obj  = this;
+			var obj = this;
 
-			// Toggle between default editor and page builder
-			this.axisBuilderButton.click( function() {
-				obj.switchEditors();
-				return false;
-			});
-
-			// Add a new element to the Builder Canvas
-			this.shortcodesWrap.on( 'click', '.insert-shortcode', function() {
-				// var parents = $( this ).parents( '.axisbuilder-shortcodes' ),
-					// already_active = ( this.className.indexOf( 'axisbuilder-active-insert' ) !== -1 ) ? true : false;
-
-				var	execute = this.hash.replace( '#', '' ),
-					targets = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? "target_insert" : "instant_insert",
-
-				obj.shortcodes.fetchShortcodeEditorElement( execute, targets, obj );
-
-				return false;
-			});
-
-			// Builder Canvas
 			this.axisBuilderCanvas.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
 				var	container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
 				obj.recalculateShortcode( container );
@@ -96,114 +70,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 				obj.activateDragging( this.axisBuilderParent, '' );
 				obj.activateDropping( this.axisBuilderParent, '' );
 			});
-		},
-
-		// Switch between the {WordPress|AxisBuilder} Editors
-		switchEditors: function() {
-			if ( this.axisBuilderButton.is( '.disabled' ) ) {
-				return;
-			}
-
-			var self = this;
-
-			if ( this.axisBuilderStatus.val() !== 'active' ) {
-				this.wpDefaultEditorWrap.parent().addClass( 'axisbuilder-hidden-editor' );
-				this.axisBuilderButton.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'editor' ) );
-				this.axisBuilderParent.removeClass( 'axisbuilder-hidden');
-				this.axisBuilderStatus.val( 'active' );
-
-				// Turn off WordPress DFW for builder ;)
-				if( typeof window.wp.editor.dfw === 'object' ) {
-					window.wp.editor.dfw.off();
-				}
-
-				// Load Shortcodes to Interface :)
-				setTimeout( function() {
-					self.shortcodesToInterface();
-				}, 10 );
-			} else {
-				this.wpDefaultEditorWrap.parent().removeClass( 'axisbuilder-hidden-editor' );
-				this.axisBuilderButton.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( this.axisBuilderButton.data( 'builder' ) );
-				this.axisBuilderParent.addClass( 'axisbuilder-hidden');
-				this.axisBuilderStatus.val( 'inactive' );
-
-				// Add Loader and remove duplication of elements on canvas :)
-				this.axisBuilderCanvas.addClass( 'loader' ).find( '>*:not( .control-bar, .axisbuilder-insert-area )' ).remove();
-
-				// Reset WordPress editorExpand ;)
-				if( typeof window.editorExpand === 'object' ) {
-					window.editorExpand.off();
-					window.editorExpand.on();
-				}
-
-				// Debug Logger
-				if ( this.axisBuilderDebug === 'yes' && ( this.axisBuilderValues.val().indexOf( '[' ) !== -1 ) ) {
-					new axisbuilder_log( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly', 'Editor' );
-					if ( this.tinyMceContent ) {
-						this.tinyMceContent.setContent( '', { format: 'html' } );
-						this.wpDefaultEditorArea.val( '' );
-					}
-				}
-			}
-
-			return false;
-		},
-
-		/**
-		 * Converts shortcodes to an editable element on Builder Canvas.
-		 * Only executed at page load or when editor is switched from default to Page Builder.
-		 */
-		shortcodesToInterface: function( text ) {
-
-			// Return if builder is not in active state
-			if ( this.axisBuilderStatus.val() !== 'active' ) {
-				return true;
-			}
-
-			// If text is undefined. Also Test-Drive val() to html()
-			if ( typeof text === 'undefined' ) {
-				text = this.axisBuilderValues.val();
-				if ( text.indexOf( '[' ) === -1 ) {
-					text = this.wpDefaultEditorArea.val();
-
-					if ( this.tinyMceDefined ) {
-						text = window.switchEditors._wp_Nop( text );
-					}
-
-					this.axisBuilderValues.val( text );
-				}
-			}
-
-			var obj  = this,
-				data = {
-					text: text,
-					action: 'axisbuilder_shortcodes_to_interface'
-				};
-
-			$.ajax({
-				url: axisbuilder_admin_meta_boxes_builder.ajax_url,
-				data: data,
-				type: 'POST',
-				success: function( response ) {
-					obj.sendToBuilderCanvas( response );
-					// obj.updateTextarea(); // Don't update textarea on load, only when elements got edited.
-					obj.axisBuilderCanvas.removeClass( 'loader' );
-					obj.historySnapshot();
-				}
-			});
-		},
-
-		/**
-		 * Send element(s) to AxisBuilder Canvas
-		 * Gets executed on page load to display all elements and when a single item is fetchec via AJAX or HTML5 Storage.
-		 */
-		sendToBuilderCanvas: function( text ) {
-			var add_text = $( text );
-			this.axisBuilderCanvas.append( add_text );
-
-			// Activate Element Drag-Drop
-			this.activateDragging();
-			this.activateDropping();
 		},
 
 		/**
@@ -904,30 +770,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 			editor: '.canvas-data'
 		});
 	});
-
-})( jQuery );
-
-/**
- * AxisBuilder Shortcodes JS
- */
-( function( $ ) {
-	'use strict';
-
-	$.AxisBuilderShortcodes = $.AxisBuilderShortcodes || {};
-
-	$.AxisBuilderShortcodes.fetchShortcodeEditorElement = function( shortcode, insert_target, obj ) {
-		var template = $( '#axisbuilder-tmpl-' + shortcode );
-
-		if ( template.length ) {
-			if ( insert_target === 'instant-insert' ) {
-				obj.sendToBuilderCanvas( template.html() );
-				obj.updateTextarea();
-				obj.historySnapshot(0);
-			}
-
-			return;
-		}
-	};
 
 })( jQuery );
 

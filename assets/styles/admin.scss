@@ -274,10 +274,6 @@ label[for="axisbuilder-editor-hide"] {
 			border: 1px solid transparent;
 			border-top: 1px solid #eee;
 
-			&.loader {
-				@include loader();
-			}
-
 			.axisbuilder-inner-shortcode {
 
 				textarea {

@@ -910,8 +910,11 @@ jQuery( function( $ ) {
 				);
 
 				// Debug logger
-				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' && axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
-					console.log( 'Drag-Drop positioning fix active' );
+				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
+					console.info( 'jQuery UI Draggable: v' + $.ui.draggable.version );
+					if ( axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
+						console.log( 'Drag-Drop positioning fix active' );
+					}
 				}
 			},
 

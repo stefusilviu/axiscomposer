@@ -848,6 +848,14 @@ jQuery( function( $ ) {
 				return a.length - b.length;
 			},
 
+			position_fix: function() {
+				var fix_active = axisbuilder_meta_boxes_builder.dragdrop.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
+				if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
+					fix_active = true;
+				}
+				return fix_active;
+			},
+
 			draggable: function( scope, exclude ) {
 				scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
 				if ( typeof exclude === 'undefined' ) {
@@ -872,17 +880,11 @@ jQuery( function( $ ) {
 						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + target.data( 'dragdrop-level' ) );
 					},
 					drag: function( event, ui ) {
-						var fix_active = axisbuilder_meta_boxes_builder.dragdrop.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
-						if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
-							fix_active = false;
-						}
-
-						/*
+						/**
 						 * Temp fix for ui.draggable version 1.10.3 which positions element wrong. 1.11 contains the fix
 						 * @see http://stackoverflow.com/questions/5791886/jquery-draggable-shows-helper-in-wrong-place-when-scrolled-down-page
 						 */
-						if ( fix_active ) {
-							console.log( 'Drag-Drop positioning fix active' );
+						if ( axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
 							ui.position.top -= parseInt( $( window ).scrollTop(), 10 );
 						}
 					},
@@ -906,6 +908,11 @@ jQuery( function( $ ) {
 						}
 					})
 				);
+
+				// Debug logger
+				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' && axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
+					console.log( 'Drag-Drop positioning fix active' );
+				}
 			},
 
 			droppable: function( scope, exclude ) {

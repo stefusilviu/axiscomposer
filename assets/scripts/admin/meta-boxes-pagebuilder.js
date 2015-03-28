@@ -9,6 +9,11 @@ jQuery( function( $ ) {
 		init: function() {
 			this.pagebuilder = $( '#axisbuilder-editor' ).find( ':input.axisbuilder-status' );
 
+			// Debug Logger
+			if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
+				console.log( 'AxisBuilder Debug Mode is enabled...' );
+			}
+
 			this.stupidtable.init();
 			this.shortcode_interface();
 
@@ -96,8 +101,7 @@ jQuery( function( $ ) {
 
 				// Debug Logger
 				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
-					console.info( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly.' );
-
+					console.log( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly.' );
 					if ( typeof window.tinyMCE !== 'undefined' ) {
 						window.tinyMCE.get( 'content' ).setContent( '', { format: 'html' } );
 						$( '#content.wp-editor-area' ).val('');
@@ -908,7 +912,7 @@ jQuery( function( $ ) {
 				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 					console.info( 'jQueryUI Draggable: v' + $.ui.draggable.version );
 					if ( axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
-						console.log( 'Drag-Drop positioning fix active' );
+						console.log( 'Draggable positioning fix is active.' );
 					}
 				}
 			},

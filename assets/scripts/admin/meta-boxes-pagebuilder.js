@@ -12,10 +12,6 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 			this.shortcode_interface();
 
-			// Draggable-Droppable UI
-			this.dragdrop.draggable();
-			this.dragdrop.droppable();
-
 			$( 'a.axisbuilder-toggle-editor' ).click( this.toggle_editor );
 
 			$( '#axisbuilder-editor' )
@@ -156,9 +152,9 @@ jQuery( function( $ ) {
 			var add_text = $( text );
 			$( '.canvas-area' ).append( add_text );
 
-			// Activate Element Drag-Drop
-			// obj.activateDragging();
-			// obj.activateDropping();
+			// Activate Draggable-Droppable
+			axisbuilder_meta_boxes_builder.dragdrop.draggable();
+			axisbuilder_meta_boxes_builder.dragdrop.droppable();
 		},
 
 		history_snapshot: function( timeout ) {

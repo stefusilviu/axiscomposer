@@ -358,10 +358,10 @@ jQuery( function( $ ) {
 			}
 
 			// Update the shortcode when changes occured via Backbone Modal ;)
-			axisbuilder_meta_boxes_builder.update_shortcode( values, element_container );
+			axisbuilder_meta_boxes_builder.send_to_datastorage( values, element_container );
 		},
 
-		update_shortcode: function( values, element_container ) {
+		send_to_datastorage: function( values, element_container ) {
 			var column    = element_container.parents( '.axisbuilder-layout-column:eq(0)' ),
 				section   = element_container.parents( '.axisbuilder-layout-section:eq(0)' ),
 				selector  = element_container.is( '.axisbuilder-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),

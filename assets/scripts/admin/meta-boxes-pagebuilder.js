@@ -815,6 +815,32 @@ jQuery( function( $ ) {
 			}
 		},
 
+		dragdrop: {
+
+			is_droppable: function( draggable, droppable ) {
+				if ( draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
+					return true;
+				}
+				return false;
+			},
+
+			version_compare: function( a, b ) {
+				var i, compare, regex = /(\.0)+[^\.]*$/;
+
+				a = ( a + '' ).replace( regex, '' ).split( '.' );
+				b = ( b + '' ).replace( regex, '' ).split( '.' );
+
+				for ( var i = 0; i < Math.min( a.length, b.length ); i++ ) {
+					compare = parseInt( a[i], 10 ) - parseInt( b[i], 10 );
+					if ( compare !== 0 ) {
+						return compare;
+					}
+				}
+
+				return a.length - b.length;
+			}
+		},
+
 		cell: {
 			add_cell: function() {
 				axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), 0 );

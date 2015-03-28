@@ -34,6 +34,9 @@ jQuery( function( $ ) {
 				.on( 'click', '.axisbuilder-edit', this.edit_element )
 				.on( 'click', 'a.axisbuilder-cell-set', this.cell_size );
 
+			$( '.canvas-area' )
+				.on( 'axisbuilder_history_update', this.history_update );
+
 			$( 'body' )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
@@ -159,6 +162,11 @@ jQuery( function( $ ) {
 			// Activate Draggable-Droppable
 			axisbuilder_meta_boxes_builder.dragdrop.draggable();
 			axisbuilder_meta_boxes_builder.dragdrop.droppable();
+		},
+
+		history_update: function() {
+			axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
+			axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
 		},
 
 		history_snapshot: function( timeout ) {

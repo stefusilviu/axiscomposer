@@ -376,7 +376,7 @@ jQuery( function( $ ) {
 			if ( typeof values === 'string' ) {
 				output = values;
 			} else {
-				var extract_html = axisbuilder_meta_boxes_builder.update_html( element_container, values );
+				var extract_html = axisbuilder_meta_boxes_builder.update_builder_html( element_container, values );
 
 				output = extract_html.output;
 				tags   = extract_html.tags;
@@ -401,7 +401,7 @@ jQuery( function( $ ) {
 			element_container.trigger( 'update' );
 		},
 
-		update_html: function( element_container, values, force_content_close ) {
+		update_builder_html: function( element_container, values, force_content_close ) {
 			var key, subkey, new_key, old_val;
 
 			// Filter keys for the 'axisbuilderTB-' string prefix and re-modify the key that was edited.

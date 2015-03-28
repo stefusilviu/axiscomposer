@@ -9,11 +9,6 @@ jQuery( function( $ ) {
 		init: function() {
 			this.pagebuilder = $( '#axisbuilder-editor' ).find( ':input.axisbuilder-status' );
 
-			// Debug Logger
-			if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
-				console.log( 'AxisBuilder Debug Mode is enabled...' );
-			}
-
 			this.stupidtable.init();
 			this.shortcode_interface();
 

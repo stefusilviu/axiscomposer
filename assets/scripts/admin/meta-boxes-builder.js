@@ -543,17 +543,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		}
 	};
 
-	$( document ).ready( function () {
-		$.AxisBuilderObj = new $.AxisBuilder();
-
-		// Control the History Undo-Redo button.
-		new $.AxisBuilderHistory({
-			button: '.history-action',
-			canvas: '.canvas-area',
-			editor: '.canvas-data'
-		});
-	});
-
 })( jQuery );
 
 /**
@@ -792,6 +781,17 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 			}
 		}
 	};
+
+	$( document ).ready( function () {
+		$.AxisBuilderObj = new $.AxisBuilder();
+
+		// Control the History Undo-Redo button.
+		new $.AxisBuilderHistory({
+			button: '.history-action',
+			canvas: '.canvas-area',
+			editor: '.canvas-data'
+		});
+	});
 
 })( jQuery );
 

@@ -357,7 +357,6 @@ jQuery( function( $ ) {
 				values[current.data( 'attr' )] = current.val();
 			}
 
-			// Update the shortcode when changes occured via Backbone Modal ;)
 			axisbuilder_meta_boxes_builder.send_to_datastorage( values, element_container );
 		},
 

@@ -833,7 +833,7 @@ jQuery( function( $ ) {
 			},
 
 			version_compare: function( a, b ) {
-				var i, compare, regex = /(\.0)+[^\.]*$/;
+				var compare, regex = /(\.0)+[^\.]*$/;
 
 				a = ( a + '' ).replace( regex, '' ).split( '.' );
 				b = ( b + '' ).replace( regex, '' ).split( '.' );
@@ -849,7 +849,7 @@ jQuery( function( $ ) {
 			},
 
 			draggable: function( scope, exclude ) {
-				var scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
+				scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
 				if ( typeof exclude === 'undefined' ) {
 					exclude = ':not(.ui-draggable)';
 				}
@@ -897,17 +897,19 @@ jQuery( function( $ ) {
 
 				// Draggable
 				scope.find( '.axisbuilder-drag' + exclude ).draggable( data );
-				scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable({
-					handle: false,
-					cursorAt: {
-						top: 33,
-						left: 33
-					}
-				});
+				scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
+					$.extend( {}, data, {
+						handle: false,
+						cursorAt: {
+							top: 33,
+							left: 33
+						}
+					})
+				);
 			},
 
 			droppable: function( scope, exclude ) {
-				var scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
+				scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
 				if ( typeof exclude === 'undefined' ) {
 					exclude = ':not(.ui-droppable)';
 				}
@@ -924,13 +926,13 @@ jQuery( function( $ ) {
 					out: function() {
 						$( this ).removeClass( 'axisbuilder-hover-active' );
 					},
-					drop: function( event, ui ) {
+					drop: function() {
 						var droppable = $( this );
 						if ( droppable.not( '.axisbuilder-hover-active' ) ) {
 							return;
 						}
 
-						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
+						// var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
 					}
 				};
 

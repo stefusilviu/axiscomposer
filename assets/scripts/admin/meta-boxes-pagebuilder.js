@@ -12,6 +12,10 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 			this.shortcode_interface();
 
+			// Draggable-Droppable UI
+			this.dragdrop.draggable();
+			this.dragdrop.droppable();
+
 			$( 'a.axisbuilder-toggle-editor' ).click( this.toggle_editor );
 
 			$( '#axisbuilder-editor' )
@@ -912,15 +916,32 @@ jQuery( function( $ ) {
 					greedy: true,
 					tolerance: 'pointer',
 					over: function( event, ui ) {
-
+						var droppable = $( this );
+						if ( axisbuilder_meta_boxes_builder.dragdrop.is_droppable( ui.helper, droppable ) ) {
+							droppable.addClass( 'axisbuilder-hover-active' );
+						}
 					},
 					out: function() {
 						$( this ).removeClass( 'axisbuilder-hover-active' );
 					},
 					drop: function( event, ui ) {
+						var droppable = $( this );
+						if ( droppable.not( '.axisbuilder-hover-active' ) ) {
+							return;
+						}
 
+						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
 					}
 				};
+
+				// Destroy droppable
+				if ( exclude === 'destroy' ) {
+					scope.find( '.axisbuilder-drop' ).droppable( 'destroy' );
+					exclude = '';
+				}
+
+				// Droppable
+				scope.find( '.axisbuilder-drop' + exclude ).droppable( data );
 			}
 		},
 

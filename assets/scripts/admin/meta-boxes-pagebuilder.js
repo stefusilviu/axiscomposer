@@ -833,12 +833,12 @@ jQuery( function( $ ) {
 			},
 
 			version_compare: function( a, b ) {
-				var compare, regex = /(\.0)+[^\.]*$/;
+				var i, compare, regex = /(\.0)+[^\.]*$/;
 
 				a = ( a + '' ).replace( regex, '' ).split( '.' );
 				b = ( b + '' ).replace( regex, '' ).split( '.' );
 
-				for ( var i = 0; i < Math.min( a.length, b.length ); i++ ) {
+				for ( i = 0; i < Math.min( a.length, b.length ); i++ ) {
 					compare = parseInt( a[i], 10 ) - parseInt( b[i], 10 );
 					if ( compare !== 0 ) {
 						return compare;
@@ -936,13 +936,116 @@ jQuery( function( $ ) {
 					out: function() {
 						$( this ).removeClass( 'axisbuilder-hover-active' );
 					},
-					drop: function() {
+					drop: function( event, ui ) {
 						var droppable = $( this );
-						if ( droppable.not( '.axisbuilder-hover-active' ) ) {
+						if ( ! droppable.is( '.axisbuilder-hover-active' ) ) {
 							return;
 						}
 
-						// var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
+						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
+
+						// Iterate over all elements and check their positions
+						for ( i = 0; i < elements.length; i++ ) {
+							var current = elements.eq(i);
+							offset = current.offset();
+
+							if ( offset.top < ui.offset.top ) {
+								toEl = current;
+								last_pos = offset;
+
+								// Save all items before the draggable to a position array so we can check if the right positioning is important
+								if ( ! position_array[ 'top_' + offset.top ] ) {
+									max_height = 0;
+									position_array[ 'top_' + offset.top ] = [];
+								}
+
+								var height = ( current.outerHeight() + offset.top );
+								max_height = max_height > height ? max_height : height;
+
+								position_array[ 'top_' + offset.top ].push({
+									index: i,
+									top: offset.top,
+									left: offset.left,
+									height: current.outerHeight(),
+									maxheight: current.outerHeight() + offset.top
+								});
+							} else {
+								break;
+							}
+						}
+
+						// If we got multiple matches that all got the same top position we also need to check for the left position
+						if ( last_pos && position_array[ 'top_' + last_pos.top ].length > 1 && ( max_height - 40 ) > ui.offset.top ) {
+							var real_element = false;
+
+							for ( i = 0; i < position_array[ 'top_' + last_pos.top ].length; i++ ) {
+								if ( position_array[ 'top_' + last_pos.top ][i].left < ui.offset.left ) {
+									real_element = position_array[ 'top_' + last_pos.top ][i].index;
+								} else {
+									break;
+								}
+							}
+
+							// If we got an index get that element from the list, else delete the toEL var because we need to append the draggable to the start and the next check will do that for us
+							if ( real_element === false ) {
+								method = 'before';
+								real_element = position_array[ 'top_' + last_pos.top ][0].index;
+							}
+
+							toEl = elements.eq( real_element );
+						}
+
+						// If no element with higher offset were found there either are no at all or the new position is at the top so we change the params accordingly
+						if ( toEl === false ) {
+							toEl = droppable;
+							method = 'prepend';
+						}
+
+						// If the draggable and the new el are the same do nothing
+						if ( toEl[0] === ui.draggable[0] ) {
+							return true;
+						}
+
+						// If we got a hash on the draggable we are not dragging element but a new one via shortcode button so we need to fetch an empty shortcode template
+						if ( ui.draggable[0].hash ) {
+							var shortcode = ui.draggable.get(0).hash.replace( '#', '' );
+
+							template = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
+							ui.draggable = template;
+						}
+
+						// Before finally moving the element, save the former parent of the draggable to a var so we can check later if we need to update the parent as well
+						var formerParent = ui.draggable.parents( '.axisbuilder-drag:last' );
+
+						// Move the real draggable element to the new position
+						toEl[ method ]( ui.draggable );
+
+						// If the element got a former parent we need to update that as well
+						if ( formerParent.length ) {
+							axisbuilder_meta_boxes_builder.textarea.inner( false, formerParent );
+						}
+
+						// Get the element that the new element was inserted into. This has to be the parent of the current toEL since we usually insert the new element outside of the toEL with the 'after' method
+						// If method !== 'after' the element was inserted with prepend directly to the toEL and toEL should therefore also the insertedInto element :)
+						var insertedInto = ( method === 'after' ) ? toEl.parents( '.axisbuilder-drop' ) : toEl;
+
+						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
+							axisbuilder_meta_boxes_builder.textarea.outer(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
+							axisbuilder_meta_boxes_builder.textarea.inner( ui.draggable );
+						}
+
+						// Everything is fine, now do the re sorting and textarea updating
+						axisbuilder_meta_boxes_builder.textarea.outer();
+
+						// Apply dragging and dropping in case we got a new element
+						if ( typeof template !== 'undefined' ) {
+							$( '.canvas-area' ).removeClass( 'ui-droppable' ).droppable( 'destroy' );
+							axisbuilder_meta_boxes_builder.dragdrop.draggable();
+							axisbuilder_meta_boxes_builder.dragdrop.droppable();
+						}
+
+						// History Snapshot
+						axisbuilder_meta_boxes_builder.history_snapshot();
 					}
 				};
 

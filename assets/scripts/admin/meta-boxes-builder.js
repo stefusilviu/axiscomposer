@@ -61,12 +61,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		builderBehaviour: function() {
 			var obj = this;
 
-			this.axisBuilderCanvas.on( 'change', 'select.axisbuilder-recalculate-shortcode', function() {
-				var	container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-				obj.recalculateShortcode( container );
-				return false;
-			})
-			.on( 'axisbuilder-history-update', function() {
+			this.axisBuilderCanvas.on( 'axisbuilder-history-update', function() {
 				obj.activateDragging( this.axisBuilderParent, '' );
 				obj.activateDropping( this.axisBuilderParent, '' );
 			});
@@ -156,7 +151,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		/**
 		 * Updates the Textarea that holds the shortcode + values when element is on the first level and not nested.
 		 */
-		 updateTextarea: function( scope ) {
+		updateTextarea: function( scope ) {
 
 			// Return if builder is not in active state
 			if ( this.axisBuilderStatus.val() !== 'active' ) {
@@ -248,218 +243,6 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 		},
 
 		/**
-		 * Updates the Shortcode when changes occured via Modal window.
-		 */
-		updateShortcode: function( values, element_container ) {
-			var column    = element_container.parents( '.axisbuilder-layout-column:eq(0)' ),
-				section   = element_container.parents( '.axisbuilder-layout-section:eq(0)' ),
-				selector  = element_container.is( '.axisbuilder-modal-group-element' ) ? ( this.shortcodesData + ':eq(0)' ) : ( '> .axisbuilder-inner-shortcode >' + this.shortcodesData + ':eq(0)' ),
-				save_data = element_container.find( selector ),
-				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
-
-			// Debug Logger
-			if ( this.axisBuilderDebug === 'yes' ) {
-				new axisbuilder_log( values, false );
-			}
-
-			// If we got a string value passed insert the string, otherwise calculate the shortcode ;)
-			if ( typeof values === 'string' ) {
-				output = values;
-			} else {
-				var extract_html = this.updateHTML( element_container, values );
-
-				output = extract_html.output;
-				tags   = extract_html.tags;
-			}
-
-			// If we are working inside a section or cell just update the shortcode open tag else update everything ;)
-			if ( element_container.is( '.axisbuilder-layout-section' ) || element_container.is( '.axisbuilder-layout-cell' ) ) {
-				save_data.val( save_data.val().replace( new RegExp( '^\\[' + shortcode + '.*?\\]' ), tags.open ) );
-			} else {
-				save_data.val( output );
-			}
-
-			// Update the Section and column Inner-Textarea
-			if ( section.length ) {
-				this.updateInnerTextarea( false, section );
-			} else if ( column.length ) {
-				this.updateInnerTextarea( false, column );
-			}
-
-			this.updateTextarea();
-			this.historySnapshot();
-			element_container.trigger( 'update' );
-		},
-
-		/**
-		 * Updates Builder Canvas element(s) to reflect changes instantly.
-		 */
-		updateHTML: function( element_container, values, force_content_close ) {
-			var key, subkey, new_key, old_val;
-
-			// Filter keys for the 'axisbuilderTB-' string prefix and re-modify the key that was edited.
-			for ( key in values ) {
-				if ( values.hasOwnProperty( key ) ) {
-					new_key = key.replace( /axisbuilderTB-/g, '' );
-					if ( key !== new_key ) {
-						old_val = ( typeof values[new_key] !== 'undefined' ) ? ( values[new_key] + ',' ) : '';
-						values[new_key] = old_val ? old_val + values[key] : values[key];
-						delete values[key];
-					}
-				}
-			}
-
-			// Replace all single quotes with real single quotes so we don't break the shortcode. Not necessary in the content.
-			for ( key in values ) {
-				if ( values.hasOwnProperty( key ) ) {
-					if ( key !== 'content' ) {
-						if ( typeof values[key] === 'string' ) {
-							values[key] = values[key].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
-						} else if ( typeof values[key] === 'object' ) {
-							for ( subkey in values[key] ) {
-								values[key][subkey] = values[key][subkey].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
-							}
-						}
-					}
-				}
-			}
-
-			var shortcode = element_container.data( 'shortcode-handler' ),
-				visual_updates = element_container.find( '[data-update_with]' ),
-				class_updates  = element_container.find( '[data-update_class_with]' ),
-				visual_el = '', visual_key = '', visual_template = '', class_el = '', class_key = '';
-
-			// var update_html = '', replace_val = ''; Need later for visual_updates ;)
-
-			if ( ! element_container.is( '.axisbuilder-no-visual-updates') ) {
-				// Reset class name's
-				class_updates.attr( 'class', '' );
-
-				// Update elements on the Builder Canvas like text elements to reflect those changes instantly.
-				visual_updates.each( function() {
-					visual_el = $( this );
-					visual_key = visual_el.data( 'update_with' );
-					visual_template = visual_el.data( 'update_template' );
-
-					// Will do later when we need actually ;)
-				});
-
-				// Update element's classname on Builder Canvas to reflect visual chanages instantly.
-				class_updates.each( function() {
-					class_el = $( this );
-					class_key = class_el.data( 'update_class_with' ).split( ',' );
-
-					for ( var i = 0; i < class_key.length; i++ ) {
-						if ( typeof values[class_key[i]] === 'string' ) {
-							class_el.get(0).className += ' axisbuilder-' + class_key[i] + '-' + values[class_key[i]];
-						}
-					}
-				});
-			}
-
-			// Create the shortcode string out of the arguments and save it to the data storage textarea.
-			var tags = {}, extract_html = {};
-			extract_html.tags = tags;
-			extract_html.output = this.createShortcode( values, shortcode, tags, force_content_close );
-
-			return extract_html;
-		},
-
-		/**
-		 * Create the actual shortcode string out of the arguments and content.
-		 */
-		createShortcode: function( values, shortcode, tag, force_content_close ) {
-			var i, key, output = '', attributes = '', content = '', seperator = ',', linebreak = '\n';
-			if ( ! tag ) {
-				tag = {};
-			}
-
-			// Create shortcode content var
-			if ( typeof values.content !== 'undefined' ) {
-
-				// Check if the content var is an array of items
-				if ( typeof values.content === 'object' ) {
-
-					// If its an array, Check if its an array of sub-shortcodes i.e contact form fields, if so switch the seperator to linebreak ;)
-					if ( values.content[0].indexOf( '[' ) !== -1 ) {
-						seperator = linebreak;
-					}
-
-					// Trim spaces and line breaks from an array :)
-					for ( i = 0; i < values.content.length; i++ ) {
-						values.content[i] = $.trim( values.content[i] );
-					}
-
-					// --> Can we move to this type of condititon.
-
-					// Trim spaces and line breaks from an array :)
-					// for ( i = values.content.length - 1; i >= 0; i--) {
-					// 	values.content[i] = $.trim( values.content[i] );
-					// }
-
-					// Join the array into a single string xD
-					content = values.content.join( seperator );
-				} else {
-					content = values.content;
-				}
-
-				content = linebreak + content + linebreak;
-				delete values.content;
-			}
-
-			// Create shortcode attributes string
-			for ( key in values ) {
-				if ( values.hasOwnProperty( key ) ) {
-
-					//  If the key is an integer like zero we probably need to deal with the 'first' value from columns or cells. In that case don't add the key, only the values
-					if ( isNaN( key ) ) {
-						if ( typeof values[key] === 'object' ) {
-							values[key] = values[key].join( ',' );
-						}
-
-						attributes += key + '=\'' + values[key] + '\' ';
-					} else {
-						attributes += values[key] + ' ';
-					}
-				}
-			}
-
-			// Real Implementation is here ;)
-			tag.open = '[' + shortcode + ' ' + $.trim( attributes ) + ']';
-			output = tag.open;
-
-			if ( content || typeof force_content_close !== 'undefined' && force_content_close === true ) {
-				if ( $.trim( content ) === '' ) {
-					content = '';
-				}
-
-				tag.close = '[/' + shortcode + ']';
-				output += content + tag.close;
-			}
-
-			output += linebreak + linebreak;
-
-			return output;
-		},
-
-		/**
-		 * Executed if an element has no popup modal but is managed
-		 * via directly attached form (eg: sidebar with dropdown).
-		 */
-		recalculateShortcode: function( element_container ) {
-			var values  = [],
-				current = false,
-				recalcs = element_container.find( 'select.axisbuilder-recalculate-shortcode' );
-
-			for ( var i = recalcs.length - 1; i >= 0; i-- ) {
-				current = $( recalcs[i] );
-				values[current.data( 'attr' )] = current.val();
-			}
-
-			this.updateShortcode( values, element_container );
-		},
-
-		/**
 		 * Create a snapshot for the Undo-Redo function.
 		 * Timeout is added so javascript has enough time to remove animation classes and hover states.
 		 */
@@ -509,7 +292,7 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 			}
 
 			if ( fix_active ) {
-				new axisbuilder_log( 'Drag and drop Positioning fix active' );
+				console.log( 'Drag and drop Positioning fix active' );
 			}
 
 			// Drag
@@ -892,8 +675,8 @@ if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
 			}
 
 			catch( e ) {
-				new axisbuilder_log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', 'Storage' );
-				new axisbuilder_log( e, 'Storage' );
+				console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', 'Storage' );
+				console.log( e, 'Storage' );
 				this.clear();
 				this.redoButton.addClass( 'inactive-history' );
 				this.undoButton.addClass( 'inactive-history' );

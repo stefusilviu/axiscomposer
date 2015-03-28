@@ -138,7 +138,7 @@ jQuery( function( $ ) {
 				data: data,
 				type: 'POST',
 				success: function( response ) {
-					axisbuilder_meta_boxes_builder.append_canvas( response );
+					axisbuilder_meta_boxes_builder.send_to_canvas( response );
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					axisbuilder_meta_boxes_builder.history_snapshot();
 					axisbuilder_meta_boxes_builder.tiptip();
@@ -148,7 +148,7 @@ jQuery( function( $ ) {
 			});
 		},
 
-		append_canvas: function( text ) {
+		send_to_canvas: function( text ) {
 			var add_text = $( text );
 			$( '.canvas-area' ).append( add_text );
 
@@ -176,7 +176,7 @@ jQuery( function( $ ) {
 
 			if ( template.length ) {
 				if ( insert_target === 'instant-insert' ) {
-					axisbuilder_meta_boxes_builder.append_canvas( template.html() );
+					axisbuilder_meta_boxes_builder.send_to_canvas( template.html() );
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.history_snapshot();
 				}

@@ -149,14 +149,14 @@ class AB_Meta_Box_Builder_Data {
 				'button' => __( 'Delete', 'axisbuilder' ),
 				'class'  => array( 'modal-animation' ),
 			),
+			'cell' => array(
+				'tmpl'   => 'cell-size',
+				'button' => __( 'Add', 'axisbuilder' ),
+				'class'  => array( 'modal-animation' )
+			),
 			'edit' => array(
 				'tmpl'   => 'edit-element',
 				'button' => __( 'Save', 'axisbuilder' ),
-				'class'  => array( 'modal-animation' )
-			),
-			'cells' => array(
-				'tmpl'   => 'cell-size',
-				'button' => __( 'Add', 'axisbuilder' ),
 				'class'  => array( 'modal-animation' )
 			)
 		) );

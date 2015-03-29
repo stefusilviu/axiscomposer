@@ -16,17 +16,19 @@ jQuery( function( $ ) {
 
 			$( '#axisbuilder-editor' )
 				.on( 'click', '.insert-shortcode', this.add_element )
+				.on( 'click', '.axisbuilder-edit', this.edit_element )
 				.on( 'click', 'a.axisbuilder-clone', this.clone_element )
 				.on( 'click', 'a.axisbuilder-trash', this.trash_element )
+
+				// Trash data
+				.on( 'click', 'a.trash-data', this.trash_data )
+
+				// Resize Layout
 				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
 
 				// Grid row cell
 				.on( 'click', 'a.axisbuilder-cell-add', this.cell.add_cell )
 				.on( 'click', 'a.axisbuilder-cell-set', this.cell.set_cell_size )
-
-				// Backbone modal
-				.on( 'click', '.trash-data', this.trash_data )
-				.on( 'click', '.axisbuilder-edit', this.edit_element )
 
 				// Recalc element
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.element_select_changed );
@@ -174,24 +176,39 @@ jQuery( function( $ ) {
 
 		add_element: function() {
 			var shortcode     = this.hash.replace( '#', '' ),
+				element_tmpl  = $( '#axisbuilder-tmpl-' + shortcode ),
 				insert_target = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? "target_insert" : "instant_insert",
 
-			axisbuilder_meta_boxes_builder.fetch_element( shortcode, insert_target );
-			return false;
-		},
-
-		fetch_element: function( shortcode, insert_target ) {
-			var template = $( '#axisbuilder-tmpl-' + shortcode );
-
-			if ( template.length ) {
+			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {
-					axisbuilder_meta_boxes_builder.send_to_canvas( template.html() );
+					axisbuilder_meta_boxes_builder.send_to_canvas( element_tmpl.html() );
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.history_snapshot();
 				}
-
-				return;
 			}
+
+			return false;
+		},
+
+		edit_element: function() {
+			var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+
+			if ( ! parents.length ) {
+				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
+
+				if ( ! parents.length ) {
+					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+				}
+			}
+
+			$( this ).AxisBuilderBackboneModal({
+				title: parents.data( 'modal-title' ),
+				screen: parents.data( 'modal-class' ),
+				message: 'Fetch options field with validation using AJAX...',
+				template: '#tmpl-axisbuilder-modal-edit-element'
+			});
+
+			return false;
 		},
 
 		clone_element: function() {
@@ -245,7 +262,7 @@ jQuery( function( $ ) {
 			axisbuilder_meta_boxes_builder.dragdrop.draggable();
 			axisbuilder_meta_boxes_builder.dragdrop.droppable();
 
-			// Textarea Update and History snapshot :)
+			// Textarea Update and History snapshot
 			axisbuilder_meta_boxes_builder.textarea.outer();
 			axisbuilder_meta_boxes_builder.history_snapshot();
 
@@ -298,6 +315,19 @@ jQuery( function( $ ) {
 				}
 
 				axisbuilder_meta_boxes_builder.history_snapshot();
+			});
+
+			return false;
+		},
+
+		trash_data: function() {
+			var length = $( '.canvas-area' ).children().length;
+
+			$( this ).AxisBuilderBackboneModal({
+				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
+				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
+				dismiss: ( length > 0 ) ? false : true,
+				template: '#tmpl-axisbuilder-modal-trash-data'
 			});
 
 			return false;
@@ -557,40 +587,6 @@ jQuery( function( $ ) {
 			return output;
 		},
 
-		trash_data: function() {
-			var length = $( '.canvas-area' ).children().length;
-
-			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
-				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
-				dismiss: ( length > 0 ) ? false : true,
-				template: '#tmpl-axisbuilder-modal-trash-data'
-			});
-
-			return false;
-		},
-
-		edit_element: function() {
-			var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-
-			if ( ! parents.length ) {
-				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
-
-				if ( ! parents.length ) {
-					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
-				}
-			}
-
-			$( this ).AxisBuilderBackboneModal({
-				title: parents.data( 'modal-title' ),
-				screen: parents.data( 'modal-class' ),
-				message: 'Fetch options field with validation using AJAX...',
-				template: '#tmpl-axisbuilder-modal-edit-element'
-			});
-
-			return false;
-		},
-
 		backbone: {
 
 			init: function( e, template ) {
@@ -604,12 +600,12 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.backbone.trash_data();
 				}
 
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.edit_element();
-				}
-
 				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
 					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
+				}
+
+				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					axisbuilder_meta_boxes_builder.backbone.edit_element();
 				}
 			},
 
@@ -617,8 +613,6 @@ jQuery( function( $ ) {
 				$( '.canvas-area' ).empty();
 				axisbuilder_meta_boxes_builder.textarea.outer();
 			},
-
-			edit_element: function() {},
 
 			cell_size: function( add_cell_size ) {
 				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
@@ -631,7 +625,9 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.history_snapshot();
 				}
-			}
+			},
+
+			edit_element: function() {}
 		},
 
 		textarea: {

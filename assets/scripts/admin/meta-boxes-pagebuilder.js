@@ -756,16 +756,13 @@ jQuery( function( $ ) {
 						left: 20
 					},
 					start: function( event ) {
-						var target = $( event.target );
-
-						target.css({ opacity: 0.4 });
+						var current = $( event.target );
+						current.css({ opacity: 0.4 });
 						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
-						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + target.data( 'dragdrop-level' ) );
+						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + current.data( 'dragdrop-level' ) );
 					},
 					stop: function( event ) {
-						var target = $( event.target );
-
-						target.css({ opacity: 1 });
+						$( event.target ).css({ opacity: 1 });
 						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
 						$( '.canvas-area' ).removeClass( 'axisbuilder-select-target-1 axisbuilder-select-target-2 axisbuilder-select-target-3 axisbuilder-select-target-4' );
 					}

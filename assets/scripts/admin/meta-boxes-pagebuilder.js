@@ -687,7 +687,7 @@ jQuery( function( $ ) {
 					current_content = current_field.val();
 					current_parents = current_field.parents( '.axisbuilder-layout-column-no-cell:eq(0)' );
 
-					// If we are checking a column we need to make sure to add/remove the first class :)
+					// Check for column to add/remove first class
 					if ( current_parents.length ) {
 						current_size = current_parents.data( 'width' );
 						size_count  += column_sizes[current_size];

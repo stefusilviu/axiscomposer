@@ -239,9 +239,9 @@ jQuery( function( $ ) {
 				}
 			}
 
-			// Activate Element Drag-Drop
-			// obj.activateDragging();
-			// obj.activateDropping();
+			// Activate Draggable-Droppable
+			axisbuilder_meta_boxes_builder.dragdrop.draggable();
+			axisbuilder_meta_boxes_builder.dragdrop.droppable();
 
 			// Textarea Update and History snapshot :)
 			axisbuilder_meta_boxes_builder.textarea.outer();
@@ -291,9 +291,9 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.textarea.outer();
 
 				// Bugfix for column delete that renders the canvas undropbable for unknown reason
-				// if ( obj.axisBuilderValues.val() === '' ) {
-				// 	obj.activateDropping( obj.axisBuilderParent, 'destroy' );
-				// }
+				if ( $( '.canvas-data' ).val() === '' ) {
+					axisbuilder_meta_boxes_builder.dragdrop.droppable( '', 'destroy' );
+				}
 
 				axisbuilder_meta_boxes_builder.history_snapshot();
 			});
@@ -1152,7 +1152,7 @@ jQuery( function( $ ) {
 				} else {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
 					axisbuilder_meta_boxes_builder_cells.append_cell( $row, newEl );
-					// obj.activateDropping();
+					axisbuilder_meta_boxes_builder.dragdrop.droppable();
 				}
 
 				axisbuilder_meta_boxes_builder.textarea.inner( false, $row );

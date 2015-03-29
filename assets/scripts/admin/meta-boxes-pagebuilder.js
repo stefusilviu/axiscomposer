@@ -572,49 +572,6 @@ jQuery( function( $ ) {
 			}, timeout ? timeout : 150 );
 		},
 
-		backbone: {
-
-			init: function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
-				}
-			},
-
-			response: function( e, template, data ) {
-				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.trash_data();
-				}
-
-				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
-				}
-
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.edit_element();
-				}
-			},
-
-			trash_data: function() {
-				$( '.canvas-area' ).empty();
-				axisbuilder_meta_boxes_builder.textarea.outer();
-			},
-
-			cell_size: function( add_cell_size ) {
-				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
-					cells                = $row.find( '.axisbuilder-layout-cell' ),
-					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length];
-
-				if ( add_cell_size ) {
-					axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
-					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
-					axisbuilder_meta_boxes_builder.textarea.outer();
-					axisbuilder_meta_boxes_builder.history_snapshot();
-				}
-			},
-
-			edit_element: function() {}
-		},
-
 		textarea: {
 
 			inner: function( element, container ) {
@@ -1125,6 +1082,49 @@ jQuery( function( $ ) {
 				// Change the cell size text
 				size_string.text( next_size[1] );
 			}
+		},
+
+		backbone: {
+
+			init: function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
+				}
+			},
+
+			response: function( e, template, data ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
+					axisbuilder_meta_boxes_builder.backbone.trash_data();
+				}
+
+				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
+					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
+				}
+
+				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					axisbuilder_meta_boxes_builder.backbone.edit_element();
+				}
+			},
+
+			trash_data: function() {
+				$( '.canvas-area' ).empty();
+				axisbuilder_meta_boxes_builder.textarea.outer();
+			},
+
+			cell_size: function( add_cell_size ) {
+				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells                = $row.find( '.axisbuilder-layout-cell' ),
+					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length];
+
+				if ( add_cell_size ) {
+					axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
+					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
+					axisbuilder_meta_boxes_builder.textarea.outer();
+					axisbuilder_meta_boxes_builder.history_snapshot();
+				}
+			},
+
+			edit_element: function() {}
 		},
 
 		stupidtable: {

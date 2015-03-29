@@ -689,6 +689,7 @@ jQuery( function( $ ) {
 					// Check for column to add/remove first class
 					if ( current_parents.length ) {
 						current_size = current_parents.data( 'width' );
+
 						for( var x in column_size ) {
 							if ( current_size === column_size[x][0] ) {
 								next_size = column_size[x];

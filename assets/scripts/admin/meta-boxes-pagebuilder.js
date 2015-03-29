@@ -515,35 +515,22 @@ jQuery( function( $ ) {
 		},
 
 		shortcode_string: function( values, shortcode, tag, force_content_close ) {
-			var i, key, output = '', attributes = '', content = '', seperator = ',', linebreak = '\n';
+			var i, key, output = '', content = '', attr = '', seperator = ',', linebreak = '\n';
 			if ( ! tag ) {
 				tag = {};
 			}
 
 			// Create shortcode content var
 			if ( typeof values.content !== 'undefined' ) {
-
-				// Check if the content var is an array of items
 				if ( typeof values.content === 'object' ) {
-
-					// If its an array, Check if its an array of sub-shortcodes i.e contact form fields, if so switch the seperator to linebreak ;)
 					if ( values.content[0].indexOf( '[' ) !== -1 ) {
 						seperator = linebreak;
 					}
 
-					// Trim spaces and line breaks from an array :)
 					for ( i = 0; i < values.content.length; i++ ) {
 						values.content[i] = $.trim( values.content[i] );
 					}
 
-					// --> Can we move to this type of condititon.
-
-					// Trim spaces and line breaks from an array :)
-					// for ( i = values.content.length - 1; i >= 0; i--) {
-					// 	values.content[i] = $.trim( values.content[i] );
-					// }
-
-					// Join the array into a single string xD
 					content = values.content.join( seperator );
 				} else {
 					content = values.content;
@@ -553,25 +540,22 @@ jQuery( function( $ ) {
 				delete values.content;
 			}
 
-			// Create shortcode attributes string
+			// Create shortcode attr string
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
-
-					//  If the key is an integer like zero we probably need to deal with the 'first' value from columns or cells. In that case don't add the key, only the values
 					if ( isNaN( key ) ) {
 						if ( typeof values[key] === 'object' ) {
 							values[key] = values[key].join( ',' );
 						}
 
-						attributes += key + '=\'' + values[key] + '\' ';
+						attr += key + '=\'' + values[key] + '\' ';
 					} else {
-						attributes += values[key] + ' ';
+						attr += values[key] + ' ';
 					}
 				}
 			}
 
-			// Real Implementation is here ;)
-			tag.open = '[' + shortcode + ' ' + $.trim( attributes ) + ']';
+			tag.open = '[' + shortcode + ' ' + $.trim( attr ) + ']';
 			output = tag.open;
 
 			if ( content || typeof force_content_close !== 'undefined' && force_content_close === true ) {

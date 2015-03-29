@@ -218,7 +218,7 @@ jQuery( function( $ ) {
 			// Check if cell
 			if ( element.is( '.axisbuilder-layout-cell' ) ) {
 				var count  = element.parents( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
-				if ( typeof axisbuilder_meta_boxes_builder_data.cell_list[count] !== 'undefined' ) {
+				if ( typeof axisbuilder_meta_boxes_builder_data.new_cell_order[count] !== 'undefined' ) {
 					recalc_cell = true;
 				} else {
 					return false;
@@ -1013,7 +1013,7 @@ jQuery( function( $ ) {
 				var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells = $row.find( '.axisbuilder-layout-cell' ),
 					count = ( cells.length + direction ),
-					newEl = axisbuilder_meta_boxes_builder_data.cell_list[count];
+					newEl = axisbuilder_meta_boxes_builder_data.new_cell_order[count];
 
 				if ( typeof newEl !== 'undefined' ) {
 					if ( count !== cells.length ) {
@@ -1155,12 +1155,12 @@ jQuery( function( $ ) {
 			[ 'ab_one_full', '1/1' ], [ 'ab_four_fifth', '4/5' ], [ 'ab_three_fourth', '3/4' ], [ 'ab_two_third', '2/3' ], [ 'ab_three_fifth', '3/5' ], [ 'ab_one_half', '1/2' ], [ 'ab_two_fifth', '2/5' ], [ 'ab_one_third', '1/3' ], [ 'ab_one_fourth', '1/4' ], [ 'ab_one_fifth', '1/5' ]
 		],
 
-		cell_list: [
-			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]
-		],
-
 		cell_size: [
 			[ 'ab_cell_one_full', '1/1', 1.00 ], [ 'ab_cell_four_fifth', '4/5', 0.80 ], [ 'ab_cell_three_fourth', '3/4', 0.75 ], [ 'ab_cell_two_third', '2/3', 0.66 ], [ 'ab_cell_three_fifth', '3/5', 0.60 ], [ 'ab_cell_one_half', '1/2', 0.50 ], [ 'ab_cell_two_fifth', '2/5', 0.40 ], [ 'ab_cell_one_third', '1/3', 0.33 ], [ 'ab_cell_one_fourth', '1/4', 0.25 ], [ 'ab_cell_one_fifth', '1/5', 0.20 ]
+		],
+
+		new_cell_order: [
+			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]
 		],
 
 		cell_size_variations: {

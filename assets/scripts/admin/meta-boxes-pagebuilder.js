@@ -342,7 +342,6 @@ jQuery( function( $ ) {
 			}
 
 			if ( typeof next_size !== 'undefined' ) {
-
 				// Regular Expression
 				data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
 				data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
@@ -574,7 +573,6 @@ jQuery( function( $ ) {
 		textarea: {
 
 			inner: function( element, container ) {
-
 				// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section
 				if ( typeof container === 'undefined' ) {
 					container = $( element ).parents( '.axisbuilder-layout-section:eq(0)' );
@@ -652,7 +650,6 @@ jQuery( function( $ ) {
 			},
 
 			outer: function( scope ) {
-
 				// Prevent if we don't have the pagebuilder active
 				if ( axisbuilder_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
 					return;
@@ -972,6 +969,7 @@ jQuery( function( $ ) {
 		},
 
 		cell: {
+
 			add_cell: function() {
 				axisbuilder_meta_boxes_builder.cell.modify_cell_count( this, 0 );
 				return false;
@@ -1134,6 +1132,7 @@ jQuery( function( $ ) {
 		},
 
 		stupidtable: {
+
 			init: function() {
 				$( '.axisbuilder_editor' ).stupidtable().on( 'aftertablesort', this.add_arrows );
 			},

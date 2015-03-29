@@ -1076,7 +1076,15 @@ jQuery( function( $ ) {
 
 			remove_cell: function( clicked ) {
 				axisbuilder_meta_boxes_builder_cells.modify_cell_count( clicked, -2 );
-			}
+			},
+
+			append_cell: function( row, newEl ) {
+				var data_storage    = row.find( '> .axisbuilder-inner-shortcode' ),
+					shortcode_class = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
+					template        = $( $( '#axisbuilder-tmpl-' + shortcode_class ).html() );
+
+				data_storage.append( template );
+			},
 		},
 
 		stupidtable: {
@@ -1153,7 +1161,7 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
 				} else {
 					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
-					axisbuilder_meta_boxes_builder_cells.append_cell( $row, newEl );
+					axisbuilder_meta_boxes_builder.cell.append_cell( $row, newEl );
 					axisbuilder_meta_boxes_builder.dragdrop.droppable();
 				}
 
@@ -1161,14 +1169,6 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.textarea.outer();
 				axisbuilder_meta_boxes_builder.history_snapshot();
 			}
-		},
-
-		append_cell: function( row, newEl ) {
-			var data_storage    = row.find( '> .axisbuilder-inner-shortcode' ),
-				shortcode_class = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
-				template        = $( $( '#axisbuilder-tmpl-' + shortcode_class ).html() );
-
-			data_storage.append( template );
 		},
 
 		change_multiple_cell_size: function( cells, newEl, multi ) {

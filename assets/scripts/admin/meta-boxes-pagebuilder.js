@@ -677,7 +677,8 @@ jQuery( function( $ ) {
 
 				var size_count     = 0,
 					content_val    = '',
-					column_size    = { 'ab_one_full': 1.00, 'ab_four_fifth': 0.80, 'ab_three_fourth': 0.75, 'ab_two_third': 0.66, 'ab_three_fifth': 0.60, 'ab_one_half': 0.50, 'ab_two_fifth': 0.40, 'ab_one_third': 0.33, 'ab_one_fourth': 0.25, 'ab_one_fifth': 0.20 },
+					column_size    = axisbuilder_meta_boxes_builder_data.col_size,
+					column_sizes   = { 'ab_one_full': 1.00, 'ab_four_fifth': 0.80, 'ab_three_fourth': 0.75, 'ab_two_third': 0.66, 'ab_three_fifth': 0.60, 'ab_one_half': 0.50, 'ab_two_fifth': 0.40, 'ab_one_third': 0.33, 'ab_one_fourth': 0.25, 'ab_one_fifth': 0.20 },
 					content_fields = scope.find( '>textarea[data-name="text-shortcode"]' ),
 					current_field, current_content, current_parents, current_size;
 
@@ -689,7 +690,7 @@ jQuery( function( $ ) {
 					// If we are checking a column we need to make sure to add/remove the first class :)
 					if ( current_parents.length ) {
 						current_size = current_parents.data( 'width' );
-						size_count  += column_size[current_size];
+						size_count  += column_sizes[current_size];
 
 						if ( size_count > 1 || i === 0 ) {
 
@@ -699,7 +700,7 @@ jQuery( function( $ ) {
 								current_field.val( current_content );
 							}
 
-							size_count = column_size[current_size];
+							size_count = column_sizes[current_size];
 						} else if ( current_parents.is( '.axisbuilder-first-column' ) ) {
 							current_parents.removeClass( 'axisbuilder-first-column' );
 							current_content = current_content.replace( ' first', '' );

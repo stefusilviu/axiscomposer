@@ -70,14 +70,15 @@ jQuery( function( $ ) {
 			e.preventDefault();
 
 			// Prevent if page builder is disabled
-			if ( $( this ).is( '.disabled' ) ) {
+			var button = $( this );
+			if ( button.is( '.disabled' ) ) {
 				return;
 			}
 
 			if ( axisbuilder_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
 				$( '#axisbuilder-editor' ).removeClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().addClass( 'axisbuilder-hidden-editor' );
-				$( this ).removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
+				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'active' );
 
 				if( typeof window.wp.editor.dfw === 'object' ) {
@@ -90,7 +91,7 @@ jQuery( function( $ ) {
 			} else {
 				$( '#axisbuilder-editor' ).addClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().removeClass( 'axisbuilder-hidden-editor' );
-				$( this ).addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
+				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'inactive' );
 
 				// Remove duplication of canvas elements

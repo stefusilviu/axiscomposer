@@ -31,7 +31,7 @@ jQuery( function( $ ) {
 				.on( 'click', 'a.axisbuilder-cell-set', this.cell.set_cell_size )
 
 				// Recalc element
-				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.element_select_changed );
+				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
 			$( '.canvas-area' )
 				.on( 'axisbuilder_history_update', this.history_update );
@@ -162,17 +162,6 @@ jQuery( function( $ ) {
 			// Activate Draggable-Droppable
 			axisbuilder_meta_boxes_builder.dragdrop.draggable();
 			axisbuilder_meta_boxes_builder.dragdrop.droppable();
-		},
-
-		history_update: function() {
-			axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
-			axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
-		},
-
-		history_snapshot: function( timeout ) {
-			setTimeout( function() {
-				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
-			}, timeout ? timeout : 150 );
 		},
 
 		add_element: function() {
@@ -383,7 +372,7 @@ jQuery( function( $ ) {
 			return false;
 		},
 
-		element_select_changed: function() {
+		select_changed: function() {
 			var container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
 			axisbuilder_meta_boxes_builder.recalc_element( container );
 			return false;
@@ -570,6 +559,17 @@ jQuery( function( $ ) {
 			output += linebreak + linebreak;
 
 			return output;
+		},
+
+		history_update: function() {
+			axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
+			axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
+		},
+
+		history_snapshot: function( timeout ) {
+			setTimeout( function() {
+				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
+			}, timeout ? timeout : 150 );
 		},
 
 		backbone: {

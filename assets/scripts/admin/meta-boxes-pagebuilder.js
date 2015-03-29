@@ -331,7 +331,7 @@ jQuery( function( $ ) {
 				data_storage = column.find( '.axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 				data_string  = data_storage.val(),
 				next_size    = [],
-				column_size  = axisbuilder_meta_boxes_builder_data.column_size,
+				column_size  = axisbuilder_meta_boxes_builder_data.col_size,
 				current_size = column.data( 'width' );
 
 			// Next size?
@@ -1151,7 +1151,7 @@ jQuery( function( $ ) {
 	 */
 	var axisbuilder_meta_boxes_builder_data = {
 
-		column_size: [
+		col_size: [
 			[ 'ab_one_full', '1/1' ], [ 'ab_four_fifth', '4/5' ], [ 'ab_three_fourth', '3/4' ], [ 'ab_two_third', '2/3' ], [ 'ab_three_fifth', '3/5' ], [ 'ab_one_half', '1/2' ], [ 'ab_two_fifth', '2/5' ], [ 'ab_one_third', '1/3' ], [ 'ab_one_fourth', '1/4' ], [ 'ab_one_fifth', '1/5' ]
 		],
 

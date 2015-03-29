@@ -178,7 +178,7 @@ jQuery( function( $ ) {
 		add_element: function() {
 			var shortcode     = this.hash.replace( '#', '' ),
 				element_tmpl  = $( '#axisbuilder-tmpl-' + shortcode ),
-				insert_target = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? "target_insert" : "instant_insert",
+				insert_target = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? 'target_insert' : 'instant_insert',
 
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {

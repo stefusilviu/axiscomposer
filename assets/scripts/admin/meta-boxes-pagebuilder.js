@@ -676,8 +676,8 @@ jQuery( function( $ ) {
 				}
 
 				var size_count     = 0,
+					content_val    = '',
 					column_size    = { 'ab_one_full': 1.00, 'ab_four_fifth': 0.80, 'ab_three_fourth': 0.75, 'ab_two_third': 0.66, 'ab_three_fifth': 0.60, 'ab_one_half': 0.50, 'ab_two_fifth': 0.40, 'ab_one_third': 0.33, 'ab_one_fourth': 0.25, 'ab_one_fifth': 0.20 },
-					content_value  = '',
 					content_fields = scope.find( '>textarea[data-name="text-shortcode"]' ),
 					current_field, current_content, current_parents, current_size;
 
@@ -709,17 +709,17 @@ jQuery( function( $ ) {
 						size_count = 1;
 					}
 
-					content_value += current_content;
+					content_val += current_content;
 				}
 
 				if ( typeof window.tinyMCE !== 'undefined' ) {
 					setTimeout( function() {
-						window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( content_value ), { format: 'html' } );
+						window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( content_val ), { format: 'html' } );
 					}, 500 );
 				}
 
-				$( '.canvas-data' ).val( content_value );
-				$( '#content.wp-editor-area' ).val( content_value );
+				$( '.canvas-data' ).val( content_val );
+				$( '#content.wp-editor-area' ).val( content_val ).trigger( 'axisbuilder_update' );
 			}
 		},
 

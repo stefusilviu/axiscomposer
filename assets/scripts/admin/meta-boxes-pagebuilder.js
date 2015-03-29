@@ -740,30 +740,6 @@ jQuery( function( $ ) {
 				return false;
 			},
 
-			version_compare: function( a, b ) {
-				var i, compare, regex = /(\.0)+[^\.]*$/;
-
-				a = ( a + '' ).replace( regex, '' ).split( '.' );
-				b = ( b + '' ).replace( regex, '' ).split( '.' );
-
-				for ( i = 0; i < Math.min( a.length, b.length ); i++ ) {
-					compare = parseInt( a[i], 10 ) - parseInt( b[i], 10 );
-					if ( compare !== 0 ) {
-						return compare;
-					}
-				}
-
-				return a.length - b.length;
-			},
-
-			position_fix: function() {
-				var fix_active = axisbuilder_meta_boxes_builder.dragdrop.version_compare( $.ui.draggable.version, '1.10.9' ) <= 0 ? true : false;
-				if ( navigator.userAgent.indexOf( 'Safari' ) !== -1 || navigator.userAgent.indexOf( 'Chrome' ) !== -1 ) {
-					fix_active = false;
-				}
-				return fix_active;
-			},
-
 			draggable: function( scope, exclude ) {
 				scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
 				if ( typeof exclude === 'undefined' ) {
@@ -771,14 +747,13 @@ jQuery( function( $ ) {
 				}
 
 				var data = {
-					appendTo : 'body',
-					handle   : '>.menu-item-handle',
-					helper   : 'clone',
-					scroll   : true,
-					revert	 : false,
-					zIndex   : 20000,
-					cursorAt : {
-						left : 20
+					handle: '>.menu-item-handle',
+					helper: 'clone',
+					scroll: true,
+					zIndex: 20000,
+					appendTo: 'body',
+					cursorAt: {
+						left: 20
 					},
 					start: function( event ) {
 						var target = $( event.target );
@@ -786,15 +761,6 @@ jQuery( function( $ ) {
 						target.css({ opacity: 0.4 });
 						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
 						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + target.data( 'dragdrop-level' ) );
-					},
-					drag: function( event, ui ) {
-						/**
-						 * Temp fix for ui.draggable version 1.10.3 which positions element wrong. 1.11 contains the fix
-						 * @see http://stackoverflow.com/questions/5791886/jquery-draggable-shows-helper-in-wrong-place-when-scrolled-down-page
-						 */
-						if ( axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
-							ui.position.top -= parseInt( $( window ).scrollTop(), 10 );
-						}
 					},
 					stop: function( event ) {
 						var target = $( event.target );
@@ -816,14 +782,6 @@ jQuery( function( $ ) {
 						}
 					})
 				);
-
-				// Debug logger
-				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
-					console.info( 'jQueryUI Draggable: v' + $.ui.draggable.version );
-					if ( axisbuilder_meta_boxes_builder.dragdrop.position_fix() ) {
-						console.log( 'Draggable positioning fix is active.' );
-					}
-				}
 			},
 
 			droppable: function( scope, exclude ) {

@@ -734,10 +734,7 @@ jQuery( function( $ ) {
 			},
 
 			is_droppable: function( draggable, droppable ) {
-				if ( draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' ) ) {
-					return true;
-				}
-				return false;
+				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
 			},
 
 			draggable: function( scope, exclude ) {

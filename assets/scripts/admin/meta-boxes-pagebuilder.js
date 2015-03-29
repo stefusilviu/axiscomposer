@@ -346,6 +346,8 @@ jQuery( function( $ ) {
 				}
 				axisbuilder_meta_boxes_builder.history_snapshot();
 			}
+
+			return false;
 		},
 
 		element_select_changed: function() {

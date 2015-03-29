@@ -18,16 +18,18 @@ jQuery( function( $ ) {
 				.on( 'click', '.insert-shortcode', this.add_element )
 				.on( 'click', 'a.axisbuilder-clone', this.clone_element )
 				.on( 'click', 'a.axisbuilder-trash', this.trash_element )
-				.on( 'click', 'a.axisbuilder-cell-add', this.cell.add_cell )
 				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
 
-				// Recalc element
-				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.element_select_changed )
+				// Grid row cell
+				.on( 'click', 'a.axisbuilder-cell-add', this.cell.add_cell )
+				.on( 'click', 'a.axisbuilder-cell-set', this.cell.set_cell_size )
 
-				// Backbone Modal
-				.on( 'click', 'a.trash-data', this.trash_data )
+				// Backbone modal
+				.on( 'click', '.trash-data', this.trash_data )
 				.on( 'click', '.axisbuilder-edit', this.edit_element )
-				.on( 'click', 'a.axisbuilder-cell-set', this.cell_size );
+
+				// Recalc element
+				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.element_select_changed );
 
 			$( '.canvas-area' )
 				.on( 'axisbuilder_history_update', this.history_update );
@@ -589,45 +591,6 @@ jQuery( function( $ ) {
 			return false;
 		},
 
-		cell_size: function() {
-			var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
-				cells                = $row.find( '.axisbuilder-layout-cell' ),
-				cell_size            = axisbuilder_meta_boxes_builder_cells.cell_size,
-				cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length],
-				dismiss, message = '';
-
-			if ( cell_size_variations ) {
-				for ( var x in cell_size_variations ) {
-					var label = '',	labeltext = '';
-
-					for ( var y in cell_size_variations[x] ) {
-						for ( var z in cell_size ) {
-							if ( cell_size[z][0] === cell_size_variations[x][y] ) {
-								labeltext = cell_size[z][1];
-							}
-						}
-
-						label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
-					}
-
-					message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
-				}
-			} else {
-				dismiss = true;
-				message += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-				message += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
-			}
-
-			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
-				message: message,
-				dismiss: dismiss,
-				template: '#tmpl-axisbuilder-modal-cell-size'
-			});
-
-			return false;
-		},
-
 		backbone: {
 
 			init: function( e, template ) {
@@ -663,7 +626,7 @@ jQuery( function( $ ) {
 					cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length];
 
 				if ( add_cell_size ) {
-					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
+					axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.history_snapshot();
@@ -1066,25 +1029,129 @@ jQuery( function( $ ) {
 
 		cell: {
 			add_cell: function() {
-				axisbuilder_meta_boxes_builder_cells.modify_cell_count( $( this ), 0 );
+				axisbuilder_meta_boxes_builder.cell.modify_cell_count( $( this ), 0 );
 				return false;
 			},
 
 			recalc_cell: function( clicked ) {
-				axisbuilder_meta_boxes_builder_cells.modify_cell_count( clicked, -1 );
+				axisbuilder_meta_boxes_builder.cell.modify_cell_count( clicked, -1 );
 			},
 
 			remove_cell: function( clicked ) {
-				axisbuilder_meta_boxes_builder_cells.modify_cell_count( clicked, -2 );
+				axisbuilder_meta_boxes_builder.cell.modify_cell_count( clicked, -2 );
 			},
 
-			append_cell: function( row, newEl ) {
+			set_cell_size: function() {
+				var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells                = $row.find( '.axisbuilder-layout-cell' ),
+					cell_size            = axisbuilder_meta_boxes_builder_cells.cell_size,
+					cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length],
+					dismiss, message = '';
+
+				if ( cell_size_variations ) {
+					for ( var x in cell_size_variations ) {
+						var label = '',	labeltext = '';
+
+						for ( var y in cell_size_variations[x] ) {
+							for ( var z in cell_size ) {
+								if ( cell_size[z][0] === cell_size_variations[x][y] ) {
+									labeltext = cell_size[z][1];
+								}
+							}
+
+							label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
+						}
+
+						message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					}
+				} else {
+					dismiss = true;
+					message += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+					message += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+				}
+
+				$( this ).AxisBuilderBackboneModal({
+					title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
+					message: message,
+					dismiss: dismiss,
+					template: '#tmpl-axisbuilder-modal-cell-size'
+				});
+
+				return false;
+			},
+
+			modify_cell_count: function( clicked, direction ) {
+				var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells = $row.find( '.axisbuilder-layout-cell' ),
+					count = ( cells.length + direction ),
+					newEl = axisbuilder_meta_boxes_builder_cells.cell_list[count];
+
+				if ( typeof newEl !== 'undefined' ) {
+					if ( count !== cells.length ) {
+						axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
+					} else {
+						axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
+						axisbuilder_meta_boxes_builder.cell.insert_cell( $row, newEl );
+						axisbuilder_meta_boxes_builder.dragdrop.droppable();
+					}
+
+					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
+					axisbuilder_meta_boxes_builder.textarea.outer();
+					axisbuilder_meta_boxes_builder.history_snapshot();
+				}
+			},
+
+			insert_cell: function( row, newEl ) {
 				var data_storage    = row.find( '> .axisbuilder-inner-shortcode' ),
 					shortcode_class = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
 					template        = $( $( '#axisbuilder-tmpl-' + shortcode_class ).html() );
 
 				data_storage.append( template );
 			},
+
+			change_multiple_cell_size: function( cells, newEl, multi ) {
+				var key       = '',
+					next_size = newEl,
+					cell_size = axisbuilder_meta_boxes_builder_cells.cell_size;
+
+				cells.each( function( i ) {
+					if ( multi ) {
+						key = newEl[i];
+						for ( var x in cell_size ) {
+							if ( key === cell_size[x][0] ) {
+								next_size = cell_size[x];
+							}
+						}
+					}
+
+					axisbuilder_meta_boxes_builder.cell.change_single_cell_size( $( this ), next_size );
+				});
+			},
+
+			change_single_cell_size: function( cell, next_size ) {
+				var current_size = cell.data( 'width' ),
+					size_string  = cell.find( '> .axisbuilder-sorthandle > .axisbuilder-column-size' ),
+					data_storage = cell.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
+					data_string  = data_storage.val();
+
+				// Regular Expression
+				data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
+				data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
+
+				// Data storage
+				data_storage.val( data_string );
+
+				// Remove and Add Layout flex-grid class for cell
+				cell.removeClass( current_size ).addClass( next_size[0] );
+
+				// Make sure to also set the data attr so html() functions fetch the correct value
+				cell.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] );
+				cell.attr( 'data-shortcode-handler', next_size[0] ).data( 'shortcode-handler', next_size[0] );
+				cell.attr( 'data-shortcode-allowed', next_size[0] ).data( 'shortcode-allowed', next_size[0] );
+
+				// Change the cell size text
+				size_string.text( next_size[1] );
+			}
 		},
 
 		stupidtable: {
@@ -1148,71 +1215,6 @@ jQuery( function( $ ) {
 				8 : [ 'ab_cell_two_fifth',    'ab_cell_three_fifth'  ],
 				9 : [ 'ab_cell_three_fifth',  'ab_cell_two_fifth'    ]
 			}
-		},
-
-		modify_cell_count: function( clicked, direction ) {
-			var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
-				cells = $row.find( '.axisbuilder-layout-cell' ),
-				count = ( cells.length + direction ),
-				newEl = axisbuilder_meta_boxes_builder_cells.cell_list[count];
-
-			if ( typeof newEl !== 'undefined' ) {
-				if ( count !== cells.length ) {
-					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
-				} else {
-					axisbuilder_meta_boxes_builder_cells.change_multiple_cell_size( cells, newEl );
-					axisbuilder_meta_boxes_builder.cell.append_cell( $row, newEl );
-					axisbuilder_meta_boxes_builder.dragdrop.droppable();
-				}
-
-				axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
-				axisbuilder_meta_boxes_builder.textarea.outer();
-				axisbuilder_meta_boxes_builder.history_snapshot();
-			}
-		},
-
-		change_multiple_cell_size: function( cells, newEl, multi ) {
-			var key       = '',
-				next_size = newEl,
-				cell_size = axisbuilder_meta_boxes_builder_cells.cell_size;
-
-			cells.each( function( i ) {
-				if ( multi ) {
-					key = newEl[i];
-					for ( var x in cell_size ) {
-						if ( key === cell_size[x][0] ) {
-							next_size = cell_size[x];
-						}
-					}
-				}
-
-				axisbuilder_meta_boxes_builder_cells.change_single_cell_size( $( this ), next_size );
-			});
-		},
-
-		change_single_cell_size: function( cell, next_size ) {
-			var current_size = cell.data( 'width' ),
-				size_string  = cell.find( '> .axisbuilder-sorthandle > .axisbuilder-column-size' ),
-				data_storage = cell.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
-				data_string  = data_storage.val();
-
-			// Regular Expression
-			data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
-			data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
-
-			// Data storage
-			data_storage.val( data_string );
-
-			// Remove and Add Layout flex-grid class for cell
-			cell.removeClass( current_size ).addClass( next_size[0] );
-
-			// Make sure to also set the data attr so html() functions fetch the correct value
-			cell.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] );
-			cell.attr( 'data-shortcode-handler', next_size[0] ).data( 'shortcode-handler', next_size[0] );
-			cell.attr( 'data-shortcode-allowed', next_size[0] ).data( 'shortcode-allowed', next_size[0] );
-
-			// Change the cell size text
-			size_string.text( next_size[1] );
 		}
 	};
 

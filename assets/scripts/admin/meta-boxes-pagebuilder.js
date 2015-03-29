@@ -327,18 +327,17 @@ jQuery( function( $ ) {
 			var	direction    = $( this ).is( '.axisbuilder-increase' ) ? 1 : -1,
 				column       = $( this ).parents( '.axisbuilder-layout-column:eq(0)' ),
 				section      = column.parents( '.axisbuilder-layout-section:eq(0)' ),
-				current_size = column.data( 'width' ),
 				size_string  = column.find( '.axisbuilder-column-size' ),
 				data_storage = column.find( '.axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 				data_string  = data_storage.val(),
 				next_size    = [],
-				layout_sizes = [
-					[ 'ab_one_full', '1/1' ], [ 'ab_four_fifth', '4/5' ], [ 'ab_three_fourth', '3/4' ], [ 'ab_two_third', '2/3' ], [ 'ab_three_fifth', '3/5' ], [ 'ab_one_half', '1/2' ], [ 'ab_two_fifth', '2/5' ], [ 'ab_one_third', '1/3' ], [ 'ab_one_fourth', '1/4' ], [ 'ab_one_fifth', '1/5' ]
-				];
+				column_size  = axisbuilder_meta_boxes_builder_data.column_size,
+				current_size = column.data( 'width' );
 
-			for ( var i = 0; i < layout_sizes.length; i++ ) {
-				if ( layout_sizes[i][0] === current_size ) {
-					next_size = layout_sizes[ i - direction ];
+			// Next size?
+			for ( var i = 0; i < column_size.length; i++ ) {
+				if ( column_size[i][0] === current_size ) {
+					next_size = column_size[ i - direction ];
 				}
 			}
 
@@ -1151,6 +1150,10 @@ jQuery( function( $ ) {
 	 * Page Builder Data
 	 */
 	var axisbuilder_meta_boxes_builder_data = {
+
+		column_size: [
+			[ 'ab_one_full', '1/1' ], [ 'ab_four_fifth', '4/5' ], [ 'ab_three_fourth', '3/4' ], [ 'ab_two_third', '2/3' ], [ 'ab_three_fifth', '3/5' ], [ 'ab_one_half', '1/2' ], [ 'ab_two_fifth', '2/5' ], [ 'ab_one_third', '1/3' ], [ 'ab_one_fourth', '1/4' ], [ 'ab_one_fifth', '1/5' ]
+		],
 
 		cell_list: [
 			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]

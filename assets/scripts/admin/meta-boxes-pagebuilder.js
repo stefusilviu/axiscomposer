@@ -238,7 +238,7 @@ jQuery( function( $ ) {
 			cloned.insertAfter( element );
 
 			if ( recalc_cell ) {
-				axisbuilder_meta_boxes_builder.cell.recalc_cell( $(this) );
+				axisbuilder_meta_boxes_builder.cell.modify_cell_count( this, -1 );
 			}
 
 			if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapped.length ) {
@@ -289,7 +289,7 @@ jQuery( function( $ ) {
 
 			element.hide( hide_timer, function() {
 				if ( remove_cell ) {
-					axisbuilder_meta_boxes_builder.cell.remove_cell( $(this) );
+					axisbuilder_meta_boxes_builder.cell.modify_cell_count( this, -2 );
 				}
 
 				element.remove();
@@ -1010,16 +1010,8 @@ jQuery( function( $ ) {
 
 		cell: {
 			add_cell: function() {
-				axisbuilder_meta_boxes_builder.cell.modify_cell_count( $( this ), 0 );
+				axisbuilder_meta_boxes_builder.cell.modify_cell_count( this, 0 );
 				return false;
-			},
-
-			recalc_cell: function( clicked ) {
-				axisbuilder_meta_boxes_builder.cell.modify_cell_count( clicked, -1 );
-			},
-
-			remove_cell: function( clicked ) {
-				axisbuilder_meta_boxes_builder.cell.modify_cell_count( clicked, -2 );
 			},
 
 			set_cell_size: function() {

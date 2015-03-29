@@ -2,7 +2,7 @@
 jQuery( function( $ ) {
 
 	/**
-	 * Page Builder Data Panel
+	 * Page Builder Panel
 	 */
 	var axisbuilder_meta_boxes_builder = {
 		pagebuilder: null,
@@ -218,7 +218,7 @@ jQuery( function( $ ) {
 			// Check if cell
 			if ( element.is( '.axisbuilder-layout-cell' ) ) {
 				var count  = element.parents( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
-				if ( typeof axisbuilder_meta_boxes_builder_cells.cell_list[count] !== 'undefined' ) {
+				if ( typeof axisbuilder_meta_boxes_builder_data.cell_list[count] !== 'undefined' ) {
 					recalc_cell = true;
 				} else {
 					return false;
@@ -602,7 +602,7 @@ jQuery( function( $ ) {
 			cell_size: function( add_cell_size ) {
 				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
-					cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length];
+					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length];
 
 				if ( add_cell_size ) {
 					axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
@@ -1025,8 +1025,8 @@ jQuery( function( $ ) {
 			set_cell_size: function() {
 				var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
-					cell_size            = axisbuilder_meta_boxes_builder_cells.cell_size,
-					cell_size_variations = axisbuilder_meta_boxes_builder_cells.cell_size_variations[cells.length],
+					cell_size            = axisbuilder_meta_boxes_builder_data.cell_size,
+					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length],
 					dismiss, message = '';
 
 				if ( cell_size_variations ) {
@@ -1065,7 +1065,7 @@ jQuery( function( $ ) {
 				var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells = $row.find( '.axisbuilder-layout-cell' ),
 					count = ( cells.length + direction ),
-					newEl = axisbuilder_meta_boxes_builder_cells.cell_list[count];
+					newEl = axisbuilder_meta_boxes_builder_data.cell_list[count];
 
 				if ( typeof newEl !== 'undefined' ) {
 					if ( count !== cells.length ) {
@@ -1083,17 +1083,17 @@ jQuery( function( $ ) {
 			},
 
 			insert_cell: function( row, newEl ) {
-				var data_storage    = row.find( '> .axisbuilder-inner-shortcode' ),
-					shortcode_class = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
-					template        = $( $( '#axisbuilder-tmpl-' + shortcode_class ).html() );
+				var storage   = row.find( '> .axisbuilder-inner-shortcode' ),
+					shortcode = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
+					cell_tmpl = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
 
-				data_storage.append( template );
+				storage.append( cell_tmpl );
 			},
 
 			change_multiple_cell_size: function( cells, newEl, multi ) {
 				var key       = '',
 					next_size = newEl,
-					cell_size = axisbuilder_meta_boxes_builder_cells.cell_size;
+					cell_size = axisbuilder_meta_boxes_builder_data.cell_size;
 
 				cells.each( function( i ) {
 					if ( multi ) {
@@ -1155,7 +1155,10 @@ jQuery( function( $ ) {
 		}
 	};
 
-	var axisbuilder_meta_boxes_builder_cells = {
+	/**
+	 * Page Builder Data
+	 */
+	var axisbuilder_meta_boxes_builder_data = {
 
 		cell_list: [
 			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]

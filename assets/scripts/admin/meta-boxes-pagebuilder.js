@@ -1107,7 +1107,7 @@ jQuery( function( $ ) {
 				this.maximum = this.storage.length - 1;
 
 				// Temporary steps storage
-				this.temporary = this.get_key( this.key + 'temp' );
+				this.temporary = this.get_key( this.key + '-temp' );
 				if ( typeof this.temporary === 'undefined' || this.temporary === null ) {
 					this.temporary = this.maximum;
 				}
@@ -1117,8 +1117,7 @@ jQuery( function( $ ) {
 			},
 
 			add_key: function() {
-				var key = 'axisbuilder' + axisbuilder_admin_meta_boxes_builder.theme_name + axisbuilder_admin_meta_boxes_builder.theme_version + axisbuilder_admin_meta_boxes_builder.post_id + axisbuilder_admin_meta_boxes_builder.plugin_version;
-				return key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
+				return ( 'axisbuilder-storage-' + axisbuilder_admin_meta_boxes_builder.post_id ).toLowerCase();
 			},
 
 			get_key: function( passed_key ) {
@@ -1152,7 +1151,7 @@ jQuery( function( $ ) {
 
 				$( '.canvas-data' ).val( values[0] );
 				$( '.canvas-area' ).html( values[1] );
-				sessionStorage.setItem( history.key + 'temp', history.temporary );
+				sessionStorage.setItem( history.key + '-temp', history.temporary );
 
 				// Undo button
 				if ( history.temporary <= 0 ) {
@@ -1194,7 +1193,7 @@ jQuery( function( $ ) {
 				});
 
 				history.storage   = history.storage || history.get_key() || [];
-				history.temporary = history.temporary || history.get_key( history.key + 'temp' );
+				history.temporary = history.temporary || history.get_key( history.key + '-temp' );
 				if ( typeof history.temporary === 'undefined' || history.temporary === null ) {
 					history.temporary = history.storage.length - 1;
 				}
@@ -1237,7 +1236,7 @@ jQuery( function( $ ) {
 			clear_storage: function() {
 				var history = axisbuilder_meta_boxes_builder.storage;
 				sessionStorage.removeItem( history.key );
-				sessionStorage.removeItem( history.key + 'temp' );
+				sessionStorage.removeItem( history.key + '-temp' );
 
 				// Reset storage
 				history.storage   = [];

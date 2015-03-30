@@ -2,6 +2,7 @@
 jQuery( function( $ ) {
 
 	/** Storage Handling */
+	var $supports_html5_storage;
 	try {
 		$supports_html5_storage = ( 'sessionStorage' in window && window.sessionStorage !== null );
 

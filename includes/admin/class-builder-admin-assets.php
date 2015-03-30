@@ -78,7 +78,7 @@ class AB_Admin_Assets {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// @deprecated softly
-		wp_register_script( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/js/compat/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
+		wp_register_script( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/js/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		wp_localize_script( 'axisbuilder-modal-old', 'axisbuilder_modal', array(
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
 			'error'                    => esc_js( __( 'An error occured', 'axisbuilder' ) ),

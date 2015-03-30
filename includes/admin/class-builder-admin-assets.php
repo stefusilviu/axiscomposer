@@ -35,7 +35,7 @@ class AB_Admin_Assets {
 		global $wp_scripts;
 
 		// Sitewide menu CSS
-		wp_enqueue_style( 'axisbuilder-menu', AB()->plugin_url() . '/assets/styles/menu.css', array(), AB_VERSION );
+		wp_enqueue_style( 'axisbuilder-menu', AB()->plugin_url() . '/assets/css/menu.css', array(), AB_VERSION );
 
 		$screen = get_current_screen();
 
@@ -44,24 +44,24 @@ class AB_Admin_Assets {
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
 			// Admin styles for AB pages only
-			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/styles/admin.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/css/admin.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//code.jquery.com/ui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), $jquery_version );
 			wp_enqueue_style( 'wp-color-picker' );
 
 			// @deprecated softly
-			wp_enqueue_style( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/styles/modal-old.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/css/modal-old.css', array(), AB_VERSION );
 		}
 
 		if ( 'fresh' !== get_user_option( 'admin_color', get_current_user_id() ) ) {
-			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/styles/colors.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-colors', AB()->plugin_url() . '/assets/css/colors.css', array(), AB_VERSION );
 		}
 
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) ) {
-			wp_enqueue_style( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/styles/sidebars.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/css/sidebars.css', array(), AB_VERSION );
 		}
 
 		if ( in_array( $screen->id, array( 'axisbuilder_page_axisbuilder-iconfonts' ) ) ) {
-			wp_enqueue_style( 'axisbuilder-admin-iconfonts', AB()->plugin_url() . '/assets/styles/iconfonts.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-admin-iconfonts', AB()->plugin_url() . '/assets/css/iconfonts.css', array(), AB_VERSION );
 		}
 	}
 

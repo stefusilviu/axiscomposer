@@ -8,7 +8,7 @@ module.exports = function( grunt ){
 		dirs: {
 			fonts: 'assets/fonts',
 			images: 'assets/images',
-			styles: 'assets/styles',
+			styles: 'assets/css',
 			scripts: 'assets/scripts'
 		},
 

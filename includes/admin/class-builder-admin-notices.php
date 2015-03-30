@@ -99,7 +99,7 @@ class AB_Admin_Notices {
 		$notices = get_option( 'axisbuilder_admin_notices', array() );
 
 		foreach ( $notices as $notice ) {
-			wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/styles/activation.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/css/activation.css', array(), AB_VERSION );
 			add_action( 'admin_notices', array( $this, $this->notices[ $notice ] ) );
 		}
 	}

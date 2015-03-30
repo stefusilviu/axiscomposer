@@ -9,6 +9,7 @@ jQuery( function( $ ) {
 		init: function() {
 			this.pagebuilder = $( '#axisbuilder-editor' ).find( ':input.axisbuilder-status' );
 
+			this.undo_redo.init();
 			this.stupidtable.init();
 			this.shortcode_interface();
 
@@ -19,6 +20,10 @@ jQuery( function( $ ) {
 				.on( 'click', '.axisbuilder-edit', this.edit_element )
 				.on( 'click', 'a.axisbuilder-clone', this.clone_element )
 				.on( 'click', 'a.axisbuilder-trash', this.trash_element )
+
+				// History
+				.on( 'click', 'a.undo-data', this.undo_redo.undo_data )
+				.on( 'click', 'a.redo-data', this.undo_redo.redo_data )
 
 				// Trash data
 				.on( 'click', 'a.trash-data', this.trash_data )
@@ -33,12 +38,16 @@ jQuery( function( $ ) {
 				// Recalc element
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
-			$( '.canvas-area' )
-				.on( 'axisbuilder_history_update', this.history_update );
-
 			$( 'body' )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
+
+			$( '.canvas-area' )
+				.on( 'axisbuilder_history_update', this.undo_redo.history_update )
+				.on( 'axisbuilder_storage_update', this.undo_redo.storage_update );
+
+			$( document )
+				.bind( 'keyup.axisbuilder_history', this.undo_redo.keyboard_actions );
 		},
 
 		tiptip: function() {
@@ -559,14 +568,9 @@ jQuery( function( $ ) {
 			return output;
 		},
 
-		history_update: function() {
-			axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
-			axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
-		},
-
 		history_snapshot: function( timeout ) {
 			setTimeout( function() {
-				$( '.canvas-area' ).trigger( 'axisbuilder-storage-update' );
+				$( '.canvas-area' ).trigger( 'axisbuilder_storage_update' );
 			}, timeout ? timeout : 150 );
 		},
 
@@ -1081,6 +1085,180 @@ jQuery( function( $ ) {
 			},
 
 			edit_element: function() {}
+		},
+
+		undo_redo: {
+
+			init: function() {
+				this.key     = this.add_key();
+				this.storage = this.get_key() || [];
+				this.maximum = this.storage.length - 1;
+
+				// Temporary
+				this.temporary = this.get_key( this.key + 'temp' );
+				if ( typeof this.temporary === 'undefined' || this.temporary === null ) {
+					this.temporary = this.maximum;
+				}
+
+				// Clear Storage
+				this.clear_storage();
+			},
+
+			add_key: function() {
+				var key = 'axisbuilder' + axisbuilder_admin_meta_boxes_builder.theme_name + axisbuilder_admin_meta_boxes_builder.theme_version + axisbuilder_admin_meta_boxes_builder.post_id + axisbuilder_admin_meta_boxes_builder.plugin_version;
+				return key.replace( /[^a-zA-Z0-9]/g, '' ).toLowerCase();
+			},
+
+			get_key: function( passed_key ) {
+				var key = passed_key || axisbuilder_meta_boxes_builder.undo_redo.key;
+				return JSON.parse( sessionStorage.getItem( key ) );
+			},
+
+			set_key: function( passed_key, passed_value ) {
+				var key   = passed_key || axisbuilder_meta_boxes_builder.undo_redo.key,
+					value = passed_value || JSON.stringify( axisbuilder_meta_boxes_builder.undo_redo.storage );
+
+				try {
+					sessionStorage.setItem( key, value );
+				}
+
+				catch( e ) {
+					axisbuilder_meta_boxes_builder.undo_redo.clear_storage();
+					$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
+					console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', e );
+				}
+			},
+
+			clear_storage: function() {
+				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.undo_redo.key );
+				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.undo_redo.key + 'temp' );
+
+				// Reset storage and temporary
+				axisbuilder_meta_boxes_builder.undo_redo.storage   = [];
+				axisbuilder_meta_boxes_builder.undo_redo.temporary = null;
+			},
+
+			undo_data: function() {
+				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				if ( ( history.temporary - 1 ) >= 0 ) {
+					history.temporary --;
+					history.canvas_update( history.storage[ history.temporary ] );
+				}
+
+				return false;
+			},
+
+			redo_data: function() {
+				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				if ( ( history.temporary + 1 ) <= history.maximum ) {
+					history.temporary ++;
+					history.canvas_update( history.storage[ history.temporary ] );
+				}
+
+				return false;
+			},
+
+			keyboard_actions: function( e ) {
+				var	button     = e.keyCode || e.which,
+					controlled = e.ctrlKey || e.metaKey,
+					history    = axisbuilder_meta_boxes_builder.undo_redo;
+
+				// Undo Event
+				if ( 90 === button && ( controlled || ( controlled && e.shiftKey ) ) ) {
+					setTimeout( function() {
+						history.undo_data();
+					}, 100 );
+
+					e.stopImmediatePropagation();
+				}
+
+				// Redo Event
+				if ( 89 === button && ( controlled || ( controlled && e.shiftKey ) ) ) {
+					setTimeout( function() {
+						history.redo_data();
+					}, 100 );
+
+					e.stopImmediatePropagation();
+				}
+			},
+
+			canvas_update: function( values ) {
+				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				if ( typeof window.tinyMCE !== 'undefined' ) {
+					window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
+				}
+
+				$( '.canvas-data' ).val( values[0] );
+				$( '.canvas-area' ).html( values[1] );
+				sessionStorage.setItem( history.key + 'temp', history.temporary );
+
+				// History buttons
+				if ( history.temporary <= 0 ) {
+					$( '.undo-data' ).addClass( 'inactive-history' );
+				} else {
+					$( '.undo-data' ).removeClass( 'inactive-history' );
+				}
+
+				if ( history.temporary + 1 > history.maximum ) {
+					$( '.redo-data' ).addClass( 'inactive-history' );
+				} else {
+					$( '.redo-data' ).removeClass( 'inactive-history' );
+				}
+
+				// Trigger history update
+				$( '.canvas-area' ).trigger( 'axisbuilder_history_update' );
+			},
+
+			storage_update: function() {
+				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				$( '.canvas-area' ).find( 'textarea' ).each( function() {
+					this.innerHTML = this.value;
+				});
+
+				history.storage   = history.storage || history.get_key() || [];
+				history.temporary = history.temporary || history.get_key( history.key + 'temp' );
+				if ( typeof history.temporary === 'undefined' || history.temporary === null ) {
+					history.temporary = history.storage.length - 1;
+				}
+
+				var snapshot     = [ $( '.canvas-data' ).val(), $( '.canvas-area' ).html().replace( /modal-animation/g, '' ) ],
+					last_storage = history.storage[ history.temporary ];
+
+				// Create new snapshot
+				if ( typeof last_storage === 'undefined' || ( last_storage[0] !== snapshot[0] ) ) {
+					history.temporary ++;
+
+					// Storage update
+					history.storage = history.storage.slice( 0, history.temporary );
+					history.storage.push( snapshot );
+					if ( history.storage.length > 40 ) {
+						history.storage.shift();
+					}
+
+					// Set the browser storage object
+					axisbuilder_meta_boxes_builder.undo_redo.set_key();
+				}
+
+				history.maximum = history.storage.length - 1;
+
+				// History buttons
+				if ( history.storage.length === 1 || history.temporary === 0 ) {
+					$( '.undo-data' ).addClass( 'inactive-history' );
+				} else {
+					$( '.undo-data' ).removeClass( 'inactive-history' );
+				}
+
+				if ( history.storage.length - 1 === history.temporary ) {
+					$( '.redo-data' ).addClass( 'inactive-history' );
+				} else {
+					$( '.redo-data' ).removeClass( 'inactive-history' );
+				}
+			},
+
+			history_update: function() {
+				axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
+				axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
+			}
 		},
 
 		stupidtable: {

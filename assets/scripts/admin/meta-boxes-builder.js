@@ -233,13 +233,13 @@
 		}
 	};
 
-	$( document ).ready( function () {
-		new $.AxisBuilderHistory({
-			button: '.history-action',
-			canvas: '.canvas-area',
-			editor: '.canvas-data'
-		});
-	});
+	// $( document ).ready( function () {
+	// 	new $.AxisBuilderHistory({
+	// 		button: '.history-action',
+	// 		canvas: '.canvas-area',
+	// 		editor: '.canvas-data'
+	// 	});
+	// });
 
 })( jQuery );
 

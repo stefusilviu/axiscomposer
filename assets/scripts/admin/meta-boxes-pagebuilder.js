@@ -49,11 +49,9 @@ jQuery( function( $ ) {
 				// Recalc element
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
-			$( '.canvas-area' )
-				.on( 'axisbuilder_history_update', this.dragdrop.init )
-				.on( 'axisbuilder_storage_update', this.storage.snapshot );
-
 			$( 'body' )
+				.on( 'axisbuilder_storage_update', this.dragdrop.init )
+				.on( 'axisbuilder_storage_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
@@ -581,7 +579,7 @@ jQuery( function( $ ) {
 
 		history_snapshot: function( timeout ) {
 			setTimeout( function() {
-				$( '.canvas-area' ).trigger( 'axisbuilder_storage_update' );
+				$( 'body' ).trigger( 'axisbuilder_storage_response' );
 			}, timeout ? timeout : 150 );
 		},
 
@@ -747,7 +745,7 @@ jQuery( function( $ ) {
 			init: function() {
 				axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
 				axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
-			}
+			},
 
 			is_scope: function( passed_scope ) {
 				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
@@ -1229,8 +1227,8 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				// Trigger history update
-				$( '.canvas-area' ).trigger( 'axisbuilder_history_update' );
+				// Trigger storage update
+				$( 'body' ).trigger( 'axisbuilder_storage_update' );
 			},
 
 			snapshot: function() {

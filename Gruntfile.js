@@ -6,10 +6,10 @@ module.exports = function( grunt ){
 
 		// Setting folder templates.
 		dirs: {
+			css: 'assets/css',
 			fonts: 'assets/fonts',
 			images: 'assets/images',
-			styles: 'assets/css',
-			scripts: 'assets/scripts'
+			js: 'assets/js'
 		},
 
 		// JavaScript linting with JSHint.
@@ -19,11 +19,11 @@ module.exports = function( grunt ){
 			},
 			all: [
 				'Gruntfile.js',
-				'<%= dirs.scripts %>/admin/*.js',
-				'!<%= dirs.scripts %>/admin/*.min.js',
-				'<%= dirs.scripts %>/frontend/*.js',
-				'!<%= dirs.scripts %>/frontend/*.min.js',
-				'!<%= dirs.scripts %>/admin/enhanced-select.js' // Because of select2 necessity
+				'<%= dirs.js %>/admin/*.js',
+				'!<%= dirs.js %>/admin/*.min.js',
+				'<%= dirs.js %>/frontend/*.js',
+				'!<%= dirs.js %>/frontend/*.min.js',
+				'!<%= dirs.js %>/admin/enhanced-select.js' // Because of select2 necessity
 			]
 		},
 
@@ -35,24 +35,24 @@ module.exports = function( grunt ){
 			admin: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirs.scripts %>/admin/',
+					cwd: '<%= dirs.js %>/admin/',
 					src: [
 						'*.js',
 						'!*.min.js'
 					],
-					dest: '<%= dirs.scripts %>/admin/',
+					dest: '<%= dirs.js %>/admin/',
 					ext: '.min.js'
 				}]
 			},
 			frontend: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirs.scripts %>/frontend/',
+					cwd: '<%= dirs.js %>/frontend/',
 					src: [
 						'*.js',
 						'!*.min.js'
 					],
-					dest: '<%= dirs.scripts %>/frontend/',
+					dest: '<%= dirs.js %>/frontend/',
 					ext: '.min.js'
 				}]
 			}
@@ -67,9 +67,9 @@ module.exports = function( grunt ){
 			compile: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirs.styles %>/',
+					cwd: '<%= dirs.css %>/',
 					src: ['*.scss'],
-					dest: '<%= dirs.styles %>/',
+					dest: '<%= dirs.css %>/',
 					ext: '.css'
 				}]
 			}
@@ -79,27 +79,27 @@ module.exports = function( grunt ){
 		cssmin: {
 			minify: {
 				expand: true,
-				cwd: '<%= dirs.styles %>/',
+				cwd: '<%= dirs.css %>/',
 				src: ['*.css'],
-				dest: '<%= dirs.styles %>/',
+				dest: '<%= dirs.css %>/',
 				ext: '.css'
 			}
 		},
 
 		// Watch changes for assets.
 		watch: {
-			styles: {
+			css: {
 				files: [
-					'<%= dirs.styles %>/*.scss'
+					'<%= dirs.css %>/*.scss'
 				],
 				tasks: ['sass', 'cssmin']
 			},
-			scripts: {
+			js: {
 				files: [
-					'<%= dirs.scripts %>/admin/*.js',
-					'!<%= dirs.scripts %>/admin/*.min.js',
-					'<%= dirs.scripts %>/frontend/*.js',
-					'!<%= dirs.scripts %>/frontend/*.min.js'
+					'<%= dirs.js %>/admin/*.js',
+					'<%= dirs.js %>/frontend/*.js',
+					'!<%= dirs.js %>/admin/*.min.js',
+					'!<%= dirs.js %>/frontend/*.min.js'
 				],
 				tasks: ['uglify']
 			}

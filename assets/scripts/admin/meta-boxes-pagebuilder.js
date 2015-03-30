@@ -1106,8 +1106,8 @@ jQuery( function( $ ) {
 				this.storage = this.get_key() || [];
 				this.maximum = this.storage.length - 1;
 
-				// Temporary steps storage
-				this.temporary = this.get_key( this.key + '-temp' );
+				// Temporary storage index
+				this.temporary = this.get_key( this.key + '-index' );
 				if ( typeof this.temporary === 'undefined' || this.temporary === null ) {
 					this.temporary = this.maximum;
 				}
@@ -1151,7 +1151,7 @@ jQuery( function( $ ) {
 
 				$( '.canvas-data' ).val( values[0] );
 				$( '.canvas-area' ).html( values[1] );
-				sessionStorage.setItem( history.key + '-temp', history.temporary );
+				sessionStorage.setItem( history.key + '-index', history.temporary );
 
 				// Undo button
 				if ( history.temporary <= 0 ) {
@@ -1187,8 +1187,10 @@ jQuery( function( $ ) {
 				// Create new snapshot
 				if ( typeof last_storage === 'undefined' || ( last_storage[0] !== new_snapshot[0] ) ) {
 					history.temporary ++;
+
 					history.storage = history.storage.slice( 0, history.temporary );
 					history.storage.push( new_snapshot );
+
 					if ( history.storage.length > 40 ) {
 						history.storage.shift();
 					}
@@ -1222,7 +1224,7 @@ jQuery( function( $ ) {
 			clear_storage: function() {
 				var history = axisbuilder_meta_boxes_builder.storage;
 				sessionStorage.removeItem( history.key );
-				sessionStorage.removeItem( history.key + '-temp' );
+				sessionStorage.removeItem( history.key + '-index' );
 
 				// Reset huh?
 				history.storage   = [];

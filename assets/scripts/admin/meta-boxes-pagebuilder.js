@@ -49,13 +49,13 @@ jQuery( function( $ ) {
 				// Recalc element
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
-			$( 'body' )
-				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
-				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
-
 			$( '.canvas-area' )
 				.on( 'axisbuilder_history_update', this.dragdrop.init )
 				.on( 'axisbuilder_storage_update', this.storage.snapshot );
+
+			$( 'body' )
+				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
+				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( document )
 				.bind( 'keyup.axisbuilder_history', this.storage.keyboard_actions );

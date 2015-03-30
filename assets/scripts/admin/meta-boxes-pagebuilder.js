@@ -329,7 +329,6 @@ jQuery( function( $ ) {
 
 		trash_data: function() {
 			var length = $( '.canvas-area' ).children().length;
-			axisbuilder_meta_boxes_builder.storage.clear_storage();
 
 			$( this ).AxisBuilderBackboneModal({
 				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
@@ -337,6 +336,10 @@ jQuery( function( $ ) {
 				dismiss: ( length > 0 ) ? false : true,
 				template: '#tmpl-axisbuilder-modal-trash-data'
 			});
+
+			if ( length === 0 ) {
+				axisbuilder_meta_boxes_builder.storage.clear_storage();
+			}
 
 			return false;
 		},
@@ -1083,6 +1086,7 @@ jQuery( function( $ ) {
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
 				axisbuilder_meta_boxes_builder.textarea.outer();
+				axisbuilder_meta_boxes_builder.storage.clear_storage();
 			},
 
 			cell_size: function( add_cell_size ) {

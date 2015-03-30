@@ -1192,12 +1192,6 @@ jQuery( function( $ ) {
 					this.innerHTML = this.value;
 				});
 
-				history.storage   = history.storage || history.get_key() || [];
-				history.temporary = history.temporary || history.get_key( history.key + '-temp' );
-				if ( typeof history.temporary === 'undefined' || history.temporary === null ) {
-					history.temporary = history.storage.length - 1;
-				}
-
 				var snapshot     = [ $( '.canvas-data' ).val(), $( '.canvas-area' ).html().replace( /modal-animation/g, '' ) ],
 					last_storage = history.storage[ history.temporary ];
 

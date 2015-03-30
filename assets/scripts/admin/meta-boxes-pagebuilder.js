@@ -1108,12 +1108,6 @@ jQuery( function( $ ) {
 		storage: {
 
 			init: function() {
-				// Check for Storage before using it
-				if ( typeof Storage === 'undefined' ) {
-					return;
-				}
-
-				// Create unique post array key
 				this.key     = this.add_key();
 				this.storage = this.get_key() || [];
 				this.maximum = this.storage.length - 1;
@@ -1138,33 +1132,6 @@ jQuery( function( $ ) {
 				return JSON.parse( sessionStorage.getItem( key ) );
 			},
 
-			set_key: function( passed_key, passed_value ) {
-				var key   = passed_key || axisbuilder_meta_boxes_builder.storage.key,
-					value = passed_value || JSON.stringify( axisbuilder_meta_boxes_builder.storage.storage );
-
-				try {
-					sessionStorage.setItem( key, value );
-				}
-
-				catch( e ) {
-					axisbuilder_meta_boxes_builder.storage.clear_storage();
-					$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
-					console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', e );
-				}
-			},
-
-			clear_storage: function() {
-				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key );
-				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key + 'temp' );
-
-				// Take snapshot
-				axisbuilder_meta_boxes_builder.history_snapshot();
-
-				// Reset storage and temporary steps
-				axisbuilder_meta_boxes_builder.storage.storage   = [];
-				axisbuilder_meta_boxes_builder.storage.temporary = null;
-			},
-
 			undo_data: function( e ) {
 				e.preventDefault();
 				var history = axisbuilder_meta_boxes_builder.storage;
@@ -1183,21 +1150,6 @@ jQuery( function( $ ) {
 				}
 			},
 
-			keyboard_actions: function( e ) {
-				var	button     = e.keyCode || e.which,
-					controlled = e.ctrlKey || e.metaKey;
-
-				// Ctrl+z key
-				if ( 90 === button && controlled && ! e.shiftKey && ! e.altKey ) {
-					axisbuilder_meta_boxes_builder.storage.undo_data( e );
-				}
-
-				// Ctrl+y key
-				if ( 89 === button && controlled && ! e.shiftKey && ! e.altKey ) {
-					axisbuilder_meta_boxes_builder.storage.redo_data( e );
-				}
-			},
-
 			canvas_update: function( values ) {
 				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( typeof window.tinyMCE !== 'undefined' ) {
@@ -1208,20 +1160,37 @@ jQuery( function( $ ) {
 				$( '.canvas-area' ).html( values[1] );
 				sessionStorage.setItem( history.key + 'temp', history.temporary );
 
-				// History buttons
+				// Undo button
 				if ( history.temporary <= 0 ) {
 					$( '.undo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.undo-data' ).removeClass( 'inactive-history' );
 				}
 
+				// Redo button
 				if ( history.temporary + 1 > history.maximum ) {
 					$( '.redo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
+				// Trigger event
 				$( 'body' ).trigger( 'axisbuilder_storage_loaded' );
+			},
+
+			set_key: function( passed_key, passed_value ) {
+				var key   = passed_key || axisbuilder_meta_boxes_builder.storage.key,
+					value = passed_value || JSON.stringify( axisbuilder_meta_boxes_builder.storage.storage );
+
+				try {
+					sessionStorage.setItem( key, value );
+				}
+
+				catch( e ) {
+					axisbuilder_meta_boxes_builder.storage.clear_storage();
+					$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
+					console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', e );
+				}
 			},
 
 			snapshot: function() {
@@ -1256,17 +1225,45 @@ jQuery( function( $ ) {
 
 				history.maximum = history.storage.length - 1;
 
-				// History buttons
+				// Undo button
 				if ( history.storage.length === 1 || history.temporary === 0 ) {
 					$( '.undo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.undo-data' ).removeClass( 'inactive-history' );
 				}
 
+				// Redo button
 				if ( history.storage.length - 1 === history.temporary ) {
 					$( '.redo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
+				}
+			},
+
+			clear_storage: function() {
+				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key );
+				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key + 'temp' );
+
+				// Take snapshot
+				axisbuilder_meta_boxes_builder.history_snapshot();
+
+				// Reset storage and temporary steps
+				axisbuilder_meta_boxes_builder.storage.storage   = [];
+				axisbuilder_meta_boxes_builder.storage.temporary = null;
+			},
+
+			keyboard_actions: function( e ) {
+				var	button     = e.keyCode || e.which,
+					controlled = e.ctrlKey || e.metaKey;
+
+				// Ctrl+z key
+				if ( 90 === button && controlled && ! e.shiftKey && ! e.altKey ) {
+					axisbuilder_meta_boxes_builder.storage.undo_data( e );
+				}
+
+				// Ctrl+y key
+				if ( 89 === button && controlled && ! e.shiftKey && ! e.altKey ) {
+					axisbuilder_meta_boxes_builder.storage.redo_data( e );
 				}
 			}
 		},

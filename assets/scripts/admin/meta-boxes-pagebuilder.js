@@ -1,6 +1,16 @@
 /* global axisbuilder_admin_meta_boxes_builder, console */
 jQuery( function( $ ) {
 
+	/** Storage Handling */
+	try {
+		$supports_html5_storage = ( 'sessionStorage' in window && window.sessionStorage !== null );
+
+		window.sessionStorage.setItem( 'ab', 'test' );
+		window.sessionStorage.removeItem( 'ab' );
+	} catch( err ) {
+		$supports_html5_storage = false;
+	}
+
 	/**
 	 * Page Builder Panel
 	 */
@@ -1139,7 +1149,7 @@ jQuery( function( $ ) {
 				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.undo_redo.key );
 				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.undo_redo.key + 'temp' );
 
-				// Reset storage and temporary
+				// Reset storage and temporary steps
 				axisbuilder_meta_boxes_builder.undo_redo.storage   = [];
 				axisbuilder_meta_boxes_builder.undo_redo.temporary = null;
 			},

@@ -20,7 +20,7 @@ jQuery( function( $ ) {
 		init: function() {
 			this.pagebuilder = $( '#axisbuilder-editor' ).find( ':input.axisbuilder-status' );
 
-			this.undo_redo.init();
+			this.storage.init();
 			this.stupidtable.init();
 			this.shortcode_interface();
 
@@ -33,8 +33,8 @@ jQuery( function( $ ) {
 				.on( 'click', 'a.axisbuilder-trash', this.trash_element )
 
 				// History
-				.on( 'click', 'a.undo-data', this.undo_redo.undo_data )
-				.on( 'click', 'a.redo-data', this.undo_redo.redo_data )
+				.on( 'click', 'a.undo-data', this.storage.undo_data )
+				.on( 'click', 'a.redo-data', this.storage.redo_data )
 
 				// Trash data
 				.on( 'click', 'a.trash-data', this.trash_data )
@@ -54,11 +54,11 @@ jQuery( function( $ ) {
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( '.canvas-area' )
-				.on( 'axisbuilder_history_update', this.undo_redo.history_update )
-				.on( 'axisbuilder_storage_update', this.undo_redo.storage_update );
+				.on( 'axisbuilder_history_update', this.storage.history_update )
+				.on( 'axisbuilder_storage_update', this.storage.storage_update );
 
 			$( document )
-				.bind( 'keyup.axisbuilder_history', this.undo_redo.keyboard_actions );
+				.bind( 'keyup.axisbuilder_history', this.storage.keyboard_actions );
 		},
 
 		tiptip: function() {
@@ -1098,7 +1098,7 @@ jQuery( function( $ ) {
 			edit_element: function() {}
 		},
 
-		undo_redo: {
+		storage: {
 
 			init: function() {
 				// Check for Storage before using it
@@ -1127,36 +1127,36 @@ jQuery( function( $ ) {
 			},
 
 			get_key: function( passed_key ) {
-				var key = passed_key || axisbuilder_meta_boxes_builder.undo_redo.key;
+				var key = passed_key || axisbuilder_meta_boxes_builder.storage.key;
 				return JSON.parse( sessionStorage.getItem( key ) );
 			},
 
 			set_key: function( passed_key, passed_value ) {
-				var key   = passed_key || axisbuilder_meta_boxes_builder.undo_redo.key,
-					value = passed_value || JSON.stringify( axisbuilder_meta_boxes_builder.undo_redo.storage );
+				var key   = passed_key || axisbuilder_meta_boxes_builder.storage.key,
+					value = passed_value || JSON.stringify( axisbuilder_meta_boxes_builder.storage.storage );
 
 				try {
 					sessionStorage.setItem( key, value );
 				}
 
 				catch( e ) {
-					axisbuilder_meta_boxes_builder.undo_redo.clear_storage();
+					axisbuilder_meta_boxes_builder.storage.clear_storage();
 					$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
 					console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', e );
 				}
 			},
 
 			clear_storage: function() {
-				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.undo_redo.key );
-				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.undo_redo.key + 'temp' );
+				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key );
+				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key + 'temp' );
 
 				// Reset storage and temporary steps
-				axisbuilder_meta_boxes_builder.undo_redo.storage   = [];
-				axisbuilder_meta_boxes_builder.undo_redo.temporary = null;
+				axisbuilder_meta_boxes_builder.storage.storage   = [];
+				axisbuilder_meta_boxes_builder.storage.temporary = null;
 			},
 
 			undo_data: function() {
-				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( ( history.temporary - 1 ) >= 0 ) {
 					history.temporary --;
 					history.canvas_update( history.storage[ history.temporary ] );
@@ -1166,7 +1166,7 @@ jQuery( function( $ ) {
 			},
 
 			redo_data: function() {
-				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( ( history.temporary + 1 ) <= history.maximum ) {
 					history.temporary ++;
 					history.canvas_update( history.storage[ history.temporary ] );
@@ -1178,7 +1178,7 @@ jQuery( function( $ ) {
 			keyboard_actions: function( e ) {
 				var	button     = e.keyCode || e.which,
 					controlled = e.ctrlKey || e.metaKey,
-					history    = axisbuilder_meta_boxes_builder.undo_redo;
+					history    = axisbuilder_meta_boxes_builder.storage;
 
 				// Undo Event
 				if ( 90 === button && ( controlled || ( controlled && e.shiftKey ) ) ) {
@@ -1200,7 +1200,7 @@ jQuery( function( $ ) {
 			},
 
 			canvas_update: function( values ) {
-				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( typeof window.tinyMCE !== 'undefined' ) {
 					window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
 				}
@@ -1227,7 +1227,7 @@ jQuery( function( $ ) {
 			},
 
 			storage_update: function() {
-				var history = axisbuilder_meta_boxes_builder.undo_redo;
+				var history = axisbuilder_meta_boxes_builder.storage;
 				$( '.canvas-area' ).find( 'textarea' ).each( function() {
 					this.innerHTML = this.value;
 				});
@@ -1253,7 +1253,7 @@ jQuery( function( $ ) {
 					}
 
 					// Set the browser storage object
-					axisbuilder_meta_boxes_builder.undo_redo.set_key();
+					axisbuilder_meta_boxes_builder.storage.set_key();
 				}
 
 				history.maximum = history.storage.length - 1;

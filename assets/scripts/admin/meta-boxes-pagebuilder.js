@@ -329,6 +329,7 @@ jQuery( function( $ ) {
 
 		trash_data: function() {
 			var length = $( '.canvas-area' ).children().length;
+			axisbuilder_meta_boxes_builder.storage.clear_storage();
 
 			$( this ).AxisBuilderBackboneModal({
 				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
@@ -1082,8 +1083,6 @@ jQuery( function( $ ) {
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
 				axisbuilder_meta_boxes_builder.textarea.outer();
-				axisbuilder_meta_boxes_builder.storage.clear_storage();
-				axisbuilder_meta_boxes_builder.history_snapshot();
 			},
 
 			cell_size: function( add_cell_size ) {
@@ -1153,6 +1152,9 @@ jQuery( function( $ ) {
 			clear_storage: function() {
 				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key );
 				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key + 'temp' );
+
+				// Take snapshot
+				axisbuilder_meta_boxes_builder.history_snapshot();
 
 				// Reset storage and temporary steps
 				axisbuilder_meta_boxes_builder.storage.storage   = [];

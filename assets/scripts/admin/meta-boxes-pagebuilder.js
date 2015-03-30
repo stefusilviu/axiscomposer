@@ -55,8 +55,7 @@ jQuery( function( $ ) {
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
-			$( document )
-				.bind( 'keyup.axisbuilder_history', this.storage.keyboard_actions );
+			$( document ).bind( 'keydown storage', this.storage.keyboard_actions );
 		},
 
 		tiptip: function() {
@@ -1160,47 +1159,36 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.storage.temporary = null;
 			},
 
-			undo_data: function() {
+			undo_data: function( e ) {
+				e.preventDefault();
 				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( ( history.temporary - 1 ) >= 0 ) {
 					history.temporary --;
 					history.canvas_update( history.storage[ history.temporary ] );
 				}
-
-				return false;
 			},
 
-			redo_data: function() {
+			redo_data: function( e ) {
+				e.preventDefault();
 				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( ( history.temporary + 1 ) <= history.maximum ) {
 					history.temporary ++;
 					history.canvas_update( history.storage[ history.temporary ] );
 				}
-
-				return false;
 			},
 
 			keyboard_actions: function( e ) {
 				var	button     = e.keyCode || e.which,
-					controlled = e.ctrlKey || e.metaKey,
-					history    = axisbuilder_meta_boxes_builder.storage;
+					controlled = e.ctrlKey || e.metaKey;
 
-				// Undo Event
-				if ( 90 === button && ( controlled || ( controlled && e.shiftKey ) ) ) {
-					setTimeout( function() {
-						history.undo_data();
-					}, 100 );
-
-					e.stopImmediatePropagation();
+				// Ctrl+z key
+				if ( 90 === button && controlled && ! e.shiftKey && ! e.altKey ) {
+					axisbuilder_meta_boxes_builder.storage.undo_data( e );
 				}
 
-				// Redo Event
-				if ( 89 === button && ( controlled || ( controlled && e.shiftKey ) ) ) {
-					setTimeout( function() {
-						history.redo_data();
-					}, 100 );
-
-					e.stopImmediatePropagation();
+				// Ctrl+y key
+				if ( 89 === button && controlled && ! e.shiftKey && ! e.altKey ) {
+					axisbuilder_meta_boxes_builder.storage.redo_data( e );
 				}
 			},
 

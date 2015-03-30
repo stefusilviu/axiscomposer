@@ -164,7 +164,7 @@ jQuery( function( $ ) {
 				success: function( response ) {
 					axisbuilder_meta_boxes_builder.send_to_canvas( response );
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
-					axisbuilder_meta_boxes_builder.history_snapshot();
+					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 					axisbuilder_meta_boxes_builder.tiptip();
 					axisbuilder_meta_boxes_builder.unblock();
 					axisbuilder_meta_boxes_builder.stupidtable.init();
@@ -190,7 +190,7 @@ jQuery( function( $ ) {
 				if ( insert_target === 'instant-insert' ) {
 					axisbuilder_meta_boxes_builder.send_to_canvas( element_tmpl.html() );
 					axisbuilder_meta_boxes_builder.textarea.outer();
-					axisbuilder_meta_boxes_builder.history_snapshot();
+					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 				}
 			}
 
@@ -271,7 +271,7 @@ jQuery( function( $ ) {
 
 			// Textarea Update and History snapshot
 			axisbuilder_meta_boxes_builder.textarea.outer();
-			axisbuilder_meta_boxes_builder.history_snapshot();
+			axisbuilder_meta_boxes_builder.storage.history_snapshot();
 
 			return false;
 		},
@@ -321,7 +321,7 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.dragdrop.droppable( '', 'destroy' );
 				}
 
-				axisbuilder_meta_boxes_builder.history_snapshot();
+				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			});
 
 			return false;
@@ -385,7 +385,7 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.textarea.inner( false, section );
 					axisbuilder_meta_boxes_builder.textarea.outer();
 				}
-				axisbuilder_meta_boxes_builder.history_snapshot();
+				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			}
 
 			return false;
@@ -447,7 +447,7 @@ jQuery( function( $ ) {
 			}
 
 			axisbuilder_meta_boxes_builder.textarea.outer();
-			axisbuilder_meta_boxes_builder.history_snapshot();
+			axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			element_container.trigger( 'update' );
 		},
 
@@ -578,12 +578,6 @@ jQuery( function( $ ) {
 			output += linebreak + linebreak;
 
 			return output;
-		},
-
-		history_snapshot: function( timeout ) {
-			setTimeout( function() {
-				$( 'body' ).trigger( 'axisbuilder_storage_response' );
-			}, timeout ? timeout : 150 );
 		},
 
 		textarea: {
@@ -926,7 +920,7 @@ jQuery( function( $ ) {
 						}
 
 						// History Snapshot
-						axisbuilder_meta_boxes_builder.history_snapshot();
+						axisbuilder_meta_boxes_builder.storage.history_snapshot();
 					}
 				};
 
@@ -1004,7 +998,7 @@ jQuery( function( $ ) {
 
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
 					axisbuilder_meta_boxes_builder.textarea.outer();
-					axisbuilder_meta_boxes_builder.history_snapshot();
+					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 				}
 			},
 
@@ -1098,7 +1092,7 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
 					axisbuilder_meta_boxes_builder.textarea.outer();
-					axisbuilder_meta_boxes_builder.history_snapshot();
+					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 				}
 			},
 
@@ -1241,15 +1235,22 @@ jQuery( function( $ ) {
 			},
 
 			clear_storage: function() {
-				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key );
-				sessionStorage.removeItem( axisbuilder_meta_boxes_builder.storage.key + 'temp' );
+				var history = axisbuilder_meta_boxes_builder.storage;
+				sessionStorage.removeItem( history.key );
+				sessionStorage.removeItem( history.key + 'temp' );
 
-				// Take snapshot
-				axisbuilder_meta_boxes_builder.history_snapshot();
+				// Reset storage
+				history.storage   = [];
+				history.temporary = null;
 
-				// Reset storage and temporary steps
-				axisbuilder_meta_boxes_builder.storage.storage   = [];
-				axisbuilder_meta_boxes_builder.storage.temporary = null;
+				// History snapshot
+				history.history_snapshot();
+			},
+
+			history_snapshot: function( timeout ) {
+				setTimeout( function() {
+					$( 'body' ).trigger( 'axisbuilder_storage_response' );
+				}, timeout ? timeout : 150 );
 			},
 
 			keyboard_actions: function( e ) {

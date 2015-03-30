@@ -1080,6 +1080,8 @@ jQuery( function( $ ) {
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
 				axisbuilder_meta_boxes_builder.textarea.outer();
+				axisbuilder_meta_boxes_builder.storage.clear_storage();
+				axisbuilder_meta_boxes_builder.history_snapshot();
 			},
 
 			cell_size: function( add_cell_size ) {

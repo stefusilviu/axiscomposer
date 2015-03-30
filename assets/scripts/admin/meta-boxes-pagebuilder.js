@@ -1065,15 +1065,15 @@ jQuery( function( $ ) {
 
 			response: function( e, template, data ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.trash_data();
+					this.trash_data();
 				}
 
 				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
+					this.cell_size( data.add_cell_size );
 				}
 
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.edit_element();
+					this.edit_element();
 				}
 			},
 

@@ -54,7 +54,7 @@ jQuery( function( $ ) {
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( '.canvas-area' )
-				.on( 'axisbuilder_history_update', this.storage.history_update )
+				.on( 'axisbuilder_history_update', this.dragdrop.init )
 				.on( 'axisbuilder_storage_update', this.storage.storage_update );
 
 			$( document )
@@ -744,6 +744,11 @@ jQuery( function( $ ) {
 
 		dragdrop: {
 
+			init: function() {
+				axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
+				axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
+			}
+
 			is_scope: function( passed_scope ) {
 				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
 			},
@@ -1272,11 +1277,6 @@ jQuery( function( $ ) {
 				} else {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
-			},
-
-			history_update: function() {
-				axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
-				axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
 			}
 		},
 

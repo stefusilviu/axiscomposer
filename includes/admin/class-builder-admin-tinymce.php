@@ -60,7 +60,7 @@ class AB_Admin_TinyMCE {
 	public function add_shortcode_tinymce_plugin( $plugins ) {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		$plugins['axisbuilder_shortcodes'] = AB()->plugin_url() . '/assets/scripts/admin/editor' . $suffix . '.js';
+		$plugins['axisbuilder_shortcodes'] = AB()->plugin_url() . '/assets/js/admin/editor' . $suffix . '.js';
 
 		return $plugins;
 	}

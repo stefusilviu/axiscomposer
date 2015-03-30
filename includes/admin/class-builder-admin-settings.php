@@ -109,7 +109,7 @@ class AB_Admin_Settings {
 
 		do_action( 'axisbuilder_settings_start' );
 
-		wp_enqueue_script( 'axisbuilder-settings', AB()->plugin_url() . '/assets/scripts/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'select2' ), AB_VERSION, true );
+		wp_enqueue_script( 'axisbuilder-settings', AB()->plugin_url() . '/assets/js/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'select2' ), AB_VERSION, true );
 
 		wp_localize_script( 'axisbuilder-settings', 'axisbuilder_settings_params', array(
 			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'axisbuilder' )

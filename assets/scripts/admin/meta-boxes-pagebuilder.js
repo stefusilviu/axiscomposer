@@ -1065,15 +1065,15 @@ jQuery( function( $ ) {
 
 			response: function( e, template, data ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
-					this.trash_data();
+					axisbuilder_meta_boxes_builder.backbone.trash_data();
 				}
 
 				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
-					this.cell_size( data.add_cell_size );
+					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
 				}
 
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					this.edit_element();
+					axisbuilder_meta_boxes_builder.backbone.edit_element();
 				}
 			},
 
@@ -1102,12 +1102,11 @@ jQuery( function( $ ) {
 		storage: {
 
 			init: function() {
-				this.key     = this.add_key();
 				this.storage = this.get_key() || [];
 				this.maximum = this.storage.length - 1;
 
 				// Temporary storage index
-				this.temporary = this.get_key( this.key + '-index' );
+				this.temporary = this.get_key( this.set_key() + '-temp' );
 				if ( typeof this.temporary === 'undefined' || this.temporary === null ) {
 					this.temporary = this.maximum;
 				}
@@ -1116,13 +1115,13 @@ jQuery( function( $ ) {
 				this.clear_storage();
 			},
 
-			add_key: function() {
+			set_key: function() {
 				return ( 'axisbuilder-storage-' + axisbuilder_admin_meta_boxes_builder.post_id ).toLowerCase();
 			},
 
 			get_key: function( passed_key ) {
-				var key = passed_key || axisbuilder_meta_boxes_builder.storage.key;
-				return $.parseJSON( sessionStorage.getItem( key ) );
+				var history = axisbuilder_meta_boxes_builder.storage;
+				return $.parseJSON( sessionStorage.getItem( passed_key || history.set_key() ) );
 			},
 
 			undo_data: function( e ) {
@@ -1151,7 +1150,7 @@ jQuery( function( $ ) {
 
 				$( '.canvas-data' ).val( values[0] );
 				$( '.canvas-area' ).html( values[1] );
-				sessionStorage.setItem( history.key + '-index', history.temporary );
+				sessionStorage.setItem( history.set_key() + '-temp', history.temporary );
 
 				// Undo button
 				if ( history.temporary <= 0 ) {
@@ -1223,8 +1222,8 @@ jQuery( function( $ ) {
 
 			clear_storage: function() {
 				var history = axisbuilder_meta_boxes_builder.storage;
-				sessionStorage.removeItem( history.key );
-				sessionStorage.removeItem( history.key + '-index' );
+				sessionStorage.removeItem( history.set_key() );
+				sessionStorage.removeItem( history.set_key() + '-temp' );
 
 				// Reset huh?
 				history.storage   = [];

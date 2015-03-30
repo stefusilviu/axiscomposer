@@ -1122,7 +1122,7 @@ jQuery( function( $ ) {
 
 			get_key: function( passed_key ) {
 				var key = passed_key || axisbuilder_meta_boxes_builder.storage.key;
-				return JSON.parse( sessionStorage.getItem( key ) );
+				return $.parseJSON( sessionStorage.getItem( key ) );
 			},
 
 			undo_data: function( e ) {
@@ -1171,56 +1171,48 @@ jQuery( function( $ ) {
 				$( 'body' ).trigger( 'axisbuilder_storage_loaded' );
 			},
 
-			set_key: function( passed_key, passed_value ) {
-				var key   = passed_key || axisbuilder_meta_boxes_builder.storage.key,
-					value = passed_value || JSON.stringify( axisbuilder_meta_boxes_builder.storage.storage );
-
-				try {
-					sessionStorage.setItem( key, value );
-				}
-
-				catch( e ) {
-					axisbuilder_meta_boxes_builder.storage.clear_storage();
-					$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
-					console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', e );
-				}
-			},
-
 			snapshot: function() {
-				var history = axisbuilder_meta_boxes_builder.storage;
 				$( '.canvas-area' ).find( 'textarea' ).each( function() {
 					this.innerHTML = this.value;
 				});
 
-				var snapshot     = [ $( '.canvas-data' ).val(), $( '.canvas-area' ).html().replace( /modal-animation/g, '' ) ],
-					last_storage = history.storage[ history.temporary ];
+				var history = axisbuilder_meta_boxes_builder.storage;
+				if ( typeof history.temporary === 'undefined' || history.temporary === null ) {
+					history.temporary = history.storage.length - 1;
+				}
+
+				var last_storage = history.storage[ history.temporary ],
+					new_snapshot = [ $( '.canvas-data' ).val(), $( '.canvas-area' ).html().replace( /modal-animation/g, '' ) ];
 
 				// Create new snapshot
-				if ( typeof last_storage === 'undefined' || ( last_storage[0] !== snapshot[0] ) ) {
+				if ( typeof last_storage === 'undefined' || ( last_storage[0] !== new_snapshot[0] ) ) {
 					history.temporary ++;
-
-					// Storage update
 					history.storage = history.storage.slice( 0, history.temporary );
-					history.storage.push( snapshot );
+					history.storage.push( new_snapshot );
 					if ( history.storage.length > 40 ) {
 						history.storage.shift();
 					}
 
-					// Set the browser storage object
-					axisbuilder_meta_boxes_builder.storage.set_key();
+					try {
+						sessionStorage.setItem( history.key, JSON.stringify( history.storage ) );
+					} catch( err ) {
+						axisbuilder_meta_boxes_builder.storage.clear_storage();
+						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
+						console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', err );
+					}
 				}
 
 				history.maximum = history.storage.length - 1;
 
 				// Undo button
-				if ( history.storage.length === 1 || history.temporary === 0 ) {
+				if ( history.temporary === 0 || history.storage.length === 1 ) {
 					$( '.undo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.undo-data' ).removeClass( 'inactive-history' );
 				}
 
 				// Redo button
-				if ( history.storage.length - 1 === history.temporary ) {
+				if ( history.maximum === history.temporary ) {
 					$( '.redo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
@@ -1232,7 +1224,7 @@ jQuery( function( $ ) {
 				sessionStorage.removeItem( history.key );
 				sessionStorage.removeItem( history.key + '-temp' );
 
-				// Reset storage
+				// Reset huh?
 				history.storage   = [];
 				history.temporary = null;
 

@@ -1198,7 +1198,7 @@ jQuery( function( $ ) {
 					} catch( err ) {
 						axisbuilder_meta_boxes_builder.storage.clear_storage();
 						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
-						console.log( 'Storage Limit reached. Your Browser does not offer enough session storage to save more steps for the undo/redo history.', err );
+						console.log( 'Your Browser Session Storage Limit reached.', err );
 					}
 				}
 

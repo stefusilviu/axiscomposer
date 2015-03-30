@@ -50,7 +50,7 @@ jQuery( function( $ ) {
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
 			$( 'body' )
-				.on( 'axisbuilder_storage_update', this.dragdrop.init )
+				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
@@ -1215,8 +1215,7 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				// Trigger storage update
-				$( 'body' ).trigger( 'axisbuilder_storage_update' );
+				$( 'body' ).trigger( 'axisbuilder_storage_loaded' );
 			},
 
 			snapshot: function() {

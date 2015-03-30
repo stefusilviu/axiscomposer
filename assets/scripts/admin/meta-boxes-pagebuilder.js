@@ -1090,17 +1090,23 @@ jQuery( function( $ ) {
 		undo_redo: {
 
 			init: function() {
+				// Check for Storage before using it
+				if ( typeof Storage === 'undefined' ) {
+					return;
+				}
+
+				// Create unique post array key
 				this.key     = this.add_key();
 				this.storage = this.get_key() || [];
 				this.maximum = this.storage.length - 1;
 
-				// Temporary
+				// Temporary steps storage
 				this.temporary = this.get_key( this.key + 'temp' );
 				if ( typeof this.temporary === 'undefined' || this.temporary === null ) {
 					this.temporary = this.maximum;
 				}
 
-				// Clear Storage
+				// Clear storage
 				this.clear_storage();
 			},
 

@@ -55,7 +55,7 @@ jQuery( function( $ ) {
 
 			$( '.canvas-area' )
 				.on( 'axisbuilder_history_update', this.dragdrop.init )
-				.on( 'axisbuilder_storage_update', this.storage.storage_update );
+				.on( 'axisbuilder_storage_update', this.storage.snapshot );
 
 			$( document )
 				.bind( 'keyup.axisbuilder_history', this.storage.keyboard_actions );
@@ -1233,7 +1233,7 @@ jQuery( function( $ ) {
 				$( '.canvas-area' ).trigger( 'axisbuilder_history_update' );
 			},
 
-			storage_update: function() {
+			snapshot: function() {
 				var history = axisbuilder_meta_boxes_builder.storage;
 				$( '.canvas-area' ).find( 'textarea' ).each( function() {
 					this.innerHTML = this.value;

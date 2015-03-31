@@ -53,6 +53,7 @@ jQuery( function( $ ) {
 				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
+				.on( 'axisbuilder_backbone_modal_before_load', this.backbone.load )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( document ).bind( 'keydown storage', this.storage.keyboard_actions );
@@ -1063,15 +1064,19 @@ jQuery( function( $ ) {
 				}
 			},
 
+			load: function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					$( 'body' ).trigger( 'axisbuilder-edit-element-field-init' );
+				}
+			},
+
 			response: function( e, template, data ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
 					axisbuilder_meta_boxes_builder.backbone.trash_data();
 				}
-
 				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
 					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
 				}
-
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
 					axisbuilder_meta_boxes_builder.backbone.edit_element();
 				}

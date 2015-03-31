@@ -113,7 +113,7 @@ abstract class AB_Shortcode {
 			die();
 		}
 
-		check_ajax_referer( 'edit-elements', 'security' );
+		check_ajax_referer( 'edit-element', 'security' );
 
 		// Display Custom CSS element
 		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {

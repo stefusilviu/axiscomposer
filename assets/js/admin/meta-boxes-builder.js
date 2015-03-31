@@ -224,7 +224,7 @@ jQuery( function( $ ) {
 						shortcode: parents.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
 					},
 					action: 'axisbuilder_' + parents.data( 'modal-action' ),
-					security: axisbuilder_admin_meta_boxes_builder.edit_elements_nonce
+					security: axisbuilder_admin_meta_boxes_builder.element_nonce
 				};
 
 				$.ajax({
@@ -234,10 +234,8 @@ jQuery( function( $ ) {
 					success: function( response ) {
 						var field = $( '.axisbuilder-backbone-modal-article' );
 
-						if ( response === '0' ) {
-							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_login_error );
-						} else if ( response === '-1' ) {
-							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error );
+						if ( response === '0' || response === '-1' ) {
+							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error ); // Login(0) and session(-1)
 						} else {
 							field.find( 'p' ).remove();
 							field.find( 'form' ).html( response );

@@ -216,6 +216,10 @@ jQuery( function( $ ) {
 						opacity: 0.6
 					}
 				});
+
+				setTimeout( function() {
+					$( '.axisbuilder-backbone-modal-article' ).unblock();
+				}, 2000 );
 			});
 
 			// AxisBuilder Backbone Modal

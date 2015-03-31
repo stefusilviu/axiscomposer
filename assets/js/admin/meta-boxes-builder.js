@@ -200,16 +200,15 @@ jQuery( function( $ ) {
 
 		edit_element: function() {
 			var	parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-
 			if ( ! parents.length ) {
 				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
-
 				if ( ! parents.length ) {
 					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
 				}
 			}
 
 			$( 'body' ).on( 'axisbuilder-edit-element-field-init', function() {
+				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
 				$( '.axisbuilder-backbone-modal-article' ).block({
 					message: null,
 					overlayCSS: {
@@ -221,7 +220,6 @@ jQuery( function( $ ) {
 
 			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
-				title: parents.data( 'modal-title' ),
 				template: '#tmpl-axisbuilder-modal-edit-element'
 			});
 

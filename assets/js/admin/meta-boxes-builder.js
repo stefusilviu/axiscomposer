@@ -217,6 +217,7 @@ jQuery( function( $ ) {
 					}
 				});
 
+				$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).html( '<p>Hello World</p>' );
 				setTimeout( function() {
 					$( '.axisbuilder-backbone-modal-article' ).unblock();
 				}, 2000 );

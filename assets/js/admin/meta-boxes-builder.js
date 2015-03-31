@@ -208,8 +208,9 @@ jQuery( function( $ ) {
 			}
 
 			$( 'body' ).on( 'axisbuilder-edit-element-field-init', function() {
-				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
-				$( '.axisbuilder-backbone-modal-article' ).block({
+				var field = $( '.axisbuilder-backbone-modal-article' );
+
+				$( field ).block({
 					message: null,
 					overlayCSS: {
 						background: '#fff',
@@ -217,10 +218,38 @@ jQuery( function( $ ) {
 					}
 				});
 
-				$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).html( '<p>Hello World</p>' );
-				setTimeout( function() {
-					$( '.axisbuilder-backbone-modal-article' ).unblock();
-				}, 2000 );
+				var data = {
+					fetch: true,
+					params: {
+						extract: true,
+						shortcode: parents.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
+					},
+					action: 'axisbuilder_' + parents.data( 'modal-action' ),
+					security: axisbuilder_admin_meta_boxes_builder.edit_elements_nonce
+				};
+
+				$.ajax({
+					url:  axisbuilder_admin_meta_boxes_builder.ajax_url,
+					data: data,
+					type: 'POST',
+					error: function() {
+						field.find( 'form' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_error );
+					},
+					success: function( response ) {
+						if ( response === '0' ) {
+							field.find( 'form' ).html( axisbuilder_admin_meta_boxes_builder.i18n_login_error );
+						} else if ( response === '-1' ) {
+							field.find( 'form' ).html( axisbuilder_admin_meta_boxes_builder.i18n_session_error );
+						} else {
+							field.find( 'form' ).html( response );
+						}
+					},
+					complete: function() {
+						$( '.axisbuilder-backbone-modal-article' ).unblock();
+					}
+				});
+
+				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
 			});
 
 			// AxisBuilder Backbone Modal

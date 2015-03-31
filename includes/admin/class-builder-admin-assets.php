@@ -140,9 +140,13 @@ class AB_Admin_Assets {
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
+				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',
 				'plugin_url'                      => AB()->plugin_url(),
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
-				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',
+				'edit_elements_nonce'             => wp_create_nonce( 'edit-elements' ),
+				'i18n_ajax_error'                 => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
+				'i18n_login_error'                => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
+				'i18n_session_error'              => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
 				'i18n_no_layout'                  => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
 				'i18n_add_one_cell'               => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
 				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),

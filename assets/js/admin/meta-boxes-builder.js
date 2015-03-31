@@ -208,9 +208,8 @@ jQuery( function( $ ) {
 			}
 
 			$( 'body' ).on( 'axisbuilder-modal-edit-element-load', function() {
-				var field = $( '.axisbuilder-backbone-modal-article' );
-
-				$( field ).block({
+				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
+				$( '.axisbuilder-backbone-modal-article' ).block({
 					message: null,
 					overlayCSS: {
 						background: '#fff',
@@ -232,14 +231,13 @@ jQuery( function( $ ) {
 					url:  axisbuilder_admin_meta_boxes_builder.ajax_url,
 					data: data,
 					type: 'POST',
-					error: function() {
-						field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_error );
-					},
 					success: function( response ) {
+						var field = $( '.axisbuilder-backbone-modal-article' );
+
 						if ( response === '0' ) {
-							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_login_error );
+							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_login_error );
 						} else if ( response === '-1' ) {
-							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_session_error );
+							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error );
 						} else {
 							field.find( 'p' ).remove();
 							field.find( 'form' ).html( response );
@@ -250,8 +248,6 @@ jQuery( function( $ ) {
 						axisbuilder_meta_boxes_builder.stupidtable.init();
 					}
 				});
-
-				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
 			});
 
 			// AxisBuilder Backbone Modal

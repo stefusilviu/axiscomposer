@@ -1,17 +1,11 @@
 /* global wpWidgets, axisbuilder_admin_sidebars */
-
-/**
- * AxisBuilder Sidebars JS
- */
 ( function( $ ) {
-
 	'use strict';
 
 	$.AxisBuilderSidebars = function() {
-
 		this.widgetArea = $( '#widgets-right' );
 		this.widgetWrap = $( '.widget-liquid-right' );
-		this.widgetTmpl = $( '#axisbuilder-sidebar-tmpl' );
+		this.widgetTmpl = $( '#tmpl-axisbuilder-form-delete-sidebar' );
 
 		this.createForm();
 		this.deleteIcon();
@@ -48,11 +42,8 @@
 					security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
 				};
 
-			// Load Backbone Modal
+			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_sidebars.i18n_delete_custom_sidebar_title,
-				message: axisbuilder_admin_sidebars.i18n_delete_custom_sidebar_message,
-				dismiss: false,
 				template: '#tmpl-axisbuilder-modal-delete-sidebar'
 			});
 

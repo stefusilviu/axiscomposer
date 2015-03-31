@@ -173,10 +173,8 @@ class AB_Admin_Assets {
 			wp_enqueue_script( 'axisbuilder-admin-sidebars', AB()->plugin_url() . '/assets/js/admin/sidebars' . $suffix . '.js', array( 'axisbuilder-backbone-modal' ), AB_VERSION );
 
 			$params = array(
-				'ajax_url'                           => admin_url( 'admin-ajax.php' ),
-				'delete_custom_sidebar_nonce'        => wp_create_nonce( 'delete-custom-sidebar' ),
-				'i18n_delete_custom_sidebar_title'   => esc_js( __( 'Last warning, are you sure?', 'axisbuilder' ) ),
-				'i18n_delete_custom_sidebar_message' => esc_js( __( 'Are you sure you want to delete the sidebar now? This cannot be undone.', 'axisbuilder' ) )
+				'ajax_url'                    => admin_url( 'admin-ajax.php' ),
+				'delete_custom_sidebar_nonce' => wp_create_nonce( 'delete-custom-sidebar' )
 			);
 
 			wp_localize_script( 'axisbuilder-admin-sidebars', 'axisbuilder_admin_sidebars', $params );

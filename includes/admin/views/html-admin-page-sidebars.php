@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<script id="axisbuilder-sidebar-tmpl" type="text/html">
+<script type="text/template" id="tmpl-axisbuilder-form-delete-sidebar">
 	<form class="axisbuilder-add-sidebar" action="widgets.php" method="post">
 		<h3><?php _e( 'Custom Widget Area Builder', 'axisbuilder' ) ?></h3>
 		<input name="axisbuilder-add-sidebar" type="text" id="axisbuilder-add-sidebar" class="widefat" autocomplete="off" value="" placeholder="<?php _e( 'Enter New Widget Area Name', 'axisbuilder' ) ?>" />
@@ -24,20 +24,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<section class="axisbuilder-backbone-modal-main" role="main">
 				<header class="axisbuilder-backbone-modal-header">
 					<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
-					<h1><%= title %></h1>
+					<h1><?php _e( 'Last warning, are you sure?', 'axisbuilder' ); ?></h1>
 				</header>
-				<article>
+				<article class="axisbuilder-backbone-modal-article">
 					<form action="" method="post">
-						<p><%= message %></p>
+						<p><?php _e( 'Are you sure you want to delete the sidebar now? This cannot be undone.', 'axisbuilder' ); ?></p>
 					</form>
 				</article>
 				<footer>
 					<div class="inner">
-						<% if ( dismiss ) { %>
-							<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
-						<% } else { %>
-							<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
-						<% } %>
+						<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
 					</div>
 				</footer>
 			</section>

@@ -25,7 +25,6 @@
 
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
-				title: settings.title,
 				message: settings.message,
 				dismiss: settings.dismiss,
 				target: settings.template
@@ -39,7 +38,6 @@
 	 * @type {object}
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
-		title: '',
 		message: '',
 		dismiss: '',
 		template: ''
@@ -53,7 +51,6 @@
 	$.AxisBuilderBackboneModal.View = Backbone.View.extend({
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
-		_title: undefined,
 		_message: undefined,
 		_dismiss: undefined,
 		_target: undefined,
@@ -63,7 +60,6 @@
 			'keydown':            'keyboardActions'
 		},
 		initialize: function( data ) {
-			this._title = data.title;
 			this._message = data.message;
 			this._dismiss = data.dismiss;
 			this._target = data.target;
@@ -72,7 +68,6 @@
 		},
 		render: function() {
 			var variables = {
-				title: this._title,
 				message: this._message,
 				dismiss: this._dismiss
 			};

@@ -115,7 +115,7 @@
 		},
 		closeButton: function( e ) {
 			e.preventDefault();
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_before_remove', this._target );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_before_remove', this._template );
 			this.undelegateEvents();
 			$( document ).off( 'focusin' );
 			$( 'body' ).css({

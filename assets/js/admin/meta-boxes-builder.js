@@ -379,7 +379,6 @@ jQuery( function( $ ) {
 
 			$( 'body' ).on( 'axisbuilder-modal-trash-data-load', function() {
 				var notification = ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast;
-				$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).remove();
 				$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
 			});
 
@@ -1019,8 +1018,7 @@ jQuery( function( $ ) {
 				}
 
 				$( 'body' ).on( 'axisbuilder-modal-cell-size-load', function() {
-					$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).remove();
-					$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
+					$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).html( notification );
 				});
 
 				// AxisBuilder Backbone Modal

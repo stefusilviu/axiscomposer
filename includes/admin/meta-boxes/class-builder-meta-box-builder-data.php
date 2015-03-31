@@ -175,7 +175,9 @@ class AB_Meta_Box_Builder_Data {
 								<h1><?php echo esc_html( $template['title'] ); ?></h1>
 							</header>
 							<article class="axisbuilder-backbone-modal-article">
-								<form action="" method="post"></form><p></p>
+								<form action="" method="post">
+									<p>&nbsp;</p>
+								</form>
 							</article>
 							<footer>
 								<div class="inner">

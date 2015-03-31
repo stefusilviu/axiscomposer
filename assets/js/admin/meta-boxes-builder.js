@@ -994,9 +994,9 @@ jQuery( function( $ ) {
 				var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
 					cell_size            = axisbuilder_meta_boxes_builder_data.cell_size,
-					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length],
-					dismiss, message = '';
+					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length], notification = '';
 
+				// Create cell size lists
 				if ( cell_size_variations ) {
 					for ( var x in cell_size_variations ) {
 						var label = '',	labeltext = '';
@@ -1011,17 +1011,21 @@ jQuery( function( $ ) {
 							label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
 						}
 
-						message += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+						notification += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 					}
 				} else {
-					dismiss = true;
-					message += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-					message += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+					notification += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+					notification += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
 				}
 
+				$( 'body' ).on( 'axisbuilder-modal-cell-size-load', function() {
+					$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).remove();
+					$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
+				});
+
+				// AxisBuilder Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
-					message: message,
-					dismiss: dismiss,
+					dismiss: cell_size_variations ? false : true,
 					template: '#tmpl-axisbuilder-modal-cell-size'
 				});
 
@@ -1113,6 +1117,9 @@ jQuery( function( $ ) {
 			load: function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
 					$( 'body' ).trigger( 'axisbuilder-modal-trash-data-load' );
+				}
+				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
+					$( 'body' ).trigger( 'axisbuilder-modal-cell-size-load' );
 				}
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
 					$( 'body' ).trigger( 'axisbuilder-modal-edit-element-load' );

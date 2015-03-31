@@ -207,7 +207,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			$( 'body' ).on( 'axisbuilder-edit-element-field-init', function() {
+			$( 'body' ).on( 'axisbuilder-modal-edit-element-init', function() {
 				var field = $( '.axisbuilder-backbone-modal-article' );
 
 				$( field ).block({
@@ -1105,7 +1105,7 @@ jQuery( function( $ ) {
 
 			load: function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					$( 'body' ).trigger( 'axisbuilder-edit-element-field-init' );
+					$( 'body' ).trigger( 'axisbuilder-modal-edit-element-init' );
 				}
 			},
 

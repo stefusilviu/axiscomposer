@@ -81,7 +81,7 @@ jQuery( function( $ ) {
 		},
 
 		unblock: function() {
-			$( '#axisbuilder-editor' ).unblock();
+			$( '#axisbuilder-editor, .axisbuilder-backbone-modal-article' ).unblock();
 		},
 
 		toggle_editor: function( e ) {
@@ -245,7 +245,7 @@ jQuery( function( $ ) {
 							field.find( 'form' ).html( response );
 						}
 
-						$( '.axisbuilder-backbone-modal-article' ).unblock();
+						axisbuilder_meta_boxes_builder.unblock();
 					}
 				});
 

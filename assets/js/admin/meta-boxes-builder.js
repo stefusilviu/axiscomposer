@@ -1252,7 +1252,7 @@ jQuery( function( $ ) {
 					}
 
 					try {
-						sessionStorage.setItem( history.key, JSON.stringify( history.storage ) );
+						sessionStorage.setItem( history.set_key(), JSON.stringify( history.storage ) );
 					} catch( err ) {
 						axisbuilder_meta_boxes_builder.storage.clear_storage();
 						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );

@@ -245,7 +245,9 @@ jQuery( function( $ ) {
 							field.find( 'form' ).html( response );
 						}
 
+						axisbuilder_meta_boxes_builder.tiptip();
 						axisbuilder_meta_boxes_builder.unblock();
+						axisbuilder_meta_boxes_builder.stupidtable.init();
 					}
 				});
 

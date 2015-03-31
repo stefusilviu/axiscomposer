@@ -373,7 +373,6 @@ jQuery( function( $ ) {
 			var length = $( '.canvas-area' ).children().length;
 
 			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
 				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
 				dismiss: ( length > 0 ) ? false : true,
 				template: '#tmpl-axisbuilder-modal-trash-data'
@@ -1014,7 +1013,6 @@ jQuery( function( $ ) {
 				}
 
 				$( this ).AxisBuilderBackboneModal({
-					title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
 					message: message,
 					dismiss: dismiss,
 					template: '#tmpl-axisbuilder-modal-cell-size'

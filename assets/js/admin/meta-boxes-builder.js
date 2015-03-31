@@ -233,18 +233,18 @@ jQuery( function( $ ) {
 					data: data,
 					type: 'POST',
 					error: function() {
-						field.find( 'form' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_error );
+						field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_error );
 					},
 					success: function( response ) {
 						if ( response === '0' ) {
-							field.find( 'form' ).html( axisbuilder_admin_meta_boxes_builder.i18n_login_error );
+							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_login_error );
 						} else if ( response === '-1' ) {
-							field.find( 'form' ).html( axisbuilder_admin_meta_boxes_builder.i18n_session_error );
+							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_session_error );
 						} else {
+							field.find( 'p' ).remove();
 							field.find( 'form' ).html( response );
 						}
-					},
-					complete: function() {
+
 						$( '.axisbuilder-backbone-modal-article' ).unblock();
 					}
 				});

@@ -1018,7 +1018,7 @@ jQuery( function( $ ) {
 				}
 
 				$( 'body' ).on( 'axisbuilder-modal-cell-size-load', function() {
-					$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).html( notification );
+					$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
 				});
 
 				// AxisBuilder Backbone Modal

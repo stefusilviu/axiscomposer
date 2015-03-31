@@ -222,7 +222,6 @@ jQuery( function( $ ) {
 			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				title: parents.data( 'modal-title' ),
-				screen: parents.data( 'modal-class' ),
 				template: '#tmpl-axisbuilder-modal-edit-element'
 			});
 

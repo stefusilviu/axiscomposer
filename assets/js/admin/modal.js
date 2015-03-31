@@ -26,10 +26,9 @@
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
-				screen: settings.screen,
 				message: settings.message,
 				dismiss: settings.dismiss,
-				template: settings.template
+				target: settings.template
 			});
 		}
 	};
@@ -41,7 +40,6 @@
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
 		title: '',
-		screen: '',
 		message: '',
 		dismiss: '',
 		template: ''
@@ -56,10 +54,9 @@
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
 		_title: undefined,
-		_screen: undefined,
 		_message: undefined,
 		_dismiss: undefined,
-		_template: undefined,
+		_target: undefined,
 		events: {
 			'click .modal-close': 'closeButton',
 			'click #btn-ok':      'addButton',
@@ -67,10 +64,9 @@
 		},
 		initialize: function( data ) {
 			this._title = data.title;
-			this._screen = data.screen;
 			this._message = data.message;
 			this._dismiss = data.dismiss;
-			this._template = data.template;
+			this._target = data.target;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
@@ -81,11 +77,11 @@
 				dismiss: this._dismiss
 			};
 
-			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._template ).html(), variables ) );
+			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
 
 			$( 'body' ).css({
 				'overflow': 'hidden'
-			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_before_load', this._template );
+			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_before_load', this._target );
 
 			var $content  = $( '.axisbuilder-backbone-modal-content' ).find( 'article' );
 			var content_h = ( 0 === $content.height() ) ? 90 : $content.height();
@@ -109,23 +105,23 @@
 
 			$( '.axisbuilder-backbone-modal-content' ).css({
 				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
-			}).addClass( this._screen );
+			});
 
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._target );
 		},
 		closeButton: function( e ) {
 			e.preventDefault();
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_before_remove', this._template );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_before_remove', this._target );
 			this.undelegateEvents();
 			$( document ).off( 'focusin' );
 			$( 'body' ).css({
 				'overflow': 'auto'
 			});
 			this.remove();
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._template );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._target );
 		},
 		addButton: function( e ) {
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', [ this._template, this.getFormData() ] );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', [ this._target, this.getFormData() ] );
 			this.closeButton( e );
 		},
 		getFormData: function() {

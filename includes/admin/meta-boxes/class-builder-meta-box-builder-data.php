@@ -176,16 +176,9 @@ class AB_Meta_Box_Builder_Data {
 							</header>
 							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">
-									<?php if ( $template['target'] !== 'trash-data' ) : ?>
-										<% if ( dismiss ) { %>
-											<p><%= message %></p>
-										<% } else { %>
-											<%= message %>
-										<% } %>
-									<?php else : ?>
-										<p><%= message %></p>
-									<?php endif; ?>
+									<%= message %>
 								</form>
+								<p>&nbsp;</p>
 							</article>
 							<footer>
 								<div class="inner">

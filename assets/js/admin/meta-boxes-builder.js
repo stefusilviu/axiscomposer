@@ -207,7 +207,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			$( 'body' ).on( 'axisbuilder-modal-edit-element-init', function() {
+			$( 'body' ).on( 'axisbuilder-modal-edit-element-load', function() {
 				var field = $( '.axisbuilder-backbone-modal-article' );
 
 				$( field ).block({
@@ -372,15 +372,22 @@ jQuery( function( $ ) {
 		trash_data: function() {
 			var length = $( '.canvas-area' ).children().length;
 
-			$( this ).AxisBuilderBackboneModal({
-				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
-				dismiss: ( length > 0 ) ? false : true,
-				template: '#tmpl-axisbuilder-modal-trash-data'
-			});
-
+			// Clear storage
 			if ( length === 0 ) {
 				axisbuilder_meta_boxes_builder.storage.clear_storage();
 			}
+
+			$( 'body' ).on( 'axisbuilder-modal-trash-data-load', function() {
+				var notification = ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast;
+				$( '.axisbuilder-backbone-modal-article' ).find( 'form' ).remove();
+				$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
+			});
+
+			// AxisBuilder Backbone Modal
+			$( this ).AxisBuilderBackboneModal({
+				dismiss: ( length > 0 ) ? false : true,
+				template: '#tmpl-axisbuilder-modal-trash-data'
+			});
 
 			return false;
 		},
@@ -1104,8 +1111,11 @@ jQuery( function( $ ) {
 			},
 
 			load: function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
+					$( 'body' ).trigger( 'axisbuilder-modal-trash-data-load' );
+				}
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					$( 'body' ).trigger( 'axisbuilder-modal-edit-element-init' );
+					$( 'body' ).trigger( 'axisbuilder-modal-edit-element-load' );
 				}
 			},
 

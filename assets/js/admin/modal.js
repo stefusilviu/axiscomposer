@@ -87,6 +87,8 @@
 				'overflow': 'hidden'
 			}).append( this.$el );
 
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_before_load', this._template );
+
 			var $content  = $( '.axisbuilder-backbone-modal-content' ).find( 'article' );
 			var content_h = ( 0 === $content.height() ) ? 90 : $content.height();
 			var max_h     = $( window ).height() - 200;

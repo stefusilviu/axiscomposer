@@ -209,10 +209,20 @@ jQuery( function( $ ) {
 				}
 			}
 
+			$( 'body' ).on( 'axisbuilder-edit-element-field-init', function() {
+				$( '.axisbuilder-backbone-modal-article' ).block({
+					message: null,
+					overlayCSS: {
+						background: '#fff',
+						opacity: 0.6
+					}
+				});
+			});
+
+			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				title: parents.data( 'modal-title' ),
 				screen: parents.data( 'modal-class' ),
-				message: 'Fetch options field with validation using AJAX...',
 				template: '#tmpl-axisbuilder-modal-edit-element'
 			});
 

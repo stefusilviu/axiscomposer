@@ -171,7 +171,7 @@ class AB_Meta_Box_Builder_Data {
 								<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
 								<h1><%= title %></h1>
 							</header>
-							<article>
+							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">
 									<?php if ( $template['tmpl'] !== 'trash-data' ) : ?>
 										<% if ( dismiss ) { %>

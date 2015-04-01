@@ -147,6 +147,7 @@ class AB_Admin_Assets {
 				'i18n_no_layout'                  => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
 				'i18n_add_one_cell'               => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
 				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),
+				'i18n_select_cell_layout'         => esc_js( __( 'Select a cell layout', 'axisbuilder' ) ),
 				'i18n_ajax_session_error'         => esc_js( __( 'Loading failed - Your session timed out. Please reload the page and try again.', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_title'   => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
 				'i18n_trash_all_elements_atleast' => esc_js( __( 'You need to add at least one element to the canvas area to perform this action.', 'axisbuilder' ) ),

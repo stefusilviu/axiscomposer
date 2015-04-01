@@ -209,6 +209,7 @@ jQuery( function( $ ) {
 
 			window.axisbuilder_shortcode = parents;
 
+			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				title: parents.data( 'modal-title' ),
 				template: '#tmpl-axisbuilder-modal-edit-element'
@@ -321,6 +322,7 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.storage.clear_storage();
 			}
 
+			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
 				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
@@ -933,7 +935,7 @@ jQuery( function( $ ) {
 				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
 					cell_size            = axisbuilder_meta_boxes_builder_data.cell_size,
-					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length], notice = '';
+					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length], notification = '';
 
 				// Create cell size lists
 				if ( cell_size_variations ) {
@@ -950,15 +952,17 @@ jQuery( function( $ ) {
 							label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
 						}
 
-						notice += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+						notification += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 					}
 				} else {
-					notice += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-					notice += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+					notification += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+					notification += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
 				}
 
+				// AxisBuilder Backbone
 				$( this ).AxisBuilderBackboneModal({
-					message: notice,
+					title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
+					message: notification,
 					dismiss: cell_size_variations ? false : true,
 					template: '#tmpl-axisbuilder-modal-cell-size'
 				});

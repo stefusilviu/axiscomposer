@@ -52,8 +52,8 @@ jQuery( function( $ ) {
 			$( 'body' )
 				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
-				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
-				.on( 'axisbuilder_backbone_modal_before_load', this.backbone.load )
+				.on( 'axisbuilder_backbone_modal_init', this.backbone.init )
+				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.load )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( document ).bind( 'keydown storage', this.storage.keyboard_actions );
@@ -959,7 +959,7 @@ jQuery( function( $ ) {
 					notification += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
 				}
 
-				// AxisBuilder Backbone
+				// AxisBuilder Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
 					title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
 					message: notification,
@@ -1048,18 +1048,12 @@ jQuery( function( $ ) {
 
 			init: function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
-				}
-			},
-
-			load: function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
 					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
 			},
 
 			init_edit_element: function() {
-				var parents  = window.axisbuilder_edit_element,
+				var parents  = window.axisbuilder_shortcode,
 					backbone = $( '.axisbuilder-backbone-modal-content' );
 
 				$( backbone ).find( '.button' ).attr( 'disabled', 'disabled' );
@@ -1102,6 +1096,12 @@ jQuery( function( $ ) {
 						$( backbone ).find( '.button' ).removeAttr( 'disabled' );
 					}
 				});
+			},
+
+			loaded: function( e, template ) {
+				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
+				}
 			},
 
 			response: function( e, template, data ) {

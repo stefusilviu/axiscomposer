@@ -7,6 +7,7 @@
  * Imports
  */
 @import "bourbon";
+@import "mixins";
 @import "animation";
 @import "fonts";
 @import "modal";
@@ -14,6 +15,14 @@
 /**
  * Styling begins
  */
+.blockUI.blockOverlay {
+	@include loader();
+}
+
+.modal-animation {
+	@include animation( modal .3s $ease-out-back );
+}
+
 .axisbuilder-add-sidebar {
 	padding: 10px;
 	text-align: center;
@@ -46,11 +55,4 @@
 		color: #d54e21;
 		cursor: pointer;
 	}
-}
-
-/**
- * Animation Styles
- */
-.modal-animation {
-	@include animation( modal .3s $ease-out-back );
 }

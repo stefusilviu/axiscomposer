@@ -25,8 +25,10 @@
 
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
-				notice: settings.message,
-				close: settings.dismiss,
+				title: settings.title,
+				screen: settings.screen,
+				message: settings.message,
+				dismiss: settings.dismiss,
 				target: settings.template
 			});
 		}
@@ -38,6 +40,8 @@
 	 * @type {object}
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
+		title: '',
+		screen: '',
 		message: '',
 		dismiss: '',
 		template: ''
@@ -51,8 +55,10 @@
 	$.AxisBuilderBackboneModal.View = Backbone.View.extend({
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
-		_notice: undefined,
-		_close: undefined,
+		_title: undefined,
+		_screen: undefined,
+		_message: undefined,
+		_dismiss: undefined,
 		_target: undefined,
 		events: {
 			'click .modal-close': 'closeButton',
@@ -60,23 +66,26 @@
 			'keydown':            'keyboardActions'
 		},
 		initialize: function( data ) {
-			this._notice = data.notice;
-			this._close  = data.close;
-			this._target = data.target;
+			this._title   = data.title;
+			this._screen  = data.screen;
+			this._message = data.message;
+			this._dismiss = data.dismiss;
+			this._target  = data.target;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
 		render: function() {
 			var variables = {
-				dismiss: this._close,
-				message: this._notice
+				title: this._title,
+				message: this._message,
+				dismiss: this._dismiss
 			};
 
 			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
 
 			$( 'body' ).css({
 				'overflow': 'hidden'
-			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_before_load', this._target );
+			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_init', this._target );
 
 			var $content  = $( '.axisbuilder-backbone-modal-content' ).find( 'article' );
 			var content_h = ( 0 === $content.height() ) ? 90 : $content.height();
@@ -100,7 +109,7 @@
 
 			$( '.axisbuilder-backbone-modal-content' ).css({
 				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
-			});
+			}).addClass( this._screen );
 
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._target );
 		},

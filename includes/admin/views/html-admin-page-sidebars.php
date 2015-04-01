@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<p><?php _e( 'Are you sure you want to delete the sidebar now? This cannot be undone.', 'axisbuilder' ); ?></p>
 					</form>
 				</article>
-				<footer>
+				<footer class="axisbuilder-backbone-modal-footer">
 					<div class="inner">
 						<button id="btn-ok" class="button button-large button-primary"><?php _e( 'Delete' , 'axisbuilder' ); ?></button>
 					</div>

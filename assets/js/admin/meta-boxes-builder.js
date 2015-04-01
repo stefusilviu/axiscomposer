@@ -1053,11 +1053,13 @@ jQuery( function( $ ) {
 			},
 
 			load_edit_element: function() {
-				var parents = window.axisbuilder_edit_element;
+				var parents  = window.axisbuilder_edit_element,
+					backbone = $( '.axisbuilder-backbone-modal-content' );
 
-				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
+				$( backbone ).find( 'h1' ).text( parents.data( 'modal-title' ) );
 
-				$( '.axisbuilder-backbone-modal-article' ).block({
+				$( backbone ).find( '.button' ).attr( 'disabled', 'disabled' );
+				$( backbone ).find( 'article' ).block({
 					message: null,
 					overlayCSS: {
 						background: '#fff',
@@ -1080,18 +1082,20 @@ jQuery( function( $ ) {
 					data: data,
 					type: 'POST',
 					success: function( response ) {
-						var field = $( '.axisbuilder-backbone-modal-article' );
+						var form = $( backbone ).find( 'form' );
 
 						if ( response === '0' || response === '-1' ) {
-							field.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error ); // Login(0) and session(-1)
+							form.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error ); // Login(0) and session(-1)
+							$( backbone ).find( '.button' ).removeClass( 'button-primary' ).addClass( 'modal-close' ).text( 'Dismiss' );
 						} else {
-							field.find( 'p' ).remove();
-							field.find( 'form' ).html( response );
+							form.html( response );
+							form.find( 'p' ).remove();
 						}
 
 						axisbuilder_meta_boxes_builder.tiptip();
 						axisbuilder_meta_boxes_builder.unblock();
 						axisbuilder_meta_boxes_builder.stupidtable.init();
+						$( backbone ).find( '.button' ).removeAttr( 'disabled' );
 					}
 				});
 			},

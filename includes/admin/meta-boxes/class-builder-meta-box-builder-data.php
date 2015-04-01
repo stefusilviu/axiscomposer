@@ -178,10 +178,12 @@ class AB_Meta_Box_Builder_Data {
 								<form action="" method="post">
 									<% if ( message ) { %>
 										<p><%= message %></p>
+									<% } else { %>
+										<p>&nbsp;</p>
 									<% } %>
 								</form>
 							</article>
-							<footer>
+							<footer class="axisbuilder-backbone-modal-footer">
 								<div class="inner">
 									<% if ( dismiss ) { %>
 										<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>

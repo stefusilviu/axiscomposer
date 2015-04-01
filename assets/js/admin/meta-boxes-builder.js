@@ -207,9 +207,10 @@ jQuery( function( $ ) {
 				}
 			}
 
-			window.axisbuilder_edit_element = parents;
+			window.axisbuilder_shortcode = parents;
 
 			$( this ).AxisBuilderBackboneModal({
+				title: parents.data( 'modal-title' ),
 				template: '#tmpl-axisbuilder-modal-edit-element'
 			});
 
@@ -1055,8 +1056,6 @@ jQuery( function( $ ) {
 			init_edit_element: function() {
 				var parents  = window.axisbuilder_edit_element,
 					backbone = $( '.axisbuilder-backbone-modal-content' );
-
-				$( backbone ).find( 'h1' ).text( parents.data( 'modal-title' ) );
 
 				$( backbone ).find( '.button' ).attr( 'disabled', 'disabled' );
 				$( backbone ).find( 'article' ).block({

@@ -157,7 +157,7 @@ class AB_Meta_Box_Builder_Data {
 			'edit' => array(
 				'tmpl' => 'edit-element',
 				'button' => __( 'Save', 'axisbuilder' ),
-				'class'  => array( 'modal-animation' )
+				'class'  => array( 'modal-animation high-screen' )
 			)
 		) );
 

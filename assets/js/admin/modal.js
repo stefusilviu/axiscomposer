@@ -55,11 +55,11 @@
 	$.AxisBuilderBackboneModal.View = Backbone.View.extend({
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
-		_title: undefined,
-		_screen: undefined,
+		_title:   undefined,
+		_screen:  undefined,
 		_message: undefined,
 		_dismiss: undefined,
-		_target: undefined,
+		_target:  undefined,
 		events: {
 			'click .modal-close': 'closeButton',
 			'click #btn-ok':      'addButton',
@@ -76,7 +76,7 @@
 		},
 		render: function() {
 			var variables = {
-				title: this._title,
+				title:   this._title,
 				message: this._message,
 				dismiss: this._dismiss
 			};

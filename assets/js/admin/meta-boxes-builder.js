@@ -324,8 +324,8 @@ jQuery( function( $ ) {
 
 			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
-				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
+				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_title,
+				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_notice : axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_least,
 				dismiss: ( length > 0 ) ? false : true,
 				template: '#tmpl-axisbuilder-modal-trash-data'
 			});
@@ -1052,18 +1052,34 @@ jQuery( function( $ ) {
 				}
 			},
 
-			init_edit_element: function() {
-				var parents  = window.axisbuilder_shortcode,
-					backbone = $( '.axisbuilder-backbone-modal-content' );
-
-				$( backbone ).find( '.button' ).attr( 'disabled', 'disabled' );
-				$( backbone ).find( 'article' ).block({
+			block: function() {
+				$( '.axisbuilder-backbone-modal-article' ).block({
 					message: null,
 					overlayCSS: {
 						background: '#fff',
 						opacity: 0.6
 					}
 				});
+			},
+
+			enable: function() {
+				$( '.axisbuilder-backbone-modal-content' ).find( 'button' ).removeAttr( 'disabled' );
+			},
+
+			disable: function() {
+				$( '.axisbuilder-backbone-modal-content' ).find( 'button' ).attr( 'disabled', 'disabled' );
+			},
+
+			dismiss: function() {
+				$( '.axisbuilder-backbone-modal-content' ).find( 'p' ).append( axisbuilder_admin_meta_boxes_builder.i18n_backbone_loading_falied );
+				$( '.axisbuilder-backbone-modal-content' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axisbuilder_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
+			},
+
+			init_edit_element: function() {
+				var parents = window.axisbuilder_shortcode;
+
+				axisbuilder_meta_boxes_builder.backbone.block();
+				axisbuilder_meta_boxes_builder.backbone.disable();
 
 				var data = {
 					fetch: true,
@@ -1080,21 +1096,19 @@ jQuery( function( $ ) {
 					data: data,
 					type: 'POST',
 					success: function( response ) {
-						var form = $( backbone ).find( 'form' );
 
 						// Login(0) and session(-1) error response xD
 						if ( response === '0' || response === '-1' ) {
-							form.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error );
-							$( backbone ).find( '.button' ).removeClass( 'button-primary' ).addClass( 'modal-close' ).text( 'Dismiss' );
+							axisbuilder_meta_boxes_builder.backbone.dismiss();
 						} else {
-							form.html( response );
-							form.find( 'p' ).remove();
+							$( '.axisbuilder-backbone-modal-article form' ).empty();
+							$( '.axisbuilder-backbone-modal-article form' ).append( response );
 						}
 
 						axisbuilder_meta_boxes_builder.tiptip();
 						axisbuilder_meta_boxes_builder.unblock();
+						axisbuilder_meta_boxes_builder.backbone.enable();
 						axisbuilder_meta_boxes_builder.stupidtable.init();
-						$( backbone ).find( '.button' ).removeAttr( 'disabled' );
 					}
 				});
 			},
@@ -1136,7 +1150,9 @@ jQuery( function( $ ) {
 				}
 			},
 
-			edit_element: function() {}
+			edit_element: function() {
+				console.info('First');
+			}
 		},
 
 		storage: {

@@ -176,7 +176,7 @@ class AB_Meta_Box_Builder_Data {
 							</header>
 							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">
-									<p><% message %></p>
+									<p><%= message %></p>
 								</form>
 							</article>
 							<footer>

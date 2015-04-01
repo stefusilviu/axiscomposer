@@ -1150,9 +1150,7 @@ jQuery( function( $ ) {
 				}
 			},
 
-			edit_element: function() {
-				console.info('First');
-			}
+			edit_element: function() {}
 		},
 
 		storage: {

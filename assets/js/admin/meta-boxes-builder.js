@@ -125,7 +125,7 @@ jQuery( function( $ ) {
 					console.log( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly.' );
 					if ( typeof window.tinyMCE !== 'undefined' ) {
 						window.tinyMCE.get( 'content' ).setContent( '', { format: 'html' } );
-						$( '#content.wp-editor-area' ).val('');
+						$( '#content.wp-editor-area' ).val( '' );
 					}
 				}
 			}
@@ -209,7 +209,6 @@ jQuery( function( $ ) {
 
 			window.axisbuilder_edit_element = parents;
 
-			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				template: '#tmpl-axisbuilder-modal-edit-element'
 			});
@@ -218,14 +217,9 @@ jQuery( function( $ ) {
 		},
 
 		clone_element: function() {
-			var element  = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' ),
-				recalc_cell = false;
-
-			// Check if column
+			var element = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' ), recalc_cell = false;
 			if ( ! element.length ) {
 				element = $( this ).parents( '.axisbuilder-layout-column:eq(0)' );
-
-				// Check if section
 				if ( ! element.length ) {
 					element = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
 				}
@@ -241,7 +235,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			// Make sure the elements actual html code matches the value so cloning works properly.
+			// Update all textarea html with actual value
 			element.find( 'textarea' ).each( function() {
 				this.innerHTML = this.value;
 			});
@@ -249,7 +243,7 @@ jQuery( function( $ ) {
 			var cloned  = element.clone(),
 				wrapped = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
 
-			// Remove all previous drag-drop classes so we can apply new ones.
+			// Remove all previous drag-drop classes so we can apply new ones
 			cloned.removeClass( 'ui-draggable ui-droppable' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 			cloned.insertAfter( element );
 
@@ -264,11 +258,8 @@ jQuery( function( $ ) {
 				}
 			}
 
-			// Activate Draggable-Droppable
 			axisbuilder_meta_boxes_builder.dragdrop.draggable();
 			axisbuilder_meta_boxes_builder.dragdrop.droppable();
-
-			// Textarea Update and History snapshot
 			axisbuilder_meta_boxes_builder.textarea.outer();
 			axisbuilder_meta_boxes_builder.storage.history_snapshot();
 
@@ -276,15 +267,10 @@ jQuery( function( $ ) {
 		},
 
 		trash_element: function() {
-			var	element = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' ),
-				parents = false, remove_cell = false, hide_timer = 200;
-
-			// Check if column
+			var element = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' ), parents = false, remove_cell = false, hide_timer = 200;
 			if ( ! element.length ) {
 				element = $( this ).parents( '.axisbuilder-layout-column:eq(0)' );
 				parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
-
-				// Check if section
 				if ( ! element.length ) {
 					element = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
 					parents = false;
@@ -315,7 +301,7 @@ jQuery( function( $ ) {
 				}
 				axisbuilder_meta_boxes_builder.textarea.outer();
 
-				// Bugfix for column delete that renders the canvas undropbable for unknown reason
+				// Bugfix - column delete makes the canvas undropbable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
 					axisbuilder_meta_boxes_builder.dragdrop.droppable( '', 'destroy' );
 				}
@@ -330,12 +316,10 @@ jQuery( function( $ ) {
 			var length = $( '.canvas-area' ).children().length,
 				notice = ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast;
 
-			// Clear storage
 			if ( length === 0 ) {
 				axisbuilder_meta_boxes_builder.storage.clear_storage();
 			}
 
-			// AxisBuilder Backbone Modal
 			$( this ).AxisBuilderBackboneModal({
 				message: notice,
 				dismiss: ( length > 0 ) ? false : true,
@@ -346,7 +330,7 @@ jQuery( function( $ ) {
 		},
 
 		resize_layout: function() {
-			var	direction    = $( this ).is( '.axisbuilder-increase' ) ? 1 : -1,
+			var direction    = $( this ).is( '.axisbuilder-increase' ) ? 1 : -1,
 				column       = $( this ).parents( '.axisbuilder-layout-column:eq(0)' ),
 				section      = column.parents( '.axisbuilder-layout-section:eq(0)' ),
 				size_string  = column.find( '.axisbuilder-column-size' ),
@@ -375,7 +359,7 @@ jQuery( function( $ ) {
 				column.removeClass( current_size ).addClass( next_size[0] );
 
 				// Make sure to also set the data attr so html() functions fetch the correct value
-				column.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] ); // Ensure to set data attr so html() functions fetch the correct value :)
+				column.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] );
 
 				// Change the column size text
 				size_string.text( next_size[1] );
@@ -423,7 +407,7 @@ jQuery( function( $ ) {
 				console.log( values );
 			}
 
-			// If we got a string value passed insert the string, otherwise calculate the shortcode ;)
+			// If we got a string value passed insert the string, otherwise calculate the shortcode
 			if ( typeof values === 'string' ) {
 				output = values;
 			} else {
@@ -433,14 +417,14 @@ jQuery( function( $ ) {
 				tags   = extract_html.tags;
 			}
 
-			// If we are working inside a section or cell just update the shortcode open tag else update everything ;)
+			// If we are working inside a section or cell just update the shortcode open tag else update everything
 			if ( element_container.is( '.axisbuilder-layout-section' ) || element_container.is( '.axisbuilder-layout-cell' ) ) {
 				save_data.val( save_data.val().replace( new RegExp( '^\\[' + shortcode + '.*?\\]' ), tags.open ) );
 			} else {
 				save_data.val( output );
 			}
 
-			// Update the Section and column Inner-Textarea
+			// Update the Section and column inner textarea
 			if ( section.length ) {
 				axisbuilder_meta_boxes_builder.textarea.inner( false, section );
 			} else if ( column.length ) {
@@ -971,7 +955,6 @@ jQuery( function( $ ) {
 					notice += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
 				}
 
-				// AxisBuilder Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
 					message: notice,
 					dismiss: cell_size_variations ? false : true,
@@ -1072,7 +1055,6 @@ jQuery( function( $ ) {
 			load_edit_element: function() {
 				var parents = window.axisbuilder_edit_element;
 
-				// Change title
 				$( '.axisbuilder-backbone-modal-header' ).find( 'h1' ).text( parents.data( 'modal-title' ) );
 
 				$( '.axisbuilder-backbone-modal-article' ).block({
@@ -1215,11 +1197,11 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				// Trigger event
 				$( 'body' ).trigger( 'axisbuilder_storage_loaded' );
 			},
 
 			snapshot: function() {
+				// Update all textarea html with actual value
 				$( '.canvas-area' ).find( 'textarea' ).each( function() {
 					this.innerHTML = this.value;
 				});

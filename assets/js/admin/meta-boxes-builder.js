@@ -1048,11 +1048,11 @@ jQuery( function( $ ) {
 
 			load: function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.load_edit_element();
+					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
 			},
 
-			load_edit_element: function() {
+			init_edit_element: function() {
 				var parents  = window.axisbuilder_edit_element,
 					backbone = $( '.axisbuilder-backbone-modal-content' );
 

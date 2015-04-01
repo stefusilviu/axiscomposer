@@ -976,40 +976,13 @@ jQuery( function( $ ) {
 			},
 
 			set_cell_size: function() {
-				var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
-					cells                = $row.find( '.axisbuilder-layout-cell' ),
-					cell_size            = axisbuilder_meta_boxes_builder_data.cell_size,
-					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length], notification = '';
-
-				// Create cell size lists
-				if ( cell_size_variations ) {
-					for ( var x in cell_size_variations ) {
-						var label = '',	labeltext = '';
-
-						for ( var y in cell_size_variations[x] ) {
-							for ( var z in cell_size ) {
-								if ( cell_size[z][0] === cell_size_variations[x][y] ) {
-									labeltext = cell_size[z][1];
-								}
-							}
-
-							label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
-						}
-
-						notification += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
-					}
-				} else {
-					notification += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-					notification += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
-				}
-
-				$( 'body' ).on( 'axisbuilder-modal-cell-size-load', function() {
-					$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
-				});
+				var $row = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells = $row.find( '.axisbuilder-layout-cell' ),
+					close = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length];
 
 				// AxisBuilder Backbone Modal
 				$( this ).AxisBuilderBackboneModal({
-					dismiss: cell_size_variations ? false : true,
+					dismiss: close ? false : true,
 					template: '#tmpl-axisbuilder-modal-cell-size'
 				});
 
@@ -1102,6 +1075,9 @@ jQuery( function( $ ) {
 				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
 					axisbuilder_meta_boxes_builder.backbone.trash_data_load();
 				}
+				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
+					axisbuilder_meta_boxes_builder.backbone.cell_size_load();
+				}
 			},
 
 			trash_data_load: function() {
@@ -1113,6 +1089,37 @@ jQuery( function( $ ) {
 				}
 
 				$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( length > 0 ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast );
+			},
+
+			cell_size_load: function() {
+				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
+					cells                = $row.find( '.axisbuilder-layout-cell' ),
+					cell_size            = axisbuilder_meta_boxes_builder_data.cell_size,
+					cell_size_variations = axisbuilder_meta_boxes_builder_data.cell_size_variations[cells.length], notification = '';
+
+				// Create cell size lists
+				if ( cell_size_variations ) {
+					for ( var x in cell_size_variations ) {
+						var label = '',	labeltext = '';
+
+						for ( var y in cell_size_variations[x] ) {
+							for ( var z in cell_size ) {
+								if ( cell_size[z][0] === cell_size_variations[x][y] ) {
+									labeltext = cell_size[z][1];
+								}
+							}
+
+							label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
+						}
+
+						notification += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+					}
+				} else {
+					notification += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+					notification += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+				}
+
+				$( '.axisbuilder-backbone-modal-article' ).find( 'p' ).html( notification );
 			},
 
 			response: function( e, template, data ) {

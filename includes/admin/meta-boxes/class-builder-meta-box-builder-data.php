@@ -145,34 +145,31 @@ class AB_Meta_Box_Builder_Data {
 	protected static function output_backbone_tmpl() {
 		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_backbone_modal_tmpl', array(
 			'trash' => array(
-				'title'  => __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ),
+				'tmpl'   => 'trash-data',
 				'button' => __( 'Delete', 'axisbuilder' ),
-				'target' => 'trash-data',
 				'class'  => array( 'modal-animation' )
 			),
 			'cell' => array(
-				'title'  => __( 'Select a cell layout', 'axisbuilder' ),
+				'tmpl'   => 'cell-size',
 				'button' => __( 'Add', 'axisbuilder' ),
-				'target' => 'cell-size',
 				'class'  => array( 'modal-animation' )
 			),
 			'edit' => array(
-				'title'  => __( 'Edit Element', 'axisbuilder' ),
+				'tmpl' => 'edit-element',
 				'button' => __( 'Save', 'axisbuilder' ),
-				'target' => 'edit-element',
 				'class'  => array( 'modal-animation' )
 			)
 		) );
 
 		foreach ( $shortcode_modal_tmpl as $key => $template ) {
 			?>
-			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template['target'] ); ?>">
+			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
 				<div class="axisbuilder-backbone-modal">
 					<div class="axisbuilder-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="axisbuilder-backbone-modal-main" role="main">
 							<header class="axisbuilder-backbone-modal-header">
 								<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
-								<h1><?php echo esc_html( $template['title'] ); ?></h1>
+								<h1><%= title %></h1>
 							</header>
 							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">

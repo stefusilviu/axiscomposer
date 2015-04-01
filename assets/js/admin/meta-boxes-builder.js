@@ -314,15 +314,16 @@ jQuery( function( $ ) {
 		},
 
 		trash_data: function() {
-			var length = $( '.canvas-area' ).children().length,
-				notice = ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast;
+			var length = $( '.canvas-area' ).children().length;
 
+			// Clear storage
 			if ( length === 0 ) {
 				axisbuilder_meta_boxes_builder.storage.clear_storage();
 			}
 
 			$( this ).AxisBuilderBackboneModal({
-				message: notice,
+				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_title,
+				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_message : axisbuilder_admin_meta_boxes_builder.i18n_trash_all_elements_atleast,
 				dismiss: ( length > 0 ) ? false : true,
 				template: '#tmpl-axisbuilder-modal-trash-data'
 			});

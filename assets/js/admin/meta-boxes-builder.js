@@ -53,7 +53,7 @@ jQuery( function( $ ) {
 				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_init', this.backbone.init )
-				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.load )
+				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.loaded )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( document ).bind( 'keydown storage', this.storage.keyboard_actions );
@@ -1082,8 +1082,9 @@ jQuery( function( $ ) {
 					success: function( response ) {
 						var form = $( backbone ).find( 'form' );
 
+						// Login(0) and session(-1) error response xD
 						if ( response === '0' || response === '-1' ) {
-							form.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error ); // Login(0) and session(-1)
+							form.find( 'p' ).html( axisbuilder_admin_meta_boxes_builder.i18n_ajax_session_error );
 							$( backbone ).find( '.button' ).removeClass( 'button-primary' ).addClass( 'modal-close' ).text( 'Dismiss' );
 						} else {
 							form.html( response );

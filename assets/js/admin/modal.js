@@ -26,6 +26,7 @@
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
 				close: settings.dismiss,
+				notice: settings.message,
 				target: settings.template
 			});
 		}
@@ -37,6 +38,7 @@
 	 * @type {object}
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
+		message: '',
 		dismiss: '',
 		template: ''
 	};
@@ -50,6 +52,7 @@
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
 		_close: undefined,
+		_notice: undefined,
 		_target: undefined,
 		events: {
 			'click .modal-close': 'closeButton',
@@ -58,13 +61,15 @@
 		},
 		initialize: function( data ) {
 			this._close  = data.close;
+			this._notice = data.notice;
 			this._target = data.target;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
 		render: function() {
 			var variables = {
-				dismiss: this._close
+				dismiss: this._close,
+				message: this._notice
 			};
 
 			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );

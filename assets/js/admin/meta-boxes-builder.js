@@ -956,7 +956,7 @@ jQuery( function( $ ) {
 					}
 				} else {
 					notification += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-					notification += ( cells.length === 1 ) ? axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell : axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell;
+					notification += ( cells.length === 1 ) ? '<mark class="yes">' + axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell + '</mark>' : '<mark class="no">' + axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell + '</mark>';
 				}
 
 				// AxisBuilder Backbone Modal

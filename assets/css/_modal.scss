@@ -7,10 +7,16 @@
  * Imports
  */
 @import "bourbon";
+@import "mixins";
+@import "variables";
 
 /**
  * Styling begins
  */
+.blockUI.blockOverlay {
+	@include loader();
+}
+
 .axisbuilder-backbone-modal {
 	* {
 		box-sizing: border-box;
@@ -113,6 +119,18 @@
 		.message {
 			padding: 16px 0;
 			text-align: center;
+
+			mark {
+				background: transparent none;
+			}
+
+			mark.yes {
+				color: $green;
+			}
+
+			mark.no {
+				color: $red;
+			}
 		}
 
 		.pagination {

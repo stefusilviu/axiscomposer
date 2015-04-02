@@ -145,12 +145,12 @@ class AB_Admin_Assets {
 				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',
 				'element_nonce'                   => wp_create_nonce( 'edit-element' ),
 				'i18n_no_layout'                  => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
-				'i18n_add_one_cell'               => esc_js( __( 'You need to add at least one cell.', 'axisbuilder' ) ),
-				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell.', 'axisbuilder' ) ),
+				'i18n_add_one_cell'               => esc_js( __( 'You need to add at least one cell', 'axisbuilder' ) ),
+				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell', 'axisbuilder' ) ),
 				'i18n_select_cell_layout'         => esc_js( __( 'Select a cell layout', 'axisbuilder' ) ),
 				'i18n_trash_elements_title'       => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
-				'i18n_trash_elements_least'       => esc_js( __( 'You need to add at least one element to the canvas area to perform this action.', 'axisbuilder' ) ),
-				'i18n_trash_elements_notice'      => esc_js( __( 'All content created in the Page Builder canvas area will be permanently lost. Are you sure you want to delete all canvas elements? This cannot be undone.', 'axisbuilder' ) ),
+				'i18n_trash_elements_least'       => esc_js( sprintf( __( 'You need to add at least one element to the canvas area to perform this action. %sYour history session has beeen reset :)%s', 'axisbuilder' ), '<br /><mark class="yes">', '</mark>' ) ),
+				'i18n_trash_elements_notice'      => esc_js( sprintf( __( 'All Page Builder content will be permanently lost. This cannot be undone. %sAre you sure you want to delete all canvas elements?%s', 'axisbuilder' ), '<br /><mark class="no">', '</mark>' ) ),
 				'i18n_backbone_loading_falied'    => esc_js( __( 'Loading failed - Your session timed out. Please reload the page and try again.', 'axisbuilder' ) ),
 				'i18n_backbone_dismiss_button'    => esc_js( __( 'Dismiss', 'axisbuilder' ) )
 			);

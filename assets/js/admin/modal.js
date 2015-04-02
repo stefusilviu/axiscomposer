@@ -26,7 +26,6 @@
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
-				screen: settings.screen,
 				message: settings.message,
 				dismiss: settings.dismiss,
 				target: settings.template
@@ -41,7 +40,6 @@
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
 		title: '',
-		screen: '',
 		message: '',
 		dismiss: '',
 		template: ''
@@ -56,7 +54,6 @@
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
 		_title:   undefined,
-		_screen:  undefined,
 		_message: undefined,
 		_dismiss: undefined,
 		_target:  undefined,
@@ -67,7 +64,6 @@
 		},
 		initialize: function( data ) {
 			this._title   = data.title;
-			this._screen  = data.screen;
 			this._message = data.message;
 			this._dismiss = data.dismiss;
 			this._target  = data.target;
@@ -87,9 +83,9 @@
 				'overflow': 'hidden'
 			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_init', this._target );
 
-			var $connect   = $( '.axisbuilder-backbone-modal-content' ).is( '.ajax-connect' );
+			var $connect  = $( '.axisbuilder-backbone-modal-content' ).is( '.ajax-connect' );
 			var $content  = $( '.axisbuilder-backbone-modal-content' ).find( 'article' );
-			var content_h = ( 0 === $content.height() ) ? 90 : $content.height();
+			var content_h = ( $content.height() < 90 ) ? 90 : $content.height();
 			var max_h     = $( window ).height() - 200;
 
 			if ( max_h > 400 ) {
@@ -99,18 +95,18 @@
 			if ( content_h > max_h ) {
 				$content.css({
 					'overflow': 'auto',
-					height: $connect ? content_h : max_h + 'px'
+					height: ( $connect ? content_h : max_h ) + 'px'
 				});
 			} else {
 				$content.css({
 					'overflow': 'visible',
-					height: content_h
+					height: ( content_h > 90 ) ? 'auto' : content_h + 'px'
 				});
 			}
 
 			$( '.axisbuilder-backbone-modal-content' ).css({
 				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
-			}).addClass( this._screen );
+			});
 
 			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._target );
 		},

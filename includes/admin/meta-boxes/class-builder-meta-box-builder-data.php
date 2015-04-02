@@ -174,9 +174,9 @@ class AB_Meta_Box_Builder_Data {
 							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">
 									<% if ( message ) { %>
-										<p><%= message %></p>
-									<% } else { %>
-										<p>&nbsp;</p>
+										<div class="message">
+											<%= message %>
+										</div>
 									<% } %>
 								</form>
 							</article>

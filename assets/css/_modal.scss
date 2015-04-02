@@ -25,52 +25,6 @@
 		margin: 0 0 0 -250px;
 		z-index: 160000;
 	}
-
-	.ajax-connect {
-		article {
-			height: 410px;
-		}
-	}
-
-	.high-screen,
-	.normal-screen,
-	.medium-screen {
-		width: auto;
-		margin-left: 0;
-	}
-
-	.high-screen {
-		left: 5%;
-		right: 5%;
-
-		&.ajax-connect {
-			article {
-				height: 470px;
-			}
-		}
-	}
-
-	.medium-screen {
-		left: 10%;
-		right: 10%;
-
-		&.ajax-connect {
-			article {
-				height: 450px;
-			}
-		}
-	}
-
-	.normal-screen {
-		left: 15%;
-		right: 15%;
-
-		&.ajax-connect {
-			article {
-				height: 430px;
-			}
-		}
-	}
 }
 
 .axisbuilder-backbone-modal-backdrop {
@@ -160,6 +114,11 @@
 			padding: 10px 0 0;
 			text-align: center;
 		}
+
+		.notification {
+			padding: 16px 0;
+			text-align: center;
+		}
 	}
 
 	footer {
@@ -179,6 +138,58 @@
 
 			.button {
 				margin-bottom: 0
+			}
+		}
+	}
+}
+
+/**
+ * Screen styles
+ */
+.axisbuilder-backbone-modal {
+
+	.ajax-connect {
+		article {
+			height: 410px;
+		}
+	}
+
+	.high-screen,
+	.normal-screen,
+	.medium-screen {
+		width: auto;
+		margin-left: 0;
+	}
+
+	.high-screen {
+		left: 5%;
+		right: 5%;
+
+		&.ajax-connect {
+			article {
+				height: 470px;
+			}
+		}
+	}
+
+	.medium-screen {
+		left: 10%;
+		right: 10%;
+
+		&.ajax-connect {
+			article {
+				height: 450px;
+			}
+		}
+	}
+
+	.normal-screen {
+		left: 15%;
+		right: 15%;
+
+		&.ajax-connect {
+			article {
+				height: 430px;
 			}
 		}
 	}

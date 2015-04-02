@@ -52,63 +52,41 @@
 	article {
 		display: block;
 		position: relative;
-		padding: 4px 16px;
 	}
 
 	.axisbuilder-backbone-modal-header {
+		height: 48px;
 		background: #fcfcfc;
 		border-bottom: 1px solid #ddd;
 
 		h1 {
+			margin: 0;
+			float: left;
 			font-size: 16px;
 			font-weight: 700;
-			line-height: 42px;
-			margin: 0;
-		}
-	}
-
-	.modal-close-link {
-		cursor: pointer;
-		color: #777;
-		background-color: transparent;
-		height: 50px;
-		width: 50px;
-		padding: 0;
-		position: absolute;
-		text-align: center;
-		border: 0;
-		border-left: 1px solid #ddd;
-		-webkit-transition: color .1s ease-in-out,background .1s ease-in-out;
-		transition: color .1s ease-in-out,background .1s ease-in-out;
-		top: 0;
-		right: 0;
-		text-decoration: none;
-
-		&:hover {
-			background: #ddd;
-			border-color: #ccc;
-			color: #000;
-			outline: 0;
-			text-decoration: none;
+			line-height: 48px;
+			padding-left: 16px;
 		}
 
-		.close-icon {
-			display: block;
-			height: 15px;
-			background-image: none;
+		.modal-close {
+			cursor: pointer;
+			color: #777;
+			height: 48px;
+			width: 50px;
 			text-align: center;
-			margin: 14px;
-			width: 22px;
+			float: right;
+			border: 0;
+			border-left: 1px solid #ddd;
+			background-color: transparent;
+			-webkit-transition: color .1s ease-in-out, background .1s ease-in-out;
+			transition: color .1s ease-in-out, background .1s ease-in-out;
 
-			&:before {
-				content: '\f335';
-				font-size: 22px;
-				font: 400 20px/1 dashicons;
-				speak: none;
-				vertical-align: middle;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				color: #666;
+			&:focus,
+			&:hover {
+				background: #ddd;
+				border-color: #ccc;
+				color: #000;
+				outline: 0;
 			}
 		}
 	}

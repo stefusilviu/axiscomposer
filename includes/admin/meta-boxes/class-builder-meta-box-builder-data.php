@@ -168,8 +168,10 @@ class AB_Meta_Box_Builder_Data {
 					<div class="axisbuilder-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="axisbuilder-backbone-modal-main" role="main">
 							<header class="axisbuilder-backbone-modal-header">
-								<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
-								<h1><%= title %></h1>
+								<h1 class="modal-title"><%= title %></h1>
+								<button class="modal-close dashicons dashicons-no-alt">
+									<span class="screen-reader-text">Close Overlay</span>
+								</button>
 							</header>
 							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">

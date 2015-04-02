@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<article class="axisbuilder-backbone-modal-article">
 					<form action="" method="post">
 						<div class="message">
-							<?php printf( __( 'Sidebar will be deleted and all widgets will be stored in Inactive Widgets. %sAre you sure you want to delete the sidebar now?%s', 'axisbuilder' ), '<br /><mark class="no">', '</mark>' ); ?>
+							<?php printf( __( 'Permanantly delete Sidebar and store all widgets in Inactive Sidebar. %sAre you sure you want to delete the sidebar now?%s', 'axisbuilder' ), '<br /><mark class="no">', '</mark>' ); ?>
 						</div>
 					</form>
 				</article>

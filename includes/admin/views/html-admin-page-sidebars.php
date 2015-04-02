@@ -28,7 +28,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</header>
 				<article class="axisbuilder-backbone-modal-article">
 					<form action="" method="post">
-						<p><?php _e( 'Are you sure you want to delete the sidebar now? This cannot be undone.', 'axisbuilder' ); ?></p>
+						<div class="message">
+							<?php printf( __( 'Sidebar will be deleted and all widgets will be stored in Inactive Widgets. %sAre you sure you want to delete the sidebar now?%s', 'axisbuilder' ), '<br /><mark class="no">', '</mark>' ); ?>
+						</div>
 					</form>
 				</article>
 				<footer class="axisbuilder-backbone-modal-footer">

@@ -26,10 +26,9 @@
 		if ( settings.template ) {
 			new $.AxisBuilderBackboneModal.View({
 				title: settings.title,
-				screen: settings.screen,
 				message: settings.message,
 				dismiss: settings.dismiss,
-				template: settings.template
+				target: settings.template
 			});
 		}
 	};
@@ -41,7 +40,6 @@
 	 */
 	$.AxisBuilderBackboneModal.defaultOptions = {
 		title: '',
-		screen: '',
 		message: '',
 		dismiss: '',
 		template: ''
@@ -55,40 +53,39 @@
 	$.AxisBuilderBackboneModal.View = Backbone.View.extend({
 		tagName: 'div',
 		id: 'axisbuilder-backbone-modal-dialog',
-		_title: undefined,
-		_screen: undefined,
+		_title:   undefined,
 		_message: undefined,
 		_dismiss: undefined,
-		_template: undefined,
+		_target:  undefined,
 		events: {
 			'click .modal-close': 'closeButton',
 			'click #btn-ok':      'addButton',
 			'keydown':            'keyboardActions'
 		},
 		initialize: function( data ) {
-			this._title = data.title;
-			this._screen = data.screen;
+			this._title   = data.title;
 			this._message = data.message;
 			this._dismiss = data.dismiss;
-			this._template = data.template;
+			this._target  = data.target;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
 		render: function() {
 			var variables = {
-				title: this._title,
+				title:   this._title,
 				message: this._message,
 				dismiss: this._dismiss
 			};
 
-			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._template ).html(), variables ) );
+			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
 
 			$( 'body' ).css({
 				'overflow': 'hidden'
-			}).append( this.$el );
+			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_init', this._target );
 
+			var $connect  = $( '.axisbuilder-backbone-modal-content' ).is( '.ajax-connect' );
 			var $content  = $( '.axisbuilder-backbone-modal-content' ).find( 'article' );
-			var content_h = ( 0 === $content.height() ) ? 90 : $content.height();
+			var content_h = ( $content.height() < 90 ) ? 90 : $content.height();
 			var max_h     = $( window ).height() - 200;
 
 			if ( max_h > 400 ) {
@@ -98,20 +95,20 @@
 			if ( content_h > max_h ) {
 				$content.css({
 					'overflow': 'auto',
-					height: max_h + 'px'
+					height: ( $connect ? content_h : max_h ) + 'px'
 				});
 			} else {
 				$content.css({
 					'overflow': 'visible',
-					height: content_h
+					height: ( content_h > 90 ) ? 'auto' : content_h + 'px'
 				});
 			}
 
 			$( '.axisbuilder-backbone-modal-content' ).css({
 				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
-			}).addClass( this._screen );
+			});
 
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._template );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_loaded', this._target );
 		},
 		closeButton: function( e ) {
 			e.preventDefault();
@@ -122,10 +119,10 @@
 				'overflow': 'auto'
 			});
 			this.remove();
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._template );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_removed', this._target );
 		},
 		addButton: function( e ) {
-			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', [ this._template, this.getFormData() ] );
+			$( 'body' ).trigger( 'axisbuilder_backbone_modal_response', [ this._target, this.getFormData() ] );
 			this.closeButton( e );
 		},
 		getFormData: function() {

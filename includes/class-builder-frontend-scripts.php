@@ -47,19 +47,19 @@ class AB_Frontend_Scripts {
 	public static function get_styles() {
 		return apply_filters( 'axisbuilder_enqueue_styles', array(
 			'axisbuilder-layout' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/styles/axisbuilder-layout.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/css/axisbuilder-layout.css',
 				'deps'    => '',
 				'version' => AB_VERSION,
 				'media'   => 'all'
 			),
 			'axisbuilder-smallscreen' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/styles/axisbuilder-smallscreen.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/css/axisbuilder-smallscreen.css',
 				'deps'    => 'axisbuilder-layout',
 				'version' => AB_VERSION,
 				'media'   => 'only screen and (max-width: ' . apply_filters( 'axisbuilder_style_smallscreen_breakpoint', $breakpoint = '768px' ) . ')'
 			),
 			'axisbuilder-general' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/styles/axisbuilder.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/css/axisbuilder.css',
 				'deps'    => '',
 				'version' => AB_VERSION,
 				'media'   => 'all'

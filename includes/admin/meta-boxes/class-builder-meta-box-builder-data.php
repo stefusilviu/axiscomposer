@@ -29,7 +29,7 @@ class AB_Meta_Box_Builder_Data {
 		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
 
 		?>
-		<input type="hidden" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
+		<input type="hidden" class="axisbuilder-status" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes axisbuilder-style">
 			<div id="axisbuilder-panels" class="panel-wrap">
 				<ul class="axisbuilder-tabs" style="display:none">
@@ -93,7 +93,7 @@ class AB_Meta_Box_Builder_Data {
 				</div>
 			</div>
 			<div id="axisbuilder-canvas" class="visual-editor">
-				<div class="canvas-area axisbuilder-data loader layout-flex-grid axisbuilder-drop" data-dragdrop-level="0"></div>
+				<div class="canvas-area axisbuilder-data layout-flex-grid axisbuilder-drop" data-dragdrop-level="0"></div>
 				<div class="canvas-secure-data">
 					<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_axisbuilder_canvas', true ) ); ?></textarea> <!-- readonly="readonly" later -->
 				</div>
@@ -147,12 +147,17 @@ class AB_Meta_Box_Builder_Data {
 			'trash' => array(
 				'tmpl'   => 'trash-data',
 				'button' => __( 'Delete', 'axisbuilder' ),
-				'class'  => array( 'modal-animation' ),
+				'class'  => array( 'modal-animation' )
 			),
-			'cells' => array(
+			'cell' => array(
 				'tmpl'   => 'cell-size',
 				'button' => __( 'Add', 'axisbuilder' ),
 				'class'  => array( 'modal-animation' )
+			),
+			'edit' => array(
+				'tmpl' => 'edit-element',
+				'button' => __( 'Save', 'axisbuilder' ),
+				'class'  => array( 'modal-animation', 'normal-screen', 'ajax-connect' )
 			)
 		) );
 
@@ -163,18 +168,24 @@ class AB_Meta_Box_Builder_Data {
 					<div class="axisbuilder-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="axisbuilder-backbone-modal-main" role="main">
 							<header class="axisbuilder-backbone-modal-header">
-								<a class="modal-close modal-close-link" href="#"><span class="close-icon"><span class="screen-reader-text">Close media panel</span></span></a>
-								<h1><%= title %></h1>
+								<h1 class="modal-title"><%= title %></h1>
+								<button class="modal-close dashicons dashicons-no-alt">
+									<span class="screen-reader-text">Close Overlay</span>
+								</button>
 							</header>
-							<article>
+							<article class="axisbuilder-backbone-modal-article">
 								<form action="" method="post">
-									<p><%= message %></p>
+									<% if ( message ) { %>
+										<div class="message">
+											<%= message %>
+										</div>
+									<% } %>
 								</form>
 							</article>
-							<footer>
+							<footer class="axisbuilder-backbone-modal-footer">
 								<div class="inner">
 									<% if ( dismiss ) { %>
-										<button class="button button-large modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
+										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
 									<% } else { %>
 										<button id="btn-ok" class="button button-large button-primary"><?php echo esc_html( $template['button'] ); ?></button>
 									<% } %>

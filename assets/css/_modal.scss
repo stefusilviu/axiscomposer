@@ -1,0 +1,192 @@
+/**
+ * _modal.scss
+ * Backbone Modal Dialog
+ */
+
+/**
+ * Imports
+ */
+@import "bourbon";
+@import "mixins";
+@import "variables";
+
+/**
+ * Styling begins
+ */
+.blockUI.blockOverlay {
+	@include loader();
+}
+
+.axisbuilder-backbone-modal {
+	* {
+		box-sizing: border-box;
+	}
+
+	.axisbuilder-backbone-modal-content {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 500px;
+		background: #fff;
+		margin: 0 0 0 -250px;
+		z-index: 160000;
+	}
+}
+
+.axisbuilder-backbone-modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-height: 360px;
+	background: #000;
+	opacity: .7;
+	z-index: 159900;
+}
+
+.axisbuilder-backbone-modal-main {
+	padding-bottom: 51px;
+
+	header,
+	article {
+		display: block;
+		position: relative;
+	}
+
+	.axisbuilder-backbone-modal-header {
+		height: 48px;
+		background: #fcfcfc;
+		border-bottom: 1px solid #ddd;
+
+		h1 {
+			margin: 0;
+			float: left;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 48px;
+			padding-left: 16px;
+		}
+
+		.modal-close {
+			cursor: pointer;
+			color: #777;
+			height: 48px;
+			width: 50px;
+			text-align: center;
+			float: right;
+			border: 0;
+			border-left: 1px solid #ddd;
+			background-color: transparent;
+			-webkit-transition: color .1s ease-in-out, background .1s ease-in-out;
+			transition: color .1s ease-in-out, background .1s ease-in-out;
+
+			&:focus,
+			&:hover {
+				background: #ddd;
+				border-color: #ccc;
+				color: #000;
+				outline: 0;
+			}
+		}
+	}
+
+	article {
+		padding: 10px 16px;
+
+		.message {
+			padding: 16px 0;
+			text-align: center;
+
+			mark {
+				background: transparent none;
+			}
+
+			mark.yes {
+				color: $green;
+			}
+
+			mark.no {
+				color: $red;
+			}
+		}
+
+		.pagination {
+			padding: 10px 0 0;
+			text-align: center;
+		}
+	}
+
+	footer {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 100;
+		padding: 10px 16px;
+		background: #fcfcfc;
+		border-top: 1px solid #dfdfdf;
+		box-shadow: 0 -4px 4px -4px rgba(0,0,0,0.1);
+
+		.inner {
+			float: right;
+			line-height: 23px;
+
+			.button {
+				margin-bottom: 0
+			}
+		}
+	}
+}
+
+/**
+ * Screen styles
+ */
+.axisbuilder-backbone-modal {
+
+	.ajax-connect {
+		article {
+			height: 410px;
+		}
+	}
+
+	.high-screen,
+	.normal-screen,
+	.medium-screen {
+		width: auto;
+		margin-left: 0;
+	}
+
+	.high-screen {
+		left: 5%;
+		right: 5%;
+
+		&.ajax-connect {
+			article {
+				height: 470px;
+			}
+		}
+	}
+
+	.medium-screen {
+		left: 10%;
+		right: 10%;
+
+		&.ajax-connect {
+			article {
+				height: 450px;
+			}
+		}
+	}
+
+	.normal-screen {
+		left: 15%;
+		right: 15%;
+
+		&.ajax-connect {
+			article {
+				height: 430px;
+			}
+		}
+	}
+}

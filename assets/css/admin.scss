@@ -44,9 +44,9 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Toggle Editors Button
+ * Toggle Editor Button
  */
-#axisbuilder-button {
+.axisbuilder-toggle-editor {
 	z-index: 1001;
 	position: relative;
 
@@ -273,10 +273,6 @@ label[for="axisbuilder-editor-hide"] {
 			position: relative;
 			border: 1px solid transparent;
 			border-top: 1px solid #eee;
-
-			&.loader {
-				@include loader();
-			}
 
 			.axisbuilder-inner-shortcode {
 
@@ -790,7 +786,6 @@ body .ui-draggable-dragging {
 
 		a {
 			top: 18px;
-			left: 1px;
 			color: #7b7b7b;
 			padding: 5px 10px;
 			position: relative;
@@ -868,6 +863,10 @@ body .ui-draggable-dragging {
 .axisbuilder-layout-row-modal {
 	color: #888;
 	margin-bottom: 10px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 
 	.axisbuilder-layout-row-modal-label {
 
@@ -1467,7 +1466,7 @@ table.axisbuilder_status_table {
  * Select2
  */
 .select2-drop {
-	z-index: 999999;
+	z-index: 999999 !important;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
 	font-family: inherit;

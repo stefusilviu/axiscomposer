@@ -140,7 +140,7 @@ abstract class AB_Widget extends WP_Widget {
 
 		$instance = $old_instance;
 
-		if ( ! $this->settings ) {
+		if ( empty( $this->settings ) ) {
 			return $instance;
 		}
 
@@ -166,7 +166,7 @@ abstract class AB_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		if ( ! $this->settings ) {
+		if ( empty( $this->settings ) ) {
 			return;
 		}
 

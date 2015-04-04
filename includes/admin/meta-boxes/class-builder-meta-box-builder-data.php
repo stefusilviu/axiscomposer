@@ -194,7 +194,7 @@ class AB_Meta_Box_Builder_Data {
 						</section>
 					</div>
 				</div>
-				<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
+				<div class="axisbuilder-backbone-modal-backdrop modal-close"></div>
 			</script>
 			<?php
 		}

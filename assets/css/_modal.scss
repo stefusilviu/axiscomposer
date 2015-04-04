@@ -107,23 +107,6 @@
 	article {
 		padding: 10px 16px;
 
-		.message {
-			padding: 16px 0;
-			text-align: center;
-
-			mark {
-				background: transparent none;
-			}
-
-			mark.yes {
-				color: $green;
-			}
-
-			mark.no {
-				color: $red;
-			}
-		}
-
 		.pagination {
 			padding: 10px 0 0;
 			text-align: center;
@@ -199,6 +182,32 @@
 		&.ajax-connect {
 			article {
 				height: 430px;
+			}
+		}
+	}
+}
+
+/**
+ * Message Styles
+ */
+.axisbuilder-backbone-modal-main {
+
+	article {
+
+		.message {
+			padding: 16px 0;
+			text-align: center;
+
+			mark {
+				background: transparent none;
+			}
+
+			mark.yes {
+				color: $green;
+			}
+
+			mark.no {
+				color: $red;
 			}
 		}
 	}

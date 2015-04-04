@@ -54,6 +54,11 @@
 		position: relative;
 	}
 
+	header,
+	footer {
+		@include user-select(none);
+	}
+
 	.axisbuilder-backbone-modal-header {
 		height: 50px;
 		background: #fcfcfc;
@@ -85,8 +90,8 @@
 
 			&:before {
 				font: normal 22px/50px 'dashicons' !important;
-				color: #777;
-				display: block;
+				color: #666;
+				display: inline-block;
 				content: '\f335';
 				font-weight: 300;
 			}

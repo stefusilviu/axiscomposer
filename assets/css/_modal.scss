@@ -28,7 +28,7 @@
 		left: 50%;
 		width: 500px;
 		background: #fff;
-		margin: 0 0 0 -250px;
+		margin-left: -250px;
 		z-index: 160000;
 	}
 }
@@ -55,34 +55,44 @@
 	}
 
 	.axisbuilder-backbone-modal-header {
-		height: 48px;
+		height: 50px;
 		background: #fcfcfc;
+		padding: 0 50px 0 16px;
 		border-bottom: 1px solid #ddd;
 
 		h1 {
 			margin: 0;
-			float: left;
 			font-size: 16px;
-			font-weight: 700;
-			line-height: 48px;
-			padding-left: 16px;
+			font-weight: 600;
+			line-height: 50px;
 		}
 
-		.modal-close {
+		.modal-close-link {
 			cursor: pointer;
 			color: #777;
-			height: 48px;
+			background-color: transparent;
+			height: 50px;
 			width: 50px;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			right: 0;
 			text-align: center;
-			float: right;
 			border: 0;
 			border-left: 1px solid #ddd;
-			background-color: transparent;
-			-webkit-transition: color .1s ease-in-out, background .1s ease-in-out;
-			transition: color .1s ease-in-out, background .1s ease-in-out;
+			-webkit-transition: color .1s ease-in-out,background .1s ease-in-out;
+			transition: color .1s ease-in-out,background .1s ease-in-out;
 
-			&:focus,
-			&:hover {
+			&:before {
+				font: normal 22px/50px 'dashicons' !important;
+				color: #777;
+				display: block;
+				content: '\f335';
+				font-weight: 300;
+			}
+
+			&:hover,
+			&:focus {
 				background: #ddd;
 				border-color: #ccc;
 				color: #000;

@@ -24,8 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<section class="axisbuilder-backbone-modal-main" role="main">
 				<header class="axisbuilder-backbone-modal-header">
 					<h1 class="modal-title"><?php _e( 'Last warning, are you sure?', 'axisbuilder' ); ?></h1>
-					<button class="modal-close dashicons dashicons-no-alt">
-						<span class="screen-reader-text">Close Overlay</span>
+					<button class="modal-close modal-close-link dashicons dashicons-no-alt">
+						<span class="screen-reader-text">Close modal panel</span>
 					</button>
 				</header>
 				<article class="axisbuilder-backbone-modal-article">

@@ -54,11 +54,6 @@
 		position: relative;
 	}
 
-	header,
-	footer {
-		@include user-select(none);
-	}
-
 	.axisbuilder-backbone-modal-header {
 		height: 50px;
 		background: #fcfcfc;
@@ -75,7 +70,6 @@
 		.modal-close-link {
 			cursor: pointer;
 			color: #777;
-			background-color: transparent;
 			height: 50px;
 			width: 50px;
 			padding: 0;
@@ -85,13 +79,14 @@
 			text-align: center;
 			border: 0;
 			border-left: 1px solid #ddd;
+			background-color: transparent;
 			-webkit-transition: color .1s ease-in-out,background .1s ease-in-out;
 			transition: color .1s ease-in-out,background .1s ease-in-out;
 
 			&:before {
 				font: normal 22px/50px 'dashicons' !important;
 				color: #666;
-				display: inline-block;
+				display: block;
 				content: '\f335';
 				font-weight: 300;
 			}

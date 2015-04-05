@@ -121,8 +121,8 @@ jQuery( function( $ ) {
 				}
 
 				// Debug Logger
-				if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
-					console.log( 'Switching to Classic Editor. Page Builder is in Debug Mode and will empty the textarea so user can\'t edit shortcode directly.' );
+				if ( axisbuilder_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
+					console.log( 'Switching to Classic Editor. Page Builder debug mode is disabled and will empty the textarea so user can\'t edit shortcode directly.' );
 					if ( typeof window.tinyMCE !== 'undefined' ) {
 						window.tinyMCE.get( 'content' ).setContent( '', { format: 'html' } );
 						$( '#content.wp-editor-area' ).val( '' );

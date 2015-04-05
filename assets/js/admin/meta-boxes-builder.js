@@ -86,9 +86,10 @@ jQuery( function( $ ) {
 
 		tinyMCE: function( content ) {
 			if ( typeof window.tinyMCE !== 'undefined' ) {
-				setTimeout( function() {
-					window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( content ), { format: 'html' } );
-				}, 500 );
+				var editor = window.tinyMCE.get( 'content' );
+				if ( editor ) {
+					editor.setContent( window.switchEditors.wpautop( content ), { format: 'html' } );
+				}
 			}
 
 			// Fallback WP tinyMCE editor html textarea
@@ -135,7 +136,7 @@ jQuery( function( $ ) {
 
 				// Clear default tinyMCE editor if debug mode is disabled
 				if ( axisbuilder_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
-					axisbuilder_meta_boxes_builder.tinyMCE();
+					axisbuilder_meta_boxes_builder.tinyMCE( '' );
 				}
 			}
 		},
@@ -681,8 +682,8 @@ jQuery( function( $ ) {
 					scope = $( '.axisbuilder-data > div > .axisbuilder-inner-shortcode' );
 				}
 
-				var size_count     = 0,
-					content_val    = '',
+				var content        = '',
+					size_count     = 0,
 					column_size    = axisbuilder_meta_boxes_builder_data.col_size,
 					content_fields = scope.find( '>textarea[data-name="text-shortcode"]' ),
 					current_field, current_content, current_parents, current_size, next_size;
@@ -722,17 +723,17 @@ jQuery( function( $ ) {
 						size_count = 1;
 					}
 
-					content_val += current_content;
+					content += current_content;
 				}
 
-				if ( typeof window.tinyMCE !== 'undefined' ) {
-					setTimeout( function() {
-						window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( content_val ), { format: 'html' } );
-					}, 500 );
-				}
+				$( '.canvas-data' ).val( content );
 
-				$( '.canvas-data' ).val( content_val );
-				$( '#content.wp-editor-area' ).val( content_val ).trigger( 'axisbuilder_update' );
+				// Slows the whole process considerably
+				var timeout = false;
+				clearTimeout( timeout );
+				timeout = setTimeout( function() {
+					axisbuilder_meta_boxes_builder.tinyMCE( content );
+				}, 200 );
 			}
 		},
 
@@ -1210,14 +1211,9 @@ jQuery( function( $ ) {
 			canvas_update: function( values ) {
 				var history = axisbuilder_meta_boxes_builder.storage;
 
-				if ( typeof window.tinyMCE !== 'undefined' ) {
-					setTimeout( function() {
-						window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
-					}, 500 );
-				}
-
 				$( '.canvas-data' ).val( values[0] );
 				$( '.canvas-area' ).html( values[1] );
+				axisbuilder_meta_boxes_builder.tinyMCE( values[0] );
 				sessionStorage.setItem( history.set_key() + '-temp', history.temporary );
 
 				// Undo button

@@ -320,6 +320,7 @@ jQuery( function( $ ) {
 			// Clear storage
 			if ( length === 0 ) {
 				axisbuilder_meta_boxes_builder.storage.clear_storage();
+				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			}
 
 			// AxisBuilder Backbone Modal
@@ -1135,6 +1136,7 @@ jQuery( function( $ ) {
 				$( '.canvas-area' ).empty();
 				axisbuilder_meta_boxes_builder.textarea.outer();
 				axisbuilder_meta_boxes_builder.storage.clear_storage();
+				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			},
 
 			cell_size: function( add_cell_size ) {

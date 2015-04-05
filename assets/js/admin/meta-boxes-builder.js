@@ -1285,9 +1285,6 @@ jQuery( function( $ ) {
 				// Reset huh?
 				history.storage   = [];
 				history.temporary = null;
-
-				// History snapshot
-				history.history_snapshot();
 			},
 
 			history_snapshot: function( timeout ) {

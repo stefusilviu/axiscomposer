@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder, console */
+/* global axisbuilder_admin_meta_boxes_builder */
 jQuery( function( $ ) {
 
 	/** Storage Handling */
@@ -416,11 +416,6 @@ jQuery( function( $ ) {
 				selector  = element_container.is( '.axisbuilder-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),
 				save_data = element_container.find( selector ),
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
-
-			// Debug Logger
-			if ( axisbuilder_admin_meta_boxes_builder.debug_mode === 'yes' ) {
-				console.log( values );
-			}
 
 			// If we got a string value passed insert the string, otherwise calculate the shortcode
 			if ( typeof values === 'string' ) {
@@ -1263,7 +1258,6 @@ jQuery( function( $ ) {
 					} catch( err ) {
 						axisbuilder_meta_boxes_builder.storage.clear_storage();
 						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
-						console.log( 'Your Browser Session Storage Limit reached.', err );
 					}
 				}
 

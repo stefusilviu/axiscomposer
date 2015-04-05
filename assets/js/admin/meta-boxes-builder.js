@@ -1199,7 +1199,10 @@ jQuery( function( $ ) {
 			canvas_update: function( values ) {
 				var history = axisbuilder_meta_boxes_builder.storage;
 				if ( typeof window.tinyMCE !== 'undefined' ) {
-					window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
+					var content = '.canvas-data';
+					if ( window.tinyMCE.get( content.replace( '#', '' ) ) ) {
+						window.setContent( window.switchEditors.wpautop( values[0] ), { format: 'html' } );
+					}
 				}
 
 				$( '.canvas-data' ).val( values[0] );

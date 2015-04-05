@@ -84,6 +84,17 @@ jQuery( function( $ ) {
 			$( '#axisbuilder-editor, .axisbuilder-backbone-modal-article' ).unblock();
 		},
 
+		tinyMCE: function( content ) {
+			if ( typeof window.tinyMCE !== 'undefined' ) {
+				setTimeout( function() {
+					window.tinyMCE.get( 'content' ).setContent( window.switchEditors.wpautop( content ), { format: 'html' } );
+				}, 500 );
+			}
+
+			// Fallback WP tinyMCE editor html textarea
+			$( '#content.wp-editor-area' ).val( content );
+		},
+
 		toggle_editor: function( e ) {
 			e.preventDefault();
 
@@ -122,13 +133,9 @@ jQuery( function( $ ) {
 					window.editorExpand.on();
 				}
 
-				// Debug Logger
+				// Clear default tinyMCE editor if debug mode is disabled
 				if ( axisbuilder_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
-					console.log( 'Switching to Classic Editor. Page Builder debug mode is disabled and will empty the textarea so user can\'t edit shortcode directly.' );
-					if ( typeof window.tinyMCE !== 'undefined' ) {
-						window.tinyMCE.get( 'content' ).setContent( '', { format: 'html' } );
-						$( '#content.wp-editor-area' ).val( '' );
-					}
+					axisbuilder_meta_boxes_builder.tinyMCE();
 				}
 			}
 		},

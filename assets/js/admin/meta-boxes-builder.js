@@ -94,6 +94,7 @@ jQuery( function( $ ) {
 			}
 
 			if ( axisbuilder_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
+				$( '#content-html' ).trigger( 'click' );
 				$( '#axisbuilder-editor' ).removeClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().addClass( 'axisbuilder-hidden-editor' );
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
@@ -104,6 +105,7 @@ jQuery( function( $ ) {
 				}
 
 				setTimeout( function() {
+					$( '#content-tmce' ).trigger( 'click' );
 					axisbuilder_meta_boxes_builder.shortcode_interface();
 				}, 10 );
 			} else {

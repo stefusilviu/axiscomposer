@@ -52,8 +52,7 @@ jQuery( function( $ ) {
 			$( 'body' )
 				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
-				.on( 'axisbuilder_backbone_modal_init', this.backbone.init )
-				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.loaded )
+				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 
 			$( document ).bind( 'keydown storage', this.storage.keyboard_actions );
@@ -1054,6 +1053,7 @@ jQuery( function( $ ) {
 
 			init: function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
 					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
 			},
@@ -1117,12 +1117,6 @@ jQuery( function( $ ) {
 						axisbuilder_meta_boxes_builder.stupidtable.init();
 					}
 				});
-			},
-
-			loaded: function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
-				}
 			},
 
 			response: function( e, template, data ) {

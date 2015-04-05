@@ -81,9 +81,8 @@
 
 			$( 'body' ).css({
 				'overflow': 'hidden'
-			}).append( this.$el ).trigger( 'axisbuilder_backbone_modal_init', this._target );
+			}).append( this.$el );
 
-			var $connect  = $( '.axisbuilder-backbone-modal-content' ).is( '.ajax-connect' );
 			var $content  = $( '.axisbuilder-backbone-modal-content' ).find( 'article' );
 			var content_h = ( $content.height() < 90 ) ? 90 : $content.height();
 			var max_h     = $( window ).height() - 200;
@@ -95,7 +94,7 @@
 			if ( content_h > max_h ) {
 				$content.css({
 					'overflow': 'auto',
-					height: ( $connect ? content_h : max_h ) + 'px'
+					height: max_h + 'px'
 				});
 			} else {
 				$content.css({

@@ -140,12 +140,6 @@
  */
 .axisbuilder-backbone-modal {
 
-	.ajax-connect {
-		article {
-			height: 410px;
-		}
-	}
-
 	.high-screen,
 	.normal-screen,
 	.medium-screen {
@@ -157,10 +151,8 @@
 		left: 5%;
 		right: 5%;
 
-		&.ajax-connect {
-			article {
-				height: 470px;
-			}
+		article {
+			height: 470px !important;
 		}
 	}
 
@@ -168,10 +160,8 @@
 		left: 10%;
 		right: 10%;
 
-		&.ajax-connect {
-			article {
-				height: 450px;
-			}
+		article {
+			height: 450px !important;
 		}
 	}
 
@@ -179,10 +169,8 @@
 		left: 15%;
 		right: 15%;
 
-		&.ajax-connect {
-			article {
-				height: 430px;
-			}
+		article {
+			height: 430px !important;
 		}
 	}
 }

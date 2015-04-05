@@ -729,11 +729,11 @@ jQuery( function( $ ) {
 				$( '.canvas-data' ).val( content );
 
 				// Slows the whole process considerably
-				var timeout = false;
-				clearTimeout( timeout );
-				timeout = setTimeout( function() {
+				var timer = false;
+				clearTimeout( timer );
+				timer = setTimeout( function() {
 					axisbuilder_meta_boxes_builder.tinyMCE( content );
-				}, 200 );
+				}, 500 );
 			}
 		},
 

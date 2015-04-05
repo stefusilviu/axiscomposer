@@ -149,8 +149,8 @@ class AB_Admin_Assets {
 				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell', 'axisbuilder' ) ),
 				'i18n_select_cell_layout'         => esc_js( __( 'Select a cell layout', 'axisbuilder' ) ),
 				'i18n_trash_elements_title'       => esc_js( __( 'Permanently Delete all Canvas Elements', 'axisbuilder' ) ),
-				'i18n_trash_elements_least'       => esc_js( sprintf( __( 'You need to add at least one element to the canvas area for this action. %sYour history session has beeen reset :)%s', 'axisbuilder' ), '<br /><mark class="yes">', '</mark>' ) ),
-				'i18n_trash_elements_notice'      => esc_js( sprintf( __( 'All Page Builder content will be permanently lost. This cannot be undone. %sAre you sure you want to delete all canvas elements?%s', 'axisbuilder' ), '<br /><mark class="no">', '</mark>' ) ),
+				'i18n_trash_elements_least'       => esc_js( sprintf( __( 'You need to add at least one canvas element below for this action. %sYour history session has beeen reset :)%s', 'axisbuilder' ), '<br /><mark class="yes">', '</mark>' ) ),
+				'i18n_trash_elements_notice'      => esc_js( sprintf( __( 'All Page Builder content will be permanently lost and cannot be undone. %sAre you positive you want to delete all canvas elements?%s', 'axisbuilder' ), '<br /><mark class="no">', '</mark>' ) ),
 				'i18n_backbone_loading_falied'    => esc_js( __( 'Loading failed - Your session timed out. Please reload the page and try again.', 'axisbuilder' ) ),
 				'i18n_backbone_dismiss_button'    => esc_js( __( 'Dismiss', 'axisbuilder' ) )
 			);

@@ -50,7 +50,7 @@ jQuery( function( $ ) {
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
 			$( document.body )
-				.on( 'change keydown', this.storage.keyboard_actions )
+				.on( 'keydown storage', this.storage.keyboard_actions )
 				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )

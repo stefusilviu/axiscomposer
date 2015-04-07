@@ -52,7 +52,7 @@ jQuery( function( $ ) {
 		return formatString;
 	}
 
-	$( 'body' )
+	$( document.body )
 
 		.on( 'axisbuilder-enhanced-select-init', function() {
 

@@ -51,7 +51,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			iconfont_media_frame.on( 'select', function() {
 				var attachment = iconfont_media_frame.state().get( 'selection' ).first().toJSON();
 				$( '#' + $el.data( 'target' ) ).val( attachment.id ).trigger( 'change' );
-				$( 'body' ).trigger( $el.data( 'trigger' ), [ attachment, $el ] );
+				$( document.body ).trigger( $el.data( 'trigger' ), [ attachment, $el ] );
 			});
 
 			// Finally, open the modal

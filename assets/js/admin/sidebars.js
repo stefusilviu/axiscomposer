@@ -47,7 +47,7 @@
 				template: '#tmpl-axisbuilder-modal-delete-sidebar'
 			});
 
-			$( 'body' ).on( 'axisbuilder_backbone_modal_response', function( e, template ) {
+			$( document.body ).on( 'axisbuilder_backbone_modal_response', function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-delete-sidebar' !== template ) {
 					return;
 				}

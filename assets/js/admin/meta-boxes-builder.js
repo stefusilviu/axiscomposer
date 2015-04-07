@@ -49,13 +49,12 @@ jQuery( function( $ ) {
 				// Recalc element
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
-			$( 'body' )
+			$( document.body )
+				.on( 'change keydown', this.storage.keyboard_actions )
 				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_storage_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
-
-			$( document ).bind( 'keydown storage', this.storage.keyboard_actions );
 		},
 
 		tiptip: function() {

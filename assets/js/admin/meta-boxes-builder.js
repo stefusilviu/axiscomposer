@@ -1052,7 +1052,7 @@ jQuery( function( $ ) {
 
 			init: function( e, template ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					$( 'body' ).trigger( 'axisbuilder-enhanced-select-init' );
+					$( document.body ).trigger( 'axisbuilder-enhanced-select-init' );
 					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
 			},
@@ -1218,7 +1218,7 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				$( 'body' ).trigger( 'axisbuilder_storage_loaded' );
+				$( document.body ).trigger( 'axisbuilder_storage_loaded' );
 			},
 
 			snapshot: function() {
@@ -1283,7 +1283,7 @@ jQuery( function( $ ) {
 
 			history_snapshot: function( timeout ) {
 				setTimeout( function() {
-					$( 'body' ).trigger( 'axisbuilder_storage_response' );
+					$( document.body ).trigger( 'axisbuilder_storage_response' );
 				}, timeout ? timeout : 150 );
 			},
 

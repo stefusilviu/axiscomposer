@@ -1108,6 +1108,9 @@ jQuery( function( $ ) {
 						} else {
 							$( '.axisbuilder-backbone-modal-article form' ).empty();
 							$( '.axisbuilder-backbone-modal-article form' ).append( response );
+
+							// Trigger Event
+							$( document.body ).trigger( 'axisbuilder-enhanced-modal-elements-init' );
 						}
 
 						axisbuilder_meta_boxes_builder.tiptip();

@@ -33,4 +33,27 @@ jQuery( function ( $ ) {
 		});
 	}).trigger( 'axisbuilder-init-datepickers' );
 
+	// Enhanced Modal Elements
+	$( document.body )
+
+		.on( 'axisbuilder-enhanced-modal-elements-init', function() {
+
+			// Regular color pickers
+			$( ':input.color-picker-field, :input.color-picker' ).filter( ':not(.enhanced)' ).each( function() {
+				var colorpicker_args = {
+					palettes: [ '#000000', '#ffffff', '#B02B2C', '#edae44', '#eeee22', '#83a846', '#7bb0e7', '#745f7e', '#5f8789', '#d65799', '#4ecac2' ]
+				};
+
+				$( this ).wpColorPicker( colorpicker_args ).addClass( 'enhanced' );
+			});
+
+		})
+
+		// AxisBuilder Backbone modal
+		.on( 'axisbuilder_backbone_modal_before_remove', function() {
+			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
+		})
+
+		.trigger( 'axisbuilder-enhanced-modal-elements-init' );
+
 });

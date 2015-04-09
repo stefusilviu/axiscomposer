@@ -44,13 +44,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Uninstall on Delete', 'axisbuilder' ); ?></td>
+				<td><?php _e( 'Remove All Data', 'axisbuilder' ); ?></td>
 				<td>
 					<p>
 						<label><input type="checkbox" class="checkbox" name="axisbuilder_status_options[uninstall_data]" value="1" <?php checked( '1', $options['uninstall_data'] ); ?> /> <?php _e( 'Enabled', 'axisbuilder' ); ?></label>
 					</p>
 					<p>
-						<span class="description"><?php _e( 'This tool will delete all AxisBuilder and Portfolio data when uninstalling via Plugins > Delete.', 'axisbuilder' ); ?></span>
+						<span class="description"><?php _e( 'This tool will remove all AxisBuilder and Portfolio data when using the "Delete" link on the plugins screen.', 'axisbuilder' ); ?></span>
 					</p>
 				</td>
 			</tr>

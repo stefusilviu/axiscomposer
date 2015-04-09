@@ -47,9 +47,6 @@ class AB_Admin_Assets {
 			wp_enqueue_style( 'axisbuilder-admin', AB()->plugin_url() . '/assets/css/admin.css', array(), AB_VERSION );
 			wp_enqueue_style( 'jquery-ui-style', '//code.jquery.com/ui/' . $jquery_version . '/themes/smoothness/jquery-ui.css', array(), $jquery_version );
 			wp_enqueue_style( 'wp-color-picker' );
-
-			// @deprecated softly
-			wp_enqueue_style( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/css/modal-old.css', array(), AB_VERSION );
 		}
 
 		if ( 'fresh' !== get_user_option( 'admin_color', get_current_user_id() ) ) {

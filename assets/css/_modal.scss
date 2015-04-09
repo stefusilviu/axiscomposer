@@ -215,12 +215,11 @@
 		position: relative;
 
 		.wp-color-result {
-			height: 27px;
-			min-width: 80px;
+			height: 29px;
 			float: left;
 			display: block;
-			white-space: nowrap;
 			overflow: hidden;
+			white-space: nowrap;
 
 			&:focus {
 				box-shadow: none;
@@ -236,8 +235,7 @@
 			display: inline-block;
 
 			input {
-				width: 70px;
-				height: 27px;
+				height: 29px;
 				padding: 6px 4px;
 
 				&:focus {
@@ -246,7 +244,7 @@
 
 				&.button {
 					padding: 0;
-					height: 27px;
+					width: 70px;
 				}
 
 				&.colorpicker {
@@ -261,7 +259,7 @@
 			position: absolute;
 
 			.iris-picker {
-				box-shadow: 0 1px 27px 0px rgba(0,0,0,0.3);
+				box-shadow: 0 1px 15px rgba(0,0,0,0.2);
 			}
 		}
 	}

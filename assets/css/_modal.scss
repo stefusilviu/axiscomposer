@@ -428,3 +428,15 @@ div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
 		text-align: center;
 	}
 }
+
+.axisbuilder-noselect {
+	@include user-select(none);
+}
+
+body .axisbuilder-hidden {
+	display: none;
+}
+
+body.axisbuilder-noscroll {
+	overflow: hidden;
+}

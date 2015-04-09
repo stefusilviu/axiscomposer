@@ -6,26 +6,26 @@
 /**
  * Imports
  */
-@import "bourbon";
-@import "mixins";
-@import "variables";
-@import "animation";
-@import "fonts";
+// @import "bourbon";
+// @import "mixins";
+// @import "variables";
+// @import "animation";
+// @import "fonts";
 
 /**
  * Styling begins
  */
-.axisbuilder-noselect {
-	@include user-select(none);
-}
+// .axisbuilder-noselect {
+// 	@include user-select(none);
+// }
 
-body .axisbuilder-hidden {
-	display: none;
-}
+// body .axisbuilder-hidden {
+// 	display: none;
+// }
 
-body.axisbuilder-noscroll {
-	overflow: hidden;
-}
+// body.axisbuilder-noscroll {
+// 	overflow: hidden;
+// }
 
 /**
  * Base Styles

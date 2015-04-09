@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<label><input type="checkbox" class="checkbox" name="axisbuilder_status_options[builder_debug_mode]" value="1" <?php checked( '1', $options['builder_debug_mode'] ); ?> /> <?php _e( 'Enabled', 'axisbuilder' ); ?></label>
 					</p>
 					<p>
-						<span class="description"><?php _e( 'This tool will log all the shortcodes attributes via elements textarea for debugging purposes.', 'axisbuilder' ); ?></span>
+						<span class="description"><?php _e( 'This tool will log all the shortcode attributes and content via elements textarea field for debugging purposes.', 'axisbuilder' ); ?></span>
 					</p>
 				</td>
 			</tr>

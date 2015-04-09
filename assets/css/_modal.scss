@@ -214,48 +214,30 @@
 		width: 100%;
 		position: relative;
 
-		.wp-color-result {
+		.wp-color-result,
+		.wp-picker-input-wrap input {
 			height: 29px;
-			float: left;
-			display: block;
-			overflow: hidden;
-			white-space: nowrap;
 
 			&:focus {
 				box-shadow: none;
 			}
+		}
+
+		.wp-color-result {
+			overflow: hidden;
+			white-space: nowrap;
 
 			&:after {
 				line-height: 27px;
 			}
 		}
 
-		.wp-picker-input-wrap {
-			overflow: hidden;
-			display: inline-block;
-
-			input {
-				height: 29px;
-				padding: 6px 4px;
-
-				&:focus {
-					box-shadow: none;
-				}
-
-				&.button {
-					padding: 0;
-					width: 70px;
-				}
-
-				&.colorpicker {
-					margin-right: 6px;
-					position: relative;
-				}
-			}
+		.wp-picker-clear {
+			width: 65px;
 		}
 
 		.wp-picker-holder {
-			z-index: 1001;
+			z-index: 1000;
 			position: absolute;
 
 			.iris-picker {

@@ -145,6 +145,10 @@
 	.medium-screen {
 		width: auto;
 		margin-left: 0;
+
+		article {
+			padding: 0;
+		}
 	}
 
 	.high-screen {
@@ -196,6 +200,68 @@
 
 			mark.no {
 				color: $red;
+			}
+		}
+	}
+}
+
+/**
+ * Enhanced form styles
+ */
+.axisbuilder-enhanced-form {
+
+	.wp-picker-container {
+		width: 100%;
+		position: relative;
+
+		.wp-color-result {
+			height: 27px;
+			min-width: 80px;
+			float: left;
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:after {
+				line-height: 27px;
+			}
+		}
+
+		.wp-picker-input-wrap {
+			overflow: hidden;
+			display: inline-block;
+
+			input {
+				width: 70px;
+				height: 27px;
+				padding: 6px 4px;
+
+				&:focus {
+					box-shadow: none;
+				}
+
+				&.button {
+					padding: 0;
+					height: 27px;
+				}
+
+				&.colorpicker {
+					margin-right: 6px;
+					position: relative;
+				}
+			}
+		}
+
+		.wp-picker-holder {
+			z-index: 1001;
+			position: absolute;
+
+			.iris-picker {
+				box-shadow: 0 1px 27px 0px rgba(0,0,0,0.3);
 			}
 		}
 	}

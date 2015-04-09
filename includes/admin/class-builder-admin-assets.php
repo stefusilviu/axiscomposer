@@ -74,21 +74,6 @@ class AB_Admin_Assets {
 		$status = get_option( 'axisbuilder_status_options', array() );
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		// @deprecated softly
-		wp_register_script( 'axisbuilder-modal-old', AB()->plugin_url() . '/assets/js/modal-old' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
-		wp_localize_script( 'axisbuilder-modal-old', 'axisbuilder_modal', array(
-			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
-			'error'                    => esc_js( __( 'An error occured', 'axisbuilder' ) ),
-			'success'                  => esc_js( __( 'All right!', 'axisbuilder' ) ),
-			'attention'                => esc_js( __( 'Attention!', 'axisbuilder' ) ),
-			'i18n_save_button'         => esc_js( __( 'Save', 'axisbuilder' ) ),
-			'i18n_close_button'        => esc_js( __( 'Close', 'axisbuilder' ) ),
-			'i18n_ajax_error'          => esc_js( __( 'Error fetching content - please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_login_error'         => esc_js( __( 'It seems your are no longer logged in. Please reload the page and try again', 'axisbuilder' ) ),
-			'i18n_session_error'       => esc_js( __( 'Your session timed out. Simply reload the page and try again', 'axisbuilder' ) ),
-			'get_modal_elements_nonce' => wp_create_nonce( 'get-modal-elements' )
-		) );
-
 		// Register Scripts
 		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/js/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );

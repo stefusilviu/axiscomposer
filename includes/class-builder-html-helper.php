@@ -124,9 +124,9 @@ class AB_HTML_Helper {
 				}
 			}
 
-			// if ( ! $visible ) {
-			// 	$params['class_string'] = 'axisbuilder-hidden';
-			// }
+			if ( ! $visible ) {
+				$params['class_string'] = 'axisbuilder-hidden';
+			}
 		}
 
 		return $params;

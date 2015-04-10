@@ -40,6 +40,80 @@ jQuery( function ( $ ) {
 		$( '.axisbuilder_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 	});
 
+	// Depedencies check
+	$( document.body ).on( 'change', '.axisbuilder-enhanced-form input[type=hidden], .axisbuilder-enhanced-form input[type=text], .axisbuilder-enhanced-form input[type=checkbox], .axisbuilder-enhanced-form textarea, .axisbuilder-enhanced-form select, .axisbuilder-enhanced-form radio', function() {
+		var current = $( this ),
+			scope   = current.parents( '.axisbuilder-backbone-modal-content:eq(0)' );
+
+		if ( ! scope.length ) {
+			scope = $( document.body );
+		}
+
+		var element     = this.id.replace( /axisbuilderTB-/, '' ),
+			dependent   = scope.find( '.axisbuilder-form-element-container[data-check-element="' + element + '"]' ),
+			is_hidden   = current.parents( '.axisbuilder-form-element-container:eq(0)' ).is( '.axisbuilder-hidden' ),
+			first_value = this.value;
+
+		if ( current.is( 'input[type=checkbox]' ) && ! current.prop( 'checked') ) {
+			first_value = '';
+		}
+
+		if ( ! dependent.length ) {
+			return true;
+		}
+
+		dependent.each( function() {
+			var	visible     = false,
+				current     = $( this ),
+				operator    = current.data( 'check-operator' ),
+				final_value = current.data( 'check-value' ).toString();
+
+			if ( ! is_hidden ) {
+				switch( operator ) {
+					case 'equals':
+						visible = ( first_value === final_value ) ? true : false;
+					break;
+
+					case 'not':
+						visible = ( first_value !== final_value ) ? true : false;
+					break;
+
+					case 'is_larger':
+						visible = ( first_value > final_value ) ? true : false;
+					break;
+
+					case 'is_smaller':
+						visible = ( first_value < final_value ) ? true : false;
+					break;
+
+					case 'contains':
+						visible = ( first_value.indexOf( final_value ) !== -1 ) ? true : false;
+					break;
+
+					case 'doesnot_contain':
+						visible = ( first_value.indexOf( final_value ) === -1 ) ? true : false;
+					break;
+
+					case 'is_empty_or':
+						visible = ( ( first_value === '' ) || ( first_value === final_value ) ) ? true : false;
+					break;
+
+					case 'not_empty_and':
+						visible = ( ( first_value !== '' ) || ( first_value !== final_value ) ) ? true : false;
+					break;
+				}
+			}
+
+			if ( visible === true && current.is( '.axisbuilder-hidden' ) ) {
+				current.css({ display: 'none' }).removeClass( 'axisbuilder-hidden' ).find( 'select, radio, input[type=checkbox]' ).trigger( 'change' );
+				current.slideDown();
+			} else if ( visible === false && ! current.is( '.axisbuilder-hidden' ) ) {
+				current.css({ display: 'block' }).addClass( 'axisbuilder-hidden' ).find( 'select, radio, input[type=checkbox]' ).trigger( 'change' );
+				current.slideUp();
+			}
+		});
+	});
+
 	// Tabs
 	$( 'ul.axisbuilder-tabs' ).show();
 	$( 'div.panel-wrap' ).each( function() {

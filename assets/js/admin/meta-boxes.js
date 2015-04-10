@@ -1,3 +1,4 @@
+/* global axisbuilder_admin_meta_boxes_builder */
 jQuery( function ( $ ) {
 
 	// Tooltips
@@ -8,6 +9,36 @@ jQuery( function ( $ ) {
 		'delay' : 200
 	};
 	$( '.tips, .help_tip' ).tipTip( tiptip_args );
+
+	// Custom CSS Class and ID input validation
+	$( document.body ).on( 'blur', '.axisbuilder_input_class[type=text], .axisbuilder_input_id[type=text]', function() {
+		$( '.axisbuilder_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
+		return this;
+	});
+
+	$( document.body ).on( 'keyup change', '.axisbuilder_input_class[type=text], .axisbuilder_input_id[type=text]', function() {
+		var value    = $( this ).val();
+		var regex    = new RegExp( '[^a-zA-Z0-9-_]+', 'gi' );
+		var newvalue = value.replace( regex, '' );
+
+		if ( value !== newvalue ) {
+			$( this ).val( newvalue );
+			if ( $( this ).parent().find( '.axisbuilder_error_tip' ).size() === 0 ) {
+				var offset = $( this ).position();
+				$( this ).after( '<div class="axisbuilder_error_tip">' + axisbuilder_admin_meta_boxes_builder.i18n_css_class_id_error + '</div>' );
+				$( '.axisbuilder_error_tip' )
+					.css( 'left', offset.left + $( this ).width() - ( $( this ).width() / 2 ) - ( $( '.axisbuilder_error_tip' ).width() / 2 ) )
+					.css( 'top', offset.top + $( this ).height() )
+					.fadeIn( '100' );
+			}
+		}
+
+		return this;
+	});
+
+	$( document.body ).click( function() {
+		$( '.axisbuilder_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
+	});
 
 	// Tabs
 	$( 'ul.axisbuilder-tabs' ).show();

@@ -192,7 +192,6 @@ jQuery( function ( $ ) {
 
 				// Trigger close event
 				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
-					console.info('switched to html mode on modal close response');
 					switcher.filter( '.switch-html' ).trigger( 'click' );
 				});
 			});

@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder */
+/* global axisbuilder_admin_meta_boxes_builder, quicktags, QTags */
 jQuery( function ( $ ) {
 
 	// Tooltips

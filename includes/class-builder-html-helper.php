@@ -320,7 +320,7 @@ class AB_HTML_Helper {
 	public static function tinymce( $element ) {
 
 		// TinyMCE only allows ids in the range of [a-z] so we need to filter them.
-		// $element['id'] = preg_replace( '![^a-zA-Z_]!', '', $element['id'] );
+		$element['id'] = preg_replace( '![^a-zA-Z_]!', '', $element['id'] );
 
 		// Monitor this: Seems only ajax elements need the replacement
 		$user_id = get_current_user_id();
@@ -329,12 +329,14 @@ class AB_HTML_Helper {
 			$element['std'] = str_replace( '\n', '<br>', $element['std'] ); // Replace new-lines with brs, otherwise the editor will mess up ;)
 		}
 
-		ob_start();
-		wp_editor( $element['std'], $element['id'], array(
+		$settings = array(
 			'dfw'           => true,
 			'media_buttons' => true,
 			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce'
-		));
+		);
+
+		ob_start();
+		wp_editor( htmlspecialchars_decode( $element['std'] ), $element['id'] . '_tinymce', apply_filters( 'axisbuilder_backbone_modal_editor_settings', $settings ) );
 		$output = ob_get_clean();
 
 		return $output;

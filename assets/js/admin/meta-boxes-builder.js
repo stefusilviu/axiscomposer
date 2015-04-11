@@ -1155,6 +1155,8 @@ jQuery( function( $ ) {
 
 			edit_element: function( data ) {
 				var parents = window.axisbuilder_shortcode;
+				data.content = data.content_tinymce;
+				delete data.content_tinymce;
 				axisbuilder_meta_boxes_builder.send_to_datastorage( data, parents );
 			}
 		},

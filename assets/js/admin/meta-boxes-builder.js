@@ -1129,6 +1129,11 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
 				}
 				if ( '#tmpl-axisbuilder-modal-edit-element' === target ) {
+					if ( data.content_tinymce ) {
+						data.content = data.content_tinymce;
+						delete data.content_tinymce;
+					}
+
 					axisbuilder_meta_boxes_builder.backbone.edit_element( data );
 				}
 			},
@@ -1155,8 +1160,6 @@ jQuery( function( $ ) {
 
 			edit_element: function( data ) {
 				var parents = window.axisbuilder_shortcode;
-				data.content = data.content_tinymce;
-				delete data.content_tinymce;
 				axisbuilder_meta_boxes_builder.send_to_datastorage( data, parents );
 			}
 		},

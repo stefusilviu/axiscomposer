@@ -189,12 +189,19 @@ jQuery( function ( $ ) {
 
 				// Activate the visual editor
 				switcher.filter( '.switch-tmce' ).trigger( 'click' );
+
+				// Trigger close event
+				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
+					console.info('switched to html mode on modal close response');
+					switcher.filter( '.switch-html' ).trigger( 'click' );
+				});
 			});
 
 		})
 
 		// AxisBuilder Backbone modal
 		.on( 'axisbuilder_backbone_modal_before_remove', function() {
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-close' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 

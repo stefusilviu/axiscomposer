@@ -200,6 +200,7 @@ jQuery( function ( $ ) {
 
 				$( this ).wpColorPicker( colorpicker_args ).addClass( 'enhanced' );
 			});
+
 		})
 
 		// AxisBuilder Backbone modal

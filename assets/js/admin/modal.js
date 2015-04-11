@@ -143,6 +143,7 @@
 
 			// Enter key
 			if ( 13 === button && ! ( e.target.tagName && ( e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'textarea' ) ) ) {
+				$( document.body ).trigger( 'axisbuilder_backbone_modal_keyboard', this._target ); // @todo: Deprecated
 				this.addButton( e );
 			}
 

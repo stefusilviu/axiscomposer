@@ -186,6 +186,11 @@ jQuery( function ( $ ) {
 					switcher.filter( '.switch-html' ).trigger( 'click' );
 				});
 
+				// @Todo: Deprecated after real fix ;)
+				$( document.body ).on( 'axisbuilder_backbone_modal_keyboard', function() {
+					switcher.filter( '.switch-html' ).trigger( 'click' );
+				});
+
 				// Trigger close event
 				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );

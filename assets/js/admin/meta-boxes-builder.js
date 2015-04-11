@@ -1108,6 +1108,9 @@ jQuery( function( $ ) {
 						} else {
 							$( '.axisbuilder-backbone-modal-article form' ).empty();
 							$( '.axisbuilder-backbone-modal-article form' ).append( response );
+
+							// Trigger Event
+							$( document.body ).trigger( 'axisbuilder-enhanced-modal-elements-init' );
 						}
 
 						axisbuilder_meta_boxes_builder.tiptip();
@@ -1126,7 +1129,7 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
 				}
 				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
-					axisbuilder_meta_boxes_builder.backbone.edit_element();
+					axisbuilder_meta_boxes_builder.backbone.edit_element( data );
 				}
 			},
 
@@ -1150,7 +1153,10 @@ jQuery( function( $ ) {
 				}
 			},
 
-			edit_element: function() {}
+			edit_element: function( data ) {
+				var parents = window.axisbuilder_shortcode;
+				axisbuilder_meta_boxes_builder.send_to_datastorage( data, parents );
+			}
 		},
 
 		storage: {

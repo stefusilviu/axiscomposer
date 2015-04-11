@@ -221,7 +221,7 @@ class AB_HTML_Helper {
 	}
 
 	public static function colorpicker( $element ) {
-		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="colorpicker ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
+		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="color-picker ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
 		return $output;
 	}
 

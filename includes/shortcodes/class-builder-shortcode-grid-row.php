@@ -92,7 +92,8 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axisbuilder' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axisbuilder' ),
 				'id'       => 'id',
 				'std'      => '',
-				'type'     => 'input'
+				'type'     => 'input',
+				'class'    => 'axisbuilder_input_id'
 			)
 		);
 	}

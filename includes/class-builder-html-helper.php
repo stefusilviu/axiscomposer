@@ -330,14 +330,9 @@ class AB_HTML_Helper {
 		}
 
 		$settings = array(
-			'textarea_name' => 'content',
-			'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
-			'tinymce'       => array(
-				'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
-				'theme_advanced_buttons2' => '',
-			),
 			'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:auto; display:block; border:none !important;}</style>',
-			'editor_class'  => 'axisbuilder-tinymce'
+			'editor_class'  => 'axisbuilder-tinymce',
+			'textarea_name' => 'content'
 		);
 
 		ob_start();

@@ -17,6 +17,10 @@
 	@include loader();
 }
 
+body .axisbuilder-hidden {
+	display: none;
+}
+
 .axisbuilder-backbone-modal {
 	* {
 		box-sizing: border-box;
@@ -401,8 +405,4 @@
 		position: absolute;
 		text-align: center;
 	}
-}
-
-body .axisbuilder-hidden {
-	display: none;
 }

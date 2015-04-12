@@ -194,8 +194,9 @@ jQuery( function ( $ ) {
 				// Trigger close event
 				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
-					if( typeof window.wp.editor.dfw === 'object' ) {
-						window.wp.editor.dfw.off();
+					if ( typeof window.editorExpand === 'object' ) {
+						window.editorExpand.off();
+						window.editorExpand.on();
 					}
 				});
 			});

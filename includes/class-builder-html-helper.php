@@ -165,7 +165,7 @@ class AB_HTML_Helper {
 		}
 
 		if ( empty( $element['nodesc'] ) ) {
-			$output .= '<div ' . $id_string . ' class="axisbuilder-clearfix axisbuilder-form-element-container field-' . $element['type'] . ' ' . $class_string . '" ' . $data_string . ' ' . $target_string . '>';
+			$output .= '<div ' . $id_string . ' class="clearfix axisbuilder-form-element-container field-' . $element['type'] . ' ' . $class_string . '" ' . $data_string . ' ' . $target_string . '>';
 				if ( ! empty( $element['name'] ) || ! empty( $element['desc'] ) ) {
 					$output .= '<div class="axisbuilder-name-description">';
 

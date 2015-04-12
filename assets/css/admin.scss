@@ -1415,7 +1415,7 @@ table.axisbuilder_status_table {
 /**
  * Clearfix
  */
-#axisbuilder-editor, .axisbuilder-clearfix,
+.clearfix, #axisbuilder-editor,
 .axisbuilder-layout-column > .axisbuilder-inner-shortcode,
 .axisbuilder-layout-section > .axisbuilder-inner-shortcode {
 	@include clearfix();

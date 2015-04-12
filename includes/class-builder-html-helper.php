@@ -330,14 +330,14 @@ class AB_HTML_Helper {
 		}
 
 		$settings = array(
-			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce',
 			'textarea_name' => 'content',
 			'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
 			'tinymce'       => array(
 				'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
 				'theme_advanced_buttons2' => '',
 			),
-			'editor_css'    => '<style>#wp-content-editor-container .wp-editor-area{height:175px; width:100%;}</style>'
+			'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:175px; width:100%;}</style>',
+			'editor_class'  => 'axisbuilder-tinymce',
 		);
 
 		ob_start();

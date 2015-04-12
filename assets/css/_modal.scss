@@ -223,39 +223,49 @@ body .axisbuilder-hidden {
 		&:hover {
 			background: #fcfcfc;
 		}
-	}
-
-	.field-label {
-		> strong {
-			display: block;
-		}
-
-		> span,
-		> label {
-			color: #777;
-			display: block;
-			margin-bottom: 4px;
-		}
-	}
-
-	.field-label {
-		width: 49%;
-		float: right;
-	}
-
-	.field-element {
-		width: 49%;
-		float: left;
-	}
-
-	.field-checkbox {
 
 		.field-label {
-			width: 100%;
+			width: 49%;
+			float: right;
+
+			> strong {
+				display: block;
+			}
+
+			> span,
+			> label {
+				color: #777;
+				display: block;
+				margin-bottom: 4px;
+			}
 		}
 
 		.field-element {
+			width: 49%;
+			float: left;
+
+			> textarea {
+				width: 100%;
+			}
+		}
+	}
+
+	.field-checkbox {
+		position: relative;
+
+		.field-label {
+			width: 100%;
+
+			> span,
+			> label {
+				padding-left: 25px;
+			}
+		}
+
+		.field-element {
+			top: 37px;
 			width: 30px;
+			position: absolute;
 		}
 	}
 
@@ -265,22 +275,6 @@ body .axisbuilder-hidden {
 		.field-element {
 			float: none;
 			width: 100%;
-		}
-	}
-
-	.field-checkbox {
-		position: relative;
-
-		.field-label {
-			> span,
-			> label {
-				padding-left: 25px;
-			}
-		}
-
-		.field-element {
-			top: 37px;
-			position: absolute;
 		}
 	}
 

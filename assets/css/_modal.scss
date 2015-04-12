@@ -352,7 +352,7 @@
 	}
 
 	/* Checkbox needs another width */
-	.axisbuilder-element-checkbox {
+	.field-checkbox {
 
 		.axisbuilder-name-description {
 			width: 100%;
@@ -365,8 +365,8 @@
 }
 
 // Use full-width Styles
-.axisbuilder-element-tinymce,
-.axisbuilder-element-fullwidth {
+.field-tinymce,
+.field-fullwidth {
 	.axisbuilder-form-element,
 	.axisbuilder-name-description {
 		float: none;
@@ -375,7 +375,7 @@
 }
 
 // Checkbox style
-.axisbuilder-element-checkbox {
+.field-checkbox {
 	position: relative;
 
 	.axisbuilder-name-description {
@@ -392,9 +392,9 @@
 }
 
 // Media Form Element
-.axisbuilder-element-image,
-.axisbuilder-element-gallery,
-.axisbuilder-element-multi_image {
+.field-image,
+.field-gallery,
+.field-multi_image {
 	.button {
 		top: 17px;
 		width: 175px;

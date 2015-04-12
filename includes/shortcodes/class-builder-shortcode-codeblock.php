@@ -57,7 +57,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 				'id'              => 'content',
 				'std'             => '',
 				'type'            => 'textarea',
-				'container_class' => 'axisbuilder-element-fullwidth',
+				'container_class' => 'field-fullwidth',
 			),
 
 			array(

@@ -209,6 +209,92 @@ body .axisbuilder-hidden {
  */
 .axisbuilder-enhanced-form {
 
+	.field-container {
+		clear: both;
+		background: #fff;
+		padding: 18px 20px;
+		position: relative;
+		border-bottom: 1px dashed #e1e1e1;
+
+		p {
+			color: #777;
+		}
+
+		&:hover {
+			background: #fcfcfc;
+		}
+	}
+
+	.field-label {
+		> strong {
+			display: block;
+		}
+
+		> span,
+		> label {
+			color: #777;
+			display: block;
+			margin-bottom: 4px;
+		}
+	}
+
+	.field-label {
+		width: 49%;
+		float: right;
+	}
+
+	.field-element {
+		width: 49%;
+		float: left;
+	}
+
+	.field-checkbox {
+
+		.field-label {
+			width: 100%;
+		}
+
+		.field-element {
+			width: 30px;
+		}
+	}
+
+	.field-tinymce,
+	.field-fullwidth {
+		.field-label,
+		.field-element {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	.field-checkbox {
+		position: relative;
+
+		.field-label {
+			> span,
+			> label {
+				padding-left: 25px;
+			}
+		}
+
+		.field-element {
+			top: 37px;
+			position: absolute;
+		}
+	}
+
+	.field-image,
+	.field-gallery,
+	.field-multi_image {
+		.button {
+			top: 17px;
+			width: 175px;
+			position: absolute;
+			text-align: center;
+		}
+	}
+
 	.wp-picker-container {
 		width: 100%;
 		position: relative;
@@ -248,7 +334,6 @@ body .axisbuilder-hidden {
 
 /**
  * Base Styles
- * @todo: Refactor
  */
 .axisbuilder-enhanced-form {
 	line-height: 1.5em;
@@ -311,98 +396,5 @@ body .axisbuilder-hidden {
 	.axisbuilder-style select {
 		padding: 6px 6px 6px 4px;
 		background-image: none;
-	}
-}
-
-.field-container {
-	clear: both;
-	background: #fff;
-	padding: 18px 20px;
-	position: relative;
-	border-bottom: 1px dashed #e1e1e1;
-
-	p {
-		color: #777;
-	}
-
-	&:hover {
-		background: #fcfcfc;
-	}
-}
-
-.field-label {
-	> strong {
-		display: block;
-	}
-
-	> span,
-	> label {
-		color: #777;
-		display: block;
-		margin-bottom: 4px;
-	}
-}
-
-.axisbuilder-enhanced-form {
-
-	.field-label {
-		width: 49%;
-		float: right;
-	}
-
-	.field-element {
-		width: 49%;
-		float: left;
-	}
-
-	/* Checkbox needs another width */
-	.field-checkbox {
-
-		.field-label {
-			width: 100%;
-		}
-
-		.field-element {
-			width: 30px;
-		}
-	}
-}
-
-// Use full-width Styles
-.field-tinymce,
-.field-fullwidth {
-	.field-label,
-	.field-element {
-		float: none;
-		width: 100%;
-	}
-}
-
-// Checkbox style
-.field-checkbox {
-	position: relative;
-
-	.field-label {
-		> span,
-		> label {
-			padding-left: 25px;
-		}
-	}
-
-	.field-element {
-		top: 37px;
-		position: absolute;
-	}
-}
-
-// Media Form Element
-.field-image,
-.field-gallery,
-.field-multi_image {
-	.button {
-		top: 17px;
-		width: 175px;
-		position: absolute;
-		text-align: center;
 	}
 }

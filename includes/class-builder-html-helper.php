@@ -336,8 +336,8 @@ class AB_HTML_Helper {
 				'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
 				'theme_advanced_buttons2' => '',
 			),
-			'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:175px; width:100%;}</style>',
-			'editor_class'  => 'axisbuilder-tinymce',
+			'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:auto; display:block; border:none !important;}</style>',
+			'editor_class'  => 'axisbuilder-tinymce'
 		);
 
 		ob_start();

@@ -50,8 +50,8 @@ jQuery( function ( $ ) {
 		}
 
 		var element     = this.id.replace( /axisbuilderTB-/, '' ),
-			dependent   = scope.find( '.axisbuilder-form-element-container[data-check-element="' + element + '"]' ),
-			is_hidden   = current.parents( '.axisbuilder-form-element-container:eq(0)' ).is( '.axisbuilder-hidden' ),
+			dependent   = scope.find( '.field-container[data-check-element="' + element + '"]' ),
+			is_hidden   = current.parents( '.field-container:eq(0)' ).is( '.axisbuilder-hidden' ),
 			first_value = this.value;
 
 		if ( current.is( 'input[type=checkbox]' ) && ! current.prop( 'checked') ) {

@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder */
+/* global axisbuilder_admin_meta_boxes_builder, quicktags, QTags */
 jQuery( function ( $ ) {
 
 	// Tooltips
@@ -143,6 +143,64 @@ jQuery( function ( $ ) {
 
 		.on( 'axisbuilder-enhanced-modal-elements-init', function() {
 
+			// TinyMCE Editor
+			$( 'textarea.axisbuilder-tinymce' ).each( function() {
+				var $el      = this.id,
+					$this    = $( this ),
+					parents  = $this.parents( '.wp-editor-wrap:eq(0)' ),
+					textarea = parents.find( 'textarea.axisbuilder-tinymce' ),
+					switcher = parents.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
+					settings = {
+						id: this.id,
+						buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close'
+					};
+
+				// Fix Quick tags
+				quicktags(settings);
+				QTags._buttonsInit();
+
+				// Modify behaviour for html editor
+				switcher.bind( 'click', function() {
+					var button = $( this );
+					if ( button.is( '.switch-tmce' ) ) {
+						parents.removeClass( 'html-active' ).addClass( 'tmce-active' );
+						window.tinyMCE.execCommand( 'mceAddEditor', true, $el );
+						window.tinyMCE.get( $el ).setContent( window.switchEditors.wpautop( textarea.val() ), { format: 'raw' } );
+					} else {
+						var value = textarea.val();
+						if ( window.tinyMCE.get( $el ) ) {
+							value = window.tinyMCE.get( $el ).getContent();
+						}
+
+						parents.removeClass( 'tmce-active' ).addClass( 'html-active' );
+						window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
+						textarea.val( window.switchEditors._wp_Nop( value ) );
+					}
+				});
+
+				// Activate the visual editor
+				switcher.filter( '.switch-tmce' ).trigger( 'click' );
+
+				// Ensure when save button is clicked, the textarea gets updated and sent to the editor
+				$( '#btn-ok' ).bind( 'click', function() {
+					switcher.filter( '.switch-html' ).trigger( 'click' );
+				});
+
+				// @Todo: Deprecated after real fix ;)
+				$( document.body ).on( 'axisbuilder_backbone_modal_keyboard', function() {
+					switcher.filter( '.switch-html' ).trigger( 'click' );
+				});
+
+				// Trigger close event
+				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
+					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
+					if ( typeof window.editorExpand === 'object' ) {
+						window.editorExpand.off();
+						window.editorExpand.on();
+					}
+				});
+			});
+
 			// Regular color pickers
 			$( ':input.color-picker-field, :input.color-picker' ).filter( ':not(.enhanced)' ).each( function() {
 				var colorpicker_args = {
@@ -156,6 +214,7 @@ jQuery( function ( $ ) {
 
 		// AxisBuilder Backbone modal
 		.on( 'axisbuilder_backbone_modal_before_remove', function() {
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-close' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 

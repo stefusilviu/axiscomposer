@@ -29,7 +29,7 @@
 		width: 500px;
 		background: #fff;
 		margin-left: -250px;
-		z-index: 160000;
+		z-index: 100000;
 	}
 }
 
@@ -42,7 +42,7 @@
 	min-height: 360px;
 	background: #000;
 	opacity: .7;
-	z-index: 159900;
+	z-index: 99900;
 }
 
 .axisbuilder-backbone-modal-main {
@@ -281,7 +281,6 @@
 		width: 95%;
 		padding: 15px;
 		height: 150px;
-		box-sizing: border-box;
 	}
 
 	select {
@@ -377,12 +376,6 @@
 	}
 }
 
-.wp-fullscreen-active input[type=text].wp-fullscreen-title {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 // Checkbox style
 .axisbuilder-element-checkbox {
 	position: relative;
@@ -400,18 +393,6 @@
 	}
 }
 
-// TinyMCE Form Element
-.axisbuilder-style .axisbuilder-advanced-textarea {
-	height: auto !important;
-}
-
-div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
-	bottom: -4px;
-	position: relative;
-	display: inline-block;
-	border: none !important;
-}
-
 // Media Form Element
 .axisbuilder-element-image,
 .axisbuilder-element-gallery,
@@ -424,14 +405,6 @@ div .axisbuilder-advanced-textarea.axisbuilder-tinymce.wp-editor-area {
 	}
 }
 
-.axisbuilder-noselect {
-	@include user-select(none);
-}
-
 body .axisbuilder-hidden {
 	display: none;
-}
-
-body.axisbuilder-noscroll {
-	overflow: hidden;
 }

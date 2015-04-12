@@ -110,8 +110,9 @@ jQuery( function( $ ) {
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'active' );
 
-				if( typeof window.wp.editor.dfw === 'object' ) {
-					window.wp.editor.dfw.off();
+				if ( typeof window.editorExpand === 'object' ) {
+					window.editorExpand.off();
+					window.editorExpand.on();
 				}
 
 				setTimeout( function() {
@@ -127,7 +128,7 @@ jQuery( function( $ ) {
 				// Remove duplication of canvas elements
 				$( '.canvas-area' ).find( '>*:not( .control-bar, .axisbuilder-insert-area )' ).remove();
 
-				if( typeof window.editorExpand === 'object' ) {
+				if ( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
 					window.editorExpand.on();
 				}
@@ -1050,8 +1051,8 @@ jQuery( function( $ ) {
 
 		backbone: {
 
-			init: function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+			init: function( e, target ) {
+				if ( '#tmpl-axisbuilder-modal-edit-element' === target ) {
 					$( document.body ).trigger( 'axisbuilder-enhanced-select-init' );
 					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
@@ -1121,14 +1122,14 @@ jQuery( function( $ ) {
 				});
 			},
 
-			response: function( e, template, data ) {
-				if ( '#tmpl-axisbuilder-modal-trash-data' === template ) {
+			response: function( e, target, data ) {
+				if ( '#tmpl-axisbuilder-modal-trash-data' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.trash_data();
 				}
-				if ( '#tmpl-axisbuilder-modal-cell-size' === template ) {
+				if ( '#tmpl-axisbuilder-modal-cell-size' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
 				}
-				if ( '#tmpl-axisbuilder-modal-edit-element' === template ) {
+				if ( '#tmpl-axisbuilder-modal-edit-element' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.edit_element( data );
 				}
 			},

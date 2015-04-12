@@ -32,7 +32,6 @@ body .axisbuilder-hidden {
 		left: 50%;
 		width: 500px;
 		background: #fff;
-		margin-left: -250px;
 		z-index: 100000;
 	}
 }
@@ -161,43 +160,34 @@ body .axisbuilder-hidden {
 }
 
 /**
- * Screen styles
+ * Modal Screen styles
  */
 .axisbuilder-backbone-modal {
 
 	.high-screen,
 	.normal-screen,
 	.medium-screen {
-		width: auto;
-		margin-left: 0;
-
 		article {
 			padding: 0;
 		}
 	}
 
 	.high-screen {
-		left: 5%;
-		right: 5%;
-
+		width: 1100px;
 		article {
 			height: 470px !important;
 		}
 	}
 
 	.medium-screen {
-		left: 10%;
-		right: 10%;
-
+		width: 1000px;
 		article {
 			height: 450px !important;
 		}
 	}
 
 	.normal-screen {
-		left: 15%;
-		right: 15%;
-
+		width: 900px;
 		article {
 			height: 430px !important;
 		}

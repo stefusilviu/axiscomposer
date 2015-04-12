@@ -104,7 +104,8 @@
 			}
 
 			$( '.axisbuilder-backbone-modal-content' ).css({
-				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px'
+				'margin-top': '-' + ( $( '.axisbuilder-backbone-modal-content' ).height() / 2 ) + 'px',
+				'margin-left': '-' + ( $( '.axisbuilder-backbone-modal-content' ).width() / 2 ) + 'px'
 			});
 
 			$( document.body ).trigger( 'axisbuilder_backbone_modal_loaded', this._target );

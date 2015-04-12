@@ -331,15 +331,22 @@ class AB_HTML_Helper {
 
 		$settings = array(
 			'dfw'           => true,
-			'media_buttons' => true,
-			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce'
+			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce',
+			'textarea_name' => 'content-tinymce',
+			'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
+			'tinymce'       => array(
+				'resize'    => true,
+				'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
+				'theme_advanced_buttons2' => '',
+			),
+			'editor_css'    => '<style>#wp-content-tinymce-editor-container .wp-editor-area{height:175px; width:100%;}</style>'
 		);
 
 		ob_start();
-		wp_editor( htmlspecialchars_decode( $element['std'] ), $element['id'] . '_tinymce', apply_filters( 'axisbuilder_backbone_modal_editor_settings', $settings ) );
-		$output = ob_get_clean();
 
-		return $output;
+		wp_editor( htmlspecialchars_decode( $element['std'] ), $element['id'] . '_tinymce', apply_filters( 'axisbuilder_backbone_modal_editor_settings', $settings ) );
+
+		return ob_get_clean();
 	}
 
 	/**

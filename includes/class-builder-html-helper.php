@@ -167,7 +167,7 @@ class AB_HTML_Helper {
 		if ( empty( $element['nodesc'] ) ) {
 			$output .= '<div ' . $id_string . ' class="clearfix field-container field-' . $element['type'] . ' ' . $class_string . '" ' . $data_string . ' ' . $target_string . '>';
 				if ( ! empty( $element['name'] ) || ! empty( $element['desc'] ) ) {
-					$output .= '<div class="axisbuilder-name-description">';
+					$output .= '<div class="field-label">';
 
 					if ( ! empty( $element['name'] ) ) {
 						$output .= '<strong>' . $element['name'] . '</strong>';
@@ -184,7 +184,7 @@ class AB_HTML_Helper {
 					$output .= '</div>';
 				}
 
-				$output .= '<div class="axisbuilder-form-element ' . $element['class'] . '">';
+				$output .= '<div class="field-element ' . $element['class'] . '">';
 					$output .= self::$element['type']( $element, $parent_class );
 
 					if ( ! empty( $element['fetchTMPL'] ) ) {

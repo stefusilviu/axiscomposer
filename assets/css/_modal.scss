@@ -326,7 +326,7 @@
 	}
 }
 
-.axisbuilder-name-description {
+.field-label {
 	> strong {
 		display: block;
 	}
@@ -341,12 +341,12 @@
 
 .axisbuilder-enhanced-form {
 
-	.axisbuilder-name-description {
+	.field-label {
 		width: 49%;
 		float: right;
 	}
 
-	.axisbuilder-form-element {
+	.field-element {
 		width: 49%;
 		float: left;
 	}
@@ -354,11 +354,11 @@
 	/* Checkbox needs another width */
 	.field-checkbox {
 
-		.axisbuilder-name-description {
+		.field-label {
 			width: 100%;
 		}
 
-		.axisbuilder-form-element {
+		.field-element {
 			width: 30px;
 		}
 	}
@@ -367,8 +367,8 @@
 // Use full-width Styles
 .field-tinymce,
 .field-fullwidth {
-	.axisbuilder-form-element,
-	.axisbuilder-name-description {
+	.field-label,
+	.field-element {
 		float: none;
 		width: 100%;
 	}
@@ -378,14 +378,14 @@
 .field-checkbox {
 	position: relative;
 
-	.axisbuilder-name-description {
+	.field-label {
 		> span,
 		> label {
 			padding-left: 25px;
 		}
 	}
 
-	.axisbuilder-form-element {
+	.field-element {
 		top: 37px;
 		position: absolute;
 	}

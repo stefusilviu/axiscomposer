@@ -332,10 +332,9 @@ class AB_HTML_Helper {
 		$settings = array(
 			'dfw'           => true,
 			'editor_class'  => 'axisbuilder-advanced-textarea axisbuilder-tinymce',
-			'textarea_name' => 'content-tinymce',
+			'textarea_name' => 'content_tinymce',
 			'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
 			'tinymce'       => array(
-				'resize'    => true,
 				'theme_advanced_buttons1' => 'bold,italic,strikethrough,separator,bullist,numlist,separator,blockquote,separator,justifyleft,justifycenter,justifyright,separator,link,unlink,separator,undo,redo,separator',
 				'theme_advanced_buttons2' => '',
 			),

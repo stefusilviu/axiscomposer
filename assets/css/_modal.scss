@@ -248,6 +248,17 @@ body .axisbuilder-hidden {
 				width: 100%;
 				height: 175px;
 				resize: vertical;
+
+				&.pre,
+				&.code {
+					color: #999;
+					padding: 15px;
+					font: 13px $helvetica;
+
+					&:focus {
+						color: #555;
+					}
+				}
 			}
 		}
 	}

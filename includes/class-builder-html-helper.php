@@ -231,7 +231,7 @@ class AB_HTML_Helper {
 	}
 
 	public static function textarea( $element ) {
-		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
+		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
 		return $output;
 	}
 

@@ -133,7 +133,7 @@ abstract class AB_Shortcode {
 		}
 
 		$elements = $this->set_defaults_value( $elements );
-		echo AB_HTML_Helper::render_multiple_elements( $elements );
+		echo AB_HTML_Helper::fetch_form_elements( $elements );
 
 		die();
 	}

@@ -19,25 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AB_HTML_Helper {
 
 	public static $imageCount    = 0;
-	public static $meta_data     = array();
 	public static $elementValues = array();
 	public static $elementHidden = array();
 
-	public static function render_meta_box( $meta_element ) {
-
-		// Query the Meta-Data of the current post and check if a key is set, if not set the default value to the standard value, otherwise to the key value ;)
-		if ( ! isset( self::$meta_data[$meta_element['current_post']] ) ) {
-			self::$meta_data[$meta_element['current_post']] = get_post_custom( $meta_element['current_post'] );
-		}
-
-		if ( isset( self::$meta_data[$meta_element['current_post']][$meta_element['id']] ) ) {
-			$meta_element['std'] = self::$meta_data[$meta_element['current_post']][$meta_element['id']][0];
-		}
-
-		return self::render_element( $meta_element );
-	}
-
-	public static function render_multiple_elements( $elements, $parent_class = false ) {
+	public static function fetch_form_elements( $elements, $parent_class = false ) {
 		$output = '';
 
 		foreach ( $elements as $element ) {

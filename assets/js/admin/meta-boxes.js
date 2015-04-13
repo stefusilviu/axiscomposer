@@ -182,12 +182,7 @@ jQuery( function ( $ ) {
 				switcher.filter( '.switch-tmce' ).trigger( 'click' );
 
 				// Ensure when save button is clicked, the textarea gets updated and sent to the editor
-				$( '#btn-ok' ).bind( 'click', function() {
-					switcher.filter( '.switch-html' ).trigger( 'click' );
-				});
-
-				// @Todo: Deprecated after real fix ;)
-				$( document.body ).on( 'axisbuilder_backbone_modal_keyboard', function() {
+				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-data', function() {
 					switcher.filter( '.switch-html' ).trigger( 'click' );
 				});
 
@@ -216,6 +211,10 @@ jQuery( function ( $ ) {
 		.on( 'axisbuilder_backbone_modal_before_remove', function() {
 			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-close' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
+		})
+
+		.on( 'axisbuilder_backbone_modal_form_data', function() {
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-data' );
 		})
 
 		.trigger( 'axisbuilder-enhanced-modal-elements-init' );

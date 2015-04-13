@@ -1078,7 +1078,7 @@ jQuery( function( $ ) {
 
 			dismiss: function() {
 				$( '.axisbuilder-backbone-modal-content' ).find( 'p' ).append( axisbuilder_admin_meta_boxes_builder.i18n_backbone_loading_falied );
-				$( '.axisbuilder-backbone-modal-content' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axisbuilder_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
+				$( '.axisbuilder-backbone-modal-footer .inner' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axisbuilder_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
 			},
 
 			init_edit_element: function() {

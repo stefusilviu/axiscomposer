@@ -214,43 +214,11 @@ abstract class AB_Shortcode {
 			$this->shortcode['html-render'] = 'sortable_editor_element';
 		}
 
-		// Activate popup editor if elements exist.
+		// Activate popup editor if method exists.
 		if ( method_exists( $this, 'popup_elements' ) ) {
-
-			// Load Popup Elements
 			$this->popup_elements();
-
 			if ( isset( $this->elements ) ) {
 				$this->shortcode['popup_editor'] = true;
-
-				$this->element_iterator( $this->elements );
-
-				// Remove any duplicate values
-				if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
-					$this->shortcode['modal-on-load'] = array_unique( $this->shortcode['modal-on-load'] );
-				}
-			}
-		}
-	}
-
-	/**
-	 * Iterate recursively over element and sub-element trees.
-	 */
-	protected function element_iterator( $elements ) {
-		// Check for JS callbacks to be executed on popup modal load ;)
-		foreach ( $elements as $element ) {
-			switch ( $element['type'] ) {
-				case 'tinymce':
-					$this->shortcode['modal-on-load'][] = 'modal_load_tinymce';
-				break;
-
-				case 'colorpicker':
-					$this->shortcode['modal-on-load'][] = 'modal_load_colorpicker';
-				break;
-
-				case 'datepicker':
-					$this->shortcode['modal-on-load'][] = 'modal_load_datepicker';
-				break;
 			}
 		}
 	}
@@ -353,10 +321,6 @@ abstract class AB_Shortcode {
 			$data['shortcode-allowed']   = $this->shortcode['shortcode-nested'];
 			$data['shortcode-allowed'][] = $this->shortcode['name'];
 			$data['shortcode-allowed']   = implode( ',', $data['shortcode-allowed'] );
-		}
-
-		if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
-			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
 		}
 
 		$output = '<div class="axisbuilder-sortable-element modal-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';

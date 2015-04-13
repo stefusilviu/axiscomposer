@@ -177,10 +177,6 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
-			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
-		}
-
 		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle">';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';

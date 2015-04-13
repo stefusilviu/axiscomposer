@@ -225,10 +225,6 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		if ( ! empty( $this->shortcode['modal-on-load'] ) ) {
-			$data['modal-on-load'] = $this->shortcode['modal-on-load'];
-		}
-
 		$output = '<div class="axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';

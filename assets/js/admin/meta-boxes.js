@@ -181,18 +181,12 @@ jQuery( function ( $ ) {
 				// Activate the visual editor
 				switcher.filter( '.switch-tmce' ).trigger( 'click' );
 
-				// Ensure when save button is clicked, the textarea gets updated and sent to the editor
-				$( '#btn-ok' ).bind( 'click', function() {
+				// Trigger events
+				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-update', function() {
 					switcher.filter( '.switch-html' ).trigger( 'click' );
-				});
+				})
 
-				// @Todo: Deprecated after real fix ;)
-				$( document.body ).on( 'axisbuilder_backbone_modal_keyboard', function() {
-					switcher.filter( '.switch-html' ).trigger( 'click' );
-				});
-
-				// Trigger close event
-				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
+				.on( 'axisbuilder-enhanced-form-tinymce-remove', function() {
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
 					if ( typeof window.editorExpand === 'object' ) {
 						window.editorExpand.off();
@@ -213,8 +207,12 @@ jQuery( function ( $ ) {
 		})
 
 		// AxisBuilder Backbone modal
+		.on( 'axisbuilder_backbone_modal_before_update', function() {
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-update' );
+		})
+
 		.on( 'axisbuilder_backbone_modal_before_remove', function() {
-			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-close' );
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-remove' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 

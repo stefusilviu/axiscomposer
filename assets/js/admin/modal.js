@@ -128,6 +128,8 @@
 		getFormData: function() {
 			var data = {};
 
+			$( document.body ).trigger( 'axisbuilder_backbone_modal_before_update', this._target );
+
 			$.each( $( 'form', this.$el ).serializeArray(), function( index, item ) {
 				if ( data.hasOwnProperty( item.name ) ) {
 					data[ item.name ] = $.makeArray( data[ item.name ] );
@@ -144,7 +146,6 @@
 
 			// Enter key
 			if ( 13 === button && ! ( e.target.tagName && ( e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'textarea' ) ) ) {
-				$( document.body ).trigger( 'axisbuilder_backbone_modal_keyboard', this._target ); // @todo: Deprecated
 				this.addButton( e );
 			}
 

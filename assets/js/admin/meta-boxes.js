@@ -182,11 +182,11 @@ jQuery( function ( $ ) {
 				switcher.filter( '.switch-tmce' ).trigger( 'click' );
 
 				// Trigger events
-				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-data', function() {
+				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-update', function() {
 					switcher.filter( '.switch-html' ).trigger( 'click' );
-				});
+				})
 
-				$( document.body ).on( 'axisbuilder-enhanced-form-tinymce-close', function() {
+				.on( 'axisbuilder-enhanced-form-tinymce-remove', function() {
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
 					if ( typeof window.editorExpand === 'object' ) {
 						window.editorExpand.off();
@@ -208,11 +208,11 @@ jQuery( function ( $ ) {
 
 		// AxisBuilder Backbone modal
 		.on( 'axisbuilder_backbone_modal_before_update', function() {
-			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-data' );
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-update' );
 		})
 
 		.on( 'axisbuilder_backbone_modal_before_remove', function() {
-			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-close' );
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-remove' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 

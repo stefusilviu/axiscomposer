@@ -127,7 +127,9 @@
 		},
 		getFormData: function() {
 			var data = {};
+
 			$( document.body ).trigger( 'axisbuilder_backbone_modal_before_update', this._target );
+
 			$.each( $( 'form', this.$el ).serializeArray(), function( index, item ) {
 				if ( data.hasOwnProperty( item.name ) ) {
 					data[ item.name ] = $.makeArray( data[ item.name ] );

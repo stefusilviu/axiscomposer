@@ -125,7 +125,7 @@ class AB_Admin_Assets {
 				'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 				'plugin_url'                      => AB()->plugin_url(),
 				'debug_mode'                      => empty( $status['builder_debug_mode'] ) ? 'no' : 'yes',
-				'element_nonce'                   => wp_create_nonce( 'edit-element' ),
+				'modal_item_nonce'                => wp_create_nonce( 'modal-item' ),
 				'i18n_no_layout'                  => esc_js( __( 'The current number of cells does not allow any layout variations.', 'axisbuilder' ) ),
 				'i18n_add_one_cell'               => esc_js( __( 'You need to add at least one cell', 'axisbuilder' ) ),
 				'i18n_remove_one_cell'            => esc_js( __( 'You need to remove at least one cell', 'axisbuilder' ) ),

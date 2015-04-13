@@ -1094,7 +1094,7 @@ jQuery( function( $ ) {
 						shortcode: parents.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
 					},
 					action: 'axisbuilder_' + parents.data( 'modal-action' ),
-					security: axisbuilder_admin_meta_boxes_builder.element_nonce
+					security: axisbuilder_admin_meta_boxes_builder.modal_item_nonce
 				};
 
 				$.ajax({

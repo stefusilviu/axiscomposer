@@ -109,11 +109,11 @@ abstract class AB_Shortcode {
 	 */
 	public function load_modal_items() {
 
+		check_ajax_referer( 'modal-item', 'security' );
+
 		if ( empty( $this->elements ) ) {
 			die();
 		}
-
-		check_ajax_referer( 'edit-element', 'security' );
 
 		// Display Custom CSS element
 		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {

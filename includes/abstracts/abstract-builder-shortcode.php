@@ -91,13 +91,13 @@ abstract class AB_Shortcode {
 	 */
 	public function shortcode_action() {
 		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
-			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'popup_editor' ) );
+			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'load_modal_items' ) );
 
 			// If availabe nested shortcode define them.
 			if ( isset( $this->shortcode['nested'] ) ) {
 				foreach ( $this->shortcode['nested'] as $shortcode ) {
 					if ( method_exists( $this, $shortcode ) ) {
-						add_action( 'wp_ajax_axisbuilder_' . $shortcode, array( $this, 'popup_editor' ) );
+						add_action( 'wp_ajax_axisbuilder_' . $shortcode, array( $this, 'load_modal_items' ) );
 					}
 				}
 			}
@@ -105,9 +105,9 @@ abstract class AB_Shortcode {
 	}
 
 	/**
-	 * AJAX Popup Editor.
+	 * AJAX Load Backbone modal items.
 	 */
-	public function popup_editor() {
+	public function load_modal_items() {
 
 		if ( empty( $this->elements ) ) {
 			die();

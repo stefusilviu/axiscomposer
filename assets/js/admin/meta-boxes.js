@@ -208,13 +208,13 @@ jQuery( function ( $ ) {
 		})
 
 		// AxisBuilder Backbone modal
+		.on( 'axisbuilder_backbone_modal_before_update', function() {
+			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-data' );
+		})
+
 		.on( 'axisbuilder_backbone_modal_before_remove', function() {
 			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-close' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
-		})
-
-		.on( 'axisbuilder_backbone_modal_form_data', function() {
-			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-data' );
 		})
 
 		.trigger( 'axisbuilder-enhanced-modal-elements-init' );

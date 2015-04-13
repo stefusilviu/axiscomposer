@@ -193,7 +193,7 @@ jQuery( function( $ ) {
 
 		add_element: function() {
 			var shortcode     = this.hash.replace( '#', '' ),
-				element_tmpl  = $( '#axisbuilder-tmpl-' + shortcode ),
+				element_tmpl  = $( '#tmpl-axisbuilder-' + shortcode ),
 				insert_target = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? 'target_insert' : 'instant_insert',
 
 			if ( element_tmpl.length ) {
@@ -879,7 +879,7 @@ jQuery( function( $ ) {
 						if ( ui.draggable[0].hash ) {
 							var shortcode = ui.draggable.get(0).hash.replace( '#', '' );
 
-							template = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
+							template = $( $( '#tmpl-axisbuilder-' + shortcode ).html() );
 							ui.draggable = template;
 						}
 
@@ -999,7 +999,7 @@ jQuery( function( $ ) {
 			insert_cell: function( row, newEl ) {
 				var storage   = row.find( '> .axisbuilder-inner-shortcode' ),
 					shortcode = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
-					cell_tmpl = $( $( '#axisbuilder-tmpl-' + shortcode ).html() );
+					cell_tmpl = $( $( '#tmpl-axisbuilder-' + shortcode ).html() );
 
 				storage.append( cell_tmpl );
 			},

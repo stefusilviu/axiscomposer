@@ -110,7 +110,6 @@ jQuery( function( $ ) {
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'active' );
 
-				// Load Interface
 				setTimeout( function() {
 					$( '#content-tmce' ).trigger( 'click' );
 					axisbuilder_meta_boxes_builder.shortcode_interface();

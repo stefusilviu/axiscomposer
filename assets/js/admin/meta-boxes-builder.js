@@ -51,8 +51,8 @@ jQuery( function( $ ) {
 
 			$( document.body )
 				.on( 'keydown storage', this.storage.keyboard_actions )
-				.on( 'axisbuilder_storage_loaded', this.dragdrop.init )
-				.on( 'axisbuilder_storage_response', this.storage.snapshot )
+				.on( 'axisbuilder_dragdrop_loaded', this.dragdrop.init )
+				.on( 'axisbuilder_snapshot_response', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 		},
@@ -171,7 +171,7 @@ jQuery( function( $ ) {
 				success: function( response ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
-					$( document.body ).trigger( 'axisbuilder_storage_loaded' );
+					$( document.body ).trigger( 'axisbuilder_dragdrop_loaded' );
 
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
@@ -1225,7 +1225,7 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				$( document.body ).trigger( 'axisbuilder_storage_loaded' );
+				$( document.body ).trigger( 'axisbuilder_dragdrop_loaded' );
 			},
 
 			snapshot: function() {
@@ -1290,7 +1290,7 @@ jQuery( function( $ ) {
 
 			history_snapshot: function( timeout ) {
 				setTimeout( function() {
-					$( document.body ).trigger( 'axisbuilder_storage_response' );
+					$( document.body ).trigger( 'axisbuilder_snapshot_response' );
 				}, timeout ? timeout : 150 );
 			},
 

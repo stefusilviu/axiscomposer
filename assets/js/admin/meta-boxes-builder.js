@@ -125,6 +125,9 @@ jQuery( function( $ ) {
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'inactive' );
 
+				// Empty canvas elements
+				$( '.canvas-area' ).empty();
+
 				if ( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
 					window.editorExpand.on();

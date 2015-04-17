@@ -198,7 +198,7 @@ jQuery( function( $ ) {
 
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {
-					$( '.canvas-area' ).append( element_tmpl );
+					$( '.canvas-area' ).append( element_tmpl.html() );
 					axisbuilder_meta_boxes_builder.dragdrop.draggable();
 					axisbuilder_meta_boxes_builder.dragdrop.droppable();
 					axisbuilder_meta_boxes_builder.textarea.outer();

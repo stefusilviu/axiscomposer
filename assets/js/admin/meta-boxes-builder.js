@@ -171,8 +171,9 @@ jQuery( function( $ ) {
 				success: function( response ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
-					$( document.body ).trigger( 'axisbuilder_dragdrop_loaded' );
 
+					axisbuilder_meta_boxes_builder.dragdrop.draggable();
+					axisbuilder_meta_boxes_builder.dragdrop.droppable();
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 					axisbuilder_meta_boxes_builder.tiptip();

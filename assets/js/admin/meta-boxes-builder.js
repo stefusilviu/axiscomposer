@@ -50,9 +50,9 @@ jQuery( function( $ ) {
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
 
 			$( document.body )
+				.on( 'axisbuilder_dragdrop_init', this.dragdrop.init )
 				.on( 'keydown storage', this.storage.keyboard_actions )
-				.on( 'axisbuilder_dragdrop_loaded', this.dragdrop.init )
-				.on( 'axisbuilder_snapshot_response', this.storage.snapshot )
+				.on( 'axisbuilder_snapshot_storage', this.storage.snapshot )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 		},
@@ -1227,7 +1227,7 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				$( document.body ).trigger( 'axisbuilder_dragdrop_loaded' );
+				$( document.body ).trigger( 'axisbuilder_dragdrop_init' );
 			},
 
 			snapshot: function() {
@@ -1292,7 +1292,7 @@ jQuery( function( $ ) {
 
 			history_snapshot: function( timeout ) {
 				setTimeout( function() {
-					$( document.body ).trigger( 'axisbuilder_snapshot_response' );
+					$( document.body ).trigger( 'axisbuilder_snapshot_storage' );
 				}, timeout ? timeout : 150 );
 			},
 

@@ -110,11 +110,6 @@ jQuery( function( $ ) {
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'active' );
 
-				if ( typeof window.editorExpand === 'object' ) {
-					window.editorExpand.off();
-					window.editorExpand.on();
-				}
-
 				setTimeout( function() {
 					$( '#content-tmce' ).trigger( 'click' );
 					axisbuilder_meta_boxes_builder.shortcode_interface();
@@ -128,15 +123,16 @@ jQuery( function( $ ) {
 				// Empty canvas elements
 				$( '.canvas-area' ).empty();
 
-				if ( typeof window.editorExpand === 'object' ) {
-					window.editorExpand.off();
-					window.editorExpand.on();
-				}
-
 				// Clear default tinyMCE editor if debug mode is disabled
 				if ( axisbuilder_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
 					axisbuilder_meta_boxes_builder.tinyMCE( '' );
 				}
+			}
+
+			// Reset editorExpand
+			if ( typeof window.editorExpand === 'object' ) {
+				window.editorExpand.off();
+				window.editorExpand.on();
 			}
 		},
 

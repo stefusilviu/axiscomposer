@@ -110,18 +110,17 @@ jQuery( function( $ ) {
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'active' );
 
+				// Load Interface
 				setTimeout( function() {
 					$( '#content-tmce' ).trigger( 'click' );
 					axisbuilder_meta_boxes_builder.shortcode_interface();
 				}, 10 );
 			} else {
+				$( '#axisbuilder-editor' ).find( '.canvas-area' ).empty();
 				$( '#axisbuilder-editor' ).addClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().removeClass( 'axisbuilder-hidden-editor' );
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'inactive' );
-
-				// Empty canvas elements
-				$( '.canvas-area' ).empty();
 
 				// Clear default tinyMCE editor if debug mode is disabled
 				if ( axisbuilder_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {

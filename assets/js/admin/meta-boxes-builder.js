@@ -125,9 +125,6 @@ jQuery( function( $ ) {
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'inactive' );
 
-				// Remove duplication of canvas elements
-				$( '.canvas-area' ).find( '>*:not( .control-bar, .axisbuilder-insert-area )' ).remove();
-
 				if ( typeof window.editorExpand === 'object' ) {
 					window.editorExpand.off();
 					window.editorExpand.on();
@@ -172,7 +169,10 @@ jQuery( function( $ ) {
 				data: data,
 				type: 'POST',
 				success: function( response ) {
-					axisbuilder_meta_boxes_builder.send_to_canvas( response );
+					$( '.canvas-area' ).empty();
+					$( '.canvas-area' ).append( response );
+					$( document.body ).trigger( 'axisbuilder_storage_loaded' );
+
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 					axisbuilder_meta_boxes_builder.tiptip();

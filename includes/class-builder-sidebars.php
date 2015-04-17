@@ -42,7 +42,7 @@ class AB_Sidebars {
 	 * Handles output of the Widget Area (Sidebar) Builder page in admin.
 	 */
 	public function output() {
-		include_once( 'admin/views/html-admin-page-sidebars.php' );
+		include_once( 'admin/views/html-admin-tmpl-sidebars.php' );
 	}
 
 	/**

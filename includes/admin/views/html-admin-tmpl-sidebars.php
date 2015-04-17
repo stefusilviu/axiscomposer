@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Page - Sidebars
+ * Admin View: Template - Sidebars
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

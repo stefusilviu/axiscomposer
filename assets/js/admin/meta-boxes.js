@@ -188,7 +188,9 @@ jQuery( function ( $ ) {
 
 				.on( 'axisbuilder-enhanced-form-tinymce-remove', function() {
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
-					if ( typeof window.editorExpand === 'object' ) {
+
+					// Auto resize WordPress editor
+					if ( $( '#editor-expand-toggle' ).prop( 'checked' ) ) {
 						window.editorExpand.off();
 						window.editorExpand.on();
 					}

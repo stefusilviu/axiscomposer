@@ -51,8 +51,8 @@ jQuery( function( $ ) {
 
 			$( document.body )
 				.on( 'keydown storage', this.storage.keyboard_actions )
-				.on( 'axisbuilder_snapshot_storage', this.storage.snapshot )
-				.on( 'axisbuilder_dragdrop_init', this.dragdrop.init )
+				.on( 'axisbuilder_storage_snap', this.storage.snapshot )
+				.on( 'axisbuilder_dragdrop_loaded', this.dragdrop.init )
 				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
 				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
 		},
@@ -1218,7 +1218,7 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				$( document.body ).trigger( 'axisbuilder_dragdrop_init' );
+				$( document.body ).trigger( 'axisbuilder_dragdrop_loaded' );
 			},
 
 			snapshot: function() {
@@ -1283,7 +1283,7 @@ jQuery( function( $ ) {
 
 			history_snapshot: function( timeout ) {
 				setTimeout( function() {
-					$( document.body ).trigger( 'axisbuilder_snapshot_storage' );
+					$( document.body ).trigger( 'axisbuilder_storage_snap' );
 				}, timeout ? timeout : 150 );
 			},
 

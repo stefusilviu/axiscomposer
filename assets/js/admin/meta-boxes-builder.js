@@ -129,7 +129,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			// Reset editorExpand
+			// Auto resize WordPress editor
 			if ( typeof window.editorExpand === 'object' ) {
 				window.editorExpand.off();
 				window.editorExpand.on();

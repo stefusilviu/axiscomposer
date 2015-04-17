@@ -182,15 +182,6 @@ jQuery( function( $ ) {
 			});
 		},
 
-		send_to_canvas: function( text ) {
-			var add_text = $( text );
-			$( '.canvas-area' ).append( add_text );
-
-			// Activate Draggable-Droppable
-			axisbuilder_meta_boxes_builder.dragdrop.draggable();
-			axisbuilder_meta_boxes_builder.dragdrop.droppable();
-		},
-
 		add_element: function() {
 			var shortcode     = this.hash.replace( '#', '' ),
 				element_tmpl  = $( '#tmpl-axisbuilder-' + shortcode ),

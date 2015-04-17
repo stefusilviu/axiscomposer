@@ -145,7 +145,6 @@ jQuery( function( $ ) {
 				text = $( '.canvas-data' ).val();
 				if ( text.indexOf( '[' ) === -1 ) {
 					text = $( '#content.wp-editor-area' ).val();
-
 					if ( typeof window.tinyMCE !== 'undefined' ) {
 						text = window.switchEditors._wp_Nop( text );
 					}

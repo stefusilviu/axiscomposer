@@ -728,12 +728,7 @@ jQuery( function( $ ) {
 				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
 			},
 
-			draggable: function( exclude ) {
-				var scope = $( '.canvas-area' ).parents( '.postbox:eq(0)' );
-				if ( typeof exclude === 'undefined' ) {
-					exclude = ':not(.ui-draggable)';
-				}
-
+			draggable: function() {
 				var data = {
 					handle: '>.menu-item-handle',
 					helper: 'clone',
@@ -757,8 +752,8 @@ jQuery( function( $ ) {
 				};
 
 				// Draggable
-				scope.find( '.axisbuilder-drag' + exclude ).draggable( data );
-				scope.find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
+				$( '.canvas-area' ).parents( '.postbox:eq(0)' ).find( '.axisbuilder-drag' ).not( '.ui-draggable' ).draggable( data );
+				$( '.canvas-area' ).parents( '.postbox:eq(0)' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
 					$.extend( {}, data, {
 						handle: false,
 						cursorAt: {

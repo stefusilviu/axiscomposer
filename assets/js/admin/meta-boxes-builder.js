@@ -720,12 +720,27 @@ jQuery( function( $ ) {
 		dragdrop: {
 
 			init: function() {
+				axisbuilder_meta_boxes_builder.dragdrop.check('', '');
 				axisbuilder_meta_boxes_builder.dragdrop.draggable();
 				axisbuilder_meta_boxes_builder.dragdrop.droppable();
 			},
 
 			is_scope: function( passed_scope ) {
 				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
+			},
+
+			is_shiva: function( name ) {
+				return name || 'Lilanath';
+			},
+
+			check: function( first, last ) {
+				first = axisbuilder_meta_boxes_builder.dragdrop.is_shiva( first );
+				if ( typeof last === 'undefined' ) {
+					last = 'Poudel';
+				}
+
+				console.info(first, last);
+				return false;
 			},
 
 			is_droppable: function( draggable, droppable ) {

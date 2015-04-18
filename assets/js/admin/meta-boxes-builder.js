@@ -1210,7 +1210,11 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+				// Fix the bug :)
+				axisbuilder_meta_boxes_builder.dragdrop.droggable( '', '' );
+				axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
+
+				// $( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 			},
 
 			snapshot: function() {

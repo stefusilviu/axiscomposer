@@ -168,7 +168,6 @@ jQuery( function( $ ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
 					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
-
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 					axisbuilder_meta_boxes_builder.tiptip();
@@ -187,7 +186,6 @@ jQuery( function( $ ) {
 				if ( insert_target === 'instant-insert' ) {
 					$( '.canvas-area' ).append( element_tmpl.html() );
 					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
-
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 				}

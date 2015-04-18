@@ -722,8 +722,8 @@ jQuery( function( $ ) {
 		dragdrop: {
 
 			init: function() {
-				axisbuilder_meta_boxes_builder.dragdrop.draggable( '', '' );
-				axisbuilder_meta_boxes_builder.dragdrop.droppable( '', '' );
+				axisbuilder_meta_boxes_builder.dragdrop.draggable();
+				axisbuilder_meta_boxes_builder.dragdrop.droppable();
 			},
 
 			is_scope: function( passed_scope ) {

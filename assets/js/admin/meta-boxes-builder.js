@@ -764,12 +764,7 @@ jQuery( function( $ ) {
 				);
 			},
 
-			droppable: function( exclude ) {
-				var scope = $( '.canvas-area' ).parents( '.postbox:eq(0)' );
-				if ( typeof exclude === 'undefined' ) {
-					exclude = ':not(.ui-droppable)';
-				}
-
+			droppable: function() {
 				var data = {
 					greedy: true,
 					tolerance: 'pointer',
@@ -894,14 +889,8 @@ jQuery( function( $ ) {
 					}
 				};
 
-				// Destroy droppable
-				if ( exclude === 'destroy' ) {
-					scope.find( '.axisbuilder-drop' ).droppable( 'destroy' );
-					exclude = '';
-				}
-
 				// Droppable
-				scope.find( '.axisbuilder-drop' + exclude ).droppable( data );
+				$( '.canvas-area' ).parents( '.postbox:eq(0)' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
 			}
 		},
 

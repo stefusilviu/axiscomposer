@@ -167,8 +167,8 @@ jQuery( function( $ ) {
 				success: function( response ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
-					axisbuilder_meta_boxes_builder.dragdrop.draggable();
-					axisbuilder_meta_boxes_builder.dragdrop.droppable();
+					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+
 					// axisbuilder_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 					axisbuilder_meta_boxes_builder.tiptip();
@@ -186,8 +186,8 @@ jQuery( function( $ ) {
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {
 					$( '.canvas-area' ).append( element_tmpl.html() );
-					axisbuilder_meta_boxes_builder.dragdrop.draggable();
-					axisbuilder_meta_boxes_builder.dragdrop.droppable();
+					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
 				}
@@ -258,8 +258,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			axisbuilder_meta_boxes_builder.dragdrop.draggable();
-			axisbuilder_meta_boxes_builder.dragdrop.droppable();
+			$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 			axisbuilder_meta_boxes_builder.textarea.outer();
 			axisbuilder_meta_boxes_builder.storage.history_snapshot();
 
@@ -898,8 +897,7 @@ jQuery( function( $ ) {
 						// Apply dragging and dropping in case we got a new element
 						if ( typeof template !== 'undefined' ) {
 							$( '.canvas-area' ).removeClass( 'ui-droppable' ).droppable( 'destroy' );
-							axisbuilder_meta_boxes_builder.dragdrop.draggable();
-							axisbuilder_meta_boxes_builder.dragdrop.droppable();
+							$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 						}
 
 						// History Snapshot

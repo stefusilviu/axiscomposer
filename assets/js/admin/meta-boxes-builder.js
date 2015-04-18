@@ -300,7 +300,7 @@ jQuery( function( $ ) {
 
 				// Bugfix - column delete makes the canvas undropbable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
-					axisbuilder_meta_boxes_builder.dragdrop.droppable( '', 'destroy' );
+					axisbuilder_meta_boxes_builder.dragdrop.droppable( 'destroy' );
 				}
 
 				axisbuilder_meta_boxes_builder.storage.history_snapshot();
@@ -720,35 +720,16 @@ jQuery( function( $ ) {
 		dragdrop: {
 
 			init: function() {
-				axisbuilder_meta_boxes_builder.dragdrop.check('', '');
 				axisbuilder_meta_boxes_builder.dragdrop.draggable();
 				axisbuilder_meta_boxes_builder.dragdrop.droppable();
-			},
-
-			is_scope: function( passed_scope ) {
-				return passed_scope || $( '.canvas-area' ).parents( '.postbox:eq(0)' );
-			},
-
-			is_shiva: function( name ) {
-				return name || 'Lilanath';
-			},
-
-			check: function( first, last ) {
-				first = axisbuilder_meta_boxes_builder.dragdrop.is_shiva( first );
-				if ( typeof last === 'undefined' ) {
-					last = 'Poudel';
-				}
-
-				console.info(first, last);
-				return false;
 			},
 
 			is_droppable: function( draggable, droppable ) {
 				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
 			},
 
-			draggable: function( scope, exclude ) {
-				scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
+			draggable: function( exclude ) {
+				var scope = $( '.canvas-area' ).parents( '.postbox:eq(0)' );
 				if ( typeof exclude === 'undefined' ) {
 					exclude = ':not(.ui-draggable)';
 				}
@@ -788,8 +769,8 @@ jQuery( function( $ ) {
 				);
 			},
 
-			droppable: function( scope, exclude ) {
-				scope = axisbuilder_meta_boxes_builder.dragdrop.is_scope( scope );
+			droppable: function( exclude ) {
+				var scope = $( '.canvas-area' ).parents( '.postbox:eq(0)' );
 				if ( typeof exclude === 'undefined' ) {
 					exclude = ':not(.ui-droppable)';
 				}

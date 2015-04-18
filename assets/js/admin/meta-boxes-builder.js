@@ -752,8 +752,8 @@ jQuery( function( $ ) {
 				};
 
 				// Draggable
-				$( '.canvas-area' ).parents( '.postbox:eq(0)' ).find( '.axisbuilder-drag' ).not( '.ui-draggable' ).draggable( data );
-				$( '.canvas-area' ).parents( '.postbox:eq(0)' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
+				$( '#axisbuilder-editor' ).find( '.axisbuilder-drag' ).not( '.ui-draggable' ).draggable( data );
+				$( '#axisbuilder-editor' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
 					$.extend( {}, data, {
 						handle: false,
 						cursorAt: {
@@ -890,7 +890,7 @@ jQuery( function( $ ) {
 				};
 
 				// Droppable
-				$( '.canvas-area' ).parents( '.postbox:eq(0)' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
+				$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
 			}
 		},
 

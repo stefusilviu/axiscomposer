@@ -948,26 +948,20 @@ jQuery( function( $ ) {
 					newEl = axisbuilder_meta_boxes_builder_data.new_cell_order[count];
 
 				if ( typeof newEl !== 'undefined' ) {
-					if ( count !== cells.length ) {
-						axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
-					} else {
-						axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
-						axisbuilder_meta_boxes_builder.cell.insert_cell( $row, newEl );
-						$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+					axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
+
+					// Check if we can append cells
+					if ( cells.length === count ) {
+						var cell_tmpl = $( '#tmpl-axisbuilder-' + newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ) );
+						if ( cell_tmpl.length ) {
+							$row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
+							$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+						}
 					}
 
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.storage.history_snapshot();
-				}
-			},
-
-			insert_cell: function( row, newEl ) {
-				var	shortcode = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
-					cell_tmpl = $( '#tmpl-axisbuilder-' + shortcode );
-
-				if ( cell_tmpl.length ) {
-					row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
 				}
 			},
 

@@ -721,12 +721,12 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.dragdrop.droppable();
 			},
 
-			is_droppable: function( draggable, droppable ) {
-				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
-			},
-
 			disable: function() {
 				$( '#axisbuilder-editor').find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
+			},
+
+			is_droppable: function( draggable, droppable ) {
+				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
 			},
 
 			draggable: function() {

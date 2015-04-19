@@ -293,14 +293,13 @@ jQuery( function( $ ) {
 					axisbuilder_meta_boxes_builder.textarea.inner( parents );
 				}
 				axisbuilder_meta_boxes_builder.textarea.outer();
+				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 
 				// Bugfix - column delete makes the canvas undroppable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
 					$( '.axisbuilder-drop' ).droppable( 'destroy' );
 					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 				}
-
-				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			});
 
 			return false;

@@ -292,6 +292,7 @@ jQuery( function( $ ) {
 				if ( parents && parents.length ) {
 					axisbuilder_meta_boxes_builder.textarea.inner( parents );
 				}
+
 				axisbuilder_meta_boxes_builder.textarea.outer();
 				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 

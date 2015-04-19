@@ -881,7 +881,6 @@ jQuery( function( $ ) {
 
 						// Apply dragging and dropping in case we got a new element
 						if ( typeof template !== 'undefined' ) {
-							$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).droppable( 'destroy' );
 							$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 						}
 

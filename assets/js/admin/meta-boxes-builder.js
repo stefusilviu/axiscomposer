@@ -296,7 +296,7 @@ jQuery( function( $ ) {
 
 				// Bugfix - column delete makes the canvas undropbable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
-					axisbuilder_meta_boxes_builder.dragdrop.droppable( 'destroy' );
+					axisbuilder_meta_boxes_builder.dragdrop.destroy_droppable();
 				}
 
 				axisbuilder_meta_boxes_builder.storage.history_snapshot();
@@ -722,11 +722,15 @@ jQuery( function( $ ) {
 			},
 
 			disable: function() {
-				$( '#axisbuilder-editor').find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
+				$( '#axisbuilder-editor' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 			},
 
 			is_droppable: function( draggable, droppable ) {
 				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
+			},
+
+			destroy_droppable: function() {
+				$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).droppable( 'destroy' );
 			},
 
 			draggable: function() {
@@ -953,7 +957,7 @@ jQuery( function( $ ) {
 					} else {
 						axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
 						axisbuilder_meta_boxes_builder.cell.insert_cell( $row, newEl );
-						axisbuilder_meta_boxes_builder.dragdrop.droppable();
+						$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 					}
 
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );

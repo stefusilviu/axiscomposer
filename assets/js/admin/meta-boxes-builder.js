@@ -720,12 +720,17 @@ jQuery( function( $ ) {
 		dragdrop: {
 
 			init: function() {
+				axisbuilder_meta_boxes_builder.dragdrop.destroy();
 				axisbuilder_meta_boxes_builder.dragdrop.draggable();
 				axisbuilder_meta_boxes_builder.dragdrop.droppable();
 			},
 
 			is_droppable: function( draggable, droppable ) {
 				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
+			},
+
+			destroy: function() {
+				$( '#axisbuilder-editor').find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 			},
 
 			draggable: function() {

@@ -301,7 +301,7 @@ jQuery( function( $ ) {
 				}
 				axisbuilder_meta_boxes_builder.textarea.outer();
 
-				// Bugfix - column delete makes the canvas undropbable for unknown reason
+				// Bugfix - column delete makes the canvas undroppable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
 					axisbuilder_meta_boxes_builder.dragdrop.droppable( '', 'destroy' );
 				}

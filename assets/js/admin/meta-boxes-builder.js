@@ -716,7 +716,7 @@ jQuery( function( $ ) {
 		dragdrop: {
 
 			init: function() {
-				axisbuilder_meta_boxes_builder.dragdrop.destroy();
+				axisbuilder_meta_boxes_builder.dragdrop.disable();
 				axisbuilder_meta_boxes_builder.dragdrop.draggable();
 				axisbuilder_meta_boxes_builder.dragdrop.droppable();
 			},
@@ -725,7 +725,7 @@ jQuery( function( $ ) {
 				return draggable.data( 'dragdrop-level' ) > droppable.data( 'dragdrop-level' );
 			},
 
-			destroy: function() {
+			disable: function() {
 				$( '#axisbuilder-editor').find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 			},
 

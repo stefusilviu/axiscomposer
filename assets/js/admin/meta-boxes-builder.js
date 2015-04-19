@@ -240,19 +240,19 @@ jQuery( function( $ ) {
 				this.innerHTML = this.value;
 			});
 
-			var cloned  = element.clone(),
-				wrapped = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
+			// @deprecate Remove all previous drag-drop classes so we can apply new ones
+			element.clone().removeClass( 'ui-draggable ui-droppable' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 
-			// Remove all previous drag-drop classes so we can apply new ones
-			cloned.removeClass( 'ui-draggable ui-droppable' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
-			cloned.insertAfter( element );
+			// Clone and insert an element
+			element.clone().insertAfter( element );
 
 			if ( recalc_cell ) {
 				axisbuilder_meta_boxes_builder.cell.modify_cell_count( this, -1 );
 			}
 
-			if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapped.length ) {
-				if ( wrapped.length ) {
+			var wrapper = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
+			if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapper.length ) {
+				if ( wrapper.length ) {
 					axisbuilder_meta_boxes_builder.textarea.outer();
 					axisbuilder_meta_boxes_builder.textarea.inner( element );
 				}

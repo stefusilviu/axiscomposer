@@ -957,7 +957,7 @@ jQuery( function( $ ) {
 					} else {
 						axisbuilder_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
 						axisbuilder_meta_boxes_builder.cell.insert_cell( $row, newEl );
-						axisbuilder_meta_boxes_builder.dragdrop.droppable();
+						$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 					}
 
 					axisbuilder_meta_boxes_builder.textarea.inner( false, $row );

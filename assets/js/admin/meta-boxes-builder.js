@@ -967,11 +967,12 @@ jQuery( function( $ ) {
 			},
 
 			insert_cell: function( row, newEl ) {
-				var storage   = row.find( '> .axisbuilder-inner-shortcode' ),
-					shortcode = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
-					cell_tmpl = $( $( '#tmpl-axisbuilder-' + shortcode ).html() );
+				var	shortcode = newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ),
+					cell_tmpl = $( '#tmpl-axisbuilder-' + shortcode );
 
-				storage.append( cell_tmpl );
+				if ( cell_tmpl.length ) {
+					row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
+				}
 			},
 
 			change_multiple_cell_size: function( cells, newEl, multi ) {

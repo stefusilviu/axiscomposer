@@ -296,7 +296,7 @@ jQuery( function( $ ) {
 
 				// Bugfix - column delete makes the canvas undroppable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
-					axisbuilder_meta_boxes_builder.dragdrop.droppable();
+					axisbuilder_meta_boxes_builder.dragdrop.droppable( true );
 				}
 
 				axisbuilder_meta_boxes_builder.storage.history_snapshot();
@@ -765,7 +765,7 @@ jQuery( function( $ ) {
 				);
 			},
 
-			droppable: function() {
+			droppable: function( destroy ) {
 				var data = {
 					greedy: true,
 					tolerance: 'pointer',
@@ -891,7 +891,12 @@ jQuery( function( $ ) {
 				};
 
 				// Droppable
-				$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
+				if ( destroy !== 'undefined' && destroy === true ) {
+					$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).droppable( 'destroy' );
+					$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).droppable( data );
+				} else {
+					$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
+				}
 			}
 		},
 

@@ -138,6 +138,15 @@ jQuery( function ( $ ) {
 		});
 	}).trigger( 'axisbuilder-init-datepickers' );
 
+	// Auto resize WordPress editor
+	$( document.body ).on( 'axisbuilder-init-wp-editor', function() {
+		var $supports_editor_expand = ( 'editorExpand' in window && window.editorExpand !== null );
+		if ( $supports_editor_expand && $( '#editor-expand-toggle' ).prop( 'checked' ) ) {
+			window.editorExpand.off();
+			window.editorExpand.on();
+		}
+	});
+
 	// Enhanced Modal Elements
 	$( document.body )
 
@@ -187,14 +196,8 @@ jQuery( function ( $ ) {
 				})
 
 				.on( 'axisbuilder-enhanced-form-tinymce-remove', function() {
+					$( document.body ).trigger( 'axisbuilder-init-wp-editor' );
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
-
-					// Auto resize WordPress editor
-					var $supports_editor_expand = ( 'editorExpand' in window && window.editorExpand !== null );
-					if ( $supports_editor_expand && $( '#editor-expand-toggle' ).prop( 'checked' ) ) {
-						window.editorExpand.off();
-						window.editorExpand.on();
-					}
 				});
 			});
 

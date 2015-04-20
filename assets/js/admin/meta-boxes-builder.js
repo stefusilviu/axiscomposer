@@ -128,11 +128,7 @@ jQuery( function( $ ) {
 			}
 
 			// Auto resize WordPress editor
-			var $supports_editor_expand = ( 'editorExpand' in window && window.editorExpand !== null );
-			if ( $supports_editor_expand && $( '#editor-expand-toggle' ).prop( 'checked' ) ) {
-				window.editorExpand.off();
-				window.editorExpand.on();
-			}
+			$( document.body ).trigger( 'axisbuilder-init-wp-editor' );
 		},
 
 		shortcode_interface: function( text ) {

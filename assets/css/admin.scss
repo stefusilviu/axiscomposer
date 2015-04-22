@@ -94,11 +94,11 @@ label[for="axisbuilder-editor-hide"] {
 			width: 100%;
 			float: left;
 			margin: 0;
-			padding: 0;
+			padding: 0 12px;
 			line-height: 1em;
 			position: relative;
 			background: #fafafa;
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid #c6c4c4;
 			box-sizing: border-box;
 
 			li {
@@ -109,14 +109,16 @@ label[for="axisbuilder-editor-hide"] {
 					width: 20%;
 					float: left;
 					padding: 8px 6px;
-					margin: 15px 12px;
+					margin: 15px 0 0;
 					color: #555;
 					background: #fdfdfd;
 					position: relative;
 					text-align: center;
 					text-decoration: none;
-					border: 1px solid #C6C4C4;
 					line-height: 20px !important;
+					border-top: 1px solid #c6c4c4;
+					border-right: 1px solid #c6c4c4;
+					box-shadow: none;
 
 					&:before {
 						font-size: 16px;
@@ -128,6 +130,14 @@ label[for="axisbuilder-editor-hide"] {
 					&:focus {
 						background: #f7f7f7;
 					}
+				}
+
+				&:first-child a {
+					border-left: 1px solid #c6c4c4;
+				}
+
+				&:last-child a {
+					border-right: 1px solid #c6c4c4;
 				}
 
 				&.layout_options {
@@ -156,7 +166,14 @@ label[for="axisbuilder-editor-hide"] {
 
 				&.active {
 					a {
-						@include active_tab( $fresh-color )
+						top: 1px;
+						height: 21px;
+						margin-top: 14px;
+
+						&:hover,
+						&:focus {
+							background: #fdfdfd;
+						}
 					}
 				}
 			}

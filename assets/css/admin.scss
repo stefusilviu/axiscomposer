@@ -79,7 +79,7 @@ label[for="axisbuilder-editor-hide"] {
 			line-height: 1em;
 			position: relative;
 			background: #fafafa;
-			border-bottom: 1px solid #c6c4c4;
+			border-bottom: 1px solid #ddd;
 			box-sizing: border-box;
 
 			li {
@@ -97,8 +97,8 @@ label[for="axisbuilder-editor-hide"] {
 					text-align: center;
 					text-decoration: none;
 					line-height: 20px !important;
-					border-top: 1px solid #c6c4c4;
-					border-right: 1px solid #c6c4c4;
+					border-top: 1px solid #ddd;
+					border-right: 1px solid #ddd;
 					box-shadow: none;
 
 					&:before {
@@ -114,11 +114,11 @@ label[for="axisbuilder-editor-hide"] {
 				}
 
 				&:first-child a {
-					border-left: 1px solid #c6c4c4;
+					border-left: 1px solid #ddd;
 				}
 
 				&:last-child a {
-					border-right: 1px solid #c6c4c4;
+					border-right: 1px solid #ddd;
 				}
 
 				&.layout_options {

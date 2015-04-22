@@ -150,6 +150,7 @@ label[for="axisbuilder-editor-hide"] {
 						top: 1px;
 						height: 21px;
 						margin-top: 14px;
+						position: relative;
 
 						&:hover,
 						&:focus {
@@ -1456,7 +1457,7 @@ table.axisbuilder_status_table {
 			left: 0;
 			text-indent: 0;
 			text-align: center;
-			line-height: 40px;
+			line-height: 40px !important;
 			width: 100%;
 			height: 40px;
 		}

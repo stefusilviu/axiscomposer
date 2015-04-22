@@ -37,18 +37,6 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Toggle Editor Button
- */
-.axisbuilder-toggle-editor {
-	z-index: 1001;
-	position: relative;
-
-	&:active, &:focus {
-		outline: 0 !important;
-	}
-}
-
-/**
  * Hide Default Editor
  */
 #postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {

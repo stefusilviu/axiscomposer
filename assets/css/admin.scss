@@ -30,29 +30,10 @@
 }
 
 /**
- * Full Screen No-Scroll
- */
-body.axisbuilder-noscroll-box {
-	overflow: hidden;
-}
-
-/**
  * Hide Screen Option
  */
 label[for="axisbuilder-editor-hide"] {
 	display: none;
-}
-
-/**
- * Toggle Editor Button
- */
-.axisbuilder-toggle-editor {
-	z-index: 1001;
-	position: relative;
-
-	&:active, &:focus {
-		outline: 0 !important;
-	}
 }
 
 /**
@@ -91,42 +72,61 @@ label[for="axisbuilder-editor-hide"] {
 		overflow: hidden;
 
 		ul.axisbuilder-tabs {
-			width: 100%;
-			float: left;
-			margin: 0;
-			padding: 0;
 			line-height: 1em;
+			float: left;
+			width: 100%;
+			margin: 0;
 			position: relative;
-			background: #fafafa;
-			border-bottom: 1px solid #eee;
+			padding: 15px 12px 0;
+			background-color: #fafafa;
+			border-bottom: 1px solid #ddd;
 			box-sizing: border-box;
 
 			li {
 				margin: 0;
 				padding: 0;
+				position: relative;
+				display: inline-block;
 
 				a {
-					width: 20%;
-					float: left;
-					padding: 8px 6px;
-					margin: 15px 12px;
 					color: #555;
 					background: #fdfdfd;
-					position: relative;
-					text-align: center;
-					text-decoration: none;
-					border: 1px solid #C6C4C4;
+					padding: 10px 15px;
 					line-height: 20px !important;
+					margin: 0;
+					display: block;
+					box-shadow: none;
+					position: relative;
+					text-decoration: none;
+					border-left: 1px solid transparent;
+					border-right: 1px solid transparent;
 
 					&:before {
 						font-size: 16px;
 						vertical-align: text-bottom;
 						@include iconbefore( "\e002" );
 					}
+				}
 
-					&:hover,
-					&:focus {
-						background: #f7f7f7;
+				&:after {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					content: "";
+					height: 1px;
+					background-color: #ddd;
+				}
+
+				&:first-child {
+					a {
+						border-left: 1px solid #ddd !important;
+					}
+				}
+
+				&:last-child {
+					a {
+						border-right: 1px solid #ddd !important;
 					}
 				}
 
@@ -155,8 +155,16 @@ label[for="axisbuilder-editor-hide"] {
 				}
 
 				&.active {
+
 					a {
-						@include active_tab( $fresh-color )
+						top: 1px;
+						color: #777;
+						border-color: #ddd;
+					}
+
+					&:after {
+						height: 3px;
+						background-color: $fresh-color;
 					}
 				}
 			}
@@ -169,6 +177,7 @@ label[for="axisbuilder-editor-hide"] {
 			position: relative;
 			padding: 4px 12px 9px;
 			background-color: #fdfdfd;
+			@include user-select();
 		}
 	}
 
@@ -888,7 +897,7 @@ body .ui-draggable-dragging {
 
 			&:checked + .axisbuilder-layout-row-inner-label {
 				color: #fff;
-				background: #1e8cbe;
+				background-color: $fresh-color;
 			}
 		}
 
@@ -1439,31 +1448,36 @@ table.axisbuilder_status_table {
 /**
  * Optimisation for screens 900px and smaller
  */
-@media only screen and (max-width: 900px) {}
+@media only screen and (max-width: 900px) {
+
+	#axisbuilder-editor ul.axisbuilder-tabs {
+		width: 100%;
+	}
+
+	#axisbuilder-editor ul.axisbuilder-tabs li a {
+		position: relative;
+		text-indent: -999px;
+		padding: 10px;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			text-indent: 0;
+			text-align: center;
+			line-height: 40px !important;
+			width: 100%;
+			height: 40px;
+		}
+	}
+}
 
 /**
  * Optimisation for screens 782px and smaller
  */
-@media only screen and (max-width: 782px) {
-
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				a {
-					margin: 8px 12px;
-					width: 40% !important;
-				}
-
-				&:nth-of-type(2n) {
-					a {
-						float: right !important;
-						margin-left: 0 !important;
-					}
-				}
-			}
-		}
-	}
-}
+@media only screen and (max-width: 782px) {}
 
 /**
  * Optimisation for screens 500px and smaller

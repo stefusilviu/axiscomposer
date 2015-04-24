@@ -118,11 +118,6 @@ label[for="axisbuilder-editor-hide"] {
 						vertical-align: text-bottom;
 						@include iconbefore( "\e002" );
 					}
-
-					&:hover,
-					&:focus {
-						background: #f7f7f7;
-					}
 				}
 
 				&:first-child {
@@ -161,11 +156,6 @@ label[for="axisbuilder-editor-hide"] {
 						border-right: 1px solid #ddd;
 						background-color: #fdfdfd;
 						color: #555;
-
-						&:hover,
-						&:focus {
-							background: #fdfdfd;
-						}
 					}
 
 					&:after {

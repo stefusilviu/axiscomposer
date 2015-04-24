@@ -96,6 +96,7 @@ label[for="axisbuilder-editor-hide"] {
 					margin: 0;
 					display: block;
 					box-shadow: none;
+					position: relative;
 					text-decoration: none;
 					border-left: 1px solid transparent;
 					border-right: 1px solid transparent;
@@ -156,11 +157,9 @@ label[for="axisbuilder-editor-hide"] {
 				&.active {
 
 					a {
-						position: relative;
 						top: 1px;
-						background-color: #fdfdfd;
+						color: #777;
 						border-color: #ddd;
-						color: #555;
 					}
 
 					&:after {

@@ -164,7 +164,7 @@ label[for="axisbuilder-editor-hide"] {
 
 					&:after {
 						height: 3px;
-						background-color: #d26911;
+						background-color: $fresh-color;
 					}
 				}
 			}
@@ -897,7 +897,7 @@ body .ui-draggable-dragging {
 
 			&:checked + .axisbuilder-layout-row-inner-label {
 				color: #fff;
-				background: #1e8cbe;
+				background-color: $fresh-color;
 			}
 		}
 

@@ -7,19 +7,14 @@
  * Imports
  */
 @import "bourbon";
-@import "mixins";
 @import "variables";
 @import "fonts";
 
 .admin-color-light {
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $light-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $light-color;
 			}
 		}
 	}
@@ -27,21 +22,17 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $light-color;
+				background-color: $light-color;
 			}
 		}
 	}
 }
 
 .admin-color-blue {
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $blue-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $blue-color;
 			}
 		}
 	}
@@ -49,21 +40,17 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $blue-color;
+				background-color: $blue-color;
 			}
 		}
 	}
 }
 
 .admin-color-coffee {
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $coffee-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $coffee-color;
 			}
 		}
 	}
@@ -71,21 +58,17 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $coffee-color;
+				background-color: $coffee-color;
 			}
 		}
 	}
 }
 
 .admin-color-ectoplasm {
-	#axisbuilder-editor {
-		#axisbuilder-panels  {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $ectoplasm-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $ectoplasm-color;
 			}
 		}
 	}
@@ -93,21 +76,17 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $ectoplasm-color;
+				background-color: $ectoplasm-color;
 			}
 		}
 	}
 }
 
 .admin-color-midnight {
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $midnight-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $midnight-color;
 			}
 		}
 	}
@@ -115,21 +94,17 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $midnight-color;
+				background-color: $midnight-color;
 			}
 		}
 	}
 }
 
 .admin-color-ocean {
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $ocean-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $ocean-color;
 			}
 		}
 	}
@@ -137,21 +112,17 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $ocean-color;
+				background-color: $ocean-color;
 			}
 		}
 	}
 }
 
 .admin-color-sunrise {
-	#axisbuilder-editor {
-		#axisbuilder-panels {
-			ul.axisbuilder-tabs li {
-				&.active {
-					a {
-						@include active_tab( $sunrise-color )
-					}
-				}
+	#axisbuilder-editor #axisbuilder-panels ul.axisbuilder-tabs li {
+		&.active {
+			&:after {
+				background-color: $light-color;
 			}
 		}
 	}
@@ -159,7 +130,7 @@
 	.axisbuilder-layout-row-modal {
 		.axisbuilder-layout-row-modal-label {
 			input:checked + .axisbuilder-layout-row-inner-label {
-				background: $sunrise-color;
+				background-color: $sunrise-color;
 			}
 		}
 	}

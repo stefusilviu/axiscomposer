@@ -97,8 +97,6 @@ label[for="axisbuilder-editor-hide"] {
 					display: block;
 					box-shadow: none;
 					text-decoration: none;
-					border-top: 1px solid #ddd;
-
 					border-left: 1px solid transparent;
 					border-right: 1px solid transparent;
 
@@ -107,6 +105,16 @@ label[for="axisbuilder-editor-hide"] {
 						vertical-align: text-bottom;
 						@include iconbefore( "\e002" );
 					}
+				}
+
+				&:after {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					content: "";
+					height: 1px;
+					background-color: #ddd;
 				}
 
 				&:first-child {
@@ -148,22 +156,15 @@ label[for="axisbuilder-editor-hide"] {
 				&.active {
 
 					a {
-						border-left: 1px solid #ddd;
-						border-right: 1px solid #ddd;
-
 						position: relative;
 						top: 1px;
 						background-color: #fdfdfd;
+						border-color: #ddd;
 						color: #555;
 					}
 
 					&:after {
-						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
 						height: 3px;
-						content: "";
 						background-color: #d26911;
 					}
 				}

@@ -57,7 +57,7 @@
 					data: data,
 					type: 'POST',
 					beforeSend: function() {
-						spinner.css( 'display', 'inline-block' );
+						spinner.css( 'visibility', 'visible' );
 					},
 					success: function( response ) {
 

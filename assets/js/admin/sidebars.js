@@ -21,7 +21,7 @@
 
 		// Add Delete Icon to Custom Widget Areas
 		deleteIcon: function() {
-			this.widgetArea.find( '.sidebar-axisbuilder-custom' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
+			this.widgetArea.find( '.sidebar-axisbuilder-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
 		},
 
 		// Bind Events to delete Custom Widget Area

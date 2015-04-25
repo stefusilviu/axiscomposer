@@ -118,10 +118,11 @@ class AB_Sidebars {
 		$args = apply_filters( 'axisbuilder_custom_widget_args', $args );
 
 		if ( is_array( $this->sidebars ) ) {
-			foreach ( (array) $this->sidebars as $sidebar ) {
-				$args['name']        = $sidebar;
-				$args['class']       = 'axisbuilder-custom';
-				$args['description'] = sprintf( __( 'Custom Widget Area of the site - %s ', 'axisbuilder' ), $sidebar );
+			foreach ( (array) $this->sidebars as $id => $name ) {
+				$args['name']        = $name;
+				$args['id']          = 'axisbuilder-sidebar-' . ++$id;
+				$args['class']       = 'axisbuilder-custom-widgets-area';
+				$args['description'] = sprintf( __( 'Custom Widget Area of the site - %s ', 'axisbuilder' ), $name );
 				register_sidebar( $args );
 			}
 		}

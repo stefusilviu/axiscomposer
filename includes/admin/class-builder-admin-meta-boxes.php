@@ -90,7 +90,7 @@ class AB_Admin_Meta_Boxes {
 	public function add_meta_boxes() {
 		// Portfolio
 		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
-		add_meta_box( 'axisbuilder-portfolio-breadcrumb', __( 'Breadcrumb Hierarchy ', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Breadcrumb::output', 'portfolio', 'side', 'default' );
+		add_meta_box( 'axisbuilder-portfolio-breadcrumb', __( 'Breadcrumb Hierarchy', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Breadcrumb::output', 'portfolio', 'side', 'default' );
 
 		// Layouts
 		foreach ( axisbuilder_get_layout_supported_screens() as $type ) {

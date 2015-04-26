@@ -44,15 +44,118 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
+ * Tabbed Panels
+ */
+#axisbuilder-editor,
+.axisbuilder {
+	.panel-wrap {
+		overflow: hidden;
+	}
+
+	ul.axisbuilder-tabs {
+		line-height: 1em;
+		float: left;
+		width: 100%;
+		margin: 0;
+		position: relative;
+		padding: 15px 12px 0;
+		background-color: #fafafa;
+		border-bottom: 1px solid #ddd;
+		box-sizing: border-box;
+
+		li {
+			margin: 0;
+			padding: 0;
+			position: relative;
+			display: inline-block;
+
+			a {
+				color: #555;
+				background: #fdfdfd;
+				padding: 10px 15px;
+				line-height: 20px !important;
+				margin: 0;
+				display: block;
+				box-shadow: none;
+				text-decoration: none;
+				border-left: 1px solid transparent;
+				border-right: 1px solid transparent;
+
+				&:before {
+					font-size: 16px;
+					vertical-align: text-bottom;
+					@include iconbefore( "\e002" );
+				}
+			}
+
+			&:after {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				content: "";
+				height: 1px;
+				background-color: #ddd;
+			}
+
+			&:first-child {
+				a {
+					border-left: 1px solid #ddd !important;
+				}
+			}
+
+			&:last-child {
+				a {
+					border-right: 1px solid #ddd !important;
+				}
+			}
+
+			&.layout_options {
+				a:before {
+					content: "\e003";
+				}
+			}
+
+			&.content_options {
+				a:before {
+					content: "\e004";
+				}
+			}
+
+			&.media_options {
+				a:before {
+					content: "\e005";
+				}
+			}
+
+			&.plugin_options {
+				a:before {
+					content: "\e006";
+				}
+			}
+
+			&.active {
+				a {
+					top: 1px;
+					color: #777;
+					border-color: #ddd;
+					position: relative;
+				}
+
+				&:after {
+					height: 3px;
+					background-color: $fresh-color;
+				}
+			}
+		}
+	}
+}
+
+/**
  * Builder Meta-Box
  */
 #axisbuilder-editor {
 	display: block !important;
-
-	.inside {
-		margin: 0;
-		padding: 0;
-	}
 
 	textarea {
 		color: #777;
@@ -65,120 +168,19 @@ label[for="axisbuilder-editor-hide"] {
 		}
 	}
 
-	/**
-	 * Tabbed Panels
-	 */
-	#axisbuilder-panels {
+	.inside {
+		margin: 0;
+		padding: 0;
+	}
+
+	.axisbuilder-options-panel {
+		clear: both;
+		display: none;
 		overflow: hidden;
-
-		ul.axisbuilder-tabs {
-			line-height: 1em;
-			float: left;
-			width: 100%;
-			margin: 0;
-			position: relative;
-			padding: 15px 12px 0;
-			background-color: #fafafa;
-			border-bottom: 1px solid #ddd;
-			box-sizing: border-box;
-
-			li {
-				margin: 0;
-				padding: 0;
-				position: relative;
-				display: inline-block;
-
-				a {
-					color: #555;
-					background: #fdfdfd;
-					padding: 10px 15px;
-					line-height: 20px !important;
-					margin: 0;
-					display: block;
-					box-shadow: none;
-					position: relative;
-					text-decoration: none;
-					border-left: 1px solid transparent;
-					border-right: 1px solid transparent;
-
-					&:before {
-						font-size: 16px;
-						vertical-align: text-bottom;
-						@include iconbefore( "\e002" );
-					}
-				}
-
-				&:after {
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					content: "";
-					height: 1px;
-					background-color: #ddd;
-				}
-
-				&:first-child {
-					a {
-						border-left: 1px solid #ddd !important;
-					}
-				}
-
-				&:last-child {
-					a {
-						border-right: 1px solid #ddd !important;
-					}
-				}
-
-				&.layout_options {
-					a:before {
-						content: "\e003";
-					}
-				}
-
-				&.content_options {
-					a:before {
-						content: "\e004";
-					}
-				}
-
-				&.media_options {
-					a:before {
-						content: "\e005";
-					}
-				}
-
-				&.plugin_options {
-					a:before {
-						content: "\e006";
-					}
-				}
-
-				&.active {
-
-					a {
-						top: 1px;
-						color: #777;
-						border-color: #ddd;
-					}
-
-					&:after {
-						height: 3px;
-						background-color: $fresh-color;
-					}
-				}
-			}
-		}
-
-		.axisbuilder-options-panel {
-			clear: both;
-			display: none;
-			overflow: hidden;
-			position: relative;
-			padding: 4px 12px 9px;
-			background-color: #fdfdfd;
-			@include user-select();
-		}
+		position: relative;
+		padding: 4px 12px 9px;
+		background-color: #fdfdfd;
+		@include user-select();
 	}
 
 	/**
@@ -1450,11 +1452,11 @@ table.axisbuilder_status_table {
  */
 @media only screen and (max-width: 900px) {
 
-	#axisbuilder-editor ul.axisbuilder-tabs {
+	#axisbuilder-editor ul.editor_data_tabs {
 		width: 100%;
 	}
 
-	#axisbuilder-editor ul.axisbuilder-tabs li a {
+	#axisbuilder-editor ul.editor_data_tabs li a {
 		position: relative;
 		text-indent: -999px;
 		padding: 10px;
@@ -1467,7 +1469,7 @@ table.axisbuilder_status_table {
 			left: 0;
 			text-indent: 0;
 			text-align: center;
-			line-height: 40px !important;
+			line-height: 40px;
 			width: 100%;
 			height: 40px;
 		}
@@ -1477,7 +1479,25 @@ table.axisbuilder_status_table {
 /**
  * Optimisation for screens 782px and smaller
  */
-@media only screen and (max-width: 782px) {}
+@media only screen and (max-width: 782px) {
+	#wp-excerpt-media-buttons a {
+		font-size: 16px;
+		line-height: 37px;
+		height: 39px;
+		padding: 0 20px 0 15px;
+	}
+
+	#wp-excerpt-editor-tools {
+		padding-top: 20px;
+		padding-right: 15px;
+		overflow: hidden;
+		margin-bottom: -1px;
+	}
+
+	#axisbuilder-editor .checkbox {
+		width: 25px;
+	}
+}
 
 /**
  * Optimisation for screens 500px and smaller

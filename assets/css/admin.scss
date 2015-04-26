@@ -30,6 +30,18 @@
 }
 
 /**
+ * Toggle Editor Button
+ */
+.axisbuilder-toggle-editor {
+	z-index: 1001;
+	position: relative;
+
+	&:active, &:focus {
+		box-shadow: none !important;
+	}
+}
+
+/**
  * Hide Screen Option
  */
 label[for="axisbuilder-editor-hide"] {

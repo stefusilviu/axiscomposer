@@ -132,7 +132,9 @@ jQuery( function ( $ ) {
 		$( $( this ).attr( 'href' ) ).show();
 		return false;
 	});
-	$( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
+	$( 'div.panel-wrap' ).each( function() {
+		$( this ).find( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
+	});
 
 	// Date Picker
 	$( document.body ).on( 'axisbuilder-init-datepickers', function() {

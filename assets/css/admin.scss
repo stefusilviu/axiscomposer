@@ -189,8 +189,10 @@ label[for="axisbuilder-editor-hide"] {
 			border-bottom: 1px solid #ddd;
 
 			li {
+				top: 1px;
 				display: inline-block;
 				background-color: #fff;
+				border-bottom: 1px solid #ddd;
 
 				a {
 					border-top: 1px solid #ddd;
@@ -204,9 +206,12 @@ label[for="axisbuilder-editor-hide"] {
 				}
 
 				&.active {
+					border-bottom: 0;
+
 					a {
 						color: #777;
 						background-color: #fdfdfd;
+						line-height: 21px !important;
 					}
 
 					&:after {

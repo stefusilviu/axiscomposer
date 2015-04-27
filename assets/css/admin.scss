@@ -80,6 +80,7 @@ label[for="axisbuilder-editor-hide"] {
 
 			a {
 				margin: 0;
+				color: #777;
 				padding: 10px;
 				display: block;
 				box-shadow: none;
@@ -191,10 +192,10 @@ label[for="axisbuilder-editor-hide"] {
 			li {
 				top: 1px;
 				display: inline-block;
-				background-color: #fff;
 				border-bottom: 1px solid #ddd;
 
 				a {
+					background-color: #fdfdfd;
 					border-top: 1px solid #ddd;
 					border-right: 1px solid #ddd;
 				}
@@ -209,8 +210,7 @@ label[for="axisbuilder-editor-hide"] {
 					border-bottom: 0;
 
 					a {
-						color: #777;
-						background-color: #fdfdfd;
+						background-color: #fff;
 						line-height: 21px !important;
 					}
 
@@ -228,14 +228,6 @@ label[for="axisbuilder-editor-hide"] {
 				}
 			}
 		}
-	}
-}
-
-#axisbuilder-editor,
-#axisbuilder-portfolio-data {
-	.inside {
-		margin: 0;
-		padding: 0;
 	}
 }
 
@@ -270,7 +262,7 @@ label[for="axisbuilder-editor-hide"] {
 		overflow: hidden;
 		position: relative;
 		padding: 4px 12px 9px;
-		background-color: #fdfdfd;
+		background-color: #fff;
 		@include user-select();
 	}
 

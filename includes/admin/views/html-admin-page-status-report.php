@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 <br/>
-<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+<table class="axisbuilder_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
 			<th colspan="3" data-export-label="WordPress Environment"><?php _e( 'WordPress Environment', 'axisbuilder' ); ?></th>
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<tr>
 			<td data-export-label="WP Debug Mode"><?php _e( 'WP Debug Mode', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) echo '<mark class="yes">' . '&#10004;' . '</mark>'; else echo '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
+			<td><?php if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) echo '<mark class="yes">&#10004;</mark>'; else echo '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Language"><?php _e( 'Language', 'axisbuilder' ); ?>:</td>
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+<table class="axisbuilder_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
 			<th colspan="3" data-export-label="Server Environment"><?php _e( 'Server Environment', 'axisbuilder' ); ?></th>
@@ -145,9 +145,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td><?php
 				$default_timezone = date_default_timezone_get();
 				if ( 'UTC' !== $default_timezone ) {
-					echo '<mark class="error">' . '&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'axisbuilder' ), $default_timezone ) . '</mark>';
+					echo '<mark class="error">&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'axisbuilder' ), $default_timezone ) . '</mark>';
 				} else {
-					echo '<mark class="yes">' . '&#10004;' . '</mark>';
+					echo '<mark class="yes">&#10004;</mark>';
 				}
 			?></td>
 		</tr>
@@ -217,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+<table class="axisbuilder_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
 			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axisbuilder' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
@@ -288,7 +288,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+<table class="axisbuilder_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
 			<th colspan="3" data-export-label="Settings"><?php _e( 'Settings', 'axisbuilder' ); ?></th>
@@ -298,16 +298,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<tr>
 			<td data-export-label="TinyMCE Enabled"><?php _e( 'TinyMCE Enabled', 'axisbuilder' ) ?></td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have tinyMCE enabled?', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo 'yes' === get_option( 'axisbuilder_tinymce_enabled' ) ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
+			<td><?php echo 'yes' === get_option( 'axisbuilder_tinymce_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Sidebar Builder Enabled"><?php _e( 'Sidebar Builder Enabled', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have Sidebar Builder enabled?', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo 'yes' === get_option( 'axisbuilder_sidebar_enabled' ) ? '<mark class="yes">'.'&#10004;'.'</mark>' : '<mark class="no">'.'&ndash;'.'</mark>'; ?></td>
+			<td><?php echo 'yes' === get_option( 'axisbuilder_sidebar_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0" id="status">
+<table class="axisbuilder_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
 			<th colspan="3" data-export-label="Theme"><?php _e( 'Theme', 'axisbuilder' ); ?></th>
@@ -377,7 +377,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td data-export-label="Child Theme"><?php _e( 'Child Theme', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
-				echo is_child_theme() ? '<mark class="yes">' . '&#10004;' . '</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisBuilder or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axisbuilder' ), 'http://codex.wordpress.org/Child_Themes' );
+				echo is_child_theme() ? '<mark class="yes">&#10004;</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisBuilder or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axisbuilder' ), 'http://codex.wordpress.org/Child_Themes' );
 			?></td>
 		</tr>
 		<?php
@@ -407,7 +407,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( $active_theme->template, axisbuilder_get_core_supported_themes() ) ) {
 					echo '<mark class="error">' . __( 'Not Declared', 'axisbuilder' ) . '</mark>';
 				} else {
-					echo '<mark class="yes">' . '&#10004;' . '</mark>';
+					echo '<mark class="yes">&#10004;</mark>';
 				}
 			?></td>
 		</tr>
@@ -426,16 +426,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		var report = '';
 
-		jQuery( '#status thead, #status tbody' ).each(function(){
+		jQuery( '.axisbuilder_status_table thead, .axisbuilder_status_table tbody' ).each( function() {
 
 			if ( jQuery( this ).is('thead') ) {
 
 				var label = jQuery( this ).find( 'th:eq(0)' ).data( 'export-label' ) || jQuery( this ).text();
-				report = report + "\n### " + jQuery.trim( label ) + " ###\n\n";
+				report = report + '\n### ' + jQuery.trim( label ) + ' ###\n\n';
 
 			} else {
 
-				jQuery('tr', jQuery( this ) ).each(function(){
+				jQuery( 'tr', jQuery( this ) ).each( function() {
 
 					var label       = jQuery( this ).find( 'td:eq(0)' ).data( 'export-label' ) || jQuery( this ).find( 'td:eq(0)' ).text();
 					var the_name    = jQuery.trim( label ).replace( /(<([^>]+)>)/ig, '' ); // Remove HTML
@@ -446,24 +446,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						// If value have a list of plugins ','
 						// Split to add new line
-						var output = '';
 						var temp_line ='';
-						jQuery.each( value_array, function( key, line ){
+						jQuery.each( value_array, function( key, line ) {
 							temp_line = temp_line + line + '\n';
 						});
 
 						the_value = temp_line;
 					}
 
-					report = report + '' + the_name + ': ' + the_value + "\n";
+					report = report + '' + the_name + ': ' + the_value + '\n';
 				});
 
 			}
 		});
 
 		try {
-			jQuery( "#debug-report" ).slideDown();
-			jQuery( "#debug-report textarea" ).val( report ).focus().select();
+			jQuery( '#debug-report' ).slideDown();
+			jQuery( '#debug-report textarea' ).val( report ).focus().select();
 			jQuery( this ).fadeOut();
 			return false;
 		} catch( e ){
@@ -473,7 +472,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		return false;
 	});
 
-	jQuery( document ).ready( function ( $ ) {
+	jQuery( document ).ready( function( $ ) {
 		$( '#copy-for-support' ).tipTip({
 			'attribute':  'data-tip',
 			'activation': 'click',
@@ -482,7 +481,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'delay':      0
 		});
 
-		$( document.body ).on( 'copy', '#copy-for-support', function ( e ) {
+		$( document.body ).on( 'copy', '#copy-for-support', function( e ) {
 			e.clipboardData.clearData();
 			e.clipboardData.setData( 'text/plain', $( '#debug-report textarea' ).val() );
 			e.preventDefault();

@@ -162,23 +162,11 @@ label[for="axisbuilder-editor-hide"] {
 					border-bottom: 1px solid #eee;
 				}
 
-				&:first-child {
-					a {
-						border-top: 0 !important;
-					}
-				}
-
 				&.active {
 					&:after {
 						bottom: 0;
 						top: -1px;
 						width: 3px;
-					}
-
-					&:first-child {
-						&:after {
-							top: 0;
-						}
 					}
 				}
 			}
@@ -198,6 +186,11 @@ label[for="axisbuilder-editor-hide"] {
 					background-color: #fdfdfd;
 					border-top: 1px solid #ddd;
 					border-right: 1px solid #ddd;
+
+					&:hover,
+					&:focus {
+						background-color: #f7f7f7;
+					}
 				}
 
 				&:first-child {

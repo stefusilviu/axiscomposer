@@ -99,21 +99,18 @@ label[for="axisbuilder-editor-hide"] {
 				}
 			}
 
-			&.header_options,
 			&.content_options {
 				a:before {
 					content: "\e004";
 				}
 			}
 
-			&.sidebar_options,
 			&.media_options {
 				a:before {
 					content: "\e005";
 				}
 			}
 
-			&.footer_options,
 			&.plugin_options {
 				a:before {
 					content: "\e006";

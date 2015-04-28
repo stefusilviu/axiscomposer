@@ -9,12 +9,10 @@
 @import "variables";
 
 .admin-color-light {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $light-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $light-color;
 			}
 		}
 	}
@@ -29,12 +27,10 @@
 }
 
 .admin-color-blue {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $blue-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $blue-color;
 			}
 		}
 	}
@@ -49,12 +45,10 @@
 }
 
 .admin-color-coffee {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $coffee-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $coffee-color;
 			}
 		}
 	}
@@ -69,12 +63,10 @@
 }
 
 .admin-color-ectoplasm {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $ectoplasm-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $ectoplasm-color;
 			}
 		}
 	}
@@ -89,12 +81,10 @@
 }
 
 .admin-color-midnight {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $midnight-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $midnight-color;
 			}
 		}
 	}
@@ -109,12 +99,10 @@
 }
 
 .admin-color-ocean {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $ocean-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $ocean-color;
 			}
 		}
 	}
@@ -129,12 +117,10 @@
 }
 
 .admin-color-sunrise {
-	#axisbuilder-editor {
-		ul.axisbuilder-tabs li {
-			&.active {
-				&:after {
-					background-color: $light-color;
-				}
+	#axisbuilder-editor, .axisbuilder {
+		ul.axisbuilder-tabs.horizontal li.active {
+			&:after {
+				background-color: $light-color;
 			}
 		}
 	}

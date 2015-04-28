@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisBuilder 1.0-alpha-1 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axisbuilder/issues\n"
-"POT-Creation-Date: 2015-04-17 17:13:41+00:00\n"
+"POT-Creation-Date: 2015-04-28 12:32:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
-"X-Generator: grunt-wp-i18n 0.5.0\n"
+"X-Generator: grunt-wp-i18n 0.5.1\n"
 
 #: axisbuilder.php:66 axisbuilder.php:74
 #: includes/class-builder-shortcodes.php:43
@@ -275,7 +275,7 @@ msgstr ""
 msgid "This is where you can add new portfolio items to your project."
 msgstr ""
 
-#: includes/class-builder-sidebars.php:124
+#: includes/class-builder-sidebars.php:125
 msgid "Custom Widget Area of the site - %s "
 msgstr ""
 

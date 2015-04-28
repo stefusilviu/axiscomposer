@@ -76,26 +76,28 @@ class AB_Admin {
 	 * @return string
 	 */
 	public function admin_footer_text( $footer_text ) {
-		$screen = get_current_screen();
+		$current_screen = get_current_screen();
 
-		// Ensure admin functions are loaded
-		include_once( 'builder-admin-functions.php' );
-		$ab_pages = axisbuilder_get_screen_ids();
+		if ( function_exists( 'axisbuilder_get_screen_ids' ) ) {
+			$axisbuilder_pages = axisbuilder_get_screen_ids();
+		} else {
+			$axisbuilder_pages = array();
+		}
 
 		// Add the dashboard pages
-		$ab_pages[] = 'dashboard_page_axisbuilder-about';
-		$ab_pages[] = 'dashboard_page_axisbuilder-credits';
-		$ab_pages[] = 'dashboard_page_axisbuilder-translators';
+		$axisbuilder_pages[] = 'dashboard_page_axisbuilder-about';
+		$axisbuilder_pages[] = 'dashboard_page_axisbuilder-credits';
+		$axisbuilder_pages[] = 'dashboard_page_axisbuilder-translators';
 
 		// Check to make sure we're on a AxisBuilder admin page
-		if ( isset( $screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $screen->id, $ab_pages ) ) ) {
+		if ( isset( $current_screen->id ) && apply_filters( 'axisbuilder_display_admin_footer_text', in_array( $current_screen->id, $axisbuilder_pages ) ) ) {
 			// Change the footer text
 			if ( ! get_option( 'axisbuilder_admin_footer_text_rated' ) ) {
 				$footer_text = sprintf( __( 'If you like <strong>AxisBuilder</strong> please leave us a %s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating. A huge thank you from AxisThemes in advance!', 'axisbuilder' ), '<a href="https://wordpress.org/support/view/plugin-reviews/axisbuilder?filter=5#postform" target="_blank" class="axisbuilder-rating-link" data-rated="' . __( 'Thanks :)', 'axisbuilder' ) . '">', '</a>' );
 				axisbuilder_enqueue_js( "
-					jQuery('a.axisbuilder-rating-link').click(function() {
+					jQuery( 'a.axisbuilder-rating-link' ).click( function() {
 						jQuery.post( '" . AB()->ajax_url() . "', { action: 'axisbuilder_rated' } );
-						jQuery(this).parent().text( jQuery(this).data( 'rated' ) );
+						jQuery( this ).parent().text( jQuery( this ).data( 'rated' ) );
 					});
 				" );
 			} else {

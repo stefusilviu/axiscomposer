@@ -168,6 +168,12 @@ label[for="axisbuilder-editor-hide"] {
 						top: -1px;
 						width: 3px;
 					}
+
+					&:first-child {
+						&:after {
+							bottom: 0;
+						}
+					}
 				}
 			}
 		}

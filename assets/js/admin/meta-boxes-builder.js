@@ -850,15 +850,15 @@ jQuery( function( $ ) {
 						if ( ui.draggable[0].hash ) {
 							var shortcode = ui.draggable.get(0).hash.replace( '#', '' );
 
-							template = $( $( '#tmpl-axisbuilder-' + shortcode ).html() );
+							template = $.parseHTML( $( '#tmpl-axisbuilder-' + shortcode ).html() );
 							ui.draggable = template;
 						}
 
-						// Before finally moving the element, save the former parent of the draggable to a var so we can check later if we need to update the parent as well
-						var formerParent = ui.draggable.parents( '.axisbuilder-drag:last' );
-
 						// Move the real draggable element to the new position
 						toEl[ method ]( ui.draggable );
+
+						// Before finally moving the element, save the former parent of the draggable to a var so we can check later if we need to update the parent as well
+						var formerParent = $( ui.draggable ).parents( '.axisbuilder-drag:last' );
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {

@@ -78,7 +78,7 @@ class AB_Admin {
 	public function admin_footer_text( $footer_text ) {
 		$screen = get_current_screen();
 
-		// Ensure needed admin functions are loaded
+		// Ensure admin functions are loaded
 		include_once( 'builder-admin-functions.php' );
 		$ab_pages = axisbuilder_get_screen_ids();
 

@@ -133,7 +133,7 @@ jQuery( function ( $ ) {
 		return false;
 	});
 	$( 'div.panel-wrap' ).each( function() {
-		$( this ).find( 'ul.axisbuilder-tabs li:visible' ).eq( 0 ).find( 'a' ).click();
+		$( this ).find( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
 	});
 
 	// Date Picker

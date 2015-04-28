@@ -1534,26 +1534,35 @@ table.axisbuilder_status_table {
  */
 @media only screen and (max-width: 900px) {
 
-	#axisbuilder-editor ul.editor_data_tabs {
-		width: 100%;
+	#axisbuilder-editor ul.axisbuilder-tabs.horizontal li,
+	#axisbuilder-portfolio-data ul.axisbuilder-tabs.vertical {
+		width: 10%;
 	}
 
-	#axisbuilder-editor ul.editor_data_tabs li a {
-		position: relative;
-		text-indent: -999px;
-		padding: 10px;
+	#axisbuilder-portfolio-data .axisbuilder_options_panel,
+	#axisbuilder-portfolio-data .axisbuilder-metaboxes-wrapper {
+		width: 90%;
+	}
 
-		&:before {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			text-indent: 0;
-			text-align: center;
-			line-height: 40px;
-			width: 100%;
-			height: 40px;
+	#axisbuilder-editor,
+	#axisbuilder-portfolio-data {
+		ul.axisbuilder-tabs li a {
+			position: relative;
+			text-indent: -999px;
+			padding: 10px;
+
+			&:before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				text-indent: 0;
+				text-align: center;
+				line-height: 40px;
+				width: 100%;
+				height: 40px;
+			}
 		}
 	}
 }

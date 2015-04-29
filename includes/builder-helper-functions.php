@@ -34,18 +34,6 @@ function axisbuilder_html_data_string( $data ) {
 }
 
 /**
- * Converts a number into array.
- */
-function axisbuilder_num_to_array( $from = 0, $to = 100, $steps = 1, $args = array(), $label = '' ) {
-
-	for ( $i = $from; $i <= $to; $i += $steps ) {
-		$args[ $i . $label ] = $i;
-	}
-
-	return $args;
-}
-
-/**
  * Fetch all available sidebars.
  */
 function axisbuilder_get_registered_sidebars( $sidebars = array(), $exclude = array() ) {

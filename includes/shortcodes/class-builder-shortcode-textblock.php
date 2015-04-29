@@ -73,10 +73,11 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 
 			array(
 				'name'    => __( 'Font Size', 'axisbuilder' ),
-				'desc'    => __( 'Select Size of the text in px', 'axisbuilder' ),
+				'desc'    => __( 'Choose the font size of the text in px', 'axisbuilder' ),
+				'type'    => 'number',
 				'id'      => 'size',
-				'type'    => 'select',
-				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Default Size', 'axisbuilder' ) => '' ) ),
+				'min'     => '10',
+				'max'     => '40',
 				'std'     => ''
 			),
 

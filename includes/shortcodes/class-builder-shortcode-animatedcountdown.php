@@ -85,23 +85,23 @@ class AB_Shortcode_Animatedcountdown extends AB_Shortcode {
 			// ),
 
 			array(
-				'name'     => __( 'Hour', 'axisbuilder' ),
-				'desc'     => __( 'Pick the hour of the day', 'axisbuilder' ),
-				'id'       => 'hour',
-				'std'      => '12',
-				'type'     => 'select',
-				'container_class' => 'ab_third',
-				'subtype'  => axisbuilder_num_to_array( 0, 23, 1, array(), ' h' )
+				'name'    => __( 'Hour', 'axisbuilder' ),
+				'desc'    => __( 'Pick the hour of the day', 'axisbuilder' ),
+				'type'    => 'number',
+				'id'      => 'hour',
+				'min'     => '1',
+				'max'     => '23',
+				'std'     => '12'
 			),
 
 			array(
-				'name'     => __( 'Minute', 'axisbuilder' ),
-				'desc'     => __( 'Pick the minute of the hour', 'axisbuilder' ),
-				'id'       => 'minute',
-				'std'      => '0',
-				'type'     => 'select',
-				'container_class' => 'ab_third',
-				'subtype'  => axisbuilder_num_to_array( 0, 23, 1, array(), ' h' )
+				'name'    => __( 'Minute', 'axisbuilder' ),
+				'desc'    => __( 'Pick the minute of the hour', 'axisbuilder' ),
+				'type'    => 'number',
+				'id'      => 'minute',
+				'min'     => '0',
+				'max'     => '59',
+				'std'     => '0'
 			),
 
 			array(
@@ -136,12 +136,13 @@ class AB_Shortcode_Animatedcountdown extends AB_Shortcode {
 			),
 
 			array(
-				'name'     => __( 'Number Font Size', 'axisbuilder' ),
-				'desc'     => __( 'Size of your numbers in Pixel', 'axisbuilder' ),
-				'id'       => 'size',
-				'std'      => '',
-				'type'     => 'select',
-				'subtype'  => axisbuilder_num_to_array( 20, 90, 1, array( __( 'Default Size', 'axisbuilder' ) => '' ) )
+				'name'    => __( 'Number Font Size', 'axisbuilder' ),
+				'desc'    => __( 'Choose Size of the number in px', 'axisbuilder' ),
+				'type'    => 'number',
+				'id'      => 'size',
+				'min'     => '20',
+				'max'     => '90',
+				'std'     => ''
 			),
 
 			// array(

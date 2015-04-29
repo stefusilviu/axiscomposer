@@ -205,6 +205,11 @@ class AB_HTML_Helper {
 		return $output;
 	}
 
+	public static function number( $element ) {
+		$output = '<input type="number" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" min="' . $element['min'] . '" max="' . $element['max'] . '" step="1" />';
+		return $output;
+	}
+
 	public static function colorpicker( $element ) {
 		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="color-picker ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
 		return $output;

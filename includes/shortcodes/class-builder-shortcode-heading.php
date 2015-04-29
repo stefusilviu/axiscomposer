@@ -76,11 +76,12 @@ class AB_Shortcode_Heading extends AB_Shortcode {
 
 			array(
 				'name'    => __( 'Heading Font Size', 'axisbuilder' ),
-				'desc'    => __( 'Choose the font size of your heading in px', 'axisbuilder' ),
-				'id'      => 'type',
-				'type'    => 'select',
-				'std'     => '',
-				'subtype' => axisbuilder_num_to_array( 10, 40, 1, array( __( 'Default Size', 'axisbuilder' ) => '' ) ),
+				'desc'    => __( 'Choose the font size of the heading in px', 'axisbuilder' ),
+				'type'    => 'number',
+				'id'      => 'size',
+				'min'     => '10',
+				'max'     => '40',
+				'std'     => ''
 			),
 
 			array(

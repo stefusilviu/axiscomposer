@@ -43,5 +43,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</section>
 		</div>
 	</div>
-	<div class="axisbuilder-backbone-modal-backdrop modal-close">&nbsp;</div>
+	<div class="axisbuilder-backbone-modal-backdrop modal-close"></div>
 </script>

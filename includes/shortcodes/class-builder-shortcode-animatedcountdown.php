@@ -142,7 +142,7 @@ class AB_Shortcode_Animatedcountdown extends AB_Shortcode {
 				'id'      => 'size',
 				'min'     => '20',
 				'max'     => '90',
-				'std'     => ''
+				'std'     => '24'
 			),
 
 			// array(

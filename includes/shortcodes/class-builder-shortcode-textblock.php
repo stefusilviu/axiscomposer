@@ -78,7 +78,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 				'id'      => 'size',
 				'min'     => '10',
 				'max'     => '40',
-				'std'     => ''
+				'std'     => '16'
 			),
 
 			// array(

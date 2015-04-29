@@ -7,18 +7,12 @@
  * Imports
  */
 @import "bourbon";
-@import "mixins";
 @import "animation";
-@import "fonts";
 @import "modal";
 
 /**
  * Styling begins
  */
-.blockUI.blockOverlay {
-	@include loader();
-}
-
 .modal-animation {
 	@include animation( modal .3s $ease-out-back );
 }

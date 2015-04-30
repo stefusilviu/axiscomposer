@@ -91,7 +91,7 @@ abstract class AB_Settings_API {
 	 * Add an array of fields to be displayed
 	 * on the gateway's settings screen.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function init_form_fields() {}
@@ -109,7 +109,7 @@ abstract class AB_Settings_API {
 	 * Admin Panel Options Processing
 	 * - Saves the options to the DB
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 * @return bool
 	 */
 	public function process_admin_options() {
@@ -141,7 +141,7 @@ abstract class AB_Settings_API {
 	 * or the settings stored in the database.
 	 *
 	 * @since 1.0.0
-	 * @uses get_option(), add_option()
+	 * @uses  get_option(), add_option()
 	 */
 	public function init_settings() {
 
@@ -172,9 +172,9 @@ abstract class AB_Settings_API {
 	 *
 	 * Gets and option from the settings API, using defaults if necessary to prevent undefined notices.
 	 *
-	 * @param string $key
-	 * @param mixed $empty_value
-	 * @return mixed The value specified for the option or a default value for the option
+	 * @param  string $key
+	 * @param  mixed  $empty_value
+	 * @return mixed  The value specified for the option or a default value for the option
 	 */
 	public function get_option( $key, $empty_value = null ) {
 
@@ -300,13 +300,12 @@ abstract class AB_Settings_API {
 	/**
 	 * Generate Text Input HTML.
 	 *
-	 * @param mixed $key
-	 * @param mixed $data
-	 * @since 1.0.0
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function generate_text_html( $key, $data ) {
-
 		$field    = $this->plugin_id . $this->id . '_' . $key;
 		$defaults = array(
 			'title'             => '',
@@ -340,5 +339,18 @@ abstract class AB_Settings_API {
 		<?php
 
 		return ob_get_clean();
+	}
+
+	/**
+	 * Generate Password Input HTML.
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_password_html( $key, $data ) {
+		$data['type'] = 'password';
+		return $this->generate_text_html( $key, $data );
 	}
 }

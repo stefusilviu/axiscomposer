@@ -134,7 +134,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 		}
 
 		$elements = $this->set_defaults_value( $elements );
-		echo AB_HTML_Helper::fetch_form_elements( $elements );
+		$this->generate_settings_html( $elements );
 
 		die();
 	}

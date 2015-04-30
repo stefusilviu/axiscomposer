@@ -98,7 +98,6 @@ abstract class AB_Settings_API {
 
 	/**
 	 * Get the form fields after they are initialized
-	 *
 	 * @return array of options
 	 */
 	public function get_form_fields() {
@@ -405,9 +404,9 @@ abstract class AB_Settings_API {
 	/**
 	 * Generate Textarea HTML.
 	 *
-	 * @param mixed $key
-	 * @param mixed $data
-	 * @since 1.0.0
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function generate_textarea_html( $key, $data ) {
@@ -500,9 +499,9 @@ abstract class AB_Settings_API {
 	/**
 	 * Generate Select HTML.
 	 *
-	 * @param mixed $key
-	 * @param mixed $data
-	 * @since 1.0.0
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function generate_select_html( $key, $data ) {
@@ -550,9 +549,9 @@ abstract class AB_Settings_API {
 	/**
 	 * Generate Multiselect HTML.
 	 *
-	 * @param mixed $key
-	 * @param mixed $data
-	 * @since 1.0.0
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
 	 * @return string
 	 */
 	public function generate_multiselect_html( $key, $data ) {
@@ -593,6 +592,36 @@ abstract class AB_Settings_API {
 				</fieldset>
 			</td>
 		</tr>
+		<?php
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Generate Title HTML.
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_title_html( $key, $data ) {
+
+		$defaults = array(
+			'title' => '',
+			'class' => ''
+		);
+
+		$data = wp_parse_args( $data, $defaults );
+
+		ob_start();
+		?>
+			</table>
+			<h3 class="axisbuilder-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
+			<?php if ( ! empty( $data['description'] ) ) : ?>
+				<p><?php echo wp_kses_post( $data['description'] ); ?></p>
+			<?php endif; ?>
+			<table class="form-table">
 		<?php
 
 		return ob_get_clean();

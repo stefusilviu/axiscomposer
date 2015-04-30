@@ -76,7 +76,7 @@ abstract class AB_Settings_API {
 	 */
 	public function admin_options() { ?>
 
-		<h3><?php echo ( ! empty( $this->method_title ) ) ? $this->method_title : __( 'Settings', 'woocommerce' ) ; ?></h3>
+		<h3><?php echo ( ! empty( $this->method_title ) ) ? $this->method_title : __( 'Settings', 'axisbuilder' ) ; ?></h3>
 
 		<?php echo ( ! empty( $this->method_description ) ) ? wpautop( $this->method_description ) : ''; ?>
 
@@ -625,5 +625,173 @@ abstract class AB_Settings_API {
 		<?php
 
 		return ob_get_clean();
+	}
+
+	/**
+	 * Validate Settings Field Data.
+	 *
+	 * Validate the data on the "Settings" form.
+	 *
+	 * @since 1.0.0
+	 * @uses  method_exists()
+	 * @param array $form_fields (default: array())
+	 */
+	public function validate_settings_fields( $form_fields = array() ) {
+
+		if ( empty( $form_fields ) ) {
+			$form_fields = $this->get_form_fields();
+		}
+
+		$this->sanitized_fields = array();
+
+		foreach ( $form_fields as $k => $v ) {
+
+			if ( empty( $v['type'] ) ) {
+				$v['type'] = 'text'; // Default to "text" field type.
+			}
+
+			// Look for a validate_FIELDID_field method for special handling
+			if ( method_exists( $this, 'validate_' . $k . '_field' ) ) {
+				$field = $this->{'validate_' . $k . '_field'}( $k );
+				$this->sanitized_fields[ $k ] = $field;
+
+			// Look for a validate_FIELDTYPE_field method
+			} elseif ( method_exists( $this, 'validate_' . $v['type'] . '_field' ) ) {
+				$field = $this->{'validate_' . $v['type'] . '_field'}( $k );
+				$this->sanitized_fields[ $k ] = $field;
+
+			// Default to text
+			} else {
+				$field = $this->{'validate_text_field'}( $k );
+				$this->sanitized_fields[ $k ] = $field;
+			}
+		}
+	}
+
+	/**
+	 * Validate Text Field.
+	 *
+	 * Make sure the data is escaped correctly, etc.
+	 *
+	 * @param  mixed $key
+	 * @return string
+	 */
+	public function validate_text_field( $key ) {
+
+		$text = $this->get_option( $key );
+
+		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+			$text = wp_kses_post( trim( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) );
+		}
+
+		return $text;
+	}
+
+	/**
+	 * Validate Password Field.
+	 *
+	 * Make sure the data is escaped correctly, etc.
+	 *
+	 * @param  mixed $key
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function validate_password_field( $key ) {
+
+		$text = $this->get_option( $key );
+
+		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+			$text = axisbuilder_clean( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) );
+		}
+
+		return $text;
+	}
+
+	/**
+	 * Validate Textarea Field.
+	 *
+	 * Make sure the data is escaped correctly, etc.
+	 *
+	 * @param  mixed $key
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function validate_textarea_field( $key ) {
+
+		$text = $this->get_option( $key );
+
+		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+
+			$text = wp_kses( trim( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ),
+				array_merge(
+					array(
+						'iframe' => array( 'src' => true, 'style' => true, 'id' => true, 'class' => true )
+					),
+					wp_kses_allowed_html( 'post' )
+				)
+			);
+		}
+
+		return $text;
+	}
+
+	/**
+	 * Validate Checkbox Field.
+	 *
+	 * If not set, return "no", otherwise return "yes".
+	 *
+	 * @param  mixed $key
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function validate_checkbox_field( $key ) {
+
+		$status = 'no';
+
+		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) && ( 1 == $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+			$status = 'yes';
+		}
+
+		return $status;
+	}
+
+	/**
+	 * Validate Select Field.
+	 *
+	 * Make sure the data is escaped correctly, etc.
+	 *
+	 * @param  mixed $key
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function validate_select_field( $key ) {
+
+		$value = $this->get_option( $key );
+
+		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+			$value = axisbuilder_clean( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) );
+		}
+
+		return $value;
+	}
+
+	/**
+	 * Validate Multiselect Field.
+	 *
+	 * Make sure the data is escaped correctly, etc.
+	 *
+	 * @param  mixed $key
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function validate_multiselect_field( $key ) {
+
+		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+			$value = array_map( 'axisbuilder_clean', array_map( 'stripslashes', (array) $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) );
+		} else {
+			$value = '';
+		}
+
+		return $value;
 	}
 }

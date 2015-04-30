@@ -44,12 +44,11 @@ class AB_Shortcode_Button extends AB_Shortcode {
 	}
 
 	/**
-	 * Popup Elements
-	 *
-	 * If this method is defined the elements automatically gets an edit button.
-	 * When pressed opens a popup modal window that allows to edit the element properties.
+	 * Get Settings.
+	 * @return array
 	 */
-	public function popup_elements() {
+	public function get_settings() {
+
 		$this->elements = array(
 			array(
 				'name'		=> __( 'Button Label', 'axisbuilder' ),

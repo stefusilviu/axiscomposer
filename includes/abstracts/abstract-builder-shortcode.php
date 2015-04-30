@@ -214,7 +214,7 @@ abstract class AB_Shortcode {
 			$this->shortcode['html-render'] = 'sortable_editor_element';
 		}
 
-		// Activate backbone modal if method exists.
+		// Activate modal if settings exists.
 		if ( method_exists( $this, 'get_settings' ) ) {
 			$this->get_settings();
 			if ( isset( $this->elements ) ) {

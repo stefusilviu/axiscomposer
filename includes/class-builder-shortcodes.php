@@ -12,7 +12,7 @@
  */
 class AB_Shortcodes {
 
-	 /** @var array Array of shortcode classes */
+	/** @var array Array of shortcode classes */
 	public $shortcodes;
 
 	/**

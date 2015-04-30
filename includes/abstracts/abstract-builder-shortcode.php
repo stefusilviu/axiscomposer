@@ -214,9 +214,9 @@ abstract class AB_Shortcode {
 			$this->shortcode['html-render'] = 'sortable_editor_element';
 		}
 
-		// Activate popup editor if method exists.
-		if ( method_exists( $this, 'popup_elements' ) ) {
-			$this->popup_elements();
+		// Activate modal if settings exists.
+		if ( method_exists( $this, 'get_settings' ) ) {
+			$this->get_settings();
 			if ( isset( $this->elements ) ) {
 				$this->shortcode['has_fields'] = true;
 			}

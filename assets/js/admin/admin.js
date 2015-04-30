@@ -11,16 +11,16 @@ jQuery( function ( $ ) {
 
 	// Add tiptip to parent element for widefat tables
 	$( '.parent-tips' ).each( function() {
-		$(this).closest( 'a, th' ).attr( 'data-tip', $( this ).data( 'tip' ) ).tipTip( tiptip_args ).css( 'cursor', 'help' );
+		$( this ).closest( 'a, th' ).attr( 'data-tip', $( this ).data( 'tip' ) ).tipTip( tiptip_args ).css( 'cursor', 'help' );
 	});
 
 	// Select availability
 	$( 'select.availability' ).change( function() {
 
-		if ( $(this).val() === 'all' ) {
-			$(this).closest( 'tr' ).next( 'tr' ).hide();
+		if ( $( this ).val() === 'all' ) {
+			$( this ).closest( 'tr' ).next( 'tr' ).hide();
 		} else {
-			$(this).closest( 'tr' ).next( 'tr' ).show();
+			$( this ).closest( 'tr' ).next( 'tr' ).show();
 		}
 
 	}).change();
@@ -41,12 +41,12 @@ jQuery( function ( $ ) {
 	// Hidden options
 	$( '.hide_options_if_checked' ).each( function() {
 
-		$(this).find( 'input:eq(0)' ).change( function() {
+		$( this ).find( 'input:eq(0)' ).change( function() {
 
-			if ( $(this).is( ':checked' ) ) {
-				$(this).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).hide();
+			if ( $( this ).is( ':checked' ) ) {
+				$( this ).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).hide();
 			} else {
-				$(this).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).show();
+				$( this ).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).show();
 			}
 
 		}).change();
@@ -55,12 +55,12 @@ jQuery( function ( $ ) {
 
 	$( '.show_options_if_checked' ).each( function() {
 
-		$(this).find( 'input:eq(0)' ).change( function() {
+		$( this ).find( 'input:eq(0)' ).change( function() {
 
-			if ( $(this).is( ':checked' ) ) {
-				$(this).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).show();
+			if ( $( this ).is( ':checked' ) ) {
+				$( this ).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).show();
 			} else {
-				$(this).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).hide();
+				$( this ).closest( 'fieldset, tr' ).nextUntil( '.hide_options_if_checked, .show_options_if_checked', '.hidden_option' ).hide();
 			}
 
 		}).change();

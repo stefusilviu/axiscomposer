@@ -228,7 +228,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$output = '<div class="axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
-				if ( isset( $this->shortcode['popup_editor'] ) ) {
+				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axisbuilder-edit edit-element-icon" href="#edit" title="' . __( 'Edit Section', 'axisbuilder' ) . '">' . __( 'Edit Section', 'axisbuilder' ) . '</a>';
 				}
 				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Section', 'axisbuilder' ) . '">' . __( 'Delete Section', 'axisbuilder' ) . '</a>';

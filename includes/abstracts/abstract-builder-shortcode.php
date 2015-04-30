@@ -90,7 +90,7 @@ abstract class AB_Shortcode {
 	 * AJAX Events for shortcodes.
 	 */
 	public function shortcode_action() {
-		if ( ! empty( $this->shortcode['popup_editor'] ) ) {
+		if ( ! empty( $this->shortcode['has_fields'] ) ) {
 			add_action( 'wp_ajax_axisbuilder_' . $this->shortcode['name'], array( $this, 'load_modal_items' ) );
 
 			// If available nested shortcode define them.
@@ -218,7 +218,7 @@ abstract class AB_Shortcode {
 		if ( method_exists( $this, 'popup_elements' ) ) {
 			$this->popup_elements();
 			if ( isset( $this->elements ) ) {
-				$this->shortcode['popup_editor'] = true;
+				$this->shortcode['has_fields'] = true;
 			}
 		}
 	}
@@ -325,7 +325,7 @@ abstract class AB_Shortcode {
 
 		$output = '<div class="axisbuilder-sortable-element modal-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
-				if ( isset( $this->shortcode['popup_editor'] ) ) {
+				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$extra_class = 'axisbuilder-edit';
 					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
 				}

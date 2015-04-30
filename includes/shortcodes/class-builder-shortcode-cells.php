@@ -180,7 +180,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle">';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
-				if ( isset( $this->shortcode['popup_editor'] ) ) {
+				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axisbuilder-edit edit-element-icon" href="#edit" title="' . __( 'Edit Cell', 'axisbuilder' ) . '">' . __( 'Edit Cell', 'axisbuilder' ) . '</a>';
 				}
 				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Cell', 'axisbuilder' ) . '">' . __( 'Delete Cell', 'axisbuilder' ) . '</a>';

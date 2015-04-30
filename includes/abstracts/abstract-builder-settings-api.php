@@ -2,7 +2,7 @@
 /**
  * Abstract Settings API Class
  *
- * Admin Settings API used by Shortcodes.
+ * Admin Settings API used by Shortcodes and Integrations.
  *
  * @class       AB_Settings_API
  * @package     AxisBuilder/Abstracts

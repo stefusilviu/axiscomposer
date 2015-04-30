@@ -2,15 +2,16 @@
 /**
  * Abstract Shortcode Class
  *
- * The AxisBuilder shortcode class handles individual shortcode data.
+ * Extended by individual shortcodes to handle shortcode data etc.
  *
  * @class       AB_Shortcode
+ * @extends     AB_Settings_API
  * @package     AxisBuilder/Abstracts
- * @category    Shortcodes
+ * @category    Abstract Class
  * @author      AxisThemes
  * @since       1.0.0
  */
-abstract class AB_Shortcode {
+abstract class AB_Shortcode extends AB_Settings_API {
 
 	/**
 	 * Shortcode ID

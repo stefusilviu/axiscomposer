@@ -168,20 +168,21 @@ final class AxisBuilder {
 		}
 
 		if ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) {
-			include_once( 'includes/class-builder-sidebars.php' );             // Sidebar Builder
+			include_once( 'includes/class-builder-sidebars.php' );                // Sidebar Builder
 		}
 
 		// include_once( 'includes/class-builder-iconfonts.php' );                // Iconfonts Manager
-		include_once( 'includes/class-builder-post-types.php' );               // Registers post types
-		include_once( 'includes/class-builder-localization.php' );             // Download/update languages
-		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );   // Shortcodes
+		include_once( 'includes/class-builder-post-types.php' );                  // Registers post types
+		include_once( 'includes/class-builder-localization.php' );                // Download/update languages
+		include_once( 'includes/abstracts/abstract-builder-settings-api.php' );   // Settings API (for shortcodes)
+		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );      // Shortcodes
 	}
 
 	/**
 	 * Include required frontend files.
 	 */
 	public function frontend_includes() {
-		include_once( 'includes/class-builder-frontend-scripts.php' );         // Frontend Scripts
+		include_once( 'includes/class-builder-frontend-scripts.php' );            // Frontend Scripts
 	}
 
 	/**

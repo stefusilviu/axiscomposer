@@ -51,7 +51,7 @@ class AB_Unit_Tests_Bootstrap {
 	/**
 	 * Load AxisBuilder
 	 *
-	 * @since 1.1
+	 * @since 1.0
 	 */
 	public function load_axisbuilder() {
 		require_once( $this->plugin_dir . '/axisbuilder.php' );

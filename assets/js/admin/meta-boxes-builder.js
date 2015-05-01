@@ -79,7 +79,7 @@ jQuery( function( $ ) {
 		},
 
 		unblock: function() {
-			$( '#axisbuilder-editor, .axisbuilder-backbone-modal-article' ).unblock();
+			$( '#axisbuilder-editor, .axisbuilder-enhanced-settings' ).unblock();
 		},
 
 		tinyMCE: function( content ) {
@@ -1017,7 +1017,7 @@ jQuery( function( $ ) {
 			},
 
 			block: function() {
-				$( '.axisbuilder-backbone-modal-article' ).block({
+				$( '.axisbuilder-enhanced-settings' ).block({
 					message: null,
 					overlayCSS: {
 						background: '#fff',

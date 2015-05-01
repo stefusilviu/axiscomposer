@@ -1116,7 +1116,8 @@ img.help_tip {
 	}
 
 	table.form-table {
-		margin: 0 0 0;
+		margin: 0;
+		position: relative;
 
 		.select2-container {
 			display: block;
@@ -1265,6 +1266,17 @@ img.help_tip {
 .axisbuilder_page_axisbuilder-settings {
 	h3.axisbuilder-settings-sub-title {
 		font-size: 1.2em;
+	}
+}
+
+#wp-excerpt-editor-container {
+	background: #fff;
+}
+
+#postimagediv {
+	img {
+		max-width: 100%;
+		border: 1px solid #d5d5d5;
 	}
 }
 

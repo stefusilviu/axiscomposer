@@ -7,7 +7,7 @@
  * Author URI: http://axisthemes.com
  * Version: 1.0-alpha-2
  * Requires at least: 4.0
- * Tested up to: 4.0
+ * Tested up to: 4.2
  *
  * Text Domain: axisbuilder
  * Domain Path: /i18n/languages/

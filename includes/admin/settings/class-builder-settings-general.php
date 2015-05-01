@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! class_exists( 'AB_Settings_General' ) ) :
+
 /**
  * AB_Settings_General CLass
  */
@@ -113,5 +115,7 @@ class AB_Settings_General extends AB_Settings_Page {
 		AB_Admin_Settings::save_fields( $settings );
 	}
 }
+
+endif;
 
 return new AB_Settings_General();

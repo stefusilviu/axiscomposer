@@ -32,6 +32,7 @@ class AB_Admin_Settings {
 			include_once( 'settings/class-builder-settings-page.php' );
 
 			$settings[] = include( 'settings/class-builder-settings-general.php' );
+			$settings[] = include( 'settings/class-builder-settings-integrations.php' );
 
 			self::$settings = apply_filters( 'axisbuilder_get_settings_pages', $settings );
 		}

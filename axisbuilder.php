@@ -43,6 +43,11 @@ final class AxisBuilder {
 	protected static $_instance = null;
 
 	/**
+	 * @var AB_Integrations $integrations
+	 */
+	public $integrations = null;
+
+	/**
 	 * Main AxisBuilder Instance
 	 *
 	 * Ensure only one instance of AxisBuilder is loaded or can be loaded.
@@ -173,8 +178,11 @@ final class AxisBuilder {
 
 		// include_once( 'includes/class-builder-iconfonts.php' );                // Iconfonts Manager
 		include_once( 'includes/class-builder-post-types.php' );                  // Registers post types
-		include_once( 'includes/class-builder-localization.php' );                // Download/update languages
+		include_once( 'includes/abstracts/abstract-builder-settings-api.php' );   // Settings API (for shortcodes, and integrations)
 		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );      // Shortcodes
+		include_once( 'includes/abstracts/abstract-builder-integration.php' );    // An integration with a service
+		include_once( 'includes/class-builder-integrations.php' );                // Loads integrations
+		include_once( 'includes/class-builder-localization.php' );                // Download/update languages
 	}
 
 	/**
@@ -201,6 +209,9 @@ final class AxisBuilder {
 
 		// Set up localisation
 		$this->load_plugin_textdomain();
+
+		// Load class instances
+		$this->integrations = new AB_Integrations();                              // Integrations class
 
 		// Set up shortcodes
 		$this->shortcodes();

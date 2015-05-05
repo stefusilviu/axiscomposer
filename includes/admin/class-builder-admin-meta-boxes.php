@@ -71,7 +71,7 @@ class AB_Admin_Meta_Boxes {
 
 		if ( ! empty( $errors ) ) {
 
-			echo '<div id="axisbuilder_errors" class="error fade">';
+			echo '<div id="axisbuilder_errors" class="error">';
 
 			foreach ( $errors as $error ) {
 				echo '<p>' . esc_html( $error ) . '</p>';

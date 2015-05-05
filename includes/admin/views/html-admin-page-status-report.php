@@ -159,7 +159,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$posting['wp_remote_post']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisBuilder plugins may uses this method of communication when sending back information.', 'axisbuilder' ) . '">[?]</a>';
 
 			$response = wp_remote_post( 'https://www.paypal.com/cgi-bin/webscr', array(
-				'sslverify'  => false,
 				'timeout'    => 60,
 				'user-agent' => 'AxisBuilder/' . AB()->version,
 				'body'       => array(
@@ -183,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$posting['wp_remote_get']['name'] = __( 'Remote Get', 'axisbuilder' );
 			$posting['wp_remote_get']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisBuilder plugins may use this method of communication when checking for plugin updates.', 'axisbuilder' ) . '">[?]</a>';
 
-			$response = wp_remote_get( 'https://api.github.com/repos/axisthemes/axisbuilder/contributors', array( 'sslverify' => false ) );
+			$response = wp_remote_get( 'https://api.github.com/repos/axisthemes/axisbuilder/contributors' );
 
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				$posting['wp_remote_get']['success'] = true;

@@ -27,7 +27,7 @@ if ( ! class_exists( 'AxisBuilder' ) ) :
  * Main AxisBuilder Class
  *
  * @class    AxisBuilder
- * @property mixed $shortcodes The shortcodes class
+ * @property string $shortcodes The shortcodes class
  * @version  1.0.0
  */
 final class AxisBuilder {

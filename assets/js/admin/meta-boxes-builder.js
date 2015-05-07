@@ -1011,7 +1011,6 @@ jQuery( function( $ ) {
 
 			init: function( e, target ) {
 				if ( '#tmpl-axisbuilder-modal-edit-element' === target ) {
-					$( document.body ).trigger( 'axisbuilder-enhanced-select-init' );
 					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
 			},

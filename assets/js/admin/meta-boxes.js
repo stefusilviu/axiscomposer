@@ -217,6 +217,8 @@ jQuery( function ( $ ) {
 				$( this ).wpColorPicker( colorpicker_args ).addClass( 'enhanced' );
 			});
 
+			// Regular select boxes
+			$( document.body ).trigger( 'axisbuilder-enhanced-select-init' );
 		})
 
 		// AxisBuilder Backbone modal

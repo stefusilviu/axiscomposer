@@ -159,6 +159,15 @@ jQuery( function ( $ ) {
 
 		.on( 'axisbuilder-enhanced-modal-elements-init', function() {
 
+			// Select availability
+			$( 'select.availability' ).change( function() {
+				if ( $( this ).val() === 'all' ) {
+					$( this ).closest( 'tr' ).next( 'tr' ).hide();
+				} else {
+					$( this ).closest( 'tr' ).next( 'tr' ).show();
+				}
+			}).change();
+
 			// TinyMCE Editor
 			$( 'textarea.axisbuilder-tinymce' ).each( function() {
 				var $el      = this.id,

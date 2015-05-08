@@ -304,11 +304,6 @@ abstract class AB_Settings_API {
 			$description = '';
 		}
 
-		// Overrides the html description :)
-		if ( ! empty( $data['desc_html'] ) ) {
-			$description = $data['desc_html'];
-		}
-
 		return $description ? '<p class="description">' . wp_kses_post( $description ) . '</p>' . "\n" : '';
 	}
 

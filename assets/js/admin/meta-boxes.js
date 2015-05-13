@@ -161,10 +161,10 @@ jQuery( function ( $ ) {
 
 			// Select availability
 			$( 'select.availability' ).change( function() {
-				if ( $( this ).val() === 'all' ) {
-					$( this ).closest( 'tr' ).next( 'tr' ).hide();
-				} else {
+				if ( $( this ).val() === 'specific' ) {
 					$( this ).closest( 'tr' ).next( 'tr' ).show();
+				} else {
+					$( this ).closest( 'tr' ).next( 'tr' ).hide();
 				}
 			}).change();
 

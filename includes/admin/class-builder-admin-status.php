@@ -99,10 +99,10 @@ class AB_Admin_Status {
 						$return = call_user_func( $callback );
 						if ( $return === false ) {
 							if ( is_array( $callback ) ) {
-								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axisbuilder' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
+								echo '<div class="error notice is-dismissible"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axisbuilder' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
 
 							} else {
-								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s', 'axisbuilder' ), $callback ) . '</p></div>';
+								echo '<div class="error notice is-dismissible"><p>' . sprintf( __( 'There was an error calling %s', 'axisbuilder' ), $callback ) . '</p></div>';
 							}
 						}
 					}

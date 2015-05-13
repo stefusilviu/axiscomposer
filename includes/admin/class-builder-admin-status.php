@@ -114,20 +114,20 @@ class AB_Admin_Status {
 		if ( isset( $_GET['translation_updated'] ) ) {
 			switch ( $_GET['translation_updated'] ) {
 				case 2 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="error notice is-dismissible"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axisbuilder' ) . '</p></div>';
 					break;
 				case 3 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axisbuilder' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
+					echo '<div class="error notice is-dismissible"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axisbuilder' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
 					break;
 				case 4 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="error notice is-dismissible"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axisbuilder' ) . '</p></div>';
 					break;
 
 				default :
 					// Force WordPress find for new updates and hide the WooCommerce translation update
 					set_site_transient( 'update_plugins', null );
 
-					echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated notice is-dismissible"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';
 					break;
 			}
 		}

@@ -124,7 +124,7 @@ class AB_Admin_Status {
 					break;
 
 				default :
-					// Force WordPress find for new updates and hide the WooCommerce translation update
+					// Force WordPress find for new updates and hide the AxisBuilder translation update
 					set_site_transient( 'update_plugins', null );
 
 					echo '<div class="updated notice is-dismissible"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';

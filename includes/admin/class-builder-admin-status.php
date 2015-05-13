@@ -82,7 +82,7 @@ class AB_Admin_Status {
 							AND b.option_value < UNIX_TIMESTAMP()
 					" );
 
-					echo '<div class="updated notice is-dismissible"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axisbuilder' ), $rows + $rows2 ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axisbuilder' ), $rows + $rows2 ) . '</p></div>';
 
 				break;
 				case 'reset_roles' :
@@ -90,7 +90,7 @@ class AB_Admin_Status {
 					AB_Install::remove_roles();
 					AB_Install::create_roles();
 
-					echo '<div class="updated notice is-dismissible"><p>' . __( 'Roles successfully reset', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Roles successfully reset', 'axisbuilder' ) . '</p></div>';
 				break;
 				default :
 					$action = esc_attr( $_GET['action'] );
@@ -99,10 +99,10 @@ class AB_Admin_Status {
 						$return = call_user_func( $callback );
 						if ( $return === false ) {
 							if ( is_array( $callback ) ) {
-								echo '<div class="error notice is-dismissible"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axisbuilder' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
+								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axisbuilder' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
 
 							} else {
-								echo '<div class="error notice is-dismissible"><p>' . sprintf( __( 'There was an error calling %s', 'axisbuilder' ), $callback ) . '</p></div>';
+								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s', 'axisbuilder' ), $callback ) . '</p></div>';
 							}
 						}
 					}
@@ -114,27 +114,27 @@ class AB_Admin_Status {
 		if ( isset( $_GET['translation_updated'] ) ) {
 			switch ( $_GET['translation_updated'] ) {
 				case 2 :
-					echo '<div class="error notice is-dismissible"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axisbuilder' ) . '</p></div>';
 					break;
 				case 3 :
-					echo '<div class="error notice is-dismissible"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axisbuilder' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axisbuilder' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
 					break;
 				case 4 :
-					echo '<div class="error notice is-dismissible"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axisbuilder' ) . '</p></div>';
 					break;
 
 				default :
 					// Force WordPress find for new updates and hide the AxisBuilder translation update
 					set_site_transient( 'update_plugins', null );
 
-					echo '<div class="updated notice is-dismissible"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';
 					break;
 			}
 		}
 
 		// Display message if settings settings have been saved
 		if ( isset( $_REQUEST['settings-updated'] ) ) {
-			echo '<div class="updated notice is-dismissible"><p>' . __( 'Your changes have been saved.', 'axisbuilder' ) . '</p></div>';
+			echo '<div class="updated notice"><p>' . __( 'Your changes have been saved.', 'axisbuilder' ) . '</p></div>';
 		}
 
 		include_once( 'views/html-admin-page-status-tools.php' );

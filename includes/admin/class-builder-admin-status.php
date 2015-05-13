@@ -90,7 +90,7 @@ class AB_Admin_Status {
 					AB_Install::remove_roles();
 					AB_Install::create_roles();
 
-					echo '<div class="updated"><p>' . __( 'Roles successfully reset', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated notice is-dismissible"><p>' . __( 'Roles successfully reset', 'axisbuilder' ) . '</p></div>';
 				break;
 				default :
 					$action = esc_attr( $_GET['action'] );

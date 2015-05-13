@@ -82,7 +82,7 @@ class AB_Admin_Status {
 							AND b.option_value < UNIX_TIMESTAMP()
 					" );
 
-					echo '<div class="updated"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axisbuilder' ), $rows + $rows2 ) . '</p></div>';
+					echo '<div class="updated notice is-dismissible"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axisbuilder' ), $rows + $rows2 ) . '</p></div>';
 
 				break;
 				case 'reset_roles' :

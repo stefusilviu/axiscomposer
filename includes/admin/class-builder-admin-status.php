@@ -134,7 +134,7 @@ class AB_Admin_Status {
 
 		// Display message if settings settings have been saved
 		if ( isset( $_REQUEST['settings-updated'] ) ) {
-			echo '<div class="updated"><p>' . __( 'Your changes have been saved.', 'axisbuilder' ) . '</p></div>';
+			echo '<div class="updated notice is-dismissible"><p>' . __( 'Your changes have been saved.', 'axisbuilder' ) . '</p></div>';
 		}
 
 		include_once( 'views/html-admin-page-status-tools.php' );

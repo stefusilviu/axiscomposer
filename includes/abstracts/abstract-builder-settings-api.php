@@ -607,6 +607,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_title_html( $key, $data ) {
 
+		$field    = $this->plugin_id . $this->id . '_' . $key;
 		$defaults = array(
 			'title' => '',
 			'class' => ''
@@ -617,7 +618,7 @@ abstract class AB_Settings_API {
 		ob_start();
 		?>
 			</table>
-			<h3 class="axisbuilder-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
+			<h3 class="axisbuilder-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
 			<?php if ( ! empty( $data['description'] ) ) : ?>
 				<p><?php echo wp_kses_post( $data['description'] ); ?></p>
 			<?php endif; ?>

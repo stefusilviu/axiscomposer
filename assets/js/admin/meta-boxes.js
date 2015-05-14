@@ -168,6 +168,15 @@ jQuery( function ( $ ) {
 				}
 			}).change();
 
+			// Input availability
+			$( 'input.availability' ).on( 'keyup change', function() {
+				if ( $( this ).val() !== '' ) {
+					$( this ).closest( 'tr' ).next( 'tr' ).show();
+				} else {
+					$( this ).closest( 'tr' ).next( 'tr' ).hide();
+				}
+			}).change();
+
 			// TinyMCE Editor
 			$( 'textarea.axisbuilder-tinymce' ).each( function() {
 				var $el      = this.id,

@@ -598,8 +598,9 @@ abstract class AB_Settings_API {
 	}
 
 	/**
-	 * Generate HTML for title
+	 * Generate Title HTML.
 	 *
+	 * @param mixed $key
 	 * @param  mixed $data
 	 * @since  1.0.0
 	 * @return string

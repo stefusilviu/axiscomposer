@@ -229,43 +229,12 @@ abstract class AB_Settings_API {
 
 			if ( method_exists( $this, 'generate_' . $v['type'] . '_html' ) ) {
 				$html .= $this->{'generate_' . $v['type'] . '_html'}( $k, $v );
-			} else if ( $v['type'] == 'title' ) {
-				$html .= $this->{'get_title_html'}( $v );
 			} else {
 				$html .= $this->{'generate_text_html'}( $k, $v );
 			}
 		}
 
 		echo $html;
-	}
-
-	/**
-	 * Get HTML for title
-	 *
-	 * @param  mixed $data
-	 * @since  1.0.0
-	 * @return string
-	 */
-	public function get_title_html( $data ) {
-
-		$defaults = array(
-			'title' => '',
-			'class' => ''
-		);
-
-		$data = wp_parse_args( $data, $defaults );
-
-		ob_start();
-		?>
-			</table>
-			<h3 class="axisbuilder-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
-			<?php if ( ! empty( $data['description'] ) ) : ?>
-				<p><?php echo wp_kses_post( $data['description'] ); ?></p>
-			<?php endif; ?>
-			<table class="form-table">
-		<?php
-
-		return ob_get_clean();
 	}
 
 	/**
@@ -623,6 +592,35 @@ abstract class AB_Settings_API {
 				</fieldset>
 			</td>
 		</tr>
+		<?php
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Generate HTML for title
+	 *
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_title_html( $key, $data ) {
+
+		$defaults = array(
+			'title' => '',
+			'class' => ''
+		);
+
+		$data = wp_parse_args( $data, $defaults );
+
+		ob_start();
+		?>
+			</table>
+			<h3 class="axisbuilder-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
+			<?php if ( ! empty( $data['description'] ) ) : ?>
+				<p><?php echo wp_kses_post( $data['description'] ); ?></p>
+			<?php endif; ?>
+			<table class="form-table">
 		<?php
 
 		return ob_get_clean();

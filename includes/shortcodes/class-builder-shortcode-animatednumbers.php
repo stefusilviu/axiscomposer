@@ -28,7 +28,7 @@ class AB_Shortcode_Animatednumbers extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_animatednumbers';
 		$this->title     = __( 'Animated Numbers', 'axisbuilder' );
 		$this->tooltip   = __( 'Display an Animated number with subtitle', 'axisbuilder' );

@@ -28,7 +28,7 @@ class AB_Shortcode_Codeblock extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_codeblock';
 		$this->title     = __( 'Code Block', 'axisbuilder' );
 		$this->tooltip   = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axisbuilder' );

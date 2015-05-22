@@ -33,7 +33,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_one_full';
 		$this->title     = __( '1/1', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with full width', 'axisbuilder' );
@@ -338,7 +338,7 @@ class AB_Shortcode_Cells_One_Half extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_one_half';
 		$this->title     = __( '1/2', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 50&percnt; width', 'axisbuilder' );
@@ -366,7 +366,7 @@ class AB_Shortcode_Cells_One_Third extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_one_third';
 		$this->title     = __( '1/3', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 33&percnt; width', 'axisbuilder' );
@@ -394,7 +394,7 @@ class AB_Shortcode_Cells_Two_Third extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_two_third';
 		$this->title     = __( '2/3', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 67&percnt; width', 'axisbuilder' );
@@ -422,7 +422,7 @@ class AB_Shortcode_Cells_One_Fourth extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_one_fourth';
 		$this->title     = __( '1/4', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 25&percnt; width', 'axisbuilder' );
@@ -450,7 +450,7 @@ class AB_Shortcode_Cells_Three_Fourth extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_three_fourth';
 		$this->title     = __( '3/4', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 75&percnt; width', 'axisbuilder' );
@@ -478,7 +478,7 @@ class AB_Shortcode_Cells_One_Fifth extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_one_fifth';
 		$this->title     = __( '1/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 20&percnt; width', 'axisbuilder' );
@@ -506,7 +506,7 @@ class AB_Shortcode_Cells_Two_Fifth extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_two_fifth';
 		$this->title     = __( '2/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 40&percnt; width', 'axisbuilder' );
@@ -534,7 +534,7 @@ class AB_Shortcode_Cells_Three_Fifth extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_three_fifth';
 		$this->title     = __( '3/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 60&percnt; width', 'axisbuilder' );
@@ -562,7 +562,7 @@ class AB_Shortcode_Cells_Four_Fifth extends AB_Shortcode_Cells {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_cell_four_fifth';
 		$this->title     = __( '4/5', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a single column with 80&percnt; width', 'axisbuilder' );

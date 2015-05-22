@@ -28,7 +28,7 @@ class AB_Shortcode_Iconbox extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_iconbox';
 		$this->title     = __( 'Icon Box', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a content box with icon', 'axisbuilder' );

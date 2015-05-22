@@ -28,7 +28,7 @@ class AB_Shortcode_Progressbar extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_progressbar';
 		$this->title     = __( 'Progress Bars', 'axisbuilder' );
 		$this->tooltip   = __( 'Create some progress bars', 'axisbuilder' );

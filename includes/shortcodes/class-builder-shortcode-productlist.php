@@ -28,7 +28,7 @@ class AB_Shortcode_Productlist extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_productlist';
 		$this->title     = __( 'Product List', 'axisbuilder' );
 		$this->tooltip   = __( 'Displays a list of Product Entries', 'axisbuilder' );

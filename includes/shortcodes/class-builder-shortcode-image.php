@@ -28,7 +28,7 @@ class AB_Shortcode_Image extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_image';
 		$this->title     = __( 'Image', 'axisbuilder' );
 		$this->tooltip   = __( 'Inserts a image of your choice', 'axisbuilder' );

@@ -28,7 +28,7 @@ class AB_Shortcode_Separator extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_separator';
 		$this->title     = __( 'Separator / Whitespace', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a delimiter/whitespace to separate elements', 'axisbuilder' );

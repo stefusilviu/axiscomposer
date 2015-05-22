@@ -28,7 +28,7 @@ class AB_Shortcode_Logoelement extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_logoelement';
 		$this->title     = __( 'Partner/Logo Element', 'axisbuilder' );
 		$this->tooltip   = __( 'Displays a partner/logo grid or slider', 'axisbuilder' );

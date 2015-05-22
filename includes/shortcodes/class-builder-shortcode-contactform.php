@@ -28,7 +28,7 @@ class AB_Shortcode_Contactform extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_contactform';
 		$this->title     = __( 'Contact Form', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a customizable contact form', 'axisbuilder' );

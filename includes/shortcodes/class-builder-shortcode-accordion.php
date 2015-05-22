@@ -28,7 +28,7 @@ class AB_Shortcode_Accordion extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_accordion';
 		$this->title     = __( 'Accordion', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates toggles or accordion', 'axisbuilder' );

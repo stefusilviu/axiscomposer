@@ -28,7 +28,7 @@ class AB_Shortcode_Productgrid extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_productgrid';
 		$this->title     = __( 'Product Grid', 'axisbuilder' );
 		$this->tooltip   = __( 'Displays a grid of Product Entries', 'axisbuilder' );

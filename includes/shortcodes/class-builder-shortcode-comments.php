@@ -28,7 +28,7 @@ class AB_Shortcode_Comments extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_comments';
 		$this->title     = __( 'Comments', 'axisbuilder' );
 		$this->tooltip   = __( 'Add a comment form and comments list to the template', 'axisbuilder' );

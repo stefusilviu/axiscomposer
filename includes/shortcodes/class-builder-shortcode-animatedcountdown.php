@@ -30,7 +30,7 @@ class AB_Shortcode_Animatedcountdown extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_animatedcountdown';
 		$this->title     = __( 'Animated Countdown', 'axisbuilder' );
 		$this->tooltip   = __( 'Display an count down to a specific date', 'axisbuilder' );

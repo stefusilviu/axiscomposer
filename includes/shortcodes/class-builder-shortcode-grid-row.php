@@ -30,7 +30,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_layout_row';
 		$this->title     = __( 'Grid Row', 'axisbuilder' );
 		$this->tooltip   = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axisbuilder' );

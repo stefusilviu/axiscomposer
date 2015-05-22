@@ -28,7 +28,7 @@ class AB_Shortcode_Tabs extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_tabs';
 		$this->title     = __( 'Tabs', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a tabbed content area', 'axisbuilder' );

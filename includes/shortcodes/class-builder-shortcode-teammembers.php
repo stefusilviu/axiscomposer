@@ -28,7 +28,7 @@ class AB_Shortcode_Teammembers extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_teammembers';
 		$this->title     = __( 'Team Members', 'axisbuilder' );
 		$this->tooltip   = __( 'Display a team members image with additional information', 'axisbuilder' );

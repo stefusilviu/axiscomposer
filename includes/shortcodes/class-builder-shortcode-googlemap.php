@@ -28,7 +28,7 @@ class AB_Shortcode_Googlemap extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_googlemap';
 		$this->title     = __( 'Google Map', 'axisbuilder' );
 		$this->tooltip   = __( 'Displays a google map with one or multiple locations', 'axisbuilder' );

@@ -28,7 +28,7 @@ class AB_Shortcode_Notification extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_notification';
 		$this->title     = __( 'Notification', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a notification box to inform visitors', 'axisbuilder' );

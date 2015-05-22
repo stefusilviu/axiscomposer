@@ -28,7 +28,7 @@ class AB_Shortcode_Button extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_button';
 		$this->title     = __( 'Button', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a colored button', 'axisbuilder' );

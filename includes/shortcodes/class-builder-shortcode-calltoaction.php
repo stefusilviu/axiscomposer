@@ -28,7 +28,7 @@ class AB_Shortcode_Calltoaction extends AB_Shortcode {
 	/**
 	 * Configuration for builder shortcode button.
 	 */
-	public function shortcode_button() {
+	public function init_shortcode() {
 		$this->id        = 'axisbuilder_calltoaction';
 		$this->title     = __( 'Call To Action', 'axisbuilder' );
 		$this->tooltip   = __( 'Creates a call to action button', 'axisbuilder' );

@@ -28,7 +28,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_full';
@@ -124,7 +124,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_half';
@@ -151,7 +151,7 @@ class AB_Shortcode_Columns_One_Half extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_third';
@@ -178,7 +178,7 @@ class AB_Shortcode_Columns_One_Third extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_two_third';
@@ -205,7 +205,7 @@ class AB_Shortcode_Columns_Two_Third extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_fourth';
@@ -232,7 +232,7 @@ class AB_Shortcode_Columns_One_Fourth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_three_fourth';
@@ -259,7 +259,7 @@ class AB_Shortcode_Columns_Three_Fourth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_fifth';
@@ -286,7 +286,7 @@ class AB_Shortcode_Columns_One_Fifth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Two_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_two_fifth';
@@ -313,7 +313,7 @@ class AB_Shortcode_Columns_Two_Fifth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_three_fifth';
@@ -340,7 +340,7 @@ class AB_Shortcode_Columns_Three_Fifth extends AB_Shortcode_Columns {
 class AB_Shortcode_Columns_Four_Fifth extends AB_Shortcode_Columns {
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_four_fifth';

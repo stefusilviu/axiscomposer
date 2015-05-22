@@ -29,7 +29,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_section';

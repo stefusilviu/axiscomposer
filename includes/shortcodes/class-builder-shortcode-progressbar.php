@@ -26,7 +26,7 @@ class AB_Shortcode_Progressbar extends AB_Shortcode {
 	}
 
 	/**
-	 * Configuration for builder shortcode button.
+	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_progressbar';

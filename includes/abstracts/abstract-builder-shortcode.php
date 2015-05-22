@@ -59,8 +59,8 @@ abstract class AB_Shortcode extends AB_Settings_API {
 	 * Class Constructor Method.
 	 */
 	public function __construct() {
-		$this->shortcode_button();
-		$this->shortcode_config();
+		$this->init_shortcode();
+		$this->config_shortcode();
 
 		/**
 		 * Shortcode AJAX Events
@@ -78,12 +78,12 @@ abstract class AB_Shortcode extends AB_Settings_API {
 	}
 
 	/**
-	 * Abstract method for builder shortcode button configuration.
+	 * Abstract method for shortcode initialize.
 	 */
-	abstract function shortcode_button();
+	abstract function init_shortcode();
 
 	/**
-	 * Abstract method for Frontend Shortcode Handle.
+	 * Abstract method for frontend shortcode handle.
 	 */
 	abstract function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' );
 
@@ -194,7 +194,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 	/**
 	 * Auto-set shortcode configurations.
 	 */
-	protected function shortcode_config() {
+	protected function config_shortcode() {
 		$load_shortcode_data = array(
 			'class'      => '',
 			'target'     => '',

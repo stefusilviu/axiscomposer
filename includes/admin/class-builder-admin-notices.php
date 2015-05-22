@@ -108,7 +108,7 @@ class AB_Admin_Notices {
 	 * Show the Theme Check notice
 	 */
 	public function theme_check_notice() {
-		if ( ! current_theme_supports( 'axisbuilder' ) ) {
+		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), axisbuilder_get_core_supported_themes() ) ) {
 			include( 'views/html-notice-theme-support.php' );
 		}
 	}

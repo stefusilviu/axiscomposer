@@ -404,7 +404,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 	}
 
 	/**
-	 * Extract the default values of the content element.
+	 * Create shortcode content from default values.
 	 * @return array $content
 	 */
 	public function get_default_content() {
@@ -412,7 +412,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 
 		if ( ! empty( $this->elements ) ) {
 
-			// If we didn't iterate over the arguments array yet do it now !
+			// Fetch arguments
 			if ( empty( $this->arguments ) ) {
 				$this->get_default_arguments();
 			}
@@ -427,7 +427,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 				$content = $this->arguments['content'];
 			}
 
-			// If content is an array we got a nested shortcode :)
+			// We got a nested shortcode
 			if ( is_array( $content ) ) {
 				$nested_content = '';
 
@@ -443,7 +443,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 	}
 
 	/**
-	 * Extract the std values from the options array and create a shortcode arguments array.
+	 * Create shortcode arguments from default values.
 	 * @return array $arguments
 	 */
 	public function get_default_arguments() {

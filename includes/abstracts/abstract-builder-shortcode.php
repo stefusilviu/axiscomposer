@@ -470,7 +470,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 		$template = $this->prepare_editor_element();
 
 		if ( is_array( $template ) ) {
-			foreach ($template as $value) {
+			foreach ( $template as $value ) {
 				$template = $value;
 				continue;
 			}

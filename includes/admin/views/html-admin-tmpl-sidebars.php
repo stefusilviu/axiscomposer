@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="axisbuilder-backbone-modal-content modal-animation">
 			<section class="axisbuilder-backbone-modal-main" role="main">
 				<header class="axisbuilder-backbone-modal-header">
-					<h1 class="modal-title"><?php _e( 'Last warning, are you sure?', 'axisbuilder' ); ?></h1>
+					<h1><?php _e( 'Last warning, are you sure?', 'axisbuilder' ); ?></h1>
 					<button class="modal-close modal-close-link dashicons dashicons-no-alt">
 						<span class="screen-reader-text">Close modal panel</span>
 					</button>

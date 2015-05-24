@@ -78,7 +78,7 @@ class AB_Admin_Assets {
 		wp_register_script( 'axisbuilder-admin', AB()->plugin_url() . '/assets/js/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-backbone-modal', AB()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AB_VERSION );
 		wp_register_script( 'axisbuilder-admin-meta-boxes', AB()->plugin_url() . '/assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'wp-color-picker', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-tiptip', 'axisbuilder-enhanced-select', 'plupload-all', 'stupidtable' ), AB_VERSION );
-		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66', true );
+		wp_register_script( 'jquery-blockui', AB()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70', true );
 		wp_register_script( 'jquery-tiptip', AB()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AB_VERSION, true );
 		wp_register_script( 'stupidtable', AB()->plugin_url() . '/assets/js/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AB_VERSION );
 		wp_register_script( 'select2', AB()->plugin_url() . '/assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );

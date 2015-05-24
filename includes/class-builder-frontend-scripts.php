@@ -111,7 +111,7 @@ class AB_Frontend_Scripts {
 
 		// Register any scripts for later use, or used as dependencies
 		self::register_script( 'select2', $assets_path . 'js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
-		self::register_script( 'jquery-blockui', $assets_path . 'scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.66' );
+		self::register_script( 'jquery-blockui', $assets_path . 'scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70' );
 
 		// Global frontend scripts
 		self::enqueue_script( 'axisbuilder', $frontend_script_path . 'axisbuilder' . $suffix . '.js', array( 'jquery', 'jquery-blockui' ) );

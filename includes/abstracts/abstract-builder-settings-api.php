@@ -195,6 +195,16 @@ abstract class AB_Settings_API {
 	}
 
 	/**
+	 * Prefix key for settings.
+	 *
+	 * @param  mixed $key
+	 * @return string
+	 */
+	public function get_field_key( $key ) {
+		return $this->plugin_id . $this->id . '_' . $key;
+	}
+
+	/**
 	 * Decode values for settings.
 	 *
 	 * @param  mixed $value
@@ -306,7 +316,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_text_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title'             => '',
 			'disabled'          => false,
@@ -364,7 +374,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_color_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title'             => '',
 			'disabled'          => false,
@@ -411,7 +421,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_textarea_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title'             => '',
 			'disabled'          => false,
@@ -456,7 +466,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_checkbox_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title'             => '',
 			'label'             => '',
@@ -506,7 +516,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_select_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title'             => '',
 			'disabled'          => false,
@@ -556,7 +566,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_multiselect_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title'             => '',
 			'disabled'          => false,
@@ -679,10 +689,11 @@ abstract class AB_Settings_API {
 	 */
 	public function validate_text_field( $key ) {
 
-		$text = $this->get_option( $key );
+		$text  = $this->get_option( $key );
+		$field = $this->get_field_key( $key );
 
-		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
-			$text = wp_kses_post( trim( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) );
+		if ( isset( $_POST[ $field ] ) ) {
+			$text = wp_kses_post( trim( stripslashes( $_POST[ $field ] ) ) );
 		}
 
 		return $text;
@@ -699,10 +710,11 @@ abstract class AB_Settings_API {
 	 */
 	public function validate_password_field( $key ) {
 
-		$text = $this->get_option( $key );
+		$text  = $this->get_option( $key );
+		$field = $this->get_field_key( $key );
 
-		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
-			$text = axisbuilder_clean( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) );
+		if ( isset( $_POST[ $field ] ) ) {
+			$text = axisbuilder_clean( stripslashes( $_POST[ $field ] ) );
 		}
 
 		return $text;
@@ -719,11 +731,12 @@ abstract class AB_Settings_API {
 	 */
 	public function validate_textarea_field( $key ) {
 
-		$text = $this->get_option( $key );
+		$text  = $this->get_option( $key );
+		$field = $this->get_field_key( $key );
 
-		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+		if ( isset( $_POST[ $field ] ) ) {
 
-			$text = wp_kses( trim( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ),
+			$text = wp_kses( trim( stripslashes( $_POST[ $field ] ) ),
 				array_merge(
 					array(
 						'iframe' => array( 'src' => true, 'style' => true, 'id' => true, 'class' => true )
@@ -748,8 +761,9 @@ abstract class AB_Settings_API {
 	public function validate_checkbox_field( $key ) {
 
 		$status = 'no';
+		$field  = $this->get_field_key( $key );
 
-		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) && ( 1 == $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
+		if ( isset( $_POST[ $field ] ) && ( 1 == $_POST[ $field ] ) ) {
 			$status = 'yes';
 		}
 
@@ -768,9 +782,10 @@ abstract class AB_Settings_API {
 	public function validate_select_field( $key ) {
 
 		$value = $this->get_option( $key );
+		$field = $this->get_field_key( $key );
 
-		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
-			$value = axisbuilder_clean( stripslashes( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) );
+		if ( isset( $_POST[ $field ] ) ) {
+			$value = axisbuilder_clean( stripslashes( $_POST[ $field ] ) );
 		}
 
 		return $value;
@@ -787,8 +802,10 @@ abstract class AB_Settings_API {
 	 */
 	public function validate_multiselect_field( $key ) {
 
-		if ( isset( $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) ) {
-			$value = array_map( 'axisbuilder_clean', array_map( 'stripslashes', (array) $_POST[ $this->plugin_id . $this->id . '_' . $key ] ) );
+		$field = $this->get_field_key( $key );
+
+		if ( isset( $_POST[ $field ] ) ) {
+			$value = array_map( 'axisbuilder_clean', array_map( 'stripslashes', (array) $_POST[ $field ] ) );
 		} else {
 			$value = '';
 		}

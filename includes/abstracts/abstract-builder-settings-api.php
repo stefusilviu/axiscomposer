@@ -617,7 +617,7 @@ abstract class AB_Settings_API {
 	 */
 	public function generate_title_html( $key, $data ) {
 
-		$field    = $this->plugin_id . $this->id . '_' . $key;
+		$field    = $this->get_field_key( $key );
 		$defaults = array(
 			'title' => '',
 			'class' => ''

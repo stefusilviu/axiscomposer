@@ -44,6 +44,11 @@ module.exports = function( grunt ){
 					ext: '.min.js'
 				}]
 			},
+			jquery: {
+				files: {
+					'<%= dirs.js %>/jquery-blockui/jquery.blockUI.min.js': ['<%= dirs.js %>/jquery-blockui/jquery.blockUI.js']
+				}
+			},
 			frontend: {
 				files: [{
 					expand: true,
@@ -55,11 +60,6 @@ module.exports = function( grunt ){
 					dest: '<%= dirs.js %>/frontend/',
 					ext: '.min.js'
 				}]
-			},
-			jquery_plugin: {
-				files: {
-					'<%= dirs.js %>/jquery-blockui/jquery.blockUI.min.js': ['<%= dirs.js %>/jquery-blockui/jquery.blockUI.js']
-				}
 			}
 		},
 

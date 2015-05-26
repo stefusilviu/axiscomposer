@@ -9,7 +9,7 @@
 	verbose="true"
 	>
 	<testsuites>
-		<testsuite name="AxisBuilder Test Suite">
+		<testsuite name="AxisComposer Test Suite">
 			<directory suffix=".php">./tests/unit-tests</directory>
 		</testsuite>
 	</testsuites>

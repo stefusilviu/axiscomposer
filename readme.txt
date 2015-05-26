@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-AxisComposer is a powerful, extendable page builder plugin that helps you build modern and unique page layouts smartly. Beautifully.
+AxisComposer is a powerful, extendable page builder plugin that helps you compose anything. Beautifully.
 
 == Description ==
 

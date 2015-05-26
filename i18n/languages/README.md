@@ -1,11 +1,11 @@
 ## WARNING! DO NOT PUT CUSTOM TRANSLATIONS HERE!
 
-Axis Builder will delete all custom translations placed in this directory.
+AxisComposer will delete all custom translations placed in this directory.
 
-#### Translating Axis Builder
-Put your custom Axis Builder translations in your WordPress language directory, located at:
+#### Translating AxisComposer
+Put your custom AxisComposer translations in your WordPress language directory, located at:
 
-`WP_LANG_DIR . "/axis-builder/{$textdomain}-{$locale}.mo";`
+`WP_LANG_DIR . "/axiscomposer/{$textdomain}-{$locale}.mo";`
 
-#### Contributing your translating to Axis Builder
-If you want to help translate Axis Builder, please join the [Axis Builder Transifex project](https://www.transifex.com/projects/p/axisbuilder/).
+#### Contributing your translating to AxisComposer
+If you want to help translate AxisComposer, please join the [AxisComposer Transifex project](https://www.transifex.com/projects/p/axiscomposer/).

@@ -1,29 +1,29 @@
-=== AxisBuilder - #1 Page Builder ===
+=== AxisComposer - #1 Page Builder ===
 Contributors: axisthemes, shivapoudel, RajeebTheGreat
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@axisthemes.com&item_name=Donation+for+Axis+Builder
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@axisthemes.com&item_name=Donation+for+Axis+Composer
 Requires at least: 4.0
 Tested up to: 4.1
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-AxisBuilder is a powerful, extendable page builder plugin that helps you build modern and unique page layouts smartly. Beautifully.
+AxisComposer is a powerful, extendable page builder plugin that helps you build modern and unique page layouts smartly. Beautifully.
 
 == Description ==
 
-Take full control over your WordPress website, build any page layout you can imagine smartly with the help of drag and drop interface. Delivering enterprise-level quality and features, backed by a name you can trust. Say "hello" to the AxisBuilder plugin.
+Take full control over your WordPress website, build any page layout you can imagine smartly with the help of drag and drop interface. Delivering enterprise-level quality and features, backed by a name you can trust. Say "hello" to the AxisComposer plugin.
 
-AxisBuilder is built by the experienced folk at AxisThemes who also offer premium [WordPress themes](http://axisthemes.com/product-category/themes/ "WordPress themes from AxisThemes") and [AxisBuilder extensions](http://axisthemes.com/product-category/axisbuilder-extensions/ "AxisBuilder extensions from AxisThemes") to further enhance your WordPress website.
+AxisComposer is built by the experienced folk at AxisThemes who also offer premium [WordPress themes](http://axisthemes.com/product-category/themes/ "WordPress themes from AxisThemes") and [AxisComposer extensions](http://axisthemes.com/product-category/axiscomposer-extensions/ "AxisComposer extensions from AxisThemes") to further enhance your WordPress website.
 
 = Strength & flexibility =
-AxisBuilder is built using WordPress best practises both on the front and the back end. This results in an efficient, robust and intuitive plugin.
+AxisComposer is built using WordPress best practises both on the front and the back end. This results in an efficient, robust and intuitive plugin.
 
 = Get involved =
 
-Developers can contribute to the source code on the [AxisBuilder GitHub Repository](https://github.com/axisthemes/axis-builder/blob/master/CONTRIBUTING.md).
+Developers can contribute to the source code on the [AxisComposer GitHub Repository](https://github.com/axisthemes/axiscomposer/blob/master/CONTRIBUTING.md).
 
-Translators can contribute new languages to AxisBuilder through [Transifex](https://www.transifex.com/projects/p/axis-builder/).
+Translators can contribute new languages to AxisComposer through [Transifex](https://www.transifex.com/projects/p/axiscomposer/).
 
 == Installation ==
 
@@ -35,9 +35,9 @@ Translators can contribute new languages to AxisBuilder through [Transifex](http
 
 = Automatic installation =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of AxisBuilder, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of AxisComposer, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
-In the search field type “AxisBuilder” and click Search Plugins. Once you’ve found our page builder plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
+In the search field type “AxisComposer” and click Search Plugins. Once you’ve found our page builder plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
 
 = Manual installation =
 
@@ -49,15 +49,15 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = Dummy data =
 
-AxisBuilder comes with some dummy data you can use to see how page layouts look; either import dummy_data.xml via the [WordPress importer](http://wordpress.org/extend/plugins/wordpress-importer/).
+AxisComposer comes with some dummy data you can use to see how page layouts look; either import dummy_data.xml via the [WordPress importer](http://wordpress.org/extend/plugins/wordpress-importer/).
 
 == Frequently Asked Questions ==
 
-= Where can I find AxisBuilder documentation and user guides? =
+= Where can I find AxisComposer documentation and user guides? =
 
-For help setting up and configuring AxisBuilder please refer to our [user guide](http://docs.axisthemes.com/document/axis-builder/)
+For help setting up and configuring AxisComposer please refer to our [user guide](http://docs.axisthemes.com/document/axiscomposer/)
 
-For extending or theming AxisBuilder, see our [codex](http://docs.axisthemes.com/documentation/plugins/axis-builder/axis-builder-codex/).
+For extending or theming AxisComposer, see our [codex](http://docs.axisthemes.com/documentation/plugins/axiscomposer/axiscomposer-codex/).
 
 = Where can I get support or talk to other users? =
 
@@ -65,23 +65,23 @@ If you get stuck you can ask for help on the [AxisThemes Community Forum](https:
 
 For help with premium add-ons from AxisThemes, use [our helpdesk](http://support.axisthemes.com/).
 
-= Will AxisBuilder work with my theme? =
+= Will AxisComposer work with my theme? =
 
-Yes; AxisBuilder will work with any theme, but may require some styling to make it match nicely. Please see our [codex](http://docs.axisthemes.com/documentation/plugins/axis-builder/axis-builder-codex/) for help.
+Yes; AxisComposer will work with any theme, but may require some styling to make it match nicely. Please see our [codex](http://docs.axisthemes.com/documentation/plugins/axiscomposer/axiscomposer-codex/) for help.
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [AxisBuilder GitHub repository](https://github.com/axisthemes/axisbuilder/issues).
+Bugs can be reported either in our support forum or preferably on the [AxisComposer GitHub repository](https://github.com/axisthemes/axiscomposer/issues).
 
-= AxisBuilder is awesome! Can I contribute? =
+= AxisComposer is awesome! Can I contribute? =
 
-Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axisbuilder/) :)
+Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axiscomposer/) :)
 
 == Screenshots ==
 
-1. The slick AxisBuilder settings panel.
+1. The slick AxisComposer settings panel.
 3. Advanced Layout Editor panel.
-2. AxisBuilder widgets admin.
+2. AxisComposer widgets admin.
 
 == Changelog ==
 

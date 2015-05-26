@@ -1,12 +1,12 @@
 <?php
 /**
- * AxisBuilder Unit tests Bootstrap
+ * AxisComposer Unit tests Bootstrap
  *
  * @since 1.0
  */
-class AB_Unit_Tests_Bootstrap {
+class AC_Unit_Tests_Bootstrap {
 
-	/** @var \AB_Unit_Tests_Bootstrap instance */
+	/** @var \AC_Unit_Tests_Bootstrap instance */
 	protected static $instance = null;
 
 	/** @var string directory where wordpress-tests-lib is installed */
@@ -35,70 +35,71 @@ class AB_Unit_Tests_Bootstrap {
 		// Load test function so tests_add_filter() is available
 		require_once( $this->wp_tests_dir . '/includes/functions.php' );
 
-		// Load AB
-		tests_add_filter( 'muplugins_loaded', array( $this, 'load_axisbuilder' ) );
+		// Load AC
+		tests_add_filter( 'muplugins_loaded', array( $this, 'load_ac' ) );
 
-		// Install AB
-		tests_add_filter( 'setup_theme', array( $this, 'install_axisbuilder' ) );
+		// Install AC
+		tests_add_filter( 'setup_theme', array( $this, 'install_ac' ) );
 
 		// Load the WP testing environment
 		require_once( $this->wp_tests_dir . '/includes/bootstrap.php' );
 
-		// Load AB testing framework
+		// Load AC testing framework
 		$this->includes();
 	}
 
 	/**
-	 * Load AxisBuilder
+	 * Load AxisComposer
 	 *
 	 * @since 1.0
 	 */
-	public function load_axisbuilder() {
-		require_once( $this->plugin_dir . '/axisbuilder.php' );
+	public function load_ac() {
+		require_once( $this->plugin_dir . '/axiscomposer.php' );
 	}
 
 	/**
-	 * Install AxisBuilder after the test environment and AB have been loaded
+	 * Install AxisComposer after the test environment and AC have been loaded
 	 *
 	 * @since 1.0
 	 */
-	public function install_axisbuilder() {
+	public function install_ac() {
 
 		// Clean existing install first
 		define( 'WP_UNINSTALL_PLUGIN', true );
 		include( $this->plugin_dir . '/uninstall.php' );
 
-		AB_Install::install();
+		AC_Install::install();
 
 		// Reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
 		$GLOBALS['wp_roles']->reinit();
 
-		echo "Installing AxisBuilder..." . PHP_EOL;
+		echo "Installing AxisComposer..." . PHP_EOL;
 	}
 
 	/**
-	 * Load AB-specific test cases and factories
+	 * Load AC-specific test cases and factories
 	 *
 	 * @since 1.0
 	 */
 	public function includes() {
 
 		// Test Cases
-		require_once( $this->tests_dir . '/framework/class-builder-unit-test-case.php' );
+		require_once( $this->tests_dir . '/framework/class-ac-unit-test-case.php' );
 	}
 
 	/**
 	 * Get the single class instance
 	 *
 	 * @since  1.0
-	 * @return AB_Unit_Tests_Bootstrap
+	 * @return AC_Unit_Tests_Bootstrap
 	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 }
 
-AB_Unit_Tests_Bootstrap::instance();
+AC_Unit_Tests_Bootstrap::instance();

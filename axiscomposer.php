@@ -345,7 +345,7 @@ endif;
  * @since  1.0.0
  * @return AxisComposer
  */
-function AB() {
+function AC() {
 	return AxisComposer::instance();
 }
 

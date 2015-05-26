@@ -4,8 +4,8 @@
  *
  * Displays Advertisements Slots widget.
  *
- * @extends     AB_Widget
- * @package     AxisBuilder/Widgets
+ * @extends     AC_Widget
+ * @package     AxisComposer/Widgets
  * @category    Widgets
  * @author      AxisThemes
  * @since       1.0.0
@@ -15,55 +15,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class AB_Widget_Advertisement extends AB_Widget {
+class AC_Widget_Advertisement extends AC_Widget {
 
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
-		$this->widget_cssclass    = 'axisbuilder widget_advertisement';
-		$this->widget_description = __( 'Displays Advertisements Slots.', 'axisbuilder' );
-		$this->widget_id          = 'axisbuilder_widget_advertisement';
-		$this->widget_name        = __( 'AxisBuilder Advertisement', 'axisbuilder' );
+		$this->widget_cssclass    = 'axiscomposer widget_advertisement';
+		$this->widget_description = __( 'Displays Advertisements Slots.', 'axiscomposer' );
+		$this->widget_id          = 'axiscomposer_widget_advertisement';
+		$this->widget_name        = __( 'AxisComposer Advertisement', 'axiscomposer' );
 		$this->settings           = array(
 			'title'  => array(
 				'type'  => 'text',
-				'std'   => __( 'Advertisement', 'axisbuilder' ),
-				'label' => __( 'Title', 'axisbuilder' )
+				'std'   => __( 'Advertisement', 'axiscomposer' ),
+				'label' => __( 'Title', 'axiscomposer' )
 			),
 			'slot_type' => array(
 				'type'  => 'select',
 				'std'   => 'double',
-				'label' => __( 'Slot type', 'axisbuilder' ),
+				'label' => __( 'Slot type', 'axiscomposer' ),
 				'options' => array(
-					'single'  => __( 'One Slot - 250x250px', 'axisbuilder' ),
-					'double'  => __( 'Two Slot - 125x125px', 'axisbuilder' )
+					'single'  => __( 'One Slot - 250x250px', 'axiscomposer' ),
+					'double'  => __( 'Two Slot - 125x125px', 'axiscomposer' )
 				)
 			),
 			'slot_one_banner'  => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Banner #1 Image Link', 'axisbuilder' )
+				'label' => __( 'Banner #1 Image Link', 'axiscomposer' )
 			),
 			'slot_one_referal'  => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Banner #1 Referal Link', 'axisbuilder' )
+				'label' => __( 'Banner #1 Referal Link', 'axiscomposer' )
 			),
 			'slot_two_banner'  => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Banner #2 Image Link', 'axisbuilder' )
+				'label' => __( 'Banner #2 Image Link', 'axiscomposer' )
 			),
 			'slot_two_referal'  => array(
 				'type'  => 'text',
 				'std'   => '',
-				'label' => __( 'Banner #2 Referal Link', 'axisbuilder' )
+				'label' => __( 'Banner #2 Referal Link', 'axiscomposer' )
 			),
 			'hide_if_target' => array(
 				'type'  => 'checkbox',
 				'std'   => 1,
-				'label' => __( 'Open link in a new window/tab', 'axisbuilder' )
+				'label' => __( 'Open link in a new window/tab', 'axiscomposer' )
 			)
 		);
 		parent::__construct();
@@ -92,8 +92,9 @@ class AB_Widget_Advertisement extends AB_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 
-		if ( $hide_if_target )
-			echo '<div class="hide_advertisement_widget_if_target">';
+		if ( $hide_if_target ) {
+			echo '<div class="hide_advertisement_widget_if_target"></div>';
+		}
 
 		echo $slot_type;
 

@@ -403,7 +403,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td data-export-label="AxisBuilder Support"><?php _e( 'AxisBuilder Support', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declares AxisBuilder support.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
-				if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( $active_theme->template, axisbuilder_get_core_supported_themes() ) ) {
+				if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( $active_theme->template, ac_get_core_supported_themes() ) ) {
 					echo '<mark class="error">' . __( 'Not Declared', 'axisbuilder' ) . '</mark>';
 				} else {
 					echo '<mark class="yes">&#10004;</mark>';

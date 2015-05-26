@@ -2,14 +2,14 @@
 /**
  * Abstract Widget Class
  *
- * @class       AB_Widget
+ * @class       AC_Widget
  * @extends     WP_Widget
- * @package     AxisBuilder/Abstracts
+ * @package     AxisComposer/Abstracts
  * @category    Widgets
  * @author      AxisThemes
  * @since       1.0.0
  */
-abstract class AB_Widget extends WP_Widget {
+abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * CSS class
@@ -68,7 +68,7 @@ abstract class AB_Widget extends WP_Widget {
 	 */
 	public function get_cached_widget( $args ) {
 
-		$cache = wp_cache_get( apply_filters( 'axisbuilder_cached_widget_id', $this->widget_id ), 'widget' );
+		$cache = wp_cache_get( apply_filters( 'axiscomposer_cached_widget_id', $this->widget_id ), 'widget' );
 
 		if ( ! is_array( $cache ) ) {
 			$cache = array();
@@ -90,7 +90,7 @@ abstract class AB_Widget extends WP_Widget {
 	 * @return string the content that was cached
 	 */
 	public function cache_widget( $args, $content ) {
-		wp_cache_set( apply_filters( 'axisbuilder_cached_widget_id', $this->widget_id ), array( $args['widget_id'] => $content ), 'widget' );
+		wp_cache_set( apply_filters( 'axiscomposer_cached_widget_id', $this->widget_id ), array( $args['widget_id'] => $content ), 'widget' );
 
 		return $content;
 	}
@@ -101,7 +101,7 @@ abstract class AB_Widget extends WP_Widget {
 	 * @return void
 	 */
 	public function flush_widget_cache() {
-		wp_cache_delete( apply_filters( 'axisbuilder_cached_widget_id', $this->widget_id ), 'widget' );
+		wp_cache_delete( apply_filters( 'axiscomposer_cached_widget_id', $this->widget_id ), 'widget' );
 	}
 
 	/**

@@ -4,14 +4,14 @@
  *
  * Extended by individual integrations to offer additional functionality.
  *
- * @class       AB_Integration
- * @extends     AB_Settings_API
- * @package     AxisBuilder/Abstracts
+ * @class       AC_Integration
+ * @extends     AC_Settings_API
+ * @package     AxisComposer/Abstracts
  * @category    Abstract Class
  * @author      AxisThemes
  * @since       1.0.0
  */
-abstract class AB_Integration extends AB_Settings_API {
+abstract class AC_Integration extends AC_Settings_API {
 
 	/**
 	 * Admin Options
@@ -21,7 +21,7 @@ abstract class AB_Integration extends AB_Settings_API {
 	 */
 	public function admin_options() { ?>
 
-		<h3><?php echo isset( $this->method_title ) ? $this->method_title : __( 'Settings', 'axisbuilder' ) ; ?></h3>
+		<h3><?php echo isset( $this->method_title ) ? $this->method_title : __( 'Settings', 'axiscomposer' ) ; ?></h3>
 
 		<?php echo isset( $this->method_description ) ? wpautop( $this->method_description ) : ''; ?>
 

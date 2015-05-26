@@ -42,7 +42,7 @@ class AB_Admin_Notices {
 	 * Reset notices for themes when switched or a new version of AB is installed.
 	 */
 	public function reset_admin_notices() {
-		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), axisbuilder_get_core_supported_themes() ) ) {
+		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
 			self::add_notice( 'theme_support' );
 		}
 	}
@@ -108,7 +108,7 @@ class AB_Admin_Notices {
 	 * Show the Theme Check notice
 	 */
 	public function theme_check_notice() {
-		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), axisbuilder_get_core_supported_themes() ) ) {
+		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
 			include( 'views/html-notice-theme-support.php' );
 		}
 	}

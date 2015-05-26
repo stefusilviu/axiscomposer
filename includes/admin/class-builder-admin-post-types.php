@@ -197,7 +197,7 @@ class AB_Admin_Post_Types {
 	public function edit_form_after_title() {
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
+		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
 			global $post_ID;
 
 			$params = apply_filters( 'axisbuilder_editors_toggle_params', array(
@@ -237,7 +237,7 @@ class AB_Admin_Post_Types {
 	public function edit_form_after_editor() {
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
+		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
 			echo '</div> <!-- #postdivrich_wrap -->';
 		}
 	}

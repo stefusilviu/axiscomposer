@@ -39,7 +39,7 @@ class AB_Admin_Assets {
 
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
+		if ( in_array( $screen->id, axisbuilder_get_screen_ids() ) || in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
 
 			$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
@@ -116,7 +116,7 @@ class AB_Admin_Assets {
 		}
 
 		// Meta boxes
-		if ( in_array( $screen->id, axisbuilder_get_allowed_screen_types() ) ) {
+		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes', AB()->plugin_url() . '/assets/js/admin/meta-boxes-builder' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes', 'axisbuilder-backbone-modal' ), AB_VERSION );
 			wp_enqueue_script( 'axisbuilder-admin-builder-meta-boxes-position', AB()->plugin_url() . '/assets/js/admin/meta-boxes-builder-position' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes' ), AB_VERSION );
 
@@ -141,7 +141,7 @@ class AB_Admin_Assets {
 			wp_localize_script( 'axisbuilder-admin-builder-meta-boxes', 'axisbuilder_admin_meta_boxes_builder', $params );
 		}
 
-		if ( in_array( $screen->id, axisbuilder_get_layout_supported_screens() ) ) {
+		if ( in_array( $screen->id, ac_get_layout_supported_screens() ) ) {
 			wp_enqueue_script( 'axisbuilder-admin-layout-meta-boxes', AB()->plugin_url() . '/assets/js/admin/meta-boxes-layout' . $suffix . '.js', array( 'axisbuilder-admin-meta-boxes' ), AB_VERSION );
 		}
 

@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisBuilder Conditional Functions
+ * AxisComposer Conditional Functions
  *
  * Functions for determining the current query/page.
  *
- * @package     AxisBuilder/Functions
+ * @package     AxisComposer/Functions
  * @category    Core
  * @author      AxisThemes
  * @since       1.0.0
@@ -33,6 +33,6 @@ if ( ! function_exists( 'is_pagebuilder_active' ) ) {
 	 * @return bool
 	 */
 	function is_pagebuilder_active( $post_id ) {
-		return apply_filters( 'axisbuilder_is_pagebuilder_active', 'active' === get_post_meta( $post_id, '_axisbuilder_status', true ) ? true : false, $post_id );
+		return apply_filters( 'axiscomposer_is_pagebuilder_active', 'active' === get_post_meta( $post_id, '_axisbuilder_status', true ) ? true : false, $post_id );
 	}
 }

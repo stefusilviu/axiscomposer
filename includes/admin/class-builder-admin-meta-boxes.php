@@ -93,7 +93,7 @@ class AB_Admin_Meta_Boxes {
 		add_meta_box( 'axisbuilder-portfolio-breadcrumb', __( 'Breadcrumb Hierarchy', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Breadcrumb::output', 'portfolio', 'side', 'default' );
 
 		// Layouts
-		foreach ( axisbuilder_get_layout_supported_screens() as $type ) {
+		foreach ( ac_get_layout_supported_screens() as $type ) {
 			if ( post_type_exists( $type ) ) {
 				$post_type_object = get_post_type_object( $type );
 				add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout', 'axisbuilder' ), $post_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
@@ -101,7 +101,7 @@ class AB_Admin_Meta_Boxes {
 		}
 
 		// Page Builder
-		foreach ( axisbuilder_get_allowed_screen_types() as $type ) {
+		foreach ( ac_get_allowed_screen_types() as $type ) {
 			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
 			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', 'AB_Meta_Box_Builder_Data::postbox_classes' );
 		}

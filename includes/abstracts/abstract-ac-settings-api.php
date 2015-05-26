@@ -4,19 +4,19 @@
  *
  * Admin Settings API used by Shortcodes and Integrations.
  *
- * @class       AB_Settings_API
- * @package     AxisBuilder/Abstracts
+ * @class       AC_Settings_API
+ * @package     AxisComposer/Abstracts
  * @category    Abstract Class
  * @author      AxisThemes
  * @since       1.0.0
  */
-abstract class AB_Settings_API {
+abstract class AC_Settings_API {
 
 	/**
 	 * The plugin ID. Used for option names.
 	 * @var string
 	 */
-	public $plugin_id = 'axisbuilder_';
+	public $plugin_id = 'axiscomposer_';
 
 	/**
 	 * Method ID.

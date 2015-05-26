@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisBuilder Core Functions
+ * AxisComposer Core Functions
  *
  * General core functions available on both the front-end and admin.
  *
- * @package     AxisBuilder/Functions
+ * @package     AxisComposer/Functions
  * @category    Core
  * @author      AxisThemes
  * @since       1.0.0
@@ -15,20 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Include core functions (available in both admin and frontend)
-include( 'builder-conditional-functions.php' );
-include( 'builder-deprecated-functions.php' );
-include( 'builder-formatting-functions.php' );
-include( 'builder-helper-functions.php' );
+include( 'ac-conditional-functions.php' );
+include( 'ac-deprecated-functions.php' );
+include( 'ac-formatting-functions.php' );
+include( 'ac-helper-functions.php' );
 
 /**
  * Get an image size.
  *
- * Variable is filtered by axisbuilder_get_image_size_{image_size}
+ * Variable is filtered by axiscomposer_get_image_size_{image_size}
  *
  * @param  mixed $image_size
  * @return array
  */
-function axisbuilder_get_image_size( $image_size ) {
+function ac_get_image_size( $image_size ) {
 	if ( is_array( $image_size ) ) {
 		$width  = isset( $image_size[0] ) ? $image_size[0] : '300';
 		$height = isset( $image_size[1] ) ? $image_size[1] : '300';
@@ -39,6 +39,7 @@ function axisbuilder_get_image_size( $image_size ) {
 			'height' => $height,
 			'crop'   => $crop
 		);
+
 		$image_size = $width . '_' . $height;
 	} elseif ( in_array( $image_size, array( 'portfolio_thumbnail', 'portfolio_single' ) ) ) {
 		$size           = get_option( $image_size . '_image_size', array() );
@@ -53,41 +54,41 @@ function axisbuilder_get_image_size( $image_size ) {
 		);
 	}
 
-	return apply_filters( 'axisbuilder_get_image_size_' . $image_size, $size );
+	return apply_filters( 'axiscomposer_get_image_size_' . $image_size, $size );
 }
 
 /**
  * Queue some JavaScript code to be output in the footer.
  * @param string $code
  */
-function axisbuilder_enqueue_js( $code ) {
-	global $axisbuilder_queued_js;
+function ac_enqueue_js( $code ) {
+	global $ac_queued_js;
 
-	if ( empty( $axisbuilder_queued_js ) ) {
-		$axisbuilder_queued_js = '';
+	if ( empty( $ac_queued_js ) ) {
+		$ac_queued_js = '';
 	}
 
-	$axisbuilder_queued_js .= "\n" . $code . "\n";
+	$ac_queued_js .= "\n" . $code . "\n";
 }
 
 /**
  * Output any queued javascript code in the footer.
  */
-function axisbuilder_print_js() {
-	global $axisbuilder_queued_js;
+function ac_print_js() {
+	global $ac_queued_js;
 
-	if ( ! empty( $axisbuilder_queued_js ) ) {
+	if ( ! empty( $ac_queued_js ) ) {
 
-		echo "<!-- AxisBuilder JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) {";
+		echo "<!-- AxisComposer JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) {";
 
 		// Sanitize
-		$axisbuilder_queued_js = wp_check_invalid_utf8( $axisbuilder_queued_js );
-		$axisbuilder_queued_js = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", $axisbuilder_queued_js );
-		$axisbuilder_queued_js = str_replace( "\r", '', $axisbuilder_queued_js );
+		$ac_queued_js = wp_check_invalid_utf8( $ac_queued_js );
+		$ac_queued_js = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", $ac_queued_js );
+		$ac_queued_js = str_replace( "\r", '', $ac_queued_js );
 
-		echo $axisbuilder_queued_js . "});\n</script>\n";
+		echo $ac_queued_js . "});\n</script>\n";
 
-		unset( $axisbuilder_queued_js );
+		unset( $ac_queued_js );
 	}
 }
 
@@ -95,12 +96,12 @@ function axisbuilder_print_js() {
  * Get all Custom Post Types Screen.
  * @return array
  */
-function axisbuilder_get_screen_types() {
+function ac_get_screen_types() {
 	global $wp_post_types;
 	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true, '_builtin' => false ), 'names' );
-	$screen_types = apply_filters( 'axisbuilder_screens_types', array(
-		'post' => __( 'Post', 'axisbuilder' ),
-		'page' => __( 'Page', 'axisbuilder' )
+	$screen_types = apply_filters( 'axiscomposer_screens_types', array(
+		'post' => __( 'Post', 'axiscomposer' ),
+		'page' => __( 'Page', 'axiscomposer' )
 	) );
 
 	// Fetch Public Custom Post Types
@@ -109,7 +110,7 @@ function axisbuilder_get_screen_types() {
 	}
 
 	// Sort screens
-	if ( apply_filters( 'axisbuilder_sort_screens', true ) ) {
+	if ( apply_filters( 'axiscomposer_sort_screens', true ) ) {
 		asort( $screen_types );
 	}
 
@@ -120,9 +121,9 @@ function axisbuilder_get_screen_types() {
  * Get allowed specific Custom Post Types Screen.
  * @return array
  */
-function axisbuilder_get_allowed_screen_types() {
+function ac_get_allowed_screen_types() {
 	if ( get_option( 'axisbuilder_allowed_screens' ) !== 'specific' ) {
-		return array_keys( axisbuilder_get_screen_types() );
+		return array_keys( ac_get_screen_types() );
 	}
 
 	$screens    = array();
@@ -139,7 +140,7 @@ function axisbuilder_get_allowed_screen_types() {
  * AxisBuilder Core Supported Themes.
  * @return array
  */
-function axisbuilder_get_core_supported_themes() {
+function ac_get_core_supported_themes() {
 	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 }
 
@@ -147,6 +148,6 @@ function axisbuilder_get_core_supported_themes() {
  * Get a Page Builder Layout Supported Screens or Post types.
  * @return array
  */
-function axisbuilder_get_layout_supported_screens() {
+function ac_get_layout_supported_screens() {
 	return apply_filters( 'axisbuilder_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }

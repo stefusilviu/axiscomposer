@@ -269,8 +269,8 @@ final class AxisComposer {
 	 * Add AC Image sizes to WP.
 	 */
 	private function add_image_sizes() {
-		$portfolio_thumbnail = axisbuilder_get_image_size( 'portfolio_thumbnail' );
-		$portfolio_single	 = axisbuilder_get_image_size( 'portfolio_single' );
+		$portfolio_thumbnail = ac_get_image_size( 'portfolio_thumbnail' );
+		$portfolio_single	 = ac_get_image_size( 'portfolio_single' );
 
 		add_image_size( 'portfolio_thumbnail', $portfolio_thumbnail['width'], $portfolio_thumbnail['height'], $portfolio_thumbnail['crop'] );
 		add_image_size( 'portfolio_single', $portfolio_single['width'], $portfolio_single['height'], $portfolio_single['crop'] );

@@ -113,7 +113,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 
 		if ( $content ) {
 			$eventual_content = do_shortcode_builder( $content );
-			$textarea_content = axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args );
+			$textarea_content = ac_shortcode_data( $this->shortcode['name'], $content, $args );
 		} else {
 			$eventual_content = '';
 			$ab_cell_one_half = new AB_Shortcode_Cells_One_Half();
@@ -121,10 +121,10 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			// Loading twice as we have to generate 2 cell :)
 			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
 			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
-			$textarea_content = axisbuilder_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
+			$textarea_content = ac_shortcode_data( $this->shortcode['name'], '[ab_cell_one_half first][/ab_cell_one_half] [ab_cell_one_half][/ab_cell_one_half]', $args );
 		}
 
-		$output = '<div class="axisbuilder-layout-row axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-layout-row axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
@@ -190,7 +190,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 		AB_Shortcode_Cells::$attributes = $atts;
 
 		$output .= axisbuilder_new_section( $params );
-		$output .= axisbuilder_remove_autop( $content, true );
+		$output .= ac_remove_autop( $content, true );
 		$output .= axisbuilder_section_after_element_content( $meta, 'after-submenu', false );
 
 		return $output;

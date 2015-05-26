@@ -148,7 +148,7 @@ class AB_AJAX {
 
 		AB_Iconfonts::check_capability();
 
-		$term = (string) axisbuilder_clean( stripslashes( $_POST['term'] ) );
+		$term = (string) ac_clean( stripslashes( $_POST['term'] ) );
 
 		if ( empty( $term ) ) {
 			die();
@@ -176,7 +176,7 @@ class AB_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
-		$term = (string) axisbuilder_clean( stripslashes( $_GET['term'] ) );
+		$term = (string) ac_clean( stripslashes( $_GET['term'] ) );
 
 		if ( empty( $term ) ) {
 			die();
@@ -278,7 +278,7 @@ class AB_AJAX {
 		}
 
 		// Build the shortcode pattern to check if the text that we want to check uses any of the builder shortcodes.
-		axisbuilder_shortcode_pattern( $allowed );
+		ac_shortcode_pattern( $allowed );
 
 		$text = do_shortcode_builder( $text );
 

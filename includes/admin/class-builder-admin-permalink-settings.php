@@ -144,8 +144,8 @@ class AB_Admin_Permalink_Settings {
 		// We need to save the options ourselves; settings api does not trigger save for the permalinks page
 		if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['category_base'] ) && isset( $_POST['portfolio_permalink'] ) ) {
 			// Cat and tag bases
-			$axisbuilder_portfolio_category_slug = axisbuilder_clean( $_POST['axisbuilder_portfolio_category_slug'] );
-			$axisbuilder_portfolio_tag_slug      = axisbuilder_clean( $_POST['axisbuilder_portfolio_tag_slug'] );
+			$axisbuilder_portfolio_category_slug = ac_clean( $_POST['axisbuilder_portfolio_category_slug'] );
+			$axisbuilder_portfolio_tag_slug      = ac_clean( $_POST['axisbuilder_portfolio_tag_slug'] );
 
 			$permalinks = get_option( 'axisbuilder_permalinks' );
 
@@ -157,11 +157,11 @@ class AB_Admin_Permalink_Settings {
 			$permalinks['tag_base']      = untrailingslashit( $axisbuilder_portfolio_tag_slug );
 
 			// Portfolio base
-			$portfolio_permalink = axisbuilder_clean( $_POST['portfolio_permalink'] );
+			$portfolio_permalink = ac_clean( $_POST['portfolio_permalink'] );
 
 			if ( $portfolio_permalink == 'custom' ) {
 				// Get permalink without slashes
-				$portfolio_permalink = trim( axisbuilder_clean( $_POST['portfolio_permalink_structure'] ), '/' );
+				$portfolio_permalink = trim( ac_clean( $_POST['portfolio_permalink_structure'] ), '/' );
 
 				// This is an invalid base structure and breaks pages
 				if ( '%portfolio_cat%' == $portfolio_permalink ) {

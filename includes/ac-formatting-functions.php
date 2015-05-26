@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisBuilder Formatting
+ * AxisComposer Formatting
  *
  * Functions for formatting data.
  *
- * @package     AxisBuilder/Functions
+ * @package     AxisComposer/Functions
  * @category    Core
  * @author      AxisThemes
  * @since       1.0.0
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param  string $var
  * @return string
  */
-function axisbuilder_clean( $var ) {
+function ac_clean( $var ) {
 	return sanitize_text_field( $var );
 }
 
@@ -28,7 +28,7 @@ function axisbuilder_clean( $var ) {
  * @param  string $var
  * @return string
  */
-function axisbuilder_sanitize_tooltip( $var ) {
+function ac_sanitize_tooltip( $var ) {
 	return wp_kses( html_entity_decode( $var ), array(
 		'br'     => array(),
 		'em'     => array(),
@@ -47,13 +47,13 @@ function axisbuilder_sanitize_tooltip( $var ) {
  * @param  array $a2
  * @return array
  */
-function axisbuilder_array_overlay( $a1, $a2 ) {
+function ac_array_overlay( $a1, $a2 ) {
 	foreach ( $a1 as $k => $v ) {
 		if ( ! array_key_exists( $k, $a2 ) ) {
 			continue;
 		}
 		if ( is_array( $v ) && is_array( $a2[ $k ] ) ) {
-			$a1[ $k ] = axisbuilder_array_overlay( $v, $a2[ $k ] );
+			$a1[ $k ] = ac_array_overlay( $v, $a2[ $k ] );
 		} else {
 			$a1[ $k ] = $a2[ $k ];
 		}
@@ -69,7 +69,7 @@ function axisbuilder_array_overlay( $a1, $a2 ) {
  * @param  $size
  * @return int
  */
-function axisbuilder_let_to_num( $size ) {
+function ac_let_to_num( $size ) {
 	$l   = substr( $size, -1 );
 	$ret = substr( $size, 0, -1 );
 	switch ( strtoupper( $l ) ) {
@@ -94,7 +94,7 @@ function axisbuilder_let_to_num( $size ) {
  * @param  string $string
  * @return string
  */
-function axisbuilder_strtolower( $string ) {
+function ac_strtolower( $string ) {
 	return function_exists( 'mb_strtolower' ) ? mb_strtolower( $string ) : strtolower( $string );
 }
 
@@ -105,7 +105,7 @@ function axisbuilder_strtolower( $string ) {
  * @param  string  $suffix
  * @return string
  */
-function axisbuilder_trim_string( $string, $chars = 200, $suffix = '...' ) {
+function ac_trim_string( $string, $chars = 200, $suffix = '...' ) {
 	if ( strlen( $string ) > $chars ) {
 		$string = substr( $string, 0, ( $chars - strlen( $suffix ) ) ) . $suffix;
 	}
@@ -117,6 +117,6 @@ function axisbuilder_trim_string( $string, $chars = 200, $suffix = '...' ) {
  * @param  string $raw_string
  * @return string
  */
-function axisbuilder_format_content( $raw_string ) {
-	return apply_filters( 'axisbuilder_format_content', do_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ), $raw_string );
+function ac_format_content( $raw_string ) {
+	return apply_filters( 'axiscomposer_format_content', do_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ), $raw_string );
 }

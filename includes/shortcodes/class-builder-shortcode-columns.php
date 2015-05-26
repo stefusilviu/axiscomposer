@@ -80,7 +80,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axisbuilder' ) . '">' . __( 'Clone Column',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );
 					$output .= $content;
@@ -108,7 +108,7 @@ class AB_Shortcode_Columns extends AB_Shortcode {
 		$first = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? 'first ' : '';
 
 		$output  = '<div class="axisbuilder flex-column ' . $class . ' ' . $first . $meta['el_class'] . '">';
-		$content = empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) : axisbuilder_remove_autop( $content, true );
+		$content = empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
 		$output .= trim( $content );
 		$output .= '</div>';
 

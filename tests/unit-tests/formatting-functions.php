@@ -7,22 +7,22 @@
 class AB_Tests_Formatting_Functions extends AB_Unit_Test_Case {
 
 	/**
-	 * Test axisbuilder_clean() - note this is a basic type test as WP core already
+	 * Test ac_clean() - note this is a basic type test as WP core already
 	 * has coverage for sanitized_text_field()
 	 *
 	 * @since 1.0
 	 */
-	public function test_axisbuilder_clean() {
+	public function test_ac_clean() {
 
-		$this->assertInternalType( 'string', axisbuilder_clean( 'cleaned' ) );
+		$this->assertInternalType( 'string', ac_clean( 'cleaned' ) );
 	}
 
 	/**
-	 * Test axisbuilder_array_overlay()
+	 * Test ac_array_overlay()
 	 *
 	 * @since 1.0
 	 */
-	public function test_axisbuilder_array_overlay() {
+	public function test_ac_array_overlay() {
 
 		$a1 = array(
 			'apple'      => 'banana',
@@ -48,15 +48,15 @@ class AB_Tests_Formatting_Functions extends AB_Unit_Test_Case {
 			),
 		);
 
-		$this->assertEquals( $overlayed, axisbuilder_array_overlay( $a1, $a2 ) );
+		$this->assertEquals( $overlayed, ac_array_overlay( $a1, $a2 ) );
 	}
 
 	/**
-	 * Test axisbuilder_let_to_num()
+	 * Test ac_let_to_num()
 	 *
 	 * @since 1.0
 	 */
-	public function test_axisbuilder_let_to_num() {
+	public function ac_let_to_num() {
 
 		$sizes = array(
 			'10K' => 10240,
@@ -67,18 +67,18 @@ class AB_Tests_Formatting_Functions extends AB_Unit_Test_Case {
 		);
 
 		foreach ( $sizes as $notation => $size ) {
-			$this->assertEquals( $size, axisbuilder_let_to_num( $notation ) );
+			$this->assertEquals( $size, ac_let_to_num( $notation ) );
 		}
 	}
 
 	/**
-	 * Test axisbuilder_trim_string()
+	 * Test ac_trim_string()
 	 *
 	 * @since 1.0
 	 */
-	public function test_axisbuilder_trim_string() {
-		$this->assertEquals( 'string', axisbuilder_trim_string( 'string' ) );
-		$this->assertEquals( 's...',   axisbuilder_trim_string( 'string', 4 ) );
-		$this->assertEquals( 'st.',    axisbuilder_trim_string( 'string', 3, '.' ) );
+	public function test_ac_trim_string() {
+		$this->assertEquals( 'string', ac_trim_string( 'string' ) );
+		$this->assertEquals( 's...',   ac_trim_string( 'string', 4 ) );
+		$this->assertEquals( 'st.',    ac_trim_string( 'string', 3, '.' ) );
 	}
 }

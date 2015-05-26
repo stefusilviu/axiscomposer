@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisBuilder Helper Functions
+ * AxisComposer Helper Functions
  *
  * Helper functions related to shortcodes.
  *
- * @package     AxisBuilder/Functions
+ * @package     AxisComposer/Functions
  * @category    Core
  * @author      AxisThemes
  * @since       1.0.0
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param  array  $data        Array for html data.
  * @return string $data_string converted html data.
  */
-function axisbuilder_html_data_string( $data ) {
+function ac_html_data_string( $data ) {
 	$data_string = '';
 
 	foreach ( $data as $key => $value ) {
@@ -36,7 +36,7 @@ function axisbuilder_html_data_string( $data ) {
 /**
  * Fetch all available sidebars.
  */
-function axisbuilder_get_registered_sidebars( $sidebars = array(), $exclude = array() ) {
+function ac_get_registered_sidebars( $sidebars = array(), $exclude = array() ) {
 	global $wp_registered_sidebars;
 
 	foreach ( $wp_registered_sidebars as $sidebar ) {
@@ -51,7 +51,7 @@ function axisbuilder_get_registered_sidebars( $sidebars = array(), $exclude = ar
 /**
  * Create a new shortcode data programmatically.
  */
-function axisbuilder_shortcode_data( $name, $content = null, $args = array() ) {
+function ac_shortcode_data( $name, $content = null, $args = array() ) {
 	$_shortcode = '[' . $name;
 
 	if ( is_array( $args ) ) {
@@ -93,12 +93,12 @@ function axisbuilder_shortcode_data( $name, $content = null, $args = array() ) {
  * @param  array        $predefined_tags Prefefined Tags.
  * @return array|string Matched builder shortcode pattern.
  */
-function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
-	global $shortcode_tags, $_axisbuilder_shortcode_tags;
+function ac_shortcode_pattern( $predefined_tags = false ) {
+	global $shortcode_tags, $_ac_shortcode_tags;
 
 	// Store the {old|new} shortcode tags
 	$_old_shortcodes = $shortcode_tags;
-	$_new_shortcodes = axisbuilder_get_shortcode_data( 'name' );
+	$_new_shortcodes = ac_get_shortcode_data( 'name' );
 
 	// If builder has shortcodes build the pattern.
 	if ( ! empty( $_new_shortcodes ) ) {
@@ -112,12 +112,12 @@ function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
 	}
 
 	// Create the pattern and store it ;)
-	$_axisbuilder_shortcode_tags = get_shortcode_regex();
+	$_ac_shortcode_tags = get_shortcode_regex();
 
 	// Restore the original(old) shortcode tags ;)
 	$shortcode_tags = $_old_shortcodes;
 
-	return $_axisbuilder_shortcode_tags;
+	return $_ac_shortcode_tags;
 }
 
 /**
@@ -125,7 +125,7 @@ function axisbuilder_shortcode_pattern( $predefined_tags = false ) {
  * @param  string $data Shortcode data type.
  * @return array        All shortcodes data.
  */
-function axisbuilder_get_shortcode_data( $data ) {
+function ac_get_shortcode_data( $data ) {
 	$builder_shortcodes = array();
 
 	foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
@@ -144,14 +144,14 @@ function axisbuilder_get_shortcode_data( $data ) {
  *
  * @since 1.0.0
  *
- * @uses $_axisbuilder_shortcode_tags
+ * @uses $_ac_shortcode_tags
  *
  * @param  string $content Content to search for shortcodes
  * @return string Content with shortcodes filtered out.
  */
 function do_shortcode_builder( $content ) {
-	global $_axisbuilder_shortcode_tags;
-	return preg_replace_callback( "/$_axisbuilder_shortcode_tags/s", 'do_shortcode_tag_builder', $content );
+	global $_ac_shortcode_tags;
+	return preg_replace_callback( "/$_ac_shortcode_tags/s", 'do_shortcode_tag_builder', $content );
 }
 
 /**
@@ -192,7 +192,7 @@ function do_shortcode_tag_builder( $m ) {
 		return $m[0];
 	}
 
-	if ( in_array( $values['tag'], axisbuilder_get_shortcode_data( 'name' ) ) ) {
+	if ( in_array( $values['tag'], ac_get_shortcode_data( 'name' ) ) ) {
 		$_available_shortcodes = AB()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
 		return $_available_shortcodes[ $values['tag'] ];
 	} else {
@@ -206,7 +206,7 @@ function do_shortcode_tag_builder( $m ) {
  * @param  boolean $do_shortcode Content with shortcodes filtered out.
  * @return string  $content
  */
-function axisbuilder_apply_autop( $content, $do_shortcode = true ) {
+function ac_apply_autop( $content, $do_shortcode = true ) {
 	$content = wpautop( $content );
 
 	if ( $do_shortcode ) {
@@ -222,7 +222,7 @@ function axisbuilder_apply_autop( $content, $do_shortcode = true ) {
  * @param  boolean $do_shortcode Content with shortcodes filtered out.
  * @return string  $content
  */
-function axisbuilder_remove_autop( $content, $do_shortcode = false ) {
+function ac_remove_autop( $content, $do_shortcode = false ) {
 	global $shortcode_tags;
 	$tagnames  = array_keys( $shortcode_tags );
 	$tagregexp = join( '|', array_map( 'preg_quote', $tagnames ) );

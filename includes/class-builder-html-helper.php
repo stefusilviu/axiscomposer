@@ -63,7 +63,7 @@ class AB_HTML_Helper {
 			$data['check-value']    = empty( $element['required'][2] ) ? 'no-logical-check' : $element['required'][2];
 
 			// Crete a html data-string ;)
-			$params['data_string'] = axisbuilder_html_data_string( $data );
+			$params['data_string'] = ac_html_data_string( $data );
 			$visible = false;
 
 			// Required element must not be hidden. Otherwise hide this one by default.
@@ -142,7 +142,7 @@ class AB_HTML_Helper {
 			$data['target-element']  = $element['target'][0];
 			$data['target-property'] = $element['target'][1];
 			$class_string  .= ' axisbuilder-attach-targetting';
-			$target_string .= axisbuilder_html_data_string( $data );
+			$target_string .= ac_html_data_string( $data );
 		}
 
 		if ( ! empty( $element['fetchTMPL'] ) ) {
@@ -240,7 +240,7 @@ class AB_HTML_Helper {
 		// ID, Name and data string
 		$id_string   = empty( $element['id'] ) ? '' : 'id="' . $element['id'] . '"';
 		$name_string = empty( $element['name'] ) ? '' : 'name="' . $element['id'] . '"';
-		$data_string = empty( $element['data'] ) ? '' : axisbuilder_html_data_string( $element['data'] );
+		$data_string = empty( $element['data'] ) ? '' : ac_html_data_string( $element['data'] );
 
 		// Return if the entries are empty ;)
 		if ( empty( $entries ) ) {
@@ -365,7 +365,7 @@ class AB_HTML_Helper {
 
 		$media  = 'button button-large axisbuilder-image-upload axisbuilder-image-insert';
 		$class  = empty( $element['class'] ) ? $media : $media . ' ' . $element['class'];
-		$output = '<a href="#" class="' . $class . '" title="' . esc_attr( $element['title'] ) . '"' . axisbuilder_html_data_string( $element['data'] ) . '>' . $element['title'] . '</a>';
+		$output = '<a href="#" class="' . $class . '" title="' . esc_attr( $element['title'] ) . '"' . ac_html_data_string( $element['data'] ) . '>' . $element['title'] . '</a>';
 
 		if ( isset( $element['delete'] ) ) {
 			$output .= '<a href="#" class="button button-large axisbuilder-delete-gallery-button" title="' . esc_attr( $element['delete'] ) . '">' . $element['delete'] . '</a>';

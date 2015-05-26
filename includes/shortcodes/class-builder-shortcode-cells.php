@@ -176,7 +176,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle">';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
@@ -187,7 +187,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<span class="axisbuilder-fake-cellborder"></span>';
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );
 					$output .= $content;
@@ -285,7 +285,7 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 
 		$output  = '<div class="flex-cell no-margin ' . $shortcode . $meta['el_class'] . $extra_class . self::$cell_class . '" ' . $outer_style . '>';
 		$output .= '<div class="flex-cell-inner ' . $inner_style . '">';
-		$output .= empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) : axisbuilder_remove_autop( $content, true );
+		$output .= empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
 		$output .= '</div></div>';
 
 		unset( $axisbuilder_config['current_column'] );

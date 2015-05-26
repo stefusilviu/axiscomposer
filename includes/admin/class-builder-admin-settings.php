@@ -581,12 +581,12 @@ class AB_Admin_Settings {
 						$option_value = is_null( $option_value ) ? 2 : absint( $option_value );
 
 					} else {
-						$option_value = axisbuilder_clean( $option_value );
+						$option_value = ac_clean( $option_value );
 					}
 					break;
 				case 'multiselect' :
 				case 'multi_select_screens' :
-					$option_value = array_filter( array_map( 'axisbuilder_clean', (array) $option_value ) );
+					$option_value = array_filter( array_map( 'ac_clean', (array) $option_value ) );
 					break;
 				default :
 					do_action( 'axisbuilder_update_option_' . sanitize_title( $value['type'] ), $value );

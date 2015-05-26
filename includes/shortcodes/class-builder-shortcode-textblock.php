@@ -162,7 +162,7 @@ class AB_Shortcode_Textblock extends AB_Shortcode {
 		}
 
 		$output .= '<section class="axisbuilder textblock-section">';
-		$output .= '<div class="axisbuilder-textblock ' . $class . '" ' . $style . '>' . axisbuilder_apply_autop( axisbuilder_remove_autop( $content ) ) . '</div>';
+		$output .= '<div class="axisbuilder-textblock ' . $class . '" ' . $style . '>' . ac_apply_autop( ac_remove_autop( $content ) ) . '</div>';
 		$output .= '</section>';
 
 		return $output;

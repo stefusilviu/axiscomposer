@@ -324,7 +324,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 			$data['shortcode-allowed']   = implode( ',', $data['shortcode-allowed'] );
 		}
 
-		$output = '<div class="axisbuilder-sortable-element modal-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-sortable-element modal-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$extra_class = 'axisbuilder-edit';
@@ -335,7 +335,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 			$output .= '</div>';
 		$output .= '</div>';
 
@@ -432,7 +432,7 @@ abstract class AB_Shortcode extends AB_Settings_API {
 				$nested_content = '';
 
 				foreach ( $content as $data ) {
-					$nested_content .= trim( axisbuilder_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
+					$nested_content .= trim( ac_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
 				}
 
 				$content = $nested_content;

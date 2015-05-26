@@ -51,7 +51,7 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 	public function editor_element( $params ) {
 
 		// Fetch all registered sidebars
-		$sidebars = axisbuilder_get_registered_sidebars();
+		$sidebars = ac_get_registered_sidebars();
 
 		if ( empty( $params['args']['widget_area'] ) ) {
 			$params['args']['widget_area'] = reset( $sidebars );
@@ -91,7 +91,7 @@ class AB_Shortcode_Sidebar extends AB_Shortcode {
 		if ( is_dynamic_sidebar( $atts['widget_area'] ) ) {
 			ob_start();
 			dynamic_sidebar( $atts['widget_area'] );
-			$output = axisbuilder_remove_autop( ob_get_clean(), true );
+			$output = ac_remove_autop( ob_get_clean(), true );
 		}
 
 		if ( $output ) {

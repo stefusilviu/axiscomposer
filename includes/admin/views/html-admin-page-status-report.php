@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td data-export-label="WP Memory Limit"><?php _e( 'WP Memory Limit', 'axisbuilder' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
 			<td><?php
-				$memory = axisbuilder_let_to_num( WP_MEMORY_LIMIT );
+				$memory = ac_let_to_num( WP_MEMORY_LIMIT );
 				if ( $memory < 67108864 ) {
 					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'axisbuilder' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
 				} else {
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<tr>
 				<td data-export-label="PHP Post Max Size"><?php _e( 'PHP Post Max Size', 'axisbuilder' ); ?>:</td>
 				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-				<td><?php echo size_format( axisbuilder_let_to_num( ini_get('post_max_size') ) ); ?></td>
+				<td><?php echo size_format( ac_let_to_num( ini_get('post_max_size') ) ); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="PHP Time Limit"><?php _e( 'PHP Time Limit', 'axisbuilder' ); ?>:</td>
@@ -171,9 +171,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			} else {
 				$posting['wp_remote_post']['note']    = __( 'wp_remote_post() failed. Contact your hosting provider.', 'axisbuilder' );
 				if ( is_wp_error( $response ) ) {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), axisbuilder_clean( $response->get_error_message() ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), ac_clean( $response->get_error_message() ) );
 				} else {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), axisbuilder_clean( $response['response']['code'] ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), ac_clean( $response['response']['code'] ) );
 				}
 				$posting['wp_remote_post']['success'] = false;
 			}
@@ -189,9 +189,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			} else {
 				$posting['wp_remote_get']['note']    = __( 'wp_remote_get() failed. The AxisBuilder plugin updater won\'t work with your server. Contact your hosting provider.', 'axisbuilder' );
 				if ( is_wp_error( $response ) ) {
-					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), axisbuilder_clean( $response->get_error_message() ) );
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), ac_clean( $response->get_error_message() ) );
 				} else {
-					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), axisbuilder_clean( $response['response']['code'] ) );
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), ac_clean( $response['response']['code'] ) );
 				}
 				$posting['wp_remote_get']['success'] = false;
 			}

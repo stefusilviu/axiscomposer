@@ -262,7 +262,7 @@ abstract class AC_Settings_API {
 			$tip = '';
 		}
 
-		return $tip ? '<img class="help_tip" data-tip="' . esc_attr( axisbuilder_sanitize_tooltip( $tip ) ) . '" src="' . AB()->plugin_url() . '/assets/images/help.png" height="16" width="16" />' : '';
+		return $tip ? '<img class="help_tip" data-tip="' . esc_attr( ac_sanitize_tooltip( $tip ) ) . '" src="' . AB()->plugin_url() . '/assets/images/help.png" height="16" width="16" />' : '';
 	}
 
 	/**
@@ -714,7 +714,7 @@ abstract class AC_Settings_API {
 		$field = $this->get_field_key( $key );
 
 		if ( isset( $_POST[ $field ] ) ) {
-			$text = axisbuilder_clean( stripslashes( $_POST[ $field ] ) );
+			$text = ac_clean( stripslashes( $_POST[ $field ] ) );
 		}
 
 		return $text;
@@ -785,7 +785,7 @@ abstract class AC_Settings_API {
 		$field = $this->get_field_key( $key );
 
 		if ( isset( $_POST[ $field ] ) ) {
-			$value = axisbuilder_clean( stripslashes( $_POST[ $field ] ) );
+			$value = ac_clean( stripslashes( $_POST[ $field ] ) );
 		}
 
 		return $value;
@@ -805,7 +805,7 @@ abstract class AC_Settings_API {
 		$field = $this->get_field_key( $key );
 
 		if ( isset( $_POST[ $field ] ) ) {
-			$value = array_map( 'axisbuilder_clean', array_map( 'stripslashes', (array) $_POST[ $field ] ) );
+			$value = array_map( 'ac_clean', array_map( 'stripslashes', (array) $_POST[ $field ] ) );
 		} else {
 			$value = '';
 		}

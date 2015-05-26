@@ -224,7 +224,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		$output = '<div class="axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . axisbuilder_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
@@ -234,7 +234,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Section',  'axisbuilder' ) . '">' . __( 'Clone Section',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort axisbuilder-drop" data-dragdrop-level="' . $data['dragdrop-level'] . '">';
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . axisbuilder_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );
 					$output .= $content;
@@ -357,7 +357,7 @@ class AB_Shortcode_Section extends AB_Shortcode {
 		$axisbuilder_config['layout_container'] = 'section';
 
 		$output .= axisbuilder_new_section( $params );
-		$output .= axisbuilder_remove_autop( $content, true );
+		$output .= ac_remove_autop( $content, true );
 
 		// Set Extra arrow element
 		if ( strpos( $bottom_border, 'border-extra' ) !== false ) {

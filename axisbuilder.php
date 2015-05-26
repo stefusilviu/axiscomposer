@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name: AxisBuilder
- * Plugin URI: http://axisthemes.com/axisbuilder/
- * Description: A drag and drop builder that helps you build modern and unique page layouts smartly. Beautifully.
+ * Plugin Name: AxisComposer
+ * Plugin URI: http://axisthemes.com/axiscomposer/
+ * Description: A drag and drop builder that helps you compose anything. Beautifully.
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
  * Version: 1.0-alpha-2
  * Requires at least: 4.0
  * Tested up to: 4.2
  *
- * Text Domain: axisbuilder
+ * Text Domain: axiscomposer
  * Domain Path: /i18n/languages/
  *
- * @package  AxisBuilder
+ * @package  AxisComposer
  * @category Core
  * @author   AxisThemes
  */
@@ -21,16 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! class_exists( 'AxisBuilder' ) ) :
+if ( ! class_exists( 'AxisComposer' ) ) :
 
 /**
- * Main AxisBuilder Class
+ * Main AxisComposer Class
  *
- * @class    AxisBuilder
+ * @class    AxisComposer
  * @property mixed $shortcodes The shortcodes class
  * @version  1.0.0
  */
-final class AxisBuilder {
+final class AxisComposer {
 
 	/**
 	 * @var string
@@ -38,23 +38,23 @@ final class AxisBuilder {
 	public $version = '1.0.0';
 
 	/**
-	 * @var AxisBuilder The single instance of the class
+	 * @var AxisComposer The single instance of the class
 	 */
 	protected static $_instance = null;
 
 	/**
-	 * @var AB_Integrations $integrations
+	 * @var AC_Integrations $integrations
 	 */
 	public $integrations = null;
 
 	/**
-	 * Main AxisBuilder Instance
+	 * Main AxisComposer Instance
 	 *
-	 * Ensure only one instance of AxisBuilder is loaded or can be loaded.
+	 * Ensure only one instance of AxisComposer is loaded or can be loaded.
 	 *
 	 * @static
-	 * @see    AB()
-	 * @return AxisBuilder - Main instance
+	 * @see    AC()
+	 * @return AxisComposer - Main instance
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
@@ -68,7 +68,7 @@ final class AxisBuilder {
 	 * @since 1.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axisbuilder' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axiscomposer' ), '1.0' );
 	}
 
 	/**
@@ -76,7 +76,7 @@ final class AxisBuilder {
 	 * @since 1.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axisbuilder' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axiscomposer' ), '1.0' );
 	}
 
 	/**
@@ -91,21 +91,21 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * AxisBuilder Constructor.
+	 * AxisComposer Constructor.
 	 */
 	public function __construct() {
 		$this->define_constants();
 		$this->includes();
 		$this->init_hooks();
 
-		do_action( 'axisbuilder_loaded' );
+		do_action( 'axiscomposer_loaded' );
 	}
 
 	/**
-	 * Hook into actions and filters
+	 * Hook into actions and filters.
 	 */
 	private function init_hooks() {
-		register_activation_hook( __FILE__, array( 'AB_Install', 'install' ) );
+		register_activation_hook( __FILE__, array( 'AC_Install', 'install' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
 		add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
 		add_action( 'init', array( $this, 'init' ), 0 );
@@ -113,20 +113,20 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Define AB Constants.
+	 * Define AC Constants.
 	 */
 	private function define_constants() {
 		$upload_dir = wp_upload_dir();
 
-		$this->define( 'AB_PLUGIN_FILE', __FILE__ );
-		$this->define( 'AB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-		$this->define( 'AB_VERSION', $this->version );
-		$this->define( 'AB_UPLOAD_DIR', $upload_dir['basedir'] . '/axisbuilder-uploads/' );
-		$this->define( 'AB_UPLOAD_URL', $upload_dir['baseurl'] . '/axisbuilder-uploads/' );
+		$this->define( 'AC_PLUGIN_FILE', __FILE__ );
+		$this->define( 'AC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+		$this->define( 'AC_VERSION', $this->version );
+		$this->define( 'AC_UPLOAD_DIR', $upload_dir['basedir'] . '/axiscomposer-uploads/' );
+		$this->define( 'AC_UPLOAD_URL', $upload_dir['baseurl'] . '/axiscomposer-uploads/' );
 	}
 
 	/**
-	 * Define constant if not already set
+	 * Define constant if not already set.
 	 * @param string $name
 	 * @param string|bool $value
 	 */
@@ -158,66 +158,66 @@ final class AxisBuilder {
 	 * Includes the required core files used in admin and on the frontend.
 	 */
 	public function includes() {
-		include_once( 'includes/builder-core-functions.php' );
-		include_once( 'includes/builder-widget-functions.php' );
-		include_once( 'includes/class-builder-autoloader.php' );
-		include_once( 'includes/class-builder-install.php' );
-		include_once( 'includes/class-builder-ajax.php' );
+		include_once( 'includes/class-ac-autoloader.php' );
+		include_once( 'includes/ac-core-functions.php' );
+		include_once( 'includes/ac-widget-functions.php' );
+		include_once( 'includes/class-ac-install.php' );
+		include_once( 'includes/class-ac-ajax.php' );
 
 		if ( $this->is_request( 'admin' ) ) {
-			include_once( 'includes/admin/class-builder-admin.php' );
+			include_once( 'includes/admin/class-ac-admin.php' );
 		}
 
 		if ( $this->is_request( 'frontend' ) ) {
 			$this->frontend_includes();
 		}
 
-		if ( 'yes' === get_option( 'axisbuilder_sidebar_enabled', 'yes' ) ) {
-			include_once( 'includes/class-builder-sidebars.php' );                // Sidebar Builder
+		if ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) {
+			include_once( 'includes/class-ac-sidebars.php' );                // Sidebar Builder
 		}
 
-		// include_once( 'includes/class-builder-iconfonts.php' );                // Iconfonts Manager
-		include_once( 'includes/class-builder-post-types.php' );                  // Registers post types
-		include_once( 'includes/abstracts/abstract-builder-settings-api.php' );   // Settings API (for shortcodes, and integrations)
-		include_once( 'includes/abstracts/abstract-builder-shortcode.php' );      // Shortcodes
-		include_once( 'includes/abstracts/abstract-builder-integration.php' );    // An integration with a service
-		include_once( 'includes/class-builder-integrations.php' );                // Loads integrations
-		include_once( 'includes/class-builder-localization.php' );                // Download/update languages
+		// include_once( 'includes/class-ac-iconfonts.php' );                // Iconfonts Manager
+		include_once( 'includes/class-ac-post-types.php' );                  // Registers post types
+		include_once( 'includes/abstracts/abstract-ac-settings-api.php' );   // Settings API (for shortcodes, and integrations)
+		include_once( 'includes/abstracts/abstract-ac-shortcode.php' );      // Shortcodes
+		include_once( 'includes/abstracts/abstract-ac-integration.php' );    // An integration with a service
+		include_once( 'includes/class-ac-integrations.php' );                // Loads integrations
+		include_once( 'includes/class-ac-localization.php' );                // Download/update languages
 	}
 
 	/**
 	 * Include required frontend files.
 	 */
 	public function frontend_includes() {
-		include_once( 'includes/class-builder-frontend-scripts.php' );            // Frontend Scripts
+		include_once( 'includes/class-ac-frontend-scripts.php' );            // Frontend Scripts
 	}
 
 	/**
-	 * Function used to Init AxisBuilder Template Functions - This makes them pluggable by plugins and themes.
+	 * Function used to Init AxisComposer Template Functions - This makes them pluggable by plugins and themes.
 	 */
 	public function include_template_functions() {
-		include_once( 'includes/builder-template-functions.php' );
+		include_once( 'includes/ac-template-functions.php' );
 	}
 
 	/**
-	 * Init AxisBuilder when WordPress Initialises.
+	 * Init AxisComposer when WordPress Initialises.
 	 * @todo Remove the call of shortcodes after modal is deprecated
 	 */
 	public function init() {
 		// Before init action
-		do_action( 'before_axisbuilder_init' );
+		do_action( 'before_axiscomposer_init' );
 
 		// Set up localisation
 		$this->load_plugin_textdomain();
 
 		// Load class instances
-		$this->integrations = new AB_Integrations();                              // Integrations class
+		$this->integrations = new AC_Integrations();                         // Integrations class
 
 		// Set up shortcodes
 		$this->shortcodes();
 
 		// Init action
-		do_action( 'axisbuilder_init' );
+		do_action( 'axiscomposer_init' );
 	}
 
 	/**
@@ -226,24 +226,24 @@ final class AxisBuilder {
 	 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
 	 *
 	 * Admin Locales are found in:
-	 * 		- WP_LANG_DIR/axis-builder/axisbuilder-admin-LOCALE.mo
-	 * 		- WP_LANG_DIR/plugins/axisbuilder-admin-LOCALE.mo
+	 * 		- WP_LANG_DIR/axiscomposer/axiscomposer-admin-LOCALE.mo
+	 * 		- WP_LANG_DIR/plugins/axiscomposer-admin-LOCALE.mo
 	 *
 	 * Frontend/global Locales found in:
-	 * 		- WP_LANG_DIR/axis-builder/axisbuilder-LOCALE.mo
-	 * 	 	- axis-builder/i18n/languages/axisbuilder-LOCALE.mo (which if not found falls back to:)
-	 * 	 	- WP_LANG_DIR/plugins/axisbuilder-LOCALE.mo
+	 * 		- WP_LANG_DIR/axiscomposer/axiscomposer-LOCALE.mo
+	 * 	 	- axiscomposer/i18n/languages/axiscomposer-LOCALE.mo (which if not found falls back to:)
+	 * 	 	- WP_LANG_DIR/plugins/axiscomposer-LOCALE.mo
 	 */
 	public function load_plugin_textdomain() {
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'axisbuilder' );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'axiscomposer' );
 
 		if ( $this->is_request( 'admin' ) ) {
-			load_textdomain( 'axisbuilder', WP_LANG_DIR . '/axis-builder/axisbuilder-admin-' . $locale . '.mo' );
-			load_textdomain( 'axisbuilder', WP_LANG_DIR . '/plugins/axisbuilder-admin-' . $locale . '.mo' );
+			load_textdomain( 'axiscomposer', WP_LANG_DIR . '/axiscomposer/axiscomposer-admin-' . $locale . '.mo' );
+			load_textdomain( 'axiscomposer', WP_LANG_DIR . '/plugins/axiscomposer-admin-' . $locale . '.mo' );
 		}
 
-		load_textdomain( 'axisbuilder', WP_LANG_DIR . '/axis-builder/axisbuilder-' . $locale . '.mo' );
-		load_plugin_textdomain( 'axisbuilder', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
+		load_textdomain( 'axiscomposer', WP_LANG_DIR . '/axiscomposer/axiscomposer-' . $locale . '.mo' );
+		load_plugin_textdomain( 'axiscomposer', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
 	}
 
 	/**
@@ -266,7 +266,7 @@ final class AxisBuilder {
 	}
 
 	/**
-	 * Add AB Image sizes to WP.
+	 * Add AC Image sizes to WP.
 	 */
 	private function add_image_sizes() {
 		$portfolio_thumbnail = axisbuilder_get_image_size( 'portfolio_thumbnail' );
@@ -317,7 +317,7 @@ final class AxisBuilder {
 	 * @return string
 	 */
 	public function template_path() {
-		return apply_filters( 'axisbuilder_template_path', 'axisbuilder/' );
+		return apply_filters( 'axiscomposer_template_path', 'axiscomposer/' );
 	}
 
 	/**
@@ -333,21 +333,21 @@ final class AxisBuilder {
 	 * @return AB_Shortcodes
 	 */
 	public function shortcodes() {
-		return AB_Shortcodes::instance();
+		return AC_Shortcodes::instance();
 	}
 }
 
 endif;
 
 /**
- * Returns the main instance of AB to prevent the need to use globals.
+ * Returns the main instance of AC to prevent the need to use globals.
  *
  * @since  1.0.0
- * @return AxisBuilder
+ * @return AxisComposer
  */
 function AB() {
-	return AxisBuilder::instance();
+	return AxisComposer::instance();
 }
 
 // Global for backwards compatibility.
-$GLOBALS['axisbuilder'] = AB();
+$GLOBALS['axiscomposer'] = AC();

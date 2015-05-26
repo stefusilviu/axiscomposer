@@ -1,13 +1,13 @@
 <?php
 /**
- * AB Unit Test Case
+ * AC Unit Test Case
  *
- * Provides AxisBuilder-specific setup/tear down/assert methods, custom factories,
+ * Provides AxisComposer-specific setup/tear down/assert methods, custom factories,
  * and helper functions
  *
  * @since 1.0
  */
-class AB_Unit_Test_Case extends WP_UnitTestCase {
+class AC_Unit_Test_Case extends WP_UnitTestCase {
 
 	/**
 	 * Setup test case
@@ -21,8 +21,8 @@ class AB_Unit_Test_Case extends WP_UnitTestCase {
 		$this->setOutputCallback( array( $this, 'filter_output' ) );
 
 		// Register post types before each test
-		AB_Post_Types::register_post_types();
-		AB_Post_Types::register_taxonomies();
+		AC_Post_Types::register_post_types();
+		AC_Post_Types::register_taxonomies();
 	}
 
 	/**

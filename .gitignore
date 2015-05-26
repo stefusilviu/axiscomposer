@@ -22,7 +22,7 @@ sftp-config.json
 Thumbs.db
 
 # ApiGen
-/apidocs/
+/ac-apidocs/
 
 # Unit tests
 /tmp

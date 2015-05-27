@@ -4,8 +4,8 @@
  *
  * Displays the page builder data meta box, tabbed, with several drag and drop canvas elements.
  *
- * @class       AB_Meta_Box_Builder_Data
- * @package     AxisBuilder/Admin/Meta Boxes
+ * @class       AC_Meta_Box_Builder_Data
+ * @package     AxisComposer/Admin/Meta Boxes
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Meta_Box_Builder_Data Class
+ * AC_Meta_Box_Builder_Data Class
  */
-class AB_Meta_Box_Builder_Data {
+class AC_Meta_Box_Builder_Data {
 
 	private static $load_shortcode;
 
@@ -26,10 +26,10 @@ class AB_Meta_Box_Builder_Data {
 	 * Output the meta box
 	 */
 	public static function output( $post ) {
-		wp_nonce_field( 'axisbuilder_save_data', 'axisbuilder_meta_nonce' );
+		wp_nonce_field( 'axiscomposer_save_data', 'axiscomposer_meta_nonce' );
 
 		?>
-		<input type="hidden" class="axisbuilder-status" name="axisbuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
+		<input type="hidden" class="pagebuilder-status" name="pagebuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes">
 			<div id="axisbuilder-panels" class="panel-wrap editor_data">
 				<ul class="editor_data_tabs axisbuilder-tabs horizontal" style="display:none">
@@ -229,7 +229,7 @@ class AB_Meta_Box_Builder_Data {
 	public static function save( $post_id ) {
 
 		// Save the builder status and canvas textarea data :)
-		$builder_post_meta = array( 'axisbuilder_status', 'axisbuilder_canvas' );
+		$builder_post_meta = array( 'pagebuilder_status', 'axisbuilder_canvas' );
 
 		foreach ( $builder_post_meta as $post_meta ) {
 			if ( isset( $_POST[ $post_meta ] ) ) {

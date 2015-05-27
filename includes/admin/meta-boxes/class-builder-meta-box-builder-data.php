@@ -143,48 +143,48 @@ class AB_Meta_Box_Builder_Data {
 	 * Show Backbone Modal Templates.
 	 */
 	protected static function output_backbone_tmpl() {
-		$shortcode_modal_tmpl = apply_filters( 'axisbuilder_shortcode_backbone_modal_tmpl', array(
+		$shortcode_modal_tmpl = apply_filters( 'axiscomposer_shortcode_backbone_modal_tmpl', array(
 			'trash' => array(
 				'tmpl'   => 'trash-data',
-				'button' => __( 'Delete', 'axisbuilder' ),
+				'button' => __( 'Delete', 'axiscomposer' ),
 				'class'  => array( 'modal-animation' )
 			),
 			'cell' => array(
 				'tmpl'   => 'cell-size',
-				'button' => __( 'Add', 'axisbuilder' ),
+				'button' => __( 'Add', 'axiscomposer' ),
 				'class'  => array( 'modal-animation' )
 			),
 			'edit' => array(
 				'tmpl' => 'edit-element',
-				'button' => __( 'Save', 'axisbuilder' ),
+				'button' => __( 'Save', 'axiscomposer' ),
 				'class'  => array( 'axisbuilder', 'modal-animation', 'normal-screen' )
 			)
 		) );
 
 		foreach ( $shortcode_modal_tmpl as $key => $template ) {
 			?>
-			<script type="text/template" id="tmpl-axisbuilder-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
-				<div class="axisbuilder-backbone-modal">
-					<div class="axisbuilder-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
-						<section class="axisbuilder-backbone-modal-main" role="main">
-							<header class="axisbuilder-backbone-modal-header">
+			<script type="text/template" id="tmpl-ac-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
+				<div class="ac-backbone-modal">
+					<div class="ac-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
+						<section class="ac-backbone-modal-main" role="main">
+							<header class="ac-backbone-modal-header">
 								<h1><%= title %></h1>
 								<button class="modal-close modal-close-link dashicons dashicons-no-alt">
 									<span class="screen-reader-text">Close modal panel</span>
 								</button>
 							</header>
-							<article class="axisbuilder-backbone-modal-article">
-								<form action="" method="post" class="axisbuilder-enhanced-form">
+							<article class="ac-backbone-modal-article">
+								<form action="" method="post" class="ac-enhanced-form">
 									<% if ( message ) { %>
 										<div class="message">
 											<%= message %>
 										</div>
 									<% } else { %>
-										<div class="axisbuilder-enhanced-settings ajax-connect">&nbsp;</div>
+										<div class="ac-enhanced-settings ajax-connect">&nbsp;</div>
 									<% } %>
 								</form>
 							</article>
-							<footer class="axisbuilder-backbone-modal-footer">
+							<footer class="ac-backbone-modal-footer">
 								<div class="inner">
 									<% if ( dismiss ) { %>
 										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
@@ -196,7 +196,7 @@ class AB_Meta_Box_Builder_Data {
 						</section>
 					</div>
 				</div>
-				<div class="axisbuilder-backbone-modal-backdrop modal-close"></div>
+				<div class="ac-backbone-modal-backdrop modal-close"></div>
 			</script>
 			<?php
 		}

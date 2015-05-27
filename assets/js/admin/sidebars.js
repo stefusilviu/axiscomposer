@@ -5,7 +5,7 @@
 	$.AxisBuilderSidebars = function() {
 		this.widgetArea = $( '#widgets-right' );
 		this.widgetWrap = $( '.widget-liquid-right' );
-		this.widgetTmpl = $( '#tmpl-axisbuilder-form-delete-sidebar' );
+		this.widgetTmpl = $( '#tmpl-ac-form-create-sidebar' );
 
 		this.createForm();
 		this.deleteIcon();
@@ -21,12 +21,12 @@
 
 		// Add Delete Icon to Custom Widget Areas
 		deleteIcon: function() {
-			this.widgetArea.find( '.sidebar-axisbuilder-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
+			this.widgetArea.find( '.sidebar-axisbuilder-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar"><br /></div>' );
 		},
 
 		// Bind Events to delete Custom Widget Area
 		bindEvents: function() {
-			this.widgetWrap.on( 'click', '.axisbuilder-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
+			this.widgetWrap.on( 'click', '.axiscomposer-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
 		},
 
 		// Delete the Widget Area (Sidebar) with all Widgets within, then re-calculate the other sidebar ids and re-save the order
@@ -42,13 +42,13 @@
 					security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
 				};
 
-			// AxisBuilder Backbone Modal
-			$( this ).AxisBuilderBackboneModal({
-				template: '#tmpl-axisbuilder-modal-delete-sidebar'
+			// AxisComposer Backbone Modal
+			$( this ).ACBackboneModal({
+				template: '#tmpl-ac-modal-delete-sidebar'
 			});
 
-			$( document.body ).on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-delete-sidebar' !== template ) {
+			$( document.body ).on( 'ac_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-ac-modal-delete-sidebar' !== template ) {
 					return;
 				}
 

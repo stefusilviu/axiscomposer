@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ac_get_screen_ids() {
 
-	$ab_screen_id = sanitize_title( __( 'AxisComposer', 'axisbuilder' ) );
+	$ab_screen_id = sanitize_title( __( 'AxisComposer', 'axiscomposer' ) );
 	$screen_ids   = array(
 		'toplevel_page_' . $ab_screen_id,
 		$ab_screen_id . '_page_ac-iconfonts',

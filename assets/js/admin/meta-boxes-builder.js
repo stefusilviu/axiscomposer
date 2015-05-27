@@ -53,8 +53,8 @@ jQuery( function( $ ) {
 				.on( 'keydown storage', this.storage.keyboard_actions )
 				.on( 'axisbuilder_storage_snapshot', this.storage.snapshot )
 				.on( 'axisbuilder_dragdrop_items_loaded', this.dragdrop.init )
-				.on( 'axisbuilder_backbone_modal_loaded', this.backbone.init )
-				.on( 'axisbuilder_backbone_modal_response', this.backbone.response );
+				.on( 'ac_backbone_modal_loaded', this.backbone.init )
+				.on( 'ac_backbone_modal_response', this.backbone.response );
 		},
 
 		tiptip: function() {
@@ -79,7 +79,7 @@ jQuery( function( $ ) {
 		},
 
 		unblock: function() {
-			$( '#axisbuilder-editor, .axisbuilder-enhanced-settings' ).unblock();
+			$( '#axisbuilder-editor, .ac-enhanced-settings' ).unblock();
 		},
 
 		tinyMCE: function( content ) {
@@ -202,10 +202,10 @@ jQuery( function( $ ) {
 
 			window.axisbuilder_shortcode = parents;
 
-			// AxisBuilder Backbone Modal
-			$( this ).AxisBuilderBackboneModal({
+			// AxisComposer Backbone Modal
+			$( this ).ACBackboneModal({
 				title: parents.data( 'modal-title' ),
-				template: '#tmpl-axisbuilder-modal-edit-element'
+				template: '#tmpl-ac-modal-edit-element'
 			});
 
 			return false;
@@ -312,12 +312,12 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.storage.history_snapshot();
 			}
 
-			// AxisBuilder Backbone Modal
-			$( this ).AxisBuilderBackboneModal({
+			// AxisComposer Backbone Modal
+			$( this ).ACBackboneModal({
 				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_title,
 				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_notice : axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_least,
 				dismiss: ( length > 0 ) ? false : true,
-				template: '#tmpl-axisbuilder-modal-trash-data'
+				template: '#tmpl-ac-modal-trash-data'
 			});
 
 			return false;
@@ -927,12 +927,12 @@ jQuery( function( $ ) {
 					notification += ( cells.length === 1 ) ? '<mark class="yes">' + axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell + '</mark>' : '<mark class="no">' + axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell + '</mark>';
 				}
 
-				// AxisBuilder Backbone Modal
-				$( this ).AxisBuilderBackboneModal({
+				// AxisComposer Backbone Modal
+				$( this ).ACBackboneModal({
 					title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
 					message: notification,
 					dismiss: cell_size_variations ? false : true,
-					template: '#tmpl-axisbuilder-modal-cell-size'
+					template: '#tmpl-ac-modal-cell-size'
 				});
 
 				return false;
@@ -1010,13 +1010,13 @@ jQuery( function( $ ) {
 		backbone: {
 
 			init: function( e, target ) {
-				if ( '#tmpl-axisbuilder-modal-edit-element' === target ) {
+				if ( '#tmpl-ac-modal-edit-element' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.init_edit_element();
 				}
 			},
 
 			block: function() {
-				$( '.axisbuilder-enhanced-settings' ).block({
+				$( '.ac-enhanced-settings' ).block({
 					message: null,
 					overlayCSS: {
 						background: '#fff',
@@ -1026,16 +1026,16 @@ jQuery( function( $ ) {
 			},
 
 			enable: function() {
-				$( '.axisbuilder-backbone-modal-content' ).find( 'button' ).removeAttr( 'disabled' );
+				$( '.ac-backbone-modal-content' ).find( 'button' ).removeAttr( 'disabled' );
 			},
 
 			disable: function() {
-				$( '.axisbuilder-backbone-modal-content' ).find( 'button' ).attr( 'disabled', 'disabled' );
+				$( '.ac-backbone-modal-content' ).find( 'button' ).attr( 'disabled', 'disabled' );
 			},
 
 			dismiss: function() {
-				$( '.axisbuilder-backbone-modal-content' ).find( 'p' ).append( axisbuilder_admin_meta_boxes_builder.i18n_backbone_loading_falied );
-				$( '.axisbuilder-backbone-modal-footer .inner' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axisbuilder_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
+				$( '.ac-backbone-modal-content' ).find( 'p' ).append( axisbuilder_admin_meta_boxes_builder.i18n_backbone_loading_falied );
+				$( '.ac-backbone-modal-footer .inner' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axisbuilder_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
 			},
 
 			init_edit_element: function() {
@@ -1064,8 +1064,8 @@ jQuery( function( $ ) {
 						if ( response === '0' || response === '-1' ) {
 							axisbuilder_meta_boxes_builder.backbone.dismiss();
 						} else {
-							$( '.axisbuilder-backbone-modal-article form' ).empty();
-							$( '.axisbuilder-backbone-modal-article form' ).append( response );
+							$( '.ac-backbone-modal-article form' ).empty();
+							$( '.ac-backbone-modal-article form' ).append( response );
 
 							// Trigger Event
 							$( document.body ).trigger( 'axisbuilder-enhanced-modal-elements-init' );
@@ -1080,13 +1080,13 @@ jQuery( function( $ ) {
 			},
 
 			response: function( e, target, data ) {
-				if ( '#tmpl-axisbuilder-modal-trash-data' === target ) {
+				if ( '#tmpl-ac-modal-trash-data' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.trash_data();
 				}
-				if ( '#tmpl-axisbuilder-modal-cell-size' === target ) {
+				if ( '#tmpl-ac-modal-cell-size' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
 				}
-				if ( '#tmpl-axisbuilder-modal-edit-element' === target ) {
+				if ( '#tmpl-ac-modal-edit-element' === target ) {
 					axisbuilder_meta_boxes_builder.backbone.edit_element( data );
 				}
 			},

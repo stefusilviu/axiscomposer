@@ -17,7 +17,7 @@
 	@include animation( modal .3s $ease-out-back );
 }
 
-.axisbuilder-add-sidebar {
+.axiscomposer-add-sidebar {
 	padding: 10px;
 	text-align: center;
 	background-color: #fff;
@@ -33,7 +33,7 @@
 	}
 }
 
-.axisbuilder-delete-sidebar {
+.axiscomposer-delete-sidebar {
 	color: #aaa;
 	z-index: 100;
 	text-decoration: none;

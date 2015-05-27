@@ -48,7 +48,7 @@ jQuery( function ( $ ) {
 	// Depedencies check
 	$( document.body ).on( 'change', '.axisbuilder-enhanced-form input[type=hidden], .axisbuilder-enhanced-form input[type=text], .axisbuilder-enhanced-form input[type=checkbox], .axisbuilder-enhanced-form textarea, .axisbuilder-enhanced-form select, .axisbuilder-enhanced-form radio', function() {
 		var current = $( this ),
-			scope   = current.parents( '.axisbuilder-backbone-modal-content:eq(0)' );
+			scope   = current.parents( '.ac-backbone-modal-content:eq(0)' );
 
 		if ( ! scope.length ) {
 			scope = $( document.body );
@@ -239,12 +239,12 @@ jQuery( function ( $ ) {
 			$( document.body ).trigger( 'axisbuilder-enhanced-select-init' );
 		})
 
-		// AxisBuilder Backbone modal
-		.on( 'axisbuilder_backbone_modal_before_update', function() {
+		// AxisComposer Backbone modal
+		.on( 'ac_backbone_modal_before_update', function() {
 			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-update' );
 		})
 
-		.on( 'axisbuilder_backbone_modal_before_remove', function() {
+		.on( 'ac_backbone_modal_before_remove', function() {
 			$( document.body ).trigger( 'axisbuilder-enhanced-form-tinymce-remove' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})

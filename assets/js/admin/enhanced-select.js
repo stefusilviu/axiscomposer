@@ -137,8 +137,8 @@ jQuery( function( $ ) {
 			});
 		})
 
-		// AxisBuilder Backbone Modal
-		.on( 'axisbuilder_backbone_modal_before_remove', function() {
+		// AxisComposer Backbone Modal
+		.on( 'ac_backbone_modal_before_remove', function() {
 			$( ':input.axisbuilder-enhanced-select, :input.axisbuilder-page-search' ).select2( 'close' );
 		})
 

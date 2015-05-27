@@ -95,7 +95,7 @@ class AC_Meta_Box_Builder_Data {
 			<div id="axisbuilder-canvas" class="visual-editor">
 				<div class="canvas-area axisbuilder-data layout-flex-grid axisbuilder-drop" data-dragdrop-level="0"></div>
 				<div class="canvas-secure-data">
-					<textarea name="axisbuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_axisbuilder_canvas', true ) ); ?></textarea> <!-- readonly="readonly" later -->
+					<textarea name="pagebuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_pagebuilder_canvas', true ) ); ?></textarea> <!-- readonly="readonly" later -->
 				</div>
 			</div>
 		</div><?php
@@ -112,7 +112,7 @@ class AC_Meta_Box_Builder_Data {
 	 */
 	protected static function fetch_shortcode_buttons( $type = 'plugin', $display = true ) {
 
-		foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
+		foreach ( AC()->shortcodes->get_shortcodes() as $load_shortcodes ) {
 
 			if ( empty( $load_shortcodes->shortcode['invisible'] ) ) {
 
@@ -208,7 +208,7 @@ class AC_Meta_Box_Builder_Data {
 	 * @return array
 	 */
 	public static function postbox_classes( $classes ) {
-		$status_options = get_option( 'axisbuilder_status_options', array() );
+		$status_options = get_option( 'axiscomposer_status_options', array() );
 
 		// Class for Debug Mode
 		if ( ! empty( $status_options['builder_debug_mode'] ) ) {
@@ -229,7 +229,7 @@ class AC_Meta_Box_Builder_Data {
 	public static function save( $post_id ) {
 
 		// Save the builder status and canvas textarea data :)
-		$builder_post_meta = array( 'pagebuilder_status', 'axisbuilder_canvas' );
+		$builder_post_meta = array( 'pagebuilder_status', 'pagebuilder_canvas' );
 
 		foreach ( $builder_post_meta as $post_meta ) {
 			if ( isset( $_POST[ $post_meta ] ) ) {

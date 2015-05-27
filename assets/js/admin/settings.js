@@ -31,7 +31,7 @@ jQuery( window ).load( function() {
 			changed = true;
 		});
 
-		jQuery( '.axisbuilder-nav-tab-wrapper a' ).click( function() {
+		jQuery( '.axis-nav-tab-wrapper a' ).click( function() {
 			if ( changed ) {
 				window.onbeforeunload = function() {
 				    return axisbuilder_settings_params.i18n_nav_warning;

@@ -2,8 +2,8 @@
 /**
  * Post Types Admin
  *
- * @class       AB_Admin_Post_Types
- * @package     AxisBuilder/Admin
+ * @class       AC_Admin_Post_Types
+ * @package     AxisComposer/Admin
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Post_Types Class
+ * AC_Admin_Post_Types Class
  *
- * Handles the edit posts views and some functionality on the edit post screen for AB post types.
+ * Handles the edit posts views and some functionality on the edit post screen for AC post types.
  */
-class AB_Admin_Post_Types {
+class AC_Admin_Post_Types {
 
 	/**
 	 * Constructor
@@ -39,7 +39,7 @@ class AB_Admin_Post_Types {
 		add_action( 'edit_form_after_editor', array( $this, 'edit_form_after_editor' ) );
 
 		// Meta-Box Class
-		include_once( 'class-builder-admin-meta-boxes.php' );
+		include_once( 'class-ac-admin-meta-boxes.php' );
 	}
 
 	/**
@@ -52,17 +52,17 @@ class AB_Admin_Post_Types {
 
 		$messages['portfolio'] = array(
 			0 => '', // Unused. Messages start at index 1.
-			1 => sprintf( __( 'Project updated. <a href="%s">View Project</a>', 'axisbuilder' ), esc_url( get_permalink( $post_ID ) ) ),
-			2 => __( 'Custom field updated.', 'axisbuilder' ),
-			3 => __( 'Custom field deleted.', 'axisbuilder' ),
-			4 => __( 'Project updated.', 'axisbuilder' ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Project restored to revision from %s', 'axisbuilder' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => sprintf( __( 'Project published. <a href="%s">View Project</a>', 'axisbuilder' ), esc_url( get_permalink( $post_ID ) ) ),
-			7 => __( 'Project saved.', 'axisbuilder' ),
-			8 => sprintf( __( 'Project submitted. <a target="_blank" href="%s">Preview Project</a>', 'axisbuilder' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
-			9 => sprintf( __( 'Project scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview Project</a>', 'axisbuilder' ),
-			  date_i18n( __( 'M j, Y @ G:i', 'axisbuilder' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
-			10 => sprintf( __( 'Project draft updated. <a target="_blank" href="%s">Preview Project</a>', 'axisbuilder' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			1 => sprintf( __( 'Project updated. <a href="%s">View Project</a>', 'axiscomposer' ), esc_url( get_permalink( $post_ID ) ) ),
+			2 => __( 'Custom field updated.', 'axiscomposer' ),
+			3 => __( 'Custom field deleted.', 'axiscomposer' ),
+			4 => __( 'Project updated.', 'axiscomposer' ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Project restored to revision from %s', 'axiscomposer' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( __( 'Project published. <a href="%s">View Project</a>', 'axiscomposer' ), esc_url( get_permalink( $post_ID ) ) ),
+			7 => __( 'Project saved.', 'axiscomposer' ),
+			8 => sprintf( __( 'Project submitted. <a target="_blank" href="%s">Preview Project</a>', 'axiscomposer' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			9 => sprintf( __( 'Project scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview Project</a>', 'axiscomposer' ),
+			  date_i18n( __( 'M j, Y @ G:i', 'axiscomposer' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+			10 => sprintf( __( 'Project draft updated. <a target="_blank" href="%s">Preview Project</a>', 'axiscomposer' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 		);
 
 		return $messages;
@@ -77,11 +77,11 @@ class AB_Admin_Post_Types {
 	public function bulk_post_updated_messages( $bulk_messages, $bulk_counts ) {
 
 		$bulk_messages['portfolio'] = array(
-			'updated'   => _n( '%s project updated.', '%s projects updated.', $bulk_counts['updated'], 'axisbuilder' ),
-			'locked'    => _n( '%s project not updated, somebody is editing it.', '%s projects not updated, somebody is editing them.', $bulk_counts['locked'], 'axisbuilder' ),
-			'deleted'   => _n( '%s project permanently deleted.', '%s projects permanently deleted.', $bulk_counts['deleted'], 'axisbuilder' ),
-			'trashed'   => _n( '%s project moved to the Trash.', '%s projects moved to the Trash.', $bulk_counts['trashed'], 'axisbuilder' ),
-			'untrashed' => _n( '%s project restored from the Trash.', '%s projects restored from the Trash.', $bulk_counts['untrashed'], 'axisbuilder' ),
+			'updated'   => _n( '%s project updated.', '%s projects updated.', $bulk_counts['updated'], 'axiscomposer' ),
+			'locked'    => _n( '%s project not updated, somebody is editing it.', '%s projects not updated, somebody is editing them.', $bulk_counts['locked'], 'axiscomposer' ),
+			'deleted'   => _n( '%s project permanently deleted.', '%s projects permanently deleted.', $bulk_counts['deleted'], 'axiscomposer' ),
+			'trashed'   => _n( '%s project moved to the Trash.', '%s projects moved to the Trash.', $bulk_counts['trashed'], 'axiscomposer' ),
+			'untrashed' => _n( '%s project restored from the Trash.', '%s projects restored from the Trash.', $bulk_counts['untrashed'], 'axiscomposer' ),
 		);
 
 		return $bulk_messages;
@@ -101,13 +101,13 @@ class AB_Admin_Post_Types {
 
 		$columns                   = array();
 		$columns['cb']             = $existing_columns['cb'];
-		$columns['thumb']          = '<span class="axisbuilder-image tips" data-tip="' . __( 'Image', 'axisbuilder' ) . '">' . __( 'Image', 'axisbuilder' ) . '</span>';
-		$columns['name']           = __( 'Name', 'axisbuilder' );
-		$columns['portfolio_cat']  = __( 'Categories', 'axisbuilder' );
-		$columns['portfolio_tag']  = __( 'Tags', 'axisbuilder' );
-		$columns['portfolio_type'] = __( 'Types', 'axisbuilder' );
-		$columns['featured']       = '<span class="axisbuilder-featured parent-tips" data-tip="' . __( 'Featured', 'axisbuilder' ) . '">' . __( 'Featured', 'axisbuilder' ) . '</span>';
-		$columns['date']           = __( 'Date', 'axisbuilder' );
+		$columns['thumb']          = '<span class="ac-image tips" data-tip="' . __( 'Image', 'axiscomposer' ) . '">' . __( 'Image', 'axiscomposer' ) . '</span>';
+		$columns['name']           = __( 'Name', 'axiscomposer' );
+		$columns['portfolio_cat']  = __( 'Categories', 'axiscomposer' );
+		$columns['portfolio_tag']  = __( 'Tags', 'axiscomposer' );
+		$columns['portfolio_type'] = __( 'Types', 'axiscomposer' );
+		$columns['featured']       = '<span class="ac-featured parent-tips" data-tip="' . __( 'Featured', 'axiscomposer' ) . '">' . __( 'Featured', 'axiscomposer' ) . '</span>';
+		$columns['date']           = __( 'Date', 'axiscomposer' );
 
 		return array_merge( $columns, $existing_columns );
 	}
@@ -165,7 +165,7 @@ class AB_Admin_Post_Types {
 	public function enter_title_here( $text, $post ) {
 		switch ( $post->post_type ) {
 			case 'portfolio' :
-				$text = __( 'Project name', 'axisbuilder' );
+				$text = __( 'Project name', 'axiscomposer' );
 			break;
 		}
 
@@ -183,8 +183,8 @@ class AB_Admin_Post_Types {
 		if ( in_array( $post_type, array( 'portfolio' ) ) ) {
 			$obj = get_post_type_object( $post_type );
 
-			$strings['insertIntoPost']     = sprintf( __( 'Insert into %s', 'axisbuilder' ), $obj->labels->singular_name );
-			$strings['uploadedToThisPost'] = sprintf( __( 'Uploaded to this %s', 'axisbuilder' ), $obj->labels->singular_name );
+			$strings['insertIntoPost']     = sprintf( __( 'Insert into %s', 'axiscomposer' ), $obj->labels->singular_name );
+			$strings['uploadedToThisPost'] = sprintf( __( 'Uploaded to this %s', 'axiscomposer' ), $obj->labels->singular_name );
 		}
 
 		return $strings;
@@ -200,30 +200,30 @@ class AB_Admin_Post_Types {
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
 			global $post_ID;
 
-			$params = apply_filters( 'axisbuilder_editors_toggle_params', array(
+			$params = apply_filters( 'axiscomposer_editors_toggle_params', array(
 				'notice'        => '',
 				'disabled'      => false,
-				'builder_label' => __( 'Use Page Builder', 'axisbuilder' ),
-				'default_label' => __( 'Use Default Editor', 'axisbuilder' ),
-				'disable_label' => __( 'Page Builder Disabled', 'axisbuilder' )
+				'builder_label' => __( 'Use Page Builder', 'axiscomposer' ),
+				'default_label' => __( 'Use Default Editor', 'axiscomposer' ),
+				'disable_label' => __( 'Page Builder Disabled', 'axiscomposer' )
 			) );
 
 			if ( is_pagebuilder_active( $post_ID ) ) {
 				$active_label = $params['default_label'];
 				$button_class = 'button-secondary';
-				$editor_class = 'axisbuilder-hidden-editor';
+				$editor_class = 'ac-hidden-editor';
 			} elseif ( $params['disabled'] ) {
 				$active_label = $params['disable_label'];
 				$button_class = 'button-secondary disabled';
-				$editor_class = 'axisbuilder-visible-editor';
+				$editor_class = 'ac-visible-editor';
 			} else {
 				$active_label = $params['builder_label'];
 				$button_class = 'button-primary';
-				$editor_class = 'axisbuilder-visible-editor';
+				$editor_class = 'ac-visible-editor';
 			}
 
-			echo '<a href="#" class="button button-large ' . $button_class . ' axisbuilder-toggle-editor" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
-			echo '<div id="postdivrich_wrap" class="axisbuilder ' . $editor_class . '">';
+			echo '<a href="#" class="button button-large ' . $button_class . ' axiscomposer-toggle-editor" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
+			echo '<div id="postdivrich_wrap" class="axiscomposer ' . $editor_class . '">';
 			if ( $params['notice'] ) {
 				echo '<div class="ac-plugin-display-notice">' . $params['notice'] . '</div>';
 			}
@@ -243,4 +243,4 @@ class AB_Admin_Post_Types {
 	}
 }
 
-new AB_Admin_Post_Types();
+new AC_Admin_Post_Types();

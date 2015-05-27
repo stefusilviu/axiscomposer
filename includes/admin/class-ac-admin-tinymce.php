@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder Admin TinyMCE Class.
+ * AxisComposer Admin TinyMCE Class.
  *
- * @class       AB_Admin_TinyMCE
- * @package     AxisBuilder/Admin
+ * @class       AC_Admin_TinyMCE
+ * @package     AxisComposer/Admin
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_TinyMCE Class
+ * AC_Admin_TinyMCE Class
  */
-class AB_Admin_TinyMCE {
+class AC_Admin_TinyMCE {
 
 	/**
 	 * Hook in tabs.
@@ -47,7 +47,7 @@ class AB_Admin_TinyMCE {
 	 * @return array $buttons
 	 */
 	public function register_shortcode_button( $buttons ) {
-		array_push( $buttons, '|', 'axisbuilder_shortcodes' );
+		array_push( $buttons, '|', 'axiscomposer_shortcodes' );
 
 		return $buttons;
 	}
@@ -55,12 +55,12 @@ class AB_Admin_TinyMCE {
 	/**
 	 * Add the shortcode button to TinyMCE.
 	 * @param  array $plugins TinyMCE plugins.
-	 * @return array $plugins AxisBuilder TinyMCE plugin.
+	 * @return array $plugins AxisComposer TinyMCE plugin.
 	 */
 	public function add_shortcode_tinymce_plugin( $plugins ) {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		$plugins['axisbuilder_shortcodes'] = AB()->plugin_url() . '/assets/js/admin/editor' . $suffix . '.js';
+		$plugins['axiscomposer_shortcodes'] = AC()->plugin_url() . '/assets/js/admin/editor' . $suffix . '.js';
 
 		return $plugins;
 	}
@@ -82,10 +82,10 @@ class AB_Admin_TinyMCE {
 	 * @return array
 	 */
 	public function add_tinymce_locales( $locales ) {
-		$locales['axisbuilder_shortcodes'] = AB()->plugin_path() . '/i18n/shortcodes.php';
+		$locales['axiscomposer_shortcodes'] = AC()->plugin_path() . '/i18n/shortcodes.php';
 
 		return $locales;
 	}
 }
 
-new AB_Admin_TinyMCE();
+new AC_Admin_TinyMCE();

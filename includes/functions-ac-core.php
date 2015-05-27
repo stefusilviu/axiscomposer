@@ -122,18 +122,18 @@ function ac_get_screen_types() {
  * @return array
  */
 function ac_get_allowed_screen_types() {
-	if ( get_option( 'axisbuilder_allowed_screens' ) !== 'specific' ) {
+	if ( get_option( 'axiscomposer_allowed_screens' ) !== 'specific' ) {
 		return array_keys( ac_get_screen_types() );
 	}
 
 	$screens    = array();
-	$post_types = get_option( 'axisbuilder_specific_allowed_screens' );
+	$post_types = get_option( 'axiscomposer_specific_allowed_screens' );
 
 	foreach ( $post_types as $key => $post_type ) {
 		$screens[ $key ] = $post_type;
 	}
 
-	return apply_filters( 'axisbuilder_allowed_screen_types', $screens );
+	return apply_filters( 'axiscomposer_allowed_screen_types', $screens );
 }
 
 /**

@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder Admin Iconfonts Class.
+ * AxisComposer Admin Iconfonts Class.
  *
- * @class       AB_Admin_Iconfonts
- * @package     AxisBuilder/Admin
+ * @class       AC_Admin_Iconfonts
+ * @package     AxisComposer/Admin
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Iconfonts Class
+ * AC_Admin_Iconfonts Class
  */
-class AB_Admin_Iconfonts {
+class AC_Admin_Iconfonts {
 
 	/**
 	 * Handles output of the iconfonts page in admin.
@@ -29,14 +29,14 @@ class AB_Admin_Iconfonts {
 	 * Returns the iconfonts to show in admin.
 	 */
 	public static function get_iconfonts() {
-		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
+		$fonts = get_option( 'axiscomposer_custom_iconfonts' );
 
 		foreach ( $fonts as $iconfont => $info ) {
 			$chars = $charmap = array();
-			$title = ( 'Fontawesome' == $iconfont ) ? __( 'Default Icons', 'axisbuilder' ) : esc_html( ucfirst( $iconfont ) );
+			$title = ( 'Fontawesome' == $iconfont ) ? __( 'Default Icons', 'axiscomposer' ) : esc_html( ucfirst( $iconfont ) );
 
 			// Include Charmap config file
-			include( AB_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );
+			include( AC_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );
 
 			if ( ! empty( $chars ) ) {
 				$charmap = array_merge( $charmap, $chars );

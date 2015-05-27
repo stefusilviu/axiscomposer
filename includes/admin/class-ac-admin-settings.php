@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder Admin Settings Class.
+ * AxisComposer Admin Settings Class.
  *
- * @class       AB_Admin_Settings
- * @package     AxisBuilder/Admin
+ * @class       AC_Admin_Settings
+ * @package     AxisComposer/Admin
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Settings Class
+ * AC_Admin_Settings Class
  */
-class AB_Admin_Settings {
+class AC_Admin_Settings {
 
 	private static $settings = array();
 	private static $errors   = array();
@@ -29,12 +29,12 @@ class AB_Admin_Settings {
 		if ( empty( self::$settings ) ) {
 			$settings = array();
 
-			include_once( 'settings/class-builder-settings-page.php' );
+			include_once( 'settings/class-ac-settings-page.php' );
 
-			$settings[] = include( 'settings/class-builder-settings-general.php' );
-			$settings[] = include( 'settings/class-builder-settings-integrations.php' );
+			$settings[] = include( 'settings/class-ac-settings-general.php' );
+			$settings[] = include( 'settings/class-ac-settings-integrations.php' );
 
-			self::$settings = apply_filters( 'axisbuilder_get_settings_pages', $settings );
+			self::$settings = apply_filters( 'axiscomposer_get_settings_pages', $settings );
 		}
 
 		return self::$settings;
@@ -46,24 +46,24 @@ class AB_Admin_Settings {
 	public static function save() {
 		global $current_tab;
 
-		if ( empty( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'axisbuilder-settings' ) ) {
-			die( __( 'Action failed. Please refresh the page and retry.', 'axisbuilder' ) );
+		if ( empty( $_REQUEST['_wpnonce'] ) || ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'axiscomposer-settings' ) ) {
+			die( __( 'Action failed. Please refresh the page and retry.', 'axiscomposer' ) );
 		}
 
 		// Trigger actions
-		do_action( 'axisbuilder_settings_save_' . $current_tab );
-		do_action( 'axisbuilder_update_options_' . $current_tab );
-		do_action( 'axisbuilder_update_options' );
+		do_action( 'axiscomposer_settings_save_' . $current_tab );
+		do_action( 'axiscomposer_update_options_' . $current_tab );
+		do_action( 'axiscomposer_update_options' );
 
 		// Clear any unwanted data
-		delete_transient( 'axisbuilder_cache_excluded_uris' );
+		delete_transient( 'axiscomposer_cache_excluded_uris' );
 
-		self::add_message( __( 'Your settings have been saved.', 'axisbuilder' ) );
+		self::add_message( __( 'Your settings have been saved.', 'axiscomposer' ) );
 
 		// Flush rules
 		flush_rewrite_rules();
 
-		do_action( 'axisbuilder_settings_saved' );
+		do_action( 'axiscomposer_settings_saved' );
 	}
 
 	/**
@@ -101,19 +101,19 @@ class AB_Admin_Settings {
 	/**
 	 * Settings page.
 	 *
-	 * Handles the display of the main AxisBuilder settings page in admin.
+	 * Handles the display of the main AxisComposer settings page in admin.
 	 */
 	public static function output() {
 		global $current_section, $current_tab;
 
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		do_action( 'axisbuilder_settings_start' );
+		do_action( 'axiscomposer_settings_start' );
 
-		wp_enqueue_script( 'axisbuilder-settings', AB()->plugin_url() . '/assets/js/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'select2' ), AB_VERSION, true );
+		wp_enqueue_script( 'axiscomposer-settings', AC()->plugin_url() . '/assets/js/admin/settings' . $suffix . '.js', array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'select2' ), AC_VERSION, true );
 
-		wp_localize_script( 'axisbuilder-settings', 'axisbuilder_settings_params', array(
-			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'axisbuilder' )
+		wp_localize_script( 'axiscomposer-settings', 'axiscomposer_settings_params', array(
+			'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'axiscomposer' )
 		) );
 
 		// Include settings pages
@@ -129,18 +129,18 @@ class AB_Admin_Settings {
 		}
 
 		// Add any posted messages
-		if ( ! empty( $_GET['axisbuilder_error'] ) ) {
-			self::add_error( stripslashes( $_GET['axisbuilder_error'] ) );
+		if ( ! empty( $_GET['ac_error'] ) ) {
+			self::add_error( stripslashes( $_GET['ac_error'] ) );
 		}
 
-		if ( ! empty( $_GET['axisbuilder_message'] ) ) {
-			self::add_message( stripslashes( $_GET['axisbuilder_message'] ) );
+		if ( ! empty( $_GET['ac_message'] ) ) {
+			self::add_message( stripslashes( $_GET['ac_message'] ) );
 		}
 
 		self::show_messages();
 
 		// Get tabs for the settings page
-		$tabs = apply_filters( 'axisbuilder_settings_tabs_array', array() );
+		$tabs = apply_filters( 'axiscomposer_settings_tabs_array', array() );
 
 		include 'views/html-admin-settings.php';
 	}
@@ -188,7 +188,7 @@ class AB_Admin_Settings {
 	/**
 	 * Output admin fields.
 	 *
-	 * Loops though the axisbuilder options array and outputs each field.
+	 * Loops though the axiscomposer options array and outputs each field.
 	 *
 	 * @param array $options Opens array to output
 	 */
@@ -251,18 +251,18 @@ class AB_Admin_Settings {
 					}
 					echo '<table class="form-table">'. "\n\n";
 					if ( ! empty( $value['id'] ) ) {
-						do_action( 'axisbuilder_settings_' . sanitize_title( $value['id'] ) );
+						do_action( 'axiscomposer_settings_' . sanitize_title( $value['id'] ) );
 					}
 					break;
 
 				// Section Ends
 				case 'sectionend':
 					if ( ! empty( $value['id'] ) ) {
-						do_action( 'axisbuilder_settings_' . sanitize_title( $value['id'] ) . '_end' );
+						do_action( 'axiscomposer_settings_' . sanitize_title( $value['id'] ) . '_end' );
 					}
 					echo '</table>';
 					if ( ! empty( $value['id'] ) ) {
-						do_action( 'axisbuilder_settings_' . sanitize_title( $value['id'] ) . '_after' );
+						do_action( 'axiscomposer_settings_' . sanitize_title( $value['id'] ) . '_after' );
 					}
 					break;
 
@@ -365,7 +365,7 @@ class AB_Admin_Settings {
 							</select><?php
 								echo $description;
 								if ( 'multiselect' == $value['type'] && $value['buttons'] ) : ?>
-									</br><a class="select_all button" href="#"><?php _e( 'Select all', 'axisbuilder' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axisbuilder' ); ?></a><?php
+									</br><a class="select_all button" href="#"><?php _e( 'Select all', 'axiscomposer' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axiscomposer' ); ?></a><?php
 								endif;
 						?></td>
 					</tr><?php
@@ -476,7 +476,7 @@ class AB_Admin_Settings {
 					break;
 				// Default: run an action
 				default:
-					do_action( 'axisbuilder_admin_field_' . $value['type'], $value );
+					do_action( 'axiscomposer_admin_field_' . $value['type'], $value );
 					break;
 			}
 		}
@@ -514,7 +514,7 @@ class AB_Admin_Settings {
 		if ( $tooltip_html && in_array( $value['type'], array( 'checkbox' ) ) ) {
 			$tooltip_html = '<p class="description">' . $tooltip_html . '</p>';
 		} elseif ( $tooltip_html ) {
-			$tooltip_html = '<img class="help_tip" data-tip="' . esc_attr( $tooltip_html ) . '" src="' . AB()->plugin_url() . '/assets/images/help.png" height="16" width="16" />';
+			$tooltip_html = '<img class="help_tip" data-tip="' . esc_attr( $tooltip_html ) . '" src="' . AC()->plugin_url() . '/assets/images/help.png" height="16" width="16" />';
 		}
 
 		return array(
@@ -526,7 +526,7 @@ class AB_Admin_Settings {
 	/**
 	 * Save admin fields.
 	 *
-	 * Loops though the axisbuilder options array and outputs each field.
+	 * Loops though the axiscomposer options array and outputs each field.
 	 *
 	 * @param array $options Opens array to output
 	 * @return bool
@@ -574,10 +574,10 @@ class AB_Admin_Settings {
 				case 'color' :
 				case 'password' :
 				case 'radio' :
-					if ( in_array( $value['id'], array( 'axisbuilder_price_thousand_sep', 'axisbuilder_price_decimal_sep' ) ) ) {
+					if ( in_array( $value['id'], array( 'axiscomposer_price_thousand_sep', 'axiscomposer_price_decimal_sep' ) ) ) {
 						$option_value = wp_kses_post( $option_value );
 
-					} elseif ( 'axisbuilder_price_num_decimals' == $value['id'] ) {
+					} elseif ( 'axiscomposer_price_num_decimals' == $value['id'] ) {
 						$option_value = is_null( $option_value ) ? 2 : absint( $option_value );
 
 					} else {
@@ -589,7 +589,7 @@ class AB_Admin_Settings {
 					$option_value = array_filter( array_map( 'ac_clean', (array) $option_value ) );
 					break;
 				default :
-					do_action( 'axisbuilder_update_option_' . sanitize_title( $value['type'] ), $value );
+					do_action( 'axiscomposer_update_option_' . sanitize_title( $value['type'] ), $value );
 					break;
 			}
 
@@ -614,7 +614,7 @@ class AB_Admin_Settings {
 			}
 
 			// Custom handling
-			do_action( 'axisbuilder_update_option', $value );
+			do_action( 'axiscomposer_update_option', $value );
 		}
 
 		// Now save the options

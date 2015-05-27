@@ -2,8 +2,8 @@
 /**
  * Debug/Status page
  *
- * @class       AB_Admin_Status
- * @package     AxisBuilder/Admin/System Status
+ * @class       AC_Admin_Status
+ * @package     AxisComposer/Admin/System Status
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Status Class
+ * AC_Admin_Status Class
  */
-class AB_Admin_Status {
+class AC_Admin_Status {
 
 	/**
 	 * Handles output of the status page in admin.
@@ -82,15 +82,15 @@ class AB_Admin_Status {
 							AND b.option_value < UNIX_TIMESTAMP()
 					" );
 
-					echo '<div class="updated"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axisbuilder' ), $rows + $rows2 ) . '</p></div>';
+					echo '<div class="updated"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axiscomposer' ), $rows + $rows2 ) . '</p></div>';
 
 				break;
 				case 'reset_roles' :
 					// Remove then re-add caps and roles
-					AB_Install::remove_roles();
-					AB_Install::create_roles();
+					AC_Install::remove_roles();
+					AC_Install::create_roles();
 
-					echo '<div class="updated"><p>' . __( 'Roles successfully reset', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Roles successfully reset', 'axiscomposer' ) . '</p></div>';
 				break;
 				default :
 					$action = esc_attr( $_GET['action'] );
@@ -99,10 +99,10 @@ class AB_Admin_Status {
 						$return = call_user_func( $callback );
 						if ( $return === false ) {
 							if ( is_array( $callback ) ) {
-								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axisbuilder' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
+								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axiscomposer' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
 
 							} else {
-								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s', 'axisbuilder' ), $callback ) . '</p></div>';
+								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s', 'axiscomposer' ), $callback ) . '</p></div>';
 							}
 						}
 					}
@@ -114,27 +114,27 @@ class AB_Admin_Status {
 		if ( isset( $_GET['translation_updated'] ) ) {
 			switch ( $_GET['translation_updated'] ) {
 				case 2 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axiscomposer' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axiscomposer' ) . '</p></div>';
 					break;
 				case 3 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axisbuilder' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axiscomposer' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axiscomposer' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
 					break;
 				case 4 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axisbuilder' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axiscomposer' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axiscomposer' ) . '</p></div>';
 					break;
 
 				default :
-					// Force WordPress find for new updates and hide the AxisBuilder translation update
+					// Force WordPress find for new updates and hide the AxisComposer translation update
 					set_site_transient( 'update_plugins', null );
 
-					echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'axisbuilder' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'axiscomposer' ) . '</p></div>';
 					break;
 			}
 		}
 
 		// Display message if settings settings have been saved
 		if ( isset( $_REQUEST['settings-updated'] ) ) {
-			echo '<div class="updated"><p>' . __( 'Your changes have been saved.', 'axisbuilder' ) . '</p></div>';
+			echo '<div class="updated"><p>' . __( 'Your changes have been saved.', 'axiscomposer' ) . '</p></div>';
 		}
 
 		include_once( 'views/html-admin-page-status-tools.php' );
@@ -147,25 +147,25 @@ class AB_Admin_Status {
 	public static function get_tools() {
 		$tools = array(
 			'clear_expired_transients' => array(
-				'name'    => __( 'Expired Transients', 'axisbuilder' ),
-				'button'  => __( 'Clear expired transients', 'axisbuilder' ),
-				'desc'    => __( 'This tool will clear ALL expired transients from WordPress.', 'axisbuilder' ),
+				'name'    => __( 'Expired Transients', 'axiscomposer' ),
+				'button'  => __( 'Clear expired transients', 'axiscomposer' ),
+				'desc'    => __( 'This tool will clear ALL expired transients from WordPress.', 'axiscomposer' ),
 			),
 			'reset_roles' => array(
-				'name'    => __( 'Capabilities', 'axisbuilder'),
-				'button'  => __( 'Reset capabilities', 'axisbuilder'),
-				'desc'    => __( 'This tool will reset the admin roles to default. Use this if your users cannot access all of the AxisBuilder admin pages.', 'axisbuilder' ),
+				'name'    => __( 'Capabilities', 'axiscomposer'),
+				'button'  => __( 'Reset capabilities', 'axiscomposer'),
+				'desc'    => __( 'This tool will reset the admin roles to default. Use this if your users cannot access all of the AxisComposer admin pages.', 'axiscomposer' ),
 			)
 		);
 
 		if ( get_locale() !== 'en_US' ) {
 			$tools['translation_upgrade'] = array(
-				'name'    => __( 'Translation Upgrade', 'axisbuilder' ),
-				'button'  => __( 'Force Translation Upgrade', 'axisbuilder' ),
-				'desc'    => __( '<strong class="red">Note:</strong> This option will force the translation upgrade for your language if a translation is available.', 'axisbuilder' ),
+				'name'    => __( 'Translation Upgrade', 'axiscomposer' ),
+				'button'  => __( 'Force Translation Upgrade', 'axiscomposer' ),
+				'desc'    => __( '<strong class="red">Note:</strong> This option will force the translation upgrade for your language if a translation is available.', 'axiscomposer' ),
 			);
 		}
 
-		return apply_filters( 'axisbuilder_debug_tools', $tools );
+		return apply_filters( 'axiscomposer_debug_tools', $tools );
 	}
 }

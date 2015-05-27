@@ -8,15 +8,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div id="axisbuilder-iconfonts" class="wrap">
+<div id="axiscomposer-iconfonts" class="wrap">
 	<h2>
-		<?php _e( 'Iconfonts Manager', 'axisbuilder' ); ?>
-		<a href="#add-iconfont" id="btn-ok" class="add-new-h2 add-iconfont" data-choose="<?php _e( 'Choose a Font ZIP File', 'axisbuilder' ) ?>" data-update="<?php _e( 'Insert Font Zip File', 'axisbuilder' ) ?>" data-mime="application/zip, application/octet-stream" data-target="iconfont_upload" data-trigger="insert_iconfont_zip">
-		<?php _e( 'Add New', 'axisbuilder' ); ?>
+		<?php _e( 'Iconfonts Manager', 'axiscomposer' ); ?>
+		<a href="#add-iconfont" id="btn-ok" class="add-new-h2 add-iconfont" data-choose="<?php _e( 'Choose a Font ZIP File', 'axiscomposer' ) ?>" data-update="<?php _e( 'Insert Font Zip File', 'axiscomposer' ) ?>" data-mime="application/zip, application/octet-stream" data-target="iconfont_upload" data-trigger="insert_iconfont_zip">
+		<?php _e( 'Add New', 'axiscomposer' ); ?>
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>
 	<div id="msg"></div>
-	<?php if ( is_array( get_option( 'axisbuilder_custom_iconfonts' ) ) ) : ?>
+	<?php if ( is_array( get_option( 'axiscomposer_custom_iconfonts' ) ) ) : ?>
 	<!-- <div class="metabox-holder meta-search">
 		<div class="postbox">
 			<h3>
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php self::get_iconfonts(); ?>
 	<?php else: ?>
 	<div class="error">
-		<p><?php _e( 'No font icons uploaded. Upload some font icons to display here.', 'axisbuilder' ); ?></p>
+		<p><?php _e( 'No font icons uploaded. Upload some font icons to display here.', 'axiscomposer' ); ?></p>
 	</div>
 	<?php endif; ?>
 </div>

@@ -32,7 +32,7 @@
 /**
  * Toggle Editor Button
  */
-.axisbuilder-toggle-editor {
+.axiscomposer-toggle-editor {
 	z-index: 1001;
 	position: relative;
 
@@ -51,7 +51,7 @@ label[for="axisbuilder-editor-hide"] {
 /**
  * Hide Default Editor
  */
-#postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {
+#postdivrich_wrap.ac-hidden-editor #postdivrich {
 	display: none;
 }
 
@@ -1050,8 +1050,8 @@ table.wp-list-table {
 		color: #999;
 	}
 
-	span.axisbuilder-image,
-	span.axisbuilder-featured {
+	span.ac-image,
+	span.ac-featured {
 		@include ir();
 		margin: 0 auto;
 
@@ -1060,7 +1060,7 @@ table.wp-list-table {
 		}
 	}
 
-	span.axisbuilder-featured {
+	span.ac-featured {
 		margin: 0;
 		cursor: pointer;
 
@@ -1076,7 +1076,7 @@ table.wp-list-table {
 	}
 
 	td.column-featured {
-		span.axisbuilder-featured {
+		span.ac-featured {
 			font-size: 1.2em;
 		}
 	}
@@ -1422,7 +1422,7 @@ img.tips {
 	}
 }
 
-table.axisbuilder_status_table {
+table.ac_status_table {
 	margin-bottom: 1em;
 
 	tr {

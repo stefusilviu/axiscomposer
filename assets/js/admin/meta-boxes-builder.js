@@ -24,7 +24,7 @@ jQuery( function( $ ) {
 			this.stupidtable.init();
 			this.shortcode_interface();
 
-			$( 'a.axisbuilder-toggle-editor' ).click( this.toggle_editor );
+			$( 'a.axiscomposer-toggle-editor' ).click( this.toggle_editor );
 
 			$( '#axisbuilder-editor' )
 				.on( 'click', '.insert-shortcode', this.add_element )
@@ -106,7 +106,7 @@ jQuery( function( $ ) {
 			if ( axisbuilder_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
 				$( '#content-html' ).trigger( 'click' );
 				$( '#axisbuilder-editor' ).removeClass( 'axisbuilder-hidden' );
-				$( '#postdivrich' ).parent().addClass( 'axisbuilder-hidden-editor' );
+				$( '#postdivrich' ).parent().addClass( 'ac-hidden-editor' );
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'active' );
 
@@ -117,7 +117,7 @@ jQuery( function( $ ) {
 			} else {
 				$( '#axisbuilder-editor' ).find( '.canvas-area' ).empty();
 				$( '#axisbuilder-editor' ).addClass( 'axisbuilder-hidden' );
-				$( '#postdivrich' ).parent().removeClass( 'axisbuilder-hidden-editor' );
+				$( '#postdivrich' ).parent().removeClass( 'ac-hidden-editor' );
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'inactive' );
 

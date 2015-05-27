@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder Settings Page/Tab
+ * AxisComposer Settings Page/Tab
  *
- * @class       AB_Settings_Page
- * @package     AxisBuilder/Admin
+ * @class       AC_Settings_Page
+ * @package     AxisComposer/Admin
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -13,10 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! class_exists( 'AC_Settings_Page' ) ) :
+
 /**
- * AB_Settings_Page Abstract
+ * AC_Settings_Page Abstract
  */
-abstract class AB_Settings_Page {
+abstract class AC_Settings_Page {
 
 	protected $id    = '';
 	protected $label = '';
@@ -25,10 +27,10 @@ abstract class AB_Settings_Page {
 	 * Constructor
 	 */
 	public function __construct() {
-		add_filter( 'axisbuilder_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
-		add_action( 'axisbuilder_sections_' . $this->id, array( $this, 'output_sections' ) );
-		add_action( 'axisbuilder_settings_' . $this->id, array( $this, 'output' ) );
-		add_action( 'axisbuilder_settings_save_' . $this->id, array( $this, 'save' ) );
+		add_filter( 'axiscomposer_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
+		add_action( 'axiscomposer_sections_' . $this->id, array( $this, 'output_sections' ) );
+		add_action( 'axiscomposer_settings_' . $this->id, array( $this, 'output' ) );
+		add_action( 'axiscomposer_settings_save_' . $this->id, array( $this, 'save' ) );
 	}
 
 	/**
@@ -45,7 +47,7 @@ abstract class AB_Settings_Page {
 	 * @return array
 	 */
 	public function get_settings() {
-		return apply_filters( 'axisbuilder_get_settings_' . $this->id, array() );
+		return apply_filters( 'axiscomposer_get_settings_' . $this->id, array() );
 	}
 
 	/**
@@ -53,7 +55,7 @@ abstract class AB_Settings_Page {
 	 * @return array
 	 */
 	public function get_sections() {
-		return apply_filters( 'axisbuilder_get_sections_' . $this->id, array() );
+		return apply_filters( 'axiscomposer_get_sections_' . $this->id, array() );
 	}
 
 	/**
@@ -73,7 +75,7 @@ abstract class AB_Settings_Page {
 		$array_keys = array_keys( $sections );
 
 		foreach ( $sections as $id => $label ) {
-			echo '<li><a href="' . admin_url( 'admin.php?page=axisbuilder-settings&tab=' . $this->id . '&section=' . sanitize_title( $id ) ) . '" class="' . ( $current_section == $id ? 'current' : '' ) . '">' . $label . '</a> ' . ( end( $array_keys ) == $id ? '' : '|' ) . ' </li>';
+			echo '<li><a href="' . admin_url( 'admin.php?page=ac-settings&tab=' . $this->id . '&section=' . sanitize_title( $id ) ) . '" class="' . ( $current_section == $id ? 'current' : '' ) . '">' . $label . '</a> ' . ( end( $array_keys ) == $id ? '' : '|' ) . ' </li>';
 		}
 
 		echo '</ul><br class="clear" />';
@@ -84,7 +86,7 @@ abstract class AB_Settings_Page {
 	 */
 	public function output() {
 		$settings = $this->get_settings();
-		AB_Admin_Settings::output_fields( $settings );
+		AC_Admin_Settings::output_fields( $settings );
 	}
 
 	/**
@@ -94,10 +96,12 @@ abstract class AB_Settings_Page {
 		global $current_section;
 
 		$settings = $this->get_settings();
-		AB_Admin_Settings::save_fields( $settings );
+		AC_Admin_Settings::save_fields( $settings );
 
 		if ( $current_section ) {
-			do_action( 'axisbuilder_update_options_' . $this->id . '_' . $current_section );
+			do_action( 'axiscomposer_update_options_' . $this->id . '_' . $current_section );
 		}
 	}
 }
+
+endif;

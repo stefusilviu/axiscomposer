@@ -1,11 +1,11 @@
 <?php
 /**
- * AxisBuilder Meta Boxes
+ * AxisComposer Meta Boxes
  *
  * Sets up the write panels used by builder and custom post types.
  *
- * @class       AB_Admin_Meta_Boxes
- * @package     AxisBuilder/Admin/Meta Boxes
+ * @class       AC_Admin_Meta_Boxes
+ * @package     AxisComposer/Admin/Meta Boxes
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Meta_Boxes Class
+ * AC_Admin_Meta_Boxes Class
  */
-class AB_Admin_Meta_Boxes {
+class AC_Admin_Meta_Boxes {
 
 	private static $saved_meta_boxes = false;
 	private static $meta_box_errors  = array();
@@ -32,13 +32,13 @@ class AB_Admin_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 1, 2 );
 
 		// Save Portfolio Meta Boxes
-		add_action( 'axisbuilder_process_portfolio_meta', 'AB_Meta_Box_Portfolio_Breadcrumb::save', 10, 2 );
+		add_action( 'axiscomposer_process_portfolio_meta', 'AC_Meta_Box_Portfolio_Breadcrumb::save', 10, 2 );
 
 		// Save Layout Meta Boxes
-		add_action( 'axisbuilder_process_layout_meta', 'AB_Meta_Box_Layout_Data::save', 10, 2 );
+		add_action( 'axiscomposer_process_layout_meta', 'AC_Meta_Box_Layout_Data::save', 10, 2 );
 
 		// Save Builder Meta Boxes
-		add_action( 'axisbuilder_process_builder_meta', 'AB_Meta_Box_Builder_Data::save', 10, 2 );
+		add_action( 'axiscomposer_process_builder_meta', 'AC_Meta_Box_Builder_Data::save', 10, 2 );
 
 		// Restores a post to the specified revision
 		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
@@ -60,18 +60,18 @@ class AB_Admin_Meta_Boxes {
 	 * Save errors to an option.
 	 */
 	public function save_errors() {
-		update_option( 'axisbuilder_meta_box_errors', self::$meta_box_errors );
+		update_option( 'axiscomposer_meta_box_errors', self::$meta_box_errors );
 	}
 
 	/**
 	 * Show any stored error messages.
 	 */
 	public function output_errors() {
-		$errors = maybe_unserialize( get_option( 'axisbuilder_meta_box_errors' ) );
+		$errors = maybe_unserialize( get_option( 'axiscomposer_meta_box_errors' ) );
 
 		if ( ! empty( $errors ) ) {
 
-			echo '<div id="axisbuilder_errors" class="error">';
+			echo '<div id="axiscomposer_errors" class="error">';
 
 			foreach ( $errors as $error ) {
 				echo '<p>' . esc_html( $error ) . '</p>';
@@ -80,30 +80,30 @@ class AB_Admin_Meta_Boxes {
 			echo '</div>';
 
 			// Clear
-			delete_option( 'axisbuilder_meta_box_errors' );
+			delete_option( 'axiscomposer_meta_box_errors' );
 		}
 	}
 
 	/**
-	 * Add AB Meta boxes.
+	 * Add AC Meta boxes.
 	 */
 	public function add_meta_boxes() {
 		// Portfolio
-		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
-		add_meta_box( 'axisbuilder-portfolio-breadcrumb', __( 'Breadcrumb Hierarchy', 'axisbuilder' ), 'AB_Meta_Box_Portfolio_Breadcrumb::output', 'portfolio', 'side', 'default' );
+		add_meta_box( 'postexcerpt', __( 'Portfolio Short Description', 'axiscomposer' ), 'AC_Meta_Box_Portfolio_Short_Description::output', 'portfolio', 'normal' );
+		add_meta_box( 'axiscomposer-portfolio-breadcrumb', __( 'Breadcrumb Hierarchy', 'axiscomposer' ), 'AC_Meta_Box_Portfolio_Breadcrumb::output', 'portfolio', 'side', 'default' );
 
 		// Layouts
 		foreach ( ac_get_layout_supported_screens() as $type ) {
 			if ( post_type_exists( $type ) ) {
 				$post_type_object = get_post_type_object( $type );
-				add_meta_box( 'axisbuilder-layout-data', sprintf( __( '%s Layout', 'axisbuilder' ), $post_type_object->labels->singular_name ), 'AB_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
+				add_meta_box( 'axiscomposer-layout-data', sprintf( __( '%s Layout', 'axiscomposer' ), $post_type_object->labels->singular_name ), 'AC_Meta_Box_Layout_Data::output', $type, 'side', 'default' );
 			}
 		}
 
 		// Page Builder
 		foreach ( ac_get_allowed_screen_types() as $type ) {
-			add_meta_box( 'axisbuilder-editor', __( 'Page Builder', 'axisbuilder' ), 'AB_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
-			add_filter( 'postbox_classes_' . $type . '_axisbuilder-editor', 'AB_Meta_Box_Builder_Data::postbox_classes' );
+			add_meta_box( 'axiscomposer-editor', __( 'Page Builder', 'axiscomposer' ), 'AC_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
+			add_filter( 'postbox_classes_' . $type . '_axiscomposer-editor', 'AC_Meta_Box_Builder_Data::postbox_classes' );
 		}
 	}
 
@@ -131,7 +131,7 @@ class AB_Admin_Meta_Boxes {
 		}
 
 		// Check the nonce
-		if ( empty( $_POST['axisbuilder_meta_nonce'] ) || ! wp_verify_nonce( $_POST['axisbuilder_meta_nonce'], 'axisbuilder_save_data' ) ) {
+		if ( empty( $_POST['axiscomposer_meta_nonce'] ) || ! wp_verify_nonce( $_POST['axiscomposer_meta_nonce'], 'axiscomposer_save_data' ) ) {
 			return;
 		}
 
@@ -151,13 +151,13 @@ class AB_Admin_Meta_Boxes {
 
 		// Check the post type
 		if ( in_array( $post->post_type, array( 'portfolio' ) ) ) {
-			do_action( 'axisbuilder_process_' . $post->post_type . '_meta', $post_id, $post );
+			do_action( 'axiscomposer_process_' . $post->post_type . '_meta', $post_id, $post );
 		}
 
 		// Trigger action
 		$process_actions = array( 'layout', 'builder' );
 		foreach ( $process_actions as $process_action ) {
-			do_action( 'axisbuilder_process_' . $process_action . '_meta', $post_id, $post );
+			do_action( 'axiscomposer_process_' . $process_action . '_meta', $post_id, $post );
 		}
 	}
 
@@ -169,7 +169,7 @@ class AB_Admin_Meta_Boxes {
 	 */
 	public function restore_post_revision( $post_id, $revision_id ) {
 		$revision = get_post( $revision_id );
-		$metadata = array( '_axisbuilder_canvas' );
+		$metadata = array( '_axiscomposer_canvas' );
 
 		foreach ( $metadata as $metafield ) {
 			$builder_metadata = get_metadata( 'post', $revision->ID, $metafield, true );
@@ -183,4 +183,4 @@ class AB_Admin_Meta_Boxes {
 	}
 }
 
-new AB_Admin_Meta_Boxes();
+new AC_Admin_Meta_Boxes();

@@ -1,8 +1,8 @@
 <?php
 /**
- * AxisBuilder Meta Box Functions
+ * AxisComposer Meta Box Functions
  *
- * @package     AxisBuilder/Admin/Functions
+ * @package     AxisComposer/Admin/Functions
  * @category    Core
  * @author      AxisThemes
  * @since       1.0.0
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param array $field
  */
-function axisbuilder_wp_select( $field ) {
+function axiscomposer_wp_select( $field ) {
 	global $thepostid, $post;
 
 	$thepostid              = empty( $thepostid ) ? $post->ID : $thepostid;
@@ -44,7 +44,7 @@ function axisbuilder_wp_select( $field ) {
 	if ( ! empty( $field['description'] ) ) {
 
 		if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {
-			$description = '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( AB()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
+			$description = '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( AC()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
 		} else {
 			$description = '<span class="description ' . esc_attr( $field['desc_class'] ) . '">' . wp_kses_post( $field['description'] ) . '</span>';
 		}

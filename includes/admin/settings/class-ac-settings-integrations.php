@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder Integration Settings
+ * AxisComposer Integration Settings
  *
- * @class       AB_Settings_Integrations
- * @package     AxisBuilder/Admin
+ * @class       AC_Settings_Integrations
+ * @package     AxisComposer/Admin
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AB_Settings_Integrations' ) ) :
+if ( ! class_exists( 'AC_Settings_Integrations' ) ) :
 
 /**
- * AB_Settings_Integrations Class
+ * AC_Settings_Integrations Class
  */
-class AB_Settings_Integrations extends AB_Settings_Page {
+class AC_Settings_Integrations extends AC_Settings_Page {
 
 	/**
 	 * Constructor.
@@ -26,13 +26,13 @@ class AB_Settings_Integrations extends AB_Settings_Page {
 	public function __construct() {
 
 		$this->id    = 'integration';
-		$this->label = __( 'Integration', 'axisbuilder' );
+		$this->label = __( 'Integration', 'axiscomposer' );
 
 		if ( isset( AB()->integrations ) && AB()->integrations->get_integrations() ) {
-			add_filter( 'axisbuilder_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
-			add_action( 'axisbuilder_sections_' . $this->id, array( $this, 'output_sections' ) );
-			add_action( 'axisbuilder_settings_' . $this->id, array( $this, 'output' ) );
-			add_action( 'axisbuilder_settings_save_' . $this->id, array( $this, 'save' ) );
+			add_filter( 'axiscomposer_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
+			add_action( 'axiscomposer_sections_' . $this->id, array( $this, 'output_sections' ) );
+			add_action( 'axiscomposer_settings_' . $this->id, array( $this, 'output' ) );
+			add_action( 'axiscomposer_settings_save_' . $this->id, array( $this, 'save' ) );
 		}
 	}
 
@@ -60,7 +60,7 @@ class AB_Settings_Integrations extends AB_Settings_Page {
 			}
 		}
 
-		return apply_filters( 'axisbuilder_get_sections_' . $this->id, $sections );
+		return apply_filters( 'axiscomposer_get_sections_' . $this->id, $sections );
 	}
 
 	/**
@@ -69,7 +69,7 @@ class AB_Settings_Integrations extends AB_Settings_Page {
 	public function output() {
 		global $current_section;
 
-		$integrations = AB()->integrations->get_integrations();
+		$integrations = AC()->integrations->get_integrations();
 
 		if ( isset( $integrations[ $current_section ] ) )
 			$integrations[ $current_section ]->admin_options();
@@ -78,4 +78,4 @@ class AB_Settings_Integrations extends AB_Settings_Page {
 
 endif;
 
-return new AB_Settings_Integrations();
+return new AC_Settings_Integrations();

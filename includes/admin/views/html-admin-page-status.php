@@ -9,15 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $current_tab = ! empty( $_REQUEST['tab'] ) ? sanitize_title( $_REQUEST['tab'] ) : 'status';
 ?>
-<div class="wrap axisbuilder">
-	<div class="icon32 icon32-axisbuilder-status" id="icon-axisbuilder"><br /></div><h2 class="nav-tab-wrapper axisbuilder-nav-tab-wrapper">
+<div class="wrap axiscomposer">
+	<div class="icon32 icon32-axiscomposer-status" id="icon-axiscomposer"><br /></div><h2 class="nav-tab-wrapper axis-nav-tab-wrapper">
 		<?php
 			$tabs = array(
-				'status' => __( 'System Status', 'axisbuilder' ),
-				'tools'  => __( 'Tools', 'axisbuilder' )
+				'status' => __( 'System Status', 'axiscomposer' ),
+				'tools'  => __( 'Tools', 'axiscomposer' )
 			);
 			foreach ( $tabs as $name => $label ) {
-				echo '<a href="' . admin_url( 'admin.php?page=axisbuilder-status&tab=' . $name ) . '" class="nav-tab ';
+				echo '<a href="' . admin_url( 'admin.php?page=ac-status&tab=' . $name ) . '" class="nav-tab ';
 				if ( $current_tab == $name ) echo 'nav-tab-active';
 				echo '">' . $label . '</a>';
 			}
@@ -26,10 +26,10 @@ $current_tab = ! empty( $_REQUEST['tab'] ) ? sanitize_title( $_REQUEST['tab'] ) 
 	<?php
 		switch ( $current_tab ) {
 			case "tools" :
-				AB_Admin_Status::status_tools();
+				AC_Admin_Status::status_tools();
 			break;
 			default :
-				AB_Admin_Status::status_report();
+				AC_Admin_Status::status_report();
 			break;
 		}
 	?>

@@ -2,8 +2,8 @@
 /**
  * Display notices in admin.
  *
- * @class       AB_Admin_Notices
- * @package     AxisBuilder/Admin
+ * @class       AC_Admin_Notices
+ * @package     AxisComposer/Admin
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Admin_Notices Class
+ * AC_Admin_Notices Class
  */
-class AB_Admin_Notices {
+class AC_Admin_Notices {
 
 	/**
 	 * Array of notices - name => callback
@@ -32,17 +32,17 @@ class AB_Admin_Notices {
 	 */
 	public function __construct() {
 		add_action( 'switch_theme', array( $this, 'reset_admin_notices' ) );
-		add_action( 'axisbuilder_installed', array( $this, 'reset_admin_notices' ) );
+		add_action( 'axiscomposer_installed', array( $this, 'reset_admin_notices' ) );
 		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
-		add_action( 'axisbuilder_hide_translation_upgrade_notice', array( $this, 'hide_translation_upgrade_notice' ) );
+		add_action( 'axiscomposer_hide_translation_upgrade_notice', array( $this, 'hide_translation_upgrade_notice' ) );
 		add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
 	}
 
 	/**
-	 * Reset notices for themes when switched or a new version of AB is installed.
+	 * Reset notices for themes when switched or a new version of AC is installed.
 	 */
 	public function reset_admin_notices() {
-		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
+		if ( ! current_theme_supports( 'axiscomposer' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
 			self::add_notice( 'theme_support' );
 		}
 	}
@@ -52,8 +52,8 @@ class AB_Admin_Notices {
 	 * @param string $name
 	 */
 	public static function add_notice( $name ) {
-		$notices = array_unique( array_merge( get_option( 'axisbuilder_admin_notices', array() ), array( $name ) ) );
-		update_option( 'axisbuilder_admin_notices', $notices );
+		$notices = array_unique( array_merge( get_option( 'axiscomposer_admin_notices', array() ), array( $name ) ) );
+		update_option( 'axiscomposer_admin_notices', $notices );
 	}
 
 	/**
@@ -61,8 +61,8 @@ class AB_Admin_Notices {
 	 * @param string $name
 	 */
 	public static function remove_notice( $name ) {
-		$notices = array_diff( get_option( 'axisbuilder_admin_notices', array() ), array( $name ) );
-		update_option( 'axisbuilder_admin_notices', $notices );
+		$notices = array_diff( get_option( 'axiscomposer_admin_notices', array() ), array( $name ) );
+		update_option( 'axiscomposer_admin_notices', $notices );
 	}
 
 	/**
@@ -71,17 +71,17 @@ class AB_Admin_Notices {
 	 * @return boolean
 	 */
 	public static function has_notice( $name ) {
-		return in_array( $name, get_option( 'axisbuilder_admin_notices', array() ) );
+		return in_array( $name, get_option( 'axiscomposer_admin_notices', array() ) );
 	}
 
 	/**
 	 * Hide a notice if the GET variable is set.
 	 */
 	public function hide_notices() {
-		if ( isset( $_GET['axisbuilder-hide-notice'] ) ) {
-			$hide_notice = sanitize_text_field( $_GET['axisbuilder-hide-notice'] );
+		if ( isset( $_GET['ac-hide-notice'] ) ) {
+			$hide_notice = sanitize_text_field( $_GET['ac-hide-notice'] );
 			self::remove_notice( $hide_notice );
-			do_action( 'axisbuilder_hide_' . $hide_notice . '_notice' );
+			do_action( 'axiscomposer_hide_' . $hide_notice . '_notice' );
 		}
 	}
 
@@ -89,17 +89,17 @@ class AB_Admin_Notices {
 	 * Hide translation upgrade message
 	 */
 	public function hide_translation_upgrade_notice() {
-		update_option( 'axisbuilder_language_pack_version', array( AB_VERSION , get_locale() ) );
+		update_option( 'axiscomposer_language_pack_version', array( AC_VERSION , get_locale() ) );
 	}
 
 	/**
 	 * Add notices + styles if needed.
 	 */
 	public function add_notices() {
-		$notices = get_option( 'axisbuilder_admin_notices', array() );
+		$notices = get_option( 'axiscomposer_admin_notices', array() );
 
 		foreach ( $notices as $notice ) {
-			wp_enqueue_style( 'axisbuilder-activation', AB()->plugin_url() . '/assets/css/activation.css', array(), AB_VERSION );
+			wp_enqueue_style( 'axiscomposer-activation', AC()->plugin_url() . '/assets/css/activation.css', array(), AC_VERSION );
 			add_action( 'admin_notices', array( $this, $this->notices[ $notice ] ) );
 		}
 	}
@@ -108,7 +108,7 @@ class AB_Admin_Notices {
 	 * Show the Theme Check notice
 	 */
 	public function theme_check_notice() {
-		if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
+		if ( ! current_theme_supports( 'axiscomposer' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
 			include( 'views/html-notice-theme-support.php' );
 		}
 	}
@@ -125,4 +125,4 @@ class AB_Admin_Notices {
 	}
 }
 
-new AB_Admin_Notices();
+new AC_Admin_Notices();

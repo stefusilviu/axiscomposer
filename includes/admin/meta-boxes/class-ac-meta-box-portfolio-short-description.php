@@ -4,8 +4,8 @@
  *
  * Replaces the standard excerpt box.
  *
- * @class       AB_Meta_Box_Portfolio_Short_Description
- * @package     AxisBuilder/Admin/Meta Boxes
+ * @class       AC_Meta_Box_Portfolio_Short_Description
+ * @package     AxisComposer/Admin/Meta Boxes
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Meta_Box_Portfolio_Short_Description Class
+ * AC_Meta_Box_Portfolio_Short_Description Class
  */
-class AB_Meta_Box_Portfolio_Short_Description {
+class AC_Meta_Box_Portfolio_Short_Description {
 
 	/**
 	 * Output the meta box
@@ -35,7 +35,7 @@ class AB_Meta_Box_Portfolio_Short_Description {
 			'editor_css'    => '<style>#wp-excerpt-editor-container .wp-editor-area{height:175px; width:100%;}</style>'
 		);
 
-		wp_editor( htmlspecialchars_decode( $post->post_excerpt ), 'excerpt', apply_filters( 'axisbuilder_portfolio_short_description_editor_settings', $settings ) );
+		wp_editor( htmlspecialchars_decode( $post->post_excerpt ), 'excerpt', apply_filters( 'axiscomposer_portfolio_short_description_editor_settings', $settings ) );
 	}
 
 }

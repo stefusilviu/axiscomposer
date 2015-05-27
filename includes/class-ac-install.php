@@ -2,8 +2,8 @@
 /**
  * Installation related functions and actions.
  *
- * @class       AB_Install
- * @package     AxisBuilder/Classes
+ * @class       AC_Install
+ * @package     AxisComposer/Classes
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,17 +14,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Install Class
+ * AC_Install Class
  */
-class AB_Install {
+class AC_Install {
 
 	/**
 	 * Hook in tabs.
 	 */
 	public static function init() {
 		add_action( 'admin_init', array( __CLASS__, 'check_version' ), 5 );
-		add_action( 'in_plugin_update_message-axisbuilder/axisbuilder.php', array( __CLASS__, 'in_plugin_update_message' ) );
-		add_filter( 'plugin_action_links_' . AB_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
+		add_action( 'in_plugin_update_message-axiscomposer/axiscomposer.php', array( __CLASS__, 'in_plugin_update_message' ) );
+		add_filter( 'plugin_action_links_' . AC_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 	}
 
@@ -32,49 +32,49 @@ class AB_Install {
 	 * check_version function.
 	 */
 	public static function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && ( get_option( 'axisbuilder_version' ) != AB()->version ) ) {
+		if ( ! defined( 'IFRAME_REQUEST' ) && ( get_option( 'axiscomposer_version' ) != AC()->version ) ) {
 			self::install();
-			do_action( 'axisbuilder_updated' );
+			do_action( 'axiscomposer_updated' );
 		}
 	}
 
 	/**
-	 * Install AB
+	 * Install AC
 	 */
 	public static function install() {
-		if ( ! defined( 'AB_INSTALLING' ) ) {
-			define( 'AB_INSTALLING', true );
+		if ( ! defined( 'AC_INSTALLING' ) ) {
+			define( 'AC_INSTALLING', true );
 		}
 
 		// Ensure needed classes are loaded
-		include_once( 'admin/class-builder-admin-notices.php' );
+		include_once( 'admin/class-ac-admin-notices.php' );
 
 		self::create_options();
 		self::create_roles();
 
 		// Register post types
-		AB_Post_Types::register_post_types();
-		AB_Post_Types::register_taxonomies();
+		AC_Post_Types::register_post_types();
+		AC_Post_Types::register_taxonomies();
 
 		// Also register endpoints - this needs to be done prior to rewrite rule flush
-		AB_AJAX::add_endpoint();
+		AC_AJAX::add_endpoint();
 
 		self::create_files();
 
 		// Update version
-		delete_option( 'axisbuilder_version' );
-		add_option( 'axisbuilder_version', AB()->version );
+		delete_option( 'axiscomposer_version' );
+		add_option( 'axiscomposer_version', AC()->version );
 
 		// Flush rules after install
 		flush_rewrite_rules();
 
 		// Redirect to welcome screen
 		if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
-			set_transient( '_ab_activation_redirect', 1, 30 );
+			set_transient( '_ac_activation_redirect', 1, 30 );
 		}
 
 		// Trigger action
-		do_action( 'axisbuilder_installed' );
+		do_action( 'axiscomposer_installed' );
 	}
 
 	/**
@@ -84,9 +84,9 @@ class AB_Install {
 	 */
 	private static function create_options() {
 		// Include settings so that we can run through defaults
-		include_once( 'admin/class-builder-admin-settings.php' );
+		include_once( 'admin/class-ac-admin-settings.php' );
 
-		$settings = AB_Admin_Settings::get_settings_pages();
+		$settings = AC_Admin_Settings::get_settings_pages();
 
 		foreach ( $settings as $section ) {
 			if ( ! method_exists( $section, 'get_settings' ) ) {
@@ -129,14 +129,14 @@ class AB_Install {
 	}
 
 	/**
-	 * Get capabilities for AxisBuilder.
+	 * Get capabilities for AxisComposer.
 	 * @return array
 	 */
 	 private static function get_core_capabilities() {
 		$capabilities = array();
 
 		$capabilities['core'] = array(
-			'manage_axisbuilder'
+			'manage_axiscomposer'
 		);
 
 		$capability_types = array( 'portfolio' );
@@ -171,7 +171,7 @@ class AB_Install {
 	}
 
 	/**
-	 * axisbuilder_remove_roles function.
+	 * axiscomposer_remove_roles function.
 	 */
 	public static function remove_roles() {
 		global $wp_roles;
@@ -200,7 +200,7 @@ class AB_Install {
 		// Install files and folders for uploading files and prevent hotlinking
 		$files = array(
 			array(
-				'base'    => AB_UPLOAD_DIR,
+				'base'    => AC_UPLOAD_DIR,
 				'file'    => 'index.html',
 				'content' => ''
 			)
@@ -220,10 +220,10 @@ class AB_Install {
 	 * Show plugin changes. Code adapted from W3 Total Cache.
 	 */
 	public static function in_plugin_update_message( $args ) {
-		$transient_name = 'ab_upgrade_notice_' . $args['Version'];
+		$transient_name = 'ac_upgrade_notice_' . $args['Version'];
 
 		if ( false === ( $upgrade_notice = get_transient( $transient_name ) ) ) {
-			$response = wp_remote_get( 'https://plugins.svn.wordpress.org/axisbuilder/trunk/readme.txt' );
+			$response = wp_remote_get( 'https://plugins.svn.wordpress.org/axiscomposer/trunk/readme.txt' );
 
 			if ( ! is_wp_error( $response ) && ! empty( $response['body'] ) ) {
 				$upgrade_notice = self::parse_update_notice( $response['body'] );
@@ -249,9 +249,9 @@ class AB_Install {
 			$version = trim( $matches[1] );
 			$notices = (array) preg_split('~[\r\n]+~', trim( $matches[2] ) );
 
-			if ( version_compare( AB_VERSION, $version, '<' ) ) {
+			if ( version_compare( AC_VERSION, $version, '<' ) ) {
 
-				$upgrade_notice .= '<div class="axisbuilder-plugin-upgrade-notice">';
+				$upgrade_notice .= '<div class="ac-plugin-upgrade-notice">';
 
 				foreach ( $notices as $index => $line ) {
 					$upgrade_notice .= wp_kses_post( preg_replace( '~\[([^\]]*)\]\(([^\)]*)\)~', '<a href="${2}">${1}</a>', $line ) );
@@ -271,7 +271,7 @@ class AB_Install {
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
-			'settings' => '<a href="' . admin_url( 'admin.php?page=axisbuilder-settings' ) . '" title="' . esc_attr( __( 'View AxisBuilder Settings', 'axisbuilder' ) ) . '">' . __( 'Settings', 'axisbuilder' ) . '</a>',
+			'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );
@@ -284,11 +284,11 @@ class AB_Install {
 	 * @return array
 	 */
 	public static function plugin_row_meta( $links, $file ) {
-		if ( $file == AB_PLUGIN_BASENAME ) {
+		if ( $file == AC_PLUGIN_BASENAME ) {
 			$row_meta = array(
-				'docs'    => '<a href="' . esc_url( apply_filters( 'axisbuilder_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axisbuilder/' ) ) . '" title="' . esc_attr( __( 'View AxisBuilder Documentation', 'axisbuilder' ) ) . '">' . __( 'Docs', 'axisbuilder' ) . '</a>',
-				'apidocs' => '<a href="' . esc_url( apply_filters( 'axisbuilder_apidocs_url', 'http://docs.axisthemes.com/apidocs/axisbuilder/' ) ) . '" title="' . esc_attr( __( 'View AxisBuilder API Docs', 'axisbuilder' ) ) . '">' . __( 'API Docs', 'axisbuilder' ) . '</a>',
-				'support' => '<a href="' . esc_url( apply_filters( 'axisbuilder_support_url', 'http://support.axisthemes.com/' ) ) . '" title="' . esc_attr( __( 'Visit Premium Customer Support Forum', 'axisbuilder' ) ) . '">' . __( 'Premium Support', 'axisbuilder' ) . '</a>',
+				'docs'    => '<a href="' . esc_url( apply_filters( 'axiscomposer_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/' ) ) . '" title="' . esc_attr( __( 'View AxisComposer Documentation', 'axiscomposer' ) ) . '">' . __( 'Docs', 'axiscomposer' ) . '</a>',
+				'apidocs' => '<a href="' . esc_url( apply_filters( 'axiscomposer_apidocs_url', 'http://docs.axisthemes.com/ac-apidocs/' ) ) . '" title="' . esc_attr( __( 'View AxisComposer API Docs', 'axiscomposer' ) ) . '">' . __( 'API Docs', 'axiscomposer' ) . '</a>',
+				'support' => '<a href="' . esc_url( apply_filters( 'axiscomposer_support_url', 'http://support.axisthemes.com/' ) ) . '" title="' . esc_attr( __( 'Visit Premium Customer Support Forum', 'axiscomposer' ) ) . '">' . __( 'Premium Support', 'axiscomposer' ) . '</a>',
 			);
 
 			return array_merge( $links, $row_meta );
@@ -298,4 +298,4 @@ class AB_Install {
 	}
 }
 
-AB_Install::init();
+AC_Install::init();

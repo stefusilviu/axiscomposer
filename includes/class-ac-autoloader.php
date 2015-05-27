@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder Autoloader
+ * AxisComposer Autoloader
  *
- * @class       AB_Autoloader
- * @package     AxisBuilder/Classes
+ * @class       AC_Autoloader
+ * @package     AxisComposer/Classes
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Autoloader Class
+ * AC_Autoloader Class
  */
-class AB_Autoloader {
+class AC_Autoloader {
 
 	/**
 	 * Path to the includes directory
@@ -34,7 +34,7 @@ class AB_Autoloader {
 
 		spl_autoload_register( array( $this, 'autoload' ) );
 
-		$this->include_path = untrailingslashit( plugin_dir_path( AB_PLUGIN_FILE ) ) . '/includes/';
+		$this->include_path = untrailingslashit( plugin_dir_path( AC_PLUGIN_FILE ) ) . '/includes/';
 	}
 
 	/**
@@ -43,7 +43,7 @@ class AB_Autoloader {
 	 * @return string
 	 */
 	private function get_file_name_from_class( $class ) {
-        return 'class-builder-' . substr( str_replace( '_', '-', strtolower( $class ) ), 3 ) . '.php';
+        return 'class-' . str_replace( '_', '-', strtolower( $class ) ) . '.php';
     }
 
 	/**
@@ -60,7 +60,7 @@ class AB_Autoloader {
 	}
 
 	/**
-	 * Auto-load AB classes on demand to reduce memory consumption.
+	 * Auto-load AC classes on demand to reduce memory consumption.
 	 * @param string $class
 	 */
 	public function autoload( $class ) {
@@ -68,18 +68,18 @@ class AB_Autoloader {
 		$file  = $this->get_file_name_from_class( $class );
 		$path  = '';
 
-		if ( strpos( $class, 'ab_shortcode_' ) === 0 ) {
+		if ( strpos( $class, 'ac_shortcode_' ) === 0 ) {
 			$path = $this->include_path . 'shortcodes/';
-		} elseif ( strpos( $class, 'ab_meta_box' ) === 0 ) {
+		} elseif ( strpos( $class, 'ac_meta_box' ) === 0 ) {
 			$path = $this->include_path . 'admin/meta-boxes/';
-		} elseif ( strpos( $class, 'ab_admin' ) === 0 ) {
+		} elseif ( strpos( $class, 'ac_admin' ) === 0 ) {
 			$path = $this->include_path . 'admin/';
 		}
 
-		if ( empty( $path ) || ( ! $this->load_file( $path . $file ) && strpos( $class, 'ab_' ) === 0 ) ) {
+		if ( empty( $path ) || ( ! $this->load_file( $path . $file ) && strpos( $class, 'ac_' ) === 0 ) ) {
 			$this->load_file( $this->include_path . $file );
 		}
 	}
 }
 
-new AB_Autoloader();
+new AC_Autoloader();

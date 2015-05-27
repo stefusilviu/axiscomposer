@@ -2,8 +2,8 @@
 /**
  * Handle frontend scripts.
  *
- * @class       AB_Frontend_Scripts
- * @package     AxisBuilder/Classes
+ * @class       AC_Frontend_Scripts
+ * @package     AxisComposer/Classes
  * @category    Admin
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Frontend_Scripts Class
+ * AC_Frontend_Scripts Class
  */
-class AB_Frontend_Scripts {
+class AC_Frontend_Scripts {
 
 	/**
 	 * Contains an array of script handles registered by AB
@@ -184,4 +184,4 @@ class AB_Frontend_Scripts {
 	}
 }
 
-AB_Frontend_Scripts::init();
+AC_Frontend_Scripts::init();

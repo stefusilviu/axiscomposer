@@ -1,9 +1,9 @@
 <?php
 /**
- * AxisBuilder HTML Helper
+ * AxisComposer HTML Helper
  *
- * @class       AB_HTML_Helper
- * @package     AxisBuilder/Classes
+ * @class       AC_HTML_Helper
+ * @package     AxisComposer/Classes
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_HTML_Helper Class
+ * AC_HTML_Helper Class
  */
-class AB_HTML_Helper {
+class AC_HTML_Helper {
 
 	public static $imageCount    = 0;
 	public static $elementValues = array();

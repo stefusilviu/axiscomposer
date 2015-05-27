@@ -158,9 +158,9 @@ final class AxisComposer {
 	 * Includes the required core files used in admin and on the frontend.
 	 */
 	public function includes() {
+		include_once( 'includes/functions-ac-core.php' );
+		include_once( 'includes/functions-ac-widget.php' );
 		include_once( 'includes/class-ac-autoloader.php' );
-		include_once( 'includes/ac-core-functions.php' );
-		include_once( 'includes/ac-widget-functions.php' );
 		include_once( 'includes/class-ac-install.php' );
 		include_once( 'includes/class-ac-ajax.php' );
 
@@ -196,7 +196,7 @@ final class AxisComposer {
 	 * Function used to Init AxisComposer Template Functions - This makes them pluggable by plugins and themes.
 	 */
 	public function include_template_functions() {
-		include_once( 'includes/ac-template-functions.php' );
+		include_once( 'includes/functions-ac-template.php' );
 	}
 
 	/**

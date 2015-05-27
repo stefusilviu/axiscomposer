@@ -89,7 +89,7 @@ class AB_Admin {
 		$ac_pages[] = 'dashboard_page_axisbuilder-credits';
 		$ac_pages[] = 'dashboard_page_axisbuilder-translators';
 
-		// Check to make sure we're on a AxisBuilder admin page
+		// Check to make sure we're on a AxisComposer admin page
 		if ( isset( $current_screen->id ) && apply_filters( 'axiscomposer_display_admin_footer_text', in_array( $current_screen->id, $ac_pages ) ) ) {
 			// Change the footer text
 			if ( ! get_option( 'axiscomposer_admin_footer_text_rated' ) ) {

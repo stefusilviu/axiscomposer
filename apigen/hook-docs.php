@@ -58,7 +58,7 @@ class AC_HookFinder {
 	public static function process_hooks() {
 		// If we have one, get the PHP files from it.
 		$template_files 	= self::get_files( '*.php', GLOB_MARK, '../templates/' );
-		$template_files[]	= '../includes/ac-template-functions.php';
+		$template_files[]	= '../includes/functions-ac-template.php';
 
 		$shortcode_files 	= self::get_files( '*.php', GLOB_MARK, '../includes/shortcodes/' );
 		$widget_files	 	= self::get_files( '*.php', GLOB_MARK, '../includes/widgets/' );

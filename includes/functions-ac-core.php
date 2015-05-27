@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Include core functions (available in both admin and frontend)
-include( 'ac-conditional-functions.php' );
-include( 'ac-deprecated-functions.php' );
-include( 'ac-formatting-functions.php' );
-include( 'ac-helper-functions.php' );
+include( 'functions-ac-conditional.php' );
+include( 'functions-ac-deprecated.php' );
+include( 'functions-ac-formatting.php' );
+include( 'functions-ac-helper.php' );
 
 /**
  * Get an image size.

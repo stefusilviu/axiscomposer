@@ -1,6 +1,6 @@
 /**
  * _mixins.scss
- * AxisBuilder Mixins
+ * AxisComposer Mixins
  */
 @function flexgrid( $columns: 1, $container-columns: 1 ) {
 	$width: ( ( ( 100% - ( $flex-gutter * ( $container-columns - 1 ) ) ) / $container-columns ) * $columns ) + ( $flex-gutter * ( $columns - 1 ) );

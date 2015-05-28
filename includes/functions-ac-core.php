@@ -137,7 +137,7 @@ function ac_get_allowed_screen_types() {
 }
 
 /**
- * AxisBuilder Core Supported Themes.
+ * AxisComposer Core Supported Themes.
  * @return array
  */
 function ac_get_core_supported_themes() {

@@ -22,3 +22,5 @@ Support requests in issues on this repository will be closed on sight.
 
 ## Contributing to AxisComposer
 If you have a patch, or stumbled upon an issue with AxisComposer core, you can contribute this back to the code. Please read our [contributor guidelines](https://github.com/axisthemes/axiscomposer/blob/master/CONTRIBUTING.md) for more information how you can do this.
+
+If you have an idea for AxisComposer, see the [Roadmap Trello board](https://trello.com/b/dKOmRjHk/axiscomposer-roadmap).

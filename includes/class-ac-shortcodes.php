@@ -1,32 +1,32 @@
 <?php
 /**
- * AxisBuilder Shortcodes class
+ * AxisComposer Shortcodes class
  *
  * Handles shortcode and loads shortcode methods via hooks.
  *
- * @class       AB_Shortcodes
- * @package     AxisBuilder/Classes/Shortcode
+ * @class       AC_Shortcodes
+ * @package     AxisComposer/Classes/Shortcode
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
  */
-class AB_Shortcodes {
+class AC_Shortcodes {
 
 	/** @var array Array of shortcode classes */
 	public $shortcodes;
 
 	/**
-	 * @var AB_Shortcodes The single instance of the class
+	 * @var AC_Shortcodes The single instance of the class
 	 */
 	protected static $_instance = null;
 
 	/**
-	 * Main AB_Shortcodes Instance
+	 * Main AC_Shortcodes Instance
 	 *
-	 * Ensures only one instance of AB_Shortcodes is loaded or can be loaded.
+	 * Ensures only one instance of AC_Shortcodes is loaded or can be loaded.
 	 *
 	 * @static
-	 * @return AB_Shortcodes - Main instance
+	 * @return AC_Shortcodes - Main instance
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
@@ -40,7 +40,7 @@ class AB_Shortcodes {
 	 * @since 1.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axisbuilder' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axiscomposer' ), '1.0' );
 	}
 
 	/**
@@ -48,7 +48,7 @@ class AB_Shortcodes {
 	 * @since 1.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axisbuilder' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'axiscomposer' ), '1.0' );
 	}
 
 	/**

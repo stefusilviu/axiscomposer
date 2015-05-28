@@ -1,11 +1,11 @@
 <?php
 /**
- * AxisBuilder Localization
+ * AxisComposer Localization
  *
  * Downloads the last language pack.
  *
- * @class       AB_Localization
- * @package     AxisBuilder/Classes/language
+ * @class       AC_Localization
+ * @package     AxisComposer/Classes/language
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,15 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Localization Class
+ * AC_Localization Class
  */
-class AB_Localization {
+class AC_Localization {
 
 	/**
 	 * Languages repository
 	 * @var string
 	 */
-	protected $repo = 'https://github.com/axisthemes/axisbuilder-language-packs/raw/v';
+	protected $repo = 'https://github.com/axisthemes/axiscomposer-language-packs/raw/v';
 
 	/**
 	 * Initialize the language pack upgrader.
@@ -32,7 +32,7 @@ class AB_Localization {
 	public function __construct() {
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_for_update' ) );
 		add_filter( 'upgrader_pre_download', array( $this, 'version_update' ), 10, 2 );
-		add_action( 'axisbuilder_installed', array( $this, 'has_available_update' ) );
+		add_action( 'axiscomposer_installed', array( $this, 'has_available_update' ) );
 		add_filter( 'admin_init', array( $this, 'manual_language_update' ), 999 );
 	}
 
@@ -41,7 +41,7 @@ class AB_Localization {
 	 * @return string
 	 */
 	public function get_language_package_uri() {
-		return $this->repo . AB_VERSION . '/packages/' . get_locale() . '.zip';
+		return $this->repo . AC_VERSION . '/packages/' . get_locale() . '.zip';
 	}
 
 	/**
@@ -53,9 +53,9 @@ class AB_Localization {
 		if ( $this->has_available_update() ) {
 			$data->translations[] = array(
 				'type'       => 'plugin',
-				'slug'       => 'axisbuilder',
+				'slug'       => 'axiscomposer',
 				'language'   => get_locale(),
-				'version'    => AB_VERSION,
+				'version'    => AC_VERSION,
 				'updated'    => date( 'Y-m-d H:i:s' ),
 				'package'    => $this->get_language_package_uri(),
 				'autoupdate' => 1
@@ -76,16 +76,16 @@ class AB_Localization {
 			return false;
 		}
 
-		$version = get_option( 'axisbuilder_language_pack_version', array( '0', $locale ) );
+		$version = get_option( 'axiscomposer_language_pack_version', array( '0', $locale ) );
 
-		if ( ! is_array( $version ) || version_compare( $version[0], AB_VERSION, '<' ) || $version[1] !== $locale ) {
+		if ( ! is_array( $version ) || version_compare( $version[0], AC_VERSION, '<' ) || $version[1] !== $locale ) {
 			if ( $this->check_if_language_pack_exists() ) {
-				$this->configure_axisbuilder_upgrade_notice();
+				$this->configure_axiscomposer_upgrade_notice();
 
 				return true;
 			} else {
-				// Updated the axisbuilder_language_pack_version to avoid searching translations for this release again
-				update_option( 'axisbuilder_language_pack_version', array( AB_VERSION , get_locale() ) );
+				// Updated the axiscomposer_language_pack_version to avoid searching translations for this release again
+				update_option( 'axiscomposer_language_pack_version', array( AC_VERSION , get_locale() ) );
 			}
 		}
 
@@ -93,10 +93,10 @@ class AB_Localization {
 	}
 
 	/**
-	 * Configure the AxisBuilder translation upgrade notice.
+	 * Configure the AxisComposer translation upgrade notice.
 	 */
-	public function configure_axisbuilder_upgrade_notice() {
-		AB_Admin_Notices::add_notice( 'translation_upgrade' );
+	public function configure_axiscomposer_upgrade_notice() {
+		AC_Admin_Notices::add_notice( 'translation_upgrade' );
 	}
 
 	/**
@@ -117,7 +117,7 @@ class AB_Localization {
 	 * Update the language version in database.
 	 *
 	 * This updates the database while the download the translation package and ensures that not generate download loop
-	 * If the installation fails you can redo it in: AxisBuilder > System Status > Tools > Force Translation Upgrade
+	 * If the installation fails you can redo it in: AxisComposer > System Status > Tools > Force Translation Upgrade
 	 *
 	 * @param  bool   $reply   Whether to bail without returning the package (default: false)
 	 * @param  string $package Package URL
@@ -137,12 +137,12 @@ class AB_Localization {
 	 */
 	protected function save_language_version() {
 		// Update the language pack version
-		update_option( 'axisbuilder_language_pack_version', array( AB_VERSION , get_locale() ) );
+		update_option( 'axiscomposer_language_pack_version', array( AC_VERSION , get_locale() ) );
 
 		// Remove the translation upgrade notice
-		$notices = get_option( 'axisbuilder_admin_notices', array() );
+		$notices = get_option( 'axiscomposer_admin_notices', array() );
 		$notices = array_diff( $notices, array( 'translation_upgrade' ) );
-		update_option( 'axisbuilder_admin_notices', $notices );
+		update_option( 'axiscomposer_admin_notices', $notices );
 	}
 
 	/**
@@ -153,13 +153,13 @@ class AB_Localization {
 			is_admin()
 			&& current_user_can( 'update_plugins' )
 			&& isset( $_GET['page'] )
-			&& 'axisbuilder-status' == $_GET['page']
+			&& 'ac-status' == $_GET['page']
 			&& isset( $_GET['action'] )
 			&& 'translation_upgrade' == $_GET['action']
 		) {
 
-			$url       = wp_nonce_url( admin_url( 'admin.php?page=axisbuilder-status&tab=tools&action=translation_upgrade' ), 'language_update' );
-			$tools_url = admin_url( 'admin.php?page=axisbuilder-status&tab=tools' );
+			$url       = wp_nonce_url( admin_url( 'admin.php?page=ac-status&tab=tools&action=translation_upgrade' ), 'language_update' );
+			$tools_url = admin_url( 'admin.php?page=ac-status&tab=tools' );
 
 			if ( ! isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( $_REQUEST['_wpnonce'], 'debug_action' ) ) {
 				wp_redirect( add_query_arg( array( 'translation_updated' => 2 ), $tools_url ) );
@@ -218,4 +218,4 @@ class AB_Localization {
 	}
 }
 
-new AB_Localization();
+new AC_Localization();

@@ -1,11 +1,11 @@
 <?php
 /**
- * AxisBuilder Sidebars
+ * AxisComposer Sidebars
  *
  * Handles the building of the Sidebars on the fly.
  *
- * @class       AB_Sidebars
- * @package     AxisBuilder/Classes
+ * @class       AC_Sidebars
+ * @package     AxisComposer/Classes
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Sidebars Class
+ * AC_Sidebars Class
  */
-class AB_Sidebars {
+class AC_Sidebars {
 
 	private $sidebars;
 
@@ -68,8 +68,7 @@ class AB_Sidebars {
 	}
 
 	/**
-	 * Checks the user Submitted name and makes sure that there are no collisions.
-	 *
+	 * Checks the user submitted name and makes sure that there are no collisions.
 	 * @param  string $sidebar_name Raw Sidebar name
 	 * @return string $sidebar_name Valid Sidebar name without collisions.
 	 */
@@ -115,14 +114,14 @@ class AB_Sidebars {
 			'after_title'   => '</h3>'
 		);
 
-		$args = apply_filters( 'axisbuilder_custom_widget_args', $args );
+		$args = apply_filters( 'axiscomposer_custom_widget_args', $args );
 
 		if ( is_array( $this->sidebars ) ) {
 			foreach ( (array) $this->sidebars as $id => $name ) {
 				$args['name']        = $name;
-				$args['id']          = 'axisbuilder-sidebar-' . ++$id;
-				$args['class']       = 'axisbuilder-custom-widgets-area';
-				$args['description'] = sprintf( __( 'Custom Widget Area of the site - %s ', 'axisbuilder' ), $name );
+				$args['id']          = 'axiscomposer-sidebar-' . ++$id;
+				$args['class']       = 'axiscomposer-custom-widgets-area';
+				$args['description'] = sprintf( __( 'Custom Widget Area of the site - %s ', 'axiscomposer' ), $name );
 				register_sidebar( $args );
 			}
 		}

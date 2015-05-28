@@ -23,6 +23,35 @@
 }
 
 /**
+ * Message Styles
+ */
+.axiscomposer-message {
+	overflow: hidden;
+	position: relative;
+	border-left-color: #2ea2cc !important;
+
+	a.skip,
+	a.docs {
+		opacity: 0.5;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+
+	a.button-primary,
+	a.button-secondary {
+		text-decoration: none !important;
+	}
+
+	.twitter-share-button {
+		margin-left: 3px;
+		margin-top: -3px;
+		vertical-align: middle;
+	}
+}
+
+/**
  * Animation Styles
  */
 .modal-animation {
@@ -1396,32 +1425,6 @@ img.tips {
 /**
  * System Status
  */
-.axisbuilder-message {
-	overflow: hidden;
-	position: relative;
-	border-left-color: #2ea2cc !important;
-
-	a.skip,
-	a.docs {
-		opacity: 0.5;
-
-		&:hover, &:focus {
-			opacity: 1;
-		}
-	}
-
-	a.button-primary,
-	a.button-secondary {
-		text-decoration: none !important;
-	}
-
-	.twitter-share-button {
-		margin-left: 3px;
-		margin-top: -3px;
-		vertical-align: middle;
-	}
-}
-
 table.ac_status_table {
 	margin-bottom: 1em;
 

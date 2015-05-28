@@ -2,7 +2,7 @@
 /**
  * Partner/Logo Element Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Logoelement Class
+ * AC_Shortcode_Logoelement Class
  */
-class AB_Shortcode_Logoelement extends AB_Shortcode {
+class AC_Shortcode_Logoelement extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

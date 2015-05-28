@@ -2,7 +2,7 @@
 /**
  * Team Members Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Teammembers Class
+ * AC_Shortcode_Teammembers Class
  */
-class AB_Shortcode_Teammembers extends AB_Shortcode {
+class AC_Shortcode_Teammembers extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

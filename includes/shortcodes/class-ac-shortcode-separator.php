@@ -2,7 +2,7 @@
 /**
  * Separator Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Separator Class
+ * AC_Shortcode_Separator Class
  */
-class AB_Shortcode_Separator extends AB_Shortcode {
+class AC_Shortcode_Separator extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

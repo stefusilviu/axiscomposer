@@ -2,7 +2,7 @@
 /**
  * Image Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Image Class
+ * AC_Shortcode_Image Class
  */
-class AB_Shortcode_Image extends AB_Shortcode {
+class AC_Shortcode_Image extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

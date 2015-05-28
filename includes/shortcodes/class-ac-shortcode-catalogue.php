@@ -2,7 +2,7 @@
 /**
  * Catalogue Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Catalogue Class
+ * AC_Shortcode_Catalogue Class
  */
-class AB_Shortcode_Catalogue extends AB_Shortcode {
+class AC_Shortcode_Catalogue extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

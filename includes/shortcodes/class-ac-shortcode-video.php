@@ -2,7 +2,7 @@
 /**
  * Video Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Video Class
+ * AC_Shortcode_Video Class
  */
-class AB_Shortcode_Video extends AB_Shortcode {
+class AC_Shortcode_Video extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

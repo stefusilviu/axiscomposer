@@ -2,7 +2,7 @@
 /**
  * Accordion Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Accordion Class
+ * AC_Shortcode_Accordion Class
  */
-class AB_Shortcode_Accordion extends AB_Shortcode {
+class AC_Shortcode_Accordion extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

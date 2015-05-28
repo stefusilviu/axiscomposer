@@ -2,7 +2,7 @@
 /**
  * Codeblock Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Codeblock Class
+ * AC_Shortcode_Codeblock Class
  */
-class AB_Shortcode_Codeblock extends AB_Shortcode {
+class AC_Shortcode_Codeblock extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

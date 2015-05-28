@@ -2,7 +2,7 @@
 /**
  * Section Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Section Class
+ * AC_Shortcode_Section Class
  */
-class AB_Shortcode_Section extends AB_Shortcode {
+class AC_Shortcode_Section extends AC_Shortcode {
 
 	public static $section_close;
 	public static $section_count = 0;
@@ -412,7 +412,7 @@ function axisbuilder_new_section( $params = array() ) {
 
 	// Close the Section structure when previous element was a section ;)
 	if ( $close ) {
-		$output .= '</div></div>' . axisbuilder_section_markup_close() . '</div>' . AB_Shortcode_Section::$section_close . '</div>';
+		$output .= '</div></div>' . axisbuilder_section_markup_close() . '</div>' . AC_Shortcode_Section::$section_close . '</div>';
 	}
 
 	// Open the Section Structure

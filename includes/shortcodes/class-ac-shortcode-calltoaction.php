@@ -2,7 +2,7 @@
 /**
  * Call To Action Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Calltoaction Class
+ * AC_Shortcode_Calltoaction Class
  */
-class AB_Shortcode_Calltoaction extends AB_Shortcode {
+class AC_Shortcode_Calltoaction extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

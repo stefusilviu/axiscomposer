@@ -2,7 +2,7 @@
 /**
  * Button Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Button Class
+ * AC_Shortcode_Button Class
  */
-class AB_Shortcode_Button extends AB_Shortcode {
+class AC_Shortcode_Button extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

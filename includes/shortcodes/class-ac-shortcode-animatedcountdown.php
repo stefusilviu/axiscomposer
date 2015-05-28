@@ -2,7 +2,7 @@
 /**
  * Animated Countdown Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Animatedcountdown Class
+ * AC_Shortcode_Animatedcountdown Class
  */
-class AB_Shortcode_Animatedcountdown extends AB_Shortcode {
+class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 
 	protected $time_config;
 

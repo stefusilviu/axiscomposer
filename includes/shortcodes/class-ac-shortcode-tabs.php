@@ -2,7 +2,7 @@
 /**
  * Tabs Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Tabs Class
+ * AC_Shortcode_Tabs Class
  */
-class AB_Shortcode_Tabs extends AB_Shortcode {
+class AC_Shortcode_Tabs extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

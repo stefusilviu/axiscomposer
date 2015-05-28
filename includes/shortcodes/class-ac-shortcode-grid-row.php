@@ -2,7 +2,7 @@
 /**
  * Grid Row Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Section Class
+ * AC_Shortcode_Section Class
  */
-class AB_Shortcode_Grid_Row extends AB_Shortcode {
+class AC_Shortcode_Grid_Row extends AC_Shortcode {
 
 	public static $grid_count = 0;
 
@@ -116,7 +116,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			$textarea_content = ac_shortcode_data( $this->shortcode['name'], $content, $args );
 		} else {
 			$eventual_content = '';
-			$ab_cell_one_half = new AB_Shortcode_Cells_One_Half();
+			$ab_cell_one_half = new AC_Shortcode_Cells_One_Half();
 			$shortcode_params = array( 'content' => '', 'args' => '', 'data' => '' );
 			// Loading twice as we have to generate 2 cell :)
 			$eventual_content .= $ab_cell_one_half->editor_element( $shortcode_params );
@@ -187,7 +187,7 @@ class AB_Shortcode_Grid_Row extends AB_Shortcode {
 			}
 		}
 
-		AB_Shortcode_Cells::$attributes = $atts;
+		AC_Shortcode_Cells::$attributes = $atts;
 
 		$output .= axisbuilder_new_section( $params );
 		$output .= ac_remove_autop( $content, true );

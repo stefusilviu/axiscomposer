@@ -2,7 +2,7 @@
 /**
  * Product Grid Shortcode
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Productgrid Class
+ * AC_Shortcode_Productgrid Class
  */
-class AB_Shortcode_Productgrid extends AB_Shortcode {
+class AC_Shortcode_Productgrid extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.

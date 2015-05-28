@@ -2,9 +2,9 @@
 /**
  * Cells Shortcode
  *
- * Note: Main AB_Shortcode_Cells is extended for different class for ease.
+ * Note: Main AC_Shortcode_Cells is extended for different class for ease.
  *
- * @extends     AB_Shortcode
+ * @extends     AC_Shortcode
  * @package     AxisBuilder/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Shortcode_Cells Class
+ * AC_Shortcode_Cells Class
  */
-class AB_Shortcode_Cells extends AB_Shortcode {
+class AC_Shortcode_Cells extends AC_Shortcode {
 
 	public static $cell_class = '';
 	public static $attributes = array();
@@ -331,9 +331,9 @@ class AB_Shortcode_Cells extends AB_Shortcode {
 }
 
 /**
- * AB_Shortcode_Columns_One_Half Class
+ * AC_Shortcode_Columns_One_Half Class
  */
-class AB_Shortcode_Cells_One_Half extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_One_Half extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -359,9 +359,9 @@ class AB_Shortcode_Cells_One_Half extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_One_Third Class
+ * AC_Shortcode_Columns_One_Third Class
  */
-class AB_Shortcode_Cells_One_Third extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_One_Third extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -387,9 +387,9 @@ class AB_Shortcode_Cells_One_Third extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_Two_Third Class
+ * AC_Shortcode_Columns_Two_Third Class
  */
-class AB_Shortcode_Cells_Two_Third extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_Two_Third extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -415,9 +415,9 @@ class AB_Shortcode_Cells_Two_Third extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_One_Fourth Class
+ * AC_Shortcode_Columns_One_Fourth Class
  */
-class AB_Shortcode_Cells_One_Fourth extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_One_Fourth extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -443,9 +443,9 @@ class AB_Shortcode_Cells_One_Fourth extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_Three_Fourth Class
+ * AC_Shortcode_Columns_Three_Fourth Class
  */
-class AB_Shortcode_Cells_Three_Fourth extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_Three_Fourth extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -471,9 +471,9 @@ class AB_Shortcode_Cells_Three_Fourth extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_One_Fifth Class
+ * AC_Shortcode_Columns_One_Fifth Class
  */
-class AB_Shortcode_Cells_One_Fifth extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_One_Fifth extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -499,9 +499,9 @@ class AB_Shortcode_Cells_One_Fifth extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_Two_Fifth Class
+ * AC_Shortcode_Columns_Two_Fifth Class
  */
-class AB_Shortcode_Cells_Two_Fifth extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_Two_Fifth extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -527,9 +527,9 @@ class AB_Shortcode_Cells_Two_Fifth extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_Three_Fifth Class
+ * AC_Shortcode_Columns_Three_Fifth Class
  */
-class AB_Shortcode_Cells_Three_Fifth extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_Three_Fifth extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.
@@ -555,9 +555,9 @@ class AB_Shortcode_Cells_Three_Fifth extends AB_Shortcode_Cells {
 }
 
 /**
- * AB_Shortcode_Columns_Four_Fifth Class
+ * AC_Shortcode_Columns_Four_Fifth Class
  */
-class AB_Shortcode_Cells_Four_Fifth extends AB_Shortcode_Cells {
+class AC_Shortcode_Cells_Four_Fifth extends AC_Shortcode_Cells {
 
 	/**
 	 * Initialise shortcode.

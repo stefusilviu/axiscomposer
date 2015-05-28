@@ -34,24 +34,24 @@ class AC_Meta_Box_Builder_Data {
 			<div id="axisbuilder-panels" class="panel-wrap editor_data">
 				<ul class="editor_data_tabs axisbuilder-tabs horizontal" style="display:none">
 					<?php
-						$shortcode_data_tabs = apply_filters( 'axisbuilder_shortcode_data_tabs', array(
+						$shortcode_data_tabs = apply_filters( 'axiscomposer_shortcode_data_tabs', array(
 							'layout'  => array(
-								'label'  => __( 'Layout Elements', 'axisbuilder' ),
+								'label'  => __( 'Layout Elements', 'axiscomposer' ),
 								'target' => 'layout_builder_data',
 								'class'  => array( 'hide_if_empty' ),
 							),
 							'content' => array(
-								'label'  => __( 'Content Elements', 'axisbuilder' ),
+								'label'  => __( 'Content Elements', 'axiscomposer' ),
 								'target' => 'content_builder_data',
 								'class'  => array( 'hide_if_empty' ),
 							),
 							'media'   => array(
-								'label'  => __( 'Media Elements', 'axisbuilder' ),
+								'label'  => __( 'Media Elements', 'axiscomposer' ),
 								'target' => 'media_builder_data',
 								'class'  => array( 'hide_if_empty' ),
 							),
 							'plugin'  => array(
-								'label'  => __( 'Plugin Additions', 'axisbuilder' ),
+								'label'  => __( 'Plugin Additions', 'axiscomposer' ),
 								'target' => 'plugin_builder_data',
 								'class'  => array( 'hide_if_empty' ),
 							),
@@ -63,7 +63,7 @@ class AC_Meta_Box_Builder_Data {
 							</li><?php
 						}
 
-						do_action( 'axisbuilder_shortcode_write_panel_tabs' );
+						do_action( 'axiscomposer_shortcode_write_panel_tabs' );
 					?>
 				</ul>
 
@@ -72,23 +72,23 @@ class AC_Meta_Box_Builder_Data {
 				<div id="media_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
 				<div id="plugin_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
 
-				<?php do_action( 'axisbuilder_shortcode_data_panels' ); ?>
+				<?php do_action( 'axiscomposer_shortcode_data_panels' ); ?>
 
 				<div class="clear"></div>
 			</div>
 			<div id="axisbuilder-handle" class="handle-bar">
 				<div class="control-bar">
 					<div class="history-sections">
-						<div class="history-action help_tip" data-tip="<?php _e( 'History', 'axisbuilder' ); ?>">
-							<a href="#undo" class="undo-icon undo-data" title="<?php _e( 'Undo', 'axisbuilder' ); ?>"></a>
-							<a href="#redo" class="redo-icon redo-data" title="<?php _e( 'Redo', 'axisbuilder' ); ?>"></a>
+						<div class="history-action help_tip" data-tip="<?php _e( 'History', 'axiscomposer' ); ?>">
+							<a href="#undo" class="undo-icon undo-data" title="<?php _e( 'Undo', 'axiscomposer' ); ?>"></a>
+							<a href="#redo" class="redo-icon redo-data" title="<?php _e( 'Redo', 'axiscomposer' ); ?>"></a>
 						</div>
-						<div class="delete-action help_tip" data-tip="<?php _e( 'Permanently delete all canvas elements', 'axisbuilder' ); ?>">
+						<div class="delete-action help_tip" data-tip="<?php _e( 'Permanently delete all canvas elements', 'axiscomposer' ); ?>">
 							<a href="#trash" class="trash-icon trash-data"></a>
 						</div>
 					</div>
-					<div class="template-sections help_tip" data-tip="<?php _e( 'Save or Load the Page Builder Templates', 'axisbuilder' ); ?>">
-						<a href="#template" class="button-secondary"><?php _e( 'Templates', 'axisbuilder' ); ?></a>
+					<div class="template-sections help_tip" data-tip="<?php _e( 'Save or Load the Page Builder Templates', 'axiscomposer' ); ?>">
+						<a href="#template" class="button-secondary"><?php _e( 'Templates', 'axiscomposer' ); ?></a>
 					</div>
 				</div>
 			</div>
@@ -187,7 +187,7 @@ class AC_Meta_Box_Builder_Data {
 							<footer class="ac-backbone-modal-footer">
 								<div class="inner">
 									<% if ( dismiss ) { %>
-										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axisbuilder' ); ?></button>
+										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axiscomposer' ); ?></button>
 									<% } else { %>
 										<button id="btn-ok" class="button button-large button-primary"><?php echo esc_html( $template['button'] ); ?></button>
 									<% } %>

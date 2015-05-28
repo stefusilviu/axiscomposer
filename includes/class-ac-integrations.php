@@ -1,11 +1,11 @@
 <?php
 /**
- * AxisBuilder Integrations class
+ * AxisComposer Integrations class
  *
- * Loads Integrations into AxisBuilder.
+ * Loads Integrations into AxisComposer.
  *
- * @class       AB_Integrations
- * @package     AxisBuilder/Classes/Integrations
+ * @class       AC_Integrations
+ * @package     AxisComposer/Classes/Integrations
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Integrations Class
+ * AC_Integrations Class
  */
-class AB_Integrations {
+class AC_Integrations {
 
 	/** Array of integration classes */
 	public $integrations = array();
@@ -28,9 +28,9 @@ class AB_Integrations {
 	 */
 	public function __construct() {
 
-		do_action( 'axisbuilder_integrations_init' );
+		do_action( 'axiscomposer_integrations_init' );
 
-		$load_integrations = apply_filters( 'axisbuilder_integrations', array() );
+		$load_integrations = apply_filters( 'axiscomposer_integrations', array() );
 
 		// Load integration classes
 		foreach ( $load_integrations as $integration ) {

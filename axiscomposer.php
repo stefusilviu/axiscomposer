@@ -330,7 +330,7 @@ final class AxisComposer {
 
 	/**
 	 * Get shortcodes class
-	 * @return AB_Shortcodes
+	 * @return AC_Shortcodes
 	 */
 	public function shortcodes() {
 		return AC_Shortcodes::instance();

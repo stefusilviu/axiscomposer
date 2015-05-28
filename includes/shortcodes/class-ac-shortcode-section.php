@@ -3,7 +3,7 @@
  * Section Shortcode
  *
  * @extends     AC_Shortcode
- * @package     AxisBuilder/Shortcodes
+ * @package     AxisComposer/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
  * @since       1.0.0

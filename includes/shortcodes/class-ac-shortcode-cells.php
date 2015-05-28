@@ -5,7 +5,7 @@
  * Note: Main AC_Shortcode_Cells is extended for different class for ease.
  *
  * @extends     AC_Shortcode
- * @package     AxisBuilder/Shortcodes
+ * @package     AxisComposer/Shortcodes
  * @category    Shortcodes
  * @author      AxisThemes
  * @since       1.0.0

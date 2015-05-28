@@ -64,7 +64,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		/**
 		 * Shortcode AJAX Events
-		 * @todo Include in AB_AJAX Class as soon.
+		 * @todo Include in AC_AJAX Class as soon.
 		 */
 		$this->shortcode_action();
 
@@ -134,7 +134,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		}
 
 		$elements = $this->set_defaults_value( $elements );
-		echo AB_HTML_Helper::fetch_form_elements( $elements );
+		echo AC_HTML_Helper::fetch_form_elements( $elements );
 
 		die();
 	}
@@ -353,7 +353,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		if ( $shortcode ) {
 
 			// Will extract the shortcode into $_POST['extracted_shortcode']
-			AB_AJAX::shortcodes_to_interface( $shortcode );
+			AC_AJAX::shortcodes_to_interface( $shortcode );
 
 			// The main shortcode (which is always the last array item) will be stored in $extracted_shortcode
 			$extracted_shortcode = end( $_POST['extracted_shortcode'] );

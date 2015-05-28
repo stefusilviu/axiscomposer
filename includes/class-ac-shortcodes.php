@@ -131,7 +131,7 @@ class AC_Shortcodes {
 		);
 
 		// Filter
-		$load_shortcodes = apply_filters( 'axisbuilder_shortcodes', $load_shortcodes );
+		$load_shortcodes = apply_filters( 'axiscomposer_shortcodes', $load_shortcodes );
 
 		// Get sort order End
 		$order_end = 999;

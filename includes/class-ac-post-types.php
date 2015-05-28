@@ -4,8 +4,8 @@
  *
  * Registers post types and taxonomies.
  *
- * @class       AB_Post_Types
- * @package     AxisBuilder/Classes/Portfolio
+ * @class       AC_Post_Types
+ * @package     AxisComposer/Classes/Portfolio
  * @category    Class
  * @author      AxisThemes
  * @since       1.0.0
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AB_Post_Types Class
+ * AC_Post_Types Class
  */
-class AB_Post_Types {
+class AC_Post_Types {
 
 	/**
 	 * Hook in methods.
@@ -37,13 +37,13 @@ class AB_Post_Types {
 			return;
 		}
 
-		do_action( 'axisbuilder_register_taxonomy' );
+		do_action( 'axiscomposer_register_taxonomy' );
 
-		$permalinks = get_option( 'axisbuilder_permalinks' );
+		$permalinks = get_option( 'axiscomposer_permalinks' );
 
 		register_taxonomy( 'portfolio_type',
-			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_type', array( 'portfolio' ) ),
-			apply_filters( 'axisbuilder_taxonomy_args_portfolio_type', array(
+			apply_filters( 'axiscomposer_taxonomy_objects_portfolio_type', array( 'portfolio' ) ),
+			apply_filters( 'axiscomposer_taxonomy_args_portfolio_type', array(
 				'hierarchical'      => false,
 				'show_ui'           => false,
 				'show_in_nav_menus' => false,
@@ -54,22 +54,22 @@ class AB_Post_Types {
 		);
 
 		register_taxonomy( 'portfolio_cat',
-			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_cat', array( 'portfolio' ) ),
-			apply_filters( 'axisbuilder_taxonomy_args_portfolio_cat', array(
+			apply_filters( 'axiscomposer_taxonomy_objects_portfolio_cat', array( 'portfolio' ) ),
+			apply_filters( 'axiscomposer_taxonomy_args_portfolio_cat', array(
 				'hierarchical' => true,
-				'label'        => __( 'Project Categories', 'axisbuilder' ),
+				'label'        => __( 'Project Categories', 'axiscomposer' ),
 				'labels'       => array(
-						'name'              => __( 'Project Categories', 'axisbuilder' ),
-						'singular_name'     => __( 'Project Category', 'axisbuilder' ),
-						'menu_name'         => _x( 'Categories', 'Admin menu name', 'axisbuilder' ),
-						'search_items'      => __( 'Search Project Categories', 'axisbuilder' ),
-						'all_items'         => __( 'All Project Categories', 'axisbuilder' ),
-						'parent_item'       => __( 'Parent Project Category', 'axisbuilder' ),
-						'parent_item_colon' => __( 'Parent Project Category:', 'axisbuilder' ),
-						'edit_item'         => __( 'Edit Project Category', 'axisbuilder' ),
-						'update_item'       => __( 'Update Project Category', 'axisbuilder' ),
-						'add_new_item'      => __( 'Add New Project Category', 'axisbuilder' ),
-						'new_item_name'     => __( 'New Project Category Name', 'axisbuilder' )
+						'name'              => __( 'Project Categories', 'axiscomposer' ),
+						'singular_name'     => __( 'Project Category', 'axiscomposer' ),
+						'menu_name'         => _x( 'Categories', 'Admin menu name', 'axiscomposer' ),
+						'search_items'      => __( 'Search Project Categories', 'axiscomposer' ),
+						'all_items'         => __( 'All Project Categories', 'axiscomposer' ),
+						'parent_item'       => __( 'Parent Project Category', 'axiscomposer' ),
+						'parent_item_colon' => __( 'Parent Project Category:', 'axiscomposer' ),
+						'edit_item'         => __( 'Edit Project Category', 'axiscomposer' ),
+						'update_item'       => __( 'Update Project Category', 'axiscomposer' ),
+						'add_new_item'      => __( 'Add New Project Category', 'axiscomposer' ),
+						'new_item_name'     => __( 'New Project Category Name', 'axiscomposer' )
 					),
 				'show_ui'      => true,
 				'query_var'    => true,
@@ -80,7 +80,7 @@ class AB_Post_Types {
 					'assign_terms' => 'assign_portfolio_terms',
 				),
 				'rewrite'      => array(
-					'slug'         => empty( $permalinks['category_base'] ) ? _x( 'portfolio-category', 'slug', 'axisbuilder' ) : $permalinks['category_base'],
+					'slug'         => empty( $permalinks['category_base'] ) ? _x( 'portfolio-category', 'slug', 'axiscomposer' ) : $permalinks['category_base'],
 					'with_front'   => false,
 					'hierarchical' => true,
 				),
@@ -88,25 +88,25 @@ class AB_Post_Types {
 		);
 
 		register_taxonomy( 'portfolio_tag',
-			apply_filters( 'axisbuilder_taxonomy_objects_portfolio_tag', array( 'portfolio' ) ),
-			apply_filters( 'axisbuilder_taxonomy_args_portfolio_tag', array(
+			apply_filters( 'axiscomposer_taxonomy_objects_portfolio_tag', array( 'portfolio' ) ),
+			apply_filters( 'axiscomposer_taxonomy_args_portfolio_tag', array(
 				'hierarchical' => false,
-				'label'        => __( 'Project Tags', 'axisbuilder' ),
+				'label'        => __( 'Project Tags', 'axiscomposer' ),
 				'labels'       => array(
-						'name'                       => __( 'Project Tags', 'axisbuilder' ),
-						'singular_name'              => __( 'Project Tag', 'axisbuilder' ),
-						'menu_name'                  => _x( 'Tags', 'Admin menu name', 'axisbuilder' ),
-						'search_items'               => __( 'Search Project Tags', 'axisbuilder' ),
-						'all_items'                  => __( 'All Project Tags', 'axisbuilder' ),
-						'edit_item'                  => __( 'Edit Project Tag', 'axisbuilder' ),
-						'update_item'                => __( 'Update Project Tag', 'axisbuilder' ),
-						'add_new_item'               => __( 'Add New Project Tag', 'axisbuilder' ),
-						'new_item_name'              => __( 'New Project Tag Name', 'axisbuilder' ),
-						'popular_items'              => __( 'Popular Project Tags', 'axisbuilder' ),
-						'separate_items_with_commas' => __( 'Separate Project Tags with commas', 'axisbuilder'  ),
-						'add_or_remove_items'        => __( 'Add or remove Project Tags', 'axisbuilder' ),
-						'choose_from_most_used'      => __( 'Choose from the most used Project tags', 'axisbuilder' ),
-						'not_found'                  => __( 'No Project Tags found', 'axisbuilder' ),
+						'name'                       => __( 'Project Tags', 'axiscomposer' ),
+						'singular_name'              => __( 'Project Tag', 'axiscomposer' ),
+						'menu_name'                  => _x( 'Tags', 'Admin menu name', 'axiscomposer' ),
+						'search_items'               => __( 'Search Project Tags', 'axiscomposer' ),
+						'all_items'                  => __( 'All Project Tags', 'axiscomposer' ),
+						'edit_item'                  => __( 'Edit Project Tag', 'axiscomposer' ),
+						'update_item'                => __( 'Update Project Tag', 'axiscomposer' ),
+						'add_new_item'               => __( 'Add New Project Tag', 'axiscomposer' ),
+						'new_item_name'              => __( 'New Project Tag Name', 'axiscomposer' ),
+						'popular_items'              => __( 'Popular Project Tags', 'axiscomposer' ),
+						'separate_items_with_commas' => __( 'Separate Project Tags with commas', 'axiscomposer' ),
+						'add_or_remove_items'        => __( 'Add or remove Project Tags', 'axiscomposer' ),
+						'choose_from_most_used'      => __( 'Choose from the most used Project tags', 'axiscomposer' ),
+						'not_found'                  => __( 'No Project Tags found', 'axiscomposer' ),
 					),
 				'show_ui'      => true,
 				'query_var'    => true,
@@ -117,13 +117,13 @@ class AB_Post_Types {
 					'assign_terms' => 'assign_portfolio_terms',
 				),
 				'rewrite'      => array(
-					'slug'       => empty( $permalinks['tag_base'] ) ? _x( 'portfolio-tag', 'slug', 'axisbuilder' ) : $permalinks['tag_base'],
+					'slug'       => empty( $permalinks['tag_base'] ) ? _x( 'portfolio-tag', 'slug', 'axiscomposer' ) : $permalinks['tag_base'],
 					'with_front' => false
 				),
 			) )
 		);
 
-		do_action( 'axisbuilder_after_register_taxonomy' );
+		do_action( 'axiscomposer_after_register_taxonomy' );
 	}
 
 	/**
@@ -134,32 +134,32 @@ class AB_Post_Types {
 			return;
 		}
 
-		do_action( 'axisbuilder_register_post_type' );
+		do_action( 'axiscomposer_register_post_type' );
 
-		$permalinks          = get_option( 'axisbuilder_permalinks' );
-		$portfolio_permalink = empty( $permalinks['portfolio_base'] ) ? _x( 'portfolio', 'slug', 'axisbuilder' ) : $permalinks['portfolio_base'];
+		$permalinks          = get_option( 'axiscomposer_permalinks' );
+		$portfolio_permalink = empty( $permalinks['portfolio_base'] ) ? _x( 'portfolio', 'slug', 'axiscomposer' ) : $permalinks['portfolio_base'];
 
 		register_post_type( 'portfolio',
-			apply_filters( 'axisbuilder_register_post_type_portfolio',
+			apply_filters( 'axiscomposer_register_post_type_portfolio',
 				array(
 					'labels'              => array(
-							'name'               => __( 'Projects', 'axisbuilder' ),
-							'singular_name'      => __( 'Project', 'axisbuilder' ),
-							'menu_name'          => _x( 'Portfolio', 'Admin menu name', 'axisbuilder' ),
-							'all_items'          => __( 'All Projects', 'axisbuilder' ),
-							'add_new'            => __( 'Add Project', 'axisbuilder' ),
-							'add_new_item'       => __( 'Add New Project', 'axisbuilder' ),
-							'edit'               => __( 'Edit', 'axisbuilder' ),
-							'edit_item'          => __( 'Edit Project', 'axisbuilder' ),
-							'new_item'           => __( 'New Project', 'axisbuilder' ),
-							'view'               => __( 'View Project', 'axisbuilder' ),
-							'view_item'          => __( 'View Project', 'axisbuilder' ),
-							'search_items'       => __( 'Search Projects', 'axisbuilder' ),
-							'not_found'          => __( 'No Projects found', 'axisbuilder' ),
-							'not_found_in_trash' => __( 'No Projects found in trash', 'axisbuilder' ),
-							'parent'             => __( 'Parent Project', 'axisbuilder' )
+							'name'               => __( 'Projects', 'axiscomposer' ),
+							'singular_name'      => __( 'Project', 'axiscomposer' ),
+							'menu_name'          => _x( 'Portfolio', 'Admin menu name', 'axiscomposer' ),
+							'all_items'          => __( 'All Projects', 'axiscomposer' ),
+							'add_new'            => __( 'Add Project', 'axiscomposer' ),
+							'add_new_item'       => __( 'Add New Project', 'axiscomposer' ),
+							'edit'               => __( 'Edit', 'axiscomposer' ),
+							'edit_item'          => __( 'Edit Project', 'axiscomposer' ),
+							'new_item'           => __( 'New Project', 'axiscomposer' ),
+							'view'               => __( 'View Project', 'axiscomposer' ),
+							'view_item'          => __( 'View Project', 'axiscomposer' ),
+							'search_items'       => __( 'Search Projects', 'axiscomposer' ),
+							'not_found'          => __( 'No Projects found', 'axiscomposer' ),
+							'not_found_in_trash' => __( 'No Projects found in trash', 'axiscomposer' ),
+							'parent'             => __( 'Parent Project', 'axiscomposer' )
 						),
-					'description'         => __( 'This is where you can add new portfolio items to your project.', 'axisbuilder' ),
+					'description'         => __( 'This is where you can add new portfolio items to your project.', 'axiscomposer' ),
 					'public'              => true,
 					'show_ui'             => true,
 					'capability_type'     => 'portfolio',
@@ -188,4 +188,4 @@ class AB_Post_Types {
 	}
 }
 
-AB_Post_Types::init();
+AC_Post_Types::init();

@@ -754,7 +754,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e017" );
+			@include icon( "\e00d" );
 			line-height: 1.5;
 		}
 
@@ -771,7 +771,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e018" );
+			@include icon( "\e00e" );
 			line-height: 1.5;
 		}
 
@@ -788,7 +788,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e014" );
+			@include icon( "\e00a" );
 			line-height: 1.5;
 		}
 
@@ -913,7 +913,7 @@ body .ui-draggable-dragging {
 			&:before {
 				font-size: 16px;
 				vertical-align: text-top;
-				@include iconbefore( "\e019" );
+				@include iconbefore( "\e002" );
 			}
 
 			&:hover,
@@ -928,7 +928,7 @@ body .ui-draggable-dragging {
 
 			&.set-cell-icon {
 				&:before {
-					content: "\e00d";
+					content: "\e00f";
 				}
 			}
 

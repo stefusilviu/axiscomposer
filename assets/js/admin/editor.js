@@ -7,7 +7,7 @@
 	/**
 	 * Create the Plugin.
 	 */
-	tinymce.create( 'tinymce.plugins.AB_Shortcodes', {
+	tinymce.create( 'tinymce.plugins.AC_Shortcodes', {
 
 		/**
 		 * Initialize the Plugin.
@@ -98,7 +98,7 @@
 				}
 			}
 
-        	return submenu;
+			return submenu;
 		},
 
 		instantInsert: function() {
@@ -117,6 +117,6 @@
 	/**
 	 * Register the Plugin.
 	 */
-	tinymce.PluginManager.add( 'axisbuilder_shortcodes', tinymce.plugins.AB_Shortcodes );
+	tinymce.PluginManager.add( 'axisbuilder_shortcodes', tinymce.plugins.AC_Shortcodes );
 
 })( jQuery );

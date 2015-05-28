@@ -63,7 +63,7 @@ class AC_Admin_Welcome {
 	 * admin_css function.
 	 */
 	public function admin_css() {
-		wp_enqueue_style( 'axiscomposer-activation', AB()->plugin_url() . '/assets/css/activation.css', array(), AC_VERSION );
+		wp_enqueue_style( 'axiscomposer-activation', AC()->plugin_url() . '/assets/css/activation.css', array(), AC_VERSION );
 	}
 
 	/**

@@ -37,7 +37,7 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_textblock',
 			'icon'    => 'icon-textblock',
-			'image'   => AB()->plugin_url() . '/assets/images/content/textblock.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/textblock.png', // Fallback if icon is missing :)
 			'modal'   => array( 'modal-class' => 'normalscreen' ),
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),

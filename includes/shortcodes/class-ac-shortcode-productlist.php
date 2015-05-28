@@ -37,7 +37,7 @@ class AC_Shortcode_Productlist extends AC_Shortcode {
 			'type'    => 'plugin',
 			'name'    => 'ab_productlist',
 			'icon'    => 'icon-productlist',
-			'image'   => AB()->plugin_url() . '/assets/images/plugin/productlist.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/plugin/productlist.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);

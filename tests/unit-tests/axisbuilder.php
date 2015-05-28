@@ -4,7 +4,7 @@
  *
  * @since 1.0
  */
-class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
+class AC_Tests_AxisBuilder extends AC_Unit_Test_Case {
 
 	/** @var \AxisBuilder instance */
 	protected $ab;
@@ -18,11 +18,11 @@ class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
 
 		parent::setUp();
 
-		$this->ab = AB();
+		$this->ab = AC();
 	}
 
 	/**
-	 * Test AB has static instance
+	 * Test AC has static instance
 	 *
 	 * @since 1.0
 	 */
@@ -36,16 +36,16 @@ class AB_Tests_AxisBuilder extends AB_Unit_Test_Case {
 	}
 
 	/**
-	 * Test that all AB constants are set
+	 * Test that all AC constants are set
 	 *
 	 * @since 1.0
 	 */
 	public function test_constants() {
 
-		$this->assertEquals( str_replace( 'tests/unit-tests/', '', plugin_dir_path( __FILE__ ) ) . 'axisbuilder.php', AB_PLUGIN_FILE );
+		$this->assertEquals( str_replace( 'tests/unit-tests/', '', plugin_dir_path( __FILE__ ) ) . 'axisbuilder.php', AC_PLUGIN_FILE );
 
-		$this->assertEquals( $this->ab->version, AB_VERSION );
-		$this->assertNotEquals( AB_UPLOAD_DIR, '' );
+		$this->assertEquals( $this->ab->version, AC_VERSION );
+		$this->assertNotEquals( AC_UPLOAD_DIR, '' );
 	}
 
 	/**

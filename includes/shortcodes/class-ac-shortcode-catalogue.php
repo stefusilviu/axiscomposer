@@ -37,7 +37,7 @@ class AC_Shortcode_Catalogue extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_catalogue',
 			'icon'    => 'icon-catalogue',
-			'image'   => AB()->plugin_url() . '/assets/images/content/catalogue.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/catalogue.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

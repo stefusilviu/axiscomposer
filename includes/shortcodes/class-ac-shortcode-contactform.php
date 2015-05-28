@@ -37,7 +37,7 @@ class AC_Shortcode_Contactform extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_contactform',
 			'icon'    => 'icon-contactform',
-			'image'   => AB()->plugin_url() . '/assets/images/content/contactform.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/contactform.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

@@ -128,7 +128,7 @@ function ac_shortcode_pattern( $predefined_tags = false ) {
 function ac_get_shortcode_data( $data ) {
 	$builder_shortcodes = array();
 
-	foreach ( AB()->shortcodes->get_shortcodes() as $load_shortcodes ) {
+	foreach ( AC()->shortcodes->get_shortcodes() as $load_shortcodes ) {
 		$builder_shortcodes[] = $load_shortcodes->shortcode[$data];
 	}
 
@@ -193,7 +193,7 @@ function do_shortcode_tag_builder( $m ) {
 	}
 
 	if ( in_array( $values['tag'], ac_get_shortcode_data( 'name' ) ) ) {
-		$_available_shortcodes = AB()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
+		$_available_shortcodes = AC()->shortcodes->get_editor_element( $values['content'], $values['attr'] );
 		return $_available_shortcodes[ $values['tag'] ];
 	} else {
 		return $m[0];

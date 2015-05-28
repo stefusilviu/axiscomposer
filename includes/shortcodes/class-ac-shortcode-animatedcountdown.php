@@ -39,7 +39,7 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_animatedcountdown',
 			'icon'    => 'icon-animatedcountdown',
-			'image'   => AB()->plugin_url() . '/assets/images/content/animatedcountdown.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/animatedcountdown.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

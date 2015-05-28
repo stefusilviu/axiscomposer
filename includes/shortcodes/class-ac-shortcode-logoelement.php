@@ -37,7 +37,7 @@ class AC_Shortcode_Logoelement extends AC_Shortcode {
 			'type'    => 'media',
 			'name'    => 'ab_logoelement',
 			'icon'    => 'icon-logoelement',
-			'image'   => AB()->plugin_url() . '/assets/images/media/logoelement.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/media/logoelement.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

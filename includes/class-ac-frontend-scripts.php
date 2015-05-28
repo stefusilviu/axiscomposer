@@ -47,19 +47,19 @@ class AC_Frontend_Scripts {
 	public static function get_styles() {
 		return apply_filters( 'axiscomposer_enqueue_styles', array(
 			'axiscomposer-layout' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/css/axiscomposer-layout.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', AC()->plugin_url() ) . '/assets/css/axiscomposer-layout.css',
 				'deps'    => '',
 				'version' => AC_VERSION,
 				'media'   => 'all'
 			),
 			'axiscomposer-smallscreen' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/css/axiscomposer-smallscreen.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', AC()->plugin_url() ) . '/assets/css/axiscomposer-smallscreen.css',
 				'deps'    => 'axiscomposer-layout',
 				'version' => AC_VERSION,
 				'media'   => 'only screen and (max-width: ' . apply_filters( 'axiscomposer_style_smallscreen_breakpoint', $breakpoint = '768px' ) . ')'
 			),
 			'axiscomposer-general' => array(
-				'src'     => str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/css/axiscomposer.css',
+				'src'     => str_replace( array( 'http:', 'https:' ), '', AC()->plugin_url() ) . '/assets/css/axiscomposer.css',
 				'deps'    => '',
 				'version' => AC_VERSION,
 				'media'   => 'all'
@@ -106,7 +106,7 @@ class AC_Frontend_Scripts {
 	 */
 	public static function load_scripts() {
 		$suffix               = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		$assets_path          = str_replace( array( 'http:', 'https:' ), '', AB()->plugin_url() ) . '/assets/';
+		$assets_path          = str_replace( array( 'http:', 'https:' ), '', AC()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'scripts/frontend/';
 
 		// Register any scripts for later use, or used as dependencies

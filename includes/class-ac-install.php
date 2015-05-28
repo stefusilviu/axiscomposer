@@ -242,7 +242,7 @@ class AC_Install {
 	private static function parse_update_notice( $content ) {
 		// Output Upgrade Notice
 		$matches        = null;
-		$regexp         = '~==\s*Upgrade Notice\s*==\s*=\s*(.*)\s*=(.*)(=\s*' . preg_quote( AB_VERSION ) . '\s*=|$)~Uis';
+		$regexp         = '~==\s*Upgrade Notice\s*==\s*=\s*(.*)\s*=(.*)(=\s*' . preg_quote( AC_VERSION ) . '\s*=|$)~Uis';
 		$upgrade_notice = '';
 
 		if ( preg_match( $regexp, $content, $matches ) ) {

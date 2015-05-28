@@ -37,7 +37,7 @@ class AC_Shortcode_Progressbar extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_progressbar',
 			'icon'    => 'icon-progressbar',
-			'image'   => AB()->plugin_url() . '/assets/images/content/progressbar.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/progressbar.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

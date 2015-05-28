@@ -37,7 +37,7 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_heading',
 			'icon'    => 'icon-heading',
-			'image'   => AB()->plugin_url() . '/assets/images/content/heading.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/heading.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

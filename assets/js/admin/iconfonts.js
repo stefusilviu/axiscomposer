@@ -1,6 +1,6 @@
 /* global axisbuilder_admin_iconfonts, jQuery, Backbone, _ */
 
-var AB_Icon_Fonts = AB_Icon_Fonts || {};
+var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
 /**
  * AxisBuilder Backbone Iconfonts JS
@@ -9,7 +9,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 	'use strict';
 
 	// Views
-	AB_Icon_Fonts.AppView = Backbone.View.extend({
+	AC_Icon_Fonts.AppView = Backbone.View.extend({
 		el: '#axiscomposer-iconfonts',
 		events: {
 			'click .modal-close': 'closeButton',
@@ -119,12 +119,12 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 	// Kick things off by creating the 'App'
 	$( document ).ready( function() {
-		new AB_Icon_Fonts.AppView();
+		new AC_Icon_Fonts.AppView();
 
-		$( 'body' ).on( 'insert_iconfont_zip', AB_Icon_Fonts.icon_insert );
+		$( 'body' ).on( 'insert_iconfont_zip', AC_Icon_Fonts.icon_insert );
 	});
 
-	AB_Icon_Fonts.icon_insert = function( event, attachment ) {
+	AC_Icon_Fonts.icon_insert = function( event, attachment ) {
 		var message = $( '#msg' );
 
 		if ( attachment.subtype !== 'zip' ) {

@@ -37,7 +37,7 @@ class AC_Shortcode_Image extends AC_Shortcode {
 			'type'    => 'media',
 			'name'    => 'ab_image',
 			'icon'    => 'icon-image',
-			'image'   => AB()->plugin_url() . '/assets/images/media/image.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/media/image.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

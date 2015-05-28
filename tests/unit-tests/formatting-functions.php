@@ -1,10 +1,10 @@
 <?php
 /**
- * Test AB formatting functions
+ * Test AC formatting functions
  *
  * @since 1.0
  */
-class AB_Tests_Formatting_Functions extends AB_Unit_Test_Case {
+class AC_Tests_Formatting_Functions extends AC_Unit_Test_Case {
 
 	/**
 	 * Test ac_clean() - note this is a basic type test as WP core already

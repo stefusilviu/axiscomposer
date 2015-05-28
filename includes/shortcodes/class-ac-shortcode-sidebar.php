@@ -37,7 +37,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_sidebar',
 			'icon'    => 'icon-sidebar',
-			'image'   => AB()->plugin_url() . '/assets/images/content/sidebar.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/sidebar.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'instantInsert' => '[ab_sidebar widget_area="Displayed Everywhere"]' ),
 		);
@@ -68,7 +68,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 		$params['innerHtml']  = '';
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
 		$params['innerHtml'] .= '<div class="axisbuilder-element-label">' . $this->title . '</div>';
-		$params['innerHtml'] .= AB_HTML_Helper::render_element( $element );
+		$params['innerHtml'] .= AC_HTML_Helper::render_element( $element );
 
 		return (array) $params;
 	}

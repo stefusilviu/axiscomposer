@@ -28,7 +28,7 @@ class AC_Settings_Integrations extends AC_Settings_Page {
 		$this->id    = 'integration';
 		$this->label = __( 'Integration', 'axiscomposer' );
 
-		if ( isset( AB()->integrations ) && AB()->integrations->get_integrations() ) {
+		if ( isset( AC()->integrations ) && AC()->integrations->get_integrations() ) {
 			add_filter( 'axiscomposer_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
 			add_action( 'axiscomposer_sections_' . $this->id, array( $this, 'output_sections' ) );
 			add_action( 'axiscomposer_settings_' . $this->id, array( $this, 'output' ) );
@@ -45,8 +45,8 @@ class AC_Settings_Integrations extends AC_Settings_Page {
 
 		$sections = array();
 
-		if ( ! defined( 'AB_INSTALLING' ) ) {
-			$integrations = AB()->integrations->get_integrations();
+		if ( ! defined( 'AC_INSTALLING' ) ) {
+			$integrations = AC()->integrations->get_integrations();
 
 			if ( ! $current_section && ! empty( $integrations ) ) {
 				$current_section = current( $integrations )->id;

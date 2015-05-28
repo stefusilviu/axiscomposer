@@ -37,7 +37,7 @@ class AC_Shortcode_Animatednumbers extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_animatednumbers',
 			'icon'    => 'icon-animatednumbers',
-			'image'   => AB()->plugin_url() . '/assets/images/content/animatednumbers.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/animatednumbers.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

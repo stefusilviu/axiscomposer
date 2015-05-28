@@ -37,7 +37,7 @@ class AC_Shortcode_Separator extends AC_Shortcode {
 			'type'    => 'content',
 			'name'    => 'ab_separator',
 			'icon'    => 'icon-separator',
-			'image'   => AB()->plugin_url() . '/assets/images/content/separator.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/content/separator.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);

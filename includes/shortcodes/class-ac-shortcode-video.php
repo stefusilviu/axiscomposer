@@ -37,7 +37,7 @@ class AC_Shortcode_Video extends AC_Shortcode {
 			'type'    => 'media',
 			'name'    => 'ab_video',
 			'icon'    => 'icon-video',
-			'image'   => AB()->plugin_url() . '/assets/images/media/video.png', // Fallback if icon is missing :)
+			'image'   => AC()->plugin_url() . '/assets/images/media/video.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);

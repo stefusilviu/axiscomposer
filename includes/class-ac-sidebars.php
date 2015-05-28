@@ -128,4 +128,4 @@ class AC_Sidebars {
 	}
 }
 
-new AB_Sidebars();
+new AC_Sidebars();

@@ -1,10 +1,10 @@
 <?php
 /**
- * Test AB core functions
+ * Test AC core functions
  *
  * @since 1.0
  */
-class AB_Tests_Core_Functions extends AB_Unit_Test_Case {
+class AC_Tests_Core_Functions extends AC_Unit_Test_Case {
 
 	/**
 	 * Test test_ac_get_core_supported_themes()

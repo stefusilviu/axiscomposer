@@ -4,14 +4,14 @@
  *
  * Extended by individual shortcodes to handle shortcode data etc.
  *
- * @class       AB_Shortcode
- * @extends     AB_Settings_API
- * @package     AxisBuilder/Abstracts
+ * @class       AC_Shortcode
+ * @extends     AC_Settings_API
+ * @package     AxisComposer/Abstracts
  * @category    Abstract Class
  * @author      AxisThemes
  * @since       1.0.0
  */
-abstract class AB_Shortcode extends AB_Settings_API {
+abstract class AC_Shortcode extends AC_Settings_API {
 
 	/**
 	 * Shortcode ID

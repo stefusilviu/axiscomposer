@@ -913,7 +913,7 @@ body .ui-draggable-dragging {
 			&:before {
 				font-size: 16px;
 				vertical-align: text-top;
-				@include iconbefore( "\e002" );
+				@include iconbefore( "\e010" );
 			}
 
 			&:hover,

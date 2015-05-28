@@ -10,6 +10,14 @@
  * @author      AxisThemes
  * @since       1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * AC_Shortcodes Class
+ */
 class AC_Shortcodes {
 
 	/** @var array Array of shortcode classes */

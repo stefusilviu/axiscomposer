@@ -102,8 +102,8 @@ class AC_Admin_Meta_Boxes {
 
 		// Page Builder
 		foreach ( ac_get_allowed_screen_types() as $type ) {
-			add_meta_box( 'axiscomposer-editor', __( 'Page Builder', 'axiscomposer' ), 'AC_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
-			add_filter( 'postbox_classes_' . $type . '_axiscomposer-editor', 'AC_Meta_Box_Builder_Data::postbox_classes' );
+			add_meta_box( 'axiscomposer-pagebuilder', __( 'Page Builder', 'axiscomposer' ), 'AC_Meta_Box_Builder_Data::output', $type, 'normal', 'high' );
+			add_filter( 'postbox_classes_' . $type . '_axiscomposer-pagebuilder', 'AC_Meta_Box_Builder_Data::postbox_classes' );
 		}
 	}
 

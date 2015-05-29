@@ -34,8 +34,8 @@ class AC_Admin_Meta_Boxes {
 		// Save Portfolio Meta Boxes
 		add_action( 'axiscomposer_process_portfolio_meta', 'AC_Meta_Box_Portfolio_Breadcrumb::save', 10, 2 );
 
-		// Save Layout Meta Boxes
-		add_action( 'axiscomposer_process_layout_meta', 'AC_Meta_Box_Layout_Data::save', 10, 2 );
+		// Save Page Layout Meta Boxes
+		add_action( 'axiscomposer_process_page_layout_meta', 'AC_Meta_Box_Layout_Data::save', 10, 2 );
 
 		// Save Page Builder Meta Boxes
 		add_action( 'axiscomposer_process_page_builder_meta', 'AC_Meta_Box_Page_Builder_Data::save', 10, 2 );
@@ -155,7 +155,7 @@ class AC_Admin_Meta_Boxes {
 		}
 
 		// Trigger action
-		$process_actions = array( 'layout', 'page_builder' );
+		$process_actions = array( 'page_layout', 'page_builder' );
 		foreach ( $process_actions as $process_action ) {
 			do_action( 'axiscomposer_process_' . $process_action . '_meta', $post_id, $post );
 		}

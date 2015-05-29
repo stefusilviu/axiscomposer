@@ -34,11 +34,11 @@ class AC_Admin_Meta_Boxes {
 		// Save Portfolio Meta Boxes
 		add_action( 'axiscomposer_process_portfolio_meta', 'AC_Meta_Box_Portfolio_Breadcrumb::save', 10, 2 );
 
-		// Save Page Layout Meta Boxes
-		add_action( 'axiscomposer_process_page_layout_meta', 'AC_Meta_Box_Layout_Data::save', 10, 2 );
+		// Save Layout Meta Boxes
+		add_action( 'axiscomposer_process_layout_meta', 'AC_Meta_Box_Layout_Data::save', 10, 2 );
 
 		// Save Page Builder Meta Boxes
-		add_action( 'axiscomposer_process_page_builder_meta', 'AC_Meta_Box_Page_Builder_Data::save', 10, 2 );
+		add_action( 'axiscomposer_process_pagebuilder_meta', 'AC_Meta_Box_Page_Builder_Data::save', 10, 2 );
 
 		// Restores a post to the specified revision
 		add_action( 'wp_restore_post_revision', array( $this, 'restore_post_revision' ), 10, 2 );
@@ -102,8 +102,8 @@ class AC_Admin_Meta_Boxes {
 
 		// Page Builder
 		foreach ( ac_get_allowed_screen_types() as $type ) {
-			add_meta_box( 'axiscomposer-page-builder', __( 'Page Builder', 'axiscomposer' ), 'AC_Meta_Box_Page_Builder_Data::output', $type, 'normal', 'high' );
-			add_filter( 'postbox_classes_' . $type . '_axiscomposer-page-builder', 'AC_Meta_Box_Page_Builder_Data::postbox_classes' );
+			add_meta_box( 'axiscomposer-pagebuilder', __( 'Page Builder', 'axiscomposer' ), 'AC_Meta_Box_Page_Builder_Data::output', $type, 'normal', 'high' );
+			add_filter( 'postbox_classes_' . $type . '_axiscomposer-pagebuilder', 'AC_Meta_Box_Page_Builder_Data::postbox_classes' );
 		}
 	}
 
@@ -155,7 +155,7 @@ class AC_Admin_Meta_Boxes {
 		}
 
 		// Trigger action
-		$process_actions = array( 'page_layout', 'page_builder' );
+		$process_actions = array( 'layout', 'pagebuilder' );
 		foreach ( $process_actions as $process_action ) {
 			do_action( 'axiscomposer_process_' . $process_action . '_meta', $post_id, $post );
 		}

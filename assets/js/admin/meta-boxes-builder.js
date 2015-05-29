@@ -15,7 +15,7 @@ jQuery( function( $ ) {
 	/**
 	 * Page Builder Panel
 	 */
-	var ac_meta_boxes_builder = {
+	var ac_meta_boxes_pagebuilder = {
 		pagebuilder: null,
 		init: function() {
 			this.pagebuilder = $( '#axiscomposer-pagebuilder' ).find( ':input.pagebuilder-status' );
@@ -103,27 +103,27 @@ jQuery( function( $ ) {
 				return;
 			}
 
-			if ( ac_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
+			if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
 				$( '#content-html' ).trigger( 'click' );
 				$( '#axisbuilder-editor' ).removeClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().addClass( 'ac-hidden-editor' );
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
-				ac_meta_boxes_builder.pagebuilder.val( 'active' );
+				ac_meta_boxes_pagebuilder.pagebuilder.val( 'active' );
 
 				setTimeout( function() {
 					$( '#content-tmce' ).trigger( 'click' );
-					ac_meta_boxes_builder.shortcode_interface();
+					ac_meta_boxes_pagebuilder.shortcode_interface();
 				}, 10 );
 			} else {
 				$( '#axisbuilder-editor' ).find( '.canvas-area' ).empty();
 				$( '#axisbuilder-editor' ).addClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().removeClass( 'ac-hidden-editor' );
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
-				ac_meta_boxes_builder.pagebuilder.val( 'inactive' );
+				ac_meta_boxes_pagebuilder.pagebuilder.val( 'inactive' );
 
 				// Clear default tinyMCE editor if debug mode is disabled
 				if ( axiscomposer_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
-					ac_meta_boxes_builder.tinyMCE( '' );
+					ac_meta_boxes_pagebuilder.tinyMCE( '' );
 				}
 			}
 
@@ -133,7 +133,7 @@ jQuery( function( $ ) {
 
 		shortcode_interface: function( text ) {
 			// Prevent if we don't have the pagebuilder active
-			if ( ac_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
+			if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
 				return;
 			}
 
@@ -155,7 +155,7 @@ jQuery( function( $ ) {
 				action: 'axisbuilder_shortcodes_to_interface'
 			};
 
-			ac_meta_boxes_builder.block();
+			ac_meta_boxes_pagebuilder.block();
 
 			$.ajax({
 				url: axiscomposer_admin_meta_boxes_builder.ajax_url,
@@ -165,11 +165,11 @@ jQuery( function( $ ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
 					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
-					// ac_meta_boxes_builder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
-					ac_meta_boxes_builder.storage.history_snapshot();
-					ac_meta_boxes_builder.tiptip();
-					ac_meta_boxes_builder.unblock();
-					ac_meta_boxes_builder.stupidtable.init();
+					// ac_meta_boxes_pagebuilder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
+					ac_meta_boxes_pagebuilder.storage.history_snapshot();
+					ac_meta_boxes_pagebuilder.tiptip();
+					ac_meta_boxes_pagebuilder.unblock();
+					ac_meta_boxes_pagebuilder.stupidtable.init();
 				}
 			});
 		},
@@ -183,8 +183,8 @@ jQuery( function( $ ) {
 				if ( insert_target === 'instant-insert' ) {
 					$( '.canvas-area' ).append( element_tmpl.html() );
 					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
-					ac_meta_boxes_builder.textarea.outer();
-					ac_meta_boxes_builder.storage.history_snapshot();
+					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 				}
 			}
 
@@ -223,7 +223,7 @@ jQuery( function( $ ) {
 			// Check if cell
 			if ( element.is( '.axisbuilder-layout-cell' ) ) {
 				var count  = element.parents( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
-				if ( typeof ac_meta_boxes_builder_data.new_cell_order[count] !== 'undefined' ) {
+				if ( typeof ac_meta_boxes_pagebuilder_data.new_cell_order[count] !== 'undefined' ) {
 					recalc_cell = true;
 				} else {
 					return false;
@@ -239,19 +239,19 @@ jQuery( function( $ ) {
 			element.clone().insertAfter( element );
 
 			if ( recalc_cell ) {
-				ac_meta_boxes_builder.cell.modify_cell_count( this, -1 );
+				ac_meta_boxes_pagebuilder.cell.modify_cell_count( this, -1 );
 			}
 
 			var wrapper = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
 			if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapper.length ) {
 				if ( wrapper.length ) {
-					ac_meta_boxes_builder.textarea.outer();
-					ac_meta_boxes_builder.textarea.inner( element );
+					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.textarea.inner( element );
 				}
 			}
 
-			ac_meta_boxes_builder.textarea.outer();
-			ac_meta_boxes_builder.storage.history_snapshot();
+			ac_meta_boxes_pagebuilder.textarea.outer();
+			ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
 			return false;
 		},
@@ -281,17 +281,17 @@ jQuery( function( $ ) {
 
 			element.hide( hide_timer, function() {
 				if ( remove_cell ) {
-					ac_meta_boxes_builder.cell.modify_cell_count( this, -2 );
+					ac_meta_boxes_pagebuilder.cell.modify_cell_count( this, -2 );
 				}
 
 				element.remove();
 
 				if ( parents && parents.length ) {
-					ac_meta_boxes_builder.textarea.inner( parents );
+					ac_meta_boxes_pagebuilder.textarea.inner( parents );
 				}
 
-				ac_meta_boxes_builder.textarea.outer();
-				ac_meta_boxes_builder.storage.history_snapshot();
+				ac_meta_boxes_pagebuilder.textarea.outer();
+				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 
 				// Bugfix - column delete makes the canvas undroppable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
@@ -308,8 +308,8 @@ jQuery( function( $ ) {
 
 			// Clear storage
 			if ( length === 0 ) {
-				ac_meta_boxes_builder.storage.clear_storage();
-				ac_meta_boxes_builder.storage.history_snapshot();
+				ac_meta_boxes_pagebuilder.storage.clear_storage();
+				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			}
 
 			// AxisComposer Backbone Modal
@@ -331,7 +331,7 @@ jQuery( function( $ ) {
 				data_storage = column.find( '.axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 				data_string  = data_storage.val(),
 				next_size    = [],
-				column_size  = ac_meta_boxes_builder_data.col_size,
+				column_size  = ac_meta_boxes_pagebuilder_data.col_size,
 				current_size = column.data( 'width' );
 
 			// Next size?
@@ -359,12 +359,12 @@ jQuery( function( $ ) {
 				size_string.text( next_size[1] );
 
 				// Textarea Update and History snapshot :)
-				ac_meta_boxes_builder.textarea.outer();
+				ac_meta_boxes_pagebuilder.textarea.outer();
 				if ( section.length ) {
-					ac_meta_boxes_builder.textarea.inner( false, section );
-					ac_meta_boxes_builder.textarea.outer();
+					ac_meta_boxes_pagebuilder.textarea.inner( false, section );
+					ac_meta_boxes_pagebuilder.textarea.outer();
 				}
-				ac_meta_boxes_builder.storage.history_snapshot();
+				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			}
 
 			return false;
@@ -372,7 +372,7 @@ jQuery( function( $ ) {
 
 		select_changed: function() {
 			var container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
-			ac_meta_boxes_builder.recalc_element( container );
+			ac_meta_boxes_pagebuilder.recalc_element( container );
 			return false;
 		},
 
@@ -386,7 +386,7 @@ jQuery( function( $ ) {
 				values[current.data( 'attr' )] = current.val();
 			}
 
-			ac_meta_boxes_builder.send_to_datastorage( values, element_container );
+			ac_meta_boxes_pagebuilder.send_to_datastorage( values, element_container );
 		},
 
 		send_to_datastorage: function( values, element_container ) {
@@ -400,7 +400,7 @@ jQuery( function( $ ) {
 			if ( typeof values === 'string' ) {
 				output = values;
 			} else {
-				var extract_html = ac_meta_boxes_builder.update_builder_html( element_container, values );
+				var extract_html = ac_meta_boxes_pagebuilder.update_builder_html( element_container, values );
 
 				output = extract_html.output;
 				tags   = extract_html.tags;
@@ -415,13 +415,13 @@ jQuery( function( $ ) {
 
 			// Update the Section and column inner textarea
 			if ( section.length ) {
-				ac_meta_boxes_builder.textarea.inner( false, section );
+				ac_meta_boxes_pagebuilder.textarea.inner( false, section );
 			} else if ( column.length ) {
-				ac_meta_boxes_builder.textarea.inner( false, column );
+				ac_meta_boxes_pagebuilder.textarea.inner( false, column );
 			}
 
-			ac_meta_boxes_builder.textarea.outer();
-			ac_meta_boxes_builder.storage.history_snapshot();
+			ac_meta_boxes_pagebuilder.textarea.outer();
+			ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			element_container.trigger( 'update' );
 		},
 
@@ -491,7 +491,7 @@ jQuery( function( $ ) {
 			// Create the shortcode string out of the arguments and save it to the data storage textarea.
 			var tags = {}, extract_html = {};
 			extract_html.tags = tags;
-			extract_html.output = ac_meta_boxes_builder.shortcode_string( values, shortcode, tags, force_content_close );
+			extract_html.output = ac_meta_boxes_pagebuilder.shortcode_string( values, shortcode, tags, force_content_close );
 
 			return extract_html;
 		},
@@ -579,12 +579,12 @@ jQuery( function( $ ) {
 				if ( container.is( '.axisbuilder-layout-section' ) ) {
 					var columns = container.find( '.axisbuilder-layout-column-no-cell' );
 					for ( i = 0; i < columns.length; i++ ) {
-						ac_meta_boxes_builder.textarea.inner( false, $( columns[i] ) );
+						ac_meta_boxes_pagebuilder.textarea.inner( false, $( columns[i] ) );
 					}
 
 					columns = container.find( '.axisbuilder-layout-cell' );
 					for ( i = 0; i < columns.length; i++ ) {
-						ac_meta_boxes_builder.textarea.inner( false, $( columns[i] ) );
+						ac_meta_boxes_pagebuilder.textarea.inner( false, $( columns[i] ) );
 					}
 
 					content        = '';
@@ -635,7 +635,7 @@ jQuery( function( $ ) {
 
 			outer: function( scope ) {
 				// Prevent if we don't have the pagebuilder active
-				if ( ac_meta_boxes_builder.pagebuilder.val() !== 'active' ) {
+				if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
 					return;
 				}
 
@@ -645,11 +645,11 @@ jQuery( function( $ ) {
 							col_in_grid_cell = $( this ).find( '.axisbuilder-layout-cell .axisbuilder-layout-column-no-cell > .axisbuilder-inner-shortcode' );
 
 						if ( col_in_section.length ) {
-							ac_meta_boxes_builder.textarea.outer( col_in_section );
+							ac_meta_boxes_pagebuilder.textarea.outer( col_in_section );
 						}
 
 						if ( col_in_grid_cell.length ) {
-							ac_meta_boxes_builder.textarea.outer( col_in_grid_cell );
+							ac_meta_boxes_pagebuilder.textarea.outer( col_in_grid_cell );
 						}
 					});
 
@@ -658,7 +658,7 @@ jQuery( function( $ ) {
 
 				var content        = '',
 					size_count     = 0,
-					column_size    = ac_meta_boxes_builder_data.col_size,
+					column_size    = ac_meta_boxes_pagebuilder_data.col_size,
 					content_fields = scope.find( '>textarea[data-name="text-shortcode"]' ),
 					current_field, current_content, current_parents, current_size, next_size;
 
@@ -706,7 +706,7 @@ jQuery( function( $ ) {
 				var timer = false;
 				clearTimeout( timer );
 				timer = setTimeout( function() {
-					ac_meta_boxes_builder.tinyMCE( content );
+					ac_meta_boxes_pagebuilder.tinyMCE( content );
 				}, 500 );
 			}
 		},
@@ -714,9 +714,9 @@ jQuery( function( $ ) {
 		dragdrop: {
 
 			init: function() {
-				ac_meta_boxes_builder.dragdrop.disable();
-				ac_meta_boxes_builder.dragdrop.draggable();
-				ac_meta_boxes_builder.dragdrop.droppable();
+				ac_meta_boxes_pagebuilder.dragdrop.disable();
+				ac_meta_boxes_pagebuilder.dragdrop.draggable();
+				ac_meta_boxes_pagebuilder.dragdrop.droppable();
 			},
 
 			disable: function() {
@@ -769,7 +769,7 @@ jQuery( function( $ ) {
 					tolerance: 'pointer',
 					over: function( event, ui ) {
 						var droppable = $( this );
-						if ( ac_meta_boxes_builder.dragdrop.is_droppable( ui.helper, droppable ) ) {
+						if ( ac_meta_boxes_pagebuilder.dragdrop.is_droppable( ui.helper, droppable ) ) {
 							droppable.addClass( 'axisbuilder-hover-active' );
 						}
 					},
@@ -862,7 +862,7 @@ jQuery( function( $ ) {
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {
-							ac_meta_boxes_builder.textarea.inner( false, formerParent );
+							ac_meta_boxes_pagebuilder.textarea.inner( false, formerParent );
 						}
 
 						// Get the element that the new element was inserted into. This has to be the parent of the current toEL since we usually insert the new element outside of the toEL with the 'after' method
@@ -870,12 +870,12 @@ jQuery( function( $ ) {
 						var insertedInto = ( method === 'after' ) ? toEl.parents( '.axisbuilder-drop' ) : toEl;
 
 						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
-							ac_meta_boxes_builder.textarea.outer(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
-							ac_meta_boxes_builder.textarea.inner( ui.draggable );
+							ac_meta_boxes_pagebuilder.textarea.outer(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
+							ac_meta_boxes_pagebuilder.textarea.inner( ui.draggable );
 						}
 
 						// Everything is fine, now do the re sorting and textarea updating
-						ac_meta_boxes_builder.textarea.outer();
+						ac_meta_boxes_pagebuilder.textarea.outer();
 
 						// Apply dragging and dropping in case we got a new element
 						if ( typeof template !== 'undefined' ) {
@@ -883,7 +883,7 @@ jQuery( function( $ ) {
 						}
 
 						// History Snapshot
-						ac_meta_boxes_builder.storage.history_snapshot();
+						ac_meta_boxes_pagebuilder.storage.history_snapshot();
 					}
 				};
 
@@ -895,15 +895,15 @@ jQuery( function( $ ) {
 		cell: {
 
 			add_cell: function() {
-				ac_meta_boxes_builder.cell.modify_cell_count( this, 0 );
+				ac_meta_boxes_pagebuilder.cell.modify_cell_count( this, 0 );
 				return false;
 			},
 
 			set_cell_size: function() {
 				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
-					cell_size            = ac_meta_boxes_builder_data.cell_size,
-					cell_size_variations = ac_meta_boxes_builder_data.cell_size_variations[cells.length], notification = '';
+					cell_size            = ac_meta_boxes_pagebuilder_data.cell_size,
+					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length], notification = '';
 
 				// Create cell size lists
 				if ( cell_size_variations ) {
@@ -942,10 +942,10 @@ jQuery( function( $ ) {
 				var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells = $row.find( '.axisbuilder-layout-cell' ),
 					count = ( cells.length + direction ),
-					newEl = ac_meta_boxes_builder_data.new_cell_order[count];
+					newEl = ac_meta_boxes_pagebuilder_data.new_cell_order[count];
 
 				if ( typeof newEl !== 'undefined' ) {
-					ac_meta_boxes_builder.cell.change_multiple_cell_size( cells, newEl );
+					ac_meta_boxes_pagebuilder.cell.change_multiple_cell_size( cells, newEl );
 
 					// Check if we can append cells
 					if ( cells.length === count ) {
@@ -956,16 +956,16 @@ jQuery( function( $ ) {
 						}
 					}
 
-					ac_meta_boxes_builder.textarea.inner( false, $row );
-					ac_meta_boxes_builder.textarea.outer();
-					ac_meta_boxes_builder.storage.history_snapshot();
+					ac_meta_boxes_pagebuilder.textarea.inner( false, $row );
+					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 				}
 			},
 
 			change_multiple_cell_size: function( cells, newEl, multi ) {
 				var key       = '',
 					next_size = newEl,
-					cell_size = ac_meta_boxes_builder_data.cell_size;
+					cell_size = ac_meta_boxes_pagebuilder_data.cell_size;
 
 				cells.each( function( i ) {
 					if ( multi ) {
@@ -977,7 +977,7 @@ jQuery( function( $ ) {
 						}
 					}
 
-					ac_meta_boxes_builder.cell.change_single_cell_size( $( this ), next_size );
+					ac_meta_boxes_pagebuilder.cell.change_single_cell_size( $( this ), next_size );
 				});
 			},
 
@@ -1011,7 +1011,7 @@ jQuery( function( $ ) {
 
 			init: function( e, target ) {
 				if ( '#tmpl-ac-modal-edit-element' === target ) {
-					ac_meta_boxes_builder.backbone.init_edit_element();
+					ac_meta_boxes_pagebuilder.backbone.init_edit_element();
 				}
 			},
 
@@ -1041,8 +1041,8 @@ jQuery( function( $ ) {
 			init_edit_element: function() {
 				var parents = window.axisbuilder_shortcode;
 
-				ac_meta_boxes_builder.backbone.block();
-				ac_meta_boxes_builder.backbone.disable();
+				ac_meta_boxes_pagebuilder.backbone.block();
+				ac_meta_boxes_pagebuilder.backbone.disable();
 
 				var data = {
 					fetch: true,
@@ -1062,7 +1062,7 @@ jQuery( function( $ ) {
 
 						// Login(0) and session(-1) error response xD
 						if ( response === '0' || response === '-1' ) {
-							ac_meta_boxes_builder.backbone.dismiss();
+							ac_meta_boxes_pagebuilder.backbone.dismiss();
 						} else {
 							$( '.ac-backbone-modal-article form' ).empty();
 							$( '.ac-backbone-modal-article form' ).append( response );
@@ -1071,49 +1071,49 @@ jQuery( function( $ ) {
 							$( document.body ).trigger( 'axisbuilder-enhanced-modal-elements-init' );
 						}
 
-						ac_meta_boxes_builder.tiptip();
-						ac_meta_boxes_builder.unblock();
-						ac_meta_boxes_builder.backbone.enable();
-						ac_meta_boxes_builder.stupidtable.init();
+						ac_meta_boxes_pagebuilder.tiptip();
+						ac_meta_boxes_pagebuilder.unblock();
+						ac_meta_boxes_pagebuilder.backbone.enable();
+						ac_meta_boxes_pagebuilder.stupidtable.init();
 					}
 				});
 			},
 
 			response: function( e, target, data ) {
 				if ( '#tmpl-ac-modal-trash-data' === target ) {
-					ac_meta_boxes_builder.backbone.trash_data();
+					ac_meta_boxes_pagebuilder.backbone.trash_data();
 				}
 				if ( '#tmpl-ac-modal-cell-size' === target ) {
-					ac_meta_boxes_builder.backbone.cell_size( data.add_cell_size );
+					ac_meta_boxes_pagebuilder.backbone.cell_size( data.add_cell_size );
 				}
 				if ( '#tmpl-ac-modal-edit-element' === target ) {
-					ac_meta_boxes_builder.backbone.edit_element( data );
+					ac_meta_boxes_pagebuilder.backbone.edit_element( data );
 				}
 			},
 
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
-				ac_meta_boxes_builder.textarea.outer();
-				ac_meta_boxes_builder.storage.clear_storage();
-				ac_meta_boxes_builder.storage.history_snapshot();
+				ac_meta_boxes_pagebuilder.textarea.outer();
+				ac_meta_boxes_pagebuilder.storage.clear_storage();
+				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			},
 
 			cell_size: function( add_cell_size ) {
 				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
-					cell_size_variations = ac_meta_boxes_builder_data.cell_size_variations[cells.length];
+					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length];
 
 				if ( add_cell_size ) {
-					ac_meta_boxes_builder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
-					ac_meta_boxes_builder.textarea.inner( false, $row );
-					ac_meta_boxes_builder.textarea.outer();
-					ac_meta_boxes_builder.storage.history_snapshot();
+					ac_meta_boxes_pagebuilder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
+					ac_meta_boxes_pagebuilder.textarea.inner( false, $row );
+					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 				}
 			},
 
 			edit_element: function( data ) {
 				var parents = window.axisbuilder_shortcode;
-				ac_meta_boxes_builder.send_to_datastorage( data, parents );
+				ac_meta_boxes_pagebuilder.send_to_datastorage( data, parents );
 			}
 		},
 
@@ -1138,13 +1138,13 @@ jQuery( function( $ ) {
 			},
 
 			get_key: function( passed_key ) {
-				var history = ac_meta_boxes_builder.storage;
+				var history = ac_meta_boxes_pagebuilder.storage;
 				return $.parseJSON( sessionStorage.getItem( passed_key || history.set_key() ) );
 			},
 
 			undo_data: function( e ) {
 				e.preventDefault();
-				var history = ac_meta_boxes_builder.storage;
+				var history = ac_meta_boxes_pagebuilder.storage;
 				if ( ( history.temporary - 1 ) >= 0 ) {
 					history.temporary --;
 					history.canvas_update( history.storage[ history.temporary ] );
@@ -1153,7 +1153,7 @@ jQuery( function( $ ) {
 
 			redo_data: function( e ) {
 				e.preventDefault();
-				var history = ac_meta_boxes_builder.storage;
+				var history = ac_meta_boxes_pagebuilder.storage;
 				if ( ( history.temporary + 1 ) <= history.maximum ) {
 					history.temporary ++;
 					history.canvas_update( history.storage[ history.temporary ] );
@@ -1161,11 +1161,11 @@ jQuery( function( $ ) {
 			},
 
 			canvas_update: function( values ) {
-				var history = ac_meta_boxes_builder.storage;
+				var history = ac_meta_boxes_pagebuilder.storage;
 
 				$( '.canvas-data' ).val( values[0] );
 				$( '.canvas-area' ).html( values[1] );
-				ac_meta_boxes_builder.tinyMCE( values[0] );
+				ac_meta_boxes_pagebuilder.tinyMCE( values[0] );
 				sessionStorage.setItem( history.set_key() + '-temp', history.temporary );
 
 				// Undo button
@@ -1191,7 +1191,7 @@ jQuery( function( $ ) {
 					this.innerHTML = this.value;
 				});
 
-				var history = ac_meta_boxes_builder.storage;
+				var history = ac_meta_boxes_pagebuilder.storage;
 				if ( typeof history.temporary === 'undefined' || history.temporary === null ) {
 					history.temporary = history.storage.length - 1;
 				}
@@ -1213,7 +1213,7 @@ jQuery( function( $ ) {
 					try {
 						sessionStorage.setItem( history.set_key(), JSON.stringify( history.storage ) );
 					} catch( err ) {
-						ac_meta_boxes_builder.storage.clear_storage();
+						ac_meta_boxes_pagebuilder.storage.clear_storage();
 						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
 					}
 				}
@@ -1236,7 +1236,7 @@ jQuery( function( $ ) {
 			},
 
 			clear_storage: function() {
-				var history = ac_meta_boxes_builder.storage;
+				var history = ac_meta_boxes_pagebuilder.storage;
 				sessionStorage.removeItem( history.set_key() );
 				sessionStorage.removeItem( history.set_key() + '-temp' );
 
@@ -1257,12 +1257,12 @@ jQuery( function( $ ) {
 
 				// Ctrl+z key
 				if ( 90 === button && controlled && ! e.shiftKey && ! e.altKey ) {
-					ac_meta_boxes_builder.storage.undo_data( e );
+					ac_meta_boxes_pagebuilder.storage.undo_data( e );
 				}
 
 				// Ctrl+y key
 				if ( 89 === button && controlled && ! e.shiftKey && ! e.altKey ) {
-					ac_meta_boxes_builder.storage.redo_data( e );
+					ac_meta_boxes_pagebuilder.storage.redo_data( e );
 				}
 			}
 		},
@@ -1291,7 +1291,7 @@ jQuery( function( $ ) {
 	/**
 	 * Page Builder Data
 	 */
-	var ac_meta_boxes_builder_data = {
+	var ac_meta_boxes_pagebuilder_data = {
 
 		col_size: [
 			[ 'ab_one_full', '1/1', 1.00 ], [ 'ab_four_fifth', '4/5', 0.80 ], [ 'ab_three_fourth', '3/4', 0.75 ], [ 'ab_two_third', '2/3', 0.66 ], [ 'ab_three_fifth', '3/5', 0.60 ], [ 'ab_one_half', '1/2', 0.50 ], [ 'ab_two_fifth', '2/5', 0.40 ], [ 'ab_one_third', '1/3', 0.33 ], [ 'ab_one_fourth', '1/4', 0.25 ], [ 'ab_one_fifth', '1/5', 0.20 ]
@@ -1339,5 +1339,5 @@ jQuery( function( $ ) {
 		}
 	};
 
-	ac_meta_boxes_builder.init();
+	ac_meta_boxes_pagebuilder.init();
 });

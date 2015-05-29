@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder, quicktags, QTags */
+/* global axiscomposer_admin_meta_boxes_builder, quicktags, QTags */
 jQuery( function ( $ ) {
 
 	// Field validation error tips
@@ -7,7 +7,7 @@ jQuery( function ( $ ) {
 			var offset = element.position();
 
 			if ( element.parent().find( '.axisbuilder_error_tip' ).size() === 0 ) {
-				element.after( '<div class="axisbuilder_error_tip ' + error_type + '">' + axisbuilder_admin_meta_boxes_builder[error_type] + '</div>' );
+				element.after( '<div class="axisbuilder_error_tip ' + error_type + '">' + axiscomposer_admin_meta_boxes_builder[error_type] + '</div>' );
 				element.parent().find( '.axisbuilder_error_tip' )
 					.css( 'left', offset.left + element.width() - ( element.width() / 2 ) - ( $( '.axisbuilder_error_tip' ).width() / 2 ) )
 					.css( 'top', offset.top + element.height() )

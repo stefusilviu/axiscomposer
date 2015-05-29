@@ -1,4 +1,4 @@
-/* global wpWidgets, axisbuilder_admin_sidebars */
+/* global wpWidgets, axiscomposer_admin_sidebars */
 ( function( $ ) {
 	'use strict';
 
@@ -39,7 +39,7 @@
 				data    = {
 					sidebar: sidebar,
 					action: 'axisbuilder_delete_custom_sidebar',
-					security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
+					security: axiscomposer_admin_sidebars.delete_custom_sidebar_nonce
 				};
 
 			// AxisComposer Backbone Modal
@@ -53,7 +53,7 @@
 				}
 
 				$.ajax( {
-					url: axisbuilder_admin_sidebars.ajax_url,
+					url: axiscomposer_admin_sidebars.ajax_url,
 					data: data,
 					type: 'POST',
 					beforeSend: function() {

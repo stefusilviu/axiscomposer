@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_meta_boxes_builder */
+/* global axiscomposer_admin_meta_boxes_builder */
 jQuery( function( $ ) {
 
 	/** Storage Handling */
@@ -122,7 +122,7 @@ jQuery( function( $ ) {
 				axisbuilder_meta_boxes_builder.pagebuilder.val( 'inactive' );
 
 				// Clear default tinyMCE editor if debug mode is disabled
-				if ( axisbuilder_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
+				if ( axiscomposer_admin_meta_boxes_builder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
 					axisbuilder_meta_boxes_builder.tinyMCE( '' );
 				}
 			}
@@ -158,7 +158,7 @@ jQuery( function( $ ) {
 			axisbuilder_meta_boxes_builder.block();
 
 			$.ajax({
-				url: axisbuilder_admin_meta_boxes_builder.ajax_url,
+				url: axiscomposer_admin_meta_boxes_builder.ajax_url,
 				data: data,
 				type: 'POST',
 				success: function( response ) {
@@ -314,8 +314,8 @@ jQuery( function( $ ) {
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				title: axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_title,
-				message: ( length > 0 ) ? axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_notice : axisbuilder_admin_meta_boxes_builder.i18n_trash_elements_least,
+				title: axiscomposer_admin_meta_boxes_builder.i18n_trash_elements_title,
+				message: ( length > 0 ) ? axiscomposer_admin_meta_boxes_builder.i18n_trash_elements_notice : axiscomposer_admin_meta_boxes_builder.i18n_trash_elements_least,
 				dismiss: ( length > 0 ) ? false : true,
 				template: '#tmpl-ac-modal-trash-data'
 			});
@@ -923,13 +923,13 @@ jQuery( function( $ ) {
 						notification += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
 					}
 				} else {
-					notification += axisbuilder_admin_meta_boxes_builder.i18n_no_layout + '<br />';
-					notification += ( cells.length === 1 ) ? '<mark class="yes">' + axisbuilder_admin_meta_boxes_builder.i18n_add_one_cell + '</mark>' : '<mark class="no">' + axisbuilder_admin_meta_boxes_builder.i18n_remove_one_cell + '</mark>';
+					notification += axiscomposer_admin_meta_boxes_builder.i18n_no_layout + '<br />';
+					notification += ( cells.length === 1 ) ? '<mark class="yes">' + axiscomposer_admin_meta_boxes_builder.i18n_add_one_cell + '</mark>' : '<mark class="no">' + axiscomposer_admin_meta_boxes_builder.i18n_remove_one_cell + '</mark>';
 				}
 
 				// AxisComposer Backbone Modal
 				$( this ).ACBackboneModal({
-					title: axisbuilder_admin_meta_boxes_builder.i18n_select_cell_layout,
+					title: axiscomposer_admin_meta_boxes_builder.i18n_select_cell_layout,
 					message: notification,
 					dismiss: cell_size_variations ? false : true,
 					template: '#tmpl-ac-modal-cell-size'
@@ -1034,8 +1034,8 @@ jQuery( function( $ ) {
 			},
 
 			dismiss: function() {
-				$( '.ac-backbone-modal-content' ).find( 'p' ).append( axisbuilder_admin_meta_boxes_builder.i18n_backbone_loading_falied );
-				$( '.ac-backbone-modal-footer .inner' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axisbuilder_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
+				$( '.ac-backbone-modal-content' ).find( 'p' ).append( axiscomposer_admin_meta_boxes_builder.i18n_backbone_loading_falied );
+				$( '.ac-backbone-modal-footer .inner' ).find( 'button' ).removeAttr( 'id' ).removeClass( 'button-primary' ).addClass( 'button-secondary modal-close' ).text( axiscomposer_admin_meta_boxes_builder.i18n_backbone_dismiss_button );
 			},
 
 			init_edit_element: function() {
@@ -1051,11 +1051,11 @@ jQuery( function( $ ) {
 						shortcode: parents.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
 					},
 					action: 'axisbuilder_' + parents.data( 'modal-action' ),
-					security: axisbuilder_admin_meta_boxes_builder.modal_item_nonce
+					security: axiscomposer_admin_meta_boxes_builder.modal_item_nonce
 				};
 
 				$.ajax({
-					url:  axisbuilder_admin_meta_boxes_builder.ajax_url,
+					url:  axiscomposer_admin_meta_boxes_builder.ajax_url,
 					data: data,
 					type: 'POST',
 					success: function( response ) {
@@ -1134,7 +1134,7 @@ jQuery( function( $ ) {
 			},
 
 			set_key: function() {
-				return ( 'axisbuilder-storage-' + axisbuilder_admin_meta_boxes_builder.post_id ).toLowerCase();
+				return ( 'axisbuilder-storage-' + axiscomposer_admin_meta_boxes_builder.post_id ).toLowerCase();
 			},
 
 			get_key: function( passed_key ) {

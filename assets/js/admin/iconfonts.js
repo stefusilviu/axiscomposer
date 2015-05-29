@@ -1,4 +1,4 @@
-/* global axisbuilder_admin_iconfonts, jQuery, Backbone, _ */
+/* global axiscomposer_admin_iconfonts, jQuery, Backbone, _ */
 
 var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
@@ -66,11 +66,11 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 			var data = {
 				term: $el.data( 'delete' ),
 				action: 'axisbuilder_delete_iconfont',
-				security: axisbuilder_admin_iconfonts.delete_custom_iconfont_nonce
+				security: axiscomposer_admin_iconfonts.delete_custom_iconfont_nonce
 			};
 
 			$.ajax({
-				url: axisbuilder_admin_iconfonts.ajax_url,
+				url: axiscomposer_admin_iconfonts.ajax_url,
 				data: data,
 				type: 'POST',
 				beforeSend: function() {
@@ -142,11 +142,11 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 		var	data = {
 			value: attachment,
 			action: 'axisbuilder_add_iconfont',
-			security: axisbuilder_admin_iconfonts.add_custom_iconfont_nonce
+			security: axiscomposer_admin_iconfonts.add_custom_iconfont_nonce
 		};
 
 		$.ajax({
-			url: axisbuilder_admin_iconfonts.ajax_url,
+			url: axiscomposer_admin_iconfonts.ajax_url,
 			data: data,
 			type: 'POST',
 			beforeSend: function() {

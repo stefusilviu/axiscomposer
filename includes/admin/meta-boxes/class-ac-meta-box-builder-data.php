@@ -205,7 +205,7 @@ class AC_Meta_Box_Builder_Data {
 	/**
 	 * Filter the postbox classes for a specific screen and screen ID combo.
 	 * @param  array $classes An array of postbox classes.
-	 * @return array
+	 * @return array $classes
 	 */
 	public static function postbox_classes( $classes ) {
 		$status_options = get_option( 'axiscomposer_status_options', array() );

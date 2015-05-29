@@ -18,7 +18,7 @@ jQuery( function( $ ) {
 	var ac_meta_boxes_builder = {
 		pagebuilder: null,
 		init: function() {
-			this.pagebuilder = $( '#axiscomposer-pagebuilder' ).find( ':input.pagebuilder-status' );
+			this.pagebuilder = $( '#axiscomposer-page-builder' ).find( ':input.pagebuilder-status' );
 
 			this.storage.init();
 			this.stupidtable.init();

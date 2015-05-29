@@ -37,7 +37,7 @@ class AC_Admin_Meta_Boxes {
 		// Save Layout Meta Boxes
 		add_action( 'axiscomposer_process_layout_meta', 'AC_Meta_Box_Layout_Data::save', 10, 2 );
 
-		// Save Builder Meta Boxes
+		// Save Page Builder Meta Boxes
 		add_action( 'axiscomposer_process_page_builder_meta', 'AC_Meta_Box_Page_Builder_Data::save', 10, 2 );
 
 		// Restores a post to the specified revision
@@ -155,7 +155,7 @@ class AC_Admin_Meta_Boxes {
 		}
 
 		// Trigger action
-		$process_actions = array( 'layout', 'builder' );
+		$process_actions = array( 'layout', 'page_builder' );
 		foreach ( $process_actions as $process_action ) {
 			do_action( 'axiscomposer_process_' . $process_action . '_meta', $post_id, $post );
 		}

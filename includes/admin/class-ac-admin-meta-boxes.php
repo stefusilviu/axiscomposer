@@ -2,7 +2,7 @@
 /**
  * AxisComposer Meta Boxes
  *
- * Sets up the write panels used by builder and custom post types.
+ * Sets up the write panels used by page builder and custom post types.
  *
  * @class       AC_Admin_Meta_Boxes
  * @package     AxisComposer/Admin/Meta Boxes
@@ -172,10 +172,10 @@ class AC_Admin_Meta_Boxes {
 		$metadata = array( '_axiscomposer_canvas' );
 
 		foreach ( $metadata as $metafield ) {
-			$builder_metadata = get_metadata( 'post', $revision->ID, $metafield, true );
+			$pagebuilder_metadata = get_metadata( 'post', $revision->ID, $metafield, true );
 
-			if ( ! empty( $builder_metadata ) ) {
-				update_post_meta( $post_id, $metafield, $builder_metadata );
+			if ( ! empty( $pagebuilder_metadata ) ) {
+				update_post_meta( $post_id, $metafield, $pagebuilder_metadata );
 			} else {
 				delete_post_meta( $post_id, $metafield );
 			}

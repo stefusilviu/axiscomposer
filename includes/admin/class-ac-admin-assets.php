@@ -118,8 +118,8 @@ class AC_Admin_Assets {
 
 		// Meta boxes
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'ac-admin-builder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-builder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal' ), AC_VERSION );
-			wp_enqueue_script( 'ac-admin-builder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-builder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
@@ -139,7 +139,7 @@ class AC_Admin_Assets {
 				'i18n_backbone_dismiss_button'    => esc_js( __( 'Dismiss', 'axiscomposer' ) )
 			);
 
-			wp_localize_script( 'ac-admin-builder-meta-boxes', 'axiscomposer_admin_meta_boxes_builder', $params );
+			wp_localize_script( 'ac-admin-pagebuilder-meta-boxes', 'axiscomposer_admin_meta_boxes_pagebuilder', $params );
 		}
 
 		if ( in_array( $screen->id, ac_get_layout_supported_screens() ) ) {

@@ -228,10 +228,10 @@ class AC_Meta_Box_Builder_Data {
 	 */
 	public static function save( $post_id ) {
 
-		// Save the builder status and canvas textarea data :)
-		$builder_post_meta = array( 'pagebuilder_status', 'pagebuilder_canvas' );
+		// Save the page builder status and canvas textarea data :)
+		$pagebuilder_post_meta = array( 'pagebuilder_status', 'pagebuilder_canvas' );
 
-		foreach ( $builder_post_meta as $post_meta ) {
+		foreach ( $pagebuilder_post_meta as $post_meta ) {
 			if ( isset( $_POST[ $post_meta ] ) ) {
 				update_post_meta( $post_id, '_' . $post_meta, $_POST[ $post_meta ] );
 			}

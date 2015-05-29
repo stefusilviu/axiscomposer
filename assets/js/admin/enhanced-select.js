@@ -1,51 +1,51 @@
-/* global axisbuilder_enhanced_select_params */
+/* global ac_enhanced_select_params */
 jQuery( function( $ ) {
 
 	function getEnhancedSelectFormatString() {
 		var formatString = {
 			formatMatches: function( matches ) {
 				if ( 1 === matches ) {
-					return axisbuilder_enhanced_select_params.i18n_matches_1;
+					return ac_enhanced_select_params.i18n_matches_1;
 				}
 
-				return axisbuilder_enhanced_select_params.i18n_matches_n.replace( '%qty%', matches );
+				return ac_enhanced_select_params.i18n_matches_n.replace( '%qty%', matches );
 			},
 			formatNoMatches: function() {
-				return axisbuilder_enhanced_select_params.i18n_no_matches;
+				return ac_enhanced_select_params.i18n_no_matches;
 			},
 			formatAjaxError: function( jqXHR, textStatus, errorThrown ) {
-				return axisbuilder_enhanced_select_params.i18n_ajax_error;
+				return ac_enhanced_select_params.i18n_ajax_error;
 			},
 			formatInputTooShort: function( input, min ) {
 				var number = min - input.length;
 
 				if ( 1 === number ) {
-					return axisbuilder_enhanced_select_params.i18n_input_too_short_1;
+					return ac_enhanced_select_params.i18n_input_too_short_1;
 				}
 
-				return axisbuilder_enhanced_select_params.i18n_input_too_short_n.replace( '%qty%', number );
+				return ac_enhanced_select_params.i18n_input_too_short_n.replace( '%qty%', number );
 			},
 			formatInputTooLong: function( input, max ) {
 				var number = input.length - max;
 
 				if ( 1 === number ) {
-					return axisbuilder_enhanced_select_params.i18n_input_too_long_1;
+					return ac_enhanced_select_params.i18n_input_too_long_1;
 				}
 
-				return axisbuilder_enhanced_select_params.i18n_input_too_long_n.replace( '%qty%', number );
+				return ac_enhanced_select_params.i18n_input_too_long_n.replace( '%qty%', number );
 			},
 			formatSelectionTooBig: function( limit ) {
 				if ( 1 === limit ) {
-					return axisbuilder_enhanced_select_params.i18n_selection_too_long_1;
+					return ac_enhanced_select_params.i18n_selection_too_long_1;
 				}
 
-				return axisbuilder_enhanced_select_params.i18n_selection_too_long_n.replace( '%qty%', limit );
+				return ac_enhanced_select_params.i18n_selection_too_long_n.replace( '%qty%', limit );
 			},
 			formatLoadMore: function( pageNumber ) {
-				return axisbuilder_enhanced_select_params.i18n_load_more;
+				return ac_enhanced_select_params.i18n_load_more;
 			},
 			formatSearching: function() {
-				return axisbuilder_enhanced_select_params.i18n_searching;
+				return ac_enhanced_select_params.i18n_searching;
 			}
 		};
 
@@ -87,14 +87,14 @@ jQuery( function( $ ) {
 						return m;
 					},
 					ajax: {
-						url:         axisbuilder_enhanced_select_params.ajax_url,
+						url:         ac_enhanced_select_params.ajax_url,
 						dataType:    'json',
 						quietMillis: 250,
 						data: function( term, page ) {
 							return {
 								term:     term,
 								action:   $( this ).data( 'action' ) || 'axisbuilder_json_search_pages_and_portfolio',
-								security: axisbuilder_enhanced_select_params.search_post_types_nonce
+								security: ac_enhanced_select_params.search_post_types_nonce
 							};
 						},
 						results: function( data, page ) {

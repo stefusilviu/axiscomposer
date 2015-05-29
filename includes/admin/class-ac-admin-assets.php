@@ -77,13 +77,13 @@ class AC_Admin_Assets {
 		// Register Scripts
 		wp_register_script( 'axiscomposer-admin', AC()->plugin_url() . '/assets/js/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AC_VERSION );
 		wp_register_script( 'axiscomposer-backbone-modal', AC()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
-		wp_register_script( 'axiscomposer-admin-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'wp-color-picker', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-tiptip', 'axiscomposer-enhanced-select', 'plupload-all', 'stupidtable' ), AC_VERSION );
+		wp_register_script( 'axiscomposer-admin-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'wp-color-picker', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-tiptip', 'ac-enhanced-select', 'plupload-all', 'stupidtable' ), AC_VERSION );
 		wp_register_script( 'jquery-blockui', AC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70', true );
 		wp_register_script( 'jquery-tiptip', AC()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AC_VERSION, true );
 		wp_register_script( 'stupidtable', AC()->plugin_url() . '/assets/js/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
 		wp_register_script( 'select2', AC()->plugin_url() . '/assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
-		wp_register_script( 'axiscomposer-enhanced-select', AC()->plugin_url() . '/assets/js/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AC_VERSION );
-		wp_localize_script( 'axiscomposer-enhanced-select', 'axiscomposer_enhanced_select_params', array(
+		wp_register_script( 'ac-enhanced-select', AC()->plugin_url() . '/assets/js/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AC_VERSION );
+		wp_localize_script( 'ac-enhanced-select', 'ac_enhanced_select_params', array(
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
 			'search_post_types_nonce'   => wp_create_nonce( 'search-post-types' ),
 			'i18n_matches_1'            => _x( 'One result is available, press enter to select it.', 'enhanced select', 'axiscomposer' ),
@@ -104,9 +104,9 @@ class AC_Admin_Assets {
 		if ( in_array( $screen->id, ac_get_screen_ids() ) ) {
 			wp_enqueue_script( 'iris' );
 			wp_enqueue_script( 'axiscomposer-admin' );
+			wp_enqueue_script( 'ac-enhanced-select' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'jquery-ui-autocomplete' );
-			wp_enqueue_script( 'axiscomposer-enhanced-select' );
 
 			$params = array(
 				'ajax_url' => admin_url( 'admin-ajax.php' )

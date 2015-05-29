@@ -76,10 +76,11 @@ class AC_Admin_Assets {
 
 		// Register Scripts
 		wp_register_script( 'axiscomposer-admin', AC()->plugin_url() . '/assets/js/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AC_VERSION );
-		wp_register_script( 'axiscomposer-backbone-modal', AC()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
-		wp_register_script( 'axiscomposer-admin-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'wp-color-picker', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-tiptip', 'ac-enhanced-select', 'plupload-all', 'stupidtable' ), AC_VERSION );
+		wp_register_script( 'ac-admin-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'wp-color-picker', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-tiptip', 'ac-enhanced-select', 'plupload-all', 'stupidtable' ), AC_VERSION );
+		wp_register_script( 'ac-backbone-modal', AC()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
 		wp_register_script( 'jquery-blockui', AC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70', true );
 		wp_register_script( 'jquery-tiptip', AC()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AC_VERSION, true );
+		wp_register_script( 'zeroclipboard', AC()->plugin_url() . '/assets/js/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
 		wp_register_script( 'stupidtable', AC()->plugin_url() . '/assets/js/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
 		wp_register_script( 'select2', AC()->plugin_url() . '/assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
 		wp_register_script( 'ac-enhanced-select', AC()->plugin_url() . '/assets/js/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AC_VERSION );
@@ -117,8 +118,8 @@ class AC_Admin_Assets {
 
 		// Meta boxes
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'axiscomposer-admin-builder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-builder' . $suffix . '.js', array( 'axiscomposer-admin-meta-boxes', 'axiscomposer-backbone-modal' ), AC_VERSION );
-			wp_enqueue_script( 'axiscomposer-admin-builder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-builder-position' . $suffix . '.js', array( 'axiscomposer-admin-meta-boxes' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-builder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-builder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-builder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-builder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
@@ -138,35 +139,35 @@ class AC_Admin_Assets {
 				'i18n_backbone_dismiss_button'    => esc_js( __( 'Dismiss', 'axiscomposer' ) )
 			);
 
-			wp_localize_script( 'axiscomposer-admin-builder-meta-boxes', 'axiscomposer_admin_meta_boxes_builder', $params );
+			wp_localize_script( 'ac-admin-builder-meta-boxes', 'axiscomposer_admin_meta_boxes_builder', $params );
 		}
 
 		if ( in_array( $screen->id, ac_get_layout_supported_screens() ) ) {
-			wp_enqueue_script( 'axiscomposer-admin-layout-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-layout' . $suffix . '.js', array( 'axiscomposer-admin-meta-boxes' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-layout-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-layout' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 		}
 
 		// System status
 		if ( 'axiscomposer_page_ac-status' === $screen->id ) {
-			wp_enqueue_script( 'zeroclipboard', AC()->plugin_url() . '/assets/js/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
+			wp_enqueue_script( 'zeroclipboard' );
 		}
 
 		// Widgets Specific
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) ) {
-			wp_enqueue_script( 'axiscomposer-admin-sidebars', AC()->plugin_url() . '/assets/js/admin/sidebars' . $suffix . '.js', array( 'axiscomposer-backbone-modal' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-sidebars', AC()->plugin_url() . '/assets/js/admin/sidebars' . $suffix . '.js', array( 'ac-backbone-modal' ), AC_VERSION );
 
 			$params = array(
 				'ajax_url'                    => admin_url( 'admin-ajax.php' ),
 				'delete_custom_sidebar_nonce' => wp_create_nonce( 'delete-custom-sidebar' )
 			);
 
-			wp_localize_script( 'axiscomposer-admin-sidebars', 'axiscomposer_admin_sidebars', $params );
+			wp_localize_script( 'ac-admin-sidebars', 'axiscomposer_admin_sidebars', $params );
 		}
 
 		// Iconfonts Specific
 		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfonts' ) ) ) {
 			wp_enqueue_media();
 			wp_enqueue_script( 'media-upload' );
-			wp_enqueue_script( 'axiscomposer-admin-iconfonts', AC()->plugin_url() . '/assets/js/admin/iconfonts' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-iconfonts', AC()->plugin_url() . '/assets/js/admin/iconfonts' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
 
 			$params = array(
 				'ajax_url'                     => admin_url( 'admin-ajax.php' ),
@@ -174,7 +175,7 @@ class AC_Admin_Assets {
 				'delete_custom_iconfont_nonce' => wp_create_nonce( 'delete-custom-iconfont' ),
 			);
 
-			wp_localize_script( 'axiscomposer-admin-iconfonts', 'axiscomposer_admin_iconfonts', $params );
+			wp_localize_script( 'ac-admin-iconfonts', 'axiscomposer_admin_iconfonts', $params );
 		}
 	}
 }

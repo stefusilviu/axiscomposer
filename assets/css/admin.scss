@@ -23,35 +23,6 @@
 }
 
 /**
- * Message Styles
- */
-.axiscomposer-message {
-	overflow: hidden;
-	position: relative;
-	border-left-color: #2ea2cc !important;
-
-	a.skip,
-	a.docs {
-		opacity: 0.5;
-
-		&:hover, &:focus {
-			opacity: 1;
-		}
-	}
-
-	a.button-primary,
-	a.button-secondary {
-		text-decoration: none !important;
-	}
-
-	.twitter-share-button {
-		margin-left: 3px;
-		margin-top: -3px;
-		vertical-align: middle;
-	}
-}
-
-/**
  * Animation Styles
  */
 .modal-animation {
@@ -82,6 +53,35 @@ label[for="axiscomposer-pagebuilder-hide"] {
  */
 #postdivrich_wrap.ac-hidden-editor #postdivrich {
 	display: none;
+}
+
+/**
+ * Message Styles
+ */
+.axiscomposer-message {
+	overflow: hidden;
+	position: relative;
+	border-left-color: #2ea2cc !important;
+
+	a.skip,
+	a.docs {
+		opacity: 0.5;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+
+	a.button-primary,
+	a.button-secondary {
+		text-decoration: none !important;
+	}
+
+	.twitter-share-button {
+		margin-left: 3px;
+		margin-top: -3px;
+		vertical-align: middle;
+	}
 }
 
 /**
@@ -248,9 +248,9 @@ label[for="axiscomposer-pagebuilder-hide"] {
 }
 
 /**
- * Builder Meta-Box
+ * Page Builder Meta-Box
  */
-#axisbuilder-editor {
+#axiscomposer-pagebuilder {
 	display: block !important;
 
 	textarea {
@@ -1528,18 +1528,18 @@ table.ac_status_table {
  */
 @media only screen and (max-width: 900px) {
 
-	#axisbuilder-editor ul.ac-tabs.horizontal li,
-	#axisbuilder-portfolio-data ul.ac-tabs.vertical {
+	#axiscomposer-pagebuilder ul.ac-tabs.horizontal li,
+	#axiscomposer-portfolio-data ul.ac-tabs.vertical {
 		width: 10%;
 	}
 
-	#axisbuilder-portfolio-data .axisbuilder_options_panel,
-	#axisbuilder-portfolio-data .axisbuilder-metaboxes-wrapper {
+	#axiscomposer-portfolio-data .axisbuilder_options_panel,
+	#axiscomposer-portfolio-data .axiscomposer-metaboxes-wrapper {
 		width: 90%;
 	}
 
-	#axisbuilder-editor,
-	#axisbuilder-portfolio-data {
+	#axiscomposer-pagebuilder,
+	#axiscomposer-portfolio-data {
 		ul.ac-tabs li a {
 			position: relative;
 			text-indent: -999px;

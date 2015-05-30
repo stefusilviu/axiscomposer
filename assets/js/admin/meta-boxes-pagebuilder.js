@@ -176,7 +176,7 @@ jQuery( function( $ ) {
 
 		add_element: function() {
 			var shortcode     = this.hash.replace( '#', '' ),
-				element_tmpl  = $( '#tmpl-axisbuilder-' + shortcode ),
+				element_tmpl  = $( '#tmpl-axiscomposer-' + shortcode ),
 				insert_target = 'instant-insert'; // ( this.className.indexOf( 'axisbuilder-target-insert' ) !== -1 ) ? 'target_insert' : 'instant_insert',
 
 			if ( element_tmpl.length ) {
@@ -850,7 +850,7 @@ jQuery( function( $ ) {
 						if ( ui.draggable[0].hash ) {
 							var shortcode = ui.draggable.get(0).hash.replace( '#', '' );
 
-							template = $.parseHTML( $( '#tmpl-axisbuilder-' + shortcode ).html() );
+							template = $.parseHTML( $( '#tmpl-axiscomposer-' + shortcode ).html() );
 							ui.draggable = template;
 						}
 
@@ -949,7 +949,7 @@ jQuery( function( $ ) {
 
 					// Check if we can append cells
 					if ( cells.length === count ) {
-						var cell_tmpl = $( '#tmpl-axisbuilder-' + newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ) );
+						var cell_tmpl = $( '#tmpl-axiscomposer-' + newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ) );
 						if ( cell_tmpl.length ) {
 							$row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
 							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );

@@ -478,7 +478,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		?>
 
-<script type="text/html" id="tmpl-axisbuilder-<?php echo strtolower( $class ); ?>">
+<script type="text/html" id="tmpl-axiscomposer-<?php echo strtolower( $class ); ?>">
 <?php echo $template; ?>
 
 </script>

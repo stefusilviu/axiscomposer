@@ -120,20 +120,20 @@ jQuery( function ( $ ) {
 	});
 
 	// Tabs
-	$( 'ul.axisbuilder-tabs' ).show();
+	$( 'ul.ac-tabs' ).show();
 	$( 'div.panel-wrap' ).each( function() {
 		$( this ).find( 'div.panel:not(:first)' ).hide();
 	});
-	$( 'ul.axisbuilder-tabs a' ).click( function() {
+	$( 'ul.ac-tabs a' ).click( function() {
 		var panel_wrap = $( this ).closest( 'div.panel-wrap' );
-		$( 'ul.axisbuilder-tabs li', panel_wrap ).removeClass( 'active' );
+		$( 'ul.ac-tabs li', panel_wrap ).removeClass( 'active' );
 		$( this ).parent().addClass( 'active' );
 		$( 'div.panel', panel_wrap ).hide();
 		$( $( this ).attr( 'href' ) ).show();
 		return false;
 	});
 	$( 'div.panel-wrap' ).each( function() {
-		$( this ).find( 'ul.axisbuilder-tabs li' ).eq( 0 ).find( 'a' ).click();
+		$( this ).find( 'ul.ac-tabs li' ).eq( 0 ).find( 'a' ).click();
 	});
 
 	// Date Picker

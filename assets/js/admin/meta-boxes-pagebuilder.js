@@ -128,7 +128,7 @@ jQuery( function( $ ) {
 			}
 
 			// Auto resize WordPress editor
-			$( document.body ).trigger( 'axisbuilder-init-wp-editor' );
+			$( document.body ).trigger( 'ac-init-wp-editor' );
 		},
 
 		shortcode_interface: function( text ) {
@@ -428,10 +428,10 @@ jQuery( function( $ ) {
 		update_builder_html: function( element_container, values, force_content_close ) {
 			var key, subkey, new_key, old_val;
 
-			// Filter keys for the 'axisbuilderTB-' string prefix and re-modify the key that was edited.
+			// Filter keys for the 'axiscomposerTB-' string prefix and re-modify the key that was edited.
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
-					new_key = key.replace( /axisbuilderTB-/g, '' );
+					new_key = key.replace( /axiscomposerTB-/g, '' );
 					if ( key !== new_key ) {
 						old_val = ( typeof values[new_key] !== 'undefined' ) ? ( values[new_key] + ',' ) : '';
 						values[new_key] = old_val ? old_val + values[key] : values[key];
@@ -1068,7 +1068,7 @@ jQuery( function( $ ) {
 							$( '.ac-backbone-modal-article form' ).append( response );
 
 							// Trigger Event
-							$( document.body ).trigger( 'axisbuilder-enhanced-modal-elements-init' );
+							$( document.body ).trigger( 'ac-enhanced-modal-elements-init' );
 						}
 
 						ac_meta_boxes_pagebuilder.tiptip();

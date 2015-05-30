@@ -44,7 +44,7 @@ class AC_HTML_Helper {
 
 			// Prepend multiple times if multiple windows called ;)
 			for ( $i = 0; $i < $prepend; $i++ ) {
-				$element['id'] = "axisbuilderTB-" . $element['id'];
+				$element['id'] = "axiscomposerTB-" . $element['id'];
 			}
 		}
 
@@ -321,7 +321,7 @@ class AC_HTML_Helper {
 
 		$settings = array(
 			'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:auto; display:block; border:none !important;}</style>',
-			'editor_class'  => 'axisbuilder-tinymce',
+			'editor_class'  => 'axiscomposer-tinymce',
 			'textarea_name' => 'content'
 		);
 

@@ -54,10 +54,10 @@ jQuery( function( $ ) {
 
 	$( document.body )
 
-		.on( 'axisbuilder-enhanced-select-init', function() {
+		.on( 'ac-enhanced-select-init', function() {
 
 			// Regular select boxes
-			$( ':input.axisbuilder-enhanced-select' ).filter( ':not(.enhanced)' ).each( function() {
+			$( ':input.ac-enhanced-select' ).filter( ':not(.enhanced)' ).each( function() {
 				var select2_args = $.extend({
 					minimumResultsForSearch: 10,
 					allowClear:  $( this ).data( 'allow_clear' ) ? true : false,
@@ -67,7 +67,7 @@ jQuery( function( $ ) {
 				$( this ).select2( select2_args ).addClass( 'enhanced' );
 			});
 
-			$( ':input.axisbuilder-enhanced-select-nostd' ).filter( ':not(.enhanced)' ).each( function() {
+			$( ':input.ac-enhanced-select-nostd' ).filter( ':not(.enhanced)' ).each( function() {
 				var select2_args = $.extend({
 					minimumResultsForSearch: 10,
 					allowClear:  true,
@@ -78,7 +78,7 @@ jQuery( function( $ ) {
 			});
 
 			// Ajax page search boxes
-			$( ':input.axisbuilder-page-search' ).filter( ':not(.enhanced)' ).each( function() {
+			$( ':input.ac-page-search' ).filter( ':not(.enhanced)' ).each( function() {
 				var select2_args = {
 					allowClear:  $( this ).data( 'allow_clear' ) ? true : false,
 					placeholder: $( this ).data( 'placeholder' ),
@@ -139,9 +139,9 @@ jQuery( function( $ ) {
 
 		// AxisComposer Backbone Modal
 		.on( 'ac_backbone_modal_before_remove', function() {
-			$( ':input.axisbuilder-enhanced-select, :input.axisbuilder-page-search' ).select2( 'close' );
+			$( ':input.ac-enhanced-select, :input.ac-page-search' ).select2( 'close' );
 		})
 
-		.trigger( 'axisbuilder-enhanced-select-init' );
+		.trigger( 'ac-enhanced-select-init' );
 
 });

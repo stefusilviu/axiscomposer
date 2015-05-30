@@ -2,7 +2,7 @@
 ( function( $ ) {
 	'use strict';
 
-	$.AxisBuilderSidebars = function() {
+	$.ACSidebars = function() {
 		this.widgetArea = $( '#widgets-right' );
 		this.widgetWrap = $( '.widget-liquid-right' );
 		this.widgetTmpl = $( '#tmpl-ac-form-create-sidebar' );
@@ -12,7 +12,7 @@
 		this.bindEvents();
 	};
 
-	$.AxisBuilderSidebars.prototype = {
+	$.ACSidebars.prototype = {
 
 		// Create Custom Widget Area Form
 		createForm: function() {
@@ -21,7 +21,7 @@
 
 		// Add Delete Icon to Custom Widget Areas
 		deleteIcon: function() {
-			this.widgetArea.find( '.sidebar-axisbuilder-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar"><br /></div>' );
+			this.widgetArea.find( '.sidebar-axiscomposer-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar"><br /></div>' );
 		},
 
 		// Bind Events to delete Custom Widget Area
@@ -38,7 +38,7 @@
 				sidebar	= $.trim( heading.text() ),
 				data    = {
 					sidebar: sidebar,
-					action: 'axisbuilder_delete_custom_sidebar',
+					action: 'axiscomposer_delete_custom_sidebar',
 					security: axiscomposer_admin_sidebars.delete_custom_sidebar_nonce
 				};
 
@@ -92,7 +92,7 @@
 	};
 
 	$( function() {
-		$.AxisBuilderSidebarsObj = new $.AxisBuilderSidebars();
+		$.ACSidebarsObj = new $.ACSidebars();
 	});
 
 })( jQuery );

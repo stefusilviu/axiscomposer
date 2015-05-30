@@ -152,7 +152,7 @@ jQuery( function( $ ) {
 
 			var data = {
 				text: text,
-				action: 'axisbuilder_shortcodes_to_interface'
+				action: 'axiscomposer_shortcodes_to_interface'
 			};
 
 			ac_meta_boxes_pagebuilder.block();

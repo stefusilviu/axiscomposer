@@ -9,8 +9,8 @@
 @import "variables";
 
 .admin-color-light {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $light-color;
 			}
@@ -27,8 +27,8 @@
 }
 
 .admin-color-blue {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $blue-color;
 			}
@@ -45,8 +45,8 @@
 }
 
 .admin-color-coffee {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $coffee-color;
 			}
@@ -63,8 +63,8 @@
 }
 
 .admin-color-ectoplasm {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $ectoplasm-color;
 			}
@@ -81,8 +81,8 @@
 }
 
 .admin-color-midnight {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $midnight-color;
 			}
@@ -99,8 +99,8 @@
 }
 
 .admin-color-ocean {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $ocean-color;
 			}
@@ -117,8 +117,8 @@
 }
 
 .admin-color-sunrise {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $light-color;
 			}

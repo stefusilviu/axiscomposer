@@ -5,7 +5,7 @@
 	$.ACSidebars = function() {
 		this.widgetArea = $( '#widgets-right' );
 		this.widgetWrap = $( '.widget-liquid-right' );
-		this.widgetTmpl = $( '#tmpl-ac-form-create-sidebar' );
+		this.widgetTmpl = $( '#tmpl-axiscomposer-form-create-sidebar' );
 
 		this.createForm();
 		this.deleteIcon();
@@ -44,11 +44,11 @@
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				template: '#tmpl-ac-modal-delete-sidebar'
+				template: '#tmpl-axiscomposer-modal-delete-sidebar'
 			});
 
 			$( document.body ).on( 'ac_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-ac-modal-delete-sidebar' !== template ) {
+				if ( '#tmpl-axiscomposer-modal-delete-sidebar' !== template ) {
 					return;
 				}
 

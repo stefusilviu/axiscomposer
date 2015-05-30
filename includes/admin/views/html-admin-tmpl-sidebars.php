@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<script type="text/template" id="tmpl-ac-form-create-sidebar">
+<script type="text/template" id="tmpl-axiscomposer-form-create-sidebar">
 	<form class="axiscomposer-add-sidebar" action="widgets.php" method="post">
 		<h3><?php _e( 'Custom Widget Area Builder', 'axiscomposer' ) ?></h3>
 		<input name="axiscomposer-add-sidebar" type="text" id="axiscomposer-add-sidebar" class="widefat" autocomplete="off" value="" placeholder="<?php _e( 'Enter New Widget Area Name', 'axiscomposer' ) ?>" />
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</form>
 </script>
 
-<script type="text/template" id="tmpl-ac-modal-delete-sidebar">
+<script type="text/template" id="tmpl-axiscomposer-modal-delete-sidebar">
 	<div class="ac-backbone-modal">
 		<div class="ac-backbone-modal-content modal-animation">
 			<section class="ac-backbone-modal-main" role="main">

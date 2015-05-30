@@ -163,7 +163,7 @@ class AC_Meta_Box_Page_Builder_Data {
 
 		foreach ( $shortcode_modal_tmpl as $key => $template ) {
 			?>
-			<script type="text/template" id="tmpl-ac-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
+			<script type="text/template" id="tmpl-axiscomposer-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
 				<div class="ac-backbone-modal">
 					<div class="ac-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="ac-backbone-modal-main" role="main">

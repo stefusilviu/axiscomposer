@@ -87,14 +87,14 @@ label[for="axiscomposer-pagebuilder-hide"] {
 /**
  * Tabbed Panels
  */
-#axisbuilder-editor,
-#axisbuilder-portfolio-data,
+#axiscomposer-pagebuilder,
+#axiscomposer-portfolio-data,
 .axisbuilder {
 	.panel-wrap {
 		overflow: hidden;
 	}
 
-	ul.axisbuilder-tabs {
+	ul.ac-tabs {
 		margin: 0;
 		float: left;
 		line-height: 1em;
@@ -239,8 +239,8 @@ label[for="axiscomposer-pagebuilder-hide"] {
 	}
 }
 
-#axisbuilder-editor,
-#axisbuilder-portfolio-data {
+#axiscomposer-pagebuilder,
+#axiscomposer-portfolio-data {
 	.inside {
 		margin: 0;
 		padding: 0;
@@ -416,7 +416,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 /**
  * Builder Postbox Classes
  */
-#axisbuilder-editor {
+#axiscomposer-pagebuilder {
 
 	&.axisbuilder-hidden {
 		display: none !important;
@@ -1528,8 +1528,8 @@ table.ac_status_table {
  */
 @media only screen and (max-width: 900px) {
 
-	#axisbuilder-editor ul.axisbuilder-tabs.horizontal li,
-	#axisbuilder-portfolio-data ul.axisbuilder-tabs.vertical {
+	#axisbuilder-editor ul.ac-tabs.horizontal li,
+	#axisbuilder-portfolio-data ul.ac-tabs.vertical {
 		width: 10%;
 	}
 
@@ -1540,7 +1540,7 @@ table.ac_status_table {
 
 	#axisbuilder-editor,
 	#axisbuilder-portfolio-data {
-		ul.axisbuilder-tabs li a {
+		ul.ac-tabs li a {
 			position: relative;
 			text-indent: -999px;
 			padding: 10px;

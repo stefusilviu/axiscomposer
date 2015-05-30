@@ -105,7 +105,7 @@ jQuery( function( $ ) {
 
 			if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
 				$( '#content-html' ).trigger( 'click' );
-				$( '#axisbuilder-editor' ).removeClass( 'axisbuilder-hidden' );
+				$( '#axiscomposer-pagebuilder' ).removeClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().addClass( 'ac-hidden-editor' );
 				button.removeClass( 'button-primary' ).addClass( 'button-secondary' ).text( $( this ).data( 'editor' ) );
 				ac_meta_boxes_pagebuilder.pagebuilder.val( 'active' );
@@ -115,8 +115,8 @@ jQuery( function( $ ) {
 					ac_meta_boxes_pagebuilder.shortcode_interface();
 				}, 10 );
 			} else {
-				$( '#axisbuilder-editor' ).find( '.canvas-area' ).empty();
-				$( '#axisbuilder-editor' ).addClass( 'axisbuilder-hidden' );
+				$( '#axiscomposer-pagebuilder' ).find( '.canvas-area' ).empty();
+				$( '#axiscomposer-pagebuilder' ).addClass( 'axisbuilder-hidden' );
 				$( '#postdivrich' ).parent().removeClass( 'ac-hidden-editor' );
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				ac_meta_boxes_pagebuilder.pagebuilder.val( 'inactive' );

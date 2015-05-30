@@ -251,7 +251,7 @@ class AC_Install {
 
 			if ( version_compare( AC_VERSION, $version, '<' ) ) {
 
-				$upgrade_notice .= '<div class="axiscomposer-plugin-upgrade-notice">';
+				$upgrade_notice .= '<div class="ac_plugin_upgrade_notice">';
 
 				foreach ( $notices as $index => $line ) {
 					$upgrade_notice .= wp_kses_post( preg_replace( '~\[([^\]]*)\]\(([^\)]*)\)~', '<a href="${2}">${1}</a>', $line ) );

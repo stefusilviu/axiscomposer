@@ -51,8 +51,8 @@ jQuery( function( $ ) {
 
 			$( document.body )
 				.on( 'keydown storage', this.storage.keyboard_actions )
-				.on( 'axisbuilder_storage_snapshot', this.storage.snapshot )
-				.on( 'axisbuilder_dragdrop_items_loaded', this.dragdrop.init )
+				.on( 'ac_storage_snapshot', this.storage.snapshot )
+				.on( 'ac_dragdrop_items_loaded', this.dragdrop.init )
 				.on( 'ac_backbone_modal_loaded', this.backbone.init )
 				.on( 'ac_backbone_modal_response', this.backbone.response );
 		},
@@ -164,7 +164,7 @@ jQuery( function( $ ) {
 				success: function( response ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
-					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					// ac_meta_boxes_pagebuilder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 					ac_meta_boxes_pagebuilder.tiptip();
@@ -182,7 +182,7 @@ jQuery( function( $ ) {
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {
 					$( '.canvas-area' ).append( element_tmpl.html() );
-					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					ac_meta_boxes_pagebuilder.textarea.outer();
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 				}
@@ -252,7 +252,7 @@ jQuery( function( $ ) {
 
 			ac_meta_boxes_pagebuilder.textarea.outer();
 			ac_meta_boxes_pagebuilder.storage.history_snapshot();
-			$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+			$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 			return false;
 		},
 
@@ -296,7 +296,7 @@ jQuery( function( $ ) {
 				// Bugfix - column delete makes the canvas undroppable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
 					$( '.axisbuilder-drop' ).droppable( 'destroy' );
-					$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 				}
 			});
 
@@ -879,7 +879,7 @@ jQuery( function( $ ) {
 
 						// Apply dragging and dropping in case we got a new element
 						if ( typeof template !== 'undefined' ) {
-							$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 						}
 
 						// History Snapshot
@@ -952,7 +952,7 @@ jQuery( function( $ ) {
 						var cell_tmpl = $( '#tmpl-axisbuilder-' + newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ) );
 						if ( cell_tmpl.length ) {
 							$row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
-							$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 						}
 					}
 
@@ -1182,7 +1182,7 @@ jQuery( function( $ ) {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 
-				$( document.body ).trigger( 'axisbuilder_dragdrop_items_loaded' );
+				$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 			},
 
 			snapshot: function() {
@@ -1247,7 +1247,7 @@ jQuery( function( $ ) {
 
 			history_snapshot: function( timeout ) {
 				setTimeout( function() {
-					$( document.body ).trigger( 'axisbuilder_storage_snapshot' );
+					$( document.body ).trigger( 'ac_storage_snapshot' );
 				}, timeout ? timeout : 150 );
 			},
 

@@ -73,30 +73,27 @@ i.mce-i-axiscomposer-shortcodes {
 /**
  * Layout + Breadcrumb Styles
  */
-ul {
-	&.layout_data,
-	&.breadcrumb_data {
+ul.layout_data,
+ul.breadcrumb_data {
+	p.form-field {
+		margin: 15px 0;
 
-		p.form-field {
-			margin: 15px 0;
+		span,
+		label,
+		select {
+			width: 100%;
+		}
 
-			label {
-				float: left;
-				font-weight: 600;
-			}
+		label {
+			float: left;
+			font-weight: 600;
+		}
 
-			span,
-			label,
-			select {
-				width: 100%;
-			}
-
-			span.side {
-				color: #777;
-				display: block;
-				font-style: normal;
-				margin-bottom: 5px;
-			}
+		span.side {
+			color: #777;
+			display: block;
+			font-style: normal;
+			margin-bottom: 5px;
 		}
 	}
 }

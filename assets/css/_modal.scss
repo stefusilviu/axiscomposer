@@ -17,10 +17,6 @@
 	@include loader();
 }
 
-body .ac-hidden {
-	display: none;
-}
-
 .ac-backbone-modal {
 	* {
 		box-sizing: border-box;

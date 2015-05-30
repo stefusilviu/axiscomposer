@@ -1512,7 +1512,7 @@ table.ac_status_table {
 /**
  * Clearfix
  */
-.clearfix, #axisbuilder-editor,
+.clearfix, #axiscomposer-pagebuilder,
 .axisbuilder-layout-column > .axisbuilder-inner-shortcode,
 .axisbuilder-layout-section > .axisbuilder-inner-shortcode {
 	@include clearfix();
@@ -1579,7 +1579,7 @@ table.ac_status_table {
 		margin-bottom: -1px;
 	}
 
-	#axisbuilder-editor .checkbox {
+	#axiscomposer-pagebuilder .checkbox {
 		width: 25px;
 	}
 }

@@ -26,7 +26,7 @@ jQuery( function( $ ) {
 
 			$( 'a.axiscomposer-toggle-editor' ).click( this.toggle_editor );
 
-			$( '#axisbuilder-editor' )
+			$( '#axiscomposer-pagebuilder' )
 				.on( 'click', '.insert-shortcode', this.add_element )
 				.on( 'click', '.axisbuilder-edit', this.edit_element )
 				.on( 'click', 'a.axisbuilder-clone', this.clone_element )
@@ -69,7 +69,7 @@ jQuery( function( $ ) {
 		},
 
 		block: function() {
-			$( '#axisbuilder-editor' ).block({
+			$( '#axiscomposer-pagebuilder' ).block({
 				message: null,
 				overlayCSS: {
 					background: '#fff',
@@ -79,7 +79,7 @@ jQuery( function( $ ) {
 		},
 
 		unblock: function() {
-			$( '#axisbuilder-editor, .ac-enhanced-settings' ).unblock();
+			$( '#axiscomposer-pagebuilder, .ac-enhanced-settings' ).unblock();
 		},
 
 		tinyMCE: function( content ) {
@@ -720,7 +720,7 @@ jQuery( function( $ ) {
 			},
 
 			disable: function() {
-				$( '#axisbuilder-editor' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
+				$( '#axiscomposer-pagebuilder' ).find( '.ui-draggable, .ui-droppable' ).removeClass( 'ui-draggable ui-droppable' );
 			},
 
 			is_droppable: function( draggable, droppable ) {
@@ -751,8 +751,8 @@ jQuery( function( $ ) {
 				};
 
 				// Draggable
-				$( '#axisbuilder-editor' ).find( '.axisbuilder-drag' ).not( '.ui-draggable' ).draggable( data );
-				$( '#axisbuilder-editor' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
+				$( '#axiscomposer-pagebuilder' ).find( '.axisbuilder-drag' ).not( '.ui-draggable' ).draggable( data );
+				$( '#axiscomposer-pagebuilder' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
 					$.extend( {}, data, {
 						handle: false,
 						cursorAt: {
@@ -888,7 +888,7 @@ jQuery( function( $ ) {
 				};
 
 				// Droppable
-				$( '#axisbuilder-editor' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
+				$( '#axiscomposer-pagebuilder' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
 			}
 		},
 

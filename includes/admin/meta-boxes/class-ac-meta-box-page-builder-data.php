@@ -67,10 +67,10 @@ class AC_Meta_Box_Page_Builder_Data {
 					?>
 				</ul>
 
-				<div id="layout_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
-				<div id="content_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
-				<div id="media_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
-				<div id="plugin_builder_data" class="panel axisbuilder-options-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
+				<div id="layout_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
 
 				<?php do_action( 'axiscomposer_shortcode_data_panels' ); ?>
 

@@ -30,9 +30,9 @@ class AC_Meta_Box_Page_Builder_Data {
 
 		?>
 		<input type="hidden" class="pagebuilder-status" name="pagebuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
-		<div id="axis-pagebuilder" class="axisbuilder-shortcodes">
-			<div id="axisbuilder-panels" class="panel-wrap editor_data">
-				<ul class="editor_data_tabs ac-tabs horizontal" style="display:none">
+		<div id="wrap-pagebuilder" class="axiscomposer-shortcodes">
+			<div id="axiscomposer-panels" class="panel-wrap pagebuilder_data">
+				<ul class="pagebuilder_data_tabs ac-tabs horizontal" style="display:none">
 					<?php
 						$shortcode_data_tabs = apply_filters( 'axiscomposer_shortcode_data_tabs', array(
 							'layout'  => array(
@@ -76,7 +76,7 @@ class AC_Meta_Box_Page_Builder_Data {
 
 				<div class="clear"></div>
 			</div>
-			<div id="axisbuilder-handle" class="handle-bar">
+			<div id="axiscomposer-handle" class="handle-bar">
 				<div class="control-bar">
 					<div class="history-sections">
 						<div class="history-action help_tip" data-tip="<?php _e( 'History', 'axiscomposer' ); ?>">
@@ -92,7 +92,7 @@ class AC_Meta_Box_Page_Builder_Data {
 					</div>
 				</div>
 			</div>
-			<div id="axisbuilder-canvas" class="visual-editor">
+			<div id="axiscomposer-canvas" class="visual-editor">
 				<div class="canvas-area axisbuilder-data layout-flex-grid axisbuilder-drop" data-dragdrop-level="0"></div>
 				<div class="canvas-secure-data">
 					<textarea name="pagebuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_pagebuilder_canvas', true ) ); ?></textarea> <!-- readonly="readonly" later -->
@@ -157,7 +157,7 @@ class AC_Meta_Box_Page_Builder_Data {
 			'edit' => array(
 				'tmpl' => 'edit-element',
 				'button' => __( 'Save', 'axiscomposer' ),
-				'class'  => array( 'axisbuilder', 'modal-animation', 'normal-screen' )
+				'class'  => array( 'axiscomposer', 'modal-animation', 'normal-screen' )
 			)
 		) );
 

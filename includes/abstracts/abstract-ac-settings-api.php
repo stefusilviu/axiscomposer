@@ -76,7 +76,7 @@ abstract class AC_Settings_API {
 	 */
 	public function admin_options() { ?>
 
-		<h3><?php echo ( ! empty( $this->method_title ) ) ? $this->method_title : __( 'Settings', 'axisbuilder' ) ; ?></h3>
+		<h3><?php echo ( ! empty( $this->method_title ) ) ? $this->method_title : __( 'Settings', 'axiscomposer' ) ; ?></h3>
 
 		<?php echo ( ! empty( $this->method_description ) ) ? wpautop( $this->method_description ) : ''; ?>
 
@@ -101,7 +101,7 @@ abstract class AC_Settings_API {
 	 * @return array of options
 	 */
 	public function get_form_fields() {
-		return apply_filters( 'axisbuilder_settings_api_form_fields_' . $this->id, $this->form_fields );
+		return apply_filters( 'axiscomposer_settings_api_form_fields_' . $this->id, $this->form_fields );
 	}
 
 	/**
@@ -119,7 +119,7 @@ abstract class AC_Settings_API {
 			$this->display_errors();
 			return false;
 		} else {
-			update_option( $this->plugin_id . $this->id . '_settings', apply_filters( 'axisbuilder_settings_api_sanitized_fields_' . $this->id, $this->sanitized_fields ) );
+			update_option( $this->plugin_id . $this->id . '_settings', apply_filters( 'axiscomposer_settings_api_sanitized_fields_' . $this->id, $this->sanitized_fields ) );
 			$this->init_settings();
 			return true;
 		}
@@ -628,7 +628,7 @@ abstract class AC_Settings_API {
 		ob_start();
 		?>
 			</table>
-			<h3 class="axisbuilder-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
+			<h3 class="ac-settings-sub-title <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></h3>
 			<?php if ( ! empty( $data['description'] ) ) : ?>
 				<p><?php echo wp_kses_post( $data['description'] ); ?></p>
 			<?php endif; ?>

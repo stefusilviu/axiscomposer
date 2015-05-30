@@ -32,7 +32,7 @@ class AC_Meta_Box_Page_Builder_Data {
 		<input type="hidden" class="pagebuilder-status" name="pagebuilder_status" value="<?php echo esc_attr( is_pagebuilder_active( $post->ID ) ? 'active' : 'inactive' ); ?>" />
 		<div id="axis-pagebuilder" class="axisbuilder-shortcodes">
 			<div id="axisbuilder-panels" class="panel-wrap editor_data">
-				<ul class="editor_data_tabs axisbuilder-tabs horizontal" style="display:none">
+				<ul class="editor_data_tabs ac-tabs horizontal" style="display:none">
 					<?php
 						$shortcode_data_tabs = apply_filters( 'axiscomposer_shortcode_data_tabs', array(
 							'layout'  => array(

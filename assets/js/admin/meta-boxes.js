@@ -3,36 +3,36 @@ jQuery( function ( $ ) {
 
 	// Field validation error tips
 	$( document.body )
-		.on( 'axisbuilder_add_error_tip', function( e, element, error_type ) {
+		.on( 'ac_add_error_tip', function( e, element, error_type ) {
 			var offset = element.position();
 
-			if ( element.parent().find( '.axisbuilder_error_tip' ).size() === 0 ) {
-				element.after( '<div class="axisbuilder_error_tip ' + error_type + '">' + axiscomposer_admin_meta_boxes_pagebuilder[error_type] + '</div>' );
-				element.parent().find( '.axisbuilder_error_tip' )
-					.css( 'left', offset.left + element.width() - ( element.width() / 2 ) - ( $( '.axisbuilder_error_tip' ).width() / 2 ) )
+			if ( element.parent().find( '.ac_error_tip' ).size() === 0 ) {
+				element.after( '<div class="ac_error_tip ' + error_type + '">' + axiscomposer_admin_meta_boxes_pagebuilder[error_type] + '</div>' );
+				element.parent().find( '.ac_error_tip' )
+					.css( 'left', offset.left + element.width() - ( element.width() / 2 ) - ( $( '.ac_error_tip' ).width() / 2 ) )
 					.css( 'top', offset.top + element.height() )
 					.fadeIn( '100' );
 			}
 		})
-		.on( 'axisbuilder_remove_error_tip', function( e, element, error_type ) {
-			element.parent().find( '.axisbuilder_error_tip.' + error_type ).remove();
+		.on( 'ac_remove_error_tip', function( e, element, error_type ) {
+			element.parent().find( '.ac_error_tip.' + error_type ).remove();
 		})
 		.on( 'click', function() {
-			$( '.axisbuilder_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
+			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
-		.on( 'blur', '.axisbuilder_input_class[type=text], .axisbuilder_input_id[type=text]', function() {
-			$( '.axisbuilder_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
+		.on( 'blur', '.ac_input_class[type=text], .ac_input_id[type=text]', function() {
+			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
-		.on( 'keyup change', '.axisbuilder_input_class[type=text], .axisbuilder_input_id[type=text]', function() {
+		.on( 'keyup change', '.ac_input_class[type=text], .ac_input_id[type=text]', function() {
 			var value    = $( this ).val();
 			var regex    = new RegExp( '[^a-zA-Z0-9-_]+', 'gi' );
 			var newvalue = value.replace( regex, '' );
 
 			if ( value !== newvalue ) {
 				$( this ).val( newvalue );
-				$( document.body ).triggerHandler( 'axisbuilder_add_error_tip', [ $( this ), 'i18n_css_class_id_error' ] );
+				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), 'i18n_css_class_id_error' ] );
 			} else {
-				$( document.body ).triggerHandler( 'axisbuilder_remove_error_tip', [ $( this ), 'i18n_css_class_id_error' ] );
+				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_css_class_id_error' ] );
 			}
 		});
 

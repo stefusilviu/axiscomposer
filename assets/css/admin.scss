@@ -1372,8 +1372,8 @@ img.tips {
 }
 
 #tiptip_content,
-.axisbuilder-tooltip,
-.axisbuilder_error_tip {
+.chart-tooltip,
+.ac_error_tip {
 	color: #fff;
 	font-size: .8em;
 	max-width: 150px;
@@ -1399,7 +1399,7 @@ img.tips {
 	width: 0;
 }
 
-.axisbuilder_error_tip {
+.ac_error_tip {
 	max-width: 20em;
 	line-height: 1.8em;
 	position: absolute;

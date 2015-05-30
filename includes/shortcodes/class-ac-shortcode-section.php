@@ -205,7 +205,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 				'id'       => 'id',
 				'std'      => '',
 				'type'     => 'input',
-				'class'    => 'axisbuilder_input_id'
+				'class'    => 'ac_input_id'
 			)
 		);
 	}

@@ -246,7 +246,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			'name'  => __( 'Custom CSS Class', 'axisbuilder' ),
 			'desc'  => sprintf( __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers). %sNo special characters can be used.%s', 'axisbuilder' ), '<br /><mark class="info">', '</mark>' ),
 			'type'  => 'input',
-			'class' => 'axisbuilder_input_class',
+			'class' => 'ac_input_class',
 			'std'   => ''
 		);
 

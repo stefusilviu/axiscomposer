@@ -324,7 +324,7 @@ jQuery( function( $ ) {
 		},
 
 		resize_layout: function() {
-			var direction    = $( this ).is( '.axisbuilder-increase' ) ? 1 : -1,
+			var direction    = $( this ).is( '.ac-increase' ) ? 1 : -1,
 				column       = $( this ).parents( '.axisbuilder-layout-column:eq(0)' ),
 				section      = column.parents( '.axisbuilder-layout-section:eq(0)' ),
 				size_string  = column.find( '.axisbuilder-column-size' ),

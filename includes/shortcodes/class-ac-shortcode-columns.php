@@ -73,9 +73,9 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 
 		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell modal-animation ac-drag ' . $this->shortcode['name'] . $extra_class . '" data-dragdrop-level="' . $this->shortcode['drag-level'] . '" data-width="' . $this->shortcode['name'] . '">';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
-				$output .= '<a class="ac-change-column-size layout-element-icon axisbuilder-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '"></a>';
+				$output .= '<a class="ac-change-column-size layout-element-icon ac-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '"></a>';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
-				$output .= '<a class="ac-change-column-size layout-element-icon axisbuilder-increase" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '"></a>';
+				$output .= '<a class="ac-change-column-size layout-element-icon ac-increase" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '"></a>';
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axisbuilder' ) . '">' . __( 'Delete Column', 'axisbuilder' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axisbuilder' ) . '">' . __( 'Clone Column',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';

@@ -729,7 +729,7 @@ body .ui-draggable-dragging {
 			background: #f8f8f8;
 		}
 
-		&.axisbuilder-decrease {
+		&.ac-decrease {
 			border-left: none;
 
 			&:before {
@@ -738,7 +738,7 @@ body .ui-draggable-dragging {
 			}
 		}
 
-		&.axisbuilder-increase {
+		&.ac-increase {
 			&:before {
 				@include icon( "\e00c" );
 				line-height: 1.5;

@@ -38,7 +38,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'        => 11,
 			'type'        => 'layout',
-			'name'        => 'ab_section',
+			'name'        => 'ac_section',
 			'icon'        => 'icon-section',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/section.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-target-insert',

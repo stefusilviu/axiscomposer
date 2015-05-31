@@ -35,7 +35,7 @@ class AC_Shortcode_Notification extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 150,
 			'type'    => 'content',
-			'name'    => 'ab_notification',
+			'name'    => 'ac_notification',
 			'icon'    => 'icon-notification',
 			'image'   => AC()->plugin_url() . '/assets/images/content/notification.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

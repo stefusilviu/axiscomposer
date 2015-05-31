@@ -35,7 +35,7 @@ class AC_Shortcode_Productgrid extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 510,
 			'type'    => 'plugin',
-			'name'    => 'ab_productgrid',
+			'name'    => 'ac_productgrid',
 			'icon'    => 'icon-productgrid',
 			'image'   => AC()->plugin_url() . '/assets/images/plugin/productgrid.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

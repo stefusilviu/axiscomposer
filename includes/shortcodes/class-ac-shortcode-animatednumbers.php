@@ -35,7 +35,7 @@ class AC_Shortcode_Animatednumbers extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 190,
 			'type'    => 'content',
-			'name'    => 'ab_animatednumbers',
+			'name'    => 'ac_animatednumbers',
 			'icon'    => 'icon-animatednumbers',
 			'image'   => AC()->plugin_url() . '/assets/images/content/animatednumbers.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

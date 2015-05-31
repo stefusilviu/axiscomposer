@@ -35,7 +35,7 @@ class AC_Shortcode_Accordion extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 180,
 			'type'    => 'content',
-			'name'    => 'ab_accordion',
+			'name'    => 'ac_accordion',
 			'icon'    => 'icon-accordion',
 			'image'   => AC()->plugin_url() . '/assets/images/content/accordion.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

@@ -35,7 +35,7 @@ class AC_Shortcode_Tabs extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 200,
 			'type'    => 'content',
-			'name'    => 'ab_tabs',
+			'name'    => 'ac_tabs',
 			'icon'    => 'icon-tabs',
 			'image'   => AC()->plugin_url() . '/assets/images/content/tabs.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

@@ -35,7 +35,7 @@ class AC_Shortcode_Googlemap extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 390,
 			'type'    => 'media',
-			'name'    => 'ab_googlemap',
+			'name'    => 'ac_googlemap',
 			'icon'    => 'icon-googlemap',
 			'image'   => AC()->plugin_url() . '/assets/images/media/googlemap.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

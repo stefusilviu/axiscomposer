@@ -35,7 +35,7 @@ class AC_Shortcode_Comments extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 340,
 			'type'    => 'content',
-			'name'    => 'ab_comments',
+			'name'    => 'ac_comments',
 			'icon'    => 'icon-comments',
 			'image'   => AC()->plugin_url() . '/assets/images/content/comments.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

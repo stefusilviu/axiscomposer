@@ -35,7 +35,7 @@ class AC_Shortcode_Contactform extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 250,
 			'type'    => 'content',
-			'name'    => 'ab_contactform',
+			'name'    => 'ac_contactform',
 			'icon'    => 'icon-contactform',
 			'image'   => AC()->plugin_url() . '/assets/images/content/contactform.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

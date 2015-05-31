@@ -35,7 +35,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 330,
 			'type'    => 'content',
-			'name'    => 'ab_sidebar',
+			'name'    => 'ac_sidebar',
 			'icon'    => 'icon-sidebar',
 			'image'   => AC()->plugin_url() . '/assets/images/content/sidebar.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

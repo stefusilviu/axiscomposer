@@ -35,7 +35,7 @@ class AC_Shortcode_Catalogue extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 240,
 			'type'    => 'content',
-			'name'    => 'ab_catalogue',
+			'name'    => 'ac_catalogue',
 			'icon'    => 'icon-catalogue',
 			'image'   => AC()->plugin_url() . '/assets/images/content/catalogue.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

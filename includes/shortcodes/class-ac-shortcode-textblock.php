@@ -35,7 +35,7 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 60,
 			'type'    => 'content',
-			'name'    => 'ab_textblock',
+			'name'    => 'ac_textblock',
 			'icon'    => 'icon-textblock',
 			'image'   => AC()->plugin_url() . '/assets/images/content/textblock.png', // Fallback if icon is missing :)
 			'modal'   => array( 'modal-class' => 'normalscreen' ),

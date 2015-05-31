@@ -37,7 +37,7 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'        => 1,
 			'type'        => 'layout',
-			'name'        => 'ab_one_full',
+			'name'        => 'ac_one_full',
 			'icon'        => 'icon-one-full',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/one-full.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -133,7 +133,7 @@ class AC_Shortcode_Columns_One_Half extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 2,
 			'type'        => 'layout',
-			'name'        => 'ab_one_half',
+			'name'        => 'ac_one_half',
 			'icon'        => 'icon-one-half',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/one-half.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -160,7 +160,7 @@ class AC_Shortcode_Columns_One_Third extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 3,
 			'type'        => 'layout',
-			'name'        => 'ab_one_third',
+			'name'        => 'ac_one_third',
 			'icon'        => 'icon-one-third',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/one-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -187,7 +187,7 @@ class AC_Shortcode_Columns_Two_Third extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 4,
 			'type'        => 'layout',
-			'name'        => 'ab_two_third',
+			'name'        => 'ac_two_third',
 			'icon'        => 'icon-two-third',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/two-third.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -214,7 +214,7 @@ class AC_Shortcode_Columns_One_Fourth extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 5,
 			'type'        => 'layout',
-			'name'        => 'ab_one_fourth',
+			'name'        => 'ac_one_fourth',
 			'icon'        => 'icon-one-fourth',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/one-fourth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -241,7 +241,7 @@ class AC_Shortcode_Columns_Three_Fourth extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 6,
 			'type'        => 'layout',
-			'name'        => 'ab_three_fourth',
+			'name'        => 'ac_three_fourth',
 			'icon'        => 'icon-three-fourth',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/three-fourth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -268,7 +268,7 @@ class AC_Shortcode_Columns_One_Fifth extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 7,
 			'type'        => 'layout',
-			'name'        => 'ab_one_fifth',
+			'name'        => 'ac_one_fifth',
 			'icon'        => 'icon-one-fifth',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/one-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -295,7 +295,7 @@ class AC_Shortcode_Columns_Two_Fifth extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 8,
 			'type'        => 'layout',
-			'name'        => 'ab_two_fifth',
+			'name'        => 'ac_two_fifth',
 			'icon'        => 'icon-two-fifth',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/two-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -322,7 +322,7 @@ class AC_Shortcode_Columns_Three_Fifth extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 9,
 			'type'        => 'layout',
-			'name'        => 'ab_three_fifth',
+			'name'        => 'ac_three_fifth',
 			'icon'        => 'icon-three-fifth',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/three-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',
@@ -349,7 +349,7 @@ class AC_Shortcode_Columns_Four_Fifth extends AC_Shortcode_Columns {
 		$this->shortcode = array(
 			'sort'        => 10,
 			'type'        => 'layout',
-			'name'        => 'ab_four_fifth',
+			'name'        => 'ac_four_fifth',
 			'icon'        => 'icon-four-fifth',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/columns/four-fifth.png', // Fallback if icon is missing :)
 			'target'      => 'axisbuilder-section-drop',

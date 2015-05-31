@@ -35,7 +35,7 @@ class AC_Shortcode_Teammembers extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 230,
 			'type'    => 'content',
-			'name'    => 'ab_teammembers',
+			'name'    => 'ac_teammembers',
 			'icon'    => 'icon-teammembers',
 			'image'   => AC()->plugin_url() . '/assets/images/content/teammembers.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

@@ -37,7 +37,7 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 210,
 			'type'    => 'content',
-			'name'    => 'ab_animatedcountdown',
+			'name'    => 'ac_animatedcountdown',
 			'icon'    => 'icon-animatedcountdown',
 			'image'   => AC()->plugin_url() . '/assets/images/content/animatedcountdown.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

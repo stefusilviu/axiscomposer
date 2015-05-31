@@ -35,7 +35,7 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 350,
 			'type'    => 'content',
-			'name'    => 'ab_codeblock',
+			'name'    => 'ac_codeblock',
 			'icon'    => 'icon-codeblock',
 			'image'   => AC()->plugin_url() . '/assets/images/content/codeblock.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

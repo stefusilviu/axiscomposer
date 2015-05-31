@@ -35,7 +35,7 @@ class AC_Shortcode_Image extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 360,
 			'type'    => 'media',
-			'name'    => 'ab_image',
+			'name'    => 'ac_image',
 			'icon'    => 'icon-image',
 			'image'   => AC()->plugin_url() . '/assets/images/media/image.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

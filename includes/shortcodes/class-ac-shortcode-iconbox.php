@@ -35,7 +35,7 @@ class AC_Shortcode_Iconbox extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 140,
 			'type'    => 'content',
-			'name'    => 'ab_iconbox',
+			'name'    => 'ac_iconbox',
 			'icon'    => 'icon-iconbox',
 			'image'   => AC()->plugin_url() . '/assets/images/content/iconbox.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

@@ -35,7 +35,7 @@ class AC_Shortcode_Button extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 120,
 			'type'    => 'content',
-			'name'    => 'ab_button',
+			'name'    => 'ac_button',
 			'icon'    => 'icon-button',
 			'image'   => AC()->plugin_url() . '/assets/images/content/button.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

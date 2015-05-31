@@ -35,7 +35,7 @@ class AC_Shortcode_Video extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 370,
 			'type'    => 'media',
-			'name'    => 'ab_video',
+			'name'    => 'ac_video',
 			'icon'    => 'icon-video',
 			'image'   => AC()->plugin_url() . '/assets/images/media/video.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

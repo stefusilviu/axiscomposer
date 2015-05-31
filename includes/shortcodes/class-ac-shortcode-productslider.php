@@ -35,7 +35,7 @@ class AC_Shortcode_Productslider extends AC_Shortcode {
 		$this->shortcode = array(
 			'sort'    => 500,
 			'type'    => 'plugin',
-			'name'    => 'ab_productslider',
+			'name'    => 'ac_productslider',
 			'icon'    => 'icon-productslider',
 			'image'   => AC()->plugin_url() . '/assets/images/plugin/productslider.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',

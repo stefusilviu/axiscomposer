@@ -740,12 +740,12 @@ jQuery( function( $ ) {
 					start: function( event ) {
 						var current = $( event.target );
 						current.css({ opacity: 0.4 });
-						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+						$( '.ac-hover-active' ).removeClass( 'ac-hover-active' );
 						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + current.data( 'dragdrop-level' ) );
 					},
 					stop: function( event ) {
 						$( event.target ).css({ opacity: 1 });
-						$( '.axisbuilder-hover-active' ).removeClass( 'axisbuilder-hover-active' );
+						$( '.ac-hover-active' ).removeClass( 'ac-hover-active' );
 						$( '.canvas-area' ).removeClass( 'axisbuilder-select-target-1 axisbuilder-select-target-2 axisbuilder-select-target-3 axisbuilder-select-target-4' );
 					}
 				};
@@ -770,15 +770,15 @@ jQuery( function( $ ) {
 					over: function( event, ui ) {
 						var droppable = $( this );
 						if ( ac_meta_boxes_pagebuilder.dragdrop.is_droppable( ui.helper, droppable ) ) {
-							droppable.addClass( 'axisbuilder-hover-active' );
+							droppable.addClass( 'ac-hover-active' );
 						}
 					},
 					out: function() {
-						$( this ).removeClass( 'axisbuilder-hover-active' );
+						$( this ).removeClass( 'ac-hover-active' );
 					},
 					drop: function( event, ui ) {
 						var droppable = $( this );
-						if ( ! droppable.is( '.axisbuilder-hover-active' ) ) {
+						if ( ! droppable.is( '.ac-hover-active' ) ) {
 							return;
 						}
 

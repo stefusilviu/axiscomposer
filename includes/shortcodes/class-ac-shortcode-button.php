@@ -38,7 +38,7 @@ class AC_Shortcode_Button extends AC_Shortcode {
 			'name'    => 'ac_button',
 			'icon'    => 'icon-button',
 			'image'   => AC()->plugin_url() . '/assets/images/content/button.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);
 	}

@@ -38,7 +38,7 @@ class AC_Shortcode_Notification extends AC_Shortcode {
 			'name'    => 'ac_notification',
 			'icon'    => 'icon-notification',
 			'image'   => AC()->plugin_url() . '/assets/images/content/notification.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);
 	}

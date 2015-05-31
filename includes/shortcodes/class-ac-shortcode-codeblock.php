@@ -38,7 +38,7 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 			'name'    => 'ac_codeblock',
 			'icon'    => 'icon-codeblock',
 			'image'   => AC()->plugin_url() . '/assets/images/content/codeblock.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);
 	}

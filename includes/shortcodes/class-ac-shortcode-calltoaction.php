@@ -38,7 +38,7 @@ class AC_Shortcode_Calltoaction extends AC_Shortcode {
 			'name'    => 'ac_calltoaction',
 			'icon'    => 'icon-calltoaction',
 			'image'   => AC()->plugin_url() . '/assets/images/content/calltoaction.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);
 	}

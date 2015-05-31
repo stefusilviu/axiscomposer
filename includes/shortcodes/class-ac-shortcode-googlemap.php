@@ -38,7 +38,7 @@ class AC_Shortcode_Googlemap extends AC_Shortcode {
 			'name'    => 'ac_googlemap',
 			'icon'    => 'icon-googlemap',
 			'image'   => AC()->plugin_url() . '/assets/images/media/googlemap.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);
 	}

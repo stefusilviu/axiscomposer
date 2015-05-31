@@ -38,7 +38,7 @@ class AC_Shortcode_Accordion extends AC_Shortcode {
 			'name'    => 'ac_accordion',
 			'icon'    => 'icon-accordion',
 			'image'   => AC()->plugin_url() . '/assets/images/content/accordion.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);
 	}

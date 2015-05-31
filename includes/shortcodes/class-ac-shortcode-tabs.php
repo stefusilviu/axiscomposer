@@ -38,7 +38,7 @@ class AC_Shortcode_Tabs extends AC_Shortcode {
 			'name'    => 'ac_tabs',
 			'icon'    => 'icon-tabs',
 			'image'   => AC()->plugin_url() . '/assets/images/content/tabs.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => true ),
 		);
 	}

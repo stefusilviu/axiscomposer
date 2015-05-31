@@ -41,7 +41,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 			'name'        => 'ac_section',
 			'icon'        => 'icon-section',
 			'image'       => AC()->plugin_url() . '/assets/images/layouts/section.png', // Fallback if icon is missing :)
-			'target'      => 'axisbuilder-target-insert',
+			'target'      => 'ac-target-insert',
 			'tinyMCE'     => array( 'disable' => true ),
 			'drag-level'  => 1,
 			'drop-level'  => 1,

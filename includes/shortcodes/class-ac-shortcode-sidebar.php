@@ -38,7 +38,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 			'name'    => 'ac_sidebar',
 			'icon'    => 'icon-sidebar',
 			'image'   => AC()->plugin_url() . '/assets/images/content/sidebar.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'instantInsert' => '[ac_sidebar widget_area="Displayed Everywhere"]' ),
 		);
 	}

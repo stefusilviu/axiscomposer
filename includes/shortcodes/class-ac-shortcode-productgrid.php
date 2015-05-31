@@ -38,7 +38,7 @@ class AC_Shortcode_Productgrid extends AC_Shortcode {
 			'name'    => 'ac_productgrid',
 			'icon'    => 'icon-productgrid',
 			'image'   => AC()->plugin_url() . '/assets/images/plugin/productgrid.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);
 	}

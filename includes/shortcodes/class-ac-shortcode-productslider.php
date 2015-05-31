@@ -38,7 +38,7 @@ class AC_Shortcode_Productslider extends AC_Shortcode {
 			'name'    => 'ac_productslider',
 			'icon'    => 'icon-productslider',
 			'image'   => AC()->plugin_url() . '/assets/images/plugin/productslider.png', // Fallback if icon is missing :)
-			'target'  => 'axisbuilder-target-insert',
+			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);
 	}

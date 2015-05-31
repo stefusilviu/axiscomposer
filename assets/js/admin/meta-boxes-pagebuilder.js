@@ -917,10 +917,10 @@ jQuery( function( $ ) {
 								}
 							}
 
-							label += '<span class="axisbuilder-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
+							label += '<span class="ac-modal-label ' + cell_size_variations[x][y] + '">' + labeltext + '</span>';
 						}
 
-						notification += '<div class="axisbuilder-layout-row-modal"><label class="axisbuilder-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="axisbuilder-layout-row-inner-label">' + label + '</span></label></div>';
+						notification += '<div class="ac-layout-row-modal"><label class="ac-layout-row-modal-label"><input type="radio" id="add_cell_size_' + x + '" name="add_cell_size" value="' + x + '" /><span class="ac-layout-row-inner-label">' + label + '</span></label></div>';
 					}
 				} else {
 					notification += axiscomposer_admin_meta_boxes_pagebuilder.i18n_no_layout + '<br />';

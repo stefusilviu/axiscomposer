@@ -975,7 +975,7 @@ body .ui-draggable-dragging {
 /**
  * Row/Cell Modal Styles
  */
-.axisbuilder-layout-row-modal {
+.ac-layout-row-modal {
 	color: #888;
 	margin-bottom: 10px;
 
@@ -983,12 +983,12 @@ body .ui-draggable-dragging {
 		margin-bottom: 0;
 	}
 
-	.axisbuilder-layout-row-modal-label {
+	.ac-layout-row-modal-label {
 
 		input {
 			display: none;
 
-			&:checked + .axisbuilder-layout-row-inner-label {
+			&:checked + .ac-layout-row-inner-label {
 				color: #fff;
 				background-color: $fresh-color;
 			}
@@ -1007,7 +1007,7 @@ body .ui-draggable-dragging {
 			}
 		}
 
-		.axisbuilder-layout-row-inner-label {
+		.ac-layout-row-inner-label {
 			width: 100%;
 
 			&:hover {

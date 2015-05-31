@@ -1270,7 +1270,7 @@ jQuery( function( $ ) {
 		stupidtable: {
 
 			init: function() {
-				$( '.axisbuilder_editor' ).stupidtable().on( 'aftertablesort', this.add_arrows );
+				$( '.axiscomposer_pagebuilder' ).stupidtable().on( 'aftertablesort', this.add_arrows );
 			},
 
 			add_arrows: function( event, data ) {
@@ -1282,8 +1282,8 @@ jQuery( function( $ ) {
 					index = index - 1;
 				}
 
-				th.find( '.axisbuilder-arrow' ).remove();
-				th.eq( index ).append( '<span class="axisbuilder-arrow">' + arrow + '</span>' );
+				th.find( '.ac-arrow' ).remove();
+				th.eq( index ).append( '<span class="ac-arrow">' + arrow + '</span>' );
 			}
 		}
 	};

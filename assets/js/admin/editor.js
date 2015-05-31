@@ -83,7 +83,7 @@
 					current.push({
 						text: paramText,
 						onClick: paramOnClick,
-						axisbuilder_shortcode: shortcodes[dropdown]
+						axiscomposer_shortcode: shortcodes[dropdown]
 					});
 
 				// }
@@ -103,7 +103,7 @@
 
 		instantInsert: function() {
 			var ed        = tinymce.activeEditor,
-				shortcode = this.settings.axisbuilder_shortcode;
+				shortcode = this.settings.axiscomposer_shortcode;
 
 			// Execute command ;)
 			ed.execCommand( 'mceInsertContent', false, window.switchEditors.wpautop( shortcode.tinyMCE.instantInsert ) );

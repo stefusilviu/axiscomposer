@@ -200,7 +200,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			window.axisbuilder_shortcode = parents;
+			window.ac_shortcode = parents;
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
@@ -1039,7 +1039,7 @@ jQuery( function( $ ) {
 			},
 
 			init_edit_element: function() {
-				var parents = window.axisbuilder_shortcode;
+				var parents = window.ac_shortcode;
 
 				ac_meta_boxes_pagebuilder.backbone.block();
 				ac_meta_boxes_pagebuilder.backbone.disable();
@@ -1112,7 +1112,7 @@ jQuery( function( $ ) {
 			},
 
 			edit_element: function( data ) {
-				var parents = window.axisbuilder_shortcode;
+				var parents = window.ac_shortcode;
 				ac_meta_boxes_pagebuilder.send_to_datastorage( data, parents );
 			}
 		},

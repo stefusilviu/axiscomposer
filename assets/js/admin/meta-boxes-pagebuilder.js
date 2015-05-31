@@ -1099,7 +1099,7 @@ jQuery( function( $ ) {
 			},
 
 			cell_size: function( add_cell_size ) {
-				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
+				var $row                 = $( 'a.axiscomposer-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
 					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length];
 

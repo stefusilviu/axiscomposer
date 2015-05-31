@@ -226,7 +226,7 @@ class AC_HTML_Helper {
 	}
 
 	public static function select( $element ) {
-		$select = __( 'Select', 'axisbuilder' );
+		$select = __( 'Select', 'axiscomposer' );
 
 		if ( $element['subtype'] == 'category' ) {
 			$taxonomy = empty( $element['taxonomy'] ) ? '' : '&taxonomy="' . $element['taxonomy'];

@@ -30,8 +30,8 @@ class AC_Shortcode_Button extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_button';
-		$this->title     = __( 'Button', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a colored button', 'axisbuilder' );
+		$this->title     = __( 'Button', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a colored button', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 120,
 			'type'    => 'content',
@@ -51,44 +51,44 @@ class AC_Shortcode_Button extends AC_Shortcode {
 
 		$this->elements = array(
 			array(
-				'name'		=> __( 'Button Label', 'axisbuilder' ),
-				'desc'		=> __( 'Enter the text for button', 'axisbuilder' ),
+				'name'		=> __( 'Button Label', 'axiscomposer' ),
+				'desc'		=> __( 'Enter the text for button', 'axiscomposer' ),
 				'id'		=> 'label',
 				'type'		=> 'input',
-				'std'		=> __( 'Click here to add your button label', 'axisbuilder' )
+				'std'		=> __( 'Click here to add your button label', 'axiscomposer' )
 			),
 
 			array(
-				'name'		=> __( 'Button Link', 'axisbuilder' ),
-				'desc'		=> __( 'Enter the button link', 'axisbuilder' ),
+				'name'		=> __( 'Button Link', 'axiscomposer' ),
+				'desc'		=> __( 'Enter the button link', 'axiscomposer' ),
 				'id'		=> 'link',
 				'type'		=> 'input',
 				'std'		=> ''
 			),
 
 			array(
-				'name'		=> __( 'Button Size', 'axisbuilder' ),
-				'desc'		=> __( 'Choose the size of your button', 'axisbuilder' ),
+				'name'		=> __( 'Button Size', 'axiscomposer' ),
+				'desc'		=> __( 'Choose the size of your button', 'axiscomposer' ),
 				'id'		=> 'size',
 				'type'		=> 'select',
 				'std'		=> 'medium',
 				'subtype'	=> array(
-					__( 'Small', 'axisbuilder' )	=> 'small',
-					__( 'Medium', 'axisbuilder' )	=> 'medium',
-					__( 'Large', 'axisbuilder' )	=> 'large',
+					__( 'Small', 'axiscomposer' )	=> 'small',
+					__( 'Medium', 'axiscomposer' )	=> 'medium',
+					__( 'Large', 'axiscomposer' )	=> 'large',
 				)
 			),
 
 			array(
-				'name'		=> __( 'Button Position', 'axisbuilder' ),
-				'desc'		=> __( 'Choose alignment of your button', 'axisbuilder' ),
+				'name'		=> __( 'Button Position', 'axiscomposer' ),
+				'desc'		=> __( 'Choose alignment of your button', 'axiscomposer' ),
 				'id'		=> 'position',
 				'type'		=> 'select',
 				'std'		=> 'center',
 				'subtype'	=> array(
-					__( 'Left Align', 'axisbuilder' )	=> 'left',
-					__( 'Center Align', 'axisbuilder' )	=> 'center',
-					__( 'Right Align', 'axisbuilder' )	=> 'right',
+					__( 'Left Align', 'axiscomposer' )	=> 'left',
+					__( 'Center Align', 'axiscomposer' )	=> 'center',
+					__( 'Right Align', 'axiscomposer' )	=> 'right',
 				)
 			),
 		);

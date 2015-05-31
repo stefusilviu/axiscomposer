@@ -51,8 +51,8 @@ class AC_Iconfonts {
 	 * Check for capability
 	 */
 	public static function check_capability() {
-		if ( ! current_user_can( 'manage_axisbuilder' ) ) {
-			exit( __( 'Using this feature is reserved for Super Admins. You unfortunately don\'t have the necessary permissions.', 'axisbuilder' ) );
+		if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+			exit( __( 'Using this feature is reserved for Super Admins. You unfortunately don\'t have the necessary permissions.', 'axiscomposer' ) );
 		}
 	}
 
@@ -513,7 +513,7 @@ class AC_Iconfonts {
 		$output       = '';
 		$font_configs = self::load_iconfont_list();
 
-		if ( current_user_can( 'manage_axisbuilder' ) && ! empty( $font_configs ) ) {
+		if ( current_user_can( 'manage_axiscomposer' ) && ! empty( $font_configs ) ) {
 			$output .= '<style type="text/css">';
 			foreach ( $font_configs as $font_name => $font_list ) {
 				$append  = empty( $font_list['append'] ) ? '' : $font_list['append'];

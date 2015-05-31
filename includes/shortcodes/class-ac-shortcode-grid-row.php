@@ -32,8 +32,8 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_layout_row';
-		$this->title     = __( 'Grid Row', 'axisbuilder' );
-		$this->tooltip   = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axisbuilder' );
+		$this->title     = __( 'Grid Row', 'axiscomposer' );
+		$this->tooltip   = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 12,
 			'type'        => 'layout',
@@ -56,39 +56,39 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 
 		$this->elements = array(
 			array(
-				'name'     => __( 'Grid Borders', 'axisbuilder' ),
-				'desc'     => __( 'Choose if your layout grid should display any border.', 'axisbuilder' ),
+				'name'     => __( 'Grid Borders', 'axiscomposer' ),
+				'desc'     => __( 'Choose if your layout grid should display any border.', 'axiscomposer' ),
 				'id'       => 'border',
 				'std'      => 'no-border',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'No Borders', 'axisbuilder' )                                  => 'no-border',
-					__( 'Borders on top and bottom', 'axisbuilder' )                   => 'axisbuilder-border-top-bottom',
-					__( 'Borders between cells', 'axisbuilder' )                       => 'axisbuilder-border-cells',
-					__( 'Borders on top and bottom and between cells', 'axisbuilder' ) => 'axisbuilder-border-top-bottom axisbuilder-border-cells'
+					__( 'No Borders', 'axiscomposer' )                                  => 'no-border',
+					__( 'Borders on top and bottom', 'axiscomposer' )                   => 'axisbuilder-border-top-bottom',
+					__( 'Borders between cells', 'axiscomposer' )                       => 'axisbuilder-border-cells',
+					__( 'Borders on top and bottom and between cells', 'axiscomposer' ) => 'axisbuilder-border-top-bottom axisbuilder-border-cells'
 				)
 			),
 			array(
-				'name'    => __( 'Minimum height', 'axisbuilder' ),
-				'desc'    => __( 'Set the minimum height of all the cells in pixel. Eg: 400px', 'axisbuilder' ),
+				'name'    => __( 'Minimum height', 'axiscomposer' ),
+				'desc'    => __( 'Set the minimum height of all the cells in pixel. Eg: 400px', 'axiscomposer' ),
 				'id'      => 'min_height',
 				'type'    => 'input',
 				'std'     => '0'
 			),
 			array(
-				'name'     => __( 'Smartphones Behaviour', 'axisbuilder' ),
-				'desc'     => __( 'Choose how the cells inside the grid should behave on smartphones and small screens.', 'axisbuilder' ),
+				'name'     => __( 'Smartphones Behaviour', 'axiscomposer' ),
+				'desc'     => __( 'Choose how the cells inside the grid should behave on smartphones and small screens.', 'axiscomposer' ),
 				'id'       => 'smartphones',
 				'std'      => 'axisbuilder-flex-cells',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'By default each cell is displayed on its own', 'axisbuilder' )               => 'axisbuilder-flex-cells',
-					__( 'Cells appear beside each other, just like on large screens', 'axisbuilder' ) => 'axisbuilder-fixed-cells',
+					__( 'By default each cell is displayed on its own', 'axiscomposer' )               => 'axisbuilder-flex-cells',
+					__( 'Cells appear beside each other, just like on large screens', 'axiscomposer' ) => 'axisbuilder-fixed-cells',
 				)
 			),
 			array(
-				'name'     => __( 'For Developers: Section ID', 'axisbuilder' ),
-				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axisbuilder' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axisbuilder' ),
+				'name'     => __( 'For Developers: Section ID', 'axiscomposer' ),
+				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axiscomposer' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axiscomposer' ),
 				'id'       => 'id',
 				'std'      => '',
 				'type'     => 'input',
@@ -128,14 +128,14 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
-					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Row', 'axisbuilder' ) . '">' . __( 'Edit Row', 'axisbuilder' ) . '</a>';
+					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Row', 'axiscomposer' ) . '">' . __( 'Edit Row', 'axiscomposer' ) . '</a>';
 				}
-				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axisbuilder' ) . '">' . __( 'Delete Row', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axisbuilder' ) . '">' . __( 'Clone Row',  'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axiscomposer' ) . '">' . __( 'Delete Row', 'axiscomposer' ) . '</a>';
+				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axiscomposer' ) . '">' . __( 'Clone Row',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-cell">';
-				$output .= '<a class="axiscomposer-cell-set set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axisbuilder' ) . '">' . __( 'Set Cell Size', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axiscomposer-cell-add add-cell-icon" href="#add-cell" title="' . __( 'Add Cell',      'axisbuilder' ) . '">' . __( 'Add Cell',      'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-cell-set set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axiscomposer' ) . '">' . __( 'Set Cell Size', 'axiscomposer' ) . '</a>';
+				$output .= '<a class="axiscomposer-cell-add add-cell-icon" href="#add-cell" title="' . __( 'Add Cell',      'axiscomposer' ) . '">' . __( 'Add Cell',      'axiscomposer' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . $textarea_content . '</textarea>';

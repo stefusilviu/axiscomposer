@@ -30,8 +30,8 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_textblock';
-		$this->title     = __( 'Text Block', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a simple text block', 'axisbuilder' );
+		$this->title     = __( 'Text Block', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a simple text block', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 60,
 			'type'    => 'content',
@@ -57,22 +57,22 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 			// ),
 
 			// array(
-			// 	'name'   => __( 'Content', 'axisbuilder' ),
+			// 	'name'   => __( 'Content', 'axiscomposer' ),
 			// 	'type'   => 'tab',
 			// 	'nodesc' => true
 			// ),
 
 			array(
-				'name'    => __( 'Content', 'axisbuilder' ),
-				'desc'    => __( 'Enter some content for this textblock', 'axisbuilder' ),
+				'name'    => __( 'Content', 'axiscomposer' ),
+				'desc'    => __( 'Enter some content for this textblock', 'axiscomposer' ),
 				'id'      => 'content',
 				'type'    => 'tinymce',
-				'std'     => __( 'Click here to add your own text', 'axisbuilder' )
+				'std'     => __( 'Click here to add your own text', 'axiscomposer' )
 			),
 
 			array(
-				'name'    => __( 'Font Size', 'axisbuilder' ),
-				'desc'    => __( 'Choose the font size of the text in px', 'axisbuilder' ),
+				'name'    => __( 'Font Size', 'axiscomposer' ),
+				'desc'    => __( 'Choose the font size of the text in px', 'axiscomposer' ),
 				'type'    => 'number',
 				'id'      => 'size',
 				'min'     => '10',
@@ -86,26 +86,26 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 			// ),
 
 			// array(
-			// 	'name'   => __( 'Colors', 'axisbuilder' ),
+			// 	'name'   => __( 'Colors', 'axiscomposer' ),
 			// 	'type'   => 'tab',
 			// 	'nodesc' => true
 			// ),
 
 			array(
-				'name'    => __( 'Font Colors', 'axisbuilder' ),
-				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axisbuilder' ),
+				'name'    => __( 'Font Colors', 'axiscomposer' ),
+				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axiscomposer' ),
 				'id'      => 'font_color',
 				'std'     => '',
 				'type'    => 'select',
 				'subtype' => array(
-					__( 'Default', 'axisbuilder' ) => 'default',
-					__( 'Define Custom Colors', 'axisbuilder' ) => 'custom'
+					__( 'Default', 'axiscomposer' ) => 'default',
+					__( 'Define Custom Colors', 'axiscomposer' ) => 'custom'
 				)
 			),
 
 			array(
-				'name'     => __( 'Custom Font Color', 'axisbuilder' ),
-				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axisbuilder' ),
+				'name'     => __( 'Custom Font Color', 'axiscomposer' ),
+				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axiscomposer' ),
 				'id'       => 'color',
 				'std'      => '',
 				'required' => array( 'font_color', 'equals', 'custom' ),

@@ -243,8 +243,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public function custom_css( $elements ) {
 		$elements[] = array(
 			'id'    => 'custom_class',
-			'name'  => __( 'Custom CSS Class', 'axisbuilder' ),
-			'desc'  => sprintf( __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers). %sNo special characters can be used.%s', 'axisbuilder' ), '<br /><mark class="info">', '</mark>' ),
+			'name'  => __( 'Custom CSS Class', 'axiscomposer' ),
+			'desc'  => sprintf( __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers). %sNo special characters can be used.%s', 'axiscomposer' ), '<br /><mark class="info">', '</mark>' ),
 			'type'  => 'input',
 			'class' => 'ac_input_class',
 			'std'   => ''
@@ -328,10 +328,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$extra_class = 'axiscomposer-edit';
-					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
+					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axiscomposer' ) . '">' . __( 'Edit Element', 'axiscomposer' ) . '</a>';
 				}
-				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axiscomposer' ) . '">' . __( 'Delete Element', 'axiscomposer' ) . '</a>';
+				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axiscomposer' ) . '">' . __( 'Clone Element',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;

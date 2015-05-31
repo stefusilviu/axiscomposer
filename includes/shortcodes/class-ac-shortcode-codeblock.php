@@ -30,8 +30,8 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_codeblock';
-		$this->title     = __( 'Code Block', 'axisbuilder' );
-		$this->tooltip   = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axisbuilder' );
+		$this->title     = __( 'Code Block', 'axiscomposer' );
+		$this->tooltip   = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 350,
 			'type'    => 'content',
@@ -51,8 +51,8 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 
 		$this->elements = array(
 			array(
-				'name'            => __( 'Code Block Element. Add your own HTML/Javascript here', 'axisbuilder' ),
-				'desc'            => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axisbuilder' ),
+				'name'            => __( 'Code Block Element. Add your own HTML/Javascript here', 'axiscomposer' ),
+				'desc'            => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axiscomposer' ),
 				'id'              => 'content',
 				'std'             => '',
 				'type'            => 'textarea',
@@ -61,16 +61,16 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 			),
 
 			array(
-				'name'    => __( 'Code Wrapper Element', 'axisbuilder' ),
-				'desc'    => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axisbuilder' ),
+				'name'    => __( 'Code Wrapper Element', 'axiscomposer' ),
+				'desc'    => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axiscomposer' ),
 				'id'      => 'wrapper_element',
 				'type'    => 'input',
 				'std'     => ''
 			),
 
 			array(
-				'name'     => __( 'Code Wrapper Element Attributes', 'axisbuilder' ),
-				'desc'     => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axisbuilder' ),
+				'name'     => __( 'Code Wrapper Element Attributes', 'axiscomposer' ),
+				'desc'     => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axiscomposer' ),
 				'id'       => 'wrapper_element_attributes',
 				'std'      => '',
 				'required' => array( 'wrapper_element', 'not', '' ),
@@ -78,24 +78,24 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 			),
 
 			array(
-				'name'  => __( 'Escape HTML Code', 'axisbuilder' ),
-				'desc'  => __( 'WordPress will convert the html tags to readable text.', 'axisbuilder' ),
+				'name'  => __( 'Escape HTML Code', 'axiscomposer' ),
+				'desc'  => __( 'WordPress will convert the html tags to readable text.', 'axiscomposer' ),
 				'id'    => 'escape_html',
 				'std'   => false,
 				'type'  => 'checkbox'
 			),
 
 			array(
-				'name'  => __( 'Disable Shortcode Processing', 'axisbuilder' ),
-				'desc'  => __( 'Check if you want to disable the shortcode processing for this code block.', 'axisbuilder' ),
+				'name'  => __( 'Disable Shortcode Processing', 'axiscomposer' ),
+				'desc'  => __( 'Check if you want to disable the shortcode processing for this code block.', 'axiscomposer' ),
 				'id'    => 'deactivate_shortcode',
 				'std'   => false,
 				'type'  => 'checkbox'
 			),
 
 			array(
-				'name'  => __( 'Deactivate schema.org markup', 'axisbuilder' ),
-				'desc'  => __( 'Output the code without any additional wrapper elements. (not recommended)', 'axisbuilder' ),
+				'name'  => __( 'Deactivate schema.org markup', 'axiscomposer' ),
+				'desc'  => __( 'Output the code without any additional wrapper elements. (not recommended)', 'axiscomposer' ),
 				'id'    => 'deactivate_wrapper',
 				'std'   => false,
 				'type'  => 'checkbox'

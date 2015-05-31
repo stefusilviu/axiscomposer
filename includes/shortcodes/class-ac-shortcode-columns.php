@@ -32,8 +32,8 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_full';
-		$this->title     = __( '1/1', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with full width', 'axisbuilder' );
+		$this->title     = __( '1/1', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with full width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 1,
 			'type'        => 'layout',
@@ -73,11 +73,11 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 
 		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell modal-animation ac-drag ' . $this->shortcode['name'] . $extra_class . '" data-dragdrop-level="' . $this->shortcode['drag-level'] . '" data-width="' . $this->shortcode['name'] . '">';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
-				$output .= '<a class="ac-change-column-size layout-element-icon ac-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axisbuilder' ) . '"></a>';
+				$output .= '<a class="ac-change-column-size layout-element-icon ac-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axiscomposer' ) . '"></a>';
 				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
-				$output .= '<a class="ac-change-column-size layout-element-icon ac-increase" href="#increase" title="' . __( 'Increase Column Size', 'axisbuilder' ) . '"></a>';
-				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axisbuilder' ) . '">' . __( 'Delete Column', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axisbuilder' ) . '">' . __( 'Clone Column',  'axisbuilder' ) . '</a>';
+				$output .= '<a class="ac-change-column-size layout-element-icon ac-increase" href="#increase" title="' . __( 'Increase Column Size', 'axiscomposer' ) . '"></a>';
+				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axiscomposer' ) . '">' . __( 'Delete Column', 'axiscomposer' ) . '</a>';
+				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axiscomposer' ) . '">' . __( 'Clone Column',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
@@ -128,8 +128,8 @@ class AC_Shortcode_Columns_One_Half extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_half';
-		$this->title     = __( '1/2', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 50&percnt; width', 'axisbuilder' );
+		$this->title     = __( '1/2', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 50&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 2,
 			'type'        => 'layout',
@@ -155,8 +155,8 @@ class AC_Shortcode_Columns_One_Third extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_third';
-		$this->title     = __( '1/3', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 33&percnt; width', 'axisbuilder' );
+		$this->title     = __( '1/3', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 33&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 3,
 			'type'        => 'layout',
@@ -182,8 +182,8 @@ class AC_Shortcode_Columns_Two_Third extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_two_third';
-		$this->title     = __( '2/3', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 67&percnt; width', 'axisbuilder' );
+		$this->title     = __( '2/3', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 67&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 4,
 			'type'        => 'layout',
@@ -209,8 +209,8 @@ class AC_Shortcode_Columns_One_Fourth extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_fourth';
-		$this->title     = __( '1/4', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 25&percnt; width', 'axisbuilder' );
+		$this->title     = __( '1/4', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 25&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 5,
 			'type'        => 'layout',
@@ -236,8 +236,8 @@ class AC_Shortcode_Columns_Three_Fourth extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_three_fourth';
-		$this->title     = __( '3/4', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 75&percnt; width', 'axisbuilder' );
+		$this->title     = __( '3/4', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 75&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 6,
 			'type'        => 'layout',
@@ -263,8 +263,8 @@ class AC_Shortcode_Columns_One_Fifth extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_one_fifth';
-		$this->title     = __( '1/5', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 20&percnt; width', 'axisbuilder' );
+		$this->title     = __( '1/5', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 20&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 7,
 			'type'        => 'layout',
@@ -290,8 +290,8 @@ class AC_Shortcode_Columns_Two_Fifth extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_two_fifth';
-		$this->title     = __( '2/5', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 40&percnt; width', 'axisbuilder' );
+		$this->title     = __( '2/5', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 40&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 8,
 			'type'        => 'layout',
@@ -317,8 +317,8 @@ class AC_Shortcode_Columns_Three_Fifth extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_three_fifth';
-		$this->title     = __( '3/5', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 60&percnt; width', 'axisbuilder' );
+		$this->title     = __( '3/5', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 60&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 9,
 			'type'        => 'layout',
@@ -344,8 +344,8 @@ class AC_Shortcode_Columns_Four_Fifth extends AC_Shortcode_Columns {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_col_four_fifth';
-		$this->title     = __( '4/5', 'axisbuilder' );
-		$this->tooltip   = __( 'Creates a single column with 80&percnt; width', 'axisbuilder' );
+		$this->title     = __( '4/5', 'axiscomposer' );
+		$this->tooltip   = __( 'Creates a single column with 80&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 10,
 			'type'        => 'layout',

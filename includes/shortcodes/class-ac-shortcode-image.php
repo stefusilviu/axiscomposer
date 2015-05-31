@@ -30,8 +30,8 @@ class AC_Shortcode_Image extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_image';
-		$this->title     = __( 'Image', 'axisbuilder' );
-		$this->tooltip   = __( 'Inserts a image of your choice', 'axisbuilder' );
+		$this->title     = __( 'Image', 'axiscomposer' );
+		$this->tooltip   = __( 'Inserts a image of your choice', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 360,
 			'type'    => 'media',

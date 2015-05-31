@@ -32,8 +32,8 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'axisbuilder_animatedcountdown';
-		$this->title     = __( 'Animated Countdown', 'axisbuilder' );
-		$this->tooltip   = __( 'Display an count down to a specific date', 'axisbuilder' );
+		$this->title     = __( 'Animated Countdown', 'axiscomposer' );
+		$this->tooltip   = __( 'Display an count down to a specific date', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 210,
 			'type'    => 'content',
@@ -46,13 +46,13 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 
 		// Optional
 		$this->time_config = array(
-			__('Second',   'axisbuilder' ) =>'1',
-			__('Minute',   'axisbuilder' ) =>'2',
-			__('Hour',     'axisbuilder' ) =>'3',
-			__('Day',      'axisbuilder' ) =>'4',
-			__('Week',     'axisbuilder' ) =>'5',
-			// __('Month', 'axisbuilder' ) =>'6',
-			// __('Year',  'axisbuilder' ) =>'7'
+			__('Second',   'axiscomposer' ) =>'1',
+			__('Minute',   'axiscomposer' ) =>'2',
+			__('Hour',     'axiscomposer' ) =>'3',
+			__('Day',      'axiscomposer' ) =>'4',
+			__('Week',     'axiscomposer' ) =>'5',
+			// __('Month', 'axiscomposer' ) =>'6',
+			// __('Year',  'axiscomposer' ) =>'7'
 		);
 	}
 
@@ -69,14 +69,14 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			// ),
 
 			// array(
-			// 	'name'   => __( 'Content', 'axisbuilder' ),
+			// 	'name'   => __( 'Content', 'axiscomposer' ),
 			// 	'type'   => 'tab',
 			// 	'nodesc' => true
 			// ),
 
 			// array(
-			// 	'name'     => __( 'Date', 'axisbuilder' ),
-			// 	'desc'     => __( 'Pick a date in the future', 'axisbuilder' ),
+			// 	'name'     => __( 'Date', 'axiscomposer' ),
+			// 	'desc'     => __( 'Pick a date in the future', 'axiscomposer' ),
 			// 	'id'       => 'date',
 			// 	'std'      => '',
 			// 	'type'     => 'datepicker',
@@ -84,8 +84,8 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			// ),
 
 			array(
-				'name'    => __( 'Hour', 'axisbuilder' ),
-				'desc'    => __( 'Pick the hour of the day', 'axisbuilder' ),
+				'name'    => __( 'Hour', 'axiscomposer' ),
+				'desc'    => __( 'Pick the hour of the day', 'axiscomposer' ),
 				'type'    => 'number',
 				'id'      => 'hour',
 				'min'     => '1',
@@ -94,8 +94,8 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			),
 
 			array(
-				'name'    => __( 'Minute', 'axisbuilder' ),
-				'desc'    => __( 'Pick the minute of the hour', 'axisbuilder' ),
+				'name'    => __( 'Minute', 'axiscomposer' ),
+				'desc'    => __( 'Pick the minute of the hour', 'axiscomposer' ),
 				'type'    => 'number',
 				'id'      => 'minute',
 				'min'     => '0',
@@ -104,8 +104,8 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			),
 
 			array(
-				'name'     => __( 'Smallest time unit', 'axisbuilder' ),
-				'desc'     => __( 'The smallest unit that will be displayed', 'axisbuilder' ),
+				'name'     => __( 'Smallest time unit', 'axiscomposer' ),
+				'desc'     => __( 'The smallest unit that will be displayed', 'axiscomposer' ),
 				'id'       => 'min',
 				'std'      => '1',
 				'type'     => 'select',
@@ -113,8 +113,8 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			),
 
 			array(
-				'name'     => __( 'Largest time unit', 'axisbuilder' ),
-				'desc'     => __( 'The largest unit that will be displayed', 'axisbuilder' ),
+				'name'     => __( 'Largest time unit', 'axiscomposer' ),
+				'desc'     => __( 'The largest unit that will be displayed', 'axiscomposer' ),
 				'id'       => 'max',
 				'std'      => '5',
 				'type'     => 'select',
@@ -122,21 +122,21 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			),
 
 			array(
-				'name'     => __( 'Text Alignment', 'axisbuilder' ),
-				'desc'     => __( 'Choose here, how to align your text', 'axisbuilder' ),
+				'name'     => __( 'Text Alignment', 'axiscomposer' ),
+				'desc'     => __( 'Choose here, how to align your text', 'axiscomposer' ),
 				'id'       => 'align',
 				'std'      => 'center',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'Left', 'axisbuilder' )   => 'left',
-					__( 'Right', 'axisbuilder' )  => 'right',
-					__( 'Center', 'axisbuilder' ) => 'center'
+					__( 'Left', 'axiscomposer' )   => 'left',
+					__( 'Right', 'axiscomposer' )  => 'right',
+					__( 'Center', 'axiscomposer' ) => 'center'
 				)
 			),
 
 			array(
-				'name'    => __( 'Number Font Size', 'axisbuilder' ),
-				'desc'    => __( 'Choose Size of the number in px', 'axisbuilder' ),
+				'name'    => __( 'Number Font Size', 'axiscomposer' ),
+				'desc'    => __( 'Choose Size of the number in px', 'axiscomposer' ),
 				'type'    => 'number',
 				'id'      => 'size',
 				'min'     => '20',
@@ -150,21 +150,21 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			// ),
 
 			// array(
-			// 	'name'   => __( 'Colors', 'axisbuilder' ),
+			// 	'name'   => __( 'Colors', 'axiscomposer' ),
 			// 	'type'   => 'tab',
 			// 	'nodesc' => true
 			// ),
 
 			array(
-				'name'     => __( 'Colors', 'axisbuilder' ),
-				'desc'     => __( 'Choose the colors here', 'axisbuilder' ),
+				'name'     => __( 'Colors', 'axiscomposer' ),
+				'desc'     => __( 'Choose the colors here', 'axiscomposer' ),
 				'id'       => 'style',
 				'std'      => 'default',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'Theme Default', 'axisbuilder' )     => 'default',
-					__( 'Transparent Dark', 'axisbuilder' )  => 'transparent-dark',
-					__( 'Transparent Light', 'axisbuilder' ) => 'transparent-light',
+					__( 'Theme Default', 'axiscomposer' )     => 'default',
+					__( 'Transparent Dark', 'axiscomposer' )  => 'transparent-dark',
+					__( 'Transparent Light', 'axiscomposer' ) => 'transparent-light',
 				)
 			),
 

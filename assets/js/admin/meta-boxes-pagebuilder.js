@@ -47,7 +47,7 @@ jQuery( function( $ ) {
 				.on( 'click', 'a.axiscomposer-cell-set', this.cell.set_cell_size )
 
 				// Recalc element
-				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
+				.on( 'change', 'select.ac-recalc-shortcode', this.select_changed );
 
 			$( document.body )
 				.on( 'keydown storage', this.storage.keyboard_actions )
@@ -379,7 +379,7 @@ jQuery( function( $ ) {
 		recalc_element: function( element_container ) {
 			var values  = [],
 				current = false,
-				recalcs = element_container.find( 'select.axisbuilder-recalculate-shortcode' );
+				recalcs = element_container.find( 'select.ac-recalc-shortcode' );
 
 			for ( var i = recalcs.length - 1; i >= 0; i-- ) {
 				current = $( recalcs[i] );

@@ -61,7 +61,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 			'type'    => 'select',
 			'subtype' => $sidebars,
 			'data'    => array( 'attr' => 'widget_area' ),
-			'class'   => 'axisbuilder-recalculate-shortcode',
+			'class'   => 'ac-recalc-shortcode',
 			'std'     => esc_html( $params['args']['widget_area'] ) // htmlspecialchars_decode( $params['args']['widget_area'] )
 		);
 

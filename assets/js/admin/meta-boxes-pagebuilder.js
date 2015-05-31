@@ -43,8 +43,8 @@ jQuery( function( $ ) {
 				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
 
 				// Grid row cell
-				.on( 'click', 'a.axisbuilder-cell-add', this.cell.add_cell )
-				.on( 'click', 'a.axisbuilder-cell-set', this.cell.set_cell_size )
+				.on( 'click', 'a.axiscomposer-cell-add', this.cell.add_cell )
+				.on( 'click', 'a.axiscomposer-cell-set', this.cell.set_cell_size )
 
 				// Recalc element
 				.on( 'change', 'select.axisbuilder-recalculate-shortcode', this.select_changed );
@@ -900,7 +900,7 @@ jQuery( function( $ ) {
 			},
 
 			set_cell_size: function() {
-				var $row                 = $( 'a.axisbuilder-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
+				var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
 					cells                = $row.find( '.axisbuilder-layout-cell' ),
 					cell_size            = ac_meta_boxes_pagebuilder_data.cell_size,
 					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length], notification = '';

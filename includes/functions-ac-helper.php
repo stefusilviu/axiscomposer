@@ -89,9 +89,9 @@ function ac_shortcode_data( $name, $content = null, $args = array() ) {
 }
 
 /**
- * Creates the shortcode pattern that only matches builder shortcodes.
+ * Creates shortcode pattern that only matches pagebuilder shortcodes.
  * @param  array        $predefined_tags Prefefined Tags.
- * @return array|string Matched builder shortcode pattern.
+ * @return array|string Matched pagebuilder shortcode pattern.
  */
 function ac_shortcode_pattern( $predefined_tags = false ) {
 	global $shortcode_tags, $_ac_shortcode_tags;
@@ -100,7 +100,7 @@ function ac_shortcode_pattern( $predefined_tags = false ) {
 	$_old_shortcodes = $shortcode_tags;
 	$_new_shortcodes = ac_get_shortcode_data( 'name' );
 
-	// If builder has shortcodes build the pattern.
+	// If pagebuilder has shortcodes build the pattern.
 	if ( ! empty( $_new_shortcodes ) ) {
 		$shortcode_tags = array_flip( $_new_shortcodes );
 	}
@@ -121,22 +121,22 @@ function ac_shortcode_pattern( $predefined_tags = false ) {
 }
 
 /**
- * Fetch the builder shortcodes data.
+ * Fetch the pagebuilder shortcodes data.
  * @param  string $data Shortcode data type.
  * @return array        All shortcodes data.
  */
 function ac_get_shortcode_data( $data ) {
-	$builder_shortcodes = array();
+	$pagebuilder_shortcodes = array();
 
 	foreach ( AC()->shortcodes->get_shortcodes() as $load_shortcodes ) {
-		$builder_shortcodes[] = $load_shortcodes->shortcode[$data];
+		$pagebuilder_shortcodes[] = $load_shortcodes->shortcode[$data];
 	}
 
-	return $builder_shortcodes;
+	return $pagebuilder_shortcodes;
 }
 
 /**
- * Search content for builder shortcodes and filter shortcodes through their hooks.
+ * Search content for pagebuilder shortcodes and filter shortcodes through their hooks.
  *
  * If there are no shortcode tags defined, then the content will be returned
  * without any filtering. This might cause issues when plugins are disabled but

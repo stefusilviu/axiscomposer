@@ -80,7 +80,7 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			// 	'id'       => 'date',
 			// 	'std'      => '',
 			// 	'type'     => 'datepicker',
-			// 	'container_class' => 'ab_third ab_third_first'
+			// 	'container_class' => 'ac_third ac_third_first'
 			// ),
 
 			array(

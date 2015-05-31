@@ -157,16 +157,16 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		extract( $params );
 
 		$size = array(
-			'ab_cell_one_full'     => '1/1',
-			'ab_cell_one_half'     => '1/2',
-			'ab_cell_one_third'    => '1/3',
-			'ab_cell_two_third'    => '2/3',
-			'ab_cell_one_fourth'   => '1/4',
-			'ab_cell_three_fourth' => '3/4',
-			'ab_cell_one_fifth'    => '1/5',
-			'ab_cell_two_fifth'    => '2/5',
-			'ab_cell_three_fifth'  => '3/5',
-			'ab_cell_four_fifth'   => '4/5',
+			'ac_cell_one_full'     => '1/1',
+			'ac_cell_one_half'     => '1/2',
+			'ac_cell_one_third'    => '1/3',
+			'ac_cell_two_third'    => '2/3',
+			'ac_cell_one_fourth'   => '1/4',
+			'ac_cell_three_fourth' => '3/4',
+			'ac_cell_one_fifth'    => '1/5',
+			'ac_cell_two_fifth'    => '2/5',
+			'ac_cell_three_fifth'  => '3/5',
+			'ac_cell_four_fifth'   => '4/5',
 		);
 
 		$data['width']             = $this->shortcode['name'];
@@ -271,7 +271,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		$outer_style .= $this->style_string( $atts, 'background_color', 'background-color' );
 
 		// Modify the shorycode name
-		$shortcode = str_replace( 'ab_cell_', 'ab_', $shortcode );
+		$shortcode = str_replace( 'ac_cell_', 'ac_', $shortcode );
 
 		$axisbuilder_config['current_column'] = $shortcode;
 

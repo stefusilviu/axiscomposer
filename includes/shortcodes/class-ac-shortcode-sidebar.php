@@ -39,7 +39,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 			'icon'    => 'icon-sidebar',
 			'image'   => AC()->plugin_url() . '/assets/images/content/sidebar.png', // Fallback if icon is missing :)
 			'target'  => 'axisbuilder-target-insert',
-			'tinyMCE' => array( 'instantInsert' => '[ab_sidebar widget_area="Displayed Everywhere"]' ),
+			'tinyMCE' => array( 'instantInsert' => '[ac_sidebar widget_area="Displayed Everywhere"]' ),
 		);
 	}
 
@@ -95,7 +95,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 		}
 
 		if ( $output ) {
-			$output = '<div class="axisbuilder ab_sidebar clearfix">' . $output . '</div>';
+			$output = '<div class="axisbuilder ac_sidebar clearfix">' . $output . '</div>';
 		}
 
 		return $output;

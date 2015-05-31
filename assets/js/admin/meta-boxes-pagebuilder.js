@@ -40,7 +40,7 @@ jQuery( function( $ ) {
 				.on( 'click', 'a.trash-data', this.trash_data )
 
 				// Resize Layout
-				.on( 'click', 'a.axisbuilder-change-column-size:not(.axisbuilder-change-cell-size)', this.resize_layout )
+				.on( 'click', 'a.ac-change-column-size:not(.ac-change-cell-size)', this.resize_layout )
 
 				// Grid row cell
 				.on( 'click', 'a.axiscomposer-cell-add', this.cell.add_cell )

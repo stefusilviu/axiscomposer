@@ -212,7 +212,7 @@ class AC_Meta_Box_Page_Builder_Data {
 
 		// Class for Debug Mode
 		if ( ! empty( $status_options['builder_debug_mode'] ) ) {
-			$classes[] = 'axisbuilder-debug';
+			$classes[] = 'ac-debug';
 		}
 
 		// Class for hidden items

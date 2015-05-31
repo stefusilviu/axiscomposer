@@ -949,7 +949,7 @@ jQuery( function( $ ) {
 
 					// Check if we can append cells
 					if ( cells.length === count ) {
-						var cell_tmpl = $( '#tmpl-axiscomposer-' + newEl[0].replace( 'ab_cell_', 'ab_shortcode_cells_' ).replace( '_one_full', '' ) );
+						var cell_tmpl = $( '#tmpl-axiscomposer-' + newEl[0].replace( 'ac_cell_', 'ac_shortcode_cells_' ).replace( '_one_full', '' ) );
 						if ( cell_tmpl.length ) {
 							$row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
 							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
@@ -1294,47 +1294,47 @@ jQuery( function( $ ) {
 	var ac_meta_boxes_pagebuilder_data = {
 
 		col_size: [
-			[ 'ab_one_full', '1/1', 1.00 ], [ 'ab_four_fifth', '4/5', 0.80 ], [ 'ab_three_fourth', '3/4', 0.75 ], [ 'ab_two_third', '2/3', 0.66 ], [ 'ab_three_fifth', '3/5', 0.60 ], [ 'ab_one_half', '1/2', 0.50 ], [ 'ab_two_fifth', '2/5', 0.40 ], [ 'ab_one_third', '1/3', 0.33 ], [ 'ab_one_fourth', '1/4', 0.25 ], [ 'ab_one_fifth', '1/5', 0.20 ]
+			[ 'ac_one_full', '1/1', 1.00 ], [ 'ac_four_fifth', '4/5', 0.80 ], [ 'ac_three_fourth', '3/4', 0.75 ], [ 'ac_two_third', '2/3', 0.66 ], [ 'ac_three_fifth', '3/5', 0.60 ], [ 'ac_one_half', '1/2', 0.50 ], [ 'ac_two_fifth', '2/5', 0.40 ], [ 'ac_one_third', '1/3', 0.33 ], [ 'ac_one_fourth', '1/4', 0.25 ], [ 'ac_one_fifth', '1/5', 0.20 ]
 		],
 
 		cell_size: [
-			[ 'ab_cell_one_full', '1/1', 1.00 ], [ 'ab_cell_four_fifth', '4/5', 0.80 ], [ 'ab_cell_three_fourth', '3/4', 0.75 ], [ 'ab_cell_two_third', '2/3', 0.66 ], [ 'ab_cell_three_fifth', '3/5', 0.60 ], [ 'ab_cell_one_half', '1/2', 0.50 ], [ 'ab_cell_two_fifth', '2/5', 0.40 ], [ 'ab_cell_one_third', '1/3', 0.33 ], [ 'ab_cell_one_fourth', '1/4', 0.25 ], [ 'ab_cell_one_fifth', '1/5', 0.20 ]
+			[ 'ac_cell_one_full', '1/1', 1.00 ], [ 'ac_cell_four_fifth', '4/5', 0.80 ], [ 'ac_cell_three_fourth', '3/4', 0.75 ], [ 'ac_cell_two_third', '2/3', 0.66 ], [ 'ac_cell_three_fifth', '3/5', 0.60 ], [ 'ac_cell_one_half', '1/2', 0.50 ], [ 'ac_cell_two_fifth', '2/5', 0.40 ], [ 'ac_cell_one_third', '1/3', 0.33 ], [ 'ac_cell_one_fourth', '1/4', 0.25 ], [ 'ac_cell_one_fifth', '1/5', 0.20 ]
 		],
 
 		new_cell_order: [
-			[ 'ab_cell_one_full', '1/1' ], [ 'ab_cell_one_half', '1/2' ], [ 'ab_cell_one_third', '1/3' ], [ 'ab_cell_one_fourth', '1/4' ], [ 'ab_cell_one_fifth', '1/5' ]
+			[ 'ac_cell_one_full', '1/1' ], [ 'ac_cell_one_half', '1/2' ], [ 'ac_cell_one_third', '1/3' ], [ 'ac_cell_one_fourth', '1/4' ], [ 'ac_cell_one_fifth', '1/5' ]
 		],
 
 		cell_size_variations: {
 			4 : {
-				1 : [ 'ab_cell_one_fourth', 'ab_cell_one_fourth', 'ab_cell_one_fourth', 'ab_cell_one_fourth' ],
-				2 : [ 'ab_cell_one_fifth',  'ab_cell_one_fifth',  'ab_cell_one_fifth',  'ab_cell_two_fifth'  ],
-				3 : [ 'ab_cell_one_fifth',  'ab_cell_one_fifth',  'ab_cell_two_fifth',  'ab_cell_one_fifth'  ],
-				4 : [ 'ab_cell_one_fifth',  'ab_cell_two_fifth',  'ab_cell_one_fifth',  'ab_cell_one_fifth'  ],
-				5 : [ 'ab_cell_two_fifth',  'ab_cell_one_fifth',  'ab_cell_one_fifth',  'ab_cell_one_fifth'  ]
+				1 : [ 'ac_cell_one_fourth', 'ac_cell_one_fourth', 'ac_cell_one_fourth', 'ac_cell_one_fourth' ],
+				2 : [ 'ac_cell_one_fifth',  'ac_cell_one_fifth',  'ac_cell_one_fifth',  'ac_cell_two_fifth'  ],
+				3 : [ 'ac_cell_one_fifth',  'ac_cell_one_fifth',  'ac_cell_two_fifth',  'ac_cell_one_fifth'  ],
+				4 : [ 'ac_cell_one_fifth',  'ac_cell_two_fifth',  'ac_cell_one_fifth',  'ac_cell_one_fifth'  ],
+				5 : [ 'ac_cell_two_fifth',  'ac_cell_one_fifth',  'ac_cell_one_fifth',  'ac_cell_one_fifth'  ]
 			},
 			3 : {
-				1 : [ 'ab_cell_one_third',    'ab_cell_one_third',    'ab_cell_one_third'   ],
-				2 : [ 'ab_cell_one_fourth',   'ab_cell_one_fourth',   'ab_cell_one_half'    ],
-				3 : [ 'ab_cell_one_fourth',   'ab_cell_one_half',     'ab_cell_one_fourth'  ],
-				4 : [ 'ab_cell_one_half',     'ab_cell_one_fourth',   'ab_cell_one_fourth'  ],
-				5 : [ 'ab_cell_one_fifth',    'ab_cell_one_fifth',    'ab_cell_three_fifth' ],
-				6 : [ 'ab_cell_one_fifth',    'ab_cell_three_fifth',  'ab_cell_one_fifth'   ],
-				7 : [ 'ab_cell_three_fifth',  'ab_cell_one_fifth',    'ab_cell_one_fifth'   ],
-				8 : [ 'ab_cell_one_fifth',    'ab_cell_two_fifth',    'ab_cell_two_fifth'   ],
-				9 : [ 'ab_cell_two_fifth',    'ab_cell_one_fifth',    'ab_cell_two_fifth'   ],
-				10: [ 'ab_cell_two_fifth',    'ab_cell_two_fifth',    'ab_cell_one_fifth'   ]
+				1 : [ 'ac_cell_one_third',    'ac_cell_one_third',    'ac_cell_one_third'   ],
+				2 : [ 'ac_cell_one_fourth',   'ac_cell_one_fourth',   'ac_cell_one_half'    ],
+				3 : [ 'ac_cell_one_fourth',   'ac_cell_one_half',     'ac_cell_one_fourth'  ],
+				4 : [ 'ac_cell_one_half',     'ac_cell_one_fourth',   'ac_cell_one_fourth'  ],
+				5 : [ 'ac_cell_one_fifth',    'ac_cell_one_fifth',    'ac_cell_three_fifth' ],
+				6 : [ 'ac_cell_one_fifth',    'ac_cell_three_fifth',  'ac_cell_one_fifth'   ],
+				7 : [ 'ac_cell_three_fifth',  'ac_cell_one_fifth',    'ac_cell_one_fifth'   ],
+				8 : [ 'ac_cell_one_fifth',    'ac_cell_two_fifth',    'ac_cell_two_fifth'   ],
+				9 : [ 'ac_cell_two_fifth',    'ac_cell_one_fifth',    'ac_cell_two_fifth'   ],
+				10: [ 'ac_cell_two_fifth',    'ac_cell_two_fifth',    'ac_cell_one_fifth'   ]
 			},
 			2 : {
-				1 : [ 'ab_cell_one_half',     'ab_cell_one_half'     ],
-				2 : [ 'ab_cell_two_third',    'ab_cell_one_third'    ],
-				3 : [ 'ab_cell_one_third',    'ab_cell_two_third'    ],
-				4 : [ 'ab_cell_one_fourth',   'ab_cell_three_fourth' ],
-				5 : [ 'ab_cell_three_fourth', 'ab_cell_one_fourth'   ],
-				6 : [ 'ab_cell_one_fifth',    'ab_cell_four_fifth'   ],
-				7 : [ 'ab_cell_four_fifth',   'ab_cell_one_fifth'    ],
-				8 : [ 'ab_cell_two_fifth',    'ab_cell_three_fifth'  ],
-				9 : [ 'ab_cell_three_fifth',  'ab_cell_two_fifth'    ]
+				1 : [ 'ac_cell_one_half',     'ac_cell_one_half'     ],
+				2 : [ 'ac_cell_two_third',    'ac_cell_one_third'    ],
+				3 : [ 'ac_cell_one_third',    'ac_cell_two_third'    ],
+				4 : [ 'ac_cell_one_fourth',   'ac_cell_three_fourth' ],
+				5 : [ 'ac_cell_three_fourth', 'ac_cell_one_fourth'   ],
+				6 : [ 'ac_cell_one_fifth',    'ac_cell_four_fifth'   ],
+				7 : [ 'ac_cell_four_fifth',   'ac_cell_one_fifth'    ],
+				8 : [ 'ac_cell_two_fifth',    'ac_cell_three_fifth'  ],
+				9 : [ 'ac_cell_three_fifth',  'ac_cell_two_fifth'    ]
 			}
 		}
 	};

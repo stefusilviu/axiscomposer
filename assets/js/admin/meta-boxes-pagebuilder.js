@@ -741,12 +741,12 @@ jQuery( function( $ ) {
 						var current = $( event.target );
 						current.css({ opacity: 0.4 });
 						$( '.ac-hover-active' ).removeClass( 'ac-hover-active' );
-						$( '.canvas-area' ).addClass( 'axisbuilder-select-target-' + current.data( 'dragdrop-level' ) );
+						$( '.canvas-area' ).addClass( 'ac-select-target-' + current.data( 'dragdrop-level' ) );
 					},
 					stop: function( event ) {
 						$( event.target ).css({ opacity: 1 });
 						$( '.ac-hover-active' ).removeClass( 'ac-hover-active' );
-						$( '.canvas-area' ).removeClass( 'axisbuilder-select-target-1 axisbuilder-select-target-2 axisbuilder-select-target-3 axisbuilder-select-target-4' );
+						$( '.canvas-area' ).removeClass( 'ac-select-target-1 ac-select-target-2 ac-select-target-3 ac-select-target-4' );
 					}
 				};
 

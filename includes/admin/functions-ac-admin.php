@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ac_get_screen_ids() {
 
-	$ab_screen_id = sanitize_title( __( 'AxisComposer', 'axiscomposer' ) );
+	$ac_screen_id = sanitize_title( __( 'AxisComposer', 'axiscomposer' ) );
 	$screen_ids   = array(
-		'toplevel_page_' . $ab_screen_id,
-		$ab_screen_id . '_page_ac-iconfonts',
-		$ab_screen_id . '_page_ac-settings',
-		$ab_screen_id . '_page_ac-status',
-		$ab_screen_id . '_page_ac-addons',
+		'toplevel_page_' . $ac_screen_id,
+		$ac_screen_id . '_page_ac-iconfonts',
+		$ac_screen_id . '_page_ac-settings',
+		$ac_screen_id . '_page_ac-status',
+		$ac_screen_id . '_page_ac-addons',
 		'portfolio',
 		'edit-portfolio',
 		'edit-portfolio_cat',

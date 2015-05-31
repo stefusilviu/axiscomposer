@@ -319,7 +319,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 
 			if ( $background_attachment == 'parallax' ) {
 				$class .= 'axisbuilder-parallax-section';
-				$speed  = apply_filters( 'axisbuilder_parallax_speed', '0.3', $params['id'] );
+				$speed  = apply_filters( 'axiscomposer_parallax_speed', '0.3', $params['id'] );
 				$attachment_class  = ( $background_repeat == 'stretch' || $background_repeat == 'stretch' ) ? 'axisbuilder-full-stretch' : '';
 				$params['attach'] .= '<div class="axisbuilder-parallax ' . $attachment_class . '" data-axisbuilder-parallax-ratio="' . $speed . '" style="' . $background . '"></div>';
 				$background = '';
@@ -361,7 +361,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 
 		// Set Extra arrow element
 		if ( strpos( $bottom_border, 'border-extra' ) !== false ) {
-			$arrow_bg = empty( $background_color ) ? apply_filters( 'axisbuilder_background_color', '#fff' ) : $background_color;
+			$arrow_bg = empty( $background_color ) ? apply_filters( 'axiscomposer_background_color', '#fff' ) : $background_color;
 			self::$section_close = '<div class="axisbuilder-extra-border-element ' . $bottom_border . '"><div class="arrow-wrap"><div class="arrow-inner" style="background-color: ' . $arrow_bg . '"></div></div></div>';
 		} else {
 			self::$section_close = '';
@@ -432,7 +432,7 @@ function axisbuilder_new_section( $params = array() ) {
 			$output .= $before_new;
 			$output .= '<div ' . $id . ' class="' . $class . ' container-wrap" ' . $background . $data . $style . '>';
 			$output .= $attach;
-			$output .= apply_filters( 'axisbuilder_add_section_container', '', $defaults );
+			$output .= apply_filters( 'axiscomposer_add_section_container', '', $defaults );
 		}
 	}
 

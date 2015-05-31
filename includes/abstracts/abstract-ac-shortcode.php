@@ -117,11 +117,11 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		}
 
 		// Display Custom CSS element
-		if ( apply_filters( 'axisbuilder_show_css_element', true ) ) {
+		if ( apply_filters( 'axiscomposer_show_css_element', true ) ) {
 			$this->elements = $this->custom_css( $this->elements );
 		}
 
-		$elements = apply_filters( 'axisbuilder_shortcodes_elements', $this->elements );
+		$elements = apply_filters( 'axiscomposer_shortcodes_elements', $this->elements );
 
 		// If the ajax request told us that we are fetching the sub-function iterate over the array elements :)
 		if ( ! empty( $_POST['params']['subelements'] ) ) {
@@ -185,7 +185,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$meta['custom_markup'] = '';
 		}
 
-		$meta    = apply_filters( 'axisbuilder_shortcodes_meta', $meta, $atts, $content, $shortcode );
+		$meta    = apply_filters( 'axiscomposer_shortcodes_meta', $meta, $atts, $content, $shortcode );
 		$content = $this->shortcode_handle( $atts, $content, $shortcode, $meta );
 
 		return $content;

@@ -149,5 +149,5 @@ function ac_get_core_supported_themes() {
  * @return array
  */
 function ac_get_layout_supported_screens() {
-	return apply_filters( 'axisbuilder_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
+	return apply_filters( 'axiscomposer_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }

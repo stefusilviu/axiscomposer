@@ -327,7 +327,7 @@ class AC_HTML_Helper {
 
 		ob_start();
 
-		wp_editor( htmlspecialchars_decode( $element['std'] ), 'tinymce-' . $element['id'], apply_filters( 'axisbuilder_backbone_modal_editor_settings', $settings ) );
+		wp_editor( htmlspecialchars_decode( $element['std'] ), 'tinymce-' . $element['id'], apply_filters( 'axiscomposer_backbone_modal_editor_settings', $settings ) );
 
 		return ob_get_clean();
 	}

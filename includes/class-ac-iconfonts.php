@@ -31,7 +31,7 @@ class AC_Iconfonts {
 	 * Hook in methods
 	 */
 	public static function init() {
-		self::$default_iconfont = apply_filters( 'axisbuilder_default_iconfont', array(
+		self::$default_iconfont = apply_filters( 'axiscomposer_default_iconfont', array(
 			'entypo-fontello' => array(
 				'append'	=> '?v=3',
 				'folder'  	=> AC()->plugin_url() . '/assets/fonts/entypo-fontello',
@@ -150,7 +150,7 @@ class AC_Iconfonts {
 		}
 
 		// Filter the response
-		$response = apply_filters( 'axisbuilder_iconfont_uploader_response', $response, $file_svg, $temp_dir );
+		$response = apply_filters( 'axiscomposer_iconfont_uploader_response', $response, $file_svg, $temp_dir );
 
 		if ( ! is_wp_error( $response ) && ! empty( $response ) ) {
 			$xml   = simplexml_load_string( $response );

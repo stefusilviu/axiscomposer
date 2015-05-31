@@ -653,7 +653,7 @@ jQuery( function( $ ) {
 						}
 					});
 
-					scope = $( '.axisbuilder-data > div > .axisbuilder-inner-shortcode' );
+					scope = $( '.ac-data > div > .axisbuilder-inner-shortcode' );
 				}
 
 				var content        = '',

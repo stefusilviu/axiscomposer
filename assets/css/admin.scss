@@ -596,18 +596,18 @@ body .ui-draggable-dragging {
 }
 
 /* Target Mode highlight of elements */
-.axisbuilder-hover-target {
+.ac-hover-target {
 	cursor: crosshair;
 }
 
-.axisbuilder-hover-target.ac-drop[data-dragdrop-level="0"]:hover,
-.axisbuilder-hover-target.ac-select-target-1 .ac-drop:hover[data-dragdrop-level="0"],
-.axisbuilder-hover-target.ac-select-target-2 .ac-drop:hover[data-dragdrop-level="1"],
-.axisbuilder-hover-target.ac-select-target-3 .ac-drop:hover[data-dragdrop-level="2"],
-.axisbuilder-hover-target.ac-select-target-3 .ac-drop:hover[data-dragdrop-level="1"],
-.axisbuilder-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="3"],
-.axisbuilder-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="2"],
-.axisbuilder-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="1"] {
+.ac-hover-target.ac-drop[data-dragdrop-level="0"]:hover,
+.ac-hover-target.ac-select-target-1 .ac-drop:hover[data-dragdrop-level="0"],
+.ac-hover-target.ac-select-target-2 .ac-drop:hover[data-dragdrop-level="1"],
+.ac-hover-target.ac-select-target-3 .ac-drop:hover[data-dragdrop-level="2"],
+.ac-hover-target.ac-select-target-3 .ac-drop:hover[data-dragdrop-level="1"],
+.ac-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="3"],
+.ac-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="2"],
+.ac-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="1"] {
 	background: #f7fff2;
 	border: 1px dashed #9acf57 !important;
 }

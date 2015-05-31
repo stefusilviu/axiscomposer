@@ -124,7 +124,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 			$textarea_content = ac_shortcode_data( $this->shortcode['name'], '[ac_cell_one_half first][/ac_cell_one_half] [ac_cell_one_half][/ac_cell_one_half]', $args );
 		}
 
-		$output = '<div class="axisbuilder-layout-row axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates axisbuilder-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
+		$output = '<div class="axisbuilder-layout-row axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {

@@ -751,7 +751,7 @@ jQuery( function( $ ) {
 				};
 
 				// Draggable
-				$( '#axiscomposer-pagebuilder' ).find( '.axisbuilder-drag' ).not( '.ui-draggable' ).draggable( data );
+				$( '#axiscomposer-pagebuilder' ).find( '.ac-drag' ).not( '.ui-draggable' ).draggable( data );
 				$( '#axiscomposer-pagebuilder' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
 					$.extend( {}, data, {
 						handle: false,
@@ -782,7 +782,7 @@ jQuery( function( $ ) {
 							return;
 						}
 
-						var elements = droppable.find( '>.axisbuilder-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
+						var elements = droppable.find( '>.ac-drag' ), template = {}, offset = {}, method = 'after', toEl = false, position_array = [], last_pos, max_height, i;
 
 						// Iterate over all elements and check their positions
 						for ( i = 0; i < elements.length; i++ ) {
@@ -858,7 +858,7 @@ jQuery( function( $ ) {
 						toEl[ method ]( ui.draggable );
 
 						// Before finally moving the element, save the former parent of the draggable to a var so we can check later if we need to update the parent as well
-						var formerParent = $( ui.draggable ).parents( '.axisbuilder-drag:last' );
+						var formerParent = $( ui.draggable ).parents( '.ac-drag:last' );
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {

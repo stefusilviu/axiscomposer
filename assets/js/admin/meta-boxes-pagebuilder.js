@@ -295,7 +295,7 @@ jQuery( function( $ ) {
 
 				// Bugfix - column delete makes the canvas undroppable for unknown reason
 				if ( $( '.canvas-data' ).val() === '' ) {
-					$( '.axisbuilder-drop' ).droppable( 'destroy' );
+					$( '.ac-drop' ).droppable( 'destroy' );
 					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 				}
 			});
@@ -867,7 +867,7 @@ jQuery( function( $ ) {
 
 						// Get the element that the new element was inserted into. This has to be the parent of the current toEL since we usually insert the new element outside of the toEL with the 'after' method
 						// If method !== 'after' the element was inserted with prepend directly to the toEL and toEL should therefore also the insertedInto element :)
-						var insertedInto = ( method === 'after' ) ? toEl.parents( '.axisbuilder-drop' ) : toEl;
+						var insertedInto = ( method === 'after' ) ? toEl.parents( '.ac-drop' ) : toEl;
 
 						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
 							ac_meta_boxes_pagebuilder.textarea.outer(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
@@ -888,7 +888,7 @@ jQuery( function( $ ) {
 				};
 
 				// Droppable
-				$( '#axiscomposer-pagebuilder' ).find( '.axisbuilder-drop' ).not( '.ui-droppable' ).droppable( data );
+				$( '#axiscomposer-pagebuilder' ).find( '.ac-drop' ).not( '.ui-droppable' ).droppable( data );
 			}
 		},
 

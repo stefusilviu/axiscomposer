@@ -1134,7 +1134,7 @@ jQuery( function( $ ) {
 			},
 
 			set_key: function() {
-				return ( 'axisbuilder-storage-' + axiscomposer_admin_meta_boxes_pagebuilder.post_id ).toLowerCase();
+				return ( 'ac-storage-' + axiscomposer_admin_meta_boxes_pagebuilder.post_id ).toLowerCase();
 			},
 
 			get_key: function( passed_key ) {

@@ -10,15 +10,15 @@ class AC_Tests_Install extends AC_Unit_Test_Case {
 	 * Test check version
 	 */
 	public function test_check_version() {
-		update_option( 'axisbuilder_version', AC()->version - 1 );
+		update_option( 'axiscomposer_version', AC()->version - 1 );
 		AC_Install::check_version();
 
-		$this->assertTrue( did_action( 'axisbuilder_updated' ) === 1 );
+		$this->assertTrue( did_action( 'axiscomposer_updated' ) === 1 );
 
-		update_option( 'axisbuilder_version', AC()->version );
+		update_option( 'axiscomposer_version', AC()->version );
 		AC_Install::check_version();
 
-		$this->assertTrue( did_action( 'axisbuilder_updated' ) === 1 );
+		$this->assertTrue( did_action( 'axiscomposer_updated' ) === 1 );
 	}
 
 	/**
@@ -33,7 +33,7 @@ class AC_Tests_Install extends AC_Unit_Test_Case {
 
 		AC_Install::install();
 
-		$this->assertTrue( get_option( 'axisbuilder_version' ) === AC()->version );
+		$this->assertTrue( get_option( 'axiscomposer_version' ) === AC()->version );
 	}
 
 	/**

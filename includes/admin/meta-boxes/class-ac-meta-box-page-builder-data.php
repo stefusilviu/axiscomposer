@@ -217,7 +217,7 @@ class AC_Meta_Box_Page_Builder_Data {
 
 		// Class for hidden items
 		if ( empty( $_GET['post'] ) || ( isset( $_GET['post'] ) && is_pagebuilder_active( $_GET['post'] ) === false ) ) {
-			$classes[] = 'axisbuilder-hidden';
+			$classes[] = 'ac-hidden';
 		}
 
 		return $classes;

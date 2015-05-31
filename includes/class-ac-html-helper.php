@@ -110,7 +110,7 @@ class AC_HTML_Helper {
 			}
 
 			if ( ! $visible ) {
-				$params['class_string'] = 'axisbuilder-hidden';
+				$params['class_string'] = 'ac-hidden';
 			}
 		}
 

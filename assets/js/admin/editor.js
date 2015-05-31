@@ -25,8 +25,8 @@
 				menu: self.createMenu()
 			});
 
-			// editor.addCommand( 'Open_AxisBuilderModal', function( ui, params ) {
-				// var modal = new $.AxisBuilderModal( params );
+			// editor.addCommand( 'Open_ACBackboneModal', function( ui, params ) {
+				// var modal = new $.Open_ACBackboneModal( params );
 				// return false;
 			// });
 		},
@@ -36,7 +36,6 @@
 		 */
 		createMenu: function() {
 			var ed         = tinymce.activeEditor,
-				// modal      = $.AxisBuilderModal.openInstance || [],
 				shortcodes = ed.getLang( 'axiscomposer_shortcodes.shortcodes' ),
 				title, dropdown, self = this, tabs = [], submenu = [], loop = 0;
 

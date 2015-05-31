@@ -3,7 +3,7 @@
 var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
 /**
- * AxisBuilder Backbone Iconfonts JS
+ * AxisComposer Backbone Iconfonts JS
  */
 ( function ( $, Backbone, _ ) {
 	'use strict';
@@ -65,7 +65,7 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
 			var data = {
 				term: $el.data( 'delete' ),
-				action: 'axisbuilder_delete_iconfont',
+				action: 'axiscomposer_delete_iconfont',
 				security: axiscomposer_admin_iconfonts.delete_custom_iconfont_nonce
 			};
 
@@ -95,7 +95,7 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 				success: function( response ) {
 					$( '.spinner' ).hide();
 
-					if ( response.match( /axisbuilder_iconfont_removed/ ) ) {
+					if ( response.match( /axiscomposer_iconfont_removed/ ) ) {
 						message.html( '<div class="updated"><p>Font icon removed successfully! Reloading the page... </p></div>' );
 						message.show();
 
@@ -141,7 +141,7 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
 		var	data = {
 			value: attachment,
-			action: 'axisbuilder_add_iconfont',
+			action: 'axiscomposer_add_iconfont',
 			security: axiscomposer_admin_iconfonts.add_custom_iconfont_nonce
 		};
 
@@ -161,7 +161,7 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 			success: function( response ) {
 				$( '.spinner' ).hide();
 
-				if ( response.match( /axisbuilder_iconfont_added/ ) ) {
+				if ( response.match( /axiscomposer_iconfont_added/ ) ) {
 					message.html( '<div class="updated"><p>Font icon added successfully! Reloading the page... </p></div>' );
 					message.show();
 

@@ -93,7 +93,7 @@ jQuery( function( $ ) {
 						data: function( term, page ) {
 							return {
 								term:     term,
-								action:   $( this ).data( 'action' ) || 'axisbuilder_json_search_pages_and_portfolio',
+								action:   $( this ).data( 'action' ) || 'axiscomposer_json_search_pages_and_portfolio',
 								security: ac_enhanced_select_params.search_post_types_nonce
 							};
 						},

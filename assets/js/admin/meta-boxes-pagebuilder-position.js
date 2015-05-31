@@ -3,7 +3,7 @@ jQuery( window ).load( function() {
 
 	// Page Builder at the first position
 	jQuery( function() {
-		var builder = jQuery( '#axisbuilder-editor' ),
+		var builder = jQuery( '#axiscomposer-pagebuilder' ),
 			metabox = jQuery( '#normal-sortables' ),
 			postbox = metabox.find( '.postbox' );
 

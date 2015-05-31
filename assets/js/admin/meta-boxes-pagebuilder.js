@@ -392,7 +392,7 @@ jQuery( function( $ ) {
 		send_to_datastorage: function( values, element_container ) {
 			var column    = element_container.parents( '.axisbuilder-layout-column:eq(0)' ),
 				section   = element_container.parents( '.axisbuilder-layout-section:eq(0)' ),
-				selector  = element_container.is( '.axisbuilder-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),
+				selector  = element_container.is( '.ac-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),
 				save_data = element_container.find( selector ),
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
 

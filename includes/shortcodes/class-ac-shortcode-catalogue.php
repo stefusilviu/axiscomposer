@@ -29,7 +29,7 @@ class AC_Shortcode_Catalogue extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_catalogue';
+		$this->id        = 'catalogue';
 		$this->title     = __( 'Catalogue', 'axiscomposer' );
 		$this->tooltip   = __( 'Creates a pricing list', 'axiscomposer' );
 		$this->shortcode = array(

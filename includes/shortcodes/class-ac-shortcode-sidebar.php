@@ -29,7 +29,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_sidebar';
+		$this->id        = 'sidebar';
 		$this->title     = __( 'Widget Area', 'axiscomposer' );
 		$this->tooltip   = __( 'Display one of the themes widget areas', 'axiscomposer' );
 		$this->shortcode = array(

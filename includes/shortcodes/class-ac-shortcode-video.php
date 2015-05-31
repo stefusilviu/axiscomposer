@@ -29,7 +29,7 @@ class AC_Shortcode_Video extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_video';
+		$this->id        = 'video';
 		$this->title     = __( 'Video', 'axiscomposer' );
 		$this->tooltip   = __( 'Display a video of your choice', 'axiscomposer' );
 		$this->shortcode = array(

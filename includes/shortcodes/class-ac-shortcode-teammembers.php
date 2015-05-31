@@ -29,7 +29,7 @@ class AC_Shortcode_Teammembers extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_teammembers';
+		$this->id        = 'teammembers';
 		$this->title     = __( 'Team Members', 'axiscomposer' );
 		$this->tooltip   = __( 'Display a team members image with additional information', 'axiscomposer' );
 		$this->shortcode = array(

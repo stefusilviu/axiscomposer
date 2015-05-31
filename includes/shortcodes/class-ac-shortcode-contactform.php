@@ -29,7 +29,7 @@ class AC_Shortcode_Contactform extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_contactform';
+		$this->id        = 'contactform';
 		$this->title     = __( 'Contact Form', 'axiscomposer' );
 		$this->tooltip   = __( 'Creates a customizable contact form', 'axiscomposer' );
 		$this->shortcode = array(

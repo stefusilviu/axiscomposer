@@ -29,7 +29,7 @@ class AC_Shortcode_Calltoaction extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_calltoaction';
+		$this->id        = 'calltoaction';
 		$this->title     = __( 'Call To Action', 'axiscomposer' );
 		$this->tooltip   = __( 'Creates a call to action button', 'axiscomposer' );
 		$this->shortcode = array(

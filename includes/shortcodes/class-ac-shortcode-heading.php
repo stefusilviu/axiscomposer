@@ -29,7 +29,7 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_heading';
+		$this->id        = 'heading';
 		$this->title     = __( 'Special Heading', 'axiscomposer' );
 		$this->tooltip   = __( 'Creates a Special Heading', 'axiscomposer' );
 		$this->shortcode = array(

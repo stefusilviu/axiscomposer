@@ -29,7 +29,7 @@ class AC_Shortcode_Notification extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'axisbuilder_notification';
+		$this->id        = 'notification';
 		$this->title     = __( 'Notification', 'axiscomposer' );
 		$this->tooltip   = __( 'Creates a notification box to inform visitors', 'axiscomposer' );
 		$this->shortcode = array(

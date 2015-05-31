@@ -128,10 +128,10 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
-					$output .= '<a class="axisbuilder-edit edit-element-icon" href="#edit" title="' . __( 'Edit Row', 'axisbuilder' ) . '">' . __( 'Edit Row', 'axisbuilder' ) . '</a>';
+					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Row', 'axisbuilder' ) . '">' . __( 'Edit Row', 'axisbuilder' ) . '</a>';
 				}
-				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axisbuilder' ) . '">' . __( 'Delete Row', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axisbuilder' ) . '">' . __( 'Clone Row',  'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axisbuilder' ) . '">' . __( 'Delete Row', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axisbuilder' ) . '">' . __( 'Clone Row',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-cell">';
 				$output .= '<a class="axisbuilder-cell-set set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axisbuilder' ) . '">' . __( 'Set Cell Size', 'axisbuilder' ) . '</a>';

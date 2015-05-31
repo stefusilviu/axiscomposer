@@ -327,11 +327,11 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		$output = '<div class="axisbuilder-sortable-element modal-animation axisbuilder-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
-					$extra_class = 'axisbuilder-edit';
+					$extra_class = 'axiscomposer-edit';
 					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axisbuilder' ) . '">' . __( 'Edit Element', 'axisbuilder' ) . '</a>';
 				}
-				$output .= '<a class="axisbuilder-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
-				$output .= '<a class="axisbuilder-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axisbuilder' ) . '">' . __( 'Delete Element', 'axisbuilder' ) . '</a>';
+				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axisbuilder' ) . '">' . __( 'Clone Element',  'axisbuilder' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;

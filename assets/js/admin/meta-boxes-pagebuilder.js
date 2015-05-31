@@ -6,8 +6,8 @@ jQuery( function( $ ) {
 	try {
 		$supports_html5_storage = ( 'sessionStorage' in window && window.sessionStorage !== null );
 
-		window.sessionStorage.setItem( 'ab', 'test' );
-		window.sessionStorage.removeItem( 'ab' );
+		window.sessionStorage.setItem( 'ac', 'test' );
+		window.sessionStorage.removeItem( 'ac' );
 	} catch( err ) {
 		$supports_html5_storage = false;
 	}
@@ -28,9 +28,9 @@ jQuery( function( $ ) {
 
 			$( '#axiscomposer-pagebuilder' )
 				.on( 'click', '.insert-shortcode', this.add_element )
-				.on( 'click', '.axisbuilder-edit', this.edit_element )
-				.on( 'click', 'a.axisbuilder-clone', this.clone_element )
-				.on( 'click', 'a.axisbuilder-trash', this.trash_element )
+				.on( 'click', '.axiscomposer-edit', this.edit_element )
+				.on( 'click', 'a.axiscomposer-clone', this.clone_element )
+				.on( 'click', 'a.axiscomposer-trash', this.trash_element )
 
 				// History
 				.on( 'click', 'a.undo-data', this.storage.undo_data )

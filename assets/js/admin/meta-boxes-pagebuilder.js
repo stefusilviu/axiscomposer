@@ -1050,7 +1050,7 @@ jQuery( function( $ ) {
 						extract: true,
 						shortcode: parents.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
 					},
-					action: 'axisbuilder_' + parents.data( 'modal-action' ),
+					action: 'axiscomposer_' + parents.data( 'modal-action' ),
 					security: axiscomposer_admin_meta_boxes_pagebuilder.modal_item_nonce
 				};
 

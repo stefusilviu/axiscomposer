@@ -42,6 +42,8 @@ class AC_Install {
 	 * Install AC
 	 */
 	public static function install() {
+		global $wpdp;
+
 		if ( ! defined( 'AC_INSTALLING' ) ) {
 			define( 'AC_INSTALLING', true );
 		}

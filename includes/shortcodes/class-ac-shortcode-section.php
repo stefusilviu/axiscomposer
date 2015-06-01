@@ -286,11 +286,11 @@ class AC_Shortcode_Section extends AC_Shortcode {
 
 		extract( $atts );
 
-		$class = 'axisbuilder-section section-padding-' . $padding . ' ' . $shadow . ' section-background-' . $background_attachment . '';
+		$class = 'ac-section section-padding-' . $padding . ' ' . $shadow . ' section-background-' . $background_attachment . '';
 
 		$params['attach'] = '';
 		$params['custom_markup'] = $meta['custom_markup'];
-		$params['id'] = empty( $id ) ? 'axisbuilder-section-' . self::$section_count : sanitize_html_class( $id );
+		$params['id'] = empty( $id ) ? 'ac-section-' . self::$section_count : sanitize_html_class( $id );
 
 		// Set Attachment Image
 		if ( ! empty( $attachment ) && ! empty( $attachment_size ) ) {

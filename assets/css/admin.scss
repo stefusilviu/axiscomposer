@@ -414,7 +414,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 }
 
 /**
- * Builder Postbox Classes
+ * Page Builder Postbox Classes
  */
 #axiscomposer-pagebuilder {
 
@@ -527,7 +527,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 }
 
 /* Shortcode Wrap */
-#wpwrap .axisbuilder-active-insert {
+#wpwrap .ac-active-insert {
 	border: 1px solid #D54E21;
 }
 
@@ -949,7 +949,7 @@ body .ui-draggable-dragging {
 	position: relative;
 }
 
-.axisbuilder-start-sorting .ac-first-column {
+.ac-start-sorting .ac-first-column {
 	clear: none;
 }
 

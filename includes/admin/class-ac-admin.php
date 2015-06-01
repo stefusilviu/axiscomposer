@@ -101,7 +101,7 @@ class AC_Admin {
 					});
 				" );
 			} else {
-				$footer_text = __( 'Thank you for building with AxisComposer.', 'axiscomposer' );
+				$footer_text = __( 'Thank you for creating with AxisComposer.', 'axiscomposer' );
 			}
 		}
 

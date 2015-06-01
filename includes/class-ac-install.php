@@ -42,7 +42,7 @@ class AC_Install {
 	 * Install AC
 	 */
 	public static function install() {
-		global $wpdp;
+		global $wpdb;
 
 		if ( ! defined( 'AC_INSTALLING' ) ) {
 			define( 'AC_INSTALLING', true );

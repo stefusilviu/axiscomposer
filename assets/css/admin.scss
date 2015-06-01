@@ -1599,7 +1599,20 @@ table.ac_status_table {
 /**
  * Optimisation for screens 500px and smaller
  */
-@media only screen and (max-width: 500px) {}
+@media only screen and (max-width: 500px) {
+	.axiscomposer_options_panel label,
+	.axiscomposer_options_panel legend {
+		float: none;
+		width: auto;
+		display: block;
+		margin: 0;
+	}
+
+	.axiscomposer_options_panel fieldset.form-field,
+	.axiscomposer_options_panel p.form-field {
+		padding: 5px 20px 5px 20px !important;
+	}
+}
 
 /**
  * Select2

@@ -475,14 +475,14 @@ jQuery( function( $ ) {
 					// @todo Will do later when we need actually ;)
 				});
 
-				// Update element's classname on Builder Canvas to reflect visual chanages instantly.
+				// Update element's classname on pagebuilder canvas to reflect visual chanages instantly.
 				class_updates.each( function() {
 					class_el = $( this );
 					class_key = class_el.data( 'update_class_with' ).split( ',' );
 
 					for ( var i = 0; i < class_key.length; i++ ) {
 						if ( typeof values[class_key[i]] === 'string' ) {
-							class_el.get(0).className += ' axisbuilder-' + class_key[i] + '-' + values[class_key[i]];
+							class_el.get(0).className += ' axiscomposer-' + class_key[i] + '-' + values[class_key[i]];
 						}
 					}
 				});

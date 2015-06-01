@@ -515,7 +515,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 	}
 
 	/* Till we get Textarea down */
-	.axisbuilder-layout-row .axisbuilder-layout-cell > .axisbuilder-sorthandle {
+	.ac-layout-row .ac-layout-cell > .axisbuilder-sorthandle {
 		border-top: 1px dashed #e1e1e1;
 	}
 }
@@ -615,7 +615,7 @@ body .ui-draggable-dragging {
 /**
  * Sortable Elements Styles
  */
-.axisbuilder-sortable-element {
+.ac-sortable-element {
 	width: 98%;
 	margin: 1%;
 	color: #666;
@@ -650,7 +650,7 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-sortable-element, .axisbuilder-layout-column {
+.ac-sortable-element, .ac-layout-column {
 
 	&:hover {
 		z-index: 20;
@@ -660,7 +660,7 @@ body .ui-draggable-dragging {
 .axisbuilder-inner-shortcode {
 
 	.axisbuilder-highlight,
-	.axisbuilder-sortable-element {
+	.ac-sortable-element {
 		margin: 10px 1%;
 	}
 
@@ -690,7 +690,7 @@ body .ui-draggable-dragging {
 	position: relative;
 
 	.axisbuilder-element-title,
-	.axisbuilder-column-size,
+	.ac-column-size,
 	.layout-element-icon {
 		float: left;
 		color: #999;
@@ -709,7 +709,7 @@ body .ui-draggable-dragging {
 		@include transition(all .2s ease-in-out);
 	}
 
-	.axisbuilder-column-size {
+	.ac-column-size {
 		padding: 0 5px;
 		font-size: 12px;
 		line-height: 25px;
@@ -801,9 +801,9 @@ body .ui-draggable-dragging {
 /**
  * Shortcode layout Styles
  */
-.axisbuilder-layout-column  {
+.ac-layout-column  {
 
-	&.axisbuilder-first-column {
+	&.ac-first-column {
 		clear: left;
 	}
 
@@ -817,7 +817,7 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-layout-section {
+.ac-layout-section {
 	width: 98%;
 	clear: both;
 
@@ -832,7 +832,7 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-layout-row {
+.ac-layout-row {
 	margin-bottom: 30px !important;
 
 	.axisbuilder-inner-shortcode {
@@ -841,14 +841,14 @@ body .ui-draggable-dragging {
 		overflow: hidden;
 	}
 
-	.axisbuilder-layout-column {
+	.ac-layout-column {
 
 		> .axisbuilder-inner-shortcode {
 			top: 0;
 		}
 	}
 
-	.axisbuilder-layout-cell {
+	.ac-layout-cell {
 		margin: 0;
 
 		textarea {
@@ -942,14 +942,14 @@ body .ui-draggable-dragging {
 }
 
 .axisbuilder-highlight,
-.axisbuilder-layout-column,
-.axisbuilder-layout-section {
+.ac-layout-column,
+.ac-layout-section {
 	margin: 1%;
 	float: left;
 	position: relative;
 }
 
-.axisbuilder-start-sorting .axisbuilder-first-column {
+.axisbuilder-start-sorting .ac-first-column {
 	clear: none;
 }
 
@@ -957,17 +957,17 @@ body .ui-draggable-dragging {
  * Additional Styles
  */
 .axisbuilder-sorthandle a,
-.axisbuilder-sortable-element .axisbuilder-sorthandle {
+.ac-sortable-element .axisbuilder-sorthandle {
 	@include transition(all .2s ease-in-out);
 }
 
-.axisbuilder-layout-column:hover a,
-.axisbuilder-sortable-element:hover a,
-.axisbuilder-layout-section:hover > .axisbuilder-sorthandle a {
+.ac-layout-column:hover a,
+.ac-sortable-element:hover a,
+.ac-layout-section:hover > .axisbuilder-sorthandle a {
 	opacity: 1;
 }
 
-.axisbuilder-layout-column a:active {
+.ac-layout-column a:active {
 	opacity: 0.3;
 	outline: none;
 }
@@ -1016,7 +1016,7 @@ body .ui-draggable-dragging {
 /**
  * Shortcode Specific Styles
  */
-.axisbuilder-sortable-element.ac_sidebar {
+.ac-sortable-element.ac_sidebar {
 	.axisbuilder-inner-shortcode {
 		select {
 			width: auto;
@@ -1509,8 +1509,8 @@ table.ac_status_table {
  * Clearfix
  */
 .clearfix, #axiscomposer-pagebuilder,
-.axisbuilder-layout-column > .axisbuilder-inner-shortcode,
-.axisbuilder-layout-section > .axisbuilder-inner-shortcode {
+.ac-layout-column > .axisbuilder-inner-shortcode,
+.ac-layout-section > .axisbuilder-inner-shortcode {
 	@include clearfix();
 }
 

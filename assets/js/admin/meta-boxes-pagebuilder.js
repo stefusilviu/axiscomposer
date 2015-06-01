@@ -192,11 +192,11 @@ jQuery( function( $ ) {
 		},
 
 		edit_element: function() {
-			var parents = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+			var parents = $( this ).parents( '.ac-sortable-element:eq(0)' );
 			if ( ! parents.length ) {
-				parents = $( this ).parents( '.axisbuilder-layout-cell:eq(0)' );
+				parents = $( this ).parents( '.ac-layout-cell:eq(0)' );
 				if ( ! parents.length ) {
-					parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+					parents = $( this ).parents( '.ac-layout-section:eq(0)' );
 				}
 			}
 
@@ -212,17 +212,17 @@ jQuery( function( $ ) {
 		},
 
 		clone_element: function() {
-			var element = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' ), recalc_cell = false;
+			var element = $( this ).parents( '.ac-sortable-element:eq(0)' ), recalc_cell = false;
 			if ( ! element.length ) {
-				element = $( this ).parents( '.axisbuilder-layout-column:eq(0)' );
+				element = $( this ).parents( '.ac-layout-column:eq(0)' );
 				if ( ! element.length ) {
-					element = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+					element = $( this ).parents( '.ac-layout-section:eq(0)' );
 				}
 			}
 
 			// Check if cell
-			if ( element.is( '.axisbuilder-layout-cell' ) ) {
-				var count  = element.parents( '.axisbuilder-layout-row:eq(0)' ).find( '.axisbuilder-layout-cell' ).length;
+			if ( element.is( '.ac-layout-cell' ) ) {
+				var count  = element.parents( '.ac-layout-row:eq(0)' ).find( '.ac-layout-cell' ).length;
 				if ( typeof ac_meta_boxes_pagebuilder_data.new_cell_order[count] !== 'undefined' ) {
 					recalc_cell = true;
 				} else {
@@ -242,8 +242,8 @@ jQuery( function( $ ) {
 				ac_meta_boxes_pagebuilder.cell.modify_cell_count( this, -1 );
 			}
 
-			var wrapper = element.parents( '.axisbuilder-layout-section, .axisbuilder-layout-column' );
-			if ( element.is( '.axisbuilder-layout-section' ) || element.is( '.axisbuilder-layout-column' ) || wrapper.length ) {
+			var wrapper = element.parents( '.ac-layout-section, .ac-layout-column' );
+			if ( element.is( '.ac-layout-section' ) || element.is( '.ac-layout-column' ) || wrapper.length ) {
 				if ( wrapper.length ) {
 					ac_meta_boxes_pagebuilder.textarea.outer();
 					ac_meta_boxes_pagebuilder.textarea.inner( element );
@@ -257,12 +257,12 @@ jQuery( function( $ ) {
 		},
 
 		trash_element: function() {
-			var element = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' ), parents = false, remove_cell = false, hide_timer = 200;
+			var element = $( this ).parents( '.ac-sortable-element:eq(0)' ), parents = false, remove_cell = false, hide_timer = 200;
 			if ( ! element.length ) {
-				element = $( this ).parents( '.axisbuilder-layout-column:eq(0)' );
-				parents = $( this ).parents( '.axisbuilder-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
+				element = $( this ).parents( '.ac-layout-column:eq(0)' );
+				parents = $( this ).parents( '.ac-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
 				if ( ! element.length ) {
-					element = $( this ).parents( '.axisbuilder-layout-section:eq(0)' );
+					element = $( this ).parents( '.ac-layout-section:eq(0)' );
 					parents = false;
 				}
 			} else {
@@ -270,8 +270,8 @@ jQuery( function( $ ) {
 			}
 
 			// Check if cell
-			if ( element.length && element.is( '.axisbuilder-layout-cell' ) ) {
-				if ( parents.find( '.axisbuilder-layout-cell' ).length > 1 ) {
+			if ( element.length && element.is( '.ac-layout-cell' ) ) {
+				if ( parents.find( '.ac-layout-cell' ).length > 1 ) {
 					hide_timer  = 0;
 					remove_cell = true;
 				} else {
@@ -325,9 +325,9 @@ jQuery( function( $ ) {
 
 		resize_layout: function() {
 			var direction    = $( this ).is( '.ac-increase' ) ? 1 : -1,
-				column       = $( this ).parents( '.axisbuilder-layout-column:eq(0)' ),
-				section      = column.parents( '.axisbuilder-layout-section:eq(0)' ),
-				size_string  = column.find( '.axisbuilder-column-size' ),
+				column       = $( this ).parents( '.ac-layout-column:eq(0)' ),
+				section      = column.parents( '.ac-layout-section:eq(0)' ),
+				size_string  = column.find( '.ac-column-size' ),
 				data_storage = column.find( '.axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 				data_string  = data_storage.val(),
 				next_size    = [],
@@ -371,7 +371,7 @@ jQuery( function( $ ) {
 		},
 
 		select_changed: function() {
-			var container = $( this ).parents( '.axisbuilder-sortable-element:eq(0)' );
+			var container = $( this ).parents( '.ac-sortable-element:eq(0)' );
 			ac_meta_boxes_pagebuilder.recalc_element( container );
 			return false;
 		},
@@ -390,8 +390,8 @@ jQuery( function( $ ) {
 		},
 
 		send_to_datastorage: function( values, element_container ) {
-			var column    = element_container.parents( '.axisbuilder-layout-column:eq(0)' ),
-				section   = element_container.parents( '.axisbuilder-layout-section:eq(0)' ),
+			var column    = element_container.parents( '.ac-layout-column:eq(0)' ),
+				section   = element_container.parents( '.ac-layout-section:eq(0)' ),
 				selector  = element_container.is( '.ac-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),
 				save_data = element_container.find( selector ),
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
@@ -407,7 +407,7 @@ jQuery( function( $ ) {
 			}
 
 			// If we are working inside a section or cell just update the shortcode open tag else update everything
-			if ( element_container.is( '.axisbuilder-layout-section' ) || element_container.is( '.axisbuilder-layout-cell' ) ) {
+			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-cell' ) ) {
 				save_data.val( save_data.val().replace( new RegExp( '^\\[' + shortcode + '.*?\\]' ), tags.open ) );
 			} else {
 				save_data.val( output );
@@ -462,7 +462,7 @@ jQuery( function( $ ) {
 
 			// var update_html = '', replace_val = ''; Need later for visual_updates ;)
 
-			if ( ! element_container.is( '.axisbuilder-no-visual-updates') ) {
+			if ( ! element_container.is( '.ac-no-visual-updates') ) {
 				// Reset class name's
 				class_updates.attr( 'class', '' );
 
@@ -559,12 +559,12 @@ jQuery( function( $ ) {
 			inner: function( element, container ) {
 				// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section
 				if ( typeof container === 'undefined' ) {
-					container = $( element ).parents( '.axisbuilder-layout-section:eq(0)' );
+					container = $( element ).parents( '.ac-layout-section:eq(0)' );
 				}
 
 				// If we got no section and no container yet check if the container is a column
 				if ( ! container.length ) {
-					container = $( element ).parents( '.axisbuilder-layout-column:eq(0)' );
+					container = $( element ).parents( '.ac-layout-column:eq(0)' );
 				}
 
 				// Still no container? No need for an inner update
@@ -576,13 +576,13 @@ jQuery( function( $ ) {
 				var i, content, main_storage, content_fields, open_tags, currentName, currentSize;
 
 				// If we are in section iterate over all columns inside and set the value before setting the section value
-				if ( container.is( '.axisbuilder-layout-section' ) ) {
-					var columns = container.find( '.axisbuilder-layout-column-no-cell' );
+				if ( container.is( '.ac-layout-section' ) ) {
+					var columns = container.find( '.ac-layout-column-no-cell' );
 					for ( i = 0; i < columns.length; i++ ) {
 						ac_meta_boxes_pagebuilder.textarea.inner( false, $( columns[i] ) );
 					}
 
-					columns = container.find( '.axisbuilder-layout-cell' );
+					columns = container.find( '.ac-layout-cell' );
 					for ( i = 0; i < columns.length; i++ ) {
 						ac_meta_boxes_pagebuilder.textarea.inner( false, $( columns[i] ) );
 					}
@@ -590,7 +590,7 @@ jQuery( function( $ ) {
 					content        = '';
 					currentName    = container.data( 'shortcode-handler' );
 					main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .axisbuilder-layout-column .axisbuilder-sortable-element textarea[data-name="text-shortcode"], .axisbuilder-layout-cell .axisbuilder-layout-column textarea[data-name="text-shortcode"] )' );
+					content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -601,11 +601,11 @@ jQuery( function( $ ) {
 					main_storage.val( content );
 				}
 
-				if ( container.is( '.axisbuilder-layout-cell' ) ) {
+				if ( container.is( '.ac-layout-cell' ) ) {
 					content        = '';
 					currentSize    = container.data( 'width' );
 					main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .axisbuilder-layout-column-no-cell .axisbuilder-sortable-element textarea[data-name="text-shortcode"] )' );
+					content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -616,12 +616,12 @@ jQuery( function( $ ) {
 					main_storage.val( content );
 				}
 
-				if ( container.is( '.axisbuilder-layout-column:not(.axisbuilder-layout-cell)' ) ) {
-					var	currentFirst   = container.is( '.axisbuilder-first-column' ) ? ' first' : '';
+				if ( container.is( '.ac-layout-column:not(.ac-layout-cell)' ) ) {
+					var	currentFirst   = container.is( '.ac-first-column' ) ? ' first' : '';
 
 					content        = '';
 					currentSize    = container.data( 'width' );
-					content_fields = container.find( '.axisbuilder-sortable-element textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '.ac-sortable-element textarea[data-name="text-shortcode"]' );
 					main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -640,9 +640,9 @@ jQuery( function( $ ) {
 				}
 
 				if ( ! scope ) {
-					$( '.canvas-area' ).find( '.axisbuilder-layout-section' ).each( function() {
+					$( '.canvas-area' ).find( '.ac-layout-section' ).each( function() {
 						var col_in_section   = $( this ).find( '>.axisbuilder-inner-shortcode > div > .axisbuilder-inner-shortcode' ),
-							col_in_grid_cell = $( this ).find( '.axisbuilder-layout-cell .axisbuilder-layout-column-no-cell > .axisbuilder-inner-shortcode' );
+							col_in_grid_cell = $( this ).find( '.ac-layout-cell .ac-layout-column-no-cell > .axisbuilder-inner-shortcode' );
 
 						if ( col_in_section.length ) {
 							ac_meta_boxes_pagebuilder.textarea.outer( col_in_section );
@@ -665,7 +665,7 @@ jQuery( function( $ ) {
 				for ( var i = 0; i < content_fields.length; i++ ) {
 					current_field   = $( content_fields[i] );
 					current_content = current_field.val();
-					current_parents = current_field.parents( '.axisbuilder-layout-column-no-cell:eq(0)' );
+					current_parents = current_field.parents( '.ac-layout-column-no-cell:eq(0)' );
 
 					// Check for column to add/remove first class
 					if ( current_parents.length ) {
@@ -681,15 +681,15 @@ jQuery( function( $ ) {
 
 						if ( size_count > 1 || i === 0 ) {
 
-							if ( ! current_parents.is( '.axisbuilder-first-column' ) ) {
-								current_parents.addClass( 'axisbuilder-first-column' );
+							if ( ! current_parents.is( '.ac-first-column' ) ) {
+								current_parents.addClass( 'ac-first-column' );
 								current_content = current_content.replace( new RegExp( '^\\[' + current_size ), '[' + current_size + ' first' );
 								current_field.val( current_content );
 							}
 
 							size_count = next_size[2];
-						} else if ( current_parents.is( '.axisbuilder-first-column' ) ) {
-							current_parents.removeClass( 'axisbuilder-first-column' );
+						} else if ( current_parents.is( '.ac-first-column' ) ) {
+							current_parents.removeClass( 'ac-first-column' );
 							current_content = current_content.replace( ' first', '' );
 							current_field.val( current_content );
 						}
@@ -900,8 +900,8 @@ jQuery( function( $ ) {
 			},
 
 			set_cell_size: function() {
-				var $row                 = $( this ).parents( '.axisbuilder-layout-row:eq(0)' ),
-					cells                = $row.find( '.axisbuilder-layout-cell' ),
+				var $row                 = $( this ).parents( '.ac-layout-row:eq(0)' ),
+					cells                = $row.find( '.ac-layout-cell' ),
 					cell_size            = ac_meta_boxes_pagebuilder_data.cell_size,
 					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length], notification = '';
 
@@ -939,8 +939,8 @@ jQuery( function( $ ) {
 			},
 
 			modify_cell_count: function( clicked, direction ) {
-				var $row  = $( clicked ).parents( '.axisbuilder-layout-row:eq(0)' ),
-					cells = $row.find( '.axisbuilder-layout-cell' ),
+				var $row  = $( clicked ).parents( '.ac-layout-row:eq(0)' ),
+					cells = $row.find( '.ac-layout-cell' ),
 					count = ( cells.length + direction ),
 					newEl = ac_meta_boxes_pagebuilder_data.new_cell_order[count];
 
@@ -983,7 +983,7 @@ jQuery( function( $ ) {
 
 			change_single_cell_size: function( cell, next_size ) {
 				var current_size = cell.data( 'width' ),
-					size_string  = cell.find( '> .axisbuilder-sorthandle > .axisbuilder-column-size' ),
+					size_string  = cell.find( '> .axisbuilder-sorthandle > .ac-column-size' ),
 					data_storage = cell.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 					data_string  = data_storage.val();
 
@@ -1099,8 +1099,8 @@ jQuery( function( $ ) {
 			},
 
 			cell_size: function( add_cell_size ) {
-				var $row                 = $( 'a.axiscomposer-cell-set' ).parents( '.axisbuilder-layout-row:eq(0)' ),
-					cells                = $row.find( '.axisbuilder-layout-cell' ),
+				var $row                 = $( 'a.axiscomposer-cell-set' ).parents( '.ac-layout-row:eq(0)' ),
+					cells                = $row.find( '.ac-layout-cell' ),
 					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length];
 
 				if ( add_cell_size ) {

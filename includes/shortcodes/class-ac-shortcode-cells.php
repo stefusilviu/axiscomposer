@@ -176,16 +176,16 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		$output = '<div class="axisbuilder-layout-column axisbuilder-layout-cell axisbuilder-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
+		$output = '<div class="ac-layout-column ac-layout-cell ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle">';
-				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
+				$output .= '<span class="ac-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Cell', 'axiscomposer' ) . '">' . __( 'Edit Cell', 'axiscomposer' ) . '</a>';
 				}
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Cell', 'axiscomposer' ) . '">' . __( 'Delete Cell', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Cell',  'axiscomposer' ) . '">' . __( 'Clone Cell',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
+			$output .= '<div class="axisbuilder-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<span class="axisbuilder-fake-cellborder"></span>';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {

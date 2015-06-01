@@ -324,7 +324,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$data['shortcode-allowed']   = implode( ',', $data['shortcode-allowed'] );
 		}
 
-		$output = '<div class="axisbuilder-sortable-element modal-animation ac-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . ac_html_data_string( $data ) . '>';
+		$output = '<div class="ac-sortable-element modal-animation ac-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$extra_class = 'axiscomposer-edit';

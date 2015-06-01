@@ -224,7 +224,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 		$data['shortcode-handler'] = $this->shortcode['name'];
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
-		$output = '<div class="axisbuilder-layout-section modal-animation axisbuilder-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
+		$output = '<div class="ac-layout-section modal-animation ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
@@ -233,7 +233,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Section', 'axiscomposer' ) . '">' . __( 'Delete Section', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Section',  'axiscomposer' ) . '">' . __( 'Clone Section',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort ac-drop" data-dragdrop-level="' . $data['dragdrop-level'] . '">';
+			$output .= '<div class="axisbuilder-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $data['dragdrop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );

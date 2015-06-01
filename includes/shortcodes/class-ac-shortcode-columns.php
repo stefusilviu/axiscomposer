@@ -69,17 +69,17 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 			'ac_four_fifth'   => '4/5',
 		);
 
-		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' axisbuilder-first-column' : '' : '';
+		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' ac-first-column' : '' : '';
 
-		$output  = '<div class="axisbuilder-layout-column axisbuilder-layout-column-no-cell modal-animation ac-drag ' . $this->shortcode['name'] . $extra_class . '" data-dragdrop-level="' . $this->shortcode['drag-level'] . '" data-width="' . $this->shortcode['name'] . '">';
+		$output  = '<div class="ac-layout-column ac-layout-column-no-cell modal-animation ac-drag ' . $this->shortcode['name'] . $extra_class . '" data-dragdrop-level="' . $this->shortcode['drag-level'] . '" data-width="' . $this->shortcode['name'] . '">';
 			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
 				$output .= '<a class="ac-change-column-size layout-element-icon ac-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axiscomposer' ) . '"></a>';
-				$output .= '<span class="axisbuilder-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
+				$output .= '<span class="ac-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				$output .= '<a class="ac-change-column-size layout-element-icon ac-increase" href="#increase" title="' . __( 'Increase Column Size', 'axiscomposer' ) . '"></a>';
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axiscomposer' ) . '">' . __( 'Delete Column', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axiscomposer' ) . '">' . __( 'Clone Column',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode axisbuilder-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
+			$output .= '<div class="axisbuilder-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );

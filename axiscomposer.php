@@ -252,7 +252,6 @@ final class AxisComposer {
 	public function setup_environment() {
 		$this->add_thumbnail_support();
 		$this->add_image_sizes();
-		$this->fix_server_vars();
 	}
 
 	/**
@@ -274,26 +273,6 @@ final class AxisComposer {
 
 		add_image_size( 'portfolio_thumbnail', $portfolio_thumbnail['width'], $portfolio_thumbnail['height'], $portfolio_thumbnail['crop'] );
 		add_image_size( 'portfolio_single', $portfolio_single['width'], $portfolio_single['height'], $portfolio_single['crop'] );
-	}
-
-	/**
-	 * Fix `$_SERVER` variables for various setups.
-	 *
-	 * Note: Removed IIS handling due to wp_fix_server_vars()
-	 */
-	private function fix_server_vars() {
-		// NGINX Proxy
-		if ( ! isset( $_SERVER['REMOTE_ADDR'] ) && isset( $_SERVER['HTTP_REMOTE_ADDR'] ) ) {
-			$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_REMOTE_ADDR'];
-		}
-
-		if ( ! isset( $_SERVER['HTTPS'] ) ) {
-			if ( ! empty( $_SERVER['HTTP_HTTPS'] ) ) {
-				$_SERVER['HTTPS'] = $_SERVER['HTTP_HTTPS'];
-			} elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) {
-				$_SERVER['HTTPS'] = '1';
-			}
-		}
 	}
 
 	/**

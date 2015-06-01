@@ -247,7 +247,7 @@ final class AxisComposer {
 	}
 
 	/**
-	 * Ensure theme and server variables compatibility and setup image sizes.
+	 * Ensure theme compatibility and setup image sizes.
 	 */
 	public function setup_environment() {
 		$this->add_thumbnail_support();

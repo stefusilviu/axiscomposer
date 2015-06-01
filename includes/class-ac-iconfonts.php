@@ -403,7 +403,7 @@ class AC_Iconfonts {
 
 		// Return the html string that gets attached to the element. css classes for font display are generated automatically
 		if ( $return ) {
-			return "aria-hidden='true' data-axisbuilder_icon='{$display_char}' data-axisbuilder_iconfont='{$font}'";
+			return "aria-hidden='true' data-ac_icon='{$display_char}' data-ac_iconfont='{$font}'";
 		} else {
 			return $display_char;
 		}
@@ -531,7 +531,7 @@ class AC_Iconfonts {
 	font-weight: normal;
 	font-style: normal;
 }
-#top .axisbuilder-font-{$font_name}, body .axisbuilder-font-{$font_name}, html body [data-axisbuilder_iconfont='{$font_name}']:before { font-family: '{$font_name}'; }\n\r";
+#top .axiscomposer-font-{$font_name}, body .axiscomposer-font-{$font_name}, html body [data-ac_iconfont='{$font_name}']:before { font-family: '{$font_name}'; }\n\r";
 			}
 
 			$output .= "</style>\n\r";

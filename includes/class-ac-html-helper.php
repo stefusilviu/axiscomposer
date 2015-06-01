@@ -186,7 +186,7 @@ class AC_HTML_Helper {
 	}
 
 	public static function open_tab() {
-		$output = '<div class="axisbuilder-modal-tab-container">';
+		$output = '<div class="ac-modal-tab-container">';
 		return $output;
 	}
 
@@ -196,7 +196,7 @@ class AC_HTML_Helper {
 	}
 
 	public static function tab( $element ) {
-		$output = '<div class="axisbuilder-modal-tab-container-inner" data-tab-name="' . $element['name'] . '">';
+		$output = '<div class="ac-modal-tab-container-inner" data-tab-name="' . $element['name'] . '">';
 		return $output;
 	}
 

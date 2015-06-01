@@ -168,7 +168,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		// Inline shortcodes like dropcaps are basically nested shortcode and shouldn't be counted ;)
 		if ( empty( $this->shortcode['inline'] ) ) {
 			$meta = array(
-				'class'    => 'axisbuilder',
+				'class'    => 'axiscomposer',
 				'counter'  => $this->counter,
 				'el_class' => 'el-class-' . $this->counter
 			);
@@ -305,7 +305,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		$defaults = array(
 			'innerHtml' => '',
-			'class'     => 'axisbuilder-default-container'
+			'class'     => 'ac-default-container'
 		);
 
 		$params = array_merge( $defaults, $params );

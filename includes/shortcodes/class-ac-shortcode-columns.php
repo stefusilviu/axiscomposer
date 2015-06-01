@@ -79,7 +79,7 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Column', 'axiscomposer' ) . '">' . __( 'Delete Column', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Column',  'axiscomposer' ) . '">' . __( 'Clone Column',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
+			$output .= '<div class="ac-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );

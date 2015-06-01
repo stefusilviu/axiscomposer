@@ -333,7 +333,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axiscomposer' ) . '">' . __( 'Delete Element', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axiscomposer' ) . '">' . __( 'Clone Element',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-inner-shortcode ' . $extra_class . '">';
+			$output .= '<div class="ac-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;
 				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
 			$output .= '</div>';

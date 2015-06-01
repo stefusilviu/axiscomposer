@@ -260,13 +260,13 @@ jQuery( function( $ ) {
 			var element = $( this ).parents( '.ac-sortable-element:eq(0)' ), parents = false, remove_cell = false, hide_timer = 200;
 			if ( ! element.length ) {
 				element = $( this ).parents( '.ac-layout-column:eq(0)' );
-				parents = $( this ).parents( '.ac-layout-section:eq(0)>.axisbuilder-inner-shortcode' );
+				parents = $( this ).parents( '.ac-layout-section:eq(0)>.ac-inner-shortcode' );
 				if ( ! element.length ) {
 					element = $( this ).parents( '.ac-layout-section:eq(0)' );
 					parents = false;
 				}
 			} else {
-				parents = $( this ).parents( '.axisbuilder-inner-shortcode:eq(0)' );
+				parents = $( this ).parents( '.ac-inner-shortcode:eq(0)' );
 			}
 
 			// Check if cell
@@ -328,7 +328,7 @@ jQuery( function( $ ) {
 				column       = $( this ).parents( '.ac-layout-column:eq(0)' ),
 				section      = column.parents( '.ac-layout-section:eq(0)' ),
 				size_string  = column.find( '.ac-column-size' ),
-				data_storage = column.find( '.axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
+				data_storage = column.find( '.ac-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 				data_string  = data_storage.val(),
 				next_size    = [],
 				column_size  = ac_meta_boxes_pagebuilder_data.col_size,
@@ -392,7 +392,7 @@ jQuery( function( $ ) {
 		send_to_datastorage: function( values, element_container ) {
 			var column    = element_container.parents( '.ac-layout-column:eq(0)' ),
 				section   = element_container.parents( '.ac-layout-section:eq(0)' ),
-				selector  = element_container.is( '.ac-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),
+				selector  = element_container.is( '.ac-modal-group-element' ) ? ( 'textarea[data-name="text-shortcode"]:eq(0)' ) : ( '> .ac-inner-shortcode >textarea[data-name="text-shortcode"]:eq(0)' ),
 				save_data = element_container.find( selector ),
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
 
@@ -589,8 +589,8 @@ jQuery( function( $ ) {
 
 					content        = '';
 					currentName    = container.data( 'shortcode-handler' );
-					main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
+					main_storage   = container.find( '>.ac-inner-shortcode >textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '>.ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -604,8 +604,8 @@ jQuery( function( $ ) {
 				if ( container.is( '.ac-layout-cell' ) ) {
 					content        = '';
 					currentSize    = container.data( 'width' );
-					main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '>.axisbuilder-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
+					main_storage   = container.find( '>.ac-inner-shortcode >textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '>.ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -622,7 +622,7 @@ jQuery( function( $ ) {
 					content        = '';
 					currentSize    = container.data( 'width' );
 					content_fields = container.find( '.ac-sortable-element textarea[data-name="text-shortcode"]' );
-					main_storage   = container.find( '>.axisbuilder-inner-shortcode >textarea[data-name="text-shortcode"]' );
+					main_storage   = container.find( '>.ac-inner-shortcode >textarea[data-name="text-shortcode"]' );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
 						content += $( content_fields[i] ).val();
@@ -641,8 +641,8 @@ jQuery( function( $ ) {
 
 				if ( ! scope ) {
 					$( '.canvas-area' ).find( '.ac-layout-section' ).each( function() {
-						var col_in_section   = $( this ).find( '>.axisbuilder-inner-shortcode > div > .axisbuilder-inner-shortcode' ),
-							col_in_grid_cell = $( this ).find( '.ac-layout-cell .ac-layout-column-no-cell > .axisbuilder-inner-shortcode' );
+						var col_in_section   = $( this ).find( '>.ac-inner-shortcode > div > .ac-inner-shortcode' ),
+							col_in_grid_cell = $( this ).find( '.ac-layout-cell .ac-layout-column-no-cell > .ac-inner-shortcode' );
 
 						if ( col_in_section.length ) {
 							ac_meta_boxes_pagebuilder.textarea.outer( col_in_section );
@@ -653,7 +653,7 @@ jQuery( function( $ ) {
 						}
 					});
 
-					scope = $( '.ac-data > div > .axisbuilder-inner-shortcode' );
+					scope = $( '.ac-data > div > .ac-inner-shortcode' );
 				}
 
 				var content        = '',
@@ -951,7 +951,7 @@ jQuery( function( $ ) {
 					if ( cells.length === count ) {
 						var cell_tmpl = $( '#tmpl-axiscomposer-' + newEl[0].replace( 'ac_cell_', 'ac_shortcode_cells_' ).replace( '_one_full', '' ) );
 						if ( cell_tmpl.length ) {
-							$row.find( '> .axisbuilder-inner-shortcode' ).append( cell_tmpl.html() );
+							$row.find( '> .ac-inner-shortcode' ).append( cell_tmpl.html() );
 							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 						}
 					}
@@ -984,7 +984,7 @@ jQuery( function( $ ) {
 			change_single_cell_size: function( cell, next_size ) {
 				var current_size = cell.data( 'width' ),
 					size_string  = cell.find( '> .axisbuilder-sorthandle > .ac-column-size' ),
-					data_storage = cell.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]' ),
+					data_storage = cell.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 					data_string  = data_storage.val();
 
 				// Regular Expression
@@ -1048,7 +1048,7 @@ jQuery( function( $ ) {
 					fetch: true,
 					params: {
 						extract: true,
-						shortcode: parents.find( '> .axisbuilder-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
+						shortcode: parents.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ).val()
 					},
 					action: 'axiscomposer_' + parents.data( 'modal-action' ),
 					security: axiscomposer_admin_meta_boxes_pagebuilder.modal_item_nonce

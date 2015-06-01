@@ -133,7 +133,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Row', 'axiscomposer' ) . '">' . __( 'Delete Row', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Row',  'axiscomposer' ) . '">' . __( 'Clone Row',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
-			$output .= '<div class="axisbuilder-cell">';
+			$output .= '<div class="ac-cell">';
 				$output .= '<a class="axiscomposer-cell-set set-cell-icon" href="#set-cell" title="' . __( 'Set Cell Size', 'axiscomposer' ) . '">' . __( 'Set Cell Size', 'axiscomposer' ) . '</a>';
 				$output .= '<a class="axiscomposer-cell-add add-cell-icon" href="#add-cell" title="' . __( 'Add Cell',      'axiscomposer' ) . '">' . __( 'Add Cell',      'axiscomposer' ) . '</a>';
 			$output .= '</div>';

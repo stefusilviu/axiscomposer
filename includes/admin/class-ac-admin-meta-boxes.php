@@ -74,7 +74,7 @@ class AC_Admin_Meta_Boxes {
 			echo '<div id="axiscomposer_errors" class="error">';
 
 			foreach ( $errors as $error ) {
-				echo '<p>' . esc_html( $error ) . '</p>';
+				echo '<p>' . wp_kses_post( $error ) . '</p>';
 			}
 
 			echo '</div>';

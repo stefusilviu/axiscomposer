@@ -91,8 +91,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				// Check if phpversion function exists
-				if ( ! function_exists( 'phpversion' ) ) {
+				if ( function_exists( 'phpversion' ) ) {
 					$php_version = phpversion();
+
 					if ( version_compare( $php_version, '5.4', '<' ) ) {
 						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: <a href="%s" target="_blank">How to update your PHP version</a>', 'axiscomposer' ), esc_html( $php_version ), 'http://docs.axisthemes.com/document/how-to-update-your-php-version/' ) . '</mark>';
 					} else {

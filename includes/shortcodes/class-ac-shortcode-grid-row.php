@@ -125,7 +125,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 		}
 
 		$output = '<div class="ac-layout-row ac-layout-section modal-animation ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
-			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+			$output .= '<div class="ac-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Row', 'axiscomposer' ) . '">' . __( 'Edit Row', 'axiscomposer' ) . '</a>';

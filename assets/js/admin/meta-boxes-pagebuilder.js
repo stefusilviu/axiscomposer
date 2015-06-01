@@ -983,7 +983,7 @@ jQuery( function( $ ) {
 
 			change_single_cell_size: function( cell, next_size ) {
 				var current_size = cell.data( 'width' ),
-					size_string  = cell.find( '> .axisbuilder-sorthandle > .ac-column-size' ),
+					size_string  = cell.find( '> .ac-sorthandle > .ac-column-size' ),
 					data_storage = cell.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' ),
 					data_string  = data_storage.val();
 

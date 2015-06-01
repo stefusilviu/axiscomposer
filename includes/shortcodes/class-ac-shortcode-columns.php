@@ -72,7 +72,7 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 		$extra_class = isset( $args[0] ) ? ( $args[0] == 'first' ) ? ' ac-first-column' : '' : '';
 
 		$output  = '<div class="ac-layout-column ac-layout-column-no-cell modal-animation ac-drag ' . $this->shortcode['name'] . $extra_class . '" data-dragdrop-level="' . $this->shortcode['drag-level'] . '" data-width="' . $this->shortcode['name'] . '">';
-			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+			$output .= '<div class="ac-sorthandle menu-item-handle">';
 				$output .= '<a class="ac-change-column-size layout-element-icon ac-decrease" href="#decrease" title="' . __( 'Decrease Column Size', 'axiscomposer' ) . '"></a>';
 				$output .= '<span class="ac-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				$output .= '<a class="ac-change-column-size layout-element-icon ac-increase" href="#increase" title="' . __( 'Increase Column Size', 'axiscomposer' ) . '"></a>';

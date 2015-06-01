@@ -225,7 +225,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
 		$output = '<div class="ac-layout-section modal-animation ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
-			$output .= '<div class="axisbuilder-sorthandle menu-item-handle">';
+			$output .= '<div class="ac-sorthandle menu-item-handle">';
 				$output .= '<span class="axisbuilder-element-title">' . $this->title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Section', 'axiscomposer' ) . '">' . __( 'Edit Section', 'axiscomposer' ) . '</a>';

@@ -177,7 +177,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		$data['shortcode-allowed'] = $this->shortcode['name'];
 
 		$output = '<div class="ac-layout-column ac-layout-cell ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
-			$output .= '<div class="axisbuilder-sorthandle">';
+			$output .= '<div class="ac-sorthandle">';
 				$output .= '<span class="ac-column-size">' . $size[ $this->shortcode['name'] ] . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Cell', 'axiscomposer' ) . '">' . __( 'Edit Cell', 'axiscomposer' ) . '</a>';

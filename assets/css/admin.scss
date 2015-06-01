@@ -515,7 +515,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 	}
 
 	/* Till we get Textarea down */
-	.ac-layout-row .ac-layout-cell > .axisbuilder-sorthandle {
+	.ac-layout-row .ac-layout-cell > .ac-sorthandle {
 		border-top: 1px dashed #e1e1e1;
 	}
 }
@@ -540,7 +540,7 @@ body div.ui-draggable-dragging {
 
 body .ui-draggable-dragging {
 
-	.axisbuilder-sorthandle {
+	.ac-sorthandle {
 		opacity: 1;
 		z-index: 10;
 	}
@@ -623,13 +623,13 @@ body .ui-draggable-dragging {
 	position: relative;
 
 	&:hover {
-		.axisbuilder-sorthandle {
+		.ac-sorthandle {
 			opacity: 1;
 			z-index: 10;
 		}
 	}
 
-	.axisbuilder-sorthandle {
+	.ac-sorthandle {
 		left: 0;
 		right: 0;
 		/*top: -24px;*/
@@ -681,7 +681,7 @@ body .ui-draggable-dragging {
 /**
  * Sort-Handle Styles
  */
-.axisbuilder-sorthandle {
+.ac-sorthandle {
 	opacity: 1;
 	z-index: 10;
 	width: auto;
@@ -864,7 +864,7 @@ body .ui-draggable-dragging {
 			-webkit-backface-visibility: hidden;
 		}
 
-		> .axisbuilder-sorthandle {
+		> .ac-sorthandle {
 			top: 5px;
 			border: none;
 			box-shadow: none;
@@ -885,7 +885,7 @@ body .ui-draggable-dragging {
 				display: none;
 			}
 
-			> .axisbuilder-sorthandle,
+			> .ac-sorthandle,
 			> .ac-inner-shortcode {
 				border-right: none;
 			}
@@ -956,14 +956,14 @@ body .ui-draggable-dragging {
 /**
  * Additional Styles
  */
-.axisbuilder-sorthandle a,
-.ac-sortable-element .axisbuilder-sorthandle {
+.ac-sorthandle a,
+.ac-sortable-element .ac-sorthandle {
 	@include transition(all .2s ease-in-out);
 }
 
 .ac-layout-column:hover a,
 .ac-sortable-element:hover a,
-.ac-layout-section:hover > .axisbuilder-sorthandle a {
+.ac-layout-section:hover > .ac-sorthandle a {
 	opacity: 1;
 }
 

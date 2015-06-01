@@ -230,7 +230,7 @@ class AC_Iconfonts {
 	 * Add Iconfont
 	 */
 	public static function add_iconfont() {
-		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
+		$fonts = get_option( 'axiscomposer_custom_iconfonts' );
 
 		if ( empty( $fonts ) ) {
 			$fonts = array();
@@ -242,7 +242,7 @@ class AC_Iconfonts {
 			'config'  => 'charmap.php',
 		);
 
-		update_option( 'axisbuilder_custom_iconfonts', $fonts );
+		update_option( 'axiscomposer_custom_iconfonts', $fonts );
 	}
 
 	/**
@@ -250,11 +250,11 @@ class AC_Iconfonts {
 	 * @param string $fontname
 	 */
 	public static function remove_iconfont( $fontname ) {
-		$fonts = get_option( 'axisbuilder_custom_iconfonts' );
+		$fonts = get_option( 'axiscomposer_custom_iconfonts' );
 
 		if ( isset( $fonts[ $fontname ] ) ) {
 			unset( $fonts[ $fontname ] );
-			update_option( 'axisbuilder_custom_iconfonts', $fonts );
+			update_option( 'axiscomposer_custom_iconfonts', $fonts );
 		}
 	}
 
@@ -335,7 +335,7 @@ class AC_Iconfonts {
 			return self::$iconlist;
 		}
 
-		$custom_fonts = get_option( 'axisbuilder_custom_iconfonts' );
+		$custom_fonts = get_option( 'axiscomposer_custom_iconfonts' );
 		if ( empty( $custom_fonts ) ) {
 			$custom_fonts = array();
 		}

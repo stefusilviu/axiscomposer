@@ -90,7 +90,7 @@ class AC_Admin {
 		$ac_pages[] = 'dashboard_page_ac-translators';
 
 		// Check to make sure we're on a AxisComposer admin page
-		if ( isset( $current_screen->id ) && apply_filters( 'axiscomposer_display_admin_footer_text', in_array( $current_screen->id, $ac_pages ) ) ) {
+		if ( isset( $current_screen->id ) && current_user_can( 'manage_axiscomposer' ) && apply_filters( 'axiscomposer_display_admin_footer_text', in_array( $current_screen->id, $ac_pages ) ) ) {
 			// Change the footer text
 			if ( ! get_option( 'axiscomposer_admin_footer_text_rated' ) ) {
 				$footer_text = sprintf( __( 'If you like <strong>AxisComposer</strong> please leave us a %s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating. A huge thank you from AxisThemes in advance!', 'axiscomposer' ), '<a href="https://wordpress.org/support/view/plugin-reviews/axiscomposer?filter=5#postform" target="_blank" class="ac-rating-link" data-rated="' . __( 'Thanks :)', 'axiscomposer' ) . '">', '</a>' );

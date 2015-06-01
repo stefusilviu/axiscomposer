@@ -176,6 +176,10 @@ class AC_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
+		if ( ! current_user_can( 'edit_pages' ) || ! current_user_can( 'edit_portfolios' ) ) {
+			die(-1);
+		}
+
 		$term = (string) ac_clean( stripslashes( $_GET['term'] ) );
 
 		if ( empty( $term ) ) {
@@ -243,6 +247,10 @@ class AC_AJAX {
 
 		check_ajax_referer( 'delete-custom-sidebar', 'security' );
 
+		if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+			die(-1);
+		}
+
 		$sidebar = esc_attr( $_POST['sidebar'] );
 
 		if ( empty( $sidebar ) ) {
@@ -295,6 +303,10 @@ class AC_AJAX {
 	 * Triggered when clicking the rating footer.
 	 */
 	public static function rated() {
+		if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+			die(-1);
+		}
+
 		update_option( 'axiscomposer_admin_footer_text_rated', 1 );
 		die();
 	}

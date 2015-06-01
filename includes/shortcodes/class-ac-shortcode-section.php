@@ -184,7 +184,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 				'type'     => 'select',
 				'subtype'  => array(
 					__( 'Display simple top border', 'axiscomposer' ) => 'no-shadow',
-					__( 'Display a small styling shadow at the top of the section', 'axiscomposer' ) => 'axisbuilder-shadow',
+					__( 'Display a small styling shadow at the top of the section', 'axiscomposer' ) => 'ac-shadow',
 					__( 'No border styling', 'axiscomposer' ) => 'no-border-styling'
 				)
 			),

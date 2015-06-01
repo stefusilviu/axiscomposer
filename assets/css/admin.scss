@@ -876,7 +876,7 @@ body .ui-draggable-dragging {
 		> .ac-inner-shortcode {
 			border: none;
 			background: #fff;
-			border-right: 1px solid #e1e1e1 !important;
+			border-right: 1px solid #e1e1e1;
 		}
 
 		&:last-child {
@@ -887,7 +887,7 @@ body .ui-draggable-dragging {
 
 			> .ac-sorthandle,
 			> .ac-inner-shortcode {
-				border-right: none !important;
+				border-right: none;
 			}
 		}
 	}

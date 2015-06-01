@@ -100,19 +100,19 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		global $axisbuilder_config;
+		global $axiscomposer_config;
 
-		$axisbuilder_config['current_column'] = $shortcode;
+		$axiscomposer_config['current_column'] = $shortcode;
 
 		$class = substr( str_replace( '_', '-', strtolower( $shortcode ) ), 3 );
 		$first = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? 'first ' : '';
 
-		$output  = '<div class="axisbuilder flex-column ' . $class . ' ' . $first . $meta['el_class'] . '">';
-		$content = empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
+		$output  = '<div class="axiscomposer flex-column ' . $class . ' ' . $first . $meta['el_class'] . '">';
+		$content = empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
 		$output .= trim( $content );
 		$output .= '</div>';
 
-		unset( $axisbuilder_config['current_column'] );
+		unset( $axiscomposer_config['current_column'] );
 
 		return $output;
 	}

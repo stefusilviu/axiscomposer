@@ -341,9 +341,9 @@ class AC_HTML_Helper {
 			$state = isset( $element['state'] ) ? $element['state'] : 'ac_insert_single';
 
 			if ( empty( $element['show_option'] ) ) {
-				$class = ( $fetch == 'id' ) ? 'axisbuilder-media-img-only-no-sidebars' : 'axisbuilder-media-img-only';
+				$class = ( $fetch == 'id' ) ? 'ac-media-img-only-no-sidebars' : 'ac-media-img-only';
 			} else {
-				$class = 'axisbuilder-media-img-only';
+				$class = 'ac-media-img-only';
 			}
 
 			$element['data'] =  array(
@@ -363,12 +363,12 @@ class AC_HTML_Helper {
 			$element['data']['class'] .= ' ' . $element['modal-class'];
 		}
 
-		$media  = 'button button-large axisbuilder-image-upload axisbuilder-image-insert';
+		$media  = 'button button-large ac-image-upload ac-image-insert';
 		$class  = empty( $element['class'] ) ? $media : $media . ' ' . $element['class'];
 		$output = '<a href="#" class="' . $class . '" title="' . esc_attr( $element['title'] ) . '"' . ac_html_data_string( $element['data'] ) . '>' . $element['title'] . '</a>';
 
 		if ( isset( $element['delete'] ) ) {
-			$output .= '<a href="#" class="button button-large axisbuilder-delete-gallery-button" title="' . esc_attr( $element['delete'] ) . '">' . $element['delete'] . '</a>';
+			$output .= '<a href="#" class="button button-large ac-delete-gallery-button" title="' . esc_attr( $element['delete'] ) . '">' . $element['delete'] . '</a>';
 		}
 
 		return $output;
@@ -381,7 +381,7 @@ class AC_HTML_Helper {
 				'type'   => $element['type'],
 				'title'  => $element['title'],
 				'button' => $element['button'],
-				'class'  => 'media-frame axisbuilder-media-gallery-insert ' . $element['container_class'],
+				'class'  => 'media-frame ac-media-gallery-insert ' . $element['container_class'],
 				'frame'  => 'post',
 				'state'  => 'gallery-library',
 				'fetch'  => 'id',
@@ -399,9 +399,9 @@ class AC_HTML_Helper {
 				'type'   => $element['type'],
 				'title'  => $element['title'],
 				'button' => $element['button'],
-				'class'  => 'media-frame axisbuilder-blank-insert ' . $element['container_class'],
+				'class'  => 'media-frame ac-blank-insert ' . $element['container_class'],
 				'frame'  => 'select',
-				'state'  => 'axisbuilder_insert_video',
+				'state'  => 'ac_insert_video',
 				'fetch'  => 'url',
 				'save_to'=> 'input'
 			);

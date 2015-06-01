@@ -207,7 +207,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		global $axisbuilder_config;
+		global $axiscomposer_config;
 		$extra_class = $outer_style = $inner_style = '';
 
 		// Entire list of supported attributes and their defaults
@@ -243,7 +243,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		}
 
 		if ( $atts['background_repeat'] == 'stretch' ) {
-			$extra_class .= 'axisbuilder-full-stretch';
+			$extra_class .= 'ac-full-stretch';
 		}
 
 		// Padding fetch
@@ -273,7 +273,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		// Modify the shorycode name
 		$shortcode = str_replace( 'ac_cell_', 'ac_', $shortcode );
 
-		$axisbuilder_config['current_column'] = $shortcode;
+		$axiscomposer_config['current_column'] = $shortcode;
 
 		if ( ! empty( $outer_style ) ) {
 			$outer_style = 'style="' . $outer_style . '"';
@@ -285,10 +285,10 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 
 		$output  = '<div class="flex-cell no-margin ' . $shortcode . $meta['el_class'] . $extra_class . self::$cell_class . '" ' . $outer_style . '>';
 		$output .= '<div class="flex-cell-inner ' . $inner_style . '">';
-		$output .= empty( $axisbuilder_config['conditionals']['is_axisbuilder_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
+		$output .= empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
 		$output .= '</div></div>';
 
-		unset( $axisbuilder_config['current_column'] );
+		unset( $axiscomposer_config['current_column'] );
 
 		return $output;
 	}

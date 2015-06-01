@@ -63,9 +63,9 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 				'type'     => 'select',
 				'subtype'  => array(
 					__( 'No Borders', 'axiscomposer' )                                  => 'no-border',
-					__( 'Borders on top and bottom', 'axiscomposer' )                   => 'axisbuilder-border-top-bottom',
-					__( 'Borders between cells', 'axiscomposer' )                       => 'axisbuilder-border-cells',
-					__( 'Borders on top and bottom and between cells', 'axiscomposer' ) => 'axisbuilder-border-top-bottom axisbuilder-border-cells'
+					__( 'Borders on top and bottom', 'axiscomposer' )                   => 'ac-border-top-bottom',
+					__( 'Borders between cells', 'axiscomposer' )                       => 'ac-border-cells',
+					__( 'Borders on top and bottom and between cells', 'axiscomposer' ) => 'ac-border-top-bottom ac-border-cells'
 				)
 			),
 			array(
@@ -79,11 +79,11 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 				'name'     => __( 'Smartphones Behaviour', 'axiscomposer' ),
 				'desc'     => __( 'Choose how the cells inside the grid should behave on smartphones and small screens.', 'axiscomposer' ),
 				'id'       => 'smartphones',
-				'std'      => 'axisbuilder-flex-cells',
+				'std'      => 'ac-flex-cells',
 				'type'     => 'select',
 				'subtype'  => array(
-					__( 'By default each cell is displayed on its own', 'axiscomposer' )               => 'axisbuilder-flex-cells',
-					__( 'Cells appear beside each other, just like on large screens', 'axiscomposer' ) => 'axisbuilder-fixed-cells',
+					__( 'By default each cell is displayed on its own', 'axiscomposer' )               => 'ac-flex-cells',
+					__( 'Cells appear beside each other, just like on large screens', 'axiscomposer' ) => 'ac-fixed-cells',
 				)
 			),
 			array(
@@ -165,15 +165,15 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 			'id'          => '',
 			'border'      => '',
 			'min_height'  => '0',
-			'smartphones' => 'axisbuilder-flex-cells'
+			'smartphones' => 'ac-flex-cells'
 		);
 
 		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
 
 		extract( $atts );
 
-		$params['id'] = empty( $id ) ? 'axisbuilder-layout-grid-' . self::$grid_count : sanitize_html_class( $id );
-		$params['class'] = 'axisbuilder-layout-grid-container ' . $border . ' ' . $smartphones . ' ' . $meta['el_class'];
+		$params['id'] = empty( $id ) ? 'ac-layout-grid-' . self::$grid_count : sanitize_html_class( $id );
+		$params['class'] = 'ac-layout-grid-container ' . $border . ' ' . $smartphones . ' ' . $meta['el_class'];
 		$params['custom_markup'] = $meta['custom_markup'];
 		$params['open_structure'] = false;
 
@@ -189,9 +189,9 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 
 		AC_Shortcode_Cells::$attributes = $atts;
 
-		$output .= axisbuilder_new_section( $params );
+		$output .= ac_new_section( $params );
 		$output .= ac_remove_autop( $content, true );
-		$output .= axisbuilder_section_after_element_content( $meta, 'after-submenu', false );
+		$output .= ac_section_after_element_content( $meta, 'after-submenu', false );
 
 		return $output;
 	}

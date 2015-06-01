@@ -254,7 +254,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		global $axisbuilder_config;
+		global $axiscomposer_config;
 
 		$params = array();
 		$output = $background = '';
@@ -311,17 +311,17 @@ class AC_Shortcode_Section extends AC_Shortcode {
 			$background .= ( $background_attachment == 'parallax' ) ? "background-attachment: scroll; " : 'background-attachment: ' . $background_attachment . '; ';
 
 			if ( $background_repeat == 'stretch' ) {
-				$class      .= 'axisbuilder-full-stretch';
+				$class      .= 'ac-full-stretch';
 				$background .= 'background-repeat: no-repeat; ';
 			} else {
 				$background .= 'background-repeat: ' . $background_repeat . '; ';
 			}
 
 			if ( $background_attachment == 'parallax' ) {
-				$class .= 'axisbuilder-parallax-section';
+				$class .= 'ac-parallax-section';
 				$speed  = apply_filters( 'axiscomposer_parallax_speed', '0.3', $params['id'] );
-				$attachment_class  = ( $background_repeat == 'stretch' || $background_repeat == 'stretch' ) ? 'axisbuilder-full-stretch' : '';
-				$params['attach'] .= '<div class="axisbuilder-parallax ' . $attachment_class . '" data-axisbuilder-parallax-ratio="' . $speed . '" style="' . $background . '"></div>';
+				$attachment_class  = ( $background_repeat == 'stretch' || $background_repeat == 'stretch' ) ? 'ac-full-stretch' : '';
+				$params['attach'] .= '<div class="ac-parallax ' . $attachment_class . '" data-ac-parallax-ratio="' . $speed . '" style="' . $background . '"></div>';
 				$background = '';
 			}
 
@@ -354,9 +354,9 @@ class AC_Shortcode_Section extends AC_Shortcode {
 			}
 		}
 
-		$axisbuilder_config['layout_container'] = 'section';
+		$axiscomposer_config['layout_container'] = 'section';
 
-		$output .= axisbuilder_new_section( $params );
+		$output .= ac_new_section( $params );
 		$output .= ac_remove_autop( $content, true );
 
 		// Set Extra arrow element
@@ -367,19 +367,19 @@ class AC_Shortcode_Section extends AC_Shortcode {
 			self::$section_close = '';
 		}
 
-		unset( $axisbuilder_config['layout_container'] );
+		unset( $axiscomposer_config['layout_container'] );
 
 		return $output;
 	}
 }
 
-if ( ! function_exists( 'axisbuilder_new_section' ) ) :
+if ( ! function_exists( 'ac_new_section' ) ) :
 
 /**
  * Structure New Section.
  */
-function axisbuilder_new_section( $params = array() ) {
-	global  $axisbuilder_config, $_axisbuilder_section_markup;
+function ac_new_section( $params = array() ) {
+	global  $axiscomposer_config, $_axiscomposer_section_markup;
 	$output = $post_class = $container_style = '';
 
 	$defaults = array(
@@ -412,7 +412,7 @@ function axisbuilder_new_section( $params = array() ) {
 
 	// Close the Section structure when previous element was a section ;)
 	if ( $close ) {
-		$output .= '</div></div>' . axisbuilder_section_markup_close() . '</div>' . AC_Shortcode_Section::$section_close . '</div>';
+		$output .= '</div></div>' . ac_section_markup_close() . '</div>' . AC_Shortcode_Section::$section_close . '</div>';
 	}
 
 	// Open the Section Structure
@@ -440,13 +440,13 @@ function axisbuilder_new_section( $params = array() ) {
 	if ( $open_structure ) {
 		if ( ! empty( $main_container ) ) {
 			$markup = 'main';
-			$_axisbuilder_section_markup = 'main';
+			$_axiscomposer_section_markup = 'main';
 		} else {
 			$markup = 'div';
 		}
 
 		$output .= '<div class="container" ' . $container_style . '>';
-		$output .= '<' . $markup . ' class="template-page content axisbuilder-content-full alpha units">';
+		$output .= '<' . $markup . ' class="template-page content ac-content-full alpha units">';
 		$output .= '<div class="post-entry post-entry-type-page ' . $post_class . '">';
 		$output .= '<div class="entry-content-wrapper clearfix">';
 	}
@@ -456,16 +456,16 @@ function axisbuilder_new_section( $params = array() ) {
 
 endif;
 
-if ( ! function_exists( 'axisbuilder_section_markup_close' ) ) :
+if ( ! function_exists( 'ac_section_markup_close' ) ) :
 
 /**
  * Close Section Markup.
  */
-function axisbuilder_section_markup_close() {
-	global  $axisbuilder_config, $_axisbuilder_section_markup;
+function ac_section_markup_close() {
+	global  $axiscomposer_config, $_axiscomposer_section_markup;
 
-	if ( ! empty( $_axisbuilder_section_markup ) ) {
-		$_axisbuilder_section_markup = false;
+	if ( ! empty( $_axiscomposer_section_markup ) ) {
+		$_axiscomposer_section_markup = false;
 		$close_markup = '</main><!-- close content main element -->';
 	} else {
 		$close_markup = '</div><!-- close content main div -->';
@@ -476,18 +476,18 @@ function axisbuilder_section_markup_close() {
 
 endif;
 
-if ( ! function_exists( 'axisbuilder_section_after_element_content' ) ) :
+if ( ! function_exists( 'ac_section_after_element_content' ) ) :
 
 /**
  * Section after Element Content.
  * @param string $meta
  */
-function axisbuilder_section_after_element_content( $meta, $second_id = '', $skip_second = false, $extra = '' ) {
+function ac_section_after_element_content( $meta, $second_id = '', $skip_second = false, $extra = '' ) {
 	$output  = '</div><!-- Close Section -->';
 	$output .= $extra;
 
 	if ( empty( $skip_second ) ) {
-		$output .= axisbuilder_new_section( array( 'close' => false, 'id' => $second_id ) );
+		$output .= ac_new_section( array( 'close' => false, 'id' => $second_id ) );
 	}
 
 	return $output;

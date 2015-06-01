@@ -91,6 +91,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 * Fix - Change hooks used to output post columns - fixes columns after quick edit.
 * Fix - Query in uninstall script.
 * Fix - Prevent potential XSS within tooltips.
+* Tweak - Improve tooltip sanitization.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
 * Dev - Switched to .scss for all styles.
 * Dev - Included bourbon for scss mixins.

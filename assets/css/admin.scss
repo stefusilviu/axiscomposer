@@ -659,12 +659,12 @@ body .ui-draggable-dragging {
 
 .ac-inner-shortcode {
 
-	.axisbuilder-highlight,
+	.ac-highlight,
 	.ac-sortable-element {
 		margin: 10px 1%;
 	}
 
-	.axisbuilder-element-label {
+	.ac-element-label {
 		margin-bottom: 5px;
 		display: inline-block;
 	}
@@ -689,7 +689,7 @@ body .ui-draggable-dragging {
 	font-size: 16px;
 	position: relative;
 
-	.axisbuilder-element-title,
+	.ac-element-title,
 	.ac-column-size,
 	.layout-element-icon {
 		float: left;
@@ -700,7 +700,7 @@ body .ui-draggable-dragging {
 		text-indent: inherit;
 	}
 
-	.axisbuilder-element-title {
+	.ac-element-title {
 		width: auto;
 		padding: 0 8px;
 		font-size: 12px;
@@ -855,7 +855,7 @@ body .ui-draggable-dragging {
 			width: 85% !important;
 		}
 
-		.axisbuilder-fake-cellborder {
+		.ac-fake-cellborder {
 			right: -1px;
 			height: 2000px;
 			display: block;
@@ -881,7 +881,7 @@ body .ui-draggable-dragging {
 
 		&:last-child {
 
-			.axisbuilder-fake-cellborder {
+			.ac-fake-cellborder {
 				display: none;
 			}
 
@@ -941,7 +941,7 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-highlight,
+.ac-highlight,
 .ac-layout-column,
 .ac-layout-section {
 	margin: 1%;

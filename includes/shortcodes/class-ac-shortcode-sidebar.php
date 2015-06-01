@@ -67,7 +67,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 
 		$params['innerHtml']  = '';
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
-		$params['innerHtml'] .= '<div class="axisbuilder-element-label">' . $this->title . '</div>';
+		$params['innerHtml'] .= '<div class="ac-element-label">' . $this->title . '</div>';
 		$params['innerHtml'] .= AC_HTML_Helper::render_element( $element );
 
 		return (array) $params;

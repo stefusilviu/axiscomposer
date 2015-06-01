@@ -8,126 +8,127 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="updated axisbuilder-message">
-	<p><?php _e( 'Please copy and paste this information in your ticket when contacting support:', 'axisbuilder' ); ?> </p>
-	<p class="submit"><a href="#" class="button-primary debug-report"><?php _e( 'Get System Report', 'axisbuilder' ); ?></a>
-	<a class="skip button-primary" href="http://docs.axisthemes.com/document/understanding-the-axisbuilder-system-status-report/" target="_blank"><?php _e( 'Understanding the Status Report', 'axisbuilder' ); ?></a></p>
+<div class="updated axiscomposer-message">
+	<p><?php _e( 'Please copy and paste this information in your ticket when contacting support:', 'axiscomposer' ); ?> </p>
+	<p class="submit"><a href="#" class="button-primary debug-report"><?php _e( 'Get System Report', 'axiscomposer' ); ?></a>
+	<a class="skip button-primary" href="http://docs.axisthemes.com/document/understanding-the-axiscomposer-system-status-report/" target="_blank"><?php _e( 'Understanding the Status Report', 'axiscomposer' ); ?></a></p>
 	<div id="debug-report">
 		<textarea readonly="readonly"></textarea>
-		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axisbuilder' ); ?>"><?php _e( 'Copy for Support', 'axisbuilder' ); ?></button></p>
+		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axiscomposer' ); ?>"><?php _e( 'Copy for Support', 'axiscomposer' ); ?></button></p>
 	</div>
 </div>
 <br/>
-<table class="axisbuilder_status_table widefat" cellspacing="0">
+<table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="WordPress Environment"><?php _e( 'WordPress Environment', 'axisbuilder' ); ?></th>
+			<th colspan="3" data-export-label="WordPress Environment"><?php _e( 'WordPress Environment', 'axiscomposer' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td data-export-label="Home URL"><?php _e( 'Home URL', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The URL of your site\'s homepage.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo home_url(); ?></td>
+			<td data-export-label="Home URL"><?php _e( 'Home URL', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The URL of your site\'s homepage.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php form_option( 'home' ); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Site URL"><?php _e( 'Site URL', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The root URL of your site.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo site_url(); ?></td>
+			<td data-export-label="Site URL"><?php _e( 'Site URL', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The root URL of your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php form_option( 'siteurl' ); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="AB Version"><?php _e( 'AB Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of AxisBuilder installed on your site.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo esc_html( AB()->version ); ?></td>
+			<td data-export-label="AC Version"><?php _e( 'AC Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of AxisComposer installed on your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php echo esc_html( AC()->version ); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="WP Version"><?php _e( 'WP Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of WordPress installed on your site.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="WP Version"><?php _e( 'WP Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of WordPress installed on your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php bloginfo('version'); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="WP Multisite"><?php _e( 'WP Multisite', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Whether or not you have WordPress Multisite enabled.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="WP Multisite"><?php _e( 'WP Multisite', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Whether or not you have WordPress Multisite enabled.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php if ( is_multisite() ) echo '&#10004;'; else echo '&ndash;'; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="WP Memory Limit"><?php _e( 'WP Memory Limit', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="WP Memory Limit"><?php _e( 'WP Memory Limit', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
-				$memory = axisbuilder_let_to_num( WP_MEMORY_LIMIT );
+				$memory = ac_let_to_num( WP_MEMORY_LIMIT );
 				if ( $memory < 67108864 ) {
-					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'axisbuilder' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
+					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'axiscomposer' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
 				} else {
 					echo '<mark class="yes">' . size_format( $memory ) . '</mark>';
 				}
 			?></td>
 		</tr>
 		<tr>
-			<td data-export-label="WP Debug Mode"><?php _e( 'WP Debug Mode', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="WP Debug Mode"><?php _e( 'WP Debug Mode', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) echo '<mark class="yes">&#10004;</mark>'; else echo '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Language"><?php _e( 'Language', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The current language used by WordPress. Default = English', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Language"><?php _e( 'Language', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The current language used by WordPress. Default = English', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo get_locale() ?></td>
 		</tr>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0">
+<table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Server Environment"><?php _e( 'Server Environment', 'axisbuilder' ); ?></th>
+			<th colspan="3" data-export-label="Server Environment"><?php _e( 'Server Environment', 'axiscomposer' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td data-export-label="Server Info"><?php _e( 'Server Info', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Information about the web server that is currently hosting your site.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Server Info"><?php _e( 'Server Info', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Information about the web server that is currently hosting your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo esc_html( $_SERVER['SERVER_SOFTWARE'] ); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="PHP Version"><?php _e( 'PHP Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="PHP Version"><?php _e( 'PHP Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				// Check if phpversion function exists
-				if ( ! function_exists( 'phpversion' ) ) {
+				if ( function_exists( 'phpversion' ) ) {
 					$php_version = phpversion();
+
 					if ( version_compare( $php_version, '5.4', '<' ) ) {
-						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: <a href="%s" target="_blank">How to update your PHP version</a>', 'axisbuilder' ), esc_html( $php_version ), 'http://docs.axisthemes.com/document/how-to-update-your-php-version/' ) . '</mark>';
+						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: <a href="%s" target="_blank">How to update your PHP version</a>', 'axiscomposer' ), esc_html( $php_version ), 'http://docs.axisthemes.com/document/how-to-update-your-php-version/' ) . '</mark>';
 					} else {
 						echo '<mark class="yes">' . esc_html( $php_version ) . '</mark>';
 					}
 				} else {
-					_e( "Couldn't determine PHP version because phpversion() doesn't exist.", 'axisbuilder' );
+					_e( "Couldn't determine PHP version because phpversion() doesn't exist.", 'axiscomposer' );
 				}
 			?></td>
 		</tr>
 		<?php if ( function_exists( 'ini_get' ) ) : ?>
 			<tr>
-				<td data-export-label="PHP Post Max Size"><?php _e( 'PHP Post Max Size', 'axisbuilder' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-				<td><?php echo size_format( axisbuilder_let_to_num( ini_get('post_max_size') ) ); ?></td>
+				<td data-export-label="PHP Post Max Size"><?php _e( 'PHP Post Max Size', 'axiscomposer' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+				<td><?php echo size_format( ac_let_to_num( ini_get('post_max_size') ) ); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="PHP Time Limit"><?php _e( 'PHP Time Limit', 'axisbuilder' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Time Limit"><?php _e( 'PHP Time Limit', 'axiscomposer' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 				<td><?php echo ini_get('max_execution_time'); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="PHP Max Input Vars"><?php _e( 'PHP Max Input Vars', 'axisbuilder' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Max Input Vars"><?php _e( 'PHP Max Input Vars', 'axiscomposer' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 				<td><?php echo ini_get('max_input_vars'); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="SUHOSIN Installed"><?php _e( 'SUHOSIN Installed', 'axisbuilder' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="SUHOSIN Installed"><?php _e( 'SUHOSIN Installed', 'axiscomposer' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 				<td><?php echo extension_loaded( 'suhosin' ) ? '&#10004;' : '&ndash;'; ?></td>
 			</tr>
 		<?php endif; ?>
 		<tr>
-			<td data-export-label="MySQL Version"><?php _e( 'MySQL Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="MySQL Version"><?php _e( 'MySQL Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				/** @global wpdb $wpdb */
 				global $wpdb;
@@ -135,17 +136,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Max Upload Size"><?php _e( 'Max Upload Size', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be uploaded to your WordPress installation.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Max Upload Size"><?php _e( 'Max Upload Size', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be uploaded to your WordPress installation.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo size_format( wp_max_upload_size() ); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Default Timezone is UTC"><?php _e( 'Default Timezone is UTC', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The default timezone for your server.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Default Timezone is UTC"><?php _e( 'Default Timezone is UTC', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The default timezone for your server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				$default_timezone = date_default_timezone_get();
 				if ( 'UTC' !== $default_timezone ) {
-					echo '<mark class="error">&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'axisbuilder' ), $default_timezone ) . '</mark>';
+					echo '<mark class="error">&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'axiscomposer' ), $default_timezone ) . '</mark>';
 				} else {
 					echo '<mark class="yes">&#10004;</mark>';
 				}
@@ -155,12 +156,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$posting = array();
 
 			// WP Remote Post Check
-			$posting['wp_remote_post']['name'] = __( 'Remote Post', 'axisbuilder' );
-			$posting['wp_remote_post']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisBuilder plugins may uses this method of communication when sending back information.', 'axisbuilder' ) . '">[?]</a>';
+			$posting['wp_remote_post']['name'] = __( 'Remote Post', 'axiscomposer' );
+			$posting['wp_remote_post']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisComposer plugins may uses this method of communication when sending back information.', 'axiscomposer' ) . '">[?]</a>';
 
 			$response = wp_remote_post( 'https://www.paypal.com/cgi-bin/webscr', array(
 				'timeout'    => 60,
-				'user-agent' => 'AxisBuilder/' . AB()->version,
+				'user-agent' => 'AxisComposer/' . AC()->version,
 				'body'       => array(
 					'cmd'    => '_notify-validate'
 				)
@@ -169,34 +170,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				$posting['wp_remote_post']['success'] = true;
 			} else {
-				$posting['wp_remote_post']['note']    = __( 'wp_remote_post() failed. Contact your hosting provider.', 'axisbuilder' );
+				$posting['wp_remote_post']['note']    = __( 'wp_remote_post() failed. Contact your hosting provider.', 'axiscomposer' );
 				if ( is_wp_error( $response ) ) {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), axisbuilder_clean( $response->get_error_message() ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axiscomposer' ), ac_clean( $response->get_error_message() ) );
 				} else {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), axisbuilder_clean( $response['response']['code'] ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axiscomposer' ), ac_clean( $response['response']['code'] ) );
 				}
 				$posting['wp_remote_post']['success'] = false;
 			}
 
 			// WP Remote Get Check
-			$posting['wp_remote_get']['name'] = __( 'Remote Get', 'axisbuilder' );
-			$posting['wp_remote_get']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisBuilder plugins may use this method of communication when checking for plugin updates.', 'axisbuilder' ) . '">[?]</a>';
+			$posting['wp_remote_get']['name'] = __( 'Remote Get', 'axiscomposer' );
+			$posting['wp_remote_get']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisComposer plugins may use this method of communication when checking for plugin updates.', 'axiscomposer' ) . '">[?]</a>';
 
-			$response = wp_remote_get( 'https://api.github.com/repos/axisthemes/axisbuilder/contributors' );
+			$response = wp_remote_get( 'https://api.github.com/repos/axisthemes/axiscomposer/contributors' );
 
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				$posting['wp_remote_get']['success'] = true;
 			} else {
-				$posting['wp_remote_get']['note']    = __( 'wp_remote_get() failed. The AxisBuilder plugin updater won\'t work with your server. Contact your hosting provider.', 'axisbuilder' );
+				$posting['wp_remote_get']['note']    = __( 'wp_remote_get() failed. The AxisComposer plugin updater won\'t work with your server. Contact your hosting provider.', 'axiscomposer' );
 				if ( is_wp_error( $response ) ) {
-					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axisbuilder' ), axisbuilder_clean( $response->get_error_message() ) );
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axiscomposer' ), ac_clean( $response->get_error_message() ) );
 				} else {
-					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axisbuilder' ), axisbuilder_clean( $response['response']['code'] ) );
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Status code: %s', 'axiscomposer' ), ac_clean( $response['response']['code'] ) );
 				}
 				$posting['wp_remote_get']['success'] = false;
 			}
 
-			$posting = apply_filters( 'axisbuilder_debug_posting', $posting );
+			$posting = apply_filters( 'axiscomposer_debug_posting', $posting );
 
 			foreach ( $posting as $post ) {
 				$mark = ! empty( $post['success'] ) ? 'yes' : 'error';
@@ -216,10 +217,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0">
+<table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axisbuilder' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
+			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axiscomposer' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -243,10 +244,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$plugin_name = esc_html( $plugin_data['Name'] );
 
 				if ( ! empty( $plugin_data['PluginURI'] ) ) {
-					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage' , 'axisbuilder' ) . '" target="_blank">' . $plugin_name . '</a>';
+					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage' , 'axiscomposer' ) . '" target="_blank">' . $plugin_name . '</a>';
 				}
 
-				if ( strstr( $dirname, 'axisbuilder-' ) ) {
+				if ( strstr( $dirname, 'axiscomposer-' ) ) {
 
 					if ( false === ( $version_data = get_transient( md5( $plugin ) . '_version_data' ) ) ) {
 						$changelog = wp_remote_get( 'http://axisthemes.com/changelogs/' . $dirname . '/changelog.txt' );
@@ -267,11 +268,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					}
 
 					if ( ! empty( $version_data['version'] ) && version_compare( $version_data['version'], $plugin_data['Version'], '>' ) ) {
-						$version_string = ' &ndash; <strong style="color:red;">' . esc_html( sprintf( _x( '%s is available', 'Version info', 'axisbuilder' ), $version_data['version'] ) ) . '</strong>';
+						$version_string = ' &ndash; <strong style="color:red;">' . esc_html( sprintf( _x( '%s is available', 'Version info', 'axiscomposer' ), $version_data['version'] ) ) . '</strong>';
 					}
 
 					if ( $plugin_data['Network'] != false ) {
-						$network_string = ' &ndash; <strong style="color:black;">' . __( 'Network enabled', 'axisbuilder' ) . '</strong>';
+						$network_string = ' &ndash; <strong style="color:black;">' . __( 'Network enabled', 'axiscomposer' ) . '</strong>';
 					}
 				}
 
@@ -279,7 +280,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<tr>
 					<td><?php echo $plugin_name; ?></td>
 					<td class="help">&nbsp;</td>
-					<td><?php echo sprintf( _x( 'by %s', 'by author', 'axisbuilder' ), $plugin_data['Author'] ) . ' &ndash; ' . esc_html( $plugin_data['Version'] ) . $version_string . $network_string; ?></td>
+					<td><?php echo sprintf( _x( 'by %s', 'by author', 'axiscomposer' ), $plugin_data['Author'] ) . ' &ndash; ' . esc_html( $plugin_data['Version'] ) . $version_string . $network_string; ?></td>
 				</tr>
 				<?php
 			}
@@ -287,29 +288,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0">
+<table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Settings"><?php _e( 'Settings', 'axisbuilder' ); ?></th>
+			<th colspan="3" data-export-label="Settings"><?php _e( 'Settings', 'axiscomposer' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td data-export-label="TinyMCE Enabled"><?php _e( 'TinyMCE Enabled', 'axisbuilder' ) ?></td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have tinyMCE enabled?', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo 'yes' === get_option( 'axisbuilder_tinymce_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
+			<td data-export-label="TinyMCE Enabled"><?php _e( 'TinyMCE Enabled', 'axiscomposer' ) ?></td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have tinyMCE enabled?', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php echo 'yes' === get_option( 'axiscomposer_tinymce_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Sidebar Builder Enabled"><?php _e( 'Sidebar Builder Enabled', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have Sidebar Builder enabled?', 'axisbuilder' ) . '">[?]</a>'; ?></td>
-			<td><?php echo 'yes' === get_option( 'axisbuilder_sidebar_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
+			<td data-export-label="Sidebar Builder Enabled"><?php _e( 'Sidebar Builder Enabled', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have Sidebar Builder enabled?', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php echo 'yes' === get_option( 'axiscomposer_sidebar_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 	</tbody>
 </table>
-<table class="axisbuilder_status_table widefat" cellspacing="0">
+<table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Theme"><?php _e( 'Theme', 'axisbuilder' ); ?></th>
+			<th colspan="3" data-export-label="Theme"><?php _e( 'Theme', 'axiscomposer' ); ?></th>
 		</tr>
 	</thead>
 		<?php
@@ -352,31 +353,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	<tbody>
 		<tr>
-			<td data-export-label="Name"><?php _e( 'Name', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the current active theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Name"><?php _e( 'Name', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the current active theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $active_theme->Name; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Version"><?php _e( 'Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the current active theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Version"><?php _e( 'Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the current active theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
 				echo esc_html( $theme_version );
 
 				if ( version_compare( $theme_version, $update_theme_version, '<' ) ) {
-					echo ' &ndash; <strong style="color:red;">' . sprintf( __( '%s is available', 'axisbuilder' ), esc_html( $update_theme_version ) ) . '</strong>';
+					echo ' &ndash; <strong style="color:red;">' . sprintf( __( '%s is available', 'axiscomposer' ), esc_html( $update_theme_version ) ) . '</strong>';
 				}
 			?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Author URL"><?php _e( 'Author URL', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The theme developers URL.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Author URL"><?php _e( 'Author URL', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The theme developers URL.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $active_theme->{'Author URI'}; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Child Theme"><?php _e( 'Child Theme', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Child Theme"><?php _e( 'Child Theme', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
-				echo is_child_theme() ? '<mark class="yes">&#10004;</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisBuilder or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axisbuilder' ), 'http://codex.wordpress.org/Child_Themes' );
+				echo is_child_theme() ? '<mark class="yes">&#10004;</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisComposer or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axiscomposer' ), 'http://codex.wordpress.org/Child_Themes' );
 			?></td>
 		</tr>
 		<?php
@@ -384,27 +385,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$parent_theme = wp_get_theme( $active_theme->Template );
 		?>
 		<tr>
-			<td data-export-label="Parent Theme Name"><?php _e( 'Parent Theme Name', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the parent theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Parent Theme Name"><?php _e( 'Parent Theme Name', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the parent theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $parent_theme->Name; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Parent Theme Version"><?php _e( 'Parent Theme Version', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the parent theme.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Parent Theme Version"><?php _e( 'Parent Theme Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the parent theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo  $parent_theme->Version; ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Parent Theme Author URL"><?php _e( 'Parent Theme Author URL', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The parent theme developers URL.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Parent Theme Author URL"><?php _e( 'Parent Theme Author URL', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The parent theme developers URL.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php echo $parent_theme->{'Author URI'}; ?></td>
 		</tr>
 		<?php endif ?>
 		<tr>
-			<td data-export-label="AxisBuilder Support"><?php _e( 'AxisBuilder Support', 'axisbuilder' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declares AxisBuilder support.', 'axisbuilder' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="AxisComposer Support"><?php _e( 'AxisComposer Support', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declares AxisComposer support.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php
-				if ( ! current_theme_supports( 'axisbuilder' ) && ! in_array( $active_theme->template, axisbuilder_get_core_supported_themes() ) ) {
-					echo '<mark class="error">' . __( 'Not Declared', 'axisbuilder' ) . '</mark>';
+				if ( ! current_theme_supports( 'axiscomposer' ) && ! in_array( $active_theme->template, ac_get_core_supported_themes() ) ) {
+					echo '<mark class="error">' . __( 'Not Declared', 'axiscomposer' ) . '</mark>';
 				} else {
 					echo '<mark class="yes">&#10004;</mark>';
 				}
@@ -413,7 +414,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</tbody>
 </table>
 
-<?php do_action( 'axisbuilder_system_status_report' ); ?>
+<?php do_action( 'axiscomposer_system_status_report' ); ?>
 
 <script type="text/javascript">
 
@@ -425,7 +426,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		var report = '';
 
-		jQuery( '.axisbuilder_status_table thead, .axisbuilder_status_table tbody' ).each( function() {
+		jQuery( '.ac_status_table thead, .ac_status_table tbody' ).each( function() {
 
 			if ( jQuery( this ).is('thead') ) {
 

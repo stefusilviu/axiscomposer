@@ -1,6 +1,6 @@
 /**
  * menu.scss
- * Styles applied to dashboard menu items added via AxisBuilder.
+ * Styles applied to dashboard menu items added via AxisComposer.
  * Adds icons to top level menu items, tinyMCE shortcode button, etc.
  */
 
@@ -15,13 +15,13 @@
 /**
  * Styling begins
  */
-#adminmenu #toplevel_page_axisbuilder .menu-icon-generic div.wp-menu-image:before {
-	font-family: 'AxisBuilder' !important;
+#adminmenu #toplevel_page_axiscomposer .menu-icon-generic div.wp-menu-image:before {
+	font-family: 'AxisComposer' !important;
 	content: "\e002";
 	font-size: 1.3em !important;
 }
 
-span.mce_axisbuilder_shortcodes_button {
+span.mce_axiscomposer_shortcodes_button {
 	background-image: none !important;
 	@include ir();
 
@@ -32,7 +32,7 @@ span.mce_axisbuilder_shortcodes_button {
 	}
 }
 
-i.mce-i-axisbuilder-shortcodes {
+i.mce-i-axiscomposer-shortcodes {
 	position: relative;
 
 	&:before {
@@ -41,8 +41,8 @@ i.mce-i-axisbuilder-shortcodes {
 	}
 }
 
-.axisbuilder-plugin-display-notice,
-.axisbuilder-plugin-upgrade-notice {
+.ac_plugin_display_notice,
+.ac_plugin_upgrade_notice {
 	font-weight: normal;
 	color: #fff;
 	background: #d54d21;
@@ -66,37 +66,34 @@ i.mce-i-axisbuilder-shortcodes {
 	}
 }
 
-.axisbuilder-plugin-display-notice {
+.ac_plugin_display_notice {
 	margin: 15px 0 0;
 }
 
 /**
  * Layout + Breadcrumb Styles
  */
-ul {
-	&.layout_data,
-	&.breadcrumb_data {
+ul.layout_data,
+ul.breadcrumb_data {
+	p.form-field {
+		margin: 15px 0;
 
-		p.form-field {
-			margin: 15px 0;
+		span,
+		label,
+		select {
+			width: 100%;
+		}
 
-			label {
-				float: left;
-				font-weight: 600;
-			}
+		label {
+			float: left;
+			font-weight: 600;
+		}
 
-			span,
-			label,
-			select {
-				width: 100%;
-			}
-
-			span.side {
-				color: #777;
-				display: block;
-				font-style: normal;
-				margin-bottom: 5px;
-			}
+		span.side {
+			color: #777;
+			display: block;
+			font-style: normal;
+			margin-bottom: 5px;
 		}
 	}
 }

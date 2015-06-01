@@ -17,16 +17,12 @@
 	@include loader();
 }
 
-body .axisbuilder-hidden {
-	display: none;
-}
-
-.axisbuilder-backbone-modal {
+.ac-backbone-modal {
 	* {
 		box-sizing: border-box;
 	}
 
-	.axisbuilder-backbone-modal-content {
+	.ac-backbone-modal-content {
 		position: fixed;
 		top: 50%;
 		left: 50%;
@@ -36,7 +32,7 @@ body .axisbuilder-hidden {
 	}
 }
 
-.axisbuilder-backbone-modal-backdrop {
+.ac-backbone-modal-backdrop {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -48,7 +44,7 @@ body .axisbuilder-hidden {
 	z-index: 99900;
 }
 
-.axisbuilder-backbone-modal-main {
+.ac-backbone-modal-main {
 	padding-bottom: 51px;
 
 	header,
@@ -57,7 +53,7 @@ body .axisbuilder-hidden {
 		position: relative;
 	}
 
-	.axisbuilder-backbone-modal-header {
+	.ac-backbone-modal-header {
 		height: 50px;
 		background: #fcfcfc;
 		padding: 0 50px 0 16px;
@@ -170,7 +166,7 @@ body .axisbuilder-hidden {
 /**
  * Modal Screen styles
  */
-.axisbuilder-backbone-modal {
+.ac-backbone-modal {
 
 	.high-screen,
 	.normal-screen,
@@ -205,7 +201,7 @@ body .axisbuilder-hidden {
 /**
  * Enhanced Form Styles
  */
-.axisbuilder-enhanced-form {
+.ac-enhanced-form {
 
 	.field-container {
 		clear: both;

@@ -1,8 +1,8 @@
 source: ./
 
-destination: apidocs
+destination: ac-apidocs
 
-templateConfig: apigen/theme-axisbuilder/config.neon
+templateConfig: apigen/theme-axiscomposer/config.neon
 
 # list of scanned file extensions (e.g. php5, phpt...)
 extensions: [php]
@@ -15,7 +15,7 @@ exclude:
     - dummy/
     - config/
     - apigen/
-    - apidocs/
+    - ac-apidocs/
     - .sass-cache/
     - node_modules/
 
@@ -23,13 +23,13 @@ exclude:
 charset: [UTF-8]
 
 # elements with this name prefix will be considered as the "main project" (the rest will be considered as libraries)
-main: AB
+main: AC
 
 # title of generated documentation
-title: AxisBuilder
+title: AxisComposer
 
 # base url used for sitemap (useful for public doc)
-baseUrl: http://docs.axisthemes.com/apidocs/axisbuilder/
+baseUrl: http://docs.axisthemes.com/ac-apidocs/
 
 # choose ApiGen template theme
 templateTheme: default

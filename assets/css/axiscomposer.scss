@@ -1,0 +1,21 @@
+/**
+ * axiscomposer.scss
+ * Governs the general look and feel of AxisComposer sections of shortcodes using themes that do not
+ * integrate with AxisComposer specifically.
+ */
+
+/**
+ * Imports
+ */
+@import "bourbon";
+@import "mixins";
+@import "variables";
+@import "animation";
+@import "fonts";
+
+/**
+ * Utility classes
+ */
+.clear {
+	clear: both;
+}

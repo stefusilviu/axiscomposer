@@ -7,7 +7,7 @@
 	/**
 	 * Create the Plugin.
 	 */
-	tinymce.create( 'tinymce.plugins.AB_Shortcodes', {
+	tinymce.create( 'tinymce.plugins.AC_Shortcodes', {
 
 		/**
 		 * Initialize the Plugin.
@@ -17,16 +17,16 @@
 		init: function( editor ) {
 			var ed = tinymce.activeEditor, self = this;
 
-			editor.addButton( 'axisbuilder_shortcodes', {
-				title : ed.getLang( 'axisbuilder_shortcodes.shortcode_title' ),
-				text: ed.getLang( 'axisbuilder_shortcodes.shortcode_text' ),
-				icon: 'axisbuilder-shortcodes',
+			editor.addButton( 'axiscomposer_shortcodes', {
+				title : ed.getLang( 'axiscomposer_shortcodes.shortcode_title' ),
+				text: ed.getLang( 'axiscomposer_shortcodes.shortcode_text' ),
+				icon: 'axiscomposer-shortcodes',
 				type: 'menubutton',
 				menu: self.createMenu()
 			});
 
-			// editor.addCommand( 'Open_AxisBuilderModal', function( ui, params ) {
-				// var modal = new $.AxisBuilderModal( params );
+			// editor.addCommand( 'Open_ACBackboneModal', function( ui, params ) {
+				// var modal = new $.Open_ACBackboneModal( params );
 				// return false;
 			// });
 		},
@@ -36,8 +36,7 @@
 		 */
 		createMenu: function() {
 			var ed         = tinymce.activeEditor,
-				// modal      = $.AxisBuilderModal.openInstance || [],
-				shortcodes = ed.getLang( 'axisbuilder_shortcodes.shortcodes' ),
+				shortcodes = ed.getLang( 'axiscomposer_shortcodes.shortcodes' ),
 				title, dropdown, self = this, tabs = [], submenu = [], loop = 0;
 
 			// Get all tabs
@@ -50,7 +49,7 @@
 				if ( title !== 'undefined' ) {
 					loop++;
 					submenu.push({
-						text: ed.getLang( 'axisbuilder_shortcodes.' + title + '_label' ),
+						text: ed.getLang( 'axiscomposer_shortcodes.' + title + '_label' ),
 						menu: []
 					});
 				}
@@ -69,7 +68,7 @@
 
 					for ( title in submenu ) {
 						if ( title !== 'undefined' ) {
-							var text = ed.getLang( 'axisbuilder_shortcodes.' + shortcodes[dropdown].type + '_label' );
+							var text = ed.getLang( 'axiscomposer_shortcodes.' + shortcodes[dropdown].type + '_label' );
 
 							if ( submenu[title].text === text ) {
 								current = submenu[title].menu;
@@ -83,7 +82,7 @@
 					current.push({
 						text: paramText,
 						onClick: paramOnClick,
-						axisbuilder_shortcode: shortcodes[dropdown]
+						axiscomposer_shortcode: shortcodes[dropdown]
 					});
 
 				// }
@@ -98,12 +97,12 @@
 				}
 			}
 
-        	return submenu;
+			return submenu;
 		},
 
 		instantInsert: function() {
 			var ed        = tinymce.activeEditor,
-				shortcode = this.settings.axisbuilder_shortcode;
+				shortcode = this.settings.axiscomposer_shortcode;
 
 			// Execute command ;)
 			ed.execCommand( 'mceInsertContent', false, window.switchEditors.wpautop( shortcode.tinyMCE.instantInsert ) );
@@ -117,6 +116,6 @@
 	/**
 	 * Register the Plugin.
 	 */
-	tinymce.PluginManager.add( 'axisbuilder_shortcodes', tinymce.plugins.AB_Shortcodes );
+	tinymce.PluginManager.add( 'axiscomposer_shortcodes', tinymce.plugins.AC_Shortcodes );
 
 })( jQuery );

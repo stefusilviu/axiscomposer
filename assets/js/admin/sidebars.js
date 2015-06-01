@@ -1,18 +1,18 @@
-/* global wpWidgets, axisbuilder_admin_sidebars */
+/* global wpWidgets, axiscomposer_admin_sidebars */
 ( function( $ ) {
 	'use strict';
 
-	$.AxisBuilderSidebars = function() {
+	$.ACSidebars = function() {
 		this.widgetArea = $( '#widgets-right' );
 		this.widgetWrap = $( '.widget-liquid-right' );
-		this.widgetTmpl = $( '#tmpl-axisbuilder-form-delete-sidebar' );
+		this.widgetTmpl = $( '#tmpl-axiscomposer-form-create-sidebar' );
 
 		this.createForm();
 		this.deleteIcon();
 		this.bindEvents();
 	};
 
-	$.AxisBuilderSidebars.prototype = {
+	$.ACSidebars.prototype = {
 
 		// Create Custom Widget Area Form
 		createForm: function() {
@@ -21,12 +21,12 @@
 
 		// Add Delete Icon to Custom Widget Areas
 		deleteIcon: function() {
-			this.widgetArea.find( '.sidebar-axisbuilder-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axisbuilder-delete-sidebar"><br /></div>' );
+			this.widgetArea.find( '.sidebar-axiscomposer-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar"><br /></div>' );
 		},
 
 		// Bind Events to delete Custom Widget Area
 		bindEvents: function() {
-			this.widgetWrap.on( 'click', '.axisbuilder-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
+			this.widgetWrap.on( 'click', '.axiscomposer-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
 		},
 
 		// Delete the Widget Area (Sidebar) with all Widgets within, then re-calculate the other sidebar ids and re-save the order
@@ -38,22 +38,22 @@
 				sidebar	= $.trim( heading.text() ),
 				data    = {
 					sidebar: sidebar,
-					action: 'axisbuilder_delete_custom_sidebar',
-					security: axisbuilder_admin_sidebars.delete_custom_sidebar_nonce
+					action: 'axiscomposer_delete_custom_sidebar',
+					security: axiscomposer_admin_sidebars.delete_custom_sidebar_nonce
 				};
 
-			// AxisBuilder Backbone Modal
-			$( this ).AxisBuilderBackboneModal({
-				template: '#tmpl-axisbuilder-modal-delete-sidebar'
+			// AxisComposer Backbone Modal
+			$( this ).ACBackboneModal({
+				template: '#tmpl-axiscomposer-modal-delete-sidebar'
 			});
 
-			$( document.body ).on( 'axisbuilder_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axisbuilder-modal-delete-sidebar' !== template ) {
+			$( document.body ).on( 'ac_backbone_modal_response', function( e, template ) {
+				if ( '#tmpl-axiscomposer-modal-delete-sidebar' !== template ) {
 					return;
 				}
 
 				$.ajax( {
-					url: axisbuilder_admin_sidebars.ajax_url,
+					url: axiscomposer_admin_sidebars.ajax_url,
 					data: data,
 					type: 'POST',
 					beforeSend: function() {
@@ -92,7 +92,7 @@
 	};
 
 	$( function() {
-		$.AxisBuilderSidebarsObj = new $.AxisBuilderSidebars();
+		$.ACSidebarsObj = new $.ACSidebars();
 	});
 
 })( jQuery );

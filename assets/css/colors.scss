@@ -1,6 +1,6 @@
 /**
  * colors.scss
- * Color Scheme for AxisBuilder.
+ * Color Scheme for AxisComposer.
  */
 
 /**
@@ -9,17 +9,17 @@
 @import "variables";
 
 .admin-color-light {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $light-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $light-color;
 			}
 		}
@@ -27,17 +27,17 @@
 }
 
 .admin-color-blue {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $blue-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $blue-color;
 			}
 		}
@@ -45,17 +45,17 @@
 }
 
 .admin-color-coffee {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $coffee-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $coffee-color;
 			}
 		}
@@ -63,17 +63,17 @@
 }
 
 .admin-color-ectoplasm {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $ectoplasm-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $ectoplasm-color;
 			}
 		}
@@ -81,17 +81,17 @@
 }
 
 .admin-color-midnight {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $midnight-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $midnight-color;
 			}
 		}
@@ -99,17 +99,17 @@
 }
 
 .admin-color-ocean {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $ocean-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $ocean-color;
 			}
 		}
@@ -117,17 +117,17 @@
 }
 
 .admin-color-sunrise {
-	#axisbuilder-editor, .axisbuilder {
-		ul.axisbuilder-tabs.horizontal li.active {
+	#axiscomposer-pagebuilder, .axiscomposer {
+		ul.ac-tabs.horizontal li.active {
 			&:after {
 				background-color: $light-color;
 			}
 		}
 	}
 
-	.axisbuilder-layout-row-modal {
-		.axisbuilder-layout-row-modal-label {
-			input:checked + .axisbuilder-layout-row-inner-label {
+	.ac-layout-row-modal {
+		.ac-layout-row-modal-label {
+			input:checked + .ac-layout-row-inner-label {
 				background-color: $sunrise-color;
 			}
 		}

@@ -1,16 +1,16 @@
-/* global axisbuilder_admin_iconfonts, jQuery, Backbone, _ */
+/* global axiscomposer_admin_iconfonts, jQuery, Backbone, _ */
 
-var AB_Icon_Fonts = AB_Icon_Fonts || {};
+var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
 /**
- * AxisBuilder Backbone Iconfonts JS
+ * AxisComposer Backbone Iconfonts JS
  */
 ( function ( $, Backbone, _ ) {
 	'use strict';
 
 	// Views
-	AB_Icon_Fonts.AppView = Backbone.View.extend({
-		el: '#axisbuilder-iconfonts',
+	AC_Icon_Fonts.AppView = Backbone.View.extend({
+		el: '#axiscomposer-iconfonts',
 		events: {
 			'click .modal-close': 'closeButton',
 			'click #btn-ok': 'addButton'
@@ -65,12 +65,12 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 			var data = {
 				term: $el.data( 'delete' ),
-				action: 'axisbuilder_delete_iconfont',
-				security: axisbuilder_admin_iconfonts.delete_custom_iconfont_nonce
+				action: 'axiscomposer_delete_iconfont',
+				security: axiscomposer_admin_iconfonts.delete_custom_iconfont_nonce
 			};
 
 			$.ajax({
-				url: axisbuilder_admin_iconfonts.ajax_url,
+				url: axiscomposer_admin_iconfonts.ajax_url,
 				data: data,
 				type: 'POST',
 				beforeSend: function() {
@@ -95,7 +95,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 				success: function( response ) {
 					$( '.spinner' ).hide();
 
-					if ( response.match( /axisbuilder_iconfont_removed/ ) ) {
+					if ( response.match( /axiscomposer_iconfont_removed/ ) ) {
 						message.html( '<div class="updated"><p>Font icon removed successfully! Reloading the page... </p></div>' );
 						message.show();
 
@@ -119,12 +119,12 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 	// Kick things off by creating the 'App'
 	$( document ).ready( function() {
-		new AB_Icon_Fonts.AppView();
+		new AC_Icon_Fonts.AppView();
 
-		$( 'body' ).on( 'insert_iconfont_zip', AB_Icon_Fonts.icon_insert );
+		$( 'body' ).on( 'insert_iconfont_zip', AC_Icon_Fonts.icon_insert );
 	});
 
-	AB_Icon_Fonts.icon_insert = function( event, attachment ) {
+	AC_Icon_Fonts.icon_insert = function( event, attachment ) {
 		var message = $( '#msg' );
 
 		if ( attachment.subtype !== 'zip' ) {
@@ -141,12 +141,12 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 
 		var	data = {
 			value: attachment,
-			action: 'axisbuilder_add_iconfont',
-			security: axisbuilder_admin_iconfonts.add_custom_iconfont_nonce
+			action: 'axiscomposer_add_iconfont',
+			security: axiscomposer_admin_iconfonts.add_custom_iconfont_nonce
 		};
 
 		$.ajax({
-			url: axisbuilder_admin_iconfonts.ajax_url,
+			url: axiscomposer_admin_iconfonts.ajax_url,
 			data: data,
 			type: 'POST',
 			beforeSend: function() {
@@ -161,7 +161,7 @@ var AB_Icon_Fonts = AB_Icon_Fonts || {};
 			success: function( response ) {
 				$( '.spinner' ).hide();
 
-				if ( response.match( /axisbuilder_iconfont_added/ ) ) {
+				if ( response.match( /axiscomposer_iconfont_added/ ) ) {
 					message.html( '<div class="updated"><p>Font icon added successfully! Reloading the page... </p></div>' );
 					message.show();
 

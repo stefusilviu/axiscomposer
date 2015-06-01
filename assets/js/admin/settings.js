@@ -1,4 +1,4 @@
-/* global axisbuilder_settings_params */
+/* global axiscomposer_settings_params */
 jQuery( window ).load( function() {
 
 	// Color picker
@@ -31,10 +31,10 @@ jQuery( window ).load( function() {
 			changed = true;
 		});
 
-		jQuery( '.axisbuilder-nav-tab-wrapper a' ).click( function() {
+		jQuery( '.axis-nav-tab-wrapper a' ).click( function() {
 			if ( changed ) {
 				window.onbeforeunload = function() {
-				    return axisbuilder_settings_params.i18n_nav_warning;
+				    return axiscomposer_settings_params.i18n_nav_warning;
 				};
 			} else {
 				window.onbeforeunload = '';

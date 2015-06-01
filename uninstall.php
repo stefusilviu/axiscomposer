@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisBuilder Uninstall
+ * AxisComposer Uninstall
  *
- * Uninstalling AxisBuilder deletes user roles and options.
+ * Uninstalling AxisComposer deletes user roles and options.
  *
- * @package     AxisBuilder/Uninstaller
+ * @package     AxisComposer/Uninstaller
  * @category    Core
  * @author      AxisThemes
  * @since       1.0.0
@@ -14,18 +14,18 @@ if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-$status_options = get_option( 'axisbuilder_status_options', array() );
+$status_options = get_option( 'axiscomposer_status_options', array() );
 
 if ( ! empty( $status_options['uninstall_data'] ) ) {
 
 	global $wpdb;
 
 	// Roles + caps
-	include_once( 'includes/class-builder-install.php' );
-	AB_Install::remove_roles();
+	include_once( 'includes/class-ac-install.php' );
+	AC_Install::remove_roles();
 
 	// Delete options
-	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'axisbuilder_%';" );
+	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'axiscomposer_%';" );
 
 	// Delete posts + data
 	$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'portfolio' );" );

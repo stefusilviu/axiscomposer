@@ -120,13 +120,13 @@ module.exports = function( grunt ){
 				type: 'wp-plugin',
 				domainPath: 'i18n/languages',
 				potHeaders: {
-					'report-msgid-bugs-to': 'https://github.com/axisthemes/axisbuilder/issues',
+					'report-msgid-bugs-to': 'https://github.com/axisthemes/axiscomposer/issues',
 					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
 				}
 			},
 			frontend: {
 				options: {
-					potFilename: 'axisbuilder.pot',
+					potFilename: 'axiscomposer.pot',
 					exclude: [
 						'tmp/.*',
 						'tests/.*',
@@ -141,7 +141,7 @@ module.exports = function( grunt ){
 			},
 			admin: {
 				options: {
-					potFilename: 'axisbuilder-admin.pot',
+					potFilename: 'axiscomposer-admin.pot',
 					include: [
 						'includes/admin/.*'
 					],
@@ -156,7 +156,7 @@ module.exports = function( grunt ){
 		// Check textdomain errors.
 		checktextdomain: {
 			options: {
-				text_domain: 'axisbuilder',
+				text_domain: 'axiscomposer',
 				keywords: [
 					'__:1,2d',
 					'_e:1,2d',

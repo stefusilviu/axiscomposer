@@ -24,13 +24,13 @@ jQuery( function ( $ ) {
 	}).change();
 
 	// Select all/none
-	$( '.axisbuilder' ).on( 'click', '.select_all', function() {
+	$( '.axiscomposer' ).on( 'click', '.select_all', function() {
 		$( this ).closest( 'td' ).find( 'select option' ).attr( 'selected', 'selected' );
 		$( this ).closest( 'td' ).find( 'select' ).trigger( 'change' );
 		return false;
 	});
 
-	$( '.axisbuilder' ).on( 'click', '.select_none', function() {
+	$( '.axiscomposer' ).on( 'click', '.select_none', function() {
 		$( this ).closest( 'td' ).find( 'select option' ).removeAttr( 'selected' );
 		$( this ).closest( 'td' ).find( 'select' ).trigger( 'change' );
 		return false;

@@ -1,6 +1,6 @@
 /**
  * _mixins.scss
- * AxisBuilder Mixins
+ * AxisComposer Mixins
  */
 @function flexgrid( $columns: 1, $container-columns: 1 ) {
 	$width: ( ( ( 100% - ( $flex-gutter * ( $container-columns - 1 ) ) ) / $container-columns ) * $columns ) + ( $flex-gutter * ( $columns - 1 ) );
@@ -45,7 +45,7 @@
 }
 
 @mixin icon( $glyph: "\e001" ) {
-	font-family: 'AxisBuilder';
+	font-family: 'AxisComposer';
 	speak: none;
 	font-weight: normal;
 	font-variant: normal;
@@ -64,7 +64,7 @@
 }
 
 @mixin iconbefore( $glyph: "\e001" ) {
-	font-family: 'AxisBuilder';
+	font-family: 'AxisComposer';
 	speak: none;
 	font-weight: normal;
 	font-variant: normal;
@@ -77,7 +77,7 @@
 }
 
 @mixin iconafter( $glyph: "\e001" ) {
-	font-family: 'AxisBuilder';
+	font-family: 'AxisComposer';
 	speak: none;
 	font-weight: normal;
 	font-variant: normal;

@@ -1,0 +1,1445 @@
+# Copyright (C) 2015 AxisThemes
+# This file is distributed under the same license as the AxisComposer package.
+msgid ""
+msgstr ""
+"Project-Id-Version: AxisComposer 1.0-alpha-2 Admin\n"
+"Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
+"POT-Creation-Date: 2015-06-01 09:51:06+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"X-Generator: grunt-wp-i18n 0.5.1\n"
+
+#: includes/admin/class-ac-admin-assets.php:130
+msgid "The current number of cells does not allow any layout variations."
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:131
+msgid "You need to add at least one cell"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:132
+msgid "You need to remove at least one cell"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:133
+msgid "Select a cell layout"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:134
+msgid "Please enter in a value without any invalid or special characters."
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:135
+msgid "Permanently Delete all Canvas Elements"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:136
+msgid ""
+"You need to add at least one canvas element below for this action. %sYour "
+"history session has beeen reset :)%s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:137
+msgid ""
+"All Page Builder content will be permanently lost and cannot be undone. "
+"%sAre you positive you want to delete all canvas elements?%s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:138
+msgid ""
+"Loading failed - Your session timed out. Please reload the page and try "
+"again."
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:139
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:190
+msgid "Dismiss"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:40
+#: includes/admin/class-ac-admin-welcome.php:188
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:43
+msgid ""
+"Thank you for using AxisComposer :) Should you need help using or extending "
+"AxisComposer please read the documentation."
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:45
+msgid "AxisComposer Documentation"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:45
+msgid "Developer API Docs"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:51
+msgid "Support"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:54
+msgid ""
+"After %sreading the documentation%s, for further assistance you can use our "
+"%scommunity forum%s if you get stuck. For help with premium add-ons from "
+"AxisThemes, or if you are a AxisThemes customer, you can %suse our "
+"helpdesk%s."
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:56
+msgid ""
+"Before asking for help we recommend checking the status page to identify "
+"any problems with your configuration."
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:58
+#: includes/admin/class-ac-admin-help.php:69
+#: includes/admin/class-ac-admin-menus.php:75
+#: includes/admin/views/html-admin-page-status.php:16
+msgid "System Status"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:58
+msgid "Community Support"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:58
+msgid "AxisThemes Customer Support"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:64
+msgid "Found a bug?"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:67
+msgid ""
+"If you find a bug within AxisComposer core you can create a ticket via <a "
+"href=\"%s\">Github issues</a>. Ensure you read the <a "
+"href=\"%s\">contribution guide</a> prior to submitting your report. Be as "
+"descriptive as possible and please include your <a href=\"%s\">system "
+"status report</a>."
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:69
+msgid "Report a bug"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:74
+msgid "For more information:"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:75
+#: includes/admin/class-ac-admin-welcome.php:43
+msgid "About AxisComposer"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:76
+msgid "WordPress.org Project"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:77
+msgid "Github Project"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:78
+#: includes/admin/views/html-notice-theme-support.php:14
+msgid "Official Themes"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:79
+msgid "Official Extensions"
+msgstr ""
+
+#: includes/admin/class-ac-admin-iconfonts.php:36
+msgid "Default Icons"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "AxisComposer"
+msgstr ""
+
+#: includes/admin/class-ac-admin-menus.php:52
+msgid "Iconfonts"
+msgstr ""
+
+#: includes/admin/class-ac-admin-menus.php:59
+msgid "AxisComposer Settings"
+msgstr ""
+
+#: includes/admin/class-ac-admin-menus.php:59
+#: includes/admin/class-ac-admin-welcome.php:187
+#: includes/admin/views/html-admin-page-status-report.php:293
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-ac-admin-menus.php:75
+msgid "AxisComposer Status"
+msgstr ""
+
+#: includes/admin/class-ac-admin-meta-boxes.php:92
+msgid "Portfolio Short Description"
+msgstr ""
+
+#: includes/admin/class-ac-admin-meta-boxes.php:93
+msgid "Breadcrumb Hierarchy"
+msgstr ""
+
+#: includes/admin/class-ac-admin-meta-boxes.php:99
+msgid "%s Layout"
+msgstr ""
+
+#: includes/admin/class-ac-admin-meta-boxes.php:105
+msgid "Page Builder"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:35
+msgid "Portfolio permalink base"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:40
+msgid "Portfolio category base"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:47
+msgid "Portfolio tag base"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:78
+msgid ""
+"These settings control the permalinks used for portfolio. These settings "
+"only apply when <strong>not using \"default\" permalinks above</strong>."
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:97
+msgid "Default"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:101
+msgid "Portfolio"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:105
+msgid "Project base"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:109
+msgid "Category base Project"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:114
+msgid "Custom Base"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:116
+msgid ""
+"Enter a custom base to use. A base <strong>must</strong> be set or "
+"WordPress will use default instead."
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:55
+msgid "Project updated. <a href=\"%s\">View Project</a>"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:56
+msgid "Custom field updated."
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:57
+msgid "Custom field deleted."
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:58
+msgid "Project updated."
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:59
+msgid "Project restored to revision from %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:60
+msgid "Project published. <a href=\"%s\">View Project</a>"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:61
+msgid "Project saved."
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:62
+msgid "Project submitted. <a target=\"_blank\" href=\"%s\">Preview Project</a>"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:63
+msgid ""
+"Project scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
+"href=\"%2$s\">Preview Project</a>"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:64
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:65
+msgid "Project draft updated. <a target=\"_blank\" href=\"%s\">Preview Project</a>"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:80
+msgid "%s project updated."
+msgid_plural "%s projects updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-ac-admin-post-types.php:81
+msgid "%s project not updated, somebody is editing it."
+msgid_plural "%s projects not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-ac-admin-post-types.php:82
+msgid "%s project permanently deleted."
+msgid_plural "%s projects permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-ac-admin-post-types.php:83
+msgid "%s project moved to the Trash."
+msgid_plural "%s projects moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-ac-admin-post-types.php:84
+msgid "%s project restored from the Trash."
+msgid_plural "%s projects restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-ac-admin-post-types.php:104
+msgid "Image"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:105
+#: includes/admin/views/html-admin-page-status-report.php:355
+msgid "Name"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:106
+msgid "Categories"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:107
+msgid "Tags"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:108
+msgid "Types"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:109
+msgid "Featured"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:110
+msgid "Date"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:168
+msgid "Project name"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:186
+msgid "Insert into %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:187
+msgid "Uploaded to this %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:206
+msgid "Use Page Builder"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:207
+msgid "Use Default Editor"
+msgstr ""
+
+#: includes/admin/class-ac-admin-post-types.php:208
+msgid "Page Builder Disabled"
+msgstr ""
+
+#: includes/admin/class-ac-admin-settings.php:50
+msgid "Action failed. Please refresh the page and retry."
+msgstr ""
+
+#: includes/admin/class-ac-admin-settings.php:61
+msgid "Your settings have been saved."
+msgstr ""
+
+#: includes/admin/class-ac-admin-settings.php:116
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: includes/admin/class-ac-admin-settings.php:368
+msgid "Select all"
+msgstr ""
+
+#: includes/admin/class-ac-admin-settings.php:368
+msgid "Select none"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:85
+msgid "%d Transients Rows Cleared"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:93
+msgid "Roles successfully reset"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:102
+msgid "There was an error calling %s::%s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:105
+msgid "There was an error calling %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:117
+#: includes/admin/class-ac-admin-status.php:120
+#: includes/admin/class-ac-admin-status.php:123
+msgid "Failed to install/update the translation:"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:117
+msgid "Seems you don't have permission to do this!"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:120
+msgid ""
+"An authentication error occurred while updating the translation. Please try "
+"again or configure your %sUpgrade Constants%s."
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:123
+msgid "Sorry but there is no translation available for your language =/"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:130
+msgid "Translations installed/updated successfully!"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:137
+msgid "Your changes have been saved."
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:150
+msgid "Expired Transients"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:151
+msgid "Clear expired transients"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:152
+msgid "This tool will clear ALL expired transients from WordPress."
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:155
+msgid "Capabilities"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:156
+msgid "Reset capabilities"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:157
+msgid ""
+"This tool will reset the admin roles to default. Use this if your users "
+"cannot access all of the AxisComposer admin pages."
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:163
+msgid "Translation Upgrade"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:164
+msgid "Force Translation Upgrade"
+msgstr ""
+
+#: includes/admin/class-ac-admin-status.php:165
+msgid ""
+"<strong class=\"red\">Note:</strong> This option will force the translation "
+"upgrade for your language if a translation is available."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:44
+msgid "Welcome to AxisComposer"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:168
+msgid "Welcome to AxisComposer %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:173
+msgid "Thanks, all done!"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:175
+msgid "Thank you for updating to the latest version!"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:177
+msgid "Thanks for installing!"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:180
+msgid ""
+"%s AxisComposer %s is more powerful, stable and secure than ever before. We "
+"hope you enjoy using it."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:184
+msgid "Version %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:195
+msgid "What's New"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:197
+msgid "Credits"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:199
+msgid "Translators"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:217
+msgid "UI Overhaul"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:218
+msgid ""
+"We've updated the user interface on both the front and backend of "
+"AxisComposer 1.0 \"Kickstart Hippo\"."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:223
+msgid "Frontend UI Improvements"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:224
+msgid ""
+"On the frontend there are several UX enhancements such as the responsive "
+"table design as well as a fresh, modern look which meshes more fluidly with "
+"the current design trends of default WordPress themes."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:227
+msgid "Backend UI Improvements"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:228
+msgid ""
+"On the backend, settings have been re-organised and perform better on "
+"hand-held devices for an all round improved user experience. "
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:231
+msgid "Pagebuilder UI"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:232
+msgid ""
+"As part of the Builder, we've introduced a UI for the Pagebuilder system in "
+"1.0. This makes it easier for 3rd party apps to integrate with AxisComposer"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:240
+msgid "Custom Widgets Area Builder"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:241
+msgid ""
+"We have added a new option to create the \"Custom Widgets Area\". Coupled "
+"with ability to delete the unused Widget Area or Sidebar. Enable or disable "
+"this in the %ssettings%s."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:244
+msgid "Simplified Iconfonts Upload"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:245
+msgid ""
+"We have added a new option to upload the \"Custom Iconfonts\". Coupled with "
+"some of the additional hooks for developers to load and store your custom "
+"iconfonts. View %sIconfont Settings%s."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:248
+msgid "Color Customization"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:249
+msgid ""
+"If you're looking to customise the look and feel of the frontend in 1.0, "
+"take a look at the free %sAxisComposer Colors plugin%s. This lets you "
+"change the colors with a live preview."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:257
+msgid "Go to AxisComposer Settings"
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:272
+msgid ""
+"AxisComposer is developed and maintained by a worldwide team of passionate "
+"individuals and backed by an awesome developer community. Want to see your "
+"name? <a href=\"%s\">Contribute to AxisComposer</a>."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:288
+msgid ""
+"AxisComposer has been kindly translated into several other languages thanks "
+"to our translation team. Want to see your name? <a href=\"%s\">Translate "
+"AxisComposer</a>."
+msgstr ""
+
+#: includes/admin/class-ac-admin-welcome.php:335
+msgid "View %s"
+msgstr ""
+
+#: includes/admin/class-ac-admin.php:96
+msgid ""
+"If you like <strong>AxisComposer</strong> please leave us a "
+"%s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating. A huge thank you from "
+"AxisThemes in advance!"
+msgstr ""
+
+#: includes/admin/class-ac-admin.php:96
+msgid "Thanks :)"
+msgstr ""
+
+#: includes/admin/class-ac-admin.php:104
+msgid "Thank you for building with AxisComposer."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:36
+msgid "Layout Settings"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:37
+msgid "Default Layout"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:38
+msgid "No Sidebar"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:39
+msgid "Left Sidebar"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:40
+msgid "Right Sidebar"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:41
+msgid "Select the specific layout for this entry."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:44
+msgid "Sidebar Settings"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:44
+msgid "Choose a custom sidebar for this entry."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:47
+msgid "Footer Settings"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:48
+msgid "Default Socket and Widgets"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:49
+msgid "Both Socket and Widgets"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:50
+msgid "Only Widgets (No Socket)"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:51
+msgid "Only Socket (No Widgets)"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:52
+msgid "Hide Socket and Widgets"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:53
+msgid "Display the socket and footer widgets?"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:61
+msgid "Header Title and Breadcrumb"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:62
+msgid "Default Title and Breadcrumb"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:63
+msgid "Display Title and Breadcrumb"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:64
+msgid "Display Title (No Breadcrumb)"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:65
+msgid "Hide both Title and Breadcrumb"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:66
+msgid "Display the Title Bar with Page Title and Breadcrumb Navigation?"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:69
+msgid "Header Transparency and Visibility"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:70
+msgid "No Transparency"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:71
+msgid "Transparent Header"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:72
+msgid "Transparent & Glassy Header"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:73
+msgid "Display Header on scroll down"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:74
+msgid "Hide Header on this page"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:75
+msgid ""
+"Several options to change the header transparency and visibility on this "
+"page."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:39
+msgid "Layout Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:44
+msgid "Content Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:49
+msgid "Media Elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:54
+msgid "Plugin Additions"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:82
+msgid "History"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:83
+msgid "Undo"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:84
+msgid "Redo"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:86
+msgid "Permanently delete all canvas elements"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:90
+msgid "Save or Load the Page Builder Templates"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:91
+msgid "Templates"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:149
+#: includes/admin/views/html-admin-tmpl-sidebars.php:40
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:154
+msgid "Add"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:159
+msgid "Save"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:29
+msgid "Breadcrumb Parent Page"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:30
+msgid ""
+"Select a parent page for this entry. If no page is selected then session "
+"data will be used to build the breadcrumb."
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:37
+msgid "%s &ndash; %s"
+msgstr ""
+
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:40
+msgid "Search for a page&hellip;"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:29
+msgid "General"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:45
+msgid "General Options"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:52
+msgid "Custom Screen(s)"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:53
+msgid "This option lets you limit which screens you are willing to display to."
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:61
+msgid "Enable to all screens"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:62
+msgid "Enable to specific screens only"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:67
+msgid "Specific Screens"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:76
+msgid "Choose some screens&hellip;"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:81
+msgid "TinyMCE Shortcodes"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:82
+msgid "Enable the TinyMCE Shortcodes"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:86
+msgid "Allows to insert shortcodes from the default editor."
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:91
+msgid "Custom Widgets Area"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:92
+msgid "Enable Custom Widgets Area Builder"
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-general.php:96
+msgid "Allows to register custom Sidebars or Widgets Area from the Widgets Page."
+msgstr ""
+
+#: includes/admin/settings/class-ac-settings-integrations.php:29
+msgid "Integration"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-iconfonts.php:13
+msgid "Iconfonts Manager"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-iconfonts.php:14
+msgid "Choose a Font ZIP File"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-iconfonts.php:14
+msgid "Insert Font Zip File"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-iconfonts.php:15
+msgid "Add New"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-iconfonts.php:31
+msgid "No font icons uploaded. Upload some font icons to display here."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:12
+msgid ""
+"Please copy and paste this information in your ticket when contacting "
+"support:"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:13
+msgid "Get System Report"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:14
+msgid "Understanding the Status Report"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:17
+msgid "Copied!"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:17
+msgid "Copy for Support"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:24
+msgid "WordPress Environment"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:29
+msgid "Home URL"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:30
+msgid "The URL of your site's homepage."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:34
+msgid "Site URL"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:35
+msgid "The root URL of your site."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:39
+msgid "AC Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:40
+msgid "The version of AxisComposer installed on your site."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:44
+msgid "WP Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:45
+msgid "The version of WordPress installed on your site."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:49
+msgid "WP Multisite"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:50
+msgid "Whether or not you have WordPress Multisite enabled."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:54
+msgid "WP Memory Limit"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:55
+msgid "The maximum amount of memory (RAM) that your site can use at one time."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:59
+msgid ""
+"%s - We recommend setting memory to at least 64MB. See: <a href=\"%s\" "
+"target=\"_blank\">Increasing memory allocated to PHP</a>"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:66
+msgid "WP Debug Mode"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:67
+msgid "Displays whether or not WordPress is in Debug Mode."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:71
+msgid "Language"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:72
+msgid "The current language used by WordPress. Default = English"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:80
+msgid "Server Environment"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:85
+msgid "Server Info"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:86
+msgid "Information about the web server that is currently hosting your site."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:90
+msgid "PHP Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:91
+msgid "The version of PHP installed on your hosting server."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:97
+msgid ""
+"%s - We recommend a minimum PHP version of 5.4. See: <a href=\"%s\" "
+"target=\"_blank\">How to update your PHP version</a>"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:102
+msgid "Couldn't determine PHP version because phpversion() doesn't exist."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:108
+msgid "PHP Post Max Size"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:109
+msgid "The largest filesize that can be contained in one post."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:113
+msgid "PHP Time Limit"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:114
+msgid ""
+"The amount of time (in seconds) that your site will spend on a single "
+"operation before timing out (to avoid server lockups)"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:118
+msgid "PHP Max Input Vars"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:119
+msgid ""
+"The maximum number of variables your server can use for a single function "
+"to avoid overloads."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:123
+msgid "SUHOSIN Installed"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:124
+msgid ""
+"Suhosin is an advanced protection system for PHP installations. It was "
+"designed to protect your servers on the one hand against a number of well "
+"known problems in PHP applications and on the other hand against potential "
+"unknown vulnerabilities within these applications or the PHP core itself. "
+"If enabled on your server, Suhosin may need to be configured to increase "
+"its data submission limits."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:129
+msgid "MySQL Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:130
+msgid "The version of MySQL installed on your hosting server."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:138
+msgid "Max Upload Size"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:139
+msgid "The largest filesize that can be uploaded to your WordPress installation."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:143
+msgid "Default Timezone is UTC"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:144
+msgid "The default timezone for your server."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:148
+msgid "Default timezone is %s - it should be UTC"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:158
+msgid "Remote Post"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:159
+msgid ""
+"AxisComposer plugins may uses this method of communication when sending "
+"back information."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:172
+msgid "wp_remote_post() failed. Contact your hosting provider."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:174
+#: includes/admin/views/html-admin-page-status-report.php:192
+msgid "Error: %s"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:176
+#: includes/admin/views/html-admin-page-status-report.php:194
+msgid "Status code: %s"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:182
+msgid "Remote Get"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:183
+msgid ""
+"AxisComposer plugins may use this method of communication when checking for "
+"plugin updates."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:190
+msgid ""
+"wp_remote_get() failed. The AxisComposer plugin updater won't work with "
+"your server. Contact your hosting provider."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:222
+msgid "Active Plugins"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:246
+msgid "Visit plugin homepage"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:274
+msgid "Network enabled"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:298
+msgid "TinyMCE Enabled"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:299
+msgid "Does your site have tinyMCE enabled?"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:303
+msgid "Sidebar Builder Enabled"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:304
+msgid "Does your site have Sidebar Builder enabled?"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:312
+msgid "Theme"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:356
+msgid "The name of the current active theme."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:360
+msgid "Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:361
+msgid "The installed version of the current active theme."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:366
+msgid "%s is available"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:371
+msgid "Author URL"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:372
+msgid "The theme developers URL."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:376
+msgid "Child Theme"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:377
+msgid "Displays whether or not the current theme is a child theme."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:379
+msgid ""
+"If you're modifying AxisComposer or a parent theme you didn't build "
+"personally we recommend using a child theme. See: <a href=\"%s\" "
+"target=\"_blank\">How to create a child theme</a>"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:387
+msgid "Parent Theme Name"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:388
+msgid "The name of the parent theme."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:392
+msgid "Parent Theme Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:393
+msgid "The installed version of the parent theme."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:397
+msgid "Parent Theme Author URL"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:398
+msgid "The parent theme developers URL."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:403
+msgid "AxisComposer Support"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:404
+msgid ""
+"Displays whether or not the current active theme declares AxisComposer "
+"support."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:407
+msgid "Not Declared"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:18
+#: includes/admin/views/html-admin-page-status.php:17
+msgid "Tools"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:36
+msgid "Builder Debug Mode"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:39
+#: includes/admin/views/html-admin-page-status-tools.php:50
+msgid "Enabled"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:42
+msgid ""
+"This tool will log all the shortcode attributes and content via elements "
+"textarea field for debugging purposes."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:47
+msgid "Remove All Data"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:53
+msgid ""
+"This tool will remove all AxisComposer and Portfolio data when using the "
+"\"Delete\" link on the plugins screen."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-tools.php:60
+msgid "Save Changes"
+msgstr ""
+
+#: includes/admin/views/html-admin-settings.php:32
+msgid "Save changes"
+msgstr ""
+
+#: includes/admin/views/html-admin-tmpl-sidebars.php:13
+msgid "Custom Widget Area Builder"
+msgstr ""
+
+#: includes/admin/views/html-admin-tmpl-sidebars.php:14
+msgid "Enter New Widget Area Name"
+msgstr ""
+
+#: includes/admin/views/html-admin-tmpl-sidebars.php:16
+msgid "Add Widget Area"
+msgstr ""
+
+#: includes/admin/views/html-admin-tmpl-sidebars.php:26
+msgid "Last warning, are you sure?"
+msgstr ""
+
+#: includes/admin/views/html-admin-tmpl-sidebars.php:34
+msgid ""
+"Delete this Sidebar Permanently and store all widgets in Inactive Sidebar. "
+"%sAre you positive you want to delete this Sidebar?%s"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:12
+msgid ""
+"<strong>Your theme does not declare AxisComposer support</strong> &#8211; "
+"Please read our integration guide or check out our %sofficial themes%s "
+"which are designed specifically for use with AxisComposer."
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:15
+msgid "Theme Integration Guide"
+msgstr ""
+
+#: includes/admin/views/html-notice-theme-support.php:16
+#: includes/admin/views/html-notice-translation-upgrade.php:21
+msgid "Hide This Notice"
+msgstr ""
+
+#: includes/admin/views/html-notice-translation-upgrade.php:12
+msgid ""
+"<strong>AxisComposer Translation Available</strong> &#8211; Install or "
+"update your <code>%s</code> translation to version <code>%s</code>."
+msgstr ""
+
+#: includes/admin/views/html-notice-translation-upgrade.php:16
+#: includes/admin/views/html-notice-translation-upgrade.php:18
+msgid "Update Translation"
+msgstr ""
+
+#: includes/admin/views/html-notice-translation-upgrade.php:19
+msgid "Force Update Translation"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://axisthemes.com/axiscomposer/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A drag and drop builder that helps you compose anything. Beautifully."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "AxisThemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://axisthemes.com"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:90
+msgctxt "enhanced select"
+msgid "One result is available, press enter to select it."
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:91
+msgctxt "enhanced select"
+msgid "%qty% results are available, use up and down arrow keys to navigate."
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:92
+msgctxt "enhanced select"
+msgid "No matches found"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:93
+msgctxt "enhanced select"
+msgid "Loading failed"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:94
+msgctxt "enhanced select"
+msgid "Please enter 1 or more characters"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:95
+msgctxt "enhanced select"
+msgid "Please enter %qty% or more characters"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:96
+msgctxt "enhanced select"
+msgid "Please delete 1 character"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:97
+msgctxt "enhanced select"
+msgid "Please delete %qty% characters"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:98
+msgctxt "enhanced select"
+msgid "You can only select 1 item"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:99
+msgctxt "enhanced select"
+msgid "You can only select %qty% items"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:100
+msgctxt "enhanced select"
+msgid "Loading more results&hellip;"
+msgstr ""
+
+#: includes/admin/class-ac-admin-assets.php:101
+msgctxt "enhanced select"
+msgid "Searching&hellip;"
+msgstr ""
+
+#: includes/admin/class-ac-admin-menus.php:92
+msgctxt "Admin menu name"
+msgid "Iconfonts"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:60
+msgctxt "slug"
+msgid "portfolio-category"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:70
+msgctxt "slug"
+msgid "portfolio-tag"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:168
+msgctxt "slug"
+msgid "portfolio"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:84
+msgctxt "default-slug"
+msgid "project"
+msgstr ""
+
+#: includes/admin/class-ac-admin-permalink-settings.php:85
+msgctxt "default-slug"
+msgid "portfolio"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:270
+msgctxt "Version info"
+msgid "%s is available"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:282
+msgctxt "by author"
+msgid "by %s"
+msgstr ""

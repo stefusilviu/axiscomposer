@@ -1,6 +1,6 @@
 /**
  * admin.scss
- * General AxisBuilder admin styles.
+ * General AxisComposer admin styles.
  */
 
 /**
@@ -32,7 +32,7 @@
 /**
  * Toggle Editor Button
  */
-.axisbuilder-toggle-editor {
+.axiscomposer-toggle-editor {
 	z-index: 1001;
 	position: relative;
 
@@ -44,28 +44,57 @@
 /**
  * Hide Screen Option
  */
-label[for="axisbuilder-editor-hide"] {
+label[for="axiscomposer-pagebuilder-hide"] {
 	display: none;
 }
 
 /**
  * Hide Default Editor
  */
-#postdivrich_wrap.axisbuilder-hidden-editor #postdivrich {
+#postdivrich_wrap.ac-hidden-editor #postdivrich {
 	display: none;
+}
+
+/**
+ * Message Styles
+ */
+.axiscomposer-message {
+	overflow: hidden;
+	position: relative;
+	border-left-color: #2ea2cc !important;
+
+	a.skip,
+	a.docs {
+		opacity: 0.5;
+
+		&:hover, &:focus {
+			opacity: 1;
+		}
+	}
+
+	a.button-primary,
+	a.button-secondary {
+		text-decoration: none !important;
+	}
+
+	.twitter-share-button {
+		margin-left: 3px;
+		margin-top: -3px;
+		vertical-align: middle;
+	}
 }
 
 /**
  * Tabbed Panels
  */
-#axisbuilder-editor,
-#axisbuilder-portfolio-data,
-.axisbuilder {
+#axiscomposer-pagebuilder,
+#axiscomposer-portfolio-data,
+.axiscomposer {
 	.panel-wrap {
 		overflow: hidden;
 	}
 
-	ul.axisbuilder-tabs {
+	ul.ac-tabs {
 		margin: 0;
 		float: left;
 		line-height: 1em;
@@ -210,8 +239,8 @@ label[for="axisbuilder-editor-hide"] {
 	}
 }
 
-#axisbuilder-editor,
-#axisbuilder-portfolio-data {
+#axiscomposer-pagebuilder,
+#axiscomposer-portfolio-data {
 	.inside {
 		margin: 0;
 		padding: 0;
@@ -219,9 +248,9 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Builder Meta-Box
+ * Page Builder Meta-Box
  */
-#axisbuilder-editor {
+#axiscomposer-pagebuilder {
 	display: block !important;
 
 	textarea {
@@ -235,7 +264,7 @@ label[for="axisbuilder-editor-hide"] {
 		}
 	}
 
-	.axisbuilder-options-panel {
+	.axiscomposer-options-panel {
 		clear: both;
 		display: none;
 		overflow: hidden;
@@ -248,7 +277,7 @@ label[for="axisbuilder-editor-hide"] {
 	/**
 	 * Handle Bar
 	 */
-	#axisbuilder-handle {
+	#axiscomposer-handle {
 		z-index: 8;
 		width: 100%;
 		height: 40px;
@@ -343,7 +372,7 @@ label[for="axisbuilder-editor-hide"] {
 	/**
 	 * Editor Canvas Styles
 	 */
-	#axisbuilder-canvas {
+	#axiscomposer-canvas {
 		margin: 0;
 		padding: 0;
 		display: block;
@@ -358,7 +387,7 @@ label[for="axisbuilder-editor-hide"] {
 			border: 1px solid transparent;
 			border-top: 1px solid #eee;
 
-			.axisbuilder-inner-shortcode {
+			.ac-inner-shortcode {
 
 				textarea {
 					display: none;
@@ -385,11 +414,11 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /**
- * Builder Postbox Classes
+ * Page Builder Postbox Classes
  */
-#axisbuilder-editor {
+#axiscomposer-pagebuilder {
 
-	&.axisbuilder-hidden {
+	&.ac-hidden {
 		display: none !important;
 	}
 }
@@ -457,11 +486,11 @@ label[for="axisbuilder-editor-hide"] {
 /**
  * Debug or Test-Mode Styles
  */
-.axisbuilder-debug {
+.ac-debug {
 
-	#axisbuilder-canvas {
+	#axiscomposer-canvas {
 
-		.axisbuilder-inner-shortcode {
+		.ac-inner-shortcode {
 
 			textarea {
 				width: 98%; /* Added */
@@ -486,7 +515,7 @@ label[for="axisbuilder-editor-hide"] {
 	}
 
 	/* Till we get Textarea down */
-	.axisbuilder-layout-row .axisbuilder-layout-cell > .axisbuilder-sorthandle {
+	.ac-layout-row .ac-layout-cell > .ac-sorthandle {
 		border-top: 1px dashed #e1e1e1;
 	}
 }
@@ -498,7 +527,7 @@ label[for="axisbuilder-editor-hide"] {
 }
 
 /* Shortcode Wrap */
-#wpwrap .axisbuilder-active-insert {
+#wpwrap .ac-active-insert {
 	border: 1px solid #D54E21;
 }
 
@@ -511,12 +540,12 @@ body div.ui-draggable-dragging {
 
 body .ui-draggable-dragging {
 
-	.axisbuilder-sorthandle {
+	.ac-sorthandle {
 		opacity: 1;
 		z-index: 10;
 	}
 
-	.axisbuilder-inner-shortcode {
+	.ac-inner-shortcode {
 		height: 110px;
 		overflow: hidden;
 		background: #fff;
@@ -528,57 +557,57 @@ body .ui-draggable-dragging {
 		}
 	}
 
-	.axisbuilder-cell {
+	.ac-cell {
 		display: none;
 		visibility: hidden;
 	}
 }
 
-#wpwrap .axisbuilder-hover-active {
+#wpwrap .ac-hover-active {
 	background: #f7fff2;
 	border: 1px dashed #9acf57 !important;
 }
 
 /* Drag-Drop highlight of single elements */
-.axisbuilder-select-target-1.axisbuilder-drop[data-dragdrop-level="0"],
-.axisbuilder-select-target-2.axisbuilder-drop[data-dragdrop-level="0"],
-.axisbuilder-select-target-3.axisbuilder-drop[data-dragdrop-level="0"],
-.axisbuilder-select-target-4.axisbuilder-drop[data-dragdrop-level="0"],
-.axisbuilder-select-target-1 .axisbuilder-drop[data-dragdrop-level="0"],
-.axisbuilder-select-target-2 .axisbuilder-drop[data-dragdrop-level="1"],
-.axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="2"],
-.axisbuilder-select-target-3 .axisbuilder-drop[data-dragdrop-level="1"],
-.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="3"],
-.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="2"],
-.axisbuilder-select-target-4 .axisbuilder-drop[data-dragdrop-level="1"] {
+.ac-select-target-1.ac-drop[data-dragdrop-level="0"],
+.ac-select-target-2.ac-drop[data-dragdrop-level="0"],
+.ac-select-target-3.ac-drop[data-dragdrop-level="0"],
+.ac-select-target-4.ac-drop[data-dragdrop-level="0"],
+.ac-select-target-1 .ac-drop[data-dragdrop-level="0"],
+.ac-select-target-2 .ac-drop[data-dragdrop-level="1"],
+.ac-select-target-3 .ac-drop[data-dragdrop-level="2"],
+.ac-select-target-3 .ac-drop[data-dragdrop-level="1"],
+.ac-select-target-4 .ac-drop[data-dragdrop-level="3"],
+.ac-select-target-4 .ac-drop[data-dragdrop-level="2"],
+.ac-select-target-4 .ac-drop[data-dragdrop-level="1"] {
 	background: #f3f8fa;
 	border: 1px dashed #4d9edd !important;
 }
 
-.axisbuilder-select-target-2 .av_drop[data-dragdrop-level="1"],
-.axisbuilder-select-target-3 .av_drop[data-dragdrop-level="1"],
-.axisbuilder-select-target-4 .av_drop[data-dragdrop-level="1"] {
+.ac-select-target-2 .av_drop[data-dragdrop-level="1"],
+.ac-select-target-3 .av_drop[data-dragdrop-level="1"],
+.ac-select-target-4 .av_drop[data-dragdrop-level="1"] {
 	background: #e5f3ff;
 }
 
-.axisbuilder-select-target-3 .av_drop[data-dragdrop-level="2"],
-.axisbuilder-select-target-4 .av_drop[data-dragdrop-level="2"] {
+.ac-select-target-3 .av_drop[data-dragdrop-level="2"],
+.ac-select-target-4 .av_drop[data-dragdrop-level="2"] {
 	background: #dff0ff;
 }
 
 /* Target Mode highlight of elements */
-.axisbuilder-hover-target {
+.ac-hover-target {
 	cursor: crosshair;
 }
 
-.axisbuilder-hover-target.axisbuilder-drop[data-dragdrop-level="0"]:hover,
-.axisbuilder-hover-target.axisbuilder-select-target-1 .axisbuilder-drop:hover[data-dragdrop-level="0"],
-.axisbuilder-hover-target.axisbuilder-select-target-2 .axisbuilder-drop:hover[data-dragdrop-level="1"],
-.axisbuilder-hover-target.axisbuilder-select-target-3 .axisbuilder-drop:hover[data-dragdrop-level="2"],
-.axisbuilder-hover-target.axisbuilder-select-target-3 .axisbuilder-drop:hover[data-dragdrop-level="1"],
-.axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="3"],
-.axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="2"],
-.axisbuilder-hover-target.axisbuilder-select-target-4 .axisbuilder-drop:hover[data-dragdrop-level="1"] {
+.ac-hover-target.ac-drop[data-dragdrop-level="0"]:hover,
+.ac-hover-target.ac-select-target-1 .ac-drop:hover[data-dragdrop-level="0"],
+.ac-hover-target.ac-select-target-2 .ac-drop:hover[data-dragdrop-level="1"],
+.ac-hover-target.ac-select-target-3 .ac-drop:hover[data-dragdrop-level="2"],
+.ac-hover-target.ac-select-target-3 .ac-drop:hover[data-dragdrop-level="1"],
+.ac-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="3"],
+.ac-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="2"],
+.ac-hover-target.ac-select-target-4 .ac-drop:hover[data-dragdrop-level="1"] {
 	background: #f7fff2;
 	border: 1px dashed #9acf57 !important;
 }
@@ -586,7 +615,7 @@ body .ui-draggable-dragging {
 /**
  * Sortable Elements Styles
  */
-.axisbuilder-sortable-element {
+.ac-sortable-element {
 	width: 98%;
 	margin: 1%;
 	color: #666;
@@ -594,13 +623,13 @@ body .ui-draggable-dragging {
 	position: relative;
 
 	&:hover {
-		.axisbuilder-sorthandle {
+		.ac-sorthandle {
 			opacity: 1;
 			z-index: 10;
 		}
 	}
 
-	.axisbuilder-sorthandle {
+	.ac-sorthandle {
 		left: 0;
 		right: 0;
 		/*top: -24px;*/
@@ -612,7 +641,7 @@ body .ui-draggable-dragging {
 		/*border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );*/
 	}
 
-	.axisbuilder-inner-shortcode {
+	.ac-inner-shortcode {
 		background: #fcfcfc;
 		padding: 10px;
 		border: 1px solid #e1e1e1;
@@ -621,21 +650,21 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-sortable-element, .axisbuilder-layout-column {
+.ac-sortable-element, .ac-layout-column {
 
 	&:hover {
 		z-index: 20;
 	}
 }
 
-.axisbuilder-inner-shortcode {
+.ac-inner-shortcode {
 
-	.axisbuilder-highlight,
-	.axisbuilder-sortable-element {
+	.ac-highlight,
+	.ac-sortable-element {
 		margin: 10px 1%;
 	}
 
-	.axisbuilder-element-label {
+	.ac-element-label {
 		margin-bottom: 5px;
 		display: inline-block;
 	}
@@ -652,7 +681,7 @@ body .ui-draggable-dragging {
 /**
  * Sort-Handle Styles
  */
-.axisbuilder-sorthandle {
+.ac-sorthandle {
 	opacity: 1;
 	z-index: 10;
 	width: auto;
@@ -660,8 +689,8 @@ body .ui-draggable-dragging {
 	font-size: 16px;
 	position: relative;
 
-	.axisbuilder-element-title,
-	.axisbuilder-column-size,
+	.ac-element-title,
+	.ac-column-size,
 	.layout-element-icon {
 		float: left;
 		color: #999;
@@ -671,7 +700,7 @@ body .ui-draggable-dragging {
 		text-indent: inherit;
 	}
 
-	.axisbuilder-element-title {
+	.ac-element-title {
 		width: auto;
 		padding: 0 8px;
 		font-size: 12px;
@@ -680,7 +709,7 @@ body .ui-draggable-dragging {
 		@include transition(all .2s ease-in-out);
 	}
 
-	.axisbuilder-column-size {
+	.ac-column-size {
 		padding: 0 5px;
 		font-size: 12px;
 		line-height: 25px;
@@ -700,7 +729,7 @@ body .ui-draggable-dragging {
 			background: #f8f8f8;
 		}
 
-		&.axisbuilder-decrease {
+		&.ac-decrease {
 			border-left: none;
 
 			&:before {
@@ -709,7 +738,7 @@ body .ui-draggable-dragging {
 			}
 		}
 
-		&.axisbuilder-increase {
+		&.ac-increase {
 			&:before {
 				@include icon( "\e00c" );
 				line-height: 1.5;
@@ -725,7 +754,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e017" );
+			@include icon( "\e00d" );
 			line-height: 1.5;
 		}
 
@@ -742,7 +771,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e018" );
+			@include icon( "\e00e" );
 			line-height: 1.5;
 		}
 
@@ -759,7 +788,7 @@ body .ui-draggable-dragging {
 		height: 25px;
 
 		&:before {
-			@include icon( "\e014" );
+			@include icon( "\e00a" );
 			line-height: 1.5;
 		}
 
@@ -772,13 +801,13 @@ body .ui-draggable-dragging {
 /**
  * Shortcode layout Styles
  */
-.axisbuilder-layout-column  {
+.ac-layout-column  {
 
-	&.axisbuilder-first-column {
+	&.ac-first-column {
 		clear: left;
 	}
 
-	> .axisbuilder-inner-shortcode {
+	> .ac-inner-shortcode {
 		top: -5px;
 		min-height: 35px;
 		position: relative;
@@ -788,11 +817,11 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-layout-section {
+.ac-layout-section {
 	width: 98%;
 	clear: both;
 
-	> .axisbuilder-inner-shortcode {
+	> .ac-inner-shortcode {
 		top: -5px;
 		padding: 6px;
 		background: #fff;
@@ -803,30 +832,30 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-layout-row {
+.ac-layout-row {
 	margin-bottom: 30px !important;
 
-	.axisbuilder-inner-shortcode {
+	.ac-inner-shortcode {
 		padding: 0;
 		clear: both;
 		overflow: hidden;
 	}
 
-	.axisbuilder-layout-column {
+	.ac-layout-column {
 
-		> .axisbuilder-inner-shortcode {
+		> .ac-inner-shortcode {
 			top: 0;
 		}
 	}
 
-	.axisbuilder-layout-cell {
+	.ac-layout-cell {
 		margin: 0;
 
 		textarea {
 			width: 85% !important;
 		}
 
-		.axisbuilder-fake-cellborder {
+		.ac-fake-cellborder {
 			right: -1px;
 			height: 2000px;
 			display: block;
@@ -835,7 +864,7 @@ body .ui-draggable-dragging {
 			-webkit-backface-visibility: hidden;
 		}
 
-		> .axisbuilder-sorthandle {
+		> .ac-sorthandle {
 			top: 5px;
 			border: none;
 			box-shadow: none;
@@ -844,7 +873,7 @@ body .ui-draggable-dragging {
 			border-bottom: 1px dashed #e1e1e1;
 		}
 
-		> .axisbuilder-inner-shortcode {
+		> .ac-inner-shortcode {
 			border: none;
 			background: #fff;
 			border-right: 1px solid #e1e1e1;
@@ -852,18 +881,18 @@ body .ui-draggable-dragging {
 
 		&:last-child {
 
-			.axisbuilder-fake-cellborder {
+			.ac-fake-cellborder {
 				display: none;
 			}
 
-			> .axisbuilder-sorthandle,
-			> .axisbuilder-inner-shortcode {
+			> .ac-sorthandle,
+			> .ac-inner-shortcode {
 				border-right: none;
 			}
 		}
 	}
 
-	.axisbuilder-cell {
+	.ac-cell {
 		z-index: 20;
 		position: absolute;
 		right: 0;
@@ -884,7 +913,7 @@ body .ui-draggable-dragging {
 			&:before {
 				font-size: 16px;
 				vertical-align: text-top;
-				@include iconbefore( "\e019" );
+				@include iconbefore( "\e010" );
 			}
 
 			&:hover,
@@ -899,7 +928,7 @@ body .ui-draggable-dragging {
 
 			&.set-cell-icon {
 				&:before {
-					content: "\e00d";
+					content: "\e00f";
 				}
 			}
 
@@ -912,33 +941,33 @@ body .ui-draggable-dragging {
 	}
 }
 
-.axisbuilder-highlight,
-.axisbuilder-layout-column,
-.axisbuilder-layout-section {
+.ac-highlight,
+.ac-layout-column,
+.ac-layout-section {
 	margin: 1%;
 	float: left;
 	position: relative;
 }
 
-.axisbuilder-start-sorting .axisbuilder-first-column {
+.ac-start-sorting .ac-first-column {
 	clear: none;
 }
 
 /**
  * Additional Styles
  */
-.axisbuilder-sorthandle a,
-.axisbuilder-sortable-element .axisbuilder-sorthandle {
+.ac-sorthandle a,
+.ac-sortable-element .ac-sorthandle {
 	@include transition(all .2s ease-in-out);
 }
 
-.axisbuilder-layout-column:hover a,
-.axisbuilder-sortable-element:hover a,
-.axisbuilder-layout-section:hover > .axisbuilder-sorthandle a {
+.ac-layout-column:hover a,
+.ac-sortable-element:hover a,
+.ac-layout-section:hover > .ac-sorthandle a {
 	opacity: 1;
 }
 
-.axisbuilder-layout-column a:active {
+.ac-layout-column a:active {
 	opacity: 0.3;
 	outline: none;
 }
@@ -946,20 +975,16 @@ body .ui-draggable-dragging {
 /**
  * Row/Cell Modal Styles
  */
-.axisbuilder-layout-row-modal {
+.ac-layout-row-modal {
 	color: #888;
 	margin-bottom: 10px;
 
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	.axisbuilder-layout-row-modal-label {
+	.ac-layout-row-modal-label {
 
 		input {
 			display: none;
 
-			&:checked + .axisbuilder-layout-row-inner-label {
+			&:checked + .ac-layout-row-inner-label {
 				color: #fff;
 				background-color: $fresh-color;
 			}
@@ -978,7 +1003,7 @@ body .ui-draggable-dragging {
 			}
 		}
 
-		.axisbuilder-layout-row-inner-label {
+		.ac-layout-row-inner-label {
 			width: 100%;
 
 			&:hover {
@@ -991,8 +1016,8 @@ body .ui-draggable-dragging {
 /**
  * Shortcode Specific Styles
  */
-.axisbuilder-sortable-element.ab_sidebar {
-	.axisbuilder-inner-shortcode {
+.ac-sortable-element.ac_sidebar {
+	.ac-inner-shortcode {
 		select {
 			width: auto;
 			margin-top: 10px;
@@ -1050,8 +1075,8 @@ table.wp-list-table {
 		color: #999;
 	}
 
-	span.axisbuilder-image,
-	span.axisbuilder-featured {
+	span.ac-image,
+	span.ac-featured {
 		@include ir();
 		margin: 0 auto;
 
@@ -1060,7 +1085,7 @@ table.wp-list-table {
 		}
 	}
 
-	span.axisbuilder-featured {
+	span.ac-featured {
 		margin: 0;
 		cursor: pointer;
 
@@ -1076,7 +1101,7 @@ table.wp-list-table {
 	}
 
 	td.column-featured {
-		span.axisbuilder-featured {
+		span.ac-featured {
 			font-size: 1.2em;
 		}
 	}
@@ -1094,7 +1119,7 @@ img.help_tip {
 	margin-top: -4px;
 }
 
-.axisbuilder {
+.axiscomposer {
 	#template div {
 		margin: 0;
 
@@ -1263,8 +1288,8 @@ img.help_tip {
 	}
 }
 
-.axisbuilder_page_axisbuilder-settings {
-	h3.axisbuilder-settings-sub-title {
+.axiscomposer_page_ac-settings {
+	h3.ac-settings-sub-title {
 		font-size: 1.2em;
 	}
 }
@@ -1343,8 +1368,8 @@ img.tips {
 }
 
 #tiptip_content,
-.axisbuilder-tooltip,
-.axisbuilder_error_tip {
+.chart-tooltip,
+.ac_error_tip {
 	color: #fff;
 	font-size: .8em;
 	max-width: 150px;
@@ -1370,7 +1395,7 @@ img.tips {
 	width: 0;
 }
 
-.axisbuilder_error_tip {
+.ac_error_tip {
 	max-width: 20em;
 	line-height: 1.8em;
 	position: absolute;
@@ -1396,33 +1421,7 @@ img.tips {
 /**
  * System Status
  */
-.axisbuilder-message {
-	overflow: hidden;
-	position: relative;
-	border-left-color: #2ea2cc !important;
-
-	a.skip,
-	a.docs {
-		opacity: 0.5;
-
-		&:hover, &:focus {
-			opacity: 1;
-		}
-	}
-
-	a.button-primary,
-	a.button-secondary {
-		text-decoration: none !important;
-	}
-
-	.twitter-share-button {
-		margin-left: 3px;
-		margin-top: -3px;
-		vertical-align: middle;
-	}
-}
-
-table.axisbuilder_status_table {
+table.ac_status_table {
 	margin-bottom: 1em;
 
 	tr {
@@ -1509,35 +1508,51 @@ table.axisbuilder_status_table {
 /**
  * Clearfix
  */
-.clearfix, #axisbuilder-editor,
-.axisbuilder-layout-column > .axisbuilder-inner-shortcode,
-.axisbuilder-layout-section > .axisbuilder-inner-shortcode {
+.clearfix, #axiscomposer-pagebuilder,
+.ac-layout-column > .ac-inner-shortcode,
+.ac-layout-section > .ac-inner-shortcode {
 	@include clearfix();
 }
 
 /**
  * Small screen optimisation
  */
-@media only screen and (max-width: 1280px) {}
+@media only screen and (max-width: 1280px) {
+	.axiscomposer_options_panel {
+		.description {
+			display: block;
+			clear: both;
+			margin-left: 0;
+		}
+
+		.short,
+		input[type=email].short,
+		input[type=number].short,
+		input[type=text].short,
+		.dimensions_field .wrap {
+			width: 80%;
+		}
+	}
+}
 
 /**
  * Optimisation for screens 900px and smaller
  */
 @media only screen and (max-width: 900px) {
 
-	#axisbuilder-editor ul.axisbuilder-tabs.horizontal li,
-	#axisbuilder-portfolio-data ul.axisbuilder-tabs.vertical {
+	#axiscomposer-pagebuilder ul.ac-tabs.horizontal li,
+	#axiscomposer-portfolio-data ul.ac-tabs.vertical {
 		width: 10%;
 	}
 
-	#axisbuilder-portfolio-data .axisbuilder_options_panel,
-	#axisbuilder-portfolio-data .axisbuilder-metaboxes-wrapper {
+	#axiscomposer-portfolio-data .axiscomposer_options_panel,
+	#axiscomposer-portfolio-data .axiscomposer-metaboxes-wrapper {
 		width: 90%;
 	}
 
-	#axisbuilder-editor,
-	#axisbuilder-portfolio-data {
-		ul.axisbuilder-tabs li a {
+	#axiscomposer-pagebuilder,
+	#axiscomposer-portfolio-data {
+		ul.ac-tabs li a {
 			position: relative;
 			text-indent: -999px;
 			padding: 10px;
@@ -1576,7 +1591,7 @@ table.axisbuilder_status_table {
 		margin-bottom: -1px;
 	}
 
-	#axisbuilder-editor .checkbox {
+	#axiscomposer-pagebuilder .checkbox {
 		width: 25px;
 	}
 }
@@ -1584,7 +1599,20 @@ table.axisbuilder_status_table {
 /**
  * Optimisation for screens 500px and smaller
  */
-@media only screen and (max-width: 500px) {}
+@media only screen and (max-width: 500px) {
+	.axiscomposer_options_panel label,
+	.axiscomposer_options_panel legend {
+		float: none;
+		width: auto;
+		display: block;
+		margin: 0;
+	}
+
+	.axiscomposer_options_panel fieldset.form-field,
+	.axiscomposer_options_panel p.form-field {
+		padding: 5px 20px 5px 20px !important;
+	}
+}
 
 /**
  * Select2

@@ -1,24 +1,24 @@
 <?php
 /**
- * Test AB Install class
+ * Test AC Install class
  *
  * @since 1.0
  */
-class AB_Tests_Install extends AB_Unit_Test_Case {
+class AC_Tests_Install extends AC_Unit_Test_Case {
 
 	/**
 	 * Test check version
 	 */
 	public function test_check_version() {
-		update_option( 'axisbuilder_version', AB()->version - 1 );
-		AB_Install::check_version();
+		update_option( 'axiscomposer_version', AC()->version - 1 );
+		AC_Install::check_version();
 
-		$this->assertTrue( did_action( 'axisbuilder_updated' ) === 1 );
+		$this->assertTrue( did_action( 'axiscomposer_updated' ) === 1 );
 
-		update_option( 'axisbuilder_version', AB()->version );
-		AB_Install::check_version();
+		update_option( 'axiscomposer_version', AC()->version );
+		AC_Install::check_version();
 
-		$this->assertTrue( did_action( 'axisbuilder_updated' ) === 1 );
+		$this->assertTrue( did_action( 'axiscomposer_updated' ) === 1 );
 	}
 
 	/**
@@ -31,9 +31,9 @@ class AB_Tests_Install extends AB_Unit_Test_Case {
 		}
 		include( dirname( dirname( dirname( __FILE__ ) ) ) . '/uninstall.php' );
 
-		AB_Install::install();
+		AC_Install::install();
 
-		$this->assertTrue( get_option( 'axisbuilder_version' ) === AB()->version );
+		$this->assertTrue( get_option( 'axiscomposer_version' ) === AC()->version );
 	}
 
 	/**
@@ -46,14 +46,14 @@ class AB_Tests_Install extends AB_Unit_Test_Case {
 		}
 		include( dirname( dirname( dirname( __FILE__ ) ) ) . '/uninstall.php' );
 
-		AB_Install::create_roles();
+		AC_Install::create_roles();
 	}
 
 	/**
 	 * Test - remove roles
 	 */
 	public function test_remove_roles() {
-		AB_Install::remove_roles();
+		AC_Install::remove_roles();
 	}
 
 	/**
@@ -61,7 +61,7 @@ class AB_Tests_Install extends AB_Unit_Test_Case {
 	 */
 	public function test_in_plugin_update_message() {
 		ob_start();
-		AB_install::in_plugin_update_message( array( 'Version' => '1.0.0' ) );
+		AC_install::in_plugin_update_message( array( 'Version' => '1.0.0' ) );
 		$result = ob_get_clean();
 		$this->assertTrue( is_string( $result ) );
 	}

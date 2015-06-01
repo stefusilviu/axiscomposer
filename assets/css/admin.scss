@@ -1517,7 +1517,23 @@ table.ac_status_table {
 /**
  * Small screen optimisation
  */
-@media only screen and (max-width: 1280px) {}
+@media only screen and (max-width: 1280px) {
+	.axiscomposer_options_panel {
+		.description {
+			display: block;
+			clear: both;
+			margin-left: 0;
+		}
+
+		.short,
+		input[type=email].short,
+		input[type=number].short,
+		input[type=text].short,
+		.dimensions_field .wrap {
+			width: 80%;
+		}
+	}
+}
 
 /**
  * Optimisation for screens 900px and smaller
@@ -1529,7 +1545,7 @@ table.ac_status_table {
 		width: 10%;
 	}
 
-	#axiscomposer-portfolio-data .axisbuilder_options_panel,
+	#axiscomposer-portfolio-data .axiscomposer_options_panel,
 	#axiscomposer-portfolio-data .axiscomposer-metaboxes-wrapper {
 		width: 90%;
 	}

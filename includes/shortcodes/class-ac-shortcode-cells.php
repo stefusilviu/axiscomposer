@@ -239,7 +239,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 		}
 
 		if ( ! empty( $atts['colors'] ) ) {
-			$extra_class .= 'axisbuilder-inherit-color';
+			$extra_class .= 'ac-inherit-color';
 		}
 
 		if ( $atts['background_repeat'] == 'stretch' ) {

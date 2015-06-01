@@ -95,7 +95,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 		}
 
 		if ( $output ) {
-			$output = '<div class="axisbuilder ac_sidebar clearfix">' . $output . '</div>';
+			$output = '<div class="axiscomposer ac_sidebar clearfix">' . $output . '</div>';
 		}
 
 		return $output;

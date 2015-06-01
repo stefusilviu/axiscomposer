@@ -141,12 +141,12 @@ class AC_HTML_Helper {
 		if ( ! empty( $target ) ) {
 			$data['target-element']  = $element['target'][0];
 			$data['target-property'] = $element['target'][1];
-			$class_string  .= ' axisbuilder-attach-targetting';
+			$class_string  .= ' ac-attach-targetting';
 			$target_string .= ac_html_data_string( $data );
 		}
 
 		if ( ! empty( $element['fetchTMPL'] ) ) {
-			$class_string .= ' axisbuilder-attach-templating';
+			$class_string .= ' ac-attach-templating';
 		}
 
 		if ( empty( $element['nodesc'] ) ) {
@@ -251,7 +251,7 @@ class AC_HTML_Helper {
 		$multi = $multi_class = '';
 		if ( isset( $element['multiple'] ) ) {
 			$multi          = 'multiple="multiple" size="' . $element['multiple'] . '"';
-			$multi_class    = ' axisbuilder-multiple-select';
+			$multi_class    = ' ac-multiple-select';
 			$element['std'] = explode( ',', $element['std'] );
 		}
 
@@ -338,7 +338,7 @@ class AC_HTML_Helper {
 	public static function image( $element ) {
 		if ( empty( $element['data'] ) ) {
 			$fetch = isset( $element['fetch'] ) ? $element['fetch'] : 'url';
-			$state = isset( $element['state'] ) ? $element['state'] : 'axisbuilder_insert_single';
+			$state = isset( $element['state'] ) ? $element['state'] : 'ac_insert_single';
 
 			if ( empty( $element['show_option'] ) ) {
 				$class = ( $fetch == 'id' ) ? 'axisbuilder-media-img-only-no-sidebars' : 'axisbuilder-media-img-only';

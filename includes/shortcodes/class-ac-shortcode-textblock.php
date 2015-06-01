@@ -153,7 +153,7 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 		}
 
 		if ( $font_color ) {
-			$class .= 'axisbuilder-inherit-color';
+			$class .= 'ac-inherit-color';
 			$style .= empty( $color ) ? '' : 'color: ' . $color . ';';
 		}
 
@@ -161,8 +161,8 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 			$style = 'style="' . $style . '"';
 		}
 
-		$output .= '<section class="axisbuilder textblock-section">';
-		$output .= '<div class="axisbuilder-textblock ' . $class . '" ' . $style . '>' . ac_apply_autop( ac_remove_autop( $content ) ) . '</div>';
+		$output .= '<section class="axiscomposer textblock-section">';
+		$output .= '<div class="axiscomposer-textblock ' . $class . '" ' . $style . '>' . ac_apply_autop( ac_remove_autop( $content ) ) . '</div>';
 		$output .= '</section>';
 
 		return $output;

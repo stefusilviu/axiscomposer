@@ -181,7 +181,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * @return string
 	 */
 	public function get_field_key( $key ) {
-		return $this->plugin_id . '_' . $key;
+		return $this->plugin_id . $key;
 	}
 
 	/**

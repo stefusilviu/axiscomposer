@@ -50,56 +50,49 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			array(
-				'name'            => __( 'Code Block Element. Add your own HTML/Javascript here', 'axiscomposer' ),
-				'desc'            => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axiscomposer' ),
-				'id'              => 'content',
-				'std'             => '',
-				'type'            => 'textarea',
-				'class'           => 'code',
-				'container_class' => 'field-fullwidth',
+			'content' => array(
+				'title'             => __( 'Content', 'axiscomposer' ),
+				'description'       => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axiscomposer' ),
+				'type'              => 'textarea',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-
-			array(
-				'name'    => __( 'Code Wrapper Element', 'axiscomposer' ),
-				'desc'    => __( 'Wrap your code into a html tag (i.e. pre or code tag). Insert the tag without <>', 'axiscomposer' ),
-				'id'      => 'wrapper_element',
-				'type'    => 'input',
-				'std'     => ''
+			'wrapper_element' => array(
+				'title'             => __( 'Wrapper Element', 'axiscomposer' ),
+				'description'       => __( 'This option lets you wrap code into a html tag (i.e. pre|code).', 'axiscomposer' ),
+				'class'             => 'availability',
+				'type'              => 'text',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-
-			array(
-				'name'     => __( 'Code Wrapper Element Attributes', 'axiscomposer' ),
-				'desc'     => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axiscomposer' ),
-				'id'       => 'wrapper_element_attributes',
-				'std'      => '',
-				'required' => array( 'wrapper_element', 'not', '' ),
-				'type'     => 'input'
+			'element_attributes' => array(
+				'title'             => __( 'Element Attributes', 'axiscomposer' ),
+				'description'       => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-
-			array(
-				'name'  => __( 'Escape HTML Code', 'axiscomposer' ),
-				'desc'  => __( 'WordPress will convert the html tags to readable text.', 'axiscomposer' ),
-				'id'    => 'escape_html',
-				'std'   => false,
-				'type'  => 'checkbox'
+			'escape_html' => array(
+				'title'             => __( 'Escape HTML', 'axiscomposer' ),
+				'label'             => __( 'Enable to convert the html tags to readable text.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'no'
 			),
-
-			array(
-				'name'  => __( 'Disable Shortcode Processing', 'axiscomposer' ),
-				'desc'  => __( 'Check if you want to disable the shortcode processing for this code block.', 'axiscomposer' ),
-				'id'    => 'deactivate_shortcode',
-				'std'   => false,
-				'type'  => 'checkbox'
+			'disable_markup' => array(
+				'title'             => __( 'Disable Markup', 'axiscomposer' ),
+				'label'             => __( 'Disable the schema.org markup for this code block.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'no'
 			),
-
-			array(
-				'name'  => __( 'Deactivate schema.org markup', 'axiscomposer' ),
-				'desc'  => __( 'Output the code without any additional wrapper elements. (not recommended)', 'axiscomposer' ),
-				'id'    => 'deactivate_wrapper',
-				'std'   => false,
-				'type'  => 'checkbox'
-			)
+			'disable_shortcode' => array(
+				'title'             => __( 'Disable Shortcode', 'axiscomposer' ),
+				'label'             => __( 'Disable the shortcode processing for this code block.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'no'
+			),
 		);
 	}
 

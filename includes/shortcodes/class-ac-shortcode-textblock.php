@@ -51,76 +51,44 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			// array(
-			// 	'type'   => 'open_tab',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'name'   => __( 'Content', 'axiscomposer' ),
-			// 	'type'   => 'tab',
-			// 	'nodesc' => true
-			// ),
-
-			array(
-				'name'    => __( 'Content', 'axiscomposer' ),
-				'desc'    => __( 'Enter some content for this textblock', 'axiscomposer' ),
-				'id'      => 'content',
-				'type'    => 'tinymce',
-				'std'     => __( 'Click here to add your own text', 'axiscomposer' )
+			'content' => array(
+				'title'             => __( 'Content', 'axiscomposer' ),
+				'description'       => __( 'Enter some content for this textblock :)', 'axiscomposer' ),
+				'default'           => __( 'Click here to add your own text', 'axiscomposer' ),
+				'class'             => 'axiscomposer-tinymce',
+				'type'              => 'tinymce'
 			),
-
-			array(
-				'name'    => __( 'Font Size', 'axiscomposer' ),
-				'desc'    => __( 'Choose the font size of the text in px', 'axiscomposer' ),
-				'type'    => 'number',
-				'id'      => 'size',
-				'min'     => '10',
-				'max'     => '40',
-				'std'     => '16'
-			),
-
-			// array(
-			// 	'type'   => 'close_div',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'name'   => __( 'Colors', 'axiscomposer' ),
-			// 	'type'   => 'tab',
-			// 	'nodesc' => true
-			// ),
-
-			array(
-				'name'    => __( 'Font Colors', 'axiscomposer' ),
-				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axiscomposer' ),
-				'id'      => 'font_color',
-				'std'     => '',
-				'type'    => 'select',
-				'subtype' => array(
-					__( 'Default', 'axiscomposer' ) => 'default',
-					__( 'Define Custom Colors', 'axiscomposer' ) => 'custom'
+			'size' => array(
+				'title'             => __( 'Font Size', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom font size of the text.', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 16,
+				'custom_attributes' => array(
+					'min' => 10,
+					'max' => 40
 				)
 			),
-
-			array(
-				'name'     => __( 'Custom Font Color', 'axiscomposer' ),
-				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axiscomposer' ),
-				'id'       => 'color',
-				'std'      => '',
-				'required' => array( 'font_color', 'equals', 'custom' ),
-				'type'     => 'colorpicker'
+			'font_color' => array(
+				'title'             => __( 'Font Color', 'axiscomposer' ),
+				'description'       => __( 'This option lets you limit which color you are willing to use.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'availability ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'  => __( 'Theme Default Color', 'axiscomposer' ),
+					'specific' => __( 'Define Custom Color', 'axiscomposer' )
+				)
 			),
-
-			// array(
-			// 	'type'   => 'close_div',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'type'   => 'close_div',
-			// 	'nodesc' => true
-			// ),
+			'color' => array(
+				'title'             => __( 'Custom Font Color', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom font color of the text.', 'axiscomposer' ),
+				'type'              => 'color',
+				'desc_tip'          => true,
+				'default'           => ''
+			)
 		);
 	}
 

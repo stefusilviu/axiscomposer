@@ -15,22 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * AC_HTML_Helper Class
+ * @deprecated Will get deprecated soon :)
  */
 class AC_HTML_Helper {
 
-	public static $imageCount    = 0;
 	public static $elementValues = array();
 	public static $elementHidden = array();
-
-	public static function fetch_form_elements( $elements, $parent_class = false ) {
-		$output = '';
-
-		foreach ( $elements as $element ) {
-			$output .= self::render_element( $element, $parent_class );
-		}
-
-		return $output;
-	}
 
 	/**
 	 * Check AJAX request and modify ELement ID.
@@ -185,46 +175,6 @@ class AC_HTML_Helper {
 		return $output;
 	}
 
-	public static function open_tab() {
-		$output = '<div class="ac-modal-tab-container">';
-		return $output;
-	}
-
-	public static function close_div() {
-		$output = '</div>';
-		return $output;
-	}
-
-	public static function tab( $element ) {
-		$output = '<div class="ac-modal-tab-container-inner" data-tab-name="' . $element['name'] . '">';
-		return $output;
-	}
-
-	public static function input( $element ) {
-		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
-		return $output;
-	}
-
-	public static function number( $element ) {
-		$output = '<input type="number" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" min="' . $element['min'] . '" max="' . $element['max'] . '" step="1" />';
-		return $output;
-	}
-
-	public static function colorpicker( $element ) {
-		$output = '<input type="text" name="' . $element['id'] . '" id="' . $element['id'] . '" class="color-picker ' . $element['class'] . '" value="' . nl2br( $element['std'] ) . '" />';
-		return $output;
-	}
-
-	public static function checkbox( $element ) {
-		$output = '<input type="checkbox" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '" value="' . $element['id'] . '" ' . checked( $element['std'], $element['id'], false ) . ' />';
-		return $output;
-	}
-
-	public static function textarea( $element ) {
-		$output = '<textarea rows="5" cols="20" name="' . $element['id'] . '" id="' . $element['id'] . '" class="widefat ' . $element['class'] . '">' . rtrim( $element['std'] ) . '</textarea>';
-		return $output;
-	}
-
 	public static function select( $element ) {
 		$select = __( 'Select', 'axiscomposer' );
 
@@ -301,112 +251,5 @@ class AC_HTML_Helper {
 		$output .= '</select>';
 
 		return $output;
-	}
-
-
-	/**
-	 * Add TinyMCE visual editor
-	 */
-	public static function tinymce( $element ) {
-
-		// TinyMCE only allows ids in the range of [a-z] so we need to filter them.
-		$element['id'] = preg_replace( '![^a-zA-Z_]!', '', $element['id'] );
-
-		// Monitor this: Seems only ajax elements need the replacement
-		$user_id = get_current_user_id();
-
-		if ( isset( $element['ajax'] ) && ( get_user_meta( $user_id, 'rich_editing', true ) == "true" ) ) {
-			$element['std'] = str_replace( '\n', '<br>', $element['std'] ); // Replace new-lines with brs, otherwise the editor will mess up ;)
-		}
-
-		$settings = array(
-			'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:auto; display:block; border:none !important;}</style>',
-			'editor_class'  => 'axiscomposer-tinymce',
-			'textarea_name' => 'content'
-		);
-
-		ob_start();
-
-		wp_editor( htmlspecialchars_decode( $element['std'] ), 'tinymce-' . $element['id'], apply_filters( 'axiscomposer_backbone_modal_editor_settings', $settings ) );
-
-		return ob_get_clean();
-	}
-
-	/**
-	 * Add Image upload button that allows the user to select an image from the media uploader and insert it.
-	 */
-	public static function image( $element ) {
-		if ( empty( $element['data'] ) ) {
-			$fetch = isset( $element['fetch'] ) ? $element['fetch'] : 'url';
-			$state = isset( $element['state'] ) ? $element['state'] : 'ac_insert_single';
-
-			if ( empty( $element['show_option'] ) ) {
-				$class = ( $fetch == 'id' ) ? 'ac-media-img-only-no-sidebars' : 'ac-media-img-only';
-			} else {
-				$class = 'ac-media-img-only';
-			}
-
-			$element['data'] =  array(
-				'target' => $element['id'],
-				'type'   => $element['type'],
-				'title'  => $element['title'],
-				'button' => $element['button'],
-				'class'  => 'media-frame ' . $class . ' ' . $element['container_class'],
-				'frame'  => 'select',
-				'state'  => $state,
-				'fetch'  => $fetch,
-				'save_to'=> 'hidden'
-			);
-		}
-
-		if ( isset( $element['modal-class'] ) ) {
-			$element['data']['class'] .= ' ' . $element['modal-class'];
-		}
-
-		$media  = 'button button-large ac-image-upload ac-image-insert';
-		$class  = empty( $element['class'] ) ? $media : $media . ' ' . $element['class'];
-		$output = '<a href="#" class="' . $class . '" title="' . esc_attr( $element['title'] ) . '"' . ac_html_data_string( $element['data'] ) . '>' . $element['title'] . '</a>';
-
-		if ( isset( $element['delete'] ) ) {
-			$output .= '<a href="#" class="button button-large ac-delete-gallery-button" title="' . esc_attr( $element['delete'] ) . '">' . $element['delete'] . '</a>';
-		}
-
-		return $output;
-	}
-
-	public static function gallery( $element ) {
-		if ( empty( $element['data'] ) ) {
-			$element['data'] =  array(
-				'target' => $element['id'],
-				'type'   => $element['type'],
-				'title'  => $element['title'],
-				'button' => $element['button'],
-				'class'  => 'media-frame ac-media-gallery-insert ' . $element['container_class'],
-				'frame'  => 'post',
-				'state'  => 'gallery-library',
-				'fetch'  => 'id',
-				'save_to'=> 'hidden'
-			);
-		}
-
-		return self::image( $element );
-	}
-
-	public static function video( $element ) {
-		if ( empty( $element['data'] ) ) {
-			$element['data'] =  array(
-				'target' => $element['id'],
-				'type'   => $element['type'],
-				'title'  => $element['title'],
-				'button' => $element['button'],
-				'class'  => 'media-frame ac-blank-insert ' . $element['container_class'],
-				'frame'  => 'select',
-				'state'  => 'ac_insert_video',
-				'fetch'  => 'url',
-				'save_to'=> 'input'
-			);
-		}
-
-		return self::image( $element );
 	}
 }

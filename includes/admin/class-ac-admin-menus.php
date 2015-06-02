@@ -30,6 +30,11 @@ class AC_Admin_Menu {
 		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
 		add_filter( 'menu_order', array( $this, 'menu_order' ) );
 		add_filter( 'custom_menu_order', array( $this, 'custom_menu_order' ) );
+
+		// Admin bar menus
+		if ( apply_filters( 'axiscomposer_show_admin_bar_visit_settings', false ) ) {
+			add_action( 'admin_bar_menu', array( $this, 'admin_bar_menus' ), 31 );
+		}
 	}
 
 	/**
@@ -159,6 +164,34 @@ class AC_Admin_Menu {
 	 */
 	public function status_page() {
 		AC_Admin_Status::output();
+	}
+
+	/**
+	 * Add the "Visit Settings" link in admin bar main menu
+	 * @param WP_Admin_Bar $wp_admin_bar
+	 */
+	public function admin_bar_menus( $wp_admin_bar ) {
+		if ( ! is_admin() || ! is_user_logged_in() ) {
+			return;
+		}
+
+		// Show only when the user is a member of this site, or they're a super admin
+		if ( ! is_user_member_of_blog() && ! is_super_admin() ) {
+			return;
+		}
+
+		// Don't display when user cannot manage AC
+		if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+			return;
+		}
+
+		// Add an option to visit the settings
+		$wp_admin_bar->add_node( array(
+			'parent' => 'site-name',
+			'id'     => 'view-settings',
+			'title'  => __( 'Visit Settings', 'axiscomposer' ),
+			'href'   => admin_url( 'admin.php?page=ac-settings' )
+		) );
 	}
 }
 

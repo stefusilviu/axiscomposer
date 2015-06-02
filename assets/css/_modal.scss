@@ -203,96 +203,42 @@
  */
 .ac-enhanced-form {
 
-	.field-container {
-		clear: both;
-		background: #fff;
-		padding: 18px 20px;
-		position: relative;
-		border-bottom: 1px dashed #e1e1e1;
+	table.form-table {
+		border-bottom: 1px solid transparent;
 
-		p {
-			color: #777;
-		}
+		tr {
+			border-bottom: 1px dashed #e1e1e1;
 
-		&:hover {
-			background: #fcfcfc;
-		}
-
-		.field-label {
-			width: 49%;
-			float: right;
-
-			> strong {
-				display: block;
+			th {
+				padding: 24px;
+				padding-left: 16px;
 			}
 
-			> span,
-			> label {
-				color: #777;
-				display: block;
-				margin-bottom: 4px;
+			th, td {
+				label {
+					font-size: 13px;
+					vertical-align: top;
+				}
 			}
-		}
 
-		.field-element {
-			width: 49%;
-			float: left;
-
-			> textarea {
-				width: 100%;
-				height: 175px;
-				resize: vertical;
-
-				&.pre,
-				&.code {
-					color: #999;
-					padding: 15px;
-					font: 13px $helvetica;
-
-					&:focus {
-						color: #555;
+			&.full-width {
+				td {
+					padding: 15px 16px;
+					label {
+						font-weight: 600;
 					}
 				}
 			}
-		}
-	}
 
-	.field-checkbox {
-		position: relative;
-
-		.field-label {
-			width: 100%;
-
-			> span,
-			> label {
-				padding-left: 25px;
+			&:hover {
+				background: #fcfcfc;
 			}
-		}
 
-		.field-element {
-			top: 37px;
-			width: 30px;
-			position: absolute;
-		}
-	}
-
-	.field-tinymce,
-	.field-fullwidth {
-		.field-label,
-		.field-element {
-			float: none;
-			width: 100%;
-		}
-	}
-
-	.field-image,
-	.field-gallery,
-	.field-multi_image {
-		.button {
-			top: 17px;
-			width: 175px;
-			position: absolute;
-			text-align: center;
+			&:last-child {
+				p.description {
+					margin-bottom: 28px;
+				}
+			}
 		}
 	}
 
@@ -336,5 +282,9 @@
 				box-shadow: 0 1px 15px rgba(0,0,0,0.2);
 			}
 		}
+	}
+
+	button.insert-media {
+		width: 105px;
 	}
 }

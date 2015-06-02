@@ -134,7 +134,22 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		}
 
 		$elements = $this->set_defaults_value( $elements );
-		echo AC_HTML_Helper::fetch_form_elements( $elements );
+
+		// Get modal settings fragment
+		ob_start();
+		?><table class="form-table"><?php
+			$this->generate_settings_html( $elements );
+		?></table><?php
+		$axiscomposer_modal_settings = ob_get_clean();
+
+		$data = array(
+			'result'    => 'success',
+			'fragments' => apply_filters( 'axiscomposer_update_modal_settings_fragments', array(
+				'.ac-enhanced-settings' => $axiscomposer_modal_settings
+			) )
+		);
+
+		wp_send_json( $data );
 
 		die();
 	}
@@ -157,6 +172,120 @@ abstract class AC_Shortcode extends AC_Settings_API {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Prefix key for settings.
+	 *
+	 * @param  mixed $key
+	 * @return string
+	 */
+	public function get_field_key( $key ) {
+		return $this->plugin_id . '_' . $key;
+	}
+
+	/**
+	 * Generate TinyMCE Input HTML.
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_tinymce_html( $key, $data ) {
+
+		$field    = $this->get_field_key( $key );
+		$defaults = array(
+			'title'       => '',
+			'class'       => '',
+			'desc_tip'    => false,
+			'description' => ''
+		);
+
+		$data = wp_parse_args( $data, $defaults );
+
+		ob_start();
+		?>
+		<tr valign="top" class="full-width">
+			<td colspan="3" class="forminp">
+				<label for="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
+				<fieldset>
+					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
+					<?php
+						echo $this->get_description_html( $data );
+
+						$settings = array(
+							'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:auto; display:block; border:none !important;}</style>',
+							'editor_class'  => esc_attr( $data['class'] ),
+							'textarea_name' => esc_attr( $field )
+						);
+
+						wp_editor( htmlspecialchars_decode( $this->get_option( $key ) ), esc_attr( $field ), apply_filters( 'axiscomposer_backbone_modal_editor_settings', $settings ) );
+					?>
+				</fieldset>
+			</td>
+		</tr>
+		<?php
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Generate Color Picker Input HTML.
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_color_html( $key, $data ) {
+		$data['type']  = 'text';
+		$data['class'] = 'color-picker';
+		return $this->generate_text_html( $key, $data );
+	}
+
+	/**
+	 * Generate Image Upload Button HTML.
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_image_html( $key, $data ) {
+
+		$field    = $this->get_field_key( $key );
+		$defaults = array(
+			'title'             => '',
+			'disabled'          => false,
+			'class'             => '',
+			'css'               => '',
+			'type'              => 'image',
+			'desc_tip'          => false,
+			'description'       => '',
+			'custom_attributes' => array()
+		);
+
+		$data = wp_parse_args( $data, $defaults );
+
+		ob_start();
+		?>
+		<tr valign="top">
+			<th scope="row" class="titledesc">
+				<label for="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
+				<?php echo $this->get_tooltip_html( $data ); ?>
+			</th>
+			<td class="forminp">
+				<fieldset>
+					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
+					<button class="button button-large insert-media ac-image-upload ac-image-insert <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo $this->get_custom_attribute_html( $data ); ?> ><?php echo esc_attr( $data['label'] ); ?></button>
+					<?php echo $this->get_description_html( $data ); ?>
+				</fieldset>
+			</td>
+		</tr>
+		<?php
+
+		return ob_get_clean();
 	}
 
 	/**
@@ -227,7 +356,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	/**
 	 * Editor Elements.
 	 *
-	 * This method defines the visual appearance of an element on the Builder canvas.
+	 * This method defines the visual appearance of an element on the pagebuilder canvas.
 	 */
 	public function editor_element( $params ) {
 		$params['innerHtml']  = '';
@@ -241,13 +370,12 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * Add-on for Custom CSS class to each element.
 	 */
 	public function custom_css( $elements ) {
-		$elements[] = array(
-			'id'    => 'custom_class',
-			'name'  => __( 'Custom CSS Class', 'axiscomposer' ),
-			'desc'  => sprintf( __( 'Add a custom css class for the element here. Ensure the use of allowed characters (latin characters, underscores, dashes and numbers). %sNo special characters can be used.%s', 'axiscomposer' ), '<br /><mark class="info">', '</mark>' ),
-			'type'  => 'input',
-			'class' => 'ac_input_class',
-			'std'   => ''
+		$elements['custom_class'] = array(
+			'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
+			'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),
+			'class'       => 'ac_input_class',
+			'type'        => 'text',
+			'default'     => ''
 		);
 
 		return $elements;
@@ -373,27 +501,27 @@ abstract class AC_Shortcode extends AC_Settings_API {
 				}
 
 				// Iterate over each elements and check if we already got a value
-				foreach ( $elements as &$element ) {
+				foreach ( $elements as $key => &$value ) {
 
-					if ( isset( $element['id'] ) && isset( $extracted_shortcode['attr'][$element['id']] ) ) {
+					if ( isset( $key ) && isset( $extracted_shortcode['attr'][$key] ) ) {
 
 						// Ensure each popup element can access the other values of the shortcode. Necessary for hidden elements.
 						$element['shortcode_data'] = $extracted_shortcode['attr'];
 
-						// If the item has subelements then std value should be an array
-						if ( isset( $element['subelements'] ) ) {
-							$element['std'] = array();
+						// If we got a item with subelements
+						if ( isset( $value['subelements'] ) ) {
+							$value['default'] = array();
 
 							for ( $i = 0; $i < ( $multi_content - 1 ); $i++ ) {
-								$element['std'][$i]            = $_POST['extracted_shortcode'][$i]['attr'];
-								$element['std'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
+								$value['default'][$i]            = $_POST['extracted_shortcode'][$i]['attr'];
+								$value['default'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
 							}
 						} else {
-							$element['std'] = stripslashes( $extracted_shortcode['attr'][$element['id']] );
+							$value['default'] = stripslashes( $extracted_shortcode['attr'][$key] );
 						}
 					} else {
-						if ( $element['type'] == 'checkbox' ) {
-							$element['std'] = '';
+						if ( $value['type'] == 'checkbox' ) {
+							$value['default'] = '';
 						}
 					}
 				}
@@ -418,9 +546,9 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 
 			if ( ! isset( $this->arguments['content'] ) ) {
-				foreach ( $this->elements as $element ) {
-					if ( isset( $element['std'] ) && isset( $element['id'] ) && $element['id'] == 'content' ) {
-						$content = $element['std'];
+				foreach ( $this->elements as $key => $value ) {
+					if ( isset( $key ) && isset( $value['default'] ) && $key == 'content' ) {
+						$content = $value['default'];
 					}
 				}
 			} else {
@@ -450,9 +578,9 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		$arguments = array();
 
 		if ( ! empty( $this->elements ) ) {
-			foreach ( $this->elements as $element ) {
-				if ( isset( $element['std'] ) && isset( $element['id'] ) ) {
-					$arguments[$element['id']] = $element['std'];
+			foreach ( $this->elements as $key => $value ) {
+				if ( isset( $key ) && isset( $value['default'] ) ) {
+					$arguments[$key] = $value['default'];
 				}
 			}
 
@@ -463,7 +591,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Output a view template which can used with builder elements.
+	 * Output a view template which can used with pagebuilder elements.
 	 */
 	public function print_media_templates() {
 		$class    = $this->shortcode['href-class'];

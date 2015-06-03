@@ -80,12 +80,12 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	/**
 	 * Abstract method for shortcode initialize.
 	 */
-	abstract function init_shortcode();
+	abstract public function init_shortcode();
 
 	/**
 	 * Abstract method for frontend shortcode handle.
 	 */
-	abstract function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' );
+	abstract public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' );
 
 	/**
 	 * AJAX Events for shortcodes.

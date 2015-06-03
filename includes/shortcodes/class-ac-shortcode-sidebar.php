@@ -57,18 +57,17 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 			$params['args']['widget_area'] = reset( $sidebars );
 		}
 
-		$element = array(
-			'type'    => 'select',
-			'subtype' => $sidebars,
-			'data'    => array( 'attr' => 'widget_area' ),
-			'class'   => 'ac-recalc-shortcode',
-			'std'     => esc_html( $params['args']['widget_area'] ) // htmlspecialchars_decode( $params['args']['widget_area'] )
-		);
-
 		$params['innerHtml']  = '';
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
 		$params['innerHtml'] .= '<div class="ac-element-label">' . $this->title . '</div>';
-		$params['innerHtml'] .= AC_HTML_Helper::render_element( $element );
+		$params['innerHtml'] .= ac_select_html( 'axiscomposer_sidebar', array(
+			'default'           => esc_html( $params['args']['widget_area'] ),
+			'class'             => 'ac-recalc-shortcode ac-enhanced-select',
+			'options'           => $sidebars,
+			'custom_attributes' => array(
+				'data-attr' => 'widget_area'
+			)
+		) );
 
 		return (array) $params;
 	}

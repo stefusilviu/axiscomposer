@@ -87,7 +87,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 			),
 			'background_position' => array(
 				'title'             => __( 'Background Position', 'axiscomposer' ),
-				'default'           => 'scroll',
+				'default'           => 'top left',
 				'type'              => 'select',
 				'class'             => 'ac-enhanced-select',
 				'css'               => 'min-width: 350px;',

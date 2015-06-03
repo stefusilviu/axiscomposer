@@ -69,8 +69,8 @@ function ac_custom_attribute_html( $data ) {
 
 /**
  * Generate select HTML.
- * @param  mixed $key
- * @param  mixed $data
+ * @param  string $field
+ * @param  mixed  $data
  * @return string
  */
 function ac_select_html( $field, $data ) {

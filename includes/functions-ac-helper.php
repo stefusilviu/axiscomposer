@@ -49,6 +49,57 @@ function ac_get_registered_sidebars( $sidebars = array(), $exclude = array() ) {
 }
 
 /**
+ * Get custom attributes
+ * @param  array $data
+ * @return string
+ */
+function ac_custom_attribute_html( $data ) {
+
+	$custom_attributes = array();
+
+	if ( ! empty( $data['custom_attributes'] ) && is_array( $data['custom_attributes'] ) ) {
+
+		foreach ( $data['custom_attributes'] as $attribute => $attribute_value ) {
+			$custom_attributes[] = esc_attr( $attribute ) . '="' . esc_attr( $attribute_value ) . '"';
+		}
+	}
+
+	return implode( ' ', $custom_attributes );
+}
+
+/**
+ * Generate select HTML.
+ * @param  mixed $key
+ * @param  mixed $data
+ * @return string
+ */
+function ac_select_html( $field, $data ) {
+	$defaults = array(
+		'disabled'          => false,
+		'default'           => '',
+		'class'             => '',
+		'css'               => '',
+		'custom_attributes' => array(),
+		'options'           => array()
+	);
+
+	$data = wp_parse_args( $data, $defaults );
+
+	ob_start();
+	?>
+	<div class="clearfix field-container field-select">
+		<select class="widefat <?php echo esc_attr( $data['class'] ); ?>" name="<?php echo esc_attr( $field ); ?>" id="<?php echo esc_attr( $field ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo ac_custom_attribute_html( $data ); ?>>
+			<?php foreach ( (array) $data['options'] as $option_key => $option_value ) : ?>
+				<option value="<?php echo esc_attr( $option_key ); ?>" <?php selected( $option_key, esc_attr( $data['default'] ) ); ?>><?php echo esc_attr( $option_value ); ?></option>
+			<?php endforeach; ?>
+		</select>
+	</div>
+	<?php
+
+	return ob_get_clean();
+}
+
+/**
  * Create a new shortcode data programmatically.
  */
 function ac_shortcode_data( $name, $content = null, $args = array() ) {

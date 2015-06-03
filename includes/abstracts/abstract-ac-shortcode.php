@@ -185,7 +185,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Generate TinyMCE Input HTML.
+	 * Generate TinyMCE HTML.
 	 *
 	 * @param  mixed $key
 	 * @param  mixed $data

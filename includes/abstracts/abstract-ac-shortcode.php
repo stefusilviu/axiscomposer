@@ -14,34 +14,34 @@
 abstract class AC_Shortcode extends AC_Settings_API {
 
 	/**
-	 * Shortcode Title
+	 * Shortcode Title.
 	 * @var string
 	 */
 	public $title;
 
 	/**
-	 * Shortcode Tooltip
+	 * Shortcode Tooltip.
 	 * @var string
 	 */
 	public $tooltip;
 
 	/**
-	 * Shortcode Configs
-	 * @var array
-	 */
-	public $shortcode;
-
-	/**
-	 * Shortcode Arguments
-	 * @var array
-	 */
-	protected $arguments;
-
-	/**
-	 * Shortcode Counter
+	 * Shortcode Counter.
 	 * @var int
 	 */
 	protected $counter = 0;
+
+	/**
+	 * Shortcode Arguments.
+	 * @var array
+	 */
+	protected $arguments = array();
+
+	/**
+	 * Shortcode Configurations.
+	 * @var array
+	 */
+	public $shortcode = array();
 
 	/**
 	 * Class Constructor Method.

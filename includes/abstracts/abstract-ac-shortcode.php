@@ -118,7 +118,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		// Display Custom CSS element
 		if ( apply_filters( 'axiscomposer_show_css_element', true ) ) {
-			$this->elements = $this->custom_css( $this->elements );
+			$this->form_fields = $this->custom_css( $this->form_fields );
 		}
 
 		$elements = apply_filters( 'axiscomposer_shortcodes_elements', $this->elements );
@@ -367,10 +367,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Add-on for Custom CSS class to each element.
+	 * Add-on for Custom CSS class field.
 	 */
-	public function custom_css( $elements ) {
-		$elements['custom_class'] = array(
+	public function custom_css( $form_fields ) {
+		$form_fields['custom_class'] = array(
 			'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
 			'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),
 			'class'       => 'ac_input_class',
@@ -378,7 +378,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			'default'     => ''
 		);
 
-		return $elements;
+		return $form_fields;
 	}
 
 	/**

@@ -133,7 +133,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 		}
 
-		$elements = $this->set_defaults_value( $elements );
+		// $elements = $this->set_defaults_value( $elements );
 
 		// Get modal settings fragment
 		ob_start();

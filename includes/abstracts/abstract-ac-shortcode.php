@@ -14,12 +14,6 @@
 abstract class AC_Shortcode extends AC_Settings_API {
 
 	/**
-	 * Shortcode ID
-	 * @var string
-	 */
-	public $id;
-
-	/**
 	 * Shortcode Title
 	 * @var string
 	 */

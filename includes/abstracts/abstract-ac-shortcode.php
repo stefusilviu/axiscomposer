@@ -121,8 +121,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$this->form_fields = $this->custom_css_field( $this->form_fields );
 		}
 
-		$elements = apply_filters( 'axiscomposer_shortcodes_elements', $this->elements );
-
 		// If the ajax request told us that we are fetching the sub-function iterate over the array elements :)
 		if ( ! empty( $_POST['params']['subelements'] ) ) {
 			foreach ( $elements as $element ) {

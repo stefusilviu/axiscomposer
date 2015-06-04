@@ -527,7 +527,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public function get_default_content() {
 		$content = '';
 
-		if ( ! empty( $this->elements ) ) {
+		if ( ! empty( $this->form_fields ) ) {
 
 			// Fetch arguments
 			if ( empty( $this->arguments ) ) {
@@ -535,7 +535,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 
 			if ( ! isset( $this->arguments['content'] ) ) {
-				foreach ( $this->elements as $key => $value ) {
+				foreach ( $this->form_fields as $key => $value ) {
 					if ( isset( $key ) && isset( $value['default'] ) && $key == 'content' ) {
 						$content = $value['default'];
 					}
@@ -566,8 +566,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public function get_default_arguments() {
 		$arguments = array();
 
-		if ( ! empty( $this->elements ) ) {
-			foreach ( $this->elements as $key => $value ) {
+		if ( ! empty( $this->form_fields ) ) {
+			foreach ( $this->form_fields as $key => $value ) {
 				if ( isset( $key ) && isset( $value['default'] ) ) {
 					$arguments[$key] = $value['default'];
 				}

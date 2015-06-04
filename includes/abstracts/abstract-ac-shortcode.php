@@ -38,12 +38,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public $shortcode;
 
 	/**
-	 * Shortcode Elements
-	 * @var array
-	 */
-	public $elements;
-
-	/**
 	 * Shortcode Arguments
 	 * @var array
 	 */
@@ -112,34 +106,33 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		check_ajax_referer( 'modal-item', 'security' );
 
-		if ( empty( $this->elements ) ) {
+		if ( empty( $this->form_fields ) ) {
 			die();
 		}
 
-		// Display Custom CSS element
-		if ( apply_filters( 'axiscomposer_show_css_element', true ) ) {
-			$this->elements = $this->custom_css( $this->elements );
+		// Add-on Custom CSS class field
+		if ( apply_filters( 'axiscomposer_show_custom_class_field', true ) ) {
+			$this->form_fields = $this->custom_css_field( $this->form_fields );
 		}
 
-		$elements = apply_filters( 'axiscomposer_shortcodes_elements', $this->elements );
-
-		// If the ajax request told us that we are fetching the sub-function iterate over the array elements :)
+		// If we got a field with subelements
 		if ( ! empty( $_POST['params']['subelements'] ) ) {
-			foreach ( $elements as $element ) {
-				if ( isset( $element['subelements'] ) ) {
-					$elements = $element['subelements'];
+			foreach ( $this->form_fields as $field ) {
+				if ( isset( $field['subelements'] ) ) {
+					$this->form_fields = $field['subelements'];
 					break;
 				}
 			}
 		}
 
-		$elements = $this->set_defaults_value( $elements );
+		// Set the default fields value
+		$this->form_fields = $this->set_defaults_value( $this->form_fields );
 
 		// Get modal settings fragment
 		ob_start();
-		?><table class="form-table"><?php
-			$this->generate_settings_html( $elements );
-		?></table><?php
+		?><table class="form-table">
+			<?php $this->generate_settings_html(); ?>
+		</table><?php
 		$axiscomposer_modal_settings = ob_get_clean();
 
 		$data = array(
@@ -345,9 +338,9 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		}
 
 		// Activate modal if settings exists.
-		if ( method_exists( $this, 'get_settings' ) ) {
-			$this->get_settings();
-			if ( isset( $this->elements ) ) {
+		if ( method_exists( $this, 'init_form_fields' ) ) {
+			$this->init_form_fields();
+			if ( ! empty( $this->form_fields ) ) {
 				$this->shortcode['has_fields'] = true;
 			}
 		}
@@ -367,10 +360,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Add-on for Custom CSS class to each element.
+	 * Add-on for Custom CSS class field.
 	 */
-	public function custom_css( $elements ) {
-		$elements['custom_class'] = array(
+	public function custom_css_field( $form_fields ) {
+		$form_fields['custom_class'] = array(
 			'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
 			'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),
 			'class'       => 'ac_input_class',
@@ -378,7 +371,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			'default'     => ''
 		);
 
-		return $elements;
+		return $form_fields;
 	}
 
 	/**
@@ -538,7 +531,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public function get_default_content() {
 		$content = '';
 
-		if ( ! empty( $this->elements ) ) {
+		if ( ! empty( $this->form_fields ) ) {
 
 			// Fetch arguments
 			if ( empty( $this->arguments ) ) {
@@ -546,7 +539,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 
 			if ( ! isset( $this->arguments['content'] ) ) {
-				foreach ( $this->elements as $key => $value ) {
+				foreach ( $this->form_fields as $key => $value ) {
 					if ( isset( $key ) && isset( $value['default'] ) && $key == 'content' ) {
 						$content = $value['default'];
 					}
@@ -577,8 +570,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public function get_default_arguments() {
 		$arguments = array();
 
-		if ( ! empty( $this->elements ) ) {
-			foreach ( $this->elements as $key => $value ) {
+		if ( ! empty( $this->form_fields ) ) {
+			foreach ( $this->form_fields as $key => $value ) {
 				if ( isset( $key ) && isset( $value['default'] ) ) {
 					$arguments[$key] = $value['default'];
 				}
@@ -591,7 +584,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Output a view template which can used with pagebuilder elements.
+	 * Output a Pagebuilder Shortcode Templates.
 	 */
 	public function print_media_templates() {
 		$class    = $this->shortcode['href-class'];

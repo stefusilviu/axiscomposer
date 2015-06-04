@@ -45,12 +45,11 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'content' => array(
 				'title'             => __( 'Content', 'axiscomposer' ),
 				'description'       => __( 'Enter some content for this textblock :)', 'axiscomposer' ),

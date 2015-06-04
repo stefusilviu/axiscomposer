@@ -590,7 +590,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Output a view template which can used with pagebuilder elements.
+	 * Output a Pagebuilder Shortcode Templates.
 	 */
 	public function print_media_templates() {
 		$class    = $this->shortcode['href-class'];

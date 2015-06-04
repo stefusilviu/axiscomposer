@@ -340,7 +340,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		// Activate modal if settings exists.
 		if ( method_exists( $this, 'init_form_fields' ) ) {
 			$this->init_form_fields();
-			if ( isset( $this->form_fields ) ) {
+			if ( ! empty( $this->form_fields ) ) {
 				$this->shortcode['has_fields'] = true;
 			}
 		}

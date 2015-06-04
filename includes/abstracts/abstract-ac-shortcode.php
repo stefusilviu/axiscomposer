@@ -121,6 +121,16 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$this->form_fields = $this->custom_css_field( $this->form_fields );
 		}
 
+		// If we got a field with subelements
+		if ( ! empty( $_POST['params']['subelements'] ) ) {
+			foreach ( $this->form_fields as $field ) {
+				if ( isset( $field['subelements'] ) ) {
+					$this->form_fields = $field['subelements'];
+					break;
+				}
+			}
+		}
+
 		// Set the default fields value
 		$this->form_fields = $this->set_defaults_value( $this->form_fields );
 

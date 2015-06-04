@@ -44,12 +44,11 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'content' => array(
 				'title'             => __( 'Content', 'axiscomposer' ),
 				'description'       => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axiscomposer' ),

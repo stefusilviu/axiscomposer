@@ -44,12 +44,11 @@ class AC_Shortcode_Button extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'label' => array(
 				'title'             => __( 'Button Label', 'axiscomposer' ),
 				'description'       => __( 'This option lets you define button label.', 'axiscomposer' ),

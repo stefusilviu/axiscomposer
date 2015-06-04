@@ -53,12 +53,11 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'vertical_align' => array(
 				'title'             => __( 'Vertical align', 'axiscomposer' ),
 				'description'       => __( 'Choose the vertical alignment of your cells content.', 'axiscomposer' ),

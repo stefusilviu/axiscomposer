@@ -44,12 +44,11 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'text' => array(
 				'title'             => __( 'Heading Text', 'axiscomposer' ),
 				'description'       => __( 'This option lets you enter heading text.', 'axiscomposer' ),

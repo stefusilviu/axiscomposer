@@ -57,12 +57,11 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'hour' => array(
 				'title'             => __( 'Hour', 'axiscomposer' ),
 				'description'       => __( 'This option lets you pick the hour of the day. (24 is 0)', 'axiscomposer' ),

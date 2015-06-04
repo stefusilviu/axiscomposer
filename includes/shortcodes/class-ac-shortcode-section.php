@@ -50,12 +50,11 @@ class AC_Shortcode_Section extends AC_Shortcode {
 	}
 
 	/**
-	 * Get Settings.
-	 * @return array
+	 * Initialise Shortcode Settings Form Fields.
 	 */
-	public function get_settings() {
+	public function init_form_fields() {
 
-		$this->elements = array(
+		$this->form_fields = array(
 			'background_color' => array(
 				'title'             => __( 'Background Color', 'axiscomposer' ),
 				'description'       => __( 'This sets the background color for your section. Leave empty to use the default.', 'axiscomposer' ),

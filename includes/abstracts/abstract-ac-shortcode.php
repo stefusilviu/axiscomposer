@@ -503,12 +503,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 								$value['default'][$i]            = $_POST['extracted_shortcode'][$i]['attr'];
 								$value['default'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
 							}
+						} else if ( $value['type'] == 'checkbox' ) {
+							$value['default'] = 'yes';
 						} else {
 							$value['default'] = stripslashes( $extracted_shortcode['attr'][$key] );
-						}
-					} else {
-						if ( $value['type'] == 'checkbox' ) {
-							$value['default'] = '';
 						}
 					}
 				}

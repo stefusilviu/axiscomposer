@@ -112,7 +112,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		check_ajax_referer( 'modal-item', 'security' );
 
-		if ( empty( $this->elements ) ) {
+		if ( empty( $this->form_fields ) ) {
 			die();
 		}
 
@@ -138,7 +138,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		// Get modal settings fragment
 		ob_start();
 		?><table class="form-table"><?php
-			$this->generate_settings_html( $elements );
+			$this->generate_settings_html();
 		?></table><?php
 		$axiscomposer_modal_settings = ob_get_clean();
 
@@ -345,9 +345,9 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		}
 
 		// Activate modal if settings exists.
-		if ( method_exists( $this, 'get_settings' ) ) {
-			$this->get_settings();
-			if ( isset( $this->elements ) ) {
+		if ( method_exists( $this, 'init_form_fields' ) ) {
+			$this->init_form_fields();
+			if ( isset( $this->form_fields ) ) {
 				$this->shortcode['has_fields'] = true;
 			}
 		}

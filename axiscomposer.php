@@ -201,7 +201,6 @@ final class AxisComposer {
 
 	/**
 	 * Init AxisComposer when WordPress Initialises.
-	 * @todo Remove the call of shortcodes after modal is deprecated
 	 */
 	public function init() {
 		// Before init action

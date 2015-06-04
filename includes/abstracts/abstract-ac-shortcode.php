@@ -116,12 +116,13 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			die();
 		}
 
-		// Display Custom CSS class field.
+		// Add-on Custom CSS class field
 		if ( apply_filters( 'axiscomposer_show_custom_class_field', true ) ) {
 			$this->form_fields = $this->custom_css_field( $this->form_fields );
 		}
 
-		// $elements = $this->set_defaults_value( $elements );
+		// Set the default fields value
+		$this->form_fields = $this->set_defaults_value( $this->form_fields );
 
 		// Get modal settings fragment
 		ob_start();

@@ -44,15 +44,15 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			'tinyMCE' => array( 'disable' => true ),
 		);
 
-		// Optional
+		// Time config
 		$this->time_config = array(
-			__('Second',   'axiscomposer' ) =>'1',
-			__('Minute',   'axiscomposer' ) =>'2',
-			__('Hour',     'axiscomposer' ) =>'3',
-			__('Day',      'axiscomposer' ) =>'4',
-			__('Week',     'axiscomposer' ) =>'5',
-			// __('Month', 'axiscomposer' ) =>'6',
-			// __('Year',  'axiscomposer' ) =>'7'
+			'1' => __( 'Second',   'axiscomposer' ),
+			'2' => __( 'Minute',   'axiscomposer' ),
+			'3' => __( 'Hour',     'axiscomposer' ),
+			'4' => __( 'Day',      'axiscomposer' ),
+			'5' => __( 'Week',     'axiscomposer' ),
+			'6' => __( 'Month',    'axiscomposer' ),
+			'7' => __( 'Year',     'axiscomposer' )
 		);
 	}
 
@@ -63,120 +63,87 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			// array(
-			// 	'type'   => 'open_tab',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'name'   => __( 'Content', 'axiscomposer' ),
-			// 	'type'   => 'tab',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'name'     => __( 'Date', 'axiscomposer' ),
-			// 	'desc'     => __( 'Pick a date in the future', 'axiscomposer' ),
-			// 	'id'       => 'date',
-			// 	'std'      => '',
-			// 	'type'     => 'datepicker',
-			// 	'container_class' => 'ac_third ac_third_first'
-			// ),
-
-			array(
-				'name'    => __( 'Hour', 'axiscomposer' ),
-				'desc'    => __( 'Pick the hour of the day', 'axiscomposer' ),
-				'type'    => 'number',
-				'id'      => 'hour',
-				'min'     => '1',
-				'max'     => '23',
-				'std'     => '12'
-			),
-
-			array(
-				'name'    => __( 'Minute', 'axiscomposer' ),
-				'desc'    => __( 'Pick the minute of the hour', 'axiscomposer' ),
-				'type'    => 'number',
-				'id'      => 'minute',
-				'min'     => '0',
-				'max'     => '59',
-				'std'     => '0'
-			),
-
-			array(
-				'name'     => __( 'Smallest time unit', 'axiscomposer' ),
-				'desc'     => __( 'The smallest unit that will be displayed', 'axiscomposer' ),
-				'id'       => 'min',
-				'std'      => '1',
-				'type'     => 'select',
-				'subtype'  => $this->time_config
-			),
-
-			array(
-				'name'     => __( 'Largest time unit', 'axiscomposer' ),
-				'desc'     => __( 'The largest unit that will be displayed', 'axiscomposer' ),
-				'id'       => 'max',
-				'std'      => '5',
-				'type'     => 'select',
-				'subtype'  => $this->time_config
-			),
-
-			array(
-				'name'     => __( 'Text Alignment', 'axiscomposer' ),
-				'desc'     => __( 'Choose here, how to align your text', 'axiscomposer' ),
-				'id'       => 'align',
-				'std'      => 'center',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'Left', 'axiscomposer' )   => 'left',
-					__( 'Right', 'axiscomposer' )  => 'right',
-					__( 'Center', 'axiscomposer' ) => 'center'
+			'hour' => array(
+				'title'             => __( 'Hour', 'axiscomposer' ),
+				'description'       => __( 'This option lets you pick the hour of the day. (24 is 0)', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 12,
+				'custom_attributes' => array(
+					'min' => 1,
+					'max' => 24
 				)
 			),
-
-			array(
-				'name'    => __( 'Number Font Size', 'axiscomposer' ),
-				'desc'    => __( 'Choose Size of the number in px', 'axiscomposer' ),
-				'type'    => 'number',
-				'id'      => 'size',
-				'min'     => '20',
-				'max'     => '90',
-				'std'     => '24'
-			),
-
-			// array(
-			// 	'type'   => 'close_div',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'name'   => __( 'Colors', 'axiscomposer' ),
-			// 	'type'   => 'tab',
-			// 	'nodesc' => true
-			// ),
-
-			array(
-				'name'     => __( 'Colors', 'axiscomposer' ),
-				'desc'     => __( 'Choose the colors here', 'axiscomposer' ),
-				'id'       => 'style',
-				'std'      => 'default',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'Theme Default', 'axiscomposer' )     => 'default',
-					__( 'Transparent Dark', 'axiscomposer' )  => 'transparent-dark',
-					__( 'Transparent Light', 'axiscomposer' ) => 'transparent-light',
+			'minute' => array(
+				'title'             => __( 'Minute', 'axiscomposer' ),
+				'description'       => __( 'This option lets you pick the minute of the hour. (60 is 0)', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 60,
+				'custom_attributes' => array(
+					'min' => 1,
+					'max' => 60
 				)
 			),
-
-			// array(
-			// 	'type'   => 'close_div',
-			// 	'nodesc' => true
-			// ),
-
-			// array(
-			// 	'type'   => 'close_div',
-			// 	'nodesc' => true
-			// ),
+			'min' => array(
+				'title'             => __( 'Smallest time unit', 'axiscomposer' ),
+				'description'       => __( 'This sets the smallest unit that will be displayed.', 'axiscomposer' ),
+				'default'           => '1',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => $this->time_config
+			),
+			'max' => array(
+				'title'             => __( 'Largest time unit', 'axiscomposer' ),
+				'description'       => __( 'This sets the largest unit that will be displayed.', 'axiscomposer' ),
+				'default'           => '5',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => $this->time_config
+			),
+			'align' => array(
+				'title'             => __( 'Text Alignment', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom alignment of the text.', 'axiscomposer' ),
+				'default'           => 'center',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'left'   => __( 'Left Align', 'axiscomposer' ),
+					'center' => __( 'Center Align', 'axiscomposer' ),
+					'right'  => __( 'Right Align', 'axiscomposer' )
+				)
+			),
+			'size' => array(
+				'title'             => __( 'Number Font Size', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom font size of the number.', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 24,
+				'custom_attributes' => array(
+					'min' => 20,
+					'max' => 90
+				)
+			),
+			'style' => array(
+				'title'             => __( 'Color Scheme', 'axiscomposer' ),
+				'description'       => __( 'This sets lets you set custom color scheme.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'            => __( 'Theme Default', 'axiscomposer' ),
+					'transparent-dark'   => __( 'Transparent Dark', 'axiscomposer' ),
+					'transparent-light'  => __( 'Transparent Light', 'axiscomposer' )
+				)
+			)
 		);
 	}
 

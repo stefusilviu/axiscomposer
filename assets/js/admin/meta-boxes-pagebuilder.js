@@ -79,7 +79,7 @@ jQuery( function( $ ) {
 		},
 
 		unblock: function() {
-			$( '#axiscomposer-pagebuilder, .ac-enhanced-settings' ).unblock();
+			$( '#axiscomposer-pagebuilder' ).unblock();
 		},
 
 		tinyMCE: function( content ) {
@@ -428,10 +428,10 @@ jQuery( function( $ ) {
 		update_builder_html: function( element_container, values, force_content_close ) {
 			var key, subkey, new_key, old_val;
 
-			// Filter keys for the 'axiscomposerTB-' string prefix and re-modify the key that was edited.
+			// Filter keys for the 'axiscomposer_' string prefix and re-modify the key that was edited.
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
-					new_key = key.replace( /axiscomposerTB-/g, '' );
+					new_key = key.replace( /axiscomposer_/g, '' );
 					if ( key !== new_key ) {
 						old_val = ( typeof values[new_key] !== 'undefined' ) ? ( values[new_key] + ',' ) : '';
 						values[new_key] = old_val ? old_val + values[key] : values[key];
@@ -1058,21 +1058,19 @@ jQuery( function( $ ) {
 					url:  axiscomposer_admin_meta_boxes_pagebuilder.ajax_url,
 					data: data,
 					type: 'POST',
-					success: function( response ) {
+					success: function( data ) {
 
-						// Login(0) and session(-1) error response xD
-						if ( response === '0' || response === '-1' ) {
-							ac_meta_boxes_pagebuilder.backbone.dismiss();
-						} else {
-							$( '.ac-backbone-modal-article form' ).empty();
-							$( '.ac-backbone-modal-article form' ).append( response );
+						// Always update the fragments
+						if ( data && data.fragments ) {
+							$.each( data.fragments, function ( key, value ) {
+								$( key ).replaceWith( value );
+								$( key ).unblock();
+							});
 
-							// Trigger Event
 							$( document.body ).trigger( 'ac-enhanced-modal-elements-init' );
 						}
 
 						ac_meta_boxes_pagebuilder.tiptip();
-						ac_meta_boxes_pagebuilder.unblock();
 						ac_meta_boxes_pagebuilder.backbone.enable();
 						ac_meta_boxes_pagebuilder.stupidtable.init();
 					}

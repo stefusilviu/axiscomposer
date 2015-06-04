@@ -56,156 +56,137 @@ class AC_Shortcode_Section extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			array(
-				'name'     => __( 'Custom Background Color', 'axiscomposer' ),
-				'desc'     => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axiscomposer' ),
-				'id'       => 'background_color',
-				'type'     => 'colorpicker',
-				'std'      => ''
+			'background_color' => array(
+				'title'             => __( 'Background Color', 'axiscomposer' ),
+				'description'       => __( 'This sets the background color for your section. Leave empty to use the default.', 'axiscomposer' ),
+				'type'              => 'color',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-			array(
-				'name'     => __( 'Custom Background Image', 'axiscomposer' ),
-				'desc'     => __( 'Either upload a new, or choose an existing image from your media library. Leave empty if you want to use the background image of the color scheme defined above.', 'axiscomposer' ),
-				'title'    => __( 'Insert Image', 'axiscomposer' ),
-				'button'   => __( 'Insert', 'axiscomposer' ),
-				'id'       => 'src',
-				'std'      => '',
-				'type'     => 'image'
+			'background_image' => array(
+				'title'             => __( 'Background Image', 'axiscomposer' ),
+				'description'       => __( 'Either upload a new, or choose an existing image from your media library.', 'axiscomposer' ),
+				'label'             => __( 'Insert Image', 'axiscomposer' ),
+				'type'              => 'image',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-			array(
-				'name'     => __( 'Background Attachment', 'axiscomposer' ),
-				'desc'     => __( 'Background can either scroll with the page, be fixed or scroll with a parallax motion.', 'axiscomposer' ),
-				'id'       => 'background_attachment',
-				'std'      => 'scroll',
-				'type'     => 'select',
-				'required' => array( 'src', 'not', '' ),
-				'subtype'  => array(
-					__( 'Scroll', 'axiscomposer' )   => 'scroll',
-					__( 'Fixed', 'axiscomposer' )    => 'fixed',
-					__( 'Parallax', 'axiscomposer' ) => 'parallax'
+			'background_attachment' => array(
+				'title'             => __( 'Background Attachment', 'axiscomposer' ),
+				'description'       => __( 'Background can either scroll with the page, be fixed or scroll with a parallax motion.', 'axiscomposer' ),
+				'default'           => 'scroll',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'scroll'   => __( 'Scroll', 'axiscomposer' ),
+					'repeat'   => __( 'Fixed', 'axiscomposer' ),
+					'repeat-x' => __( 'Parallax', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Background Position', 'axiscomposer' ),
-				'id'       => 'background_position',
-				'std'      => 'top left',
-				'type'     => 'select',
-				'required' => array( 'src', 'not', '' ),
-				'subtype'  => array(
-					__( 'Top Left', 'axiscomposer' )       => 'top left',
-					__( 'Top Center', 'axiscomposer' )     => 'top center',
-					__( 'Top Right', 'axiscomposer' )      => 'top right',
-					__( 'Bottom Left', 'axiscomposer' )    => 'bottom left',
-					__( 'Bottom Center', 'axiscomposer' )  => 'bottom center',
-					__( 'Bottom Right', 'axiscomposer' )   => 'bottom right',
-					__( 'Center Left', 'axiscomposer' )    => 'center left',
-					__( 'Center Center', 'axiscomposer' )  => 'center center',
-					__( 'Center Right', 'axiscomposer' )   => 'center right'
+			'background_position' => array(
+				'title'             => __( 'Background Position', 'axiscomposer' ),
+				'default'           => 'top left',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'top left'      => __( 'Top Left', 'axiscomposer' ),
+					'top center'    => __( 'Top Center', 'axiscomposer' ),
+					'top right'     => __( 'Top Right', 'axiscomposer' ),
+					'bottom left'   => __( 'Bottom Left', 'axiscomposer' ),
+					'bottom center' => __( 'Bottom Center', 'axiscomposer' ),
+					'bottom right'  => __( 'Bottom Right', 'axiscomposer' ),
+					'center left'   => __( 'Center Left', 'axiscomposer' ),
+					'center center' => __( 'Center Center', 'axiscomposer' ),
+					'center right'  => __( 'Center Right', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Background Repeat', 'axiscomposer' ),
-				'id'       => 'background_repeat',
-				'std'      => 'no-repeat',
-				'type'     => 'select',
-				'required' => array( 'src', 'not', '' ),
-				'subtype'  => array(
-					__( 'No Repeat', 'axiscomposer' )         => 'no-repeat',
-					__( 'Tile', 'axiscomposer' )              => 'repeat',
-					__( 'Tile Horizontally', 'axiscomposer' ) => 'repeat-x',
-					__( 'Tile Vertically', 'axiscomposer' )   => 'repeat-y',
-					__( 'Stretch to Fit', 'axiscomposer' )    => 'stretch'
+			'background_repeat' => array(
+				'title'             => __( 'Background Repeat', 'axiscomposer' ),
+				'default'           => 'no-repeat',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'no-repeat' => __( 'No Repeat', 'axiscomposer' ),
+					'repeat'    => __( 'Tile', 'axiscomposer' ),
+					'repeat-x'  => __( 'Tile Horizontally', 'axiscomposer' ),
+					'repeat-y'  => __( 'Tile Vertically', 'axiscomposer' ),
+					'stretch'   => __( 'Stretch to Fit', 'axiscomposer' )
 				)
 			),
-			// array(
-			// 	'name'     => __( 'Background Video', 'axiscomposer' ),
-			// 	'desc'     => __( 'You can also place a video as background for your section. Enter the URL to the Video. Currently supported are Youtube, Vimeo and direct linking of web-video files (mp4, webm, ogv)', 'axiscomposer' ) . '<br /><br />' . __( 'Working examples Vimeo &amp; YouTube:', 'axiscomposer' ) . '<br /><strong>http://vimeo.com/1084537</strong><br/><strong>https://www.youtube.com/watch?v=NJtPPbgdt7A</strong><br/><br/>',
-			// 	'id'       => 'video',
-			// 	'std'      => '',
-			// 	'type'     => 'input'
-			// ),
-			// array(
-			// 	'name'     => __( 'Video Aspect Ratio', 'axiscomposer' ),
-			// 	'desc'     => __( 'In order to calculate the correct height and width for the video slide you need to enter a aspect ratio (width:height). usually: 16:9 or 4:3.', 'axiscomposer' ),
-			// 	'id'       => 'video_ratio',
-			// 	'std'      => '16:9',
-			// 	'type'     => 'input',
-			// 	'required' => array( 'video', 'not', '' ),
-			// ),
-			// array(
-			// 	'name'     => __( 'Hide video on Mobile Devices?', 'axiscomposer' ),
-			// 	'desc'     => __( 'You can chose to hide the video entirely on Mobile devices and instead display the Section Background image', 'axiscomposer' ) . '<br /><small>' . __( 'Most smartphones can\'t autoplay videos to prevent bandwidth problems for the user', 'axiscomposer' ) . '</small>',
-			// 	'id'       => 'video_mobile_disabled',
-			// 	'std'      => '',
-			// 	'type'     => 'checkbox',
-			// 	'required' => array( 'video', 'not', '' ),
-			// ),
-			array(
-				'name'     => __( 'Section Minimum Height', 'axiscomposer' ),
-				'desc'     => __( 'Define a minimum height for the section. Content within the section will be centered vertically within the section', 'axiscomposer' ),
-				'id'       => 'min_height',
-				'std'      => '',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'Use content within section to define Section height', 'axiscomposer' ) => 'default',
-					// __( 'At least 100&percnt; of Browser Window height', 'axiscomposer' )       => '100',
-					// __( 'At least 75&percnt; of Browser Window height', 'axiscomposer' )        => '75',
-					// __( 'At least 50&percnt; of Browser Window height', 'axiscomposer' )        => '50',
-					// __( 'At least 25&percnt; of Browser Window height', 'axiscomposer' )        => '25',
-					__( 'Custom height in pixel', 'axiscomposer' )                              => 'custom'
+			'min_height' => array(
+				'title'             => __( 'Section Minimum Height', 'axiscomposer' ),
+				'description'       => __( 'This option lets you choose minimum height for the section. Content within the section will be centered vertically.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'availability ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'  => __( 'Default section height', 'axiscomposer' ),
+					'specific' => __( 'Custom height in pixel', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Section custom height', 'axiscomposer' ),
-				'desc'     => __( 'Define a minimum height for the section. Use a pixel value. eg: 500px', 'axiscomposer' ),
-				'id'       => 'custom_min_height',
-				'std'      => '500px',
-				'type'     => 'input',
-				'required' => array( 'min_height', 'equals', 'custom' ),
+			'custom_min_height' => array(
+				'title'             => __( 'Section Custom Height', 'axiscomposer' ),
+				'description'       => __( 'Define a minimum height for the section. Use a pixel value. eg: 500px', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true,
+				'default'           => '500px'
 			),
-			array(
-				'name'     => __( 'Section Padding', 'axiscomposer' ),
-				'desc'     => __( 'Define the sections top and bottom padding', 'axiscomposer' ),
-				'id'       => 'padding',
-				'std'      => 'default',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'No Padding', 'axiscomposer' )      => 'none',
-					__( 'Small Padding', 'axiscomposer' )   => 'small',
-					__( 'Large Padding', 'axiscomposer' )   => 'large',
-					__( 'Default Padding', 'axiscomposer' ) => 'default',
+			'padding' => array(
+				'title'             => __( 'Section Padding', 'axiscomposer' ),
+				'description'       => __( 'This option lets you define top and bottom padding for the section.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'none'     => __( 'No Padding', 'axiscomposer' ),
+					'small'    => __( 'Small Padding', 'axiscomposer' ),
+					'large'    => __( 'Large Padding', 'axiscomposer' ),
+					'default'  => __( 'Default Padding', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Section Top Border Styling', 'axiscomposer' ),
-				'desc'     => __( 'Chose a border styling for the top of your section', 'axiscomposer' ),
-				'id'       => 'shadow',
-				'std'      => 'no-shadow',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'Display simple top border', 'axiscomposer' ) => 'no-shadow',
-					__( 'Display a small styling shadow at the top of the section', 'axiscomposer' ) => 'ac-shadow',
-					__( 'No border styling', 'axiscomposer' ) => 'no-border-styling'
+			'shadow' => array(
+				'title'             => __( 'Section Top Border', 'axiscomposer' ),
+				'description'       => __( 'This option lets you choose a top border style for the section.', 'axiscomposer' ),
+				'default'           => 'border',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'none'    => __( 'No top border style', 'axiscomposer' ),
+					'shadow'  => __( 'Display small top shadow', 'axiscomposer' ),
+					'border'  => __( 'Display simple top border', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Section Bottom Border Styling', 'axiscomposer' ),
-				'desc'     => __( 'Chose a border styling for the bottom of your section', 'axiscomposer' ),
-				'id'       => 'bottom_border',
-				'std'      => 'no-border-styling',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'No border styling', 'axiscomposer' ) => 'no-border-styling',
-					__( 'Display a small arrow that points down to the next section', 'axiscomposer' ) => 'border-extra-arrow-down',
+			'bottom_border' => array(
+				'title'             => __( 'Section Bottom Border', 'axiscomposer' ),
+				'description'       => __( 'This option lets you choose a bottom border style for the section.', 'axiscomposer' ),
+				'default'           => 'none',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'none'    => __( 'No bottom border style', 'axiscomposer' ),
+					'arrow'   => __( 'Display small pointed arrow to next section', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'For Developers: Section ID', 'axiscomposer' ),
-				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axiscomposer' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axiscomposer' ),
-				'id'       => 'id',
-				'std'      => '',
-				'type'     => 'input',
-				'class'    => 'ac_input_id'
+			'id' => array(
+				'title'             => __( 'Custom Section ID', 'axiscomposer' ),
+				'description'       => __( 'This option lets you set custom section ID you are willing to use for customization.', 'axiscomposer' ),
+				'class'             => 'ac_input_id',
+				'type'              => 'text',
+				'default'           => ''
 			)
 		);
 	}

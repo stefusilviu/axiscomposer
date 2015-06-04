@@ -55,44 +55,47 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			array(
-				'name'     => __( 'Grid Borders', 'axiscomposer' ),
-				'desc'     => __( 'Choose if your layout grid should display any border.', 'axiscomposer' ),
-				'id'       => 'border',
-				'std'      => 'no-border',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'No Borders', 'axiscomposer' )                                  => 'no-border',
-					__( 'Borders on top and bottom', 'axiscomposer' )                   => 'ac-border-top-bottom',
-					__( 'Borders between cells', 'axiscomposer' )                       => 'ac-border-cells',
-					__( 'Borders on top and bottom and between cells', 'axiscomposer' ) => 'ac-border-top-bottom ac-border-cells'
+			'border' => array(
+				'title'             => __( 'Grid Borders', 'axiscomposer' ),
+				'description'       => __( 'This option lets you choose a border style for layout grid.', 'axiscomposer' ),
+				'default'           => 'no-border',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'no-border'                      => __( 'No Border', 'axiscomposer' ),
+					'border-cells'                   => __( 'Borders between cells', 'axiscomposer' ),
+					'border-top-bottom'              => __( 'Borders on top and bottom', 'axiscomposer' ),
+					'border-cells border-top-bottom' => __( 'Borders between cells and on top and bottom', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'    => __( 'Minimum height', 'axiscomposer' ),
-				'desc'    => __( 'Set the minimum height of all the cells in pixel. Eg: 400px', 'axiscomposer' ),
-				'id'      => 'min_height',
-				'type'    => 'input',
-				'std'     => '0'
+			'min_height' => array(
+				'title'             => __( 'Section Custom Height', 'axiscomposer' ),
+				'description'       => __( 'Define a minimum height for the cells. Use a pixel value. eg: 400px', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true,
+				'default'           => '0'
 			),
-			array(
-				'name'     => __( 'Smartphones Behaviour', 'axiscomposer' ),
-				'desc'     => __( 'Choose how the cells inside the grid should behave on smartphones and small screens.', 'axiscomposer' ),
-				'id'       => 'smartphones',
-				'std'      => 'ac-flex-cells',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'By default each cell is displayed on its own', 'axiscomposer' )               => 'ac-flex-cells',
-					__( 'Cells appear beside each other, just like on large screens', 'axiscomposer' ) => 'ac-fixed-cells',
+			'smartphones' => array(
+				'title'             => __( 'Grid Borders', 'axiscomposer' ),
+				'description'       => __( 'Choose how the cells inside the grid should behave on smartphones and small screens.', 'axiscomposer' ),
+				'default'           => 'ac-flex-cells',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'ac-flex-cells'  => __( 'By default each cell is displayed on its own', 'axiscomposer' ),
+					'ac-fixed-cells' => __( 'Like on large screen, cells appear beside each other', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'For Developers: Section ID', 'axiscomposer' ),
-				'desc'     => __( 'Apply a custom ID Attribute to the section, so you can apply a unique style via CSS. This option is also helpful if you want to use anchor links to scroll to a sections when a link is clicked', 'axiscomposer' ) . '<br /><br />' . __( 'Use with caution and make sure to only use allowed characters. No special characters can be used.', 'axiscomposer' ),
-				'id'       => 'id',
-				'std'      => '',
-				'type'     => 'input',
-				'class'    => 'ac_input_id'
+			'id' => array(
+				'title'             => __( 'Custom Section ID', 'axiscomposer' ),
+				'description'       => __( 'This option lets you set custom section ID you are willing to use for customization.', 'axiscomposer' ),
+				'class'             => 'ac_input_id',
+				'type'              => 'text',
+				'default'           => ''
 			)
 		);
 	}

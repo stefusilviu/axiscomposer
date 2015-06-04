@@ -50,47 +50,48 @@ class AC_Shortcode_Button extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			array(
-				'name'		=> __( 'Button Label', 'axiscomposer' ),
-				'desc'		=> __( 'Enter the text for button', 'axiscomposer' ),
-				'id'		=> 'label',
-				'type'		=> 'input',
-				'std'		=> __( 'Click here to add your button label', 'axiscomposer' )
+			'label' => array(
+				'title'             => __( 'Button Label', 'axiscomposer' ),
+				'description'       => __( 'This option lets you define button label.', 'axiscomposer' ),
+				'default'           => __( 'Add your button label here.', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true
 			),
-
-			array(
-				'name'		=> __( 'Button Link', 'axiscomposer' ),
-				'desc'		=> __( 'Enter the button link', 'axiscomposer' ),
-				'id'		=> 'link',
-				'type'		=> 'input',
-				'std'		=> ''
+			'link' => array(
+				'title'             => __( 'Button Link', 'axiscomposer' ),
+				'description'       => __( 'This option lets you enter button link.', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-
-			array(
-				'name'		=> __( 'Button Size', 'axiscomposer' ),
-				'desc'		=> __( 'Choose the size of your button', 'axiscomposer' ),
-				'id'		=> 'size',
-				'type'		=> 'select',
-				'std'		=> 'medium',
-				'subtype'	=> array(
-					__( 'Small', 'axiscomposer' )	=> 'small',
-					__( 'Medium', 'axiscomposer' )	=> 'medium',
-					__( 'Large', 'axiscomposer' )	=> 'large',
+			'size' => array(
+				'title'             => __( 'Button Size', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom size of the button.', 'axiscomposer' ),
+				'default'           => 'medium',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'small'  => __( 'Small', 'axiscomposer' ),
+					'medium' => __( 'Medium', 'axiscomposer' ),
+					'large'  => __( 'Large', 'axiscomposer' )
 				)
 			),
-
-			array(
-				'name'		=> __( 'Button Position', 'axiscomposer' ),
-				'desc'		=> __( 'Choose alignment of your button', 'axiscomposer' ),
-				'id'		=> 'position',
-				'type'		=> 'select',
-				'std'		=> 'center',
-				'subtype'	=> array(
-					__( 'Left Align', 'axiscomposer' )	=> 'left',
-					__( 'Center Align', 'axiscomposer' )	=> 'center',
-					__( 'Right Align', 'axiscomposer' )	=> 'right',
+			'position' => array(
+				'title'             => __( 'Button Position', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom alignment of the button.', 'axiscomposer' ),
+				'default'           => 'center',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'left'   => __( 'Left Align', 'axiscomposer' ),
+					'center' => __( 'Center Align', 'axiscomposer' ),
+					'right'  => __( 'Right Align', 'axiscomposer' )
 				)
-			),
+			)
 		);
 	}
 

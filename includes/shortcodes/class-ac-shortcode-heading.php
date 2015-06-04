@@ -50,60 +50,61 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			array(
-				'name' => __( 'Heading Text', 'axiscomposer' ),
-				'desc' => __( 'Enter the heading text', 'axiscomposer' ),
-				'id'   => 'text',
-				'type' => 'input',
-				'std'  => __( 'Click here to add your heading text', 'axiscomposer' )
+			'text' => array(
+				'title'             => __( 'Heading Text', 'axiscomposer' ),
+				'description'       => __( 'This option lets you enter heading text.', 'axiscomposer' ),
+				'default'           => __( 'Add your heading text here.', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true
 			),
-
-			array(
-				'name'  => __( 'Heading Type', 'axiscomposer' ),
-				'desc'  => __( 'Choose the type of your heading', 'axiscomposer' ),
-				'id'    => 'type',
-				'type'  => 'select',
-				'std'   => 'H3',
-				'subtype'	=> array(
-					__( 'H1', 'axiscomposer' ) => 'H1',
-					__( 'H2', 'axiscomposer' ) => 'H2',
-					__( 'H3', 'axiscomposer' ) => 'H3',
-					__( 'H4', 'axiscomposer' ) => 'H4',
-					__( 'H5', 'axiscomposer' ) => 'H5',
-					__( 'H6', 'axiscomposer' ) => 'H6',
+			'type' => array(
+				'title'             => __( 'Heading Type', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom heading tag of the text.', 'axiscomposer' ),
+				'default'           => 'H3',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'H1' => __( 'H1', 'axiscomposer' ),
+					'H2' => __( 'H2', 'axiscomposer' ),
+					'H3' => __( 'H3', 'axiscomposer' ),
+					'H4' => __( 'H4', 'axiscomposer' ),
+					'H5' => __( 'H5', 'axiscomposer' ),
+					'H6' => __( 'H6', 'axiscomposer' )
 				)
 			),
-
-			array(
-				'name'    => __( 'Heading Font Size', 'axiscomposer' ),
-				'desc'    => __( 'Choose the font size of the heading in px', 'axiscomposer' ),
-				'type'    => 'number',
-				'id'      => 'size',
-				'min'     => '10',
-				'max'     => '40',
-				'std'     => ''
-			),
-
-			array(
-				'name'    => __( 'Font Colors', 'axiscomposer' ),
-				'desc'    => __( 'Either use the themes default colors or apply some custom ones', 'axiscomposer' ),
-				'id'      => 'font_color',
-				'std'     => '',
-				'type'    => 'select',
-				'subtype' => array(
-					__( 'Default', 'axiscomposer' ) => 'default',
-					__( 'Define Custom Colors', 'axiscomposer' ) => 'custom'
+			'size' => array(
+				'title'             => __( 'Heading Font Size', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom font size of the heading text.', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 16,
+				'custom_attributes' => array(
+					'min' => 10,
+					'max' => 40
 				)
 			),
-
-			array(
-				'name'     => __( 'Custom Font Color', 'axiscomposer' ),
-				'desc'     => __( 'Select a custom font color. Leave empty to use the default', 'axiscomposer' ),
-				'id'       => 'color',
-				'std'      => '',
-				'required' => array( 'font_color', 'equals', 'custom' ),
-				'type'     => 'colorpicker'
+			'font_color' => array(
+				'title'             => __( 'Font Color', 'axiscomposer' ),
+				'description'       => __( 'This option lets you limit which color you are willing to use.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'availability ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'  => __( 'Theme Default Color', 'axiscomposer' ),
+					'specific' => __( 'Define Custom Color', 'axiscomposer' )
+				)
 			),
+			'color' => array(
+				'title'             => __( 'Custom Font Color', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom font color of the heading text.', 'axiscomposer' ),
+				'type'              => 'color',
+				'desc_tip'          => true,
+				'default'           => ''
+			)
 		);
 	}
 

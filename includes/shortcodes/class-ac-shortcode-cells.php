@@ -59,90 +59,80 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 	public function get_settings() {
 
 		$this->elements = array(
-			array(
-				'name'     => __( 'Vertical align', 'axiscomposer' ),
-				'desc'     => __( 'Choose the vertical alignment of your cells content.', 'axiscomposer' ),
-				'id'       => 'vertical_align',
-				'std'      => 'top',
-				'type'     => 'select',
-				'subtype'  => array(
-					__( 'Top', 'axiscomposer' )    => 'top',
-					__( 'Middle', 'axiscomposer' ) => 'middle',
-					__( 'Bottom', 'axiscomposer' ) => 'bottom'
+			'vertical_align' => array(
+				'title'             => __( 'Vertical align', 'axiscomposer' ),
+				'description'       => __( 'Choose the vertical alignment of your cells content.', 'axiscomposer' ),
+				'default'           => 'top',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'top'    => __( 'Top', 'axiscomposer' ),
+					'middle' => __( 'Middle', 'axiscomposer' ),
+					'bottom' => __( 'Bottom', 'axiscomposer' )
 				)
 			),
-			// array(
-			// 	'name'     => __( 'Cell Padding', 'axiscomposer' ),
-			// 	'desc'     => __( 'Set the distance from the cell content to the border here. Both pixel and &percnt; based values are accepted. eg: 30px, 5&percnt;', 'axiscomposer' ),
-			// 	'id'       => 'padding',
-			// 	'std'      => '30px',
-			// 	'type'     => 'input', // Will be multi_input
-			// 	'sync'     => true,
-			// 	'subtype'  => array(
-			// 		__( 'Top', 'axiscomposer' )    => 'top',
-			// 		__( 'Right', 'axiscomposer' )  => 'right',
-			// 		__( 'Bottom', 'axiscomposer' ) => 'bottom',
-			// 		__( 'Left', 'axiscomposer' )   => 'left'
-			// 	)
-			// ),
-			array(
-				'name'     => __( 'Custom Background Color', 'axiscomposer' ),
-				'desc'     => __( 'Select a custom background color for your Section here. Leave empty to use the default.', 'axiscomposer' ),
-				'id'       => 'background_color',
-				'type'     => 'colorpicker',
-				'std'      => ''
+			'background_color' => array(
+				'title'             => __( 'Background Color', 'axiscomposer' ),
+				'description'       => __( 'This sets the background color for your cell. Leave empty to use the default.', 'axiscomposer' ),
+				'type'              => 'color',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-			array(
-				'name'     => __( 'Custom Background Image', 'axiscomposer' ),
-				'desc'     => __( 'Either upload a new, or choose an existing image from your media library. Leave empty if you want to use the background image.', 'axiscomposer' ),
-				'title'    => __( 'Insert Image', 'axiscomposer' ),
-				'button'   => __( 'Insert', 'axiscomposer' ),
-				'id'       => 'src',
-				'std'      => '',
-				'type'     => 'image'
+			'background_image' => array(
+				'title'             => __( 'Background Image', 'axiscomposer' ),
+				'description'       => __( 'Either upload a new, or choose an existing image from your media library.', 'axiscomposer' ),
+				'label'             => __( 'Insert Image', 'axiscomposer' ),
+				'type'              => 'image',
+				'desc_tip'          => true,
+				'default'           => ''
 			),
-			array(
-				'name'     => __( 'Background Attachment', 'axiscomposer' ),
-				'desc'     => __( 'Background can either scroll with the page, be fixed.', 'axiscomposer' ),
-				'id'       => 'background_attachment',
-				'std'      => 'scroll',
-				'type'     => 'select',
-				'required' => array( 'src', 'not', '' ),
-				'subtype'  => array(
-					__( 'Scroll', 'axiscomposer' )   => 'scroll',
-					__( 'Fixed', 'axiscomposer' )    => 'fixed'
+			'background_attachment' => array(
+				'title'             => __( 'Background Attachment', 'axiscomposer' ),
+				'description'       => __( 'Background can either scroll with the page, be fixed.', 'axiscomposer' ),
+				'default'           => 'scroll',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'scroll'   => __( 'Scroll', 'axiscomposer' ),
+					'repeat'   => __( 'Fixed', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Background Position', 'axiscomposer' ),
-				'id'       => 'background_position',
-				'std'      => 'top left',
-				'type'     => 'select',
-				'required' => array( 'src', 'not', '' ),
-				'subtype'  => array(
-					__( 'Top Left', 'axiscomposer' )       =>'top left',
-					__( 'Top Center', 'axiscomposer' )     =>'top center',
-					__( 'Top Right', 'axiscomposer' )      =>'top right',
-					__( 'Bottom Left', 'axiscomposer' )    =>'bottom left',
-					__( 'Bottom Center', 'axiscomposer' )  =>'bottom center',
-					__( 'Bottom Right', 'axiscomposer' )   =>'bottom right',
-					__( 'Center Left', 'axiscomposer' )    =>'center left',
-					__( 'Center Center', 'axiscomposer' )  =>'center center',
-					__( 'Center Right', 'axiscomposer' )   =>'center right'
+			'background_position' => array(
+				'title'             => __( 'Background Position', 'axiscomposer' ),
+				'default'           => 'top left',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'top left'      => __( 'Top Left', 'axiscomposer' ),
+					'top center'    => __( 'Top Center', 'axiscomposer' ),
+					'top right'     => __( 'Top Right', 'axiscomposer' ),
+					'bottom left'   => __( 'Bottom Left', 'axiscomposer' ),
+					'bottom center' => __( 'Bottom Center', 'axiscomposer' ),
+					'bottom right'  => __( 'Bottom Right', 'axiscomposer' ),
+					'center left'   => __( 'Center Left', 'axiscomposer' ),
+					'center center' => __( 'Center Center', 'axiscomposer' ),
+					'center right'  => __( 'Center Right', 'axiscomposer' )
 				)
 			),
-			array(
-				'name'     => __( 'Background Repeat', 'axiscomposer' ),
-				'id'       => 'background_repeat',
-				'std'      => 'no-repeat',
-				'type'     => 'select',
-				'required' => array( 'src', 'not', '' ),
-				'subtype'  => array(
-					__( 'No Repeat', 'axiscomposer' )         => 'no-repeat',
-					__( 'Tile', 'axiscomposer' )              => 'repeat',
-					__( 'Tile Horizontally', 'axiscomposer' ) => 'repeat-x',
-					__( 'Tile Vertically', 'axiscomposer' )   => 'repeat-y',
-					__( 'Stretch to Fit', 'axiscomposer' )    => 'stretch'
+			'background_repeat' => array(
+				'title'             => __( 'Background Repeat', 'axiscomposer' ),
+				'default'           => 'no-repeat',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'no-repeat' => __( 'No Repeat', 'axiscomposer' ),
+					'repeat'    => __( 'Tile', 'axiscomposer' ),
+					'repeat-x'  => __( 'Tile Horizontally', 'axiscomposer' ),
+					'repeat-y'  => __( 'Tile Vertically', 'axiscomposer' ),
+					'stretch'   => __( 'Stretch to Fit', 'axiscomposer' )
 				)
 			)
 		);

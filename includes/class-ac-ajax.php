@@ -219,7 +219,7 @@ class AC_AJAX {
 
 		$found_pages = array();
 
-		if ( $posts ) {
+		if ( ! empty( $posts ) ) {
 			foreach ( $posts as $post ) {
 				$page = get_post( $post );
 				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axiscomposer' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );

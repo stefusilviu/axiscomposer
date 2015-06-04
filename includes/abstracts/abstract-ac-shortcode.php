@@ -38,12 +38,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public $shortcode;
 
 	/**
-	 * Shortcode Elements
-	 * @var array
-	 */
-	public $elements;
-
-	/**
 	 * Shortcode Arguments
 	 * @var array
 	 */

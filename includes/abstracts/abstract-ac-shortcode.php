@@ -137,9 +137,9 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		// Get modal settings fragment
 		ob_start();
-		?><table class="form-table"><?php
-			$this->generate_settings_html();
-		?></table><?php
+		?><table class="form-table">
+			<?php $this->generate_settings_html(); ?>
+		</table><?php
 		$axiscomposer_modal_settings = ob_get_clean();
 
 		$data = array(

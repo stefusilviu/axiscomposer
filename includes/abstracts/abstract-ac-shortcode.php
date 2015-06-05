@@ -119,8 +119,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 		}
 
-		// Set the default fields value
-		$this->form_fields = $this->set_defaults_value( $this->form_fields );
+		// Get the default fields value
+		$this->form_fields = $this->get_default_value();
 
 		// Get modal settings fragment
 		ob_start();
@@ -458,11 +458,16 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Extracts the shortcode attributes and merge the values into the options array.
-	 * @param  array $elements
-	 * @return array $elements
+	 * Get the default field values.
+	 * @param  array $form_fields (default: array())
+	 * @return array $form_fields
 	 */
-	public function set_defaults_value( $elements ) {
+	public function get_default_value( $form_fields = array() ) {
+
+		if ( empty( $form_fields ) ) {
+			$form_fields = $this->get_form_fields();
+		}
+
 		$shortcode = empty( $_POST['params']['shortcode'] ) ? '' : $_POST['params']['shortcode'];
 
 		if ( $shortcode ) {
@@ -483,8 +488,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 				}
 
 				// Check if we already got a value?
-				foreach ( $elements as $key => &$value ) {
-
+				foreach ( $form_fields as $key => &$value ) {
 					if ( isset( $key ) && isset( $extracted_shortcode['attr'][$key] ) ) {
 						$element['shortcode_data'] = $extracted_shortcode['attr'];
 
@@ -511,7 +515,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 		}
 
-		return $elements;
+		return $form_fields;
 	}
 
 	/**

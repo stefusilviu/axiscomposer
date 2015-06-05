@@ -107,8 +107,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 		}
 
-		// Get the default fields value
-		$this->form_fields = $this->get_default_value();
+		// Get the default fields values
+		$this->form_fields = $this->get_default_values();
 
 		// Get modal settings fragment
 		ob_start();
@@ -457,7 +457,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * @param  array $form_fields (default: array())
 	 * @return array $form_fields
 	 */
-	public function get_default_value( $form_fields = array() ) {
+	public function get_default_values( $form_fields = array() ) {
 
 		if ( empty( $form_fields ) ) {
 			$form_fields = $this->get_form_fields();

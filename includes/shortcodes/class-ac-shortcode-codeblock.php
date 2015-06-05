@@ -91,7 +91,7 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 				'type'              => 'checkbox',
 				'checkboxgroup'     => '',
 				'default'           => 'no'
-			),
+			)
 		);
 	}
 

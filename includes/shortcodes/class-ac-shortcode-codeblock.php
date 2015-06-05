@@ -102,8 +102,8 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	 */
 	public function editor_element( $params ) {
 		$params['innerHtml']  = '';
-		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
-		$params['innerHtml'] .= '<div class="ac-element-label">' . $this->title . '</div>';
+		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->method_title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
+		$params['innerHtml'] .= '<div class="ac-element-label">' . $this->method_title . '</div>';
 
 		return (array) $params;
 	}

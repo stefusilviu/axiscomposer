@@ -198,7 +198,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 	public function editor_element( $params ) {
 		extract( $params );
 
-		$data['modal-title']       = $this->title;
+		$data['modal-title']       = $this->method_title;
 		$data['modal-action']      = $this->shortcode['name'];
 		$data['dragdrop-level']    = $this->shortcode['drag-level'];
 		$data['shortcode-handler'] = $this->shortcode['name'];
@@ -206,7 +206,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 
 		$output = '<div class="ac-layout-section modal-animation ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';
 			$output .= '<div class="ac-sorthandle menu-item-handle">';
-				$output .= '<span class="ac-element-title">' . $this->title . '</span>';
+				$output .= '<span class="ac-element-title">' . $this->method_title . '</span>';
 				if ( isset( $this->shortcode['has_fields'] ) ) {
 					$output .= '<a class="axiscomposer-edit edit-element-icon" href="#edit" title="' . __( 'Edit Section', 'axiscomposer' ) . '">' . __( 'Edit Section', 'axiscomposer' ) . '</a>';
 				}

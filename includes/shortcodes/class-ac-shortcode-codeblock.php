@@ -29,7 +29,7 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'codeblock';
+		$this->id                 = 'codeblock';
 		$this->method_title       = __( 'Code Block', 'axiscomposer' );
 		$this->method_description = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axiscomposer' );
 		$this->shortcode = array(

@@ -29,7 +29,7 @@ class AC_Shortcode_Tabs extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'tabs';
+		$this->id                 = 'tabs';
 		$this->method_title       = __( 'Tabs', 'axiscomposer' );
 		$this->method_description = __( 'Creates a tabbed content area', 'axiscomposer' );
 		$this->shortcode = array(

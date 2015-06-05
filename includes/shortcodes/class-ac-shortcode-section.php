@@ -32,7 +32,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'section';
+		$this->id                 = 'section';
 		$this->method_title       = __( 'Color Section', 'axiscomposer' );
 		$this->method_description = __( 'Creates a color section with custom styles', 'axiscomposer' );
 		$this->shortcode = array(

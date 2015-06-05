@@ -29,7 +29,7 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'textblock';
+		$this->id                 = 'textblock';
 		$this->method_title       = __( 'Text Block', 'axiscomposer' );
 		$this->method_description = __( 'Creates a simple text block', 'axiscomposer' );
 		$this->shortcode = array(

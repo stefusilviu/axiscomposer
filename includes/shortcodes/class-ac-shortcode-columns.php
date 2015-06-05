@@ -31,7 +31,7 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_one_full';
+		$this->id                 = 'col_one_full';
 		$this->method_title       = __( '1/1', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with full width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -127,7 +127,7 @@ class AC_Shortcode_Columns_One_Half extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_one_half';
+		$this->id                 = 'col_one_half';
 		$this->method_title       = __( '1/2', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 50&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -154,7 +154,7 @@ class AC_Shortcode_Columns_One_Third extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_one_third';
+		$this->id                 = 'col_one_third';
 		$this->method_title       = __( '1/3', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 33&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -181,7 +181,7 @@ class AC_Shortcode_Columns_Two_Third extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_two_third';
+		$this->id                 = 'col_two_third';
 		$this->method_title       = __( '2/3', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 67&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -208,7 +208,7 @@ class AC_Shortcode_Columns_One_Fourth extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_one_fourth';
+		$this->id                 = 'col_one_fourth';
 		$this->method_title       = __( '1/4', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 25&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -235,7 +235,7 @@ class AC_Shortcode_Columns_Three_Fourth extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_three_fourth';
+		$this->id                 = 'col_three_fourth';
 		$this->method_title       = __( '3/4', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 75&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -262,7 +262,7 @@ class AC_Shortcode_Columns_One_Fifth extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_one_fifth';
+		$this->id                 = 'col_one_fifth';
 		$this->method_title       = __( '1/5', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 20&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -289,7 +289,7 @@ class AC_Shortcode_Columns_Two_Fifth extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_two_fifth';
+		$this->id                 = 'col_two_fifth';
 		$this->method_title       = __( '2/5', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 40&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -316,7 +316,7 @@ class AC_Shortcode_Columns_Three_Fifth extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_three_fifth';
+		$this->id                 = 'col_three_fifth';
 		$this->method_title       = __( '3/5', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 60&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
@@ -343,7 +343,7 @@ class AC_Shortcode_Columns_Four_Fifth extends AC_Shortcode_Columns {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'col_four_fifth';
+		$this->id                 = 'col_four_fifth';
 		$this->method_title       = __( '4/5', 'axiscomposer' );
 		$this->method_description = __( 'Creates a single column with 80&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(

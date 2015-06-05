@@ -29,7 +29,7 @@ class AC_Shortcode_Productslider extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'productslider';
+		$this->id                 = 'productslider';
 		$this->method_title       = __( 'Product Slider', 'axiscomposer' );
 		$this->method_description = __( 'Displays a slideshow of product entries', 'axiscomposer' );
 		$this->shortcode = array(

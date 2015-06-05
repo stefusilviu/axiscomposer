@@ -29,7 +29,7 @@ class AC_Shortcode_Animatednumbers extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'animatednumbers';
+		$this->id                 = 'animatednumbers';
 		$this->method_title       = __( 'Animated Numbers', 'axiscomposer' );
 		$this->method_description = __( 'Display an Animated number with subtitle', 'axiscomposer' );
 		$this->shortcode = array(

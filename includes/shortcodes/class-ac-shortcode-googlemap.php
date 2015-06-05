@@ -29,7 +29,7 @@ class AC_Shortcode_Googlemap extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'googlemap';
+		$this->id                 = 'googlemap';
 		$this->method_title       = __( 'Google Map', 'axiscomposer' );
 		$this->method_description = __( 'Displays a google map with one or multiple locations', 'axiscomposer' );
 		$this->shortcode = array(

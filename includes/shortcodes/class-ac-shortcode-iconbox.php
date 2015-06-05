@@ -29,7 +29,7 @@ class AC_Shortcode_Iconbox extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id        = 'iconbox';
+		$this->id                 = 'iconbox';
 		$this->method_title       = __( 'Icon Box', 'axiscomposer' );
 		$this->method_description = __( 'Creates a content box with icon', 'axiscomposer' );
 		$this->shortcode = array(

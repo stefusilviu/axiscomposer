@@ -36,7 +36,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'cell_one_full';
 		$this->title     = __( '1/1', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with full width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with full width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 13,
 			'type'        => 'layout',
@@ -330,7 +330,7 @@ class AC_Shortcode_Cells_One_Half extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_one_half';
 		$this->title     = __( '1/2', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 50&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 50&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 14,
 			'type'        => 'layout',
@@ -358,7 +358,7 @@ class AC_Shortcode_Cells_One_Third extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_one_third';
 		$this->title     = __( '1/3', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 33&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 33&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 15,
 			'type'        => 'layout',
@@ -386,7 +386,7 @@ class AC_Shortcode_Cells_Two_Third extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_two_third';
 		$this->title     = __( '2/3', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 67&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 67&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 16,
 			'type'        => 'layout',
@@ -414,7 +414,7 @@ class AC_Shortcode_Cells_One_Fourth extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_one_fourth';
 		$this->title     = __( '1/4', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 25&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 25&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 17,
 			'type'        => 'layout',
@@ -442,7 +442,7 @@ class AC_Shortcode_Cells_Three_Fourth extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_three_fourth';
 		$this->title     = __( '3/4', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 75&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 75&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 18,
 			'type'        => 'layout',
@@ -470,7 +470,7 @@ class AC_Shortcode_Cells_One_Fifth extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_one_fifth';
 		$this->title     = __( '1/5', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 20&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 20&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 19,
 			'type'        => 'layout',
@@ -498,7 +498,7 @@ class AC_Shortcode_Cells_Two_Fifth extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_two_fifth';
 		$this->title     = __( '2/5', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 40&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 40&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 20,
 			'type'        => 'layout',
@@ -526,7 +526,7 @@ class AC_Shortcode_Cells_Three_Fifth extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_three_fifth';
 		$this->title     = __( '3/5', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 60&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 60&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 21,
 			'type'        => 'layout',
@@ -554,7 +554,7 @@ class AC_Shortcode_Cells_Four_Fifth extends AC_Shortcode_Cells {
 	public function init_shortcode() {
 		$this->id        = 'cell_four_fifth';
 		$this->title     = __( '4/5', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a single column with 80&percnt; width', 'axiscomposer' );
+		$this->method_description = __( 'Creates a single column with 80&percnt; width', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 22,
 			'type'        => 'layout',

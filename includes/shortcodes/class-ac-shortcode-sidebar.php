@@ -31,7 +31,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'sidebar';
 		$this->title     = __( 'Widget Area', 'axiscomposer' );
-		$this->tooltip   = __( 'Display one of the themes widget areas', 'axiscomposer' );
+		$this->method_description = __( 'Display one of the themes widget areas', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 330,
 			'type'    => 'content',

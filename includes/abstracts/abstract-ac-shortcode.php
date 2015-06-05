@@ -20,12 +20,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	public $title;
 
 	/**
-	 * Shortcode Tooltip.
-	 * @var string
-	 */
-	public $tooltip;
-
-	/**
 	 * Shortcode Counter.
 	 * @var int
 	 */

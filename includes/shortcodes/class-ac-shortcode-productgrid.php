@@ -31,7 +31,7 @@ class AC_Shortcode_Productgrid extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'productgrid';
 		$this->title     = __( 'Product Grid', 'axiscomposer' );
-		$this->tooltip   = __( 'Displays a grid of Product Entries', 'axiscomposer' );
+		$this->method_description = __( 'Displays a grid of Product Entries', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 510,
 			'type'    => 'plugin',

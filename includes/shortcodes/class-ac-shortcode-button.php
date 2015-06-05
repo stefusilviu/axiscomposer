@@ -31,7 +31,7 @@ class AC_Shortcode_Button extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'button';
 		$this->title     = __( 'Button', 'axiscomposer' );
-		$this->tooltip   = __( 'Creates a colored button', 'axiscomposer' );
+		$this->method_description = __( 'Creates a colored button', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 120,
 			'type'    => 'content',

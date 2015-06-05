@@ -120,7 +120,7 @@ class AC_Meta_Box_Page_Builder_Data {
 
 					// Fetch shortcode data :)
 					$title     = $load_shortcodes->title;
-					$tooltip   = $load_shortcodes->tooltip;
+					$tooltip   = $load_shortcodes->method_description;
 					$shortcode = $load_shortcodes->shortcode;
 
 					// Fallback if icon is missing :)

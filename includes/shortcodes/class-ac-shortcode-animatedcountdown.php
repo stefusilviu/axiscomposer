@@ -33,7 +33,7 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'animatedcountdown';
 		$this->title     = __( 'Animated Countdown', 'axiscomposer' );
-		$this->tooltip   = __( 'Display an count down to a specific date', 'axiscomposer' );
+		$this->method_description = __( 'Display an count down to a specific date', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 210,
 			'type'    => 'content',

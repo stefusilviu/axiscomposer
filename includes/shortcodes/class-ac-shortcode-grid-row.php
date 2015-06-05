@@ -33,7 +33,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'layout_row';
 		$this->title     = __( 'Grid Row', 'axiscomposer' );
-		$this->tooltip   = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axiscomposer' );
+		$this->method_description = __( 'Add multiple Grid Rows below each other to create advanced grid layouts. Cells can be styled individually', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'        => 12,
 			'type'        => 'layout',

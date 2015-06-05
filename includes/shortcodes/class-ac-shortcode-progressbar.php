@@ -31,7 +31,7 @@ class AC_Shortcode_Progressbar extends AC_Shortcode {
 	public function init_shortcode() {
 		$this->id        = 'progressbar';
 		$this->title     = __( 'Progress Bars', 'axiscomposer' );
-		$this->tooltip   = __( 'Create some progress bars', 'axiscomposer' );
+		$this->method_description = __( 'Create some progress bars', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 160,
 			'type'    => 'content',

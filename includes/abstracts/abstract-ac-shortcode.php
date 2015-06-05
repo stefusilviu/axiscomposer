@@ -473,9 +473,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			// Store the main shortcode (i.e always the last array item)
 			$extracted_shortcode = end( $_POST['extracted_shortcode'] );
 
-			// If more than one items we are dealing with nested shortcodes
-			$multi_content = count( $_POST['extracted_shortcode'] );
-
 			// Proceed if the main shortcode has either arguments or content
 			if ( ! empty( $extracted_shortcode['attr'] ) || ! empty( $extracted_shortcode['content'] ) ) {
 
@@ -496,8 +493,9 @@ abstract class AC_Shortcode extends AC_Settings_API {
 						// If we got a item with subelements
 						if ( isset( $value['subelements'] ) ) {
 							$value['default'] = array();
+							$count_shortcodes = count( $_POST['extracted_shortcode'] );
 
-							for ( $i = 0; $i < ( $multi_content - 1 ); $i++ ) {
+							for ( $i = 0; $i < ( $count_shortcodes - 1 ); $i++ ) {
 								$value['default'][$i]            = $_POST['extracted_shortcode'][$i]['attr'];
 								$value['default'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
 							}

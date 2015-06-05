@@ -467,13 +467,13 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		if ( $shortcode ) {
 
-			// Will extract the shortcode into $_POST['extracted_shortcode']
+			// Extract shortcode into $_POST['extracted_shortcode']
 			AC_AJAX::shortcodes_to_interface( $shortcode );
 
-			// The main shortcode (which is always the last array item) will be stored in $extracted_shortcode
+			// Store the main shortcode (i.e always the last array item)
 			$extracted_shortcode = end( $_POST['extracted_shortcode'] );
 
-			// If the $_POST['extracted_shortcode'] has more than one items we are dealing with nested shortcodes
+			// If more than one items we are dealing with nested shortcodes
 			$multi_content = count( $_POST['extracted_shortcode'] );
 
 			// Proceed if the main shortcode has either arguments or content
@@ -487,12 +487,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 					$extracted_shortcode['attr']['content'] = $extracted_shortcode['content'];
 				}
 
-				// Iterate over each elements and check if we already got a value
+				// Check if we already got a value?
 				foreach ( $elements as $key => &$value ) {
 
 					if ( isset( $key ) && isset( $extracted_shortcode['attr'][$key] ) ) {
-
-						// Ensure each popup element can access the other values of the shortcode. Necessary for hidden elements.
 						$element['shortcode_data'] = $extracted_shortcode['attr'];
 
 						// If we got a item with subelements

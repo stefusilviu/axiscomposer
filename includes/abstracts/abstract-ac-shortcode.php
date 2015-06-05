@@ -474,23 +474,23 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 			// Extract and store the main shortcode
 			AC_AJAX::shortcodes_to_interface( $shortcode );
-			$extracted_shortcode = end( $_POST['extracted_shortcode'] );
+			$main_shortcode = end( $_POST['extracted_shortcode'] );
 
 			// Proceed if the main shortcode has either arguments or content
-			if ( ! empty( $extracted_shortcode['attr'] ) || ! empty( $extracted_shortcode['content'] ) ) {
+			if ( ! empty( $main_shortcode['attr'] ) || ! empty( $main_shortcode['content'] ) ) {
 
-				if ( empty( $extracted_shortcode['attr'] ) ) {
-					$extracted_shortcode['attr'] = '';
+				if ( empty( $main_shortcode['attr'] ) ) {
+					$main_shortcode['attr'] = '';
 				}
 
-				if ( isset( $extracted_shortcode['content'] ) ) {
-					$extracted_shortcode['attr']['content'] = $extracted_shortcode['content'];
+				if ( isset( $main_shortcode['content'] ) ) {
+					$main_shortcode['attr']['content'] = $main_shortcode['content'];
 				}
 
 				// Check if we already got a value?
 				foreach ( $form_fields as $key => &$value ) {
-					if ( isset( $key ) && isset( $extracted_shortcode['attr'][$key] ) ) {
-						$element['shortcode_data'] = $extracted_shortcode['attr'];
+					if ( isset( $key ) && isset( $main_shortcode['attr'][$key] ) ) {
+						$element['shortcode_data'] = $main_shortcode['attr'];
 
 						// If we got a item with subelements
 						if ( isset( $value['subelements'] ) ) {
@@ -502,11 +502,11 @@ abstract class AC_Shortcode extends AC_Settings_API {
 								$value['default'][$i]['content'] = $_POST['extracted_shortcode'][$i]['content'];
 							}
 						} elseif ( $value['type'] == 'checkbox' ) {
-							if ( 1 == $extracted_shortcode['attr'][$key] ) {
+							if ( 1 == $main_shortcode['attr'][$key] ) {
 								$value['default'] = 'yes';
 							}
 						} else {
-							$value['default'] = ac_clean( stripslashes( $extracted_shortcode['attr'][$key] ) );
+							$value['default'] = ac_clean( stripslashes( $main_shortcode['attr'][$key] ) );
 						}
 					} elseif ( $value['type'] == 'checkbox' ) {
 						$value['default'] = 'no';

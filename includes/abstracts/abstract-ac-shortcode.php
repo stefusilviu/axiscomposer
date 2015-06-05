@@ -467,10 +467,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		if ( $shortcode ) {
 
-			// Extract shortcode into $_POST['extracted_shortcode']
+			// Extract and store the main shortcode
 			AC_AJAX::shortcodes_to_interface( $shortcode );
-
-			// Store the main shortcode (i.e always the last array item)
 			$extracted_shortcode = end( $_POST['extracted_shortcode'] );
 
 			// Proceed if the main shortcode has either arguments or content

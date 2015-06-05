@@ -408,51 +408,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
-	 * Callback for default sortable elements.
-	 */
-	public function sortable_editor_element( $params ) {
-		$extra_class = '';
-
-		$defaults = array(
-			'innerHtml' => '',
-			'class'     => 'ac-default-container'
-		);
-
-		$params = array_merge( $defaults, $params );
-
-		extract( $params );
-
-		$data['modal-title']       = $this->title;
-		$data['modal-action']      = $this->shortcode['name'];
-		$data['dragdrop-level']    = $this->shortcode['drag-level'];
-		$data['shortcode-handler'] = $this->shortcode['name'];
-		$data['shortcode-allowed'] = $this->shortcode['name'];
-
-		if ( isset( $this->shortcode['shortcode-nested'] ) ) {
-			$data['shortcode-allowed']   = $this->shortcode['shortcode-nested'];
-			$data['shortcode-allowed'][] = $this->shortcode['name'];
-			$data['shortcode-allowed']   = implode( ',', $data['shortcode-allowed'] );
-		}
-
-		$output = '<div class="ac-sortable-element modal-animation ac-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . ac_html_data_string( $data ) . '>';
-			$output .= '<div class="ac-sorthandle menu-item-handle">';
-				if ( isset( $this->shortcode['has_fields'] ) ) {
-					$extra_class = 'axiscomposer-edit';
-					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axiscomposer' ) . '">' . __( 'Edit Element', 'axiscomposer' ) . '</a>';
-				}
-				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axiscomposer' ) . '">' . __( 'Delete Element', 'axiscomposer' ) . '</a>';
-				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axiscomposer' ) . '">' . __( 'Clone Element',  'axiscomposer' ) . '</a>';
-			$output .= '</div>';
-			$output .= '<div class="ac-inner-shortcode ' . $extra_class . '">';
-				$output .= $innerHtml;
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
-			$output .= '</div>';
-		$output .= '</div>';
-
-		return $output;
-	}
-
-	/**
 	 * Get the default field values.
 	 * @param  array $form_fields (default: array())
 	 * @return array $form_fields
@@ -570,6 +525,52 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		}
 
 		return $arguments;
+	}
+
+
+	/**
+	 * Callback for default sortable elements.
+	 */
+	public function sortable_editor_element( $params ) {
+		$extra_class = '';
+
+		$defaults = array(
+			'innerHtml' => '',
+			'class'     => 'ac-default-container'
+		);
+
+		$params = array_merge( $defaults, $params );
+
+		extract( $params );
+
+		$data['modal-title']       = $this->title;
+		$data['modal-action']      = $this->shortcode['name'];
+		$data['dragdrop-level']    = $this->shortcode['drag-level'];
+		$data['shortcode-handler'] = $this->shortcode['name'];
+		$data['shortcode-allowed'] = $this->shortcode['name'];
+
+		if ( isset( $this->shortcode['shortcode-nested'] ) ) {
+			$data['shortcode-allowed']   = $this->shortcode['shortcode-nested'];
+			$data['shortcode-allowed'][] = $this->shortcode['name'];
+			$data['shortcode-allowed']   = implode( ',', $data['shortcode-allowed'] );
+		}
+
+		$output = '<div class="ac-sortable-element modal-animation ac-drag ' . $this->shortcode['name'] . ' ' . $class . '"' . ac_html_data_string( $data ) . '>';
+			$output .= '<div class="ac-sorthandle menu-item-handle">';
+				if ( isset( $this->shortcode['has_fields'] ) ) {
+					$extra_class = 'axiscomposer-edit';
+					$output .= '<a class="' . $extra_class . ' edit-element-icon" href="#edit" title="' . __( 'Edit Element', 'axiscomposer' ) . '">' . __( 'Edit Element', 'axiscomposer' ) . '</a>';
+				}
+				$output .= '<a class="axiscomposer-trash trash-element-icon" href="#trash" title="' . __( 'Delete Element', 'axiscomposer' ) . '">' . __( 'Delete Element', 'axiscomposer' ) . '</a>';
+				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Element',  'axiscomposer' ) . '">' . __( 'Clone Element',  'axiscomposer' ) . '</a>';
+			$output .= '</div>';
+			$output .= '<div class="ac-inner-shortcode ' . $extra_class . '">';
+				$output .= $innerHtml;
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+			$output .= '</div>';
+		$output .= '</div>';
+
+		return $output;
 	}
 
 	/**

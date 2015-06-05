@@ -5,7 +5,7 @@
  * Description: A drag and drop builder that helps you compose anything. Beautifully.
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
- * Version: 1.0-alpha-3
+ * Version: 1.0-alpha-4
  * Requires at least: 4.0
  * Tested up to: 4.2
  *

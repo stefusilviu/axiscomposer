@@ -106,7 +106,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		// Add-on Custom CSS class field
 		if ( apply_filters( 'axiscomposer_show_custom_class_field', true ) ) {
-			$this->form_fields = $this->custom_css_field( $this->form_fields );
+			$this->form_fields = $this->custom_css_field();
 		}
 
 		// If we got a field with subelements
@@ -355,8 +355,15 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 	/**
 	 * Add-on for Custom CSS class field.
+	 * @param  array $form_fields (default: array())
+	 * @return array $form_fields
 	 */
-	public function custom_css_field( $form_fields ) {
+	public function custom_css_field( $form_fields = array() ) {
+
+		if ( empty( $form_fields ) ) {
+			$form_fields = $this->get_form_fields();
+		}
+
 		$form_fields['custom_class'] = array(
 			'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
 			'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),

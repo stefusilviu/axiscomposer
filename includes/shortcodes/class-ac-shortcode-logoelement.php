@@ -30,7 +30,7 @@ class AC_Shortcode_Logoelement extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'logoelement';
-		$this->title     = __( 'Partner/Logo Element', 'axiscomposer' );
+		$this->method_title       = __( 'Partner/Logo Element', 'axiscomposer' );
 		$this->method_description = __( 'Displays a partner/logo grid or slider', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 380,

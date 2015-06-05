@@ -30,7 +30,7 @@ class AC_Shortcode_Accordion extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'accordion';
-		$this->title     = __( 'Accordion', 'axiscomposer' );
+		$this->method_title       = __( 'Accordion', 'axiscomposer' );
 		$this->method_description = __( 'Creates toggles or accordion', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 180,

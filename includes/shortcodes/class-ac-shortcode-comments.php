@@ -30,7 +30,7 @@ class AC_Shortcode_Comments extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'comments';
-		$this->title     = __( 'Comments', 'axiscomposer' );
+		$this->method_title       = __( 'Comments', 'axiscomposer' );
 		$this->method_description = __( 'Add a comment form and comments list to the template', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 340,

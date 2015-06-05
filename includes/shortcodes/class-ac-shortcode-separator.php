@@ -30,7 +30,7 @@ class AC_Shortcode_Separator extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'separator';
-		$this->title     = __( 'Separator / Whitespace', 'axiscomposer' );
+		$this->method_title       = __( 'Separator / Whitespace', 'axiscomposer' );
 		$this->method_description = __( 'Creates a delimiter/whitespace to separate elements', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 70,

@@ -119,7 +119,7 @@ class AC_Meta_Box_Page_Builder_Data {
 				if ( $load_shortcodes->shortcode['type'] === $type ) {
 
 					// Fetch shortcode data :)
-					$title     = $load_shortcodes->title;
+					$title     = $load_shortcodes->method_title;
 					$tooltip   = $load_shortcodes->method_description;
 					$shortcode = $load_shortcodes->shortcode;
 

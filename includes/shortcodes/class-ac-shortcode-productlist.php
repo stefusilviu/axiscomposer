@@ -30,7 +30,7 @@ class AC_Shortcode_Productlist extends AC_Shortcode {
 	 */
 	public function init_shortcode() {
 		$this->id        = 'productlist';
-		$this->title     = __( 'Product List', 'axiscomposer' );
+		$this->method_title       = __( 'Product List', 'axiscomposer' );
 		$this->method_description = __( 'Displays a list of Product Entries', 'axiscomposer' );
 		$this->shortcode = array(
 			'sort'    => 520,

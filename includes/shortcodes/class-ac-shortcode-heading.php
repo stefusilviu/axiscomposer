@@ -49,7 +49,7 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	public function init_form_fields() {
 
 		$this->form_fields = array(
-			'text' => array(
+			'heading' => array(
 				'title'             => __( 'Heading Text', 'axiscomposer' ),
 				'description'       => __( 'This option lets you enter heading text.', 'axiscomposer' ),
 				'default'           => __( 'Add your heading text here.', 'axiscomposer' ),

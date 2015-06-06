@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0-alpha-2 Frontend\n"
+"Project-Id-Version: AxisComposer 1.0-alpha-4 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-06-01 17:28:19+00:00\n"
+"POT-Creation-Date: 2015-06-06 10:29:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,26 +48,25 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:246
+#: includes/abstracts/abstract-ac-shortcode.php:356
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:247
+#: includes/abstracts/abstract-ac-shortcode.php:357
 msgid ""
-"Add a custom css class for the element here. Ensure the use of allowed "
-"characters (latin characters, underscores, dashes and numbers). %sNo "
-"special characters can be used.%s"
+"This option lets you set custom css class you are willing to use for "
+"customization."
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:331
+#: includes/abstracts/abstract-ac-shortcode.php:562
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:333
+#: includes/abstracts/abstract-ac-shortcode.php:564
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:334
+#: includes/abstracts/abstract-ac-shortcode.php:565
 msgid "Clone Element"
 msgstr ""
 
@@ -77,10 +76,6 @@ msgstr ""
 
 #: includes/class-ac-frontend-scripts.php:158
 msgid "Select an option&hellip;"
-msgstr ""
-
-#: includes/class-ac-html-helper.php:229
-msgid "Select"
 msgstr ""
 
 #: includes/class-ac-iconfonts.php:55
@@ -298,12 +293,12 @@ msgid "Second"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:50
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:97
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:77
 msgid "Minute"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:51
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:87
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:66
 msgid "Hour"
 msgstr ""
 
@@ -315,75 +310,86 @@ msgstr ""
 msgid "Week"
 msgstr ""
 
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:54
+msgid "Month"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:55
+msgid "Year"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:67
+msgid "This option lets you pick the hour of the day. (24 is 0)"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:78
+msgid "This option lets you pick the minute of the hour. (60 is 0)"
+msgstr ""
+
 #: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:88
-msgid "Pick the hour of the day"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:98
-msgid "Pick the minute of the hour"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:107
 msgid "Smallest time unit"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:108
-msgid "The smallest unit that will be displayed"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:89
+msgid "This sets the smallest unit that will be displayed."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:116
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:98
 msgid "Largest time unit"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:117
-msgid "The largest unit that will be displayed"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:99
+msgid "This sets the largest unit that will be displayed."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:125
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:108
 msgid "Text Alignment"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:126
-msgid "Choose here, how to align your text"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:109
+msgid "This sets the custom alignment of the text."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:131
-msgid "Left"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:116
+#: includes/shortcodes/class-ac-shortcode-button.php:89
+msgid "Left Align"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:132
-msgid "Right"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:117
+#: includes/shortcodes/class-ac-shortcode-button.php:90
+msgid "Center Align"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:133
-msgid "Center"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:118
+#: includes/shortcodes/class-ac-shortcode-button.php:91
+msgid "Right Align"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:138
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:122
 msgid "Number Font Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:139
-msgid "Choose Size of the number in px"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:123
+msgid "This sets the custom font size of the number."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:159
-msgid "Colors"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:133
+msgid "Color Scheme"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:160
-msgid "Choose the colors here"
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:134
+msgid "This sets lets you set custom color scheme."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:165
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:141
 msgid "Theme Default"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:166
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:142
 msgid "Transparent Dark"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:167
+#: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:143
 msgid "Transparent Light"
 msgstr ""
 
@@ -403,64 +409,52 @@ msgstr ""
 msgid "Creates a colored button"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:54
+#: includes/shortcodes/class-ac-shortcode-button.php:53
 msgid "Button Label"
 msgstr ""
 
+#: includes/shortcodes/class-ac-shortcode-button.php:54
+msgid "This option lets you define button label."
+msgstr ""
+
 #: includes/shortcodes/class-ac-shortcode-button.php:55
-msgid "Enter the text for button"
+msgid "Add your button label here."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:58
-msgid "Click here to add your button label"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-button.php:62
+#: includes/shortcodes/class-ac-shortcode-button.php:60
 msgid "Button Link"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:63
-msgid "Enter the button link"
+#: includes/shortcodes/class-ac-shortcode-button.php:61
+msgid "This option lets you enter button link."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:70
+#: includes/shortcodes/class-ac-shortcode-button.php:67
 msgid "Button Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:71
-msgid "Choose the size of your button"
+#: includes/shortcodes/class-ac-shortcode-button.php:68
+msgid "This sets the custom size of the button."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:76
+#: includes/shortcodes/class-ac-shortcode-button.php:75
 msgid "Small"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:77
+#: includes/shortcodes/class-ac-shortcode-button.php:76
 msgid "Medium"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:78
+#: includes/shortcodes/class-ac-shortcode-button.php:77
 msgid "Large"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:83
+#: includes/shortcodes/class-ac-shortcode-button.php:81
 msgid "Button Position"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-button.php:84
-msgid "Choose alignment of your button"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-button.php:89
-msgid "Left Align"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-button.php:90
-msgid "Center Align"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-button.php:91
-msgid "Right Align"
+#: includes/shortcodes/class-ac-shortcode-button.php:82
+msgid "This sets the custom alignment of the button."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-calltoaction.php:33
@@ -489,259 +483,252 @@ msgstr ""
 msgid "Creates a single column with full width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:63
+#: includes/shortcodes/class-ac-shortcode-cells.php:62
 msgid "Vertical align"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:64
+#: includes/shortcodes/class-ac-shortcode-cells.php:63
 msgid "Choose the vertical alignment of your cells content."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:69
+#: includes/shortcodes/class-ac-shortcode-cells.php:70
 msgid "Top"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:70
+#: includes/shortcodes/class-ac-shortcode-cells.php:71
 msgid "Middle"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:71
+#: includes/shortcodes/class-ac-shortcode-cells.php:72
 msgid "Bottom"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:89
-#: includes/shortcodes/class-ac-shortcode-section.php:60
-msgid "Custom Background Color"
+#: includes/shortcodes/class-ac-shortcode-cells.php:76
+#: includes/shortcodes/class-ac-shortcode-section.php:59
+msgid "Background Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:90
-#: includes/shortcodes/class-ac-shortcode-section.php:61
+#: includes/shortcodes/class-ac-shortcode-cells.php:77
 msgid ""
-"Select a custom background color for your Section here. Leave empty to use "
-"the default."
+"This sets the background color for your cell. Leave empty to use the "
+"default."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:96
+#: includes/shortcodes/class-ac-shortcode-cells.php:83
+#: includes/shortcodes/class-ac-shortcode-section.php:66
+msgid "Background Image"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-cells.php:84
 #: includes/shortcodes/class-ac-shortcode-section.php:67
-msgid "Custom Background Image"
+msgid "Either upload a new, or choose an existing image from your media library."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:97
-msgid ""
-"Either upload a new, or choose an existing image from your media library. "
-"Leave empty if you want to use the background image."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-cells.php:98
-#: includes/shortcodes/class-ac-shortcode-section.php:69
+#: includes/shortcodes/class-ac-shortcode-cells.php:85
+#: includes/shortcodes/class-ac-shortcode-section.php:68
 msgid "Insert Image"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:99
-#: includes/shortcodes/class-ac-shortcode-section.php:70
-msgid "Insert"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-cells.php:105
-#: includes/shortcodes/class-ac-shortcode-section.php:76
+#: includes/shortcodes/class-ac-shortcode-cells.php:91
+#: includes/shortcodes/class-ac-shortcode-section.php:74
 msgid "Background Attachment"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:106
+#: includes/shortcodes/class-ac-shortcode-cells.php:92
 msgid "Background can either scroll with the page, be fixed."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:112
-#: includes/shortcodes/class-ac-shortcode-section.php:83
+#: includes/shortcodes/class-ac-shortcode-cells.php:99
+#: includes/shortcodes/class-ac-shortcode-section.php:82
 msgid "Scroll"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:113
-#: includes/shortcodes/class-ac-shortcode-section.php:84
+#: includes/shortcodes/class-ac-shortcode-cells.php:100
+#: includes/shortcodes/class-ac-shortcode-section.php:83
 msgid "Fixed"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:117
-#: includes/shortcodes/class-ac-shortcode-section.php:89
+#: includes/shortcodes/class-ac-shortcode-cells.php:104
+#: includes/shortcodes/class-ac-shortcode-section.php:88
 msgid "Background Position"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:123
+#: includes/shortcodes/class-ac-shortcode-cells.php:111
 #: includes/shortcodes/class-ac-shortcode-section.php:95
 msgid "Top Left"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:124
+#: includes/shortcodes/class-ac-shortcode-cells.php:112
 #: includes/shortcodes/class-ac-shortcode-section.php:96
 msgid "Top Center"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:125
+#: includes/shortcodes/class-ac-shortcode-cells.php:113
 #: includes/shortcodes/class-ac-shortcode-section.php:97
 msgid "Top Right"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:126
+#: includes/shortcodes/class-ac-shortcode-cells.php:114
 #: includes/shortcodes/class-ac-shortcode-section.php:98
 msgid "Bottom Left"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:127
+#: includes/shortcodes/class-ac-shortcode-cells.php:115
 #: includes/shortcodes/class-ac-shortcode-section.php:99
 msgid "Bottom Center"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:128
+#: includes/shortcodes/class-ac-shortcode-cells.php:116
 #: includes/shortcodes/class-ac-shortcode-section.php:100
 msgid "Bottom Right"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:129
+#: includes/shortcodes/class-ac-shortcode-cells.php:117
 #: includes/shortcodes/class-ac-shortcode-section.php:101
 msgid "Center Left"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:130
+#: includes/shortcodes/class-ac-shortcode-cells.php:118
 #: includes/shortcodes/class-ac-shortcode-section.php:102
 msgid "Center Center"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:131
+#: includes/shortcodes/class-ac-shortcode-cells.php:119
 #: includes/shortcodes/class-ac-shortcode-section.php:103
 msgid "Center Right"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:135
+#: includes/shortcodes/class-ac-shortcode-cells.php:123
 #: includes/shortcodes/class-ac-shortcode-section.php:107
 msgid "Background Repeat"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:141
-#: includes/shortcodes/class-ac-shortcode-section.php:113
+#: includes/shortcodes/class-ac-shortcode-cells.php:130
+#: includes/shortcodes/class-ac-shortcode-section.php:114
 msgid "No Repeat"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:142
-#: includes/shortcodes/class-ac-shortcode-section.php:114
+#: includes/shortcodes/class-ac-shortcode-cells.php:131
+#: includes/shortcodes/class-ac-shortcode-section.php:115
 msgid "Tile"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:143
-#: includes/shortcodes/class-ac-shortcode-section.php:115
+#: includes/shortcodes/class-ac-shortcode-cells.php:132
+#: includes/shortcodes/class-ac-shortcode-section.php:116
 msgid "Tile Horizontally"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:144
-#: includes/shortcodes/class-ac-shortcode-section.php:116
+#: includes/shortcodes/class-ac-shortcode-cells.php:133
+#: includes/shortcodes/class-ac-shortcode-section.php:117
 msgid "Tile Vertically"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:145
-#: includes/shortcodes/class-ac-shortcode-section.php:117
+#: includes/shortcodes/class-ac-shortcode-cells.php:134
+#: includes/shortcodes/class-ac-shortcode-section.php:118
 msgid "Stretch to Fit"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:173
-#: includes/shortcodes/class-ac-shortcode-cells.php:183
+#: includes/shortcodes/class-ac-shortcode-cells.php:162
+#: includes/shortcodes/class-ac-shortcode-cells.php:172
 msgid "Edit Cell"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:185
+#: includes/shortcodes/class-ac-shortcode-cells.php:174
 msgid "Delete Cell"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:186
+#: includes/shortcodes/class-ac-shortcode-cells.php:175
 msgid "Clone Cell"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:343
+#: includes/shortcodes/class-ac-shortcode-cells.php:332
 #: includes/shortcodes/class-ac-shortcode-columns.php:131
 msgid "1/2"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:344
+#: includes/shortcodes/class-ac-shortcode-cells.php:333
 #: includes/shortcodes/class-ac-shortcode-columns.php:132
-msgid "Creates a single column with 50&percnt; width"
+msgid "Creates a single column with 50% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:371
+#: includes/shortcodes/class-ac-shortcode-cells.php:360
 #: includes/shortcodes/class-ac-shortcode-columns.php:158
 msgid "1/3"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:372
+#: includes/shortcodes/class-ac-shortcode-cells.php:361
 #: includes/shortcodes/class-ac-shortcode-columns.php:159
-msgid "Creates a single column with 33&percnt; width"
+msgid "Creates a single column with 33% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:399
+#: includes/shortcodes/class-ac-shortcode-cells.php:388
 #: includes/shortcodes/class-ac-shortcode-columns.php:185
 msgid "2/3"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:400
+#: includes/shortcodes/class-ac-shortcode-cells.php:389
 #: includes/shortcodes/class-ac-shortcode-columns.php:186
-msgid "Creates a single column with 67&percnt; width"
+msgid "Creates a single column with 67% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:427
+#: includes/shortcodes/class-ac-shortcode-cells.php:416
 #: includes/shortcodes/class-ac-shortcode-columns.php:212
 msgid "1/4"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:428
+#: includes/shortcodes/class-ac-shortcode-cells.php:417
 #: includes/shortcodes/class-ac-shortcode-columns.php:213
-msgid "Creates a single column with 25&percnt; width"
+msgid "Creates a single column with 25% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:455
+#: includes/shortcodes/class-ac-shortcode-cells.php:444
 #: includes/shortcodes/class-ac-shortcode-columns.php:239
 msgid "3/4"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:456
+#: includes/shortcodes/class-ac-shortcode-cells.php:445
 #: includes/shortcodes/class-ac-shortcode-columns.php:240
-msgid "Creates a single column with 75&percnt; width"
+msgid "Creates a single column with 75% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:483
+#: includes/shortcodes/class-ac-shortcode-cells.php:472
 #: includes/shortcodes/class-ac-shortcode-columns.php:266
 msgid "1/5"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:484
+#: includes/shortcodes/class-ac-shortcode-cells.php:473
 #: includes/shortcodes/class-ac-shortcode-columns.php:267
-msgid "Creates a single column with 20&percnt; width"
+msgid "Creates a single column with 20% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:511
+#: includes/shortcodes/class-ac-shortcode-cells.php:500
 #: includes/shortcodes/class-ac-shortcode-columns.php:293
 msgid "2/5"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:512
+#: includes/shortcodes/class-ac-shortcode-cells.php:501
 #: includes/shortcodes/class-ac-shortcode-columns.php:294
-msgid "Creates a single column with 40&percnt; width"
+msgid "Creates a single column with 40% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:539
+#: includes/shortcodes/class-ac-shortcode-cells.php:528
 #: includes/shortcodes/class-ac-shortcode-columns.php:320
 msgid "3/5"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:540
+#: includes/shortcodes/class-ac-shortcode-cells.php:529
 #: includes/shortcodes/class-ac-shortcode-columns.php:321
-msgid "Creates a single column with 60&percnt; width"
+msgid "Creates a single column with 60% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:567
+#: includes/shortcodes/class-ac-shortcode-cells.php:556
 #: includes/shortcodes/class-ac-shortcode-columns.php:347
 msgid "4/5"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-cells.php:568
+#: includes/shortcodes/class-ac-shortcode-cells.php:557
 #: includes/shortcodes/class-ac-shortcode-columns.php:348
-msgid "Creates a single column with 80&percnt; width"
+msgid "Creates a single column with 80% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-codeblock.php:33
@@ -754,58 +741,57 @@ msgid ""
 "optimization. Can be used for HTML/CSS/Javascript"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:54
-msgid "Code Block Element. Add your own HTML/Javascript here"
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:53
+#: includes/shortcodes/class-ac-shortcode-textblock.php:54
+msgid "Content"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:55
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:54
 msgid ""
 "Enter some text/code. You can also add plugin shortcode here. (Adding theme "
 "shortcode is not recommended though)"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:64
-msgid "Code Wrapper Element"
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:60
+msgid "Wrapper Element"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:65
-msgid ""
-"Wrap your code into a html tag (i.e. pre or code tag). Insert the tag "
-"without <>"
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:61
+msgid "This option lets you wrap code into a html tag (i.e. pre|code)."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:72
-msgid "Code Wrapper Element Attributes"
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:68
+msgid "Element Attributes"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:73
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:69
 msgid ""
 "Enter one or more attribute values which should be applied to the wrapper "
 "element. Leave the field empty if no attributes are required."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:81
-msgid "Escape HTML Code"
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:75
+msgid "Escape HTML"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:76
+msgid "Enable to convert the html tags to readable text."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-codeblock.php:82
-msgid "WordPress will convert the html tags to readable text."
+msgid "Disable Markup"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-codeblock.php:83
+msgid "Disable the schema.org markup for this code block."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-codeblock.php:89
-msgid "Disable Shortcode Processing"
+msgid "Disable Shortcode"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-codeblock.php:90
-msgid "Check if you want to disable the shortcode processing for this code block."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:97
-msgid "Deactivate schema.org markup"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:98
-msgid "Output the code without any additional wrapper elements. (not recommended)"
+msgid "Disable the shortcode processing for this code block."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-columns.php:76
@@ -858,20 +844,17 @@ msgid ""
 "Cells can be styled individually"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:59
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:58
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:80
 msgid "Grid Borders"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:60
-msgid "Choose if your layout grid should display any border."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:65
-msgid "No Borders"
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:59
+msgid "This option lets you choose a border style for layout grid."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-grid-row.php:66
-msgid "Borders on top and bottom"
+msgid "No Border"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-grid-row.php:67
@@ -879,72 +862,65 @@ msgid "Borders between cells"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-grid-row.php:68
-msgid "Borders on top and bottom and between cells"
+msgid "Borders on top and bottom"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:72
-msgid "Minimum height"
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:69
+msgid "Borders between cells and on top and bottom"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-grid-row.php:73
-msgid "Set the minimum height of all the cells in pixel. Eg: 400px"
+#: includes/shortcodes/class-ac-shortcode-section.php:135
+msgid "Section Custom Height"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:79
-msgid "Smartphones Behaviour"
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:74
+msgid "Define a minimum height for the cells. Use a pixel value. eg: 400px"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:80
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:81
 msgid ""
 "Choose how the cells inside the grid should behave on smartphones and small "
 "screens."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:85
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:88
 msgid "By default each cell is displayed on its own"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:86
-msgid "Cells appear beside each other, just like on large screens"
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:89
+msgid "Like on large screen, cells appear beside each other"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:90
-#: includes/shortcodes/class-ac-shortcode-section.php:203
-msgid "For Developers: Section ID"
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:93
+#: includes/shortcodes/class-ac-shortcode-section.php:184
+msgid "Custom Section ID"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:91
-#: includes/shortcodes/class-ac-shortcode-section.php:204
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:94
+#: includes/shortcodes/class-ac-shortcode-section.php:185
 msgid ""
-"Apply a custom ID Attribute to the section, so you can apply a unique style "
-"via CSS. This option is also helpful if you want to use anchor links to "
-"scroll to a sections when a link is clicked"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:91
-#: includes/shortcodes/class-ac-shortcode-section.php:204
-msgid ""
-"Use with caution and make sure to only use allowed characters. No special "
-"characters can be used."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:131
-msgid "Edit Row"
+"This option lets you set custom section ID you are willing to use for "
+"customization."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-grid-row.php:133
+msgid "Edit Row"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:135
 msgid "Delete Row"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:134
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:136
 msgid "Clone Row"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:137
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:139
 msgid "Set Cell Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-grid-row.php:138
+#: includes/shortcodes/class-ac-shortcode-grid-row.php:140
 msgid "Add Cell"
 msgstr ""
 
@@ -956,24 +932,24 @@ msgstr ""
 msgid "Creates a Special Heading"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:54
+#: includes/shortcodes/class-ac-shortcode-heading.php:53
 msgid "Heading Text"
 msgstr ""
 
+#: includes/shortcodes/class-ac-shortcode-heading.php:54
+msgid "This option lets you enter heading text."
+msgstr ""
+
 #: includes/shortcodes/class-ac-shortcode-heading.php:55
-msgid "Enter the heading text"
+msgid "Add your heading text here."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:58
-msgid "Click here to add your heading text"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-heading.php:62
+#: includes/shortcodes/class-ac-shortcode-heading.php:60
 msgid "Heading Type"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:63
-msgid "Choose the type of your heading"
+#: includes/shortcodes/class-ac-shortcode-heading.php:61
+msgid "This sets the custom heading tag of the text."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:68
@@ -1000,42 +976,41 @@ msgstr ""
 msgid "H6"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:78
+#: includes/shortcodes/class-ac-shortcode-heading.php:77
 msgid "Heading Font Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:79
-msgid "Choose the font size of the heading in px"
+#: includes/shortcodes/class-ac-shortcode-heading.php:78
+msgid "This sets the custom font size of the heading text."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:88
-#: includes/shortcodes/class-ac-shortcode-textblock.php:95
-msgid "Font Colors"
+#: includes/shortcodes/class-ac-shortcode-textblock.php:72
+msgid "Font Color"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:89
-#: includes/shortcodes/class-ac-shortcode-textblock.php:96
-msgid "Either use the themes default colors or apply some custom ones"
+#: includes/shortcodes/class-ac-shortcode-textblock.php:73
+msgid "This option lets you limit which color you are willing to use."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:94
-#: includes/shortcodes/class-ac-shortcode-textblock.php:101
-msgid "Default"
+#: includes/shortcodes/class-ac-shortcode-heading.php:96
+#: includes/shortcodes/class-ac-shortcode-textblock.php:80
+msgid "Theme Default Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:95
-#: includes/shortcodes/class-ac-shortcode-textblock.php:102
-msgid "Define Custom Colors"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-heading.php:100
-#: includes/shortcodes/class-ac-shortcode-textblock.php:107
-msgid "Custom Font Color"
+#: includes/shortcodes/class-ac-shortcode-heading.php:97
+#: includes/shortcodes/class-ac-shortcode-textblock.php:81
+msgid "Define Custom Color"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:101
-#: includes/shortcodes/class-ac-shortcode-textblock.php:108
-msgid "Select a custom font color. Leave empty to use the default"
+#: includes/shortcodes/class-ac-shortcode-textblock.php:85
+msgid "Custom Font Color"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:102
+msgid "This sets the custom font color of the heading text."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-iconbox.php:33
@@ -1110,115 +1085,113 @@ msgstr ""
 msgid "Creates a color section with custom styles"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:68
+#: includes/shortcodes/class-ac-shortcode-section.php:60
 msgid ""
-"Either upload a new, or choose an existing image from your media library. "
-"Leave empty if you want to use the background image of the color scheme "
-"defined above."
+"This sets the background color for your section. Leave empty to use the "
+"default."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:77
+#: includes/shortcodes/class-ac-shortcode-section.php:75
 msgid ""
 "Background can either scroll with the page, be fixed or scroll with a "
 "parallax motion."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:85
+#: includes/shortcodes/class-ac-shortcode-section.php:84
 msgid "Parallax"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:144
+#: includes/shortcodes/class-ac-shortcode-section.php:122
 msgid "Section Minimum Height"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:145
+#: includes/shortcodes/class-ac-shortcode-section.php:123
 msgid ""
-"Define a minimum height for the section. Content within the section will be "
-"centered vertically within the section"
+"This option lets you choose minimum height for the section. Content within "
+"the section will be centered vertically."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:150
-msgid "Use content within section to define Section height"
+#: includes/shortcodes/class-ac-shortcode-section.php:130
+msgid "Default section height"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:155
+#: includes/shortcodes/class-ac-shortcode-section.php:131
 msgid "Custom height in pixel"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:159
-msgid "Section custom height"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-section.php:160
+#: includes/shortcodes/class-ac-shortcode-section.php:136
 msgid "Define a minimum height for the section. Use a pixel value. eg: 500px"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:167
+#: includes/shortcodes/class-ac-shortcode-section.php:142
 msgid "Section Padding"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:168
-msgid "Define the sections top and bottom padding"
+#: includes/shortcodes/class-ac-shortcode-section.php:143
+msgid "This option lets you define top and bottom padding for the section."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:173
+#: includes/shortcodes/class-ac-shortcode-section.php:150
 msgid "No Padding"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:174
+#: includes/shortcodes/class-ac-shortcode-section.php:151
 msgid "Small Padding"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:175
+#: includes/shortcodes/class-ac-shortcode-section.php:152
 msgid "Large Padding"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:176
+#: includes/shortcodes/class-ac-shortcode-section.php:153
 msgid "Default Padding"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:180
-msgid "Section Top Border Styling"
+#: includes/shortcodes/class-ac-shortcode-section.php:157
+msgid "Section Top Border"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:181
-msgid "Chose a border styling for the top of your section"
+#: includes/shortcodes/class-ac-shortcode-section.php:158
+msgid "This option lets you choose a top border style for the section."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:186
+#: includes/shortcodes/class-ac-shortcode-section.php:165
+msgid "No top border style"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-section.php:166
+msgid "Display small top shadow"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-section.php:167
 msgid "Display simple top border"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:187
-msgid "Display a small styling shadow at the top of the section"
+#: includes/shortcodes/class-ac-shortcode-section.php:171
+msgid "Section Bottom Border"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:188
-#: includes/shortcodes/class-ac-shortcode-section.php:198
-msgid "No border styling"
+#: includes/shortcodes/class-ac-shortcode-section.php:172
+msgid "This option lets you choose a bottom border style for the section."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:192
-msgid "Section Bottom Border Styling"
+#: includes/shortcodes/class-ac-shortcode-section.php:179
+msgid "No bottom border style"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:193
-msgid "Chose a border styling for the bottom of your section"
+#: includes/shortcodes/class-ac-shortcode-section.php:180
+msgid "Display small pointed arrow to next section"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:199
-msgid "Display a small arrow that points down to the next section"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-section.php:231
+#: includes/shortcodes/class-ac-shortcode-section.php:211
 msgid "Edit Section"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:233
+#: includes/shortcodes/class-ac-shortcode-section.php:213
 msgid "Delete Section"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-section.php:234
+#: includes/shortcodes/class-ac-shortcode-section.php:214
 msgid "Clone Section"
 msgstr ""
 
@@ -1262,24 +1235,24 @@ msgstr ""
 msgid "Creates a simple text block"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-textblock.php:66
-msgid "Content"
+#: includes/shortcodes/class-ac-shortcode-textblock.php:55
+msgid "Enter some content for this textblock :)"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-textblock.php:67
-msgid "Enter some content for this textblock"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-textblock.php:70
+#: includes/shortcodes/class-ac-shortcode-textblock.php:56
 msgid "Click here to add your own text"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-textblock.php:74
+#: includes/shortcodes/class-ac-shortcode-textblock.php:61
 msgid "Font Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-textblock.php:75
-msgid "Choose the font size of the text in px"
+#: includes/shortcodes/class-ac-shortcode-textblock.php:62
+msgid "This sets the custom font size of the text."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-textblock.php:86
+msgid "This sets the custom font color of the text."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-video.php:33

@@ -33,13 +33,14 @@ class AC_Shortcode_Separator extends AC_Shortcode {
 		$this->method_title       = __( 'Separator / Whitespace', 'axiscomposer' );
 		$this->method_description = __( 'Creates a delimiter/whitespace to separate elements', 'axiscomposer' );
 		$this->shortcode = array(
-			'sort'    => 70,
-			'type'    => 'content',
-			'name'    => 'ac_separator',
-			'icon'    => 'icon-separator',
-			'image'   => AC()->plugin_url() . '/assets/images/content/separator.png', // Fallback if icon is missing :)
-			'target'  => 'ac-target-insert',
-			'tinyMCE' => array( 'disable' => true ),
+			'sort'      => 70,
+			'type'      => 'content',
+			'name'      => 'ac_separator',
+			'icon'      => 'icon-separator',
+			'image'     => AC()->plugin_url() . '/assets/images/content/separator.png', // Fallback if icon is missing :)
+			'target'    => 'ac-target-insert',
+			'tinyMCE'   => array( 'disable' => true ),
+			'invisible' => true
 		);
 	}
 

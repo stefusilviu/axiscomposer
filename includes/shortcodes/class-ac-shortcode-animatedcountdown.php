@@ -64,7 +64,7 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 		$this->form_fields = array(
 			'hour' => array(
 				'title'             => __( 'Hour', 'axiscomposer' ),
-				'description'       => __( 'This option lets you pick the hour of the day. (24 is 0)', 'axiscomposer' ),
+				'description'       => __( 'This option lets you pick the hour of the day.', 'axiscomposer' ),
 				'type'              => 'number',
 				'desc_tip'          => true,
 				'default'           => 12,
@@ -75,7 +75,7 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 			),
 			'minute' => array(
 				'title'             => __( 'Minute', 'axiscomposer' ),
-				'description'       => __( 'This option lets you pick the minute of the hour. (60 is 0)', 'axiscomposer' ),
+				'description'       => __( 'This option lets you pick the minute of the hour.', 'axiscomposer' ),
 				'type'              => 'number',
 				'desc_tip'          => true,
 				'default'           => 0,

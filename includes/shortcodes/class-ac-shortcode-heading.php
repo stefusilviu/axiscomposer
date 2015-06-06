@@ -185,5 +185,14 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 			'font_color'      => '',
 			'color'           => ''
 		), $atts, $this->shortcode['name'] ) );
+
+		ob_start();
+		?>
+		<div class="axiscomposer ac-special-heading">
+
+		</div>
+		<?php
+
+		return ob_get_clean();
 	}
 }

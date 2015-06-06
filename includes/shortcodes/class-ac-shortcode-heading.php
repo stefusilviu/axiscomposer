@@ -174,6 +174,16 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-
+		extract( shortcode_atts( array(
+			'heading'         => '',
+			'tag'             => '',
+			'style'           => '',
+			'size'            => '',
+			'subheading'      => '',
+			'subheading_size' => '',
+			'padding'         => '',
+			'font_color'      => '',
+			'color'           => ''
+		), $atts, $this->shortcode['name'] ) );
 	}
 }

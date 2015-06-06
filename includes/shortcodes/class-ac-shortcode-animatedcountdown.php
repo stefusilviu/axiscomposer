@@ -69,8 +69,8 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 				'desc_tip'          => true,
 				'default'           => 12,
 				'custom_attributes' => array(
-					'min' => 1,
-					'max' => 24
+					'min' => 0,
+					'max' => 23
 				)
 			),
 			'minute' => array(
@@ -78,10 +78,10 @@ class AC_Shortcode_Animatedcountdown extends AC_Shortcode {
 				'description'       => __( 'This option lets you pick the minute of the hour. (60 is 0)', 'axiscomposer' ),
 				'type'              => 'number',
 				'desc_tip'          => true,
-				'default'           => 60,
+				'default'           => 0,
 				'custom_attributes' => array(
-					'min' => 1,
-					'max' => 60
+					'min' => 0,
+					'max' => 59
 				)
 			),
 			'min' => array(

@@ -56,7 +56,7 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 				'type'              => 'text',
 				'desc_tip'          => true
 			),
-			'type' => array(
+			'tag' => array(
 				'title'             => __( 'Heading Type', 'axiscomposer' ),
 				'description'       => __( 'This sets the custom heading tag of the text.', 'axiscomposer' ),
 				'default'           => 'H3',

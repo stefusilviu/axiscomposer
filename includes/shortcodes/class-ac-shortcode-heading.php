@@ -186,10 +186,17 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 			'color'           => ''
 		), $atts, $this->shortcode['name'] ) );
 
+		// Don't display if the heading text is empty
+		if ( empty( $heading ) ) {
+			return;
+		}
+
+		$heading = apply_filters( 'axiscomposer_format_heading', wptexturize( $heading ) );
+
 		ob_start();
 		?>
 		<div class="axiscomposer ac-special-heading">
-
+			<?php echo $heading; ?>
 		</div>
 		<?php
 

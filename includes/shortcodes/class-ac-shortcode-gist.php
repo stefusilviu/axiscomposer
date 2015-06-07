@@ -96,8 +96,30 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 			'display' => ''
 		), $atts, $this->shortcode['name'] ) );
 
-		$specific_file = ( $display !== 'default' && ! empty( $file ) ) ? '?file=' . esc_attr( $file ) : '';
+		// Don't display if ID is missing
+		if ( empty( $id ) ) {
+			return;
+		}
 
-		return sprintf( '<script src="https://gist.github.com/%s.js%s"></script>', esc_attr( $id ), $specific_file );
+		$gist_file    = ( $display !== 'default' && ! empty( $file ) ) ? esc_attr( $file ) : '';
+		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
+
+		ob_start();
+		?>
+		<section class="axiscomposer gist-section">
+			<div class="ac-gist <?php echo esc_attr( $custom_class ); ?>">
+				<code data-gist-id="<?php echo esc_attr( $id ); ?>"
+					data-gist-file="<?php echo esc_attr( $gist_file ); ?>"
+					data-gist-line="1-5"
+					data-gist-highlight-line="1,3-4"
+					data-gist-hide-footer="false"
+					data-gist-hide-line-numbers="false"
+					data-gist-show-loading="true">
+				</code>
+			</div>
+		</section>
+		<?php
+
+		return ob_get_clean();
 	}
 }

@@ -56,6 +56,26 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 				'type'              => 'text',
 				'desc_tip'          => true,
 				'default'           => ''
+			),
+			'display' => array(
+				'title'             => __( 'Gist File', 'axiscomposer' ),
+				'description'       => __( 'This option lets you limit which file you are willing to display.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'availability ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'  => __( 'Display all files', 'axiscomposer' ),
+					'specific' => __( 'Display Specific file', 'axiscomposer' )
+				)
+			),
+			'file' => array(
+				'title'             => __( 'Specific file', 'axiscomposer' ),
+				'description'       => __( 'This option lets you set the file names you want to display.', 'axiscomposer' ),
+				'type'              => 'text',
+				'desc_tip'          => true,
+				'default'           => ''
 			)
 		);
 	}
@@ -70,15 +90,13 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		extract( shortcode_atts( array(
-			'id' => '',
+			'id'      => '',
+			'file'    => '',
+			'display' => ''
 		), $atts, $this->shortcode['name'] ) );
 
-		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
+		$specific_file = ( $display !== 'default' && ! empty( $file ) ) ? '?file=' . esc_attr( $file ) : '';
 
-		ob_start(); ?>
-		<script src="https://gist.github.com/<?php echo esc_attr( $id ); ?>.js"></script>
-		<?php
-
-		return ob_get_clean();
+		return sprintf( '<script src="https://gist.github.com/%s.js%s"></script>', esc_attr( $id ), $specific_file );
 	}
 }

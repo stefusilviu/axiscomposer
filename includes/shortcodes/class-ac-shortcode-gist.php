@@ -96,19 +96,6 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 	}
 
 	/**
-	 * Editor Elements.
-	 *
-	 * This method defines the visual appearance of an element on the Builder canvas.
-	 */
-	public function editor_element( $params ) {
-		$params['innerHtml']  = '';
-		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->method_title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
-		$params['innerHtml'] .= '<div class="ac-element-label">' . $this->method_title . '</div>';
-
-		return (array) $params;
-	}
-
-	/**
 	 * Frontend Shortcode Handle.
 	 * @param  array  $atts      Array of attributes.
 	 * @param  string $content   Text within enclosing form of shortcode element.

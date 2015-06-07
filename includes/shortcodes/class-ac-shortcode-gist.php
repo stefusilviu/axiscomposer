@@ -1,6 +1,6 @@
 <?php
 /**
- * Codeblock Shortcode
+ * Gist Shortcode
  *
  * @extends     AC_Shortcode
  * @package     AxisComposer/Shortcodes
@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AC_Shortcode_Codeblock Class
+ * AC_Shortcode_Gist Class
  */
-class AC_Shortcode_Codeblock extends AC_Shortcode {
+class AC_Shortcode_Gist extends AC_Shortcode {
 
 	/**
 	 * Class Constructor Method.
@@ -29,15 +29,15 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	 * Initialise shortcode.
 	 */
 	public function init_shortcode() {
-		$this->id                 = 'codeblock';
-		$this->method_title       = __( 'Code Block', 'axiscomposer' );
-		$this->method_description = __( 'Add text or code to your website without any formatting or text optimization. Can be used for HTML/CSS/Javascript', 'axiscomposer' );
+		$this->id                 = 'gist';
+		$this->method_title       = __( 'Gist Snippet', 'axiscomposer' );
+		$this->method_description = __( 'Embed a gist snippet with one or multiple files display.', 'axiscomposer' );
 		$this->shortcode = array(
-			'sort'    => 800,
+			'sort'    => 350,
 			'type'    => 'content',
-			'name'    => 'ac_codeblock',
-			'icon'    => 'icon-codeblock',
-			'image'   => AC()->plugin_url() . '/assets/images/content/codeblock.png', // Fallback if icon is missing :)
+			'name'    => 'ac_gist',
+			'icon'    => 'icon-gist',
+			'image'   => AC()->plugin_url() . '/assets/images/content/gist.png', // Fallback if icon is missing :)
 			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);

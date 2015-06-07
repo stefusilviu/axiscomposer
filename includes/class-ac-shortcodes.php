@@ -103,6 +103,7 @@ class AC_Shortcodes {
 			'AC_Shortcode_Heading',
 			'AC_Shortcode_Button',
 			'AC_Shortcode_Sidebar',
+			'AC_Shortcode_Gist',
 			'AC_Shortcode_Codeblock',
 			'AC_Shortcode_Calltoaction',
 			'AC_Shortcode_Iconbox',

@@ -117,6 +117,14 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		extract( shortcode_atts( array(
+			'wrapper_element'    => '',
+			'element_attributes' => '',
+			'escape_html'        => '',
+			'disable_markup'     => '',
+			'disable_shortcode'  => ''
+		), $atts, $this->shortcode['name'] ) );
 
+		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
 	}
 }

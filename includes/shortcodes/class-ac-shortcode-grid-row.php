@@ -92,7 +92,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 			'id' => array(
 				'title'             => __( 'Custom Section ID', 'axiscomposer' ),
 				'description'       => __( 'This option lets you set custom section ID you are willing to use for customization.', 'axiscomposer' ),
-				'class'             => 'ac_input_id',
+				'class'             => 'ac_input_css',
 				'type'              => 'text',
 				'default'           => ''
 			)

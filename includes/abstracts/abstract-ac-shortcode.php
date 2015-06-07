@@ -355,7 +355,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		$form_fields['custom_class'] = array(
 			'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
 			'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),
-			'class'       => 'ac_input_class',
+			'class'       => 'ac_input_css',
 			'type'        => 'text',
 			'default'     => ''
 		);

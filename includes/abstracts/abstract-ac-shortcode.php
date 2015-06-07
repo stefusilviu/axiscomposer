@@ -456,7 +456,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 								$value['default'] = 'yes';
 							}
 						} else {
-							$value['default'] = ac_clean( stripslashes( $main_shortcode['attr'][$key] ) );
+							$value['default'] = stripslashes( $main_shortcode['attr'][$key] );
 						}
 					} elseif ( $value['type'] == 'checkbox' ) {
 						$value['default'] = 'no';

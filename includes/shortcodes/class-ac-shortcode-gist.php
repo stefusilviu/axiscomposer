@@ -52,6 +52,7 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 			'id' => array(
 				'title'             => __( 'Gist ID', 'axiscomposer' ),
 				'description'       => __( 'This option lets you add the public or secret Gist ID.', 'axiscomposer' ),
+				'class'             => 'ac_input_gist',
 				'type'              => 'text',
 				'desc_tip'          => true,
 				'default'           => ''

@@ -41,6 +41,8 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);
+
+		$this->extra_assets();
 	}
 
 	/**
@@ -126,5 +128,16 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 		), $atts, $this->shortcode['name'] ) );
 
 		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
+
+		ob_start();
+		?>
+		<section class="axiscomposer codeblock-section">
+			<div class="ac-codeblock <?php echo esc_attr( $custom_class ); ?>">
+				<pre><?php echo $content; ?></pre>
+			</div>
+		</section>
+		<?php
+
+		return ob_get_clean();
 	}
 }

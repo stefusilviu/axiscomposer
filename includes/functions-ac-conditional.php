@@ -36,3 +36,16 @@ if ( ! function_exists( 'is_pagebuilder_active' ) ) {
 		return apply_filters( 'axiscomposer_is_pagebuilder_active', 'active' === get_post_meta( $post_id, '_pagebuilder_status', true ) ? true : false, $post_id );
 	}
 }
+
+if ( ! function_exists( 'is_gist_shortcode' ) ) {
+
+	/**
+	 * is_gist_shortcode - Returns true when the gist shortcode is loaded.
+	 * @return bool
+	 */
+	function is_gist_shortcode() {
+		global $post;
+
+		return is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'ac_gist' );
+	}
+}

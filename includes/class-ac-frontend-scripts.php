@@ -111,7 +111,13 @@ class AC_Frontend_Scripts {
 
 		// Register any scripts for later use, or used as dependencies
 		self::register_script( 'select2', $assets_path . 'js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
+		self::register_script( 'gist-embed', $assets_path . 'js/gist-embed/gist-embed' . $suffix . '.js', array( 'jquery' ), '2.1' );
 		self::register_script( 'jquery-blockui', $assets_path . 'scripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70' );
+
+		// Register frontend scripts conditionally
+		if ( is_gist_shortcode() ) {
+			self::enqueue_script( 'gist-embed' );
+		}
 
 		// Global frontend scripts
 		self::enqueue_script( 'axiscomposer', $frontend_script_path . 'axiscomposer' . $suffix . '.js', array( 'jquery', 'jquery-blockui' ) );

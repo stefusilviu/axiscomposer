@@ -99,12 +99,11 @@ class AC_Shortcodes {
 			'AC_Shortcode_Cells_Four_Fifth',
 
 			// Content Elements
+			'AC_Shortcode_Gist',
 			'AC_Shortcode_Textblock',
 			'AC_Shortcode_Heading',
 			'AC_Shortcode_Button',
 			'AC_Shortcode_Sidebar',
-			'AC_Shortcode_Gist',
-			'AC_Shortcode_Codeblock',
 			'AC_Shortcode_Calltoaction',
 			'AC_Shortcode_Iconbox',
 			'AC_Shortcode_Notification',

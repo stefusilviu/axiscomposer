@@ -352,11 +352,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$form_fields = $this->get_form_fields();
 		}
 
-		// Hide for specific shortcodes
-		$ac_shortcode = apply_filters( 'axiscomposer_hide_custom_class_field', array( 'gist' ) );
-
 		// Check to make sure we've excluded shortcodes
-		if ( isset( $this->id ) && current_user_can( 'manage_axiscomposer' ) && ! in_array( $this->id, $ac_shortcode ) ) {
+		if ( isset( $this->id ) && current_user_can( 'manage_axiscomposer' ) && ! in_array( $this->id, apply_filters( 'axiscomposer_hide_custom_class_field', array() ) ) ) {
 			$form_fields['custom_class'] = array(
 				'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
 				'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),

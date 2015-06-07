@@ -75,13 +75,8 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 
 		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
 
-		ob_start();
-		?>
-		<section class="axiscomposer codeblock-section">
-			<div class="ac-codeblock <?php echo esc_attr( $custom_class ); ?>">
-				<pre><?php echo $content; ?></pre>
-			</div>
-		</section>
+		ob_start(); ?>
+		<script src="https://gist.github.com/<?php echo esc_attr( $id ); ?>.js"></script>
 		<?php
 
 		return ob_get_clean();

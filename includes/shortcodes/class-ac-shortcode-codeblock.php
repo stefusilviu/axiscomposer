@@ -41,8 +41,6 @@ class AC_Shortcode_Codeblock extends AC_Shortcode {
 			'target'  => 'ac-target-insert',
 			'tinyMCE' => array( 'disable' => false ),
 		);
-
-		$this->extra_assets();
 	}
 
 	/**

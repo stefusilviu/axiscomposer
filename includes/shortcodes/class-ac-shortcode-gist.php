@@ -49,48 +49,12 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 	public function init_form_fields() {
 
 		$this->form_fields = array(
-			'content' => array(
-				'title'             => __( 'Content', 'axiscomposer' ),
-				'description'       => __( 'Enter some text/code. You can also add plugin shortcode here. (Adding theme shortcode is not recommended though)', 'axiscomposer' ),
-				'type'              => 'textarea',
-				'desc_tip'          => true,
-				'default'           => ''
-			),
-			'wrapper_element' => array(
-				'title'             => __( 'Wrapper Element', 'axiscomposer' ),
-				'description'       => __( 'This option lets you wrap code into a html tag (i.e. pre|code).', 'axiscomposer' ),
-				'class'             => 'availability',
+			'id' => array(
+				'title'             => __( 'Gist ID', 'axiscomposer' ),
+				'description'       => __( 'This option lets you add the public or secret Gist ID.', 'axiscomposer' ),
 				'type'              => 'text',
 				'desc_tip'          => true,
 				'default'           => ''
-			),
-			'element_attributes' => array(
-				'title'             => __( 'Element Attributes', 'axiscomposer' ),
-				'description'       => __( 'Enter one or more attribute values which should be applied to the wrapper element. Leave the field empty if no attributes are required.', 'axiscomposer' ),
-				'type'              => 'text',
-				'desc_tip'          => true,
-				'default'           => ''
-			),
-			'escape_html' => array(
-				'title'             => __( 'Escape HTML', 'axiscomposer' ),
-				'label'             => __( 'Enable to convert the html tags to readable text.', 'axiscomposer' ),
-				'type'              => 'checkbox',
-				'checkboxgroup'     => '',
-				'default'           => 'no'
-			),
-			'disable_markup' => array(
-				'title'             => __( 'Disable Markup', 'axiscomposer' ),
-				'label'             => __( 'Disable the schema.org markup for this code block.', 'axiscomposer' ),
-				'type'              => 'checkbox',
-				'checkboxgroup'     => '',
-				'default'           => 'no'
-			),
-			'disable_shortcode' => array(
-				'title'             => __( 'Disable Shortcode', 'axiscomposer' ),
-				'label'             => __( 'Disable the shortcode processing for this code block.', 'axiscomposer' ),
-				'type'              => 'checkbox',
-				'checkboxgroup'     => '',
-				'default'           => 'no'
 			)
 		);
 	}
@@ -105,11 +69,7 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		extract( shortcode_atts( array(
-			'wrapper_element'    => '',
-			'element_attributes' => '',
-			'escape_html'        => '',
-			'disable_markup'     => '',
-			'disable_shortcode'  => ''
+			'id' => '',
 		), $atts, $this->shortcode['name'] ) );
 
 		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];

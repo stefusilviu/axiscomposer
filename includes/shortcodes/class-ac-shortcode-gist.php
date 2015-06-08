@@ -128,14 +128,14 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 		$gist_file    = ( $display !== 'default' && ! empty( $file ) ) ? esc_attr( $file ) : '';
 		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
 
+		// data-gist-line="1-5" data-gist-highlight-line="1,3-4"
+
 		ob_start();
 		?>
 		<section class="axiscomposer gist-section">
 			<div class="ac-gist <?php echo esc_attr( $custom_class ); ?>">
 				<code data-gist-id="<?php echo esc_attr( $id ); ?>"
 					data-gist-file="<?php echo esc_attr( $gist_file ); ?>"
-					data-gist-line="1-5"
-					data-gist-highlight-line="1,3-4"
 					data-gist-hide-footer="<?php echo empty( $hide_footer ) ? 'false' : 'true'; ?>"
 					data-gist-hide-line-numbers="<?php echo empty( $hide_linenumber ) ? 'false' : 'true'; ?>"
 					data-gist-show-loading="<?php echo empty( $show_loading ) ? 'false' : 'true'; ?>">

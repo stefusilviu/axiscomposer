@@ -112,9 +112,12 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		extract( shortcode_atts( array(
-			'id'      => '',
-			'file'    => '',
-			'display' => ''
+			'id'              => '',
+			'file'            => '',
+			'display'         => '',
+			'hide_footer'     => '',
+			'hide_linenumber' => '',
+			'show_loading'    => ''
 		), $atts, $this->shortcode['name'] ) );
 
 		// Don't display if ID is missing
@@ -123,6 +126,9 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 		}
 
 		$gist_file    = ( $display !== 'default' && ! empty( $file ) ) ? esc_attr( $file ) : '';
+		$footer_meta  = empty( $hide_footer ) ? esc_attr( $hide_footer ) : '';
+		$line_number  = empty( $hide_linenumber ) ? esc_attr( $hide_linenumber ) : '';
+		$ajax_loader  = empty( $show_loading ) ? esc_attr( $show_loading ) : '';
 		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
 
 		ob_start();
@@ -133,9 +139,9 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 					data-gist-file="<?php echo esc_attr( $gist_file ); ?>"
 					data-gist-line="1-5"
 					data-gist-highlight-line="1,3-4"
-					data-gist-hide-footer="false"
-					data-gist-hide-line-numbers="false"
-					data-gist-show-loading="true">
+					data-gist-hide-footer="<?php empty( $hide_footer ) ? 'false' : 'true'; ?>"
+					data-gist-hide-line-numbers="<?php echo empty( $hide_linenumber ) ? 'false' : 'true'; ?>"
+					data-gist-show-loading="<?php echo empty( $show_loading ) ? 'false' : 'true'; ?>">
 				</code>
 			</div>
 		</section>

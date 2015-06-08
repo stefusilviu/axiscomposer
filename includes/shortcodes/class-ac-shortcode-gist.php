@@ -138,7 +138,7 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 					data-gist-file="<?php echo esc_attr( $gist_file ); ?>"
 					data-gist-hide-footer="<?php echo empty( $hide_footer ) ? 'false' : 'true'; ?>"
 					data-gist-hide-line-numbers="<?php echo empty( $hide_linenumber ) ? 'false' : 'true'; ?>"
-					data-gist-show-loading="<?php echo empty( $show_loading ) ? 'true' : 'false'; ?>">
+					data-gist-show-loading="<?php echo empty( $show_loading ) ? 'false' : 'true'; ?>">
 				</code>
 			</div>
 		</section>

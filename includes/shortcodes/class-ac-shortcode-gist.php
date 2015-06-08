@@ -77,6 +77,27 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 				'type'              => 'text',
 				'desc_tip'          => true,
 				'default'           => ''
+			),
+			'hide_footer' => array(
+				'title'             => __( 'Footer Meta', 'axiscomposer' ),
+				'label'             => __( 'Load a gist with footer meta removed.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'no'
+			),
+			'hide_linenumber' => array(
+				'title'             => __( 'Line Numbers', 'axiscomposer' ),
+				'label'             => __( 'Load a gist with all line numbers removed.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'no'
+			),
+			'show_loading' => array(
+				'title'             => __( 'Loading Message', 'axiscomposer' ),
+				'label'             => __( 'Load a gist without displaying loading message.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'yes'
 			)
 		);
 	}

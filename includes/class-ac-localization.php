@@ -39,6 +39,7 @@ class AC_Localization {
 
 	/**
 	 * Get language package URI.
+	 * @param  string $locale
 	 * @return string
 	 */
 	public function get_language_package_uri( $locale = null ) {
@@ -80,6 +81,7 @@ class AC_Localization {
 
 	/**
 	 * Check if has available translation update.
+	 * @param  string $locale
 	 * @return bool
 	 */
 	public function has_available_update( $locale = null ) {
@@ -115,6 +117,7 @@ class AC_Localization {
 
 	/**
 	 * Check if language pack exists.
+	 * @param  string $locale
 	 * @return bool
 	 */
 	public function check_if_language_pack_exists( $locale ) {
@@ -187,7 +190,6 @@ class AC_Localization {
 
 			if ( ! WP_Filesystem( $creds ) ) {
 				request_filesystem_credentials( $url, '', true, false, null );
-
 				wp_redirect( add_query_arg( array( 'translation_updated' => 3 ), $tools_url ) );
 				exit;
 			}

@@ -3,7 +3,7 @@ Contributors: axisthemes, shivapoudel, RajeebTheGreat
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=axisthemes@gmail.com&item_name=Donation+for+AxisComposer
 Requires at least: 4.0
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

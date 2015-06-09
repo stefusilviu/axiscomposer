@@ -20,19 +20,31 @@ jQuery( function ( $ ) {
 		.on( 'click', function() {
 			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
-		.on( 'blur', '.ac_input_class[type=text], .ac_input_id[type=text]', function() {
+		.on( 'blur', '.ac_input_css[type=text], ac_input_gist[type=text]', function() {
 			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
-		.on( 'keyup change', '.ac_input_class[type=text], .ac_input_id[type=text]', function() {
+		.on( 'keyup change', '.ac_input_css[type=text]', function() {
 			var value    = $( this ).val();
 			var regex    = new RegExp( '[^a-zA-Z0-9-_]+', 'gi' );
 			var newvalue = value.replace( regex, '' );
 
 			if ( value !== newvalue ) {
 				$( this ).val( newvalue );
-				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), 'i18n_css_class_id_error' ] );
+				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), 'i18n_css_error' ] );
 			} else {
-				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_css_class_id_error' ] );
+				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_css_error' ] );
+			}
+		})
+		.on( 'keyup change', '.ac_input_gist[type=text]', function() {
+			var value    = $( this ).val();
+			var regex    = new RegExp( '[^a-zA-Z0-9]+', 'gi' );
+			var newvalue = value.replace( regex, '' );
+
+			if ( value !== newvalue ) {
+				$( this ).val( newvalue );
+				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), 'i18n_gist_error' ] );
+			} else {
+				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_gist_error' ] );
 			}
 		});
 

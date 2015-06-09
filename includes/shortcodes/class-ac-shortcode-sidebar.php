@@ -81,22 +81,19 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		$output = '';
-
 		if ( ! isset( $atts['widget_area'] ) ) {
-			return $output;
+			return;
 		}
 
-		if ( is_dynamic_sidebar( $atts['widget_area'] ) ) {
-			ob_start();
-			dynamic_sidebar( $atts['widget_area'] );
-			$output = ac_remove_autop( ob_get_clean(), true );
-		}
+		ob_start();
+		?>
+		<div class="axiscomposer ac-sidebar clearfix"><?php
+			if ( is_dynamic_sidebar( $atts['widget_area'] ) ) {
+				dynamic_sidebar( $atts['widget_area'] );
+			}
+		?></div>
+		<?php
 
-		if ( $output ) {
-			$output = '<div class="axiscomposer ac_sidebar clearfix">' . $output . '</div>';
-		}
-
-		return $output;
+		return ob_get_clean();
 	}
 }

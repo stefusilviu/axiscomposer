@@ -49,14 +49,14 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	public function init_form_fields() {
 
 		$this->form_fields = array(
-			'text' => array(
+			'heading' => array(
 				'title'             => __( 'Heading Text', 'axiscomposer' ),
 				'description'       => __( 'This option lets you enter heading text.', 'axiscomposer' ),
 				'default'           => __( 'Add your heading text here.', 'axiscomposer' ),
 				'type'              => 'text',
 				'desc_tip'          => true
 			),
-			'type' => array(
+			'tag' => array(
 				'title'             => __( 'Heading Type', 'axiscomposer' ),
 				'description'       => __( 'This sets the custom heading tag of the text.', 'axiscomposer' ),
 				'default'           => 'H3',
@@ -73,15 +73,73 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 					'H6' => __( 'H6', 'axiscomposer' )
 				)
 			),
+			'style' => array(
+				'title'             => __( 'Heading Style', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom modern and classic heading style.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'              => __( 'Default Style', 'axiscomposer' ),
+					'modern-quote left'    => __( 'Heading Style Modern (left)', 'axiscomposer' ),
+					'modern-quote center'  => __( 'Heading Style Modern (centered)', 'axiscomposer' ),
+					'classic-quote center' => __( 'Heading Style Classic (centered, italic)', 'axiscomposer' )
+				)
+			),
 			'size' => array(
-				'title'             => __( 'Heading Font Size', 'axiscomposer' ),
+				'title'             => __( 'Heading Size', 'axiscomposer' ),
 				'description'       => __( 'This sets the custom font size of the heading text.', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 20,
+				'custom_attributes' => array(
+					'min' => 20,
+					'max' => 90
+				)
+			),
+			'subheading' => array(
+				'title'             => __( 'Subheading', 'axiscomposer' ),
+				'description'       => __( 'This option lets you control the display of subheading.', 'axiscomposer' ),
+				'default'           => 'default',
+				'type'              => 'select',
+				'class'             => 'ac-enhanced-select',
+				'css'               => 'min-width: 350px;',
+				'desc_tip'          => true,
+				'options'           => array(
+					'default'          => __( 'No Subheading', 'axiscomposer' ),
+					'subheading-above' => __( 'Display Subheading Above', 'axiscomposer' ),
+					'subheading-below' => __( 'Display Subheading Below', 'axiscomposer' )
+				)
+			),
+			'content' => array(
+				'title'             => __( 'Subheading Text', 'axiscomposer' ),
+				'description'       => __( 'Enter an extra descriptive subheading here.', 'axiscomposer' ),
+				'type'              => 'textarea',
+				'desc_tip'          => true,
+				'default'           => ''
+			),
+			'subheading_size' => array(
+				'title'             => __( 'Subheading Size', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom font size of the subheading text.', 'axiscomposer' ),
 				'type'              => 'number',
 				'desc_tip'          => true,
 				'default'           => 16,
 				'custom_attributes' => array(
 					'min' => 10,
 					'max' => 40
+				)
+			),
+			'padding' => array(
+				'title'             => __( 'Padding Bottom', 'axiscomposer' ),
+				'description'       => __( 'This sets the custom bottom padding in pixel.', 'axiscomposer' ),
+				'type'              => 'number',
+				'desc_tip'          => true,
+				'default'           => 0,
+				'custom_attributes' => array(
+					'min'  => 0,
+					'max'  => 120,
 				)
 			),
 			'font_color' => array(
@@ -116,6 +174,32 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		extract( shortcode_atts( array(
+			'heading'         => '',
+			'tag'             => '',
+			'style'           => '',
+			'size'            => '',
+			'subheading'      => '',
+			'subheading_size' => '',
+			'padding'         => '',
+			'font_color'      => '',
+			'color'           => ''
+		), $atts, $this->shortcode['name'] ) );
 
+		// Don't display if the heading text is empty
+		if ( empty( $heading ) ) {
+			return;
+		}
+
+		$heading = apply_filters( 'axiscomposer_format_heading', wptexturize( $heading ) );
+
+		ob_start();
+		?>
+		<div class="axiscomposer ac-special-heading">
+			<?php echo $heading; ?>
+		</div>
+		<?php
+
+		return ob_get_clean();
 	}
 }

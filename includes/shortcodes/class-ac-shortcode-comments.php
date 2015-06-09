@@ -53,7 +53,12 @@ class AC_Shortcode_Comments extends AC_Shortcode {
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 		ob_start();
-		comments_template();
+		?>
+		<div class="axiscomposer ac-comments">
+			<?php comments_template(); ?>
+		</div>
+		<?php
+
 		return ob_get_clean();
 	}
 }

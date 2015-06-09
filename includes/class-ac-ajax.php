@@ -176,10 +176,6 @@ class AC_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
-		if ( ! current_user_can( 'edit_pages' ) || ! current_user_can( 'edit_portfolios' ) ) {
-			die(-1);
-		}
-
 		$term = (string) ac_clean( stripslashes( $_GET['term'] ) );
 
 		if ( empty( $term ) ) {
@@ -222,6 +218,11 @@ class AC_AJAX {
 		if ( ! empty( $posts ) ) {
 			foreach ( $posts as $post ) {
 				$page = get_post( $post );
+
+				if ( ! current_user_can( 'read_page', $post ) ) {
+					continue;
+				}
+
 				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axiscomposer' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );
 			}
 		}

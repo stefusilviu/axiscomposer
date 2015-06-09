@@ -100,38 +100,26 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
-		$output = '';
-
-		// Entire list of supported attributes and their defaults
-		$pairs = array(
+		extract( shortcode_atts( array(
 			'size'       => '',
 			'font_color' => '',
 			'color'      => ''
-		);
+		), $atts, $this->shortcode['name'] ) );
 
-		$atts = shortcode_atts( $pairs, $atts, $this->shortcode['name'] );
+		$custom_size  = ( $size > 10 ) ? $size : 16;
+		$custom_color = ( $font_color !== 'default' ) ? $color : '';
+		$custom_style = ( $font_color !== 'default' ) ? 'font-size: ' . $custom_size . 'px; color: ' . $custom_color . ';' : 'font-size: ' . $custom_size . 'px';
+		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
 
-		extract( $atts );
+		ob_start();
+		?>
+		<section class="axiscomposer textblock-section">
+			<div class="ac-textblock <?php echo esc_attr( $custom_class ); ?>" style="<?php echo esc_attr( $custom_style ); ?>">
+				<?php echo ac_apply_autop( ac_remove_autop( $content ) ); ?>
+			</div>
+		</section>
+		<?php
 
-		$class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
-
-		if ( $size ) {
-			$style = 'font-size: ' . $size . 'px; ';
-		}
-
-		if ( $font_color ) {
-			$class .= 'ac-inherit-color';
-			$style .= empty( $color ) ? '' : 'color: ' . $color . ';';
-		}
-
-		if ( $style ) {
-			$style = 'style="' . $style . '"';
-		}
-
-		$output .= '<section class="axiscomposer textblock-section">';
-		$output .= '<div class="axiscomposer-textblock ' . $class . '" ' . $style . '>' . ac_apply_autop( ac_remove_autop( $content ) ) . '</div>';
-		$output .= '</section>';
-
-		return $output;
+		return ob_get_clean();
 	}
 }

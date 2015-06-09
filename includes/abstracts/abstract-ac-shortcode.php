@@ -352,13 +352,16 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$form_fields = $this->get_form_fields();
 		}
 
-		$form_fields['custom_class'] = array(
-			'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
-			'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),
-			'class'       => 'ac_input_class',
-			'type'        => 'text',
-			'default'     => ''
-		);
+		// Check to make sure we've excluded shortcodes
+		if ( isset( $this->id ) && current_user_can( 'manage_axiscomposer' ) && ! in_array( $this->id, apply_filters( 'axiscomposer_hide_custom_class_field', array() ) ) ) {
+			$form_fields['custom_class'] = array(
+				'title'       => __( 'Custom CSS Class', 'axiscomposer' ),
+				'description' => __( 'This option lets you set custom css class you are willing to use for customization.', 'axiscomposer' ),
+				'class'       => 'ac_input_css',
+				'type'        => 'text',
+				'default'     => ''
+			);
+		}
 
 		return $form_fields;
 	}
@@ -456,7 +459,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 								$value['default'] = 'yes';
 							}
 						} else {
-							$value['default'] = ac_clean( stripslashes( $main_shortcode['attr'][$key] ) );
+							$value['default'] = stripslashes( $main_shortcode['attr'][$key] );
 						}
 					} elseif ( $value['type'] == 'checkbox' ) {
 						$value['default'] = 'no';

@@ -25,7 +25,7 @@ if ( ! empty( $status_options['uninstall_data'] ) ) {
 	AC_Install::remove_roles();
 
 	// Delete options
-	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'axiscomposer_%';" );
+	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'axiscomposer\_%';" );
 
 	// Delete posts + data
 	$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'portfolio' );" );

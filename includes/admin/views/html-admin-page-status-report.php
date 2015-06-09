@@ -11,13 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="updated axiscomposer-message">
 	<p><?php _e( 'Please copy and paste this information in your ticket when contacting support:', 'axiscomposer' ); ?> </p>
 	<p class="submit"><a href="#" class="button-primary debug-report"><?php _e( 'Get System Report', 'axiscomposer' ); ?></a>
-	<a class="skip button-primary" href="http://docs.axisthemes.com/document/understanding-the-axiscomposer-system-status-report/" target="_blank"><?php _e( 'Understanding the Status Report', 'axiscomposer' ); ?></a></p>
+	<a class="docs button" href="http://docs.axisthemes.com/document/understanding-the-axiscomposer-system-status-report/" target="_blank"><?php _e( 'Understanding the Status Report', 'axiscomposer' ); ?></a></p>
 	<div id="debug-report">
 		<textarea readonly="readonly"></textarea>
 		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axiscomposer' ); ?>"><?php _e( 'Copy for Support', 'axiscomposer' ); ?></button></p>
 	</div>
 </div>
-<br/>
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>

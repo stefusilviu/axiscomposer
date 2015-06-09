@@ -56,6 +56,7 @@ class AC_Admin_Help {
 				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
 
 				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Support Forum', 'axiscomposer' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
+
 		) );
 
 		$screen->add_help_tab( array(

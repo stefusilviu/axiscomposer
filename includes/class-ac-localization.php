@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Localization {
 
 	/**
-	 * Languages repository
+	 * Languages repository.
 	 * @var string
 	 */
 	protected $repo = 'https://github.com/axisthemes/axiscomposer-language-packs/raw/v';
@@ -33,6 +33,7 @@ class AC_Localization {
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_for_update' ) );
 		add_filter( 'upgrader_pre_download', array( $this, 'version_update' ), 10, 2 );
 		add_action( 'axiscomposer_installed', array( $this, 'has_available_update' ) );
+		add_action( 'update_option_WPLANG', array( $this, 'updated_language_option' ), 10, 2 );
 		add_filter( 'admin_init', array( $this, 'manual_language_update' ), 999 );
 	}
 
@@ -40,8 +41,11 @@ class AC_Localization {
 	 * Get language package URI.
 	 * @return string
 	 */
-	public function get_language_package_uri() {
-		return $this->repo . AC_VERSION . '/packages/' . get_locale() . '.zip';
+	public function get_language_package_uri( $locale = null ) {
+		if ( is_null( $locale ) ) {
+			$locale = get_locale();
+		}
+		return $this->repo . AC_VERSION . '/packages/' . $locale . '.zip';
 	}
 
 	/**
@@ -66,26 +70,36 @@ class AC_Localization {
 	}
 
 	/**
+	 * Triggered when WPLANG is changed.
+	 * @param string $old
+	 * @param string $new
+	 */
+	public function updated_language_option( $old, $new ) {
+		$this->has_available_update( $new );
+	}
+
+	/**
 	 * Check if has available translation update.
 	 * @return bool
 	 */
-	public function has_available_update() {
-		$locale = get_locale();
+	public function has_available_update( $locale = null ) {
+		if ( is_null( $locale ) ) {
+			$locale = get_locale();
+		}
 
-		if ( 'en_US' !== $locale ) {
+		if ( 'en_US' === $locale ) {
 			return false;
 		}
 
 		$version = get_option( 'axiscomposer_language_pack_version', array( '0', $locale ) );
 
 		if ( ! is_array( $version ) || version_compare( $version[0], AC_VERSION, '<' ) || $version[1] !== $locale ) {
-			if ( $this->check_if_language_pack_exists() ) {
+			if ( $this->check_if_language_pack_exists( $locale ) ) {
 				$this->configure_axiscomposer_upgrade_notice();
-
 				return true;
 			} else {
 				// Updated the axiscomposer_language_pack_version to avoid searching translations for this release again
-				update_option( 'axiscomposer_language_pack_version', array( AC_VERSION , get_locale() ) );
+				update_option( 'axiscomposer_language_pack_version', array( AC_VERSION, $locale ) );
 			}
 		}
 
@@ -103,8 +117,8 @@ class AC_Localization {
 	 * Check if language pack exists.
 	 * @return bool
 	 */
-	public function check_if_language_pack_exists() {
-		$response = wp_remote_get( $this->get_language_package_uri(), array( 'timeout' => 60 ) );
+	public function check_if_language_pack_exists( $locale ) {
+		$response = wp_remote_get( $this->get_language_package_uri( $locale ), array( 'timeout' => 60 ) );
 
 		if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 			return true;
@@ -137,7 +151,7 @@ class AC_Localization {
 	 */
 	protected function save_language_version() {
 		// Update the language pack version
-		update_option( 'axiscomposer_language_pack_version', array( AC_VERSION , get_locale() ) );
+		update_option( 'axiscomposer_language_pack_version', array( AC_VERSION, get_locale() ) );
 
 		// Remove the translation upgrade notice
 		$notices = get_option( 'axiscomposer_admin_notices', array() );

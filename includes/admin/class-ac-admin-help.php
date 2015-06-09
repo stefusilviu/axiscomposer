@@ -51,12 +51,11 @@ class AC_Admin_Help {
 			'title'     => __( 'Support', 'axiscomposer' ),
 			'content'   =>
 
-				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use our %scommunity forum%s if you get stuck. For help with premium add-ons from AxisThemes, or if you are a AxisThemes customer, you can %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="http://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://support.axisthemes.com">', '</a>' ) . '</p>' .
+				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %sWordPress.org support forum%s. For help with premium add-ons from AxisThemes, or if you are a AxisThemes customer, you can %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://support.axisthemes.com">', '</a>' ) . '</p>' .
 
 				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
 
-				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'http://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'Community Support', 'axiscomposer' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
-
+				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Support Forum', 'axiscomposer' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
 		) );
 
 		$screen->add_help_tab( array(

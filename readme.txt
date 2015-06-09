@@ -55,7 +55,7 @@ AxisComposer comes with some dummy data you can use to see how page layouts look
 
 = Where can I find AxisComposer documentation and user guides? =
 
-For help setting up and configuring AxisComposer please refer to our [user guide](http://docs.axisthemes.com/document/axiscomposer/)
+For help setting up and configuring AxisComposer please refer to our [user guide](http://docs.axisthemes.com/documentation/plugins/axiscomposer/getting-started/)
 
 For extending or theming AxisComposer, see our [codex](http://docs.axisthemes.com/documentation/plugins/axiscomposer/axiscomposer-codex/).
 

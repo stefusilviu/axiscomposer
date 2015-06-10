@@ -25,4 +25,4 @@ include_once( 'widgets/class-ac-widget-advertisement.php' );
 function ac_register_widgets() {
 	register_widget( 'AC_Widget_Advertisement' );
 }
-// add_action( 'widgets_init', 'ac_register_widgets' );
+add_action( 'widgets_init', 'ac_register_widgets' );

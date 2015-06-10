@@ -617,7 +617,7 @@ jQuery( function( $ ) {
 				}
 
 				if ( container.is( '.ac-layout-column:not(.ac-layout-cell)' ) ) {
-					var	currentFirst   = container.is( '.ac-first-column' ) ? ' first' : '';
+					var	currentFirst = container.is( '.ac-first-column' ) ? ' first' : '';
 
 					content        = '';
 					currentSize    = container.data( 'width' );
@@ -854,11 +854,11 @@ jQuery( function( $ ) {
 							ui.draggable = template;
 						}
 
-						// Move the real draggable element to the new position
-						toEl[ method ]( ui.draggable );
-
 						// Before finally moving the element, save the former parent of the draggable to a var so we can check later if we need to update the parent as well
 						var formerParent = $( ui.draggable ).parents( '.ac-drag:last' );
+
+						// Move the real draggable element to the new position
+						toEl[ method ]( ui.draggable );
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {

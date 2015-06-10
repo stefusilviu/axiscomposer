@@ -33,7 +33,7 @@ class AC_Shortcode_Catalogue extends AC_Shortcode {
 		$this->method_title       = __( 'Catalogue', 'axiscomposer' );
 		$this->method_description = __( 'Creates a pricing list', 'axiscomposer' );
 		$this->shortcode = array(
-			'sort'    => 240,
+			'sort'    => 200,
 			'type'    => 'content',
 			'name'    => 'ac_catalogue',
 			'icon'    => 'icon-catalogue',

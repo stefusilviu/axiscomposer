@@ -33,7 +33,7 @@ class AC_Shortcode_Teammembers extends AC_Shortcode {
 		$this->method_title       = __( 'Team Members', 'axiscomposer' );
 		$this->method_description = __( 'Display a team members image with additional information', 'axiscomposer' );
 		$this->shortcode = array(
-			'sort'    => 230,
+			'sort'    => 240,
 			'type'    => 'content',
 			'name'    => 'ac_teammembers',
 			'icon'    => 'icon-teammembers',

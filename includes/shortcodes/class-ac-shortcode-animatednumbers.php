@@ -33,7 +33,7 @@ class AC_Shortcode_Animatednumbers extends AC_Shortcode {
 		$this->method_title       = __( 'Animated Numbers', 'axiscomposer' );
 		$this->method_description = __( 'Display an Animated number with subtitle', 'axiscomposer' );
 		$this->shortcode = array(
-			'sort'    => 190,
+			'sort'    => 200,
 			'type'    => 'content',
 			'name'    => 'ac_animatednumbers',
 			'icon'    => 'icon-animatednumbers',

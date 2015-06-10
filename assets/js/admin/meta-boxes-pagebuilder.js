@@ -222,7 +222,7 @@ jQuery( function( $ ) {
 
 			// Check if cell
 			if ( element.is( '.ac-layout-cell' ) ) {
-				var count  = element.parents( '.ac-layout-row:eq(0)' ).find( '.ac-layout-cell' ).length;
+				var count = element.parents( '.ac-layout-row:eq(0)' ).find( '.ac-layout-cell' ).length;
 				if ( typeof ac_meta_boxes_pagebuilder_data.new_cell_order[count] !== 'undefined' ) {
 					recalc_cell = true;
 				} else {

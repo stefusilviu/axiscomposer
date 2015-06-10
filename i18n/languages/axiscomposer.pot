@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0-alpha-4 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-06-06 10:29:00+00:00\n"
+"POT-Creation-Date: 2015-06-10 16:10:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,33 +48,33 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:356
+#: includes/abstracts/abstract-ac-shortcode.php:358
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:357
+#: includes/abstracts/abstract-ac-shortcode.php:359
 msgid ""
 "This option lets you set custom css class you are willing to use for "
 "customization."
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:562
+#: includes/abstracts/abstract-ac-shortcode.php:565
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:564
+#: includes/abstracts/abstract-ac-shortcode.php:567
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:565
+#: includes/abstracts/abstract-ac-shortcode.php:568
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-ac-ajax.php:225
+#: includes/class-ac-ajax.php:226
 msgid "%s &ndash; %s"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:158
+#: includes/class-ac-frontend-scripts.php:164
 msgid "Select an option&hellip;"
 msgstr ""
 
@@ -319,11 +319,11 @@ msgid "Year"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:67
-msgid "This option lets you pick the hour of the day. (24 is 0)"
+msgid "This option lets you pick the hour of the day."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:78
-msgid "This option lets you pick the minute of the hour. (60 is 0)"
+msgid "This option lets you pick the minute of the hour."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-animatedcountdown.php:88
@@ -731,69 +731,6 @@ msgstr ""
 msgid "Creates a single column with 80% width"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:33
-msgid "Code Block"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:34
-msgid ""
-"Add text or code to your website without any formatting or text "
-"optimization. Can be used for HTML/CSS/Javascript"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:53
-#: includes/shortcodes/class-ac-shortcode-textblock.php:54
-msgid "Content"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:54
-msgid ""
-"Enter some text/code. You can also add plugin shortcode here. (Adding theme "
-"shortcode is not recommended though)"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:60
-msgid "Wrapper Element"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:61
-msgid "This option lets you wrap code into a html tag (i.e. pre|code)."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:68
-msgid "Element Attributes"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:69
-msgid ""
-"Enter one or more attribute values which should be applied to the wrapper "
-"element. Leave the field empty if no attributes are required."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:75
-msgid "Escape HTML"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:76
-msgid "Enable to convert the html tags to readable text."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:82
-msgid "Disable Markup"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:83
-msgid "Disable the schema.org markup for this code block."
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:89
-msgid "Disable Shortcode"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-codeblock.php:90
-msgid "Disable the shortcode processing for this code block."
-msgstr ""
-
 #: includes/shortcodes/class-ac-shortcode-columns.php:76
 msgid "Decrease Column Size"
 msgstr ""
@@ -824,6 +761,70 @@ msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-contactform.php:34
 msgid "Creates a customizable contact form"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:33
+msgid "Gist Snippet"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:34
+msgid "Embed a gist snippet with one or multiple files display."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:53
+msgid "Gist ID"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:54
+msgid "This option lets you add the public or secret Gist ID."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:61
+msgid "Gist File"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:62
+msgid "This option lets you limit which file you are willing to display."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:69
+msgid "Display all files"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:70
+msgid "Display Specific file"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:74
+msgid "Specific file"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:75
+msgid "This option lets you set the file names you want to display."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:82
+msgid "Footer Meta"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:83
+msgid "Load a gist with footer meta removed."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:89
+msgid "Line Numbers"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:90
+msgid "Load a gist with all line numbers removed."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:96
+msgid "Loading Message"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-gist.php:97
+msgid "Load a gist without displaying loading message."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-googlemap.php:33
@@ -977,39 +978,107 @@ msgid "H6"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:77
-msgid "Heading Font Size"
+msgid "Heading Style"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:78
-msgid "This sets the custom font size of the heading text."
+msgid "This sets the custom modern and classic heading style."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:85
+msgid "Default Style"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:86
+msgid "Heading Style Modern (left)"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:87
+msgid "Heading Style Modern (centered)"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:88
+msgid "Heading Style Classic (centered, italic)"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:92
+msgid "Heading Size"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:93
+msgid "This sets the custom font size of the heading text."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:103
+msgid "Subheading"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:104
+msgid "This option lets you control the display of subheading."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:111
+msgid "No Subheading"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:112
+msgid "Display Subheading Above"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:113
+msgid "Display Subheading Below"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:117
+msgid "Subheading Text"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:118
+msgid "Enter an extra descriptive subheading here."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:124
+msgid "Subheading Size"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:125
+msgid "This sets the custom font size of the subheading text."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:135
+msgid "Padding Bottom"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:136
+msgid "This sets the custom bottom padding in pixel."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-heading.php:146
 #: includes/shortcodes/class-ac-shortcode-textblock.php:72
 msgid "Font Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:89
+#: includes/shortcodes/class-ac-shortcode-heading.php:147
 #: includes/shortcodes/class-ac-shortcode-textblock.php:73
 msgid "This option lets you limit which color you are willing to use."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:96
+#: includes/shortcodes/class-ac-shortcode-heading.php:154
 #: includes/shortcodes/class-ac-shortcode-textblock.php:80
 msgid "Theme Default Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:97
+#: includes/shortcodes/class-ac-shortcode-heading.php:155
 #: includes/shortcodes/class-ac-shortcode-textblock.php:81
 msgid "Define Custom Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:101
+#: includes/shortcodes/class-ac-shortcode-heading.php:159
 #: includes/shortcodes/class-ac-shortcode-textblock.php:85
 msgid "Custom Font Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:102
+#: includes/shortcodes/class-ac-shortcode-heading.php:160
 msgid "This sets the custom font color of the heading text."
 msgstr ""
 
@@ -1235,6 +1304,10 @@ msgstr ""
 msgid "Creates a simple text block"
 msgstr ""
 
+#: includes/shortcodes/class-ac-shortcode-textblock.php:54
+msgid "Content"
+msgstr ""
+
 #: includes/shortcodes/class-ac-shortcode-textblock.php:55
 msgid "Enter some content for this textblock :)"
 msgstr ""
@@ -1331,62 +1404,62 @@ msgstr ""
 msgid "http://axisthemes.com"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:159
+#: includes/class-ac-frontend-scripts.php:165
 msgctxt "enhanced select"
 msgid "One result is available, press enter to select it."
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:160
+#: includes/class-ac-frontend-scripts.php:166
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:161
+#: includes/class-ac-frontend-scripts.php:167
 msgctxt "enhanced select"
 msgid "No matches found"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:162
+#: includes/class-ac-frontend-scripts.php:168
 msgctxt "enhanced select"
 msgid "Loading failed"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:163
+#: includes/class-ac-frontend-scripts.php:169
 msgctxt "enhanced select"
 msgid "Please enter 1 or more characters"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:164
+#: includes/class-ac-frontend-scripts.php:170
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:165
+#: includes/class-ac-frontend-scripts.php:171
 msgctxt "enhanced select"
 msgid "Please delete 1 character"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:166
+#: includes/class-ac-frontend-scripts.php:172
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:167
+#: includes/class-ac-frontend-scripts.php:173
 msgctxt "enhanced select"
 msgid "You can only select 1 item"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:168
+#: includes/class-ac-frontend-scripts.php:174
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:169
+#: includes/class-ac-frontend-scripts.php:175
 msgctxt "enhanced select"
 msgid "Loading more results&hellip;"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:170
+#: includes/class-ac-frontend-scripts.php:176
 msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""

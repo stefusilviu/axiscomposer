@@ -25,7 +25,7 @@ jQuery( function ( $ ) {
 		})
 		.on( 'keyup change', '.ac_input_css[type=text]', function() {
 			var value    = $( this ).val();
-			var regex    = new RegExp( '[^a-zA-Z0-9-_]+', 'gi' );
+			var regex    = new RegExp( '[^A-Za-z0-9_-]+', 'gi' );
 			var newvalue = value.replace( regex, '' );
 
 			if ( value !== newvalue ) {
@@ -37,7 +37,7 @@ jQuery( function ( $ ) {
 		})
 		.on( 'keyup change', '.ac_input_gist[type=text]', function() {
 			var value    = $( this ).val();
-			var regex    = new RegExp( '[^a-zA-Z0-9]+', 'gi' );
+			var regex    = new RegExp( '[^A-Za-z0-9]+', 'gi' );
 			var newvalue = value.replace( regex, '' );
 
 			if ( value !== newvalue ) {

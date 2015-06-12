@@ -102,7 +102,7 @@ function ac_get_sidebars( $sidebars = array() ) {
 
 	foreach ( $wp_registered_sidebars as $sidebar ) {
 		if ( ! in_array( $sidebar['name'], apply_filters( 'axiscomposer_sidebars_exclude', array( 'Display Everywhere' ) ) ) ) {
-			$sidebars[ $sidebar['name'] ] = $sidebar['name'];
+			$sidebars[ $sidebar['id'] ] = $sidebar['name'];
 		}
 	}
 

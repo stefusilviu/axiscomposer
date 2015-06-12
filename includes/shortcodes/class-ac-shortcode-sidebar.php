@@ -54,7 +54,7 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 		$sidebars = ac_get_sidebars();
 
 		if ( empty( $params['args']['widget_area'] ) ) {
-			$params['args']['widget_area'] = reset( $sidebars );
+			$params['args']['widget_area'] = reset( array_keys( $sidebars ) );
 		}
 
 		$params['innerHtml']  = '';

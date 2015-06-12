@@ -239,22 +239,6 @@ function do_shortcode_tag_builder( $m ) {
 }
 
 /**
- * Applies WordPress autop filter.
- * @param  string  $content      HTML content by the WordPress Editor.
- * @param  boolean $do_shortcode Content with shortcodes filtered out.
- * @return string  $content
- */
-function ac_apply_autop( $content, $do_shortcode = true ) {
-	$content = wpautop( $content );
-
-	if ( $do_shortcode ) {
-		$content = do_shortcode( shortcode_unautop( $content ) );
-	}
-
-	return $content;
-}
-
-/**
  * Removes WordPress autop and invalid nesting of <p> & <br> tags.
  * @param  string  $content      HTML content by the WordPress Editor.
  * @param  boolean $do_shortcode Content with shortcodes filtered out.

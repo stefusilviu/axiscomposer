@@ -34,21 +34,6 @@ function ac_html_data_string( $data ) {
 }
 
 /**
- * Fetch all available sidebars.
- */
-function ac_get_registered_sidebars( $sidebars = array(), $exclude = array() ) {
-	global $wp_registered_sidebars;
-
-	foreach ( $wp_registered_sidebars as $sidebar ) {
-		if ( ! in_array( $sidebar['name'], $exclude ) ) {
-			$sidebars[$sidebar['name']] = $sidebar['name'];
-		}
-	}
-
-	return $sidebars;
-}
-
-/**
  * Generate select HTML.
  * @param  string $field
  * @param  mixed  $data

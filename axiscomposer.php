@@ -109,7 +109,6 @@ final class AxisComposer {
 		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
 		add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
 		add_action( 'init', array( $this, 'init' ), 0 );
-		add_filter( 'widget_text', 'do_shortcode' );
 	}
 
 	/**

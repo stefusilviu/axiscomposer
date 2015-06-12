@@ -94,13 +94,14 @@ function ac_print_js() {
 
 /**
  * Get all available sidebars.
+ * @param  array $sidebars
  * @return array
  */
-function ac_get_sidebars( $sidebars = array(), $exclude = array() ) {
+function ac_get_sidebars( $sidebars = array() ) {
 	global $wp_registered_sidebars;
 
 	foreach ( $wp_registered_sidebars as $sidebar ) {
-		if ( ! in_array( $sidebar['name'], $exclude ) ) {
+		if ( ! in_array( $sidebar['name'], apply_filters( 'axiscomposer_sidebars_exclude', array( 'Display Everywhere' ) ) ) ) {
 			$sidebars[ $sidebar['name'] ] = $sidebar['name'];
 		}
 	}

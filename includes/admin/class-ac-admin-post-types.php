@@ -198,7 +198,7 @@ class AC_Admin_Post_Types {
 		$screen = get_current_screen();
 
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
-			global $post_ID;
+			global $post;
 
 			$params = apply_filters( 'axiscomposer_editors_toggle_params', array(
 				'notice'        => '',
@@ -208,7 +208,7 @@ class AC_Admin_Post_Types {
 				'disable_label' => __( 'Page Builder Disabled', 'axiscomposer' )
 			) );
 
-			if ( is_pagebuilder_active( $post_ID ) ) {
+			if ( is_pagebuilder_active( $post->ID ) ) {
 				$active_label = $params['default_label'];
 				$button_class = 'button-secondary';
 				$editor_class = 'ac-hidden-editor';

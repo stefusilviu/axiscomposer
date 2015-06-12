@@ -41,7 +41,7 @@ class AC_Meta_Box_Layout_Data {
 				), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Select the specific layout for this entry.', 'axiscomposer' ) ) );
 
 				// Sidebar
-				axiscomposer_wp_select( array( 'id' => 'sidebar', 'class' => 'select side', 'label' => __( 'Sidebar Settings', 'axiscomposer' ), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Choose a custom sidebar for this entry.', 'axiscomposer' ), 'options' => ac_get_registered_sidebars( array( 'default' => 'Default Sidebar' ), array( 'Display Everywhere' ) ) ) );
+				axiscomposer_wp_select( array( 'id' => 'sidebar', 'class' => 'select side', 'label' => __( 'Sidebar Settings', 'axiscomposer' ), 'desc_side' => true, 'desc_tip' => false, 'desc_class' => 'side', 'description' => __( 'Choose a custom sidebar for this entry.', 'axiscomposer' ), 'options' => ac_get_sidebars( array( 'default' => 'Default Sidebar' ), array( 'Display Everywhere' ) ) ) );
 
 				// Footer
 				axiscomposer_wp_select( array( 'id' => 'footer', 'class' => 'select side', 'label' => __( 'Footer Settings', 'axiscomposer' ), 'options' => array(

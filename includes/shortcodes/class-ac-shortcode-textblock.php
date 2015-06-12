@@ -115,7 +115,7 @@ class AC_Shortcode_Textblock extends AC_Shortcode {
 		?>
 		<section class="axiscomposer textblock-section">
 			<div class="ac-textblock <?php echo esc_attr( $custom_class ); ?>" style="<?php echo esc_attr( $custom_style ); ?>">
-				<?php echo ac_apply_autop( ac_remove_autop( $content ) ); ?>
+				<?php echo ac_format_content( ac_remove_autop( $content ) ); ?>
 			</div>
 		</section>
 		<?php

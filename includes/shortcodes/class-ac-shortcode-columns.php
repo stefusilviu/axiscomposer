@@ -106,7 +106,7 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 
 		$class   = substr( str_replace( '_', '-', strtolower( $shortcode ) ), 3 );
 		$first   = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? ' first' : '';
-		$content = empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
+		$content = empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_format_content( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
 
 		ob_start();
 		?>

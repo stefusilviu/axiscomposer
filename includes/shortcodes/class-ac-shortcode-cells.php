@@ -274,7 +274,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 
 		$output  = '<div class="flex-cell no-margin ' . $shortcode . $meta['el_class'] . $extra_class . self::$cell_class . '" ' . $outer_style . '>';
 		$output .= '<div class="flex-cell-inner ' . $inner_style . '">';
-		$output .= empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_apply_autop( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
+		$output .= empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_format_content( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
 		$output .= '</div></div>';
 
 		unset( $axiscomposer_config['current_column'] );

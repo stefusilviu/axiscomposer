@@ -50,8 +50,8 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 	 */
 	public function editor_element( $params ) {
 
-		// Fetch all registered sidebars
-		$sidebars = ac_get_registered_sidebars();
+		// Get all active sidebars
+		$sidebars = ac_get_sidebars();
 
 		if ( empty( $params['args']['widget_area'] ) ) {
 			$params['args']['widget_area'] = reset( $sidebars );

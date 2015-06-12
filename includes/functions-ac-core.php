@@ -93,6 +93,22 @@ function ac_print_js() {
 }
 
 /**
+ * Get all available sidebars.
+ * @return array
+ */
+function ac_get_sidebars( $sidebars = array(), $exclude = array() ) {
+	global $wp_registered_sidebars;
+
+	foreach ( $wp_registered_sidebars as $sidebar ) {
+		if ( ! in_array( $sidebar['name'], $exclude ) ) {
+			$sidebars[ $sidebar['name'] ] = $sidebar['name'];
+		}
+	}
+
+	return $sidebars;
+}
+
+/**
  * Get all Custom Post Types Screen.
  * @return array
  */

@@ -20,7 +20,9 @@ include( 'functions-ac-deprecated.php' );
 include( 'functions-ac-formatting.php' );
 include( 'functions-ac-helper.php' );
 
-// Use shortcodes in text widgets.
+/**
+ * Filters on data used in admin and frontend
+ */
 add_filter( 'widget_text', 'do_shortcode' );
 
 /**

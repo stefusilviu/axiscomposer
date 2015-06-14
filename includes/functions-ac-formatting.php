@@ -121,7 +121,7 @@ function ac_trim_string( $string, $chars = 200, $suffix = '...' ) {
  * @return string
  */
 function ac_format_content( $raw_string ) {
-	return apply_filters( 'axiscomposer_format_content', do_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ), $raw_string );
+	return apply_filters( 'axiscomposer_format_content', do_shortcode( ac_format_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ) ), $raw_string );
 }
 
 /**

@@ -35,7 +35,12 @@ function ac_fix_shortcodes( $content ) {
 	global $post;
 
 	if ( is_singular() && is_pagebuilder_active( $post->ID ) ) {
-		$content = ac_format_shortcode( $content );
+		$content = strtr( $content, array(
+			'<p>['      => '[',
+			']</p>'     => ']',
+			']<br />'   => ']',
+			"<br />\n[" => '[',
+		) );
 	}
 
 	return $content;

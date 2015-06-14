@@ -104,14 +104,13 @@ class AC_Shortcode_Columns extends AC_Shortcode {
 
 		$axiscomposer_config['current_column'] = $shortcode;
 
-		$class   = substr( str_replace( '_', '-', strtolower( $shortcode ) ), 3 );
-		$first   = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? ' first' : '';
-		$content = empty( $axiscomposer_config['conditionals']['is_axiscomposer_template'] ) ? ac_format_content( ac_remove_autop( $content ) ) : ac_remove_autop( $content, true );
+		$class = substr( str_replace( '_', '-', strtolower( $shortcode ) ), 3 );
+		$first = ( isset( $atts[0] ) && trim( $atts[0] ) == 'first' ) ? ' first' : '';
 
 		ob_start();
 		?>
 		<div class="axiscomposer flex-column <?php echo esc_attr( $class . $first . ' ' . $meta['el_class'] ); ?>">
-			<?php echo trim( $content ); ?>
+			<?php echo ac_format_content( $content ); ?>
 		</div>
 		<?php
 

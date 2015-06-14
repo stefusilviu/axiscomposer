@@ -62,8 +62,8 @@ class AC_Shortcode_Sidebar extends AC_Shortcode {
 		$params['innerHtml'] .= ( isset( $this->shortcode['image'] ) && ! empty( $this->shortcode['image'] ) ) ? '<img src="' . $this->shortcode['image'] . '" alt="' . $this->method_title . '" />' : '<i class="' . $this->shortcode['icon'] . '"></i>';
 		$params['innerHtml'] .= '<div class="ac-element-label">' . $this->method_title . '</div>';
 		$params['innerHtml'] .= ac_select_html( 'axiscomposer_sidebar', array(
-			'class'             => 'ac-recalc-shortcode ac-enhanced-select',
 			'default'           => $params['args']['widget_area'],
+			'class'             => 'ac-recalc-shortcode',
 			'options'           => $sidebars,
 			'custom_attributes' => array(
 				'data-attr' => 'widget_area'

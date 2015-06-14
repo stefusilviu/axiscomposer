@@ -24,7 +24,8 @@ include( 'functions-ac-helper.php' );
  * Filters on data used in admin and frontend
  */
 add_filter( 'widget_text', 'do_shortcode' );
-add_filter( 'the_content', 'ac_fix_shortcodes' );
+add_filter( 'the_content', 'wpautop', 11, 2 );
+add_filter( 'the_content', 'ac_fix_shortcodes' ); // BEFORE wpautop()
 
 /**
  * Format content to fix shortcodes.

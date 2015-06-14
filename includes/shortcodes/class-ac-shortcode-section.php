@@ -337,7 +337,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 		$axiscomposer_config['layout_container'] = 'section';
 
 		$output .= ac_new_section( $params );
-		$output .= ac_remove_autop( $content, true );
+		$output .= ac_format_content( $content );
 
 		// Set Extra arrow element
 		if ( strpos( $bottom_border, 'border-extra' ) !== false ) {

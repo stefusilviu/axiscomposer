@@ -192,7 +192,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 		AC_Shortcode_Cells::$attributes = $atts;
 
 		$output .= ac_new_section( $params );
-		$output .= ac_remove_autop( $content, true );
+		$output .= ac_format_content( $content );
 		$output .= ac_section_after_element_content( $meta, 'after-submenu', false );
 
 		return $output;

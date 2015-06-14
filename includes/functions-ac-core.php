@@ -26,6 +26,13 @@ include( 'functions-ac-helper.php' );
 add_filter( 'widget_text', 'do_shortcode' );
 
 /**
+ * Move wpautop filter to AFTER shortcode is processed
+ */
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop', 99 );
+add_filter( 'the_content', 'shortcode_unautop', 100 ); // AFTER wpautop()
+
+/**
  * Get an image size.
  *
  * Variable is filtered by axiscomposer_get_image_size_{image_size}

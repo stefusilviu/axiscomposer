@@ -121,5 +121,21 @@ function ac_trim_string( $string, $chars = 200, $suffix = '...' ) {
  * @return string
  */
 function ac_format_content( $raw_string ) {
-	return apply_filters( 'axiscomposer_format_content', do_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ), $raw_string );
+	return apply_filters( 'axiscomposer_format_content', do_shortcode( ac_format_shortcode( shortcode_unautop( wpautop( $raw_string ) ) ) ), $raw_string );
+}
+
+/**
+ * Format shortcode tags to display content.
+ * @param  string $raw_string
+ * @return string
+ */
+function ac_format_shortcode( $raw_string ) {
+	$args = array(
+		'<p>['      => '[',
+		']</p>'     => ']',
+		']<br />'   => ']',
+		"<br />\n[" => '[',
+	);
+
+	return strtr( $raw_string, $args );
 }

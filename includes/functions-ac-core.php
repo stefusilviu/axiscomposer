@@ -34,13 +34,8 @@ add_filter( 'the_content', 'ac_fix_shortcodes' );
 function ac_fix_shortcodes( $content ) {
 	global $post;
 
-	if ( is_singular() && current_user_can( 'manage_axiscomposer' ) && is_pagebuilder_active( $post->ID ) ) {
-		$content = strtr( $content, array(
-			'<p>['      => '[',
-			']</p>'     => ']',
-			']<br />'   => ']',
-			"<br />\n[" => '[',
-		) );
+	if ( is_singular() && is_pagebuilder_active( $post->ID ) ) {
+		$content = ac_format_shortcode( $content );
 	}
 
 	return $content;

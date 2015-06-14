@@ -24,13 +24,27 @@ include( 'functions-ac-helper.php' );
  * Filters on data used in admin and frontend
  */
 add_filter( 'widget_text', 'do_shortcode' );
+add_filter( 'the_content', 'ac_fix_shortcodes' );
 
 /**
- * Move wpautop filter to AFTER shortcode is processed
+ * Format content to fix shortcodes.
+ * @param  string $content
+ * @return string
  */
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop', 99 );
-add_filter( 'the_content', 'shortcode_unautop', 100 ); // AFTER wpautop()
+function ac_fix_shortcodes( $content ) {
+	global $post;
+
+	if ( is_singular() && current_user_can( 'manage_axiscomposer' ) && is_pagebuilder_active( $post->ID ) ) {
+		$content = strtr( $content, array(
+			'<p>['      => '[',
+			']</p>'     => ']',
+			']<br />'   => ']',
+			"<br />\n[" => '[',
+		) );
+	}
+
+	return $content;
+}
 
 /**
  * Get an image size.

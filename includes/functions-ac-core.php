@@ -24,6 +24,22 @@ include( 'functions-ac-helper.php' );
  * Filters on data used in admin and frontend
  */
 add_filter( 'widget_text', 'do_shortcode' );
+add_filter( 'the_content', 'ac_fix_shortcodes' );
+
+/**
+ * Format content to fix shortcodes.
+ * @param  string $content
+ * @return string
+ */
+function ac_fix_shortcodes( $content ) {
+	global $post;
+
+	if ( is_singular() && is_pagebuilder_active( $post->ID ) ) {
+		$content = ac_format_shortcode( $content );
+	}
+
+	return $content;
+}
 
 /**
  * Get an image size.

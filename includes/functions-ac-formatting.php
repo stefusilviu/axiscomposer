@@ -137,5 +137,5 @@ function ac_format_shortcode( $raw_string ) {
 		"<br />\n[" => '[',
 	) );
 
-	return apply_filters( 'axiscomposer_format_shortcode', $content );
+	return apply_filters( 'axiscomposer_format_shortcode', $content, $raw_string );
 }

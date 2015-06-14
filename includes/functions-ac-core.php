@@ -26,31 +26,11 @@ include( 'functions-ac-helper.php' );
 add_filter( 'widget_text', 'do_shortcode' );
 
 /**
- * Post Content (the_content)
+ * Move wpautop filter to AFTER shortcode is processed
  */
 remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop', 99 );
-add_filter( 'the_content', 'ac_fix_shortcodes' ); // BEFORE wpautop()
-
-/**
- * Format content to fix shortcodes.
- * @param  string $content
- * @return string
- */
-function ac_fix_shortcodes( $content ) {
-	global $post;
-
-	if ( is_singular() && is_pagebuilder_active( $post->ID ) ) {
-		$content = strtr( $content, array(
-			'<p>['      => '[',
-			']</p>'     => ']',
-			']<br />'   => ']',
-			"<br />\n[" => '[',
-		) );
-	}
-
-	return $content;
-}
+add_filter( 'the_content', 'shortcode_unautop', 100 ); // AFTER wpautop()
 
 /**
  * Get an image size.

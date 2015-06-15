@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0-alpha-4 Frontend\n"
+"Project-Id-Version: AxisComposer 1.0-alpha-5 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-06-10 16:10:47+00:00\n"
+"POT-Creation-Date: 2015-06-15 00:43:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -264,11 +264,11 @@ msgstr ""
 msgid "Custom Widget Area of the site - %s "
 msgstr ""
 
-#: includes/functions-ac-core.php:103
+#: includes/functions-ac-core.php:141
 msgid "Post"
 msgstr ""
 
-#: includes/functions-ac-core.php:104
+#: includes/functions-ac-core.php:142
 msgid "Page"
 msgstr ""
 
@@ -642,92 +642,92 @@ msgid "Clone Cell"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:332
-#: includes/shortcodes/class-ac-shortcode-columns.php:131
+#: includes/shortcodes/class-ac-shortcode-columns.php:133
 msgid "1/2"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:333
-#: includes/shortcodes/class-ac-shortcode-columns.php:132
+#: includes/shortcodes/class-ac-shortcode-columns.php:134
 msgid "Creates a single column with 50% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:360
-#: includes/shortcodes/class-ac-shortcode-columns.php:158
+#: includes/shortcodes/class-ac-shortcode-columns.php:160
 msgid "1/3"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:361
-#: includes/shortcodes/class-ac-shortcode-columns.php:159
+#: includes/shortcodes/class-ac-shortcode-columns.php:161
 msgid "Creates a single column with 33% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:388
-#: includes/shortcodes/class-ac-shortcode-columns.php:185
+#: includes/shortcodes/class-ac-shortcode-columns.php:187
 msgid "2/3"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:389
-#: includes/shortcodes/class-ac-shortcode-columns.php:186
+#: includes/shortcodes/class-ac-shortcode-columns.php:188
 msgid "Creates a single column with 67% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:416
-#: includes/shortcodes/class-ac-shortcode-columns.php:212
+#: includes/shortcodes/class-ac-shortcode-columns.php:214
 msgid "1/4"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:417
-#: includes/shortcodes/class-ac-shortcode-columns.php:213
+#: includes/shortcodes/class-ac-shortcode-columns.php:215
 msgid "Creates a single column with 25% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:444
-#: includes/shortcodes/class-ac-shortcode-columns.php:239
+#: includes/shortcodes/class-ac-shortcode-columns.php:241
 msgid "3/4"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:445
-#: includes/shortcodes/class-ac-shortcode-columns.php:240
+#: includes/shortcodes/class-ac-shortcode-columns.php:242
 msgid "Creates a single column with 75% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:472
-#: includes/shortcodes/class-ac-shortcode-columns.php:266
+#: includes/shortcodes/class-ac-shortcode-columns.php:268
 msgid "1/5"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:473
-#: includes/shortcodes/class-ac-shortcode-columns.php:267
+#: includes/shortcodes/class-ac-shortcode-columns.php:269
 msgid "Creates a single column with 20% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:500
-#: includes/shortcodes/class-ac-shortcode-columns.php:293
+#: includes/shortcodes/class-ac-shortcode-columns.php:295
 msgid "2/5"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:501
-#: includes/shortcodes/class-ac-shortcode-columns.php:294
+#: includes/shortcodes/class-ac-shortcode-columns.php:296
 msgid "Creates a single column with 40% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:528
-#: includes/shortcodes/class-ac-shortcode-columns.php:320
+#: includes/shortcodes/class-ac-shortcode-columns.php:322
 msgid "3/5"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:529
-#: includes/shortcodes/class-ac-shortcode-columns.php:321
+#: includes/shortcodes/class-ac-shortcode-columns.php:323
 msgid "Creates a single column with 60% width"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:556
-#: includes/shortcodes/class-ac-shortcode-columns.php:347
+#: includes/shortcodes/class-ac-shortcode-columns.php:349
 msgid "4/5"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-cells.php:557
-#: includes/shortcodes/class-ac-shortcode-columns.php:348
+#: includes/shortcodes/class-ac-shortcode-columns.php:350
 msgid "Creates a single column with 80% width"
 msgstr ""
 

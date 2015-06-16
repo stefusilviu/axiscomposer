@@ -312,6 +312,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 					@include ir();
 					color: #7b7b7b;
 					font-size: 16px;
+					box-shadow: none;
 
 					&:hover {
 						color: #2ea2cc;
@@ -349,6 +350,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 					@include ir();
 					color: #7b7b7b;
 					font-size: 16px;
+					box-shadow: none;
 					margin-left: 3px;
 
 					&:before {

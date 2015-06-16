@@ -165,7 +165,7 @@ jQuery( function( $ ) {
 					$( '.canvas-area' ).empty();
 					$( '.canvas-area' ).append( response );
 					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
-					// ac_meta_boxes_pagebuilder.textarea.outer(); // Don't update textarea on load, only when elements got edited.
+					ac_meta_boxes_pagebuilder.textarea.outer();
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 					ac_meta_boxes_pagebuilder.tiptip();
 					ac_meta_boxes_pagebuilder.unblock();

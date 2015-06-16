@@ -162,12 +162,12 @@ jQuery( function( $ ) {
 				data: data,
 				type: 'POST',
 				success: function( response ) {
-					if ( ! response ) {
+					if ( response ) {
 						$( '.canvas-area' ).empty();
 						$( '.canvas-area' ).append( response );
-						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 						ac_meta_boxes_pagebuilder.textarea.outer();
 						ac_meta_boxes_pagebuilder.storage.history_snapshot();
+						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					}
 
 					ac_meta_boxes_pagebuilder.tiptip();
@@ -185,9 +185,9 @@ jQuery( function( $ ) {
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {
 					$( '.canvas-area' ).append( element_tmpl.html() );
-					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					ac_meta_boxes_pagebuilder.textarea.outer();
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
+					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 				}
 			}
 

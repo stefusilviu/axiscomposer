@@ -58,21 +58,23 @@ jQuery( function ( $ ) {
 	$( '.tips, .help_tip' ).tipTip( tiptip_args );
 
 	// Tabs
-	$( 'ul.ac-tabs' ).show();
-	$( 'div.panel-wrap' ).each( function() {
-		$( this ).find( 'div.panel:not(:first)' ).hide();
-	});
-	$( 'ul.ac-tabs a' ).click( function() {
-		var panel_wrap = $( this ).closest( 'div.panel-wrap' );
-		$( 'ul.ac-tabs li', panel_wrap ).removeClass( 'active' );
-		$( this ).parent().addClass( 'active' );
-		$( 'div.panel', panel_wrap ).hide();
-		$( $( this ).attr( 'href' ) ).show();
-		return false;
-	});
-	$( 'div.panel-wrap' ).each( function() {
-		$( this ).find( 'ul.ac-tabs li' ).eq( 0 ).find( 'a' ).click();
-	});
+	$( document.body ).on( 'ac-init-tabbed-panels', function() {
+		$( 'ul.ac-tabs' ).show();
+		$( 'div.panel-wrap' ).each( function() {
+			$( this ).find( 'div.panel:not(:first)' ).hide();
+		});
+		$( 'ul.ac-tabs a' ).click( function() {
+			var panel_wrap = $( this ).closest( 'div.panel-wrap' );
+			$( 'ul.ac-tabs li', panel_wrap ).removeClass( 'active' );
+			$( this ).parent().addClass( 'active' );
+			$( 'div.panel', panel_wrap ).hide();
+			$( $( this ).attr( 'href' ) ).show();
+			return false;
+		});
+		$( 'div.panel-wrap' ).each( function() {
+			$( this ).find( 'ul.ac-tabs li' ).eq( 0 ).find( 'a' ).click();
+		});
+	}).trigger( 'ac-init-tabbed-panels' );
 
 	// Date Picker
 	$( document.body ).on( 'ac-init-datepickers', function() {

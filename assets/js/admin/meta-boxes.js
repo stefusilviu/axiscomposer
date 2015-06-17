@@ -57,12 +57,9 @@ jQuery( function ( $ ) {
 	};
 	$( '.tips, .help_tip' ).tipTip( tiptip_args );
 
-	// Tabs
+	// Tabbed Panels
 	$( document.body ).on( 'ac-init-tabbed-panels', function() {
 		$( 'ul.ac-tabs' ).show();
-		$( 'div.panel-wrap' ).each( function() {
-			$( this ).find( 'div.panel:not(:first)' ).hide();
-		});
 		$( 'ul.ac-tabs a' ).click( function() {
 			var panel_wrap = $( this ).closest( 'div.panel-wrap' );
 			$( 'ul.ac-tabs li', panel_wrap ).removeClass( 'active' );

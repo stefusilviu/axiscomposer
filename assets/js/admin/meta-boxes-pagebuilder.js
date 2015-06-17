@@ -170,6 +170,7 @@ jQuery( function( $ ) {
 						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					} else {
 						ac_meta_boxes_pagebuilder.storage.history_snapshot();
+						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					}
 
 					ac_meta_boxes_pagebuilder.tiptip();

@@ -166,12 +166,11 @@ jQuery( function( $ ) {
 						$( '.canvas-area' ).empty();
 						$( '.canvas-area' ).append( response );
 						ac_meta_boxes_pagebuilder.textarea.outer();
-						ac_meta_boxes_pagebuilder.storage.history_snapshot();
-						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
-					} else {
-						ac_meta_boxes_pagebuilder.storage.history_snapshot();
-						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 					}
+
+					// Take History snapshot and load drag-drop
+					ac_meta_boxes_pagebuilder.storage.history_snapshot();
+					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 
 					ac_meta_boxes_pagebuilder.tiptip();
 					ac_meta_boxes_pagebuilder.unblock();

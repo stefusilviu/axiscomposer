@@ -1112,6 +1112,72 @@ table.wp-list-table {
 /**
  * Settings Styles
  */
+table.ac_iconfonts {
+	position: relative;
+
+	td {
+		vertical-align: middle;
+		padding: 7px;
+		line-height: 2em;
+	}
+
+	tr:nth-child(odd) {
+		td {
+			background: #f9f9f9;
+		}
+	}
+
+	th {
+		padding: 9px 7px !important;
+		vertical-align: middle;
+	}
+
+	td.name {
+		font-weight: 700;
+	}
+
+	.settings {
+		text-align: right;
+	}
+
+	.radio,
+	.default,
+	.status {
+		text-align: center;
+
+		.tips {
+			margin: 0 auto;
+		}
+
+		input {
+			margin: 0;
+		}
+	}
+	th.sort {
+		width: 28px;
+		padding: 0;
+	}
+	td.sort {
+		padding: 0 7px;
+		cursor: move;
+		font-size: 16px;
+		text-align: center;
+		vertical-align: middle;
+
+		&:before {
+			content: "\e011";
+			font-family: 'AxisComposer';
+			text-align: center;
+			line-height: 1;
+			color: #ccc;
+			display: block;
+			width: 17px;
+			float: left;
+			height: 100%;
+		}
+	}
+}
+
 img.help_tip {
 	vertical-align: middle;
 	margin: 0 0 0 9px;
@@ -1119,6 +1185,19 @@ img.help_tip {
 
 .postbox img.help_tip {
 	margin-top: -4px;
+}
+
+.status-enabled,
+.status-disabled {
+	font-size: 1.4em;
+	@include ir();
+}
+
+.status-enabled {
+	&:before {
+		@include icon( "\e012" );
+		color: $axiscomposer;
+	}
 }
 
 .axiscomposer {

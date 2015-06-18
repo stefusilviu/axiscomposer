@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'AC_Settings_General' ) ) :
 
 /**
- * AC_Settings_General CLass
+ * AC_Settings_General Class
  */
 class AC_Settings_General extends AC_Settings_Page {
 

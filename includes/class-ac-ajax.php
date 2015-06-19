@@ -41,26 +41,16 @@ class AC_AJAX {
 	/**
 	 * Get AC Ajax Endpoint
 	 * @param  string $request Optional
-	 * @param  string $ssl     Optional
 	 * @return string
 	 */
-	public static function get_endpoint( $request = '', $ssl = null ) {
-		if ( is_null( $ssl ) ) {
-			$scheme = parse_url( home_url(), PHP_URL_SCHEME );
-		} elseif ( $ssl ) {
-			$scheme = 'https';
-		} else {
-			$scheme = 'http';
-		}
-
+	public static function get_endpoint( $request = '' ) {
 		if ( strstr( get_option( 'permalink_structure' ), '/index.php/' ) ) {
-			$endpoint = trailingslashit( home_url( '/index.php/ac-ajax/' . $request, $scheme ) );
+			$endpoint = trailingslashit( home_url( '/index.php/ac-ajax/' . $request, 'relative' ) );
 		} elseif ( get_option( 'permalink_structure' ) ) {
-			$endpoint = trailingslashit( home_url( '/ac-ajax/' . $request, $scheme ) );
+			$endpoint = trailingslashit( home_url( '/ac-ajax/' . $request, 'relative' ) );
 		} else {
-			$endpoint = add_query_arg( 'ac-ajax=', $request, trailingslashit( home_url( '', $scheme ) ) );
+			$endpoint = add_query_arg( 'ac-ajax=', $request, trailingslashit( home_url( '', 'relative' ) ) );
 		}
-
 		return esc_url_raw( $endpoint );
 	}
 

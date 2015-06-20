@@ -131,10 +131,10 @@ function ac_format_content( $raw_string ) {
  */
 function ac_format_unicode( $raw_string ) {
 	if ( strpos( $raw_string, 'u' ) === 0 ) {
-		$raw_string = json_decode( '"\\' . $raw_string . '"' );
+		$raw_string = str_replace( 'u', '&#x', $raw_string );
 	}
 
-	return $raw_string;
+	return html_entity_decode( $raw_string );
 }
 
 /**

@@ -125,6 +125,19 @@ function ac_format_content( $raw_string ) {
 }
 
 /**
+ * Format unicode to display actual icon.
+ * @param  string $raw_string
+ * @return string
+ */
+function ac_format_unicode( $raw_string ) {
+	if ( strpos( $raw_string, 'u' ) === 0 ) {
+		$raw_string = json_decode( '"\\' . $raw_string . '"' );
+	}
+
+	return $raw_string;
+}
+
+/**
  * Format shortcode tags to display content.
  * @param  string $raw_string
  * @return string

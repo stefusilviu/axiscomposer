@@ -285,37 +285,36 @@
 	}
 
 	.ac-iconfont-container {
-		width: 97%;
 		height: 224px;
 		overflow: hidden;
 		overflow-y: scroll;
-		border: 1px solid #ddd;
+		border: 1px solid #ccc;
 
-		.ac-iconfont-label {
+		.ac-iconfont-title {
 			clear: both;
 			color: #666;
 			padding: 10px;
 			background: #fdfdfd;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #ddd;
+			border-top: 1px solid #e1e1e1;
+			border-bottom: 1px solid #e1e1e1;
 
 			&:first-child {
 				border-top: 0;
 			}
 		}
 
-		.ac-iconfont-lists {
+		.ac-iconfont-result {
 			float: left;
 			margin-top: -1px;
 			position: relative;
 
-			.ac-icon-holder {
+			span.icon-picker {
 				float: left;
 				width: 1.5em;
 				color: #494949;
 				display: block;
 				cursor: pointer;
-				font-size: 30px;
+				font-size: 28px;
 				background: #fff;
 				text-align: center;
 				position: relative;
@@ -329,11 +328,11 @@
 					color: $blue;
 					@include transform( scale(1.3) );
 				}
-			}
 
-			.ac-icon-active,
-			.ac-icon-active:hover {
-				color: #d54e21;
+				&.active,
+				&.active:hover {
+					color: #d54e21;
+				}
 			}
 		}
 	}

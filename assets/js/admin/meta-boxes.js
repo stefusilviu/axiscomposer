@@ -82,6 +82,19 @@ jQuery( function ( $ ) {
 		});
 	}).trigger( 'ac-init-datepickers' );
 
+	// Icon Picker
+	$( document.body ).on( 'ac-init-iconpicker', function() {
+		$( '.icon-picker-field, .icon-picker' ).click( function() {
+			$( ':input.ac_iconfont_input' ).val( $( this ).parent().data( 'iconfont' ) + ',' + $( this ).data( 'charcode' ) );
+			$( this ).closest( 'div.ac-iconfont-container' ).find( 'span.icon-picker' ).removeClass( 'active' );
+			$( this ).addClass( 'active' );
+			return false;
+		});
+		$( 'div.ac-iconfont-container' ).each( function() {
+			$( this ).find( 'span.icon-picker' ).removeClass( 'inactive' );
+		});
+	}).trigger( 'ac-init-iconpicker' );
+
 	// Auto resize WordPress editor
 	$( document.body ).on( 'ac-init-wp-editor', function() {
 		var $supports_editor_expand = ( 'editorExpand' in window && window.editorExpand !== null );
@@ -171,6 +184,9 @@ jQuery( function ( $ ) {
 
 				$( this ).wpColorPicker( colorpicker_args ).addClass( 'enhanced' );
 			});
+
+			// Regular icon pickers
+			$( document.body ).trigger( 'ac-init-iconpicker' );
 
 			// Regular select boxes
 			$( document.body ).trigger( 'ac-enhanced-select-init' );

@@ -41,7 +41,7 @@ function ac_sanitize_tooltip( $var ) {
 		'li'     => array(),
 		'ol'     => array(),
 		'p'      => array(),
-    ) ) );
+	) ) );
 }
 
 /**

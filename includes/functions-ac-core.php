@@ -183,7 +183,7 @@ function ac_get_core_supported_themes() {
 }
 
 /**
- * Get a Page Builder Layout Supported Screens or Post types.
+ * AxisComposer Layout Supported Screens or Post types.
  * @return array
  */
 function ac_get_layout_supported_screens() {

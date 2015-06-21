@@ -134,7 +134,7 @@ function ac_format_unicode( $raw_string ) {
 		$raw_string = str_replace( 'u', '&#x', $raw_string );
 	}
 
-	return html_entity_decode( $raw_string );
+	return wp_kses_decode_entities( $raw_string );
 }
 
 /**

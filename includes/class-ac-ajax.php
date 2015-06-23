@@ -36,6 +36,7 @@ class AC_AJAX {
 	public static function add_endpoint() {
 		add_rewrite_tag( '%ac-ajax%', '([^/]*)' );
 		add_rewrite_rule( 'ac-ajax/([^/]*)/?', 'index.php?ac-ajax=$matches[1]', 'top' );
+		add_rewrite_rule( 'index.php/ac-ajax/([^/]*)/?', 'index.php?ac-ajax=$matches[1]', 'top' );
 	}
 
 	/**

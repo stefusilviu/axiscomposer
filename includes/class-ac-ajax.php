@@ -107,7 +107,9 @@ class AC_AJAX {
 
 		check_ajax_referer( 'add-custom-iconfont', 'security' );
 
-		AC_Iconfonts::check_capability();
+		if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+			die(-1);
+		}
 
 		// Get the file path if the zip file
 		$attachment = $_POST['value'];
@@ -136,7 +138,9 @@ class AC_AJAX {
 
 		check_ajax_referer( 'delete-custom-iconfont', 'security' );
 
-		AC_Iconfonts::check_capability();
+		if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+			die(-1);
+		}
 
 		$term = (string) ac_clean( stripslashes( $_POST['term'] ) );
 

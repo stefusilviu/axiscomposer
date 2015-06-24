@@ -116,6 +116,9 @@ final class AxisComposer {
 	 */
 	private function define_constants() {
 		$upload_dir = wp_upload_dir();
+		if ( is_ssl() ) {
+			$upload_dir['baseurl'] = str_replace( 'http://', 'https://', $upload_dir['baseurl'] );
+		}
 
 		$this->define( 'AC_PLUGIN_FILE', __FILE__ );
 		$this->define( 'AC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

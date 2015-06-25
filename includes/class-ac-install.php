@@ -217,6 +217,11 @@ class AC_Install {
 		$files = array(
 			array(
 				'base'    => AC_UPLOAD_DIR,
+				'file'    => '.htaccess',
+				'content' => 'Allow from all'
+			),
+			array(
+				'base'    => AC_UPLOAD_DIR,
 				'file'    => 'index.html',
 				'content' => ''
 			)

@@ -66,7 +66,7 @@ class AC_Iconfonts {
 		@ini_set( 'memory_limit', apply_filters( 'admin_memory_limit', WP_MAX_MEMORY_LIMIT ) );
 
 		// Control temp directory?
-		$temp_dir = AC_UPLOAD_DIR . 'axisfonts-temp';
+		$temp_dir = AC_ICONFONT_DIR . 'axisfonts-temp';
 		if ( is_dir( $temp_dir ) ) {
 			self::delete_files( $temp_dir );
 		} else {
@@ -129,8 +129,8 @@ class AC_Iconfonts {
 	 * Iterate over xml file and extract the glyphs for the font.
 	 */
 	public static function create_config() {
-		$temp_dir = trailingslashit( AC_UPLOAD_DIR . 'axisfonts-temp' );
-		$temp_url = trailingslashit( AC_UPLOAD_URL . 'axisfonts-temp' );
+		$temp_dir = trailingslashit( AC_ICONFONT_DIR . 'axisfonts-temp' );
+		$temp_url = trailingslashit( AC_ICONFONT_URL . 'axisfonts-temp' );
 
 		$file_svg  = self::get_filename( 'svg' );
 		$file_json = self::get_filename( 'json' );
@@ -177,7 +177,7 @@ class AC_Iconfonts {
 			}
 
 			// Existence
-			$font_dir = trailingslashit( AC_UPLOAD_DIR . self::$font_name );
+			$font_dir = trailingslashit( AC_ICONFONT_DIR . self::$font_name );
 			if ( is_dir( $font_dir ) ) {
 				self::delete_files( $temp_dir );
 				die( 'It seems that the font with the same name is already exists! Please upload the font with different name.' );
@@ -197,7 +197,7 @@ class AC_Iconfonts {
 	 * Write the charmap config file for the font
 	 */
 	public static function charmap_file() {
-		$temp_dir = trailingslashit( AC_UPLOAD_DIR . 'axisfonts-temp' );
+		$temp_dir = trailingslashit( AC_ICONFONT_DIR . 'axisfonts-temp' );
 		$charmap  = $temp_dir . '/charmap.php';
 		$handle   = @fopen( $charmap, 'w' );
 
@@ -264,7 +264,7 @@ class AC_Iconfonts {
 	 * @return string The filename if found.
 	 */
 	private static function get_filename( $extension ) {
-		$files = scandir( AC_UPLOAD_DIR . 'axisfonts-temp' );
+		$files = scandir( AC_ICONFONT_DIR . 'axisfonts-temp' );
 		foreach ( $files as $file ) {
 			$ext = ! empty( $extension ) ? '.' . strtolower( $extension ) : '';
 			if ( strpos( strtolower( $file ), $ext ) !== false && $file[0] != '.' ) {
@@ -309,8 +309,8 @@ class AC_Iconfonts {
 	 */
 	public static function rename_files() {
 		$font_ext = array( 'eot', 'svg', 'ttf', 'woff' );
-		$font_dir = trailingslashit( AC_UPLOAD_DIR . self::$font_name );
-		$temp_dir = trailingslashit( AC_UPLOAD_DIR . 'axisfonts-temp' );
+		$font_dir = trailingslashit( AC_ICONFONT_DIR . self::$font_name );
+		$temp_dir = trailingslashit( AC_ICONFONT_DIR . 'axisfonts-temp' );
 
 		// Rename files
 		foreach ( glob( $temp_dir . '*' ) as $file ) {

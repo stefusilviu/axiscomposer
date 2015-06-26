@@ -216,12 +216,12 @@ class AC_Install {
 		// Install files and folders for uploading files and prevent hotlinking
 		$files = array(
 			array(
-				'base'    => AC_UPLOAD_DIR,
+				'base'    => AC_ICONFONT_DIR,
 				'file'    => '.htaccess',
 				'content' => 'Allow from all'
 			),
 			array(
-				'base'    => AC_UPLOAD_DIR,
+				'base'    => AC_ICONFONT_DIR,
 				'file'    => 'index.html',
 				'content' => ''
 			)

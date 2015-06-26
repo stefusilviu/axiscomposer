@@ -123,7 +123,7 @@ class AC_AJAX {
 		}
 
 		// If we got no name for the font don't add it and delete the temp folder.
-		$tempdir = AC_UPLOAD_DIR . '/axisfonts-temp';
+		$tempdir = AC_ICONFONT_DIR . '/axisfonts-temp';
 		if ( AC_Iconfonts::$font_name == 'unknown' ) {
 			AC_Iconfonts::delete_files( $tempdir );
 			die( 'Was not able to retrieve the Font name from your Uploaded Folder' );

@@ -123,8 +123,8 @@ final class AxisComposer {
 		$this->define( 'AC_PLUGIN_FILE', __FILE__ );
 		$this->define( 'AC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 		$this->define( 'AC_VERSION', $this->version );
-		$this->define( 'AC_UPLOAD_DIR', $upload_dir['basedir'] . '/axiscomposer-uploads/' );
-		$this->define( 'AC_UPLOAD_URL', $upload_dir['baseurl'] . '/axiscomposer-uploads/' );
+		$this->define( 'AC_ICONFONT_DIR', $upload_dir['basedir'] . '/ac-iconfonts/' );
+		$this->define( 'AC_ICONFONT_URL', $upload_dir['baseurl'] . '/ac-iconfonts/' );
 	}
 
 	/**

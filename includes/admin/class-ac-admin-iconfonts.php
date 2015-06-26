@@ -36,7 +36,7 @@ class AC_Admin_Iconfonts {
 			$title = ( 'Fontawesome' == $iconfont ) ? __( 'Default Icons', 'axiscomposer' ) : esc_html( ucfirst( $iconfont ) );
 
 			// Include Charmap config file
-			include( AC_UPLOAD_DIR . $info['include'] . '/' . $info['config'] );
+			include( AC_ICONFONT_DIR . $info['include'] . '/' . $info['config'] );
 
 			if ( ! empty( $chars ) ) {
 				$charmap = array_merge( $charmap, $chars );

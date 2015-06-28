@@ -152,25 +152,26 @@ class AC_Iconfonts {
 		// Filter the response
 		$response = apply_filters( 'axiscomposer_iconfont_uploader_response', $response, $file_svg, $temp_dir );
 
-		if ( ! is_wp_error( $response ) && ! empty( $response ) ) {
-			$xml   = simplexml_load_string( $response );
-			$glyph = $xml->defs->font->children();
-			$attrs = $xml->defs->font->attributes();
+		if ( is_wp_error( $response ) && empty( $response ) ) {
+			return true;
+		}
 
-			// Store font name ;)
-			self::$font_name = (string) $attrs['id'];
+		if ( function_exists( 'simplexml_load_string' ) ) {
+			$xml = simplexml_load_string( $response );
 
-			foreach ( $glyph as $key => $value ) {
+			// Font Name
+			$font_attr = $xml->defs->font->attributes();
+			self::$font_name = (string) $font_attr['id'];
 
+			// Font Glyph
+			$glyphs = $xml->defs->font->children();
+			foreach ( $glyphs as $key => $value ) {
 				if ( $key == 'glyph' ) {
-					$attr    = $value->attributes();
-					$class   =  (string) $attr['class'];
-					$unicode =  (string) $attr['unicode'];
-
-					if ( $class != 'hidden' ) {
-						$unicode_key = trim( json_encode( $unicode ), '\\\"' );
-						if ( $key == 'glyph' && ! empty( $unicode_key ) && trim( $unicode_key ) != '' ) {
-							self::$svg_config[self::$font_name][$unicode_key] = $unicode_key;
+					$attributes = $value->attributes();
+					if ( (string) $attributes['class'] != 'hidden' ) {
+						$unicode = trim( json_encode( (string) $attributes['unicode'] ), '\\\"' );
+						if ( $key == 'glyph' && ! empty( $unicode ) && trim( $unicode ) != '' ) {
+							self::$svg_config[self::$font_name][$unicode] = $unicode;
 						}
 					}
 				}

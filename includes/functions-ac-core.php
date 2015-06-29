@@ -183,6 +183,22 @@ function ac_get_core_supported_themes() {
 }
 
 /**
+ * AxisComposer Core Supported Iconfonts.
+ * @return array
+ */
+function ac_get_core_supported_iconfonts() {
+	$core_iconfonts['entypo-fontello'] = array(
+		'default'  => true,
+		'version'  => '?v=3',
+		'charmap'  => 'charmap.php',
+		'font_url' => AC()->plugin_url() . '/assets/fonts/entypo-fontello',
+		'font_dir' => AC()->plugin_path() . '/assets/fonts/entypo-fontello'
+	);
+
+	return apply_filters( 'axiscomposer_core_supported_iconfonts', $core_iconfonts );
+}
+
+/**
  * AxisComposer Layout Supported Screens or Post types.
  * @return array
  */

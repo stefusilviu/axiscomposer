@@ -39,9 +39,8 @@ class AC_Admin_Help {
 			'id'        => 'axiscomposer_docs_tab',
 			'title'     => __( 'Documentation', 'axiscomposer' ),
 			'content'   =>
-
-				'<p>' . __( 'Thank you for using AxisComposer :) Should you need help using or extending AxisComposer please read the documentation.', 'axiscomposer' ) . '</p>' .
-
+				'<h2>' . __( 'Documentation', 'axiscomposer' ) . '</h2>' .
+				'<p>' . __( 'Should you need help understanding, using, or extending AxisComposer, please read our documentation. You will find all kinds of resources including snippets, tutorials and much more.' , 'axiscomposer' ) . '</p>' .
 				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/' . '" class="button button-primary">' . __( 'AxisComposer Documentation', 'axiscomposer' ) . '</a> <a href="' . 'http://docs.axisthemes.com/ac-apidocs/' . '" class="button">' . __( 'Developer API Docs', 'axiscomposer' ) . '</a></p>'
 
 		) );
@@ -50,12 +49,10 @@ class AC_Admin_Help {
 			'id'        => 'axiscomposer_support_tab',
 			'title'     => __( 'Support', 'axiscomposer' ),
 			'content'   =>
-
-				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %sWordPress.org support forum%s. For help with premium add-ons from AxisThemes, or if you are a AxisThemes customer, you can %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://support.axisthemes.com">', '</a>' ) . '</p>' .
-
-				'<p>' . __( 'Before asking for help we recommend checking the status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
-
-				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Support Forum', 'axiscomposer' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
+				'<h2>' . __( 'Support', 'axiscomposer' ) . '</h2>' .
+				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a AxisThemes customer, or need help with premium add-ons sold by AxisThemes, please %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://support.axisthemes.com">', '</a>' ) . '</p>' .
+				'<p>' . __( 'Before asking for help we recommend checking the system status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
+				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Forums', 'axiscomposer' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
 
 		) );
 
@@ -63,9 +60,8 @@ class AC_Admin_Help {
 			'id'        => 'axiscomposer_bugs_tab',
 			'title'     => __( 'Found a bug?', 'axiscomposer' ),
 			'content'   =>
-
-				'<p>' . sprintf( __( 'If you find a bug within AxisComposer core you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. Be as descriptive as possible and please include your <a href="%s">system status report</a>.', 'axiscomposer' ), 'https://github.com/axisthemes/axiscomposer/issues?state=open', 'https://github.com/axisthemes/axiscomposer/blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=ac-status' ) ) . '</p>' .
-
+				'<h2>' . __( 'Found a bug?', 'axiscomposer' ) . '</h2>' .
+				'<p>' . sprintf( __( 'If you find a bug within AxisComposer core you can create a ticket via <a href="%s">Github issues</a>. Ensure you read the <a href="%s">contribution guide</a> prior to submitting your report. To help us solve your issue, please be as descriptive as possible and include your <a href="%s">system status report</a>.', 'axiscomposer' ), 'https://github.com/axisthemes/axiscomposer/issues?state=open', 'https://github.com/axisthemes/axiscomposer/blob/master/CONTRIBUTING.md', admin_url( 'admin.php?page=ac-status' ) ) . '</p>' .
 				'<p><a href="' . 'https://github.com/axisthemes/axiscomposer/issues?state=open' . '" class="button button-primary">' . __( 'Report a bug', 'axiscomposer' ) . '</a> <a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button">' . __( 'System Status', 'axiscomposer' ) . '</a></p>'
 
 		) );

@@ -206,13 +206,8 @@ class AC_Iconfonts {
 			fwrite( $handle, '<?php $chars = array();' );
 
 			foreach ( self::$svg_config[self::$font_name] as $unicode ) {
-
 				if ( ! empty( $unicode ) ) {
-					$delimiter = "'";
-					if ( strpos( $unicode, $delimiter ) !== false ) {
-						$delimiter = '"';
-					}
-
+					$delimiter = strpos( $unicode, "'" ) ? '"' : "'";
 					fwrite( $handle, "\r\n" . '$chars[\'' . self::$font_name . '\'][' . $delimiter . $unicode . $delimiter . '] = ' . $delimiter . $unicode . $delimiter . ';' );
 				}
 			}

@@ -18,11 +18,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AC_Install {
 
+	/** @var array DB updates that need to be run */
+	private static $db_updates = array(
+		'1.0.0' => 'updates/axiscomposer-update-1.0.php'
+	);
+
 	/**
 	 * Hook in tabs.
 	 */
 	public static function init() {
 		add_action( 'admin_init', array( __CLASS__, 'check_version' ), 5 );
+		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 		add_action( 'in_plugin_update_message-axiscomposer/axiscomposer.php', array( __CLASS__, 'in_plugin_update_message' ) );
 		add_filter( 'plugin_action_links_' . AC_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
@@ -32,9 +38,26 @@ class AC_Install {
 	 * check_version function.
 	 */
 	public static function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && ( get_option( 'axiscomposer_version' ) != AC()->version ) ) {
+		if ( ! defined( 'IFRAME_REQUEST' ) && ( get_option( 'axiscomposer_version' ) != AC()->version || get_option( 'axiscomposer_db_version' ) != AC()->version ) ) {
 			self::install();
 			do_action( 'axiscomposer_updated' );
+		}
+	}
+
+	/**
+	 * Install actions when a update button is clicked.
+	 */
+	public static function install_actions() {
+		if ( ! empty( $_GET['do_update_axiscomposer'] ) ) {
+			self::update();
+
+			// Update Complete
+			AC_Admin_Notices::remove_notice( 'update' );
+
+			// What's new redirect
+			delete_transient( '_ac_activation_redirect' );
+			wp_redirect( admin_url( 'index.php?page=ac-about&ac-updated=true' ) );
+			exit;
 		}
 	}
 
@@ -63,9 +86,31 @@ class AC_Install {
 
 		self::create_files();
 
+		// Queue upgrades/setup wizard
+		$current_ac_version = get_option( 'axiscomposer_version', null );
+		$current_db_version = get_option( 'axiscomposer_db_version', null );
+		$major_ac_version   = substr( AC()->version, 0, strrpos( AC()->version, '.' ) );
+
+		AC_Admin_Notices::remove_all_notices();
+
+		// No versions? This is a new install :)
+		if ( is_null( $current_ac_version ) && is_null( $current_db_version ) && apply_filters( 'axiscomposer_enable_setup_wizard', true ) ) {
+			AC_Admin_Notices::add_notice( 'install' );
+			set_transient( '_ac_activation_redirect', 1, 30 );
+
+		// Show welcome screen for major updates only
+		} elseif ( version_compare( $current_ac_version, $major_ac_version, '<' ) ) {
+			set_transient( '_ac_activation_redirect', 1, 30 );
+		}
+
+		if ( ! is_null( $current_db_version ) && version_compare( $current_db_version, max( array_keys( self::$db_updates ) ), '<' ) ) {
+			AC_Admin_Notices::add_notice( 'update' );
+		} else {
+			self::update_db_version();
+		}
+
 		// Update version
-		delete_option( 'axiscomposer_version' );
-		add_option( 'axiscomposer_version', AC()->version );
+		self::update_ac_version();
 
 		// Flush rules after install
 		flush_rewrite_rules();
@@ -84,13 +129,40 @@ class AC_Install {
 			AND b.option_value < %d";
 		$wpdb->query( $wpdb->prepare( $sql, $wpdb->esc_like( '_transient_' ) . '%', $wpdb->esc_like( '_transient_timeout_' ) . '%', time() ) );
 
-		// Redirect to welcome screen
-		if ( ! is_network_admin() && ! isset( $_GET['activate-multi'] ) ) {
-			set_transient( '_ac_activation_redirect', 1, 30 );
-		}
-
 		// Trigger action
 		do_action( 'axiscomposer_installed' );
+	}
+
+	/**
+	 * Update AC version to current
+	 */
+	private static function update_ac_version() {
+		delete_option( 'axiscomposer_version' );
+		add_option( 'axiscomposer_version', AC()->version );
+	}
+
+	/**
+	 * Update DB version to current
+	 */
+	private static function update_db_version( $version = null ) {
+		delete_option( 'axiscomposer_db_version' );
+		add_option( 'axiscomposer_db_version', is_null( $version ) ? AC()->version : $version );
+	}
+
+	/**
+	 * Handle updates
+	 */
+	private static function update() {
+		$current_db_version = get_option( 'axiscomposer_db_version' );
+
+		foreach ( self::$db_updates as $version => $updater ) {
+			if ( version_compare( $current_db_version, $version, '<' ) ) {
+				include( $updater );
+				self::update_db_version( $version );
+			}
+		}
+
+		self::update_db_version();
 	}
 
 	/**

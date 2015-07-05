@@ -32,23 +32,26 @@ class AC_Admin {
 	 * Include any classes we need within admin.
 	 */
 	public function includes() {
-		// Functions
 		include_once( 'functions-ac-admin.php' );
 		include_once( 'functions-ac-meta-box.php' );
-
-		// Classes
 		include_once( 'class-ac-admin-post-types.php' );
+		include_once( 'class-ac-admin-menus.php' );
+		include_once( 'class-ac-admin-notices.php' );
+		include_once( 'class-ac-admin-assets.php' );
 
-		// Classes we only need during non-ajax requests
-		if ( ! is_ajax() ) {
-			include_once( 'class-ac-admin-menus.php' );
-			include_once( 'class-ac-admin-assets.php' );
-			include_once( 'class-ac-admin-notices.php' );
-			include_once( 'class-ac-admin-welcome.php' );
+		// Help Tabs
+		if ( apply_filters( 'axiscomposer_enable_admin_help_tab', true ) ) {
+			include_once( 'class-ac-admin-help.php' );
+		}
 
-			// Help
-			if ( apply_filters( 'axiscomposer_enable_admin_help_tab', true ) ) {
-				include_once( 'class-ac-admin-help.php' );
+		// Setup/Welcome
+		if ( ! empty( $_GET['page'] ) ) {
+			switch ( $_GET['page'] ) {
+				case 'ac-about' :
+				case 'ac-credits' :
+				case 'ac-translators' :
+					include_once( 'class-ac-admin-welcome.php' );
+					break;
 			}
 		}
 

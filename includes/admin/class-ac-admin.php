@@ -24,6 +24,7 @@ class AC_Admin {
 	public function __construct() {
 		add_action( 'init', array( $this, 'includes' ) );
 		add_action( 'current_screen', array( $this, 'conditional_includes' ) );
+		add_action( 'admin_init', array( $this, 'admin_redirects' ) );
 		add_action( 'admin_footer', 'ac_print_js', 25 );
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
 	}
@@ -70,6 +71,35 @@ class AC_Admin {
 		switch ( $screen->id ) {
 			case 'options-permalink' :
 				include( 'class-ac-admin-permalink-settings.php' );
+		}
+	}
+
+	/**
+	 * Handle redirects to setup/welcome page after install and updates.
+	 *
+	 * Transient must be present, the user must have access rights, and we must ignore the network/bulk plugin updaters.
+	 */
+	public function admin_redirects() {
+		if ( ! get_transient( '_ac_activation_redirect' ) || is_network_admin() || isset( $_GET['activate-multi'] ) || ! current_user_can( 'manage_axiscomposer' ) ) {
+			return;
+		}
+
+		delete_transient( '_ac_activation_redirect', 0, 30 );
+
+		if ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'ac-settings', 'ac-about' ) ) ) {
+			// return;
+		}
+
+		// If the user needs to install, send them to the setup wizard
+		if ( AC_Admin_Notices::has_notice( 'install' ) ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=ac-settings' ) );
+			AC_Admin_Notices::remove_notice( 'install' );
+			exit;
+
+		// Otherwise, the welcome page
+		} else {
+			wp_safe_redirect( admin_url( 'index.php?page=ac-about' ) );
+			exit;
 		}
 	}
 

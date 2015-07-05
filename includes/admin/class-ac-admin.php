@@ -39,6 +39,7 @@ class AC_Admin {
 		include_once( 'class-ac-admin-menus.php' );
 		include_once( 'class-ac-admin-notices.php' );
 		include_once( 'class-ac-admin-assets.php' );
+		include_once( 'class-ac-admin-pointers.php' );
 
 		// Help Tabs
 		if ( apply_filters( 'axiscomposer_enable_admin_help_tab', true ) ) {

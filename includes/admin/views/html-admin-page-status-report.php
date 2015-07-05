@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axiscomposer' ); ?>"><?php _e( 'Copy for Support', 'axiscomposer' ); ?></button></p>
 	</div>
 </div>
-<table class="ac_status_table widefat" cellspacing="0">
+<table class="ac_status_table widefat" cellspacing="0" id="status">
 	<thead>
 		<tr>
 			<th colspan="3" data-export-label="WordPress Environment"><?php _e( 'WordPress Environment', 'axiscomposer' ); ?></th>
@@ -214,6 +214,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php
 			}
 		?>
+	</tbody>
+</table>
+<table class="ac_status_table widefat" cellspacing="0">
+	<thead>
+		<tr>
+			<th colspan="3" data-export-label="Database"><?php _e( 'Database', 'axiscomposer' ); ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td data-export-label="AC Database Version"><?php _e( 'AC Database Version', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of AxisComposer that the database is formatted for. This should be the same as your AxisComposer Version.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php echo esc_html( get_option( 'axiscomposer_db_version' ) ); ?></td>
+		</tr>
+		<tr><?php
+			$tables = array();
+
+			foreach ( $tables as $table ) {
+				?>
+				<tr>
+					<td><?php echo esc_html( $table ); ?></td>
+					<td class="help">&nbsp;</td>
+					<td><?php echo $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s;", $wpdb->prefix . $table ) ) !== $wpdb->prefix . $table ? '<mark class="error">' . __( 'Table does not exist', 'axiscomposer' ) . '</mark>' : '&#10004'; ?></td>
+				</tr>
+				<?php
+			}
+		?></tr>
 	</tbody>
 </table>
 <table class="ac_status_table widefat" cellspacing="0">

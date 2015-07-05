@@ -22,24 +22,27 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AC_Admin_Welcome {
 
+	/** @var array Tweets user can optionally send after install */
+	private $tweets = array(
+		'AxisComposer kickstarts unique page layouts. It\'s free and has been downloaded over multiple times.',
+		'Building a modern layout? AxisComposer is the leading #builder plugin for WordPress (and it\'s free).',
+		'AxisComposer is a free #builder plugin for #WordPress for building #allthethings online, beautifully.',
+		'Ready to ship your idea? AxisComposer is the fastest growing #builder plugin for WordPress on the web',
+	);
+
 	/**
 	 * Hook in tabs.
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menus') );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
-		add_action( 'admin_init', array( $this, 'welcome'    ) );
+		shuffle( $this->tweets );
 	}
 
 	/**
 	 * Add admin menus/screens.
 	 */
 	public function admin_menus() {
-
-		if ( empty( $_GET['page'] ) ) {
-			return;
-		}
-
 		$welcome_page_name  = __( 'About AxisComposer', 'axiscomposer' );
 		$welcome_page_title = __( 'Welcome to AxisComposer', 'axiscomposer' );
 
@@ -73,7 +76,6 @@ class AC_Admin_Welcome {
 		remove_submenu_page( 'index.php', 'ac-about' );
 		remove_submenu_page( 'index.php', 'ac-credits' );
 		remove_submenu_page( 'index.php', 'ac-translators' );
-
 		?>
 		<style type="text/css">
 			/*<![CDATA[*/
@@ -147,23 +149,8 @@ class AC_Admin_Welcome {
 	 * Intro text/links shown on all about pages.
 	 */
 	private function intro() {
-
-		// Flush after upgrades
-		if ( ! empty( $_GET['ac-updated'] ) || ! empty( $_GET['ac-installed'] ) ) {
-			flush_rewrite_rules();
-		}
-
 		// Drop minor version if 0
 		$major_version = substr( AC()->version, 0, 3 );
-
-		// Random tweet - must be kept to 102 chars to "fit"
-		$tweets        = array(
-			'AxisComposer kickstarts unique page layouts. It\'s free and has been downloaded over multiple times.',
-			'Building a modern layout? AxisComposer is the leading #builder plugin for WordPress (and it\'s free).',
-			'AxisComposer is a free #builder plugin for #WordPress for building #allthethings smartly, beautifully.',
-			'Ready to show your idea? AxisComposer is the fastest growing #builder plugin for WordPress on the web.',
-		);
-		shuffle( $tweets );
 		?>
 		<h1><?php printf( __( 'Welcome to AxisComposer %s', 'axiscomposer' ), $major_version ); ?></h1>
 
@@ -186,7 +173,7 @@ class AC_Admin_Welcome {
 		<p class="axiscomposer-actions">
 			<a href="<?php echo admin_url( 'admin.php?page=ac-settings' ); ?>" class="button button-primary"><?php _e( 'Settings', 'axiscomposer' ); ?></a>
 			<a href="<?php echo esc_url( apply_filters( 'axiscomposer_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/', 'axiscomposer' ) ); ?>" class="button button-secondary docs" target="_blank"><?php _e( 'Documentation', 'axiscomposer' ); ?></a>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://axisthemes.com/axiscomposer/" data-text="<?php echo esc_attr( $tweets[0] ); ?>" data-via="AxisThemes" data-size="large">Tweet</a>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://axisthemes.com/axiscomposer/" data-text="<?php echo esc_attr( $this->tweets[0] ); ?>" data-via="AxisThemes" data-size="large">Tweet</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</p>
 
@@ -372,32 +359,6 @@ class AC_Admin_Welcome {
 		set_transient( 'axiscomposer_contributors', $contributors, HOUR_IN_SECONDS );
 
 		return $contributors;
-	}
-
-	/**
-	 * Sends user to the welcome page on first activation.
-	 */
-	public function welcome() {
-
-		// Bail if no activation redirect transient is set
-		if ( ! get_transient( '_ac_activation_redirect' ) ) {
-			return;
-		}
-
-		// Delete the redirect transient
-		delete_transient( '_ac_activation_redirect' );
-
-		// Bail if activating from network, or bulk, or within an iFrame
-		if ( is_network_admin() || isset( $_GET['activate-multi'] ) || defined( 'IFRAME_REQUEST' ) ) {
-			return;
-		}
-
-		if ( ( isset( $_GET['action'] ) && 'upgrade-plugin' == $_GET['action'] ) || ( ! empty( $_GET['page'] ) && $_GET['page'] === 'ac-about' ) ) {
-			return;
-		}
-
-		wp_redirect( admin_url( 'index.php?page=ac-about' ) );
-		exit;
 	}
 }
 

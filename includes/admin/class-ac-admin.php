@@ -87,7 +87,7 @@ class AC_Admin {
 		delete_transient( '_ac_activation_redirect', 0, 30 );
 
 		if ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'ac-settings', 'ac-about' ) ) ) {
-			// return;
+			return;
 		}
 
 		// If the user needs to install, send them to the setup wizard

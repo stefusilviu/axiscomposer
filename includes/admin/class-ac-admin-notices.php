@@ -22,7 +22,9 @@ class AC_Admin_Notices {
 	 * Array of notices - name => callback
 	 * @var array
 	 */
-	private $notices = array(
+	private $core_notices = array(
+		'install'             => 'install_notice',
+		'update'              => 'update_notice',
 		'theme_support'       => 'theme_check_notice',
 		'translation_upgrade' => 'translation_upgrade_notice'
 	);
@@ -35,7 +37,17 @@ class AC_Admin_Notices {
 		add_action( 'axiscomposer_installed', array( $this, 'reset_admin_notices' ) );
 		add_action( 'wp_loaded', array( $this, 'hide_notices' ) );
 		add_action( 'axiscomposer_hide_translation_upgrade_notice', array( $this, 'hide_translation_upgrade_notice' ) );
-		add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
+
+		if ( current_user_can( 'manage_axiscomposer' ) ) {
+			add_action( 'admin_print_styles', array( $this, 'add_notices' ) );
+		}
+	}
+
+	/**
+	 * Remove all notices
+	 */
+	public static function remove_all_notices() {
+		delete_option( 'axiscomposer_admin_notices' );
 	}
 
 	/**
@@ -98,10 +110,28 @@ class AC_Admin_Notices {
 	public function add_notices() {
 		$notices = get_option( 'axiscomposer_admin_notices', array() );
 
-		foreach ( $notices as $notice ) {
+		if ( $notices ) {
 			wp_enqueue_style( 'axiscomposer-activation', AC()->plugin_url() . '/assets/css/activation.css', array(), AC_VERSION );
-			add_action( 'admin_notices', array( $this, $this->notices[ $notice ] ) );
+			foreach ( $notices as $notice ) {
+				if ( ! empty( $this->core_notices[ $notice ] ) && apply_filters( 'axiscomposer_show_admin_notice', true, $notice ) ) {
+					add_action( 'admin_notices', array( $this, $this->core_notices[ $notice ] ) );
+				}
+			}
 		}
+	}
+
+	/**
+	 * If we need to update, include a message with the update button
+	 */
+	public function update_notice() {
+		include( 'views/html-notice-update.php' );
+	}
+
+	/**
+	 * If we have just installed, show a message with the install button
+	 */
+	public function install_notice() {
+		include( 'views/html-notice-install.php' );
 	}
 
 	/**
@@ -110,6 +140,8 @@ class AC_Admin_Notices {
 	public function theme_check_notice() {
 		if ( ! current_theme_supports( 'axiscomposer' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {
 			include( 'views/html-notice-theme-support.php' );
+		} else {
+			self::remove_notice( 'theme_support' );
 		}
 	}
 

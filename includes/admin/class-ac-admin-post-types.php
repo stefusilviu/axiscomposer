@@ -222,7 +222,7 @@ class AC_Admin_Post_Types {
 				$editor_class = 'ac-visible-editor';
 			}
 
-			echo '<a href="#" class="button button-large ' . $button_class . ' axiscomposer-toggle-editor" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
+			echo '<a href="#" id="_toggle_editor" class="button button-large ' . $button_class . ' axiscomposer-toggle-editor" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
 			echo '<div id="postdivrich_wrap" class="axiscomposer ' . $editor_class . '">';
 			if ( $params['notice'] ) {
 				echo '<div class="ac_plugin_display_notice">' . $params['notice'] . '</div>';

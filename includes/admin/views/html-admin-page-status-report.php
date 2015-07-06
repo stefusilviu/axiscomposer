@@ -169,7 +169,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				$posting['wp_remote_post']['success'] = true;
 			} else {
-				$posting['wp_remote_post']['note']    = __( 'wp_remote_post() failed. Contact your hosting provider.', 'axiscomposer' );
+				$posting['wp_remote_post']['note']    = __( 'wp_safe_remote_post() failed. Contact your hosting provider.', 'axiscomposer' );
 				if ( is_wp_error( $response ) ) {
 					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axiscomposer' ), ac_clean( $response->get_error_message() ) );
 				} else {
@@ -187,7 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				$posting['wp_remote_get']['success'] = true;
 			} else {
-				$posting['wp_remote_get']['note']    = __( 'wp_remote_get() failed. The AxisComposer plugin updater won\'t work with your server. Contact your hosting provider.', 'axiscomposer' );
+				$posting['wp_remote_get']['note']    = __( 'wp_safe_remote_get() failed. The AxisComposer plugin updater won\'t work with your server. Contact your hosting provider.', 'axiscomposer' );
 				if ( is_wp_error( $response ) ) {
 					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'axiscomposer' ), ac_clean( $response->get_error_message() ) );
 				} else {

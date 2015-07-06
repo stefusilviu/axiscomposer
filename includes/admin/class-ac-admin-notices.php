@@ -23,7 +23,6 @@ class AC_Admin_Notices {
 	 * @var array
 	 */
 	private $core_notices = array(
-		'install'             => 'install_notice',
 		'update'              => 'update_notice',
 		'theme_support'       => 'theme_check_notice',
 		'translation_upgrade' => 'translation_upgrade_notice'
@@ -125,13 +124,6 @@ class AC_Admin_Notices {
 	 */
 	public function update_notice() {
 		include( 'views/html-notice-update.php' );
-	}
-
-	/**
-	 * If we have just installed, show a message with the install button
-	 */
-	public function install_notice() {
-		include( 'views/html-notice-install.php' );
 	}
 
 	/**

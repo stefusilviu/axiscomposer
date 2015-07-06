@@ -94,8 +94,7 @@ class AC_Install {
 		AC_Admin_Notices::remove_all_notices();
 
 		// No versions? This is a new install :)
-		if ( is_null( $current_ac_version ) && is_null( $current_db_version ) && apply_filters( 'axiscomposer_enable_setup_wizard', false ) ) {
-			AC_Admin_Notices::add_notice( 'install' );
+		if ( is_null( $current_ac_version ) && is_null( $current_db_version ) && apply_filters( 'axiscomposer_enable_setup_wizard', true ) ) {
 			set_transient( '_ac_activation_redirect', 1, 30 );
 
 		// Show welcome screen for major updates only

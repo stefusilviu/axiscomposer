@@ -60,19 +60,19 @@ class AC_Admin_Pointers {
 			)
 		);
 
-		// Check pointers and remove dismissed ones.
-		$pointers = $this->validate_pointers( $pointers );
+		// Check for valid and available pointers.
+		$pointers = $this->check_for_pointers( $pointers );
 		if ( ! empty( $pointers ) ) {
 			$this->enqueue_pointers( $pointers );
 		}
 	}
 
 	/**
-	 * Validate pointers and remove dismissed ones.
+	 * Check pointers and remove dismissed ones.
 	 * @param  array $pointers
 	 * @return array $pointers
 	 */
-	public function validate_pointers( $pointers ) {
+	public function check_for_pointers( $pointers ) {
 		if ( ! is_array( $pointers ) ) {
 			return;
 		}

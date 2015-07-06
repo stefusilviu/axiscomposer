@@ -82,11 +82,7 @@ class AC_Admin_Pointers {
 
 		$valid_pointers = array();
 		foreach ( $pointers['pointers'] as $pointer_id => $pointer ) {
-			if ( in_array( $pointer_id, $dismissed )
-				|| empty( $pointer )
-				|| empty( $pointer['target'] )
-				|| empty( $pointer['options'] )
-			) {
+			if ( in_array( $pointer_id, $dismissed ) ) {
 				continue;
 			}
 

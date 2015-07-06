@@ -344,7 +344,7 @@ class AC_Admin_Welcome {
 			return $contributors;
 		}
 
-		$response = wp_remote_get( 'https://api.github.com/repos/axisthemes/axiscomposer/contributors' );
+		$response = wp_safe_remote_get( 'https://api.github.com/repos/axisthemes/axiscomposer/contributors' );
 
 		if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
 			return array();

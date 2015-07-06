@@ -121,7 +121,7 @@ class AC_Localization {
 	 * @return bool
 	 */
 	public function check_if_language_pack_exists( $locale ) {
-		$response = wp_remote_get( $this->get_language_package_uri( $locale ), array( 'timeout' => 60 ) );
+		$response = wp_safe_remote_get( $this->get_language_package_uri( $locale ), array( 'timeout' => 60 ) );
 
 		if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 			return true;
@@ -195,7 +195,7 @@ class AC_Localization {
 			}
 
 			// Download the language pack
-			$response = wp_remote_get( $this->get_language_package_uri(), array( 'timeout' => 60 ) );
+			$response = wp_safe_remote_get( $this->get_language_package_uri(), array( 'timeout' => 60 ) );
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				global $wp_filesystem;
 

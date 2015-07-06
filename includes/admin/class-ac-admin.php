@@ -87,7 +87,7 @@ class AC_Admin {
 
 		delete_transient( '_ac_activation_redirect', 0, 30 );
 
-		if ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'ac-settings', 'ac-about' ) ) ) {
+		if ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'ac-about' ) ) ) {
 			return;
 		}
 

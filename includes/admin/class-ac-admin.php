@@ -87,21 +87,12 @@ class AC_Admin {
 
 		delete_transient( '_ac_activation_redirect', 0, 30 );
 
-		if ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'ac-settings', 'ac-about' ) ) ) {
+		if ( ! empty( $_GET['page'] ) && in_array( $_GET['page'], array( 'ac-about' ) ) ) {
 			return;
 		}
 
-		// If the user needs to install, send them to the setup wizard
-		if ( AC_Admin_Notices::has_notice( 'install' ) ) {
-			wp_safe_redirect( admin_url( 'admin.php?page=ac-settings' ) );
-			AC_Admin_Notices::remove_notice( 'install' );
-			exit;
-
-		// Otherwise, the welcome page
-		} else {
-			wp_safe_redirect( admin_url( 'index.php?page=ac-about' ) );
-			exit;
-		}
+		wp_safe_redirect( admin_url( 'index.php?page=ac-about' ) );
+		exit;
 	}
 
 	/**

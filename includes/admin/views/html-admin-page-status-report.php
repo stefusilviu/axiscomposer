@@ -272,7 +272,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage' , 'axiscomposer' ) . '" target="_blank">' . $plugin_name . '</a>';
 				}
 
-				if ( strstr( $dirname, 'axiscomposer-' ) ) {
+				if ( strstr( $dirname, 'axiscomposer-' ) && strstr( $plugin_data['PluginURI'], 'axisthemes.com' ) ) {
 
 					if ( false === ( $version_data = get_transient( md5( $plugin ) . '_version_data' ) ) ) {
 						$changelog = wp_safe_remote_get( 'http://axisthemes.com/changelogs/' . $dirname . '/changelog.txt' );

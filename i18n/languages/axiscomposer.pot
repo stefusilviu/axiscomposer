@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0-alpha-5 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-06-15 00:43:57+00:00\n"
+"POT-Creation-Date: 2015-07-07 01:42:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: includes/abstracts/abstract-ac-integration.php:24
 #: includes/abstracts/abstract-ac-settings-api.php:79
-#: includes/class-ac-install.php:290
+#: includes/class-ac-install.php:366
 msgid "Settings"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-ac-ajax.php:226
+#: includes/class-ac-ajax.php:221
 msgid "%s &ndash; %s"
 msgstr ""
 
@@ -84,31 +84,31 @@ msgid ""
 "have the necessary permissions."
 msgstr ""
 
-#: includes/class-ac-install.php:290
+#: includes/class-ac-install.php:366
 msgid "View AxisComposer Settings"
 msgstr ""
 
-#: includes/class-ac-install.php:305
+#: includes/class-ac-install.php:381
 msgid "View AxisComposer Documentation"
 msgstr ""
 
-#: includes/class-ac-install.php:305
+#: includes/class-ac-install.php:381
 msgid "Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:306
+#: includes/class-ac-install.php:382
 msgid "View AxisComposer API Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:306
+#: includes/class-ac-install.php:382
 msgid "API Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:307
+#: includes/class-ac-install.php:383
 msgid "Visit Premium Customer Support Forum"
 msgstr ""
 
-#: includes/class-ac-install.php:307
+#: includes/class-ac-install.php:383
 msgid "Premium Support"
 msgstr ""
 

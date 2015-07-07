@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0-alpha-5 Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-06-15 00:44:00+00:00\n"
+"POT-Creation-Date: 2015-07-07 01:42:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,97 +65,101 @@ msgid "Dismiss"
 msgstr ""
 
 #: includes/admin/class-ac-admin-help.php:40
-#: includes/admin/class-ac-admin-welcome.php:188
+#: includes/admin/class-ac-admin-help.php:42
+#: includes/admin/class-ac-admin-welcome.php:175
 msgid "Documentation"
 msgstr ""
 
 #: includes/admin/class-ac-admin-help.php:43
 msgid ""
-"Thank you for using AxisComposer :) Should you need help using or extending "
-"AxisComposer please read the documentation."
+"Should you need help understanding, using, or extending AxisComposer, "
+"please read our documentation. You will find all kinds of resources "
+"including snippets, tutorials and much more."
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:45
+#: includes/admin/class-ac-admin-help.php:44
 msgid "AxisComposer Documentation"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:45
+#: includes/admin/class-ac-admin-help.php:44
 msgid "Developer API Docs"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:51
+#: includes/admin/class-ac-admin-help.php:50
+#: includes/admin/class-ac-admin-help.php:52
 msgid "Support"
+msgstr ""
+
+#: includes/admin/class-ac-admin-help.php:53
+msgid ""
+"After %sreading the documentation%s, for further assistance you can use the "
+"%scommunity forums%s on WordPress.org to talk with other users. If however "
+"you are a AxisThemes customer, or need help with premium add-ons sold by "
+"AxisThemes, please %suse our helpdesk%s."
 msgstr ""
 
 #: includes/admin/class-ac-admin-help.php:54
 msgid ""
-"After %sreading the documentation%s, for further assistance you can use the "
-"%sWordPress.org support forum%s. For help with premium add-ons from "
-"AxisThemes, or if you are a AxisThemes customer, you can %suse our "
-"helpdesk%s."
+"Before asking for help we recommend checking the system status page to "
+"identify any problems with your configuration."
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:56
-msgid ""
-"Before asking for help we recommend checking the status page to identify "
-"any problems with your configuration."
-msgstr ""
-
-#: includes/admin/class-ac-admin-help.php:58
-#: includes/admin/class-ac-admin-help.php:69
+#: includes/admin/class-ac-admin-help.php:55
+#: includes/admin/class-ac-admin-help.php:65
 #: includes/admin/class-ac-admin-menus.php:80
 #: includes/admin/views/html-admin-page-status.php:16
 msgid "System Status"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:58
-msgid "WordPress.org Support Forum"
+#: includes/admin/class-ac-admin-help.php:55
+msgid "WordPress.org Forums"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:58
+#: includes/admin/class-ac-admin-help.php:55
 msgid "AxisThemes Customer Support"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:64
+#: includes/admin/class-ac-admin-help.php:61
+#: includes/admin/class-ac-admin-help.php:63
 msgid "Found a bug?"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:67
+#: includes/admin/class-ac-admin-help.php:64
 msgid ""
 "If you find a bug within AxisComposer core you can create a ticket via <a "
 "href=\"%s\">Github issues</a>. Ensure you read the <a "
-"href=\"%s\">contribution guide</a> prior to submitting your report. Be as "
-"descriptive as possible and please include your <a href=\"%s\">system "
-"status report</a>."
+"href=\"%s\">contribution guide</a> prior to submitting your report. To help "
+"us solve your issue, please be as descriptive as possible and include your "
+"<a href=\"%s\">system status report</a>."
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:69
+#: includes/admin/class-ac-admin-help.php:65
 msgid "Report a bug"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:74
+#: includes/admin/class-ac-admin-help.php:70
 msgid "For more information:"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:75
-#: includes/admin/class-ac-admin-welcome.php:43
+#: includes/admin/class-ac-admin-help.php:71
+#: includes/admin/class-ac-admin-welcome.php:46
 msgid "About AxisComposer"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:76
+#: includes/admin/class-ac-admin-help.php:72
 msgid "WordPress.org Project"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:77
+#: includes/admin/class-ac-admin-help.php:73
 msgid "Github Project"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:78
+#: includes/admin/class-ac-admin-help.php:74
 #: includes/admin/views/html-notice-theme-support.php:14
 msgid "Official Themes"
 msgstr ""
 
-#: includes/admin/class-ac-admin-help.php:79
+#: includes/admin/class-ac-admin-help.php:75
 msgid "Official Extensions"
 msgstr ""
 
@@ -176,8 +180,8 @@ msgid "AxisComposer Settings"
 msgstr ""
 
 #: includes/admin/class-ac-admin-menus.php:64
-#: includes/admin/class-ac-admin-welcome.php:187
-#: includes/admin/views/html-admin-page-status-report.php:293
+#: includes/admin/class-ac-admin-welcome.php:174
+#: includes/admin/views/html-admin-page-status-report.php:319
 msgid "Settings"
 msgstr ""
 
@@ -202,6 +206,7 @@ msgid "%s Layout"
 msgstr ""
 
 #: includes/admin/class-ac-admin-meta-boxes.php:105
+#: includes/admin/class-ac-admin-pointers.php:52
 msgid "Page Builder"
 msgstr ""
 
@@ -247,6 +252,12 @@ msgstr ""
 msgid ""
 "Enter a custom base to use. A base <strong>must</strong> be set or "
 "WordPress will use default instead."
+msgstr ""
+
+#: includes/admin/class-ac-admin-pointers.php:53
+msgid ""
+"Page Builder helps you to create unique layout you can imagine with the "
+"help of drag and drop interface. This requires zero coding knowledge."
 msgstr ""
 
 #: includes/admin/class-ac-admin-post-types.php:55
@@ -330,7 +341,7 @@ msgid "Image"
 msgstr ""
 
 #: includes/admin/class-ac-admin-post-types.php:105
-#: includes/admin/views/html-admin-page-status-report.php:355
+#: includes/admin/views/html-admin-page-status-report.php:381
 msgid "Name"
 msgstr ""
 
@@ -482,156 +493,156 @@ msgid ""
 "upgrade for your language if a translation is available."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:44
+#: includes/admin/class-ac-admin-welcome.php:47
 msgid "Welcome to AxisComposer"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:168
+#: includes/admin/class-ac-admin-welcome.php:155
 msgid "Welcome to AxisComposer %s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:173
+#: includes/admin/class-ac-admin-welcome.php:160
 msgid "Thanks, all done!"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:175
+#: includes/admin/class-ac-admin-welcome.php:162
 msgid "Thank you for updating to the latest version!"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:177
+#: includes/admin/class-ac-admin-welcome.php:164
 msgid "Thanks for installing!"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:180
+#: includes/admin/class-ac-admin-welcome.php:167
 msgid ""
 "%s AxisComposer %s is more powerful, stable and secure than ever before. We "
 "hope you enjoy using it."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:184
+#: includes/admin/class-ac-admin-welcome.php:171
 msgid "Version %s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:195
+#: includes/admin/class-ac-admin-welcome.php:182
 msgid "What's New"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:197
+#: includes/admin/class-ac-admin-welcome.php:184
 msgid "Credits"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:199
+#: includes/admin/class-ac-admin-welcome.php:186
 msgid "Translators"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:217
+#: includes/admin/class-ac-admin-welcome.php:204
 msgid "UI Overhaul"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:218
+#: includes/admin/class-ac-admin-welcome.php:205
 msgid ""
 "We've updated the user interface on both the front and backend of "
 "AxisComposer 1.0 \"Kickstart Hippo\"."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:223
+#: includes/admin/class-ac-admin-welcome.php:210
 msgid "Frontend UI Improvements"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:224
+#: includes/admin/class-ac-admin-welcome.php:211
 msgid ""
 "On the frontend there are several UX enhancements such as the responsive "
 "table design as well as a fresh, modern look which meshes more fluidly with "
 "the current design trends of default WordPress themes."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:227
+#: includes/admin/class-ac-admin-welcome.php:214
 msgid "Backend UI Improvements"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:228
+#: includes/admin/class-ac-admin-welcome.php:215
 msgid ""
 "On the backend, settings have been re-organised and perform better on "
 "hand-held devices for an all round improved user experience. "
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:231
+#: includes/admin/class-ac-admin-welcome.php:218
 msgid "Pagebuilder UI"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:232
+#: includes/admin/class-ac-admin-welcome.php:219
 msgid ""
 "As part of the Builder, we've introduced a UI for the Pagebuilder system in "
 "1.0. This makes it easier for 3rd party apps to integrate with AxisComposer"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:240
+#: includes/admin/class-ac-admin-welcome.php:227
 msgid "Custom Widgets Area Builder"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:241
+#: includes/admin/class-ac-admin-welcome.php:228
 msgid ""
 "We have added a new option to create the \"Custom Widgets Area\". Coupled "
 "with ability to delete the unused Widget Area or Sidebar. Enable or disable "
 "this in the %ssettings%s."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:244
+#: includes/admin/class-ac-admin-welcome.php:231
 msgid "Simplified Iconfonts Upload"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:245
+#: includes/admin/class-ac-admin-welcome.php:232
 msgid ""
 "We have added a new option to upload the \"Custom Iconfonts\". Coupled with "
 "some of the additional hooks for developers to load and store your custom "
 "iconfonts. View %sIconfont Settings%s."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:248
+#: includes/admin/class-ac-admin-welcome.php:235
 msgid "Color Customization"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:249
+#: includes/admin/class-ac-admin-welcome.php:236
 msgid ""
 "If you're looking to customise the look and feel of the frontend in 1.0, "
 "take a look at the free %sAxisComposer Colors plugin%s. This lets you "
 "change the colors with a live preview."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:257
+#: includes/admin/class-ac-admin-welcome.php:244
 msgid "Go to AxisComposer Settings"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:272
+#: includes/admin/class-ac-admin-welcome.php:259
 msgid ""
 "AxisComposer is developed and maintained by a worldwide team of passionate "
 "individuals and backed by an awesome developer community. Want to see your "
 "name? <a href=\"%s\">Contribute to AxisComposer</a>."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:288
+#: includes/admin/class-ac-admin-welcome.php:275
 msgid ""
 "AxisComposer has been kindly translated into several other languages thanks "
 "to our translation team. Want to see your name? <a href=\"%s\">Translate "
 "AxisComposer</a>."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:335
+#: includes/admin/class-ac-admin-welcome.php:322
 msgid "View %s"
 msgstr ""
 
-#: includes/admin/class-ac-admin.php:96
+#: includes/admin/class-ac-admin.php:119
 msgid ""
 "If you like <strong>AxisComposer</strong> please leave us a "
 "%s&#9733;&#9733;&#9733;&#9733;&#9733;%s rating. A huge thank you from "
 "AxisThemes in advance!"
 msgstr ""
 
-#: includes/admin/class-ac-admin.php:96
+#: includes/admin/class-ac-admin.php:119
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/admin/class-ac-admin.php:104
+#: includes/admin/class-ac-admin.php:127
 msgid "Thank you for creating with AxisComposer."
 msgstr ""
 
@@ -1107,7 +1118,7 @@ msgid ""
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:172
-msgid "wp_remote_post() failed. Contact your hosting provider."
+msgid "wp_safe_remote_post() failed. Contact your hosting provider."
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:174
@@ -1132,116 +1143,134 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:190
 msgid ""
-"wp_remote_get() failed. The AxisComposer plugin updater won't work with "
-"your server. Contact your hosting provider."
+"wp_safe_remote_get() failed. The AxisComposer plugin updater won't work "
+"with your server. Contact your hosting provider."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:222
+#: includes/admin/views/html-admin-page-status-report.php:221
+msgid "Database"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:226
+msgid "AC Database Version"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:227
+msgid ""
+"The version of AxisComposer that the database is formatted for. This should "
+"be the same as your AxisComposer Version."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:238
+msgid "Table does not exist"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:248
 msgid "Active Plugins"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:246
+#: includes/admin/views/html-admin-page-status-report.php:272
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:274
+#: includes/admin/views/html-admin-page-status-report.php:300
 msgid "Network enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:298
+#: includes/admin/views/html-admin-page-status-report.php:324
 msgid "TinyMCE Enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:299
+#: includes/admin/views/html-admin-page-status-report.php:325
 msgid "Does your site have tinyMCE enabled?"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:303
+#: includes/admin/views/html-admin-page-status-report.php:329
 msgid "Sidebar Builder Enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:304
+#: includes/admin/views/html-admin-page-status-report.php:330
 msgid "Does your site have Sidebar Builder enabled?"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:312
+#: includes/admin/views/html-admin-page-status-report.php:338
 msgid "Theme"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:356
+#: includes/admin/views/html-admin-page-status-report.php:382
 msgid "The name of the current active theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:360
+#: includes/admin/views/html-admin-page-status-report.php:386
 msgid "Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:361
+#: includes/admin/views/html-admin-page-status-report.php:387
 msgid "The installed version of the current active theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:366
+#: includes/admin/views/html-admin-page-status-report.php:392
 msgid "%s is available"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:371
+#: includes/admin/views/html-admin-page-status-report.php:397
 msgid "Author URL"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:372
+#: includes/admin/views/html-admin-page-status-report.php:398
 msgid "The theme developers URL."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:376
+#: includes/admin/views/html-admin-page-status-report.php:402
 msgid "Child Theme"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:377
+#: includes/admin/views/html-admin-page-status-report.php:403
 msgid "Displays whether or not the current theme is a child theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:379
+#: includes/admin/views/html-admin-page-status-report.php:405
 msgid ""
 "If you're modifying AxisComposer or a parent theme you didn't build "
 "personally we recommend using a child theme. See: <a href=\"%s\" "
 "target=\"_blank\">How to create a child theme</a>"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:387
+#: includes/admin/views/html-admin-page-status-report.php:413
 msgid "Parent Theme Name"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:388
+#: includes/admin/views/html-admin-page-status-report.php:414
 msgid "The name of the parent theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:392
+#: includes/admin/views/html-admin-page-status-report.php:418
 msgid "Parent Theme Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:393
+#: includes/admin/views/html-admin-page-status-report.php:419
 msgid "The installed version of the parent theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:397
+#: includes/admin/views/html-admin-page-status-report.php:423
 msgid "Parent Theme Author URL"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:398
+#: includes/admin/views/html-admin-page-status-report.php:424
 msgid "The parent theme developers URL."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:403
+#: includes/admin/views/html-admin-page-status-report.php:429
 msgid "AxisComposer Support"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:404
+#: includes/admin/views/html-admin-page-status-report.php:430
 msgid ""
 "Displays whether or not the current active theme declares AxisComposer "
 "support."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:407
+#: includes/admin/views/html-admin-page-status-report.php:433
 msgid "Not Declared"
 msgstr ""
 
@@ -1334,6 +1363,22 @@ msgstr ""
 
 #: includes/admin/views/html-notice-translation-upgrade.php:19
 msgid "Force Update Translation"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:12
+msgid ""
+"<strong>AxisComposer Data Update Required</strong> &#8211; We just need to "
+"update your install to the latest version"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:13
+msgid "Run the updater"
+msgstr ""
+
+#: includes/admin/views/html-notice-update.php:17
+msgid ""
+"It is strongly recommended that you backup your database before proceeding. "
+"Are you sure you wish to run the updater now?"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -1442,12 +1487,12 @@ msgctxt "default-slug"
 msgid "portfolio"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:270
+#: includes/admin/views/html-admin-page-status-report.php:296
 msgctxt "Version info"
 msgid "%s is available"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:282
+#: includes/admin/views/html-admin-page-status-report.php:308
 msgctxt "by author"
 msgid "by %s"
 msgstr ""

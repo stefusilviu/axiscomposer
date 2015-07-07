@@ -1,46 +1,24 @@
-/* global wpWidgets, axiscomposer_admin_sidebars */
-( function( $ ) {
-	'use strict';
+/* global axiscomposer_admin_sidebars */
+jQuery( function( $ ) {
 
-	$.ACSidebars = function() {
-		this.widgetArea = $( '#widgets-right' );
-		this.widgetWrap = $( '.widget-liquid-right' );
-		this.widgetTmpl = $( '#tmpl-axiscomposer-form-create-sidebar' );
+	var ac_enhanced_sidebars = {
+		init: function() {
+			this.create_form();
+			this.add_trash_icon();
 
-		this.createForm();
-		this.deleteIcon();
-		this.bindEvents();
-	};
-
-	$.ACSidebars.prototype = {
-
-		// Create Custom Widget Area Form
-		createForm: function() {
-			this.widgetArea.prepend( this.widgetTmpl.html() );
+			$( '.widget-liquid-right' ).on( 'click', '.axiscomposer-delete-sidebar', this.remove_sidebar );
 		},
-
-		// Add Delete Icon to Custom Widget Areas
-		deleteIcon: function() {
-			this.widgetArea.find( '.sidebar-axiscomposer-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar"><br /></div>' );
+		create_form: function() {
+			$( '#widgets-right' ).prepend( $( '#tmpl-axiscomposer-form-create-sidebar' ).html() );
 		},
-
-		// Bind Events to delete Custom Widget Area
-		bindEvents: function() {
-			this.widgetWrap.on( 'click', '.axiscomposer-delete-sidebar', $.proxy( this.delete_sidebar, this ) );
+		add_trash_icon: function() {
+			$( '#widgets-right' ).find( '.sidebar-axiscomposer-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar">&nbsp;</div>' );
 		},
-
-		// Delete the Widget Area (Sidebar) with all Widgets within, then re-calculate the other sidebar ids and re-save the order
-		delete_sidebar: function( e ) {
-			var obj     = this,
-				widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ),
+		remove_sidebar: function( e ) {
+			var	widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ),
 				heading = widgets.find( '.sidebar-name h3' ),
 				spinner = heading.find( '.spinner' ),
-				sidebar	= $.trim( heading.text() ),
-				data    = {
-					sidebar: sidebar,
-					action: 'axiscomposer_delete_custom_sidebar',
-					security: axiscomposer_admin_sidebars.delete_custom_sidebar_nonce
-				};
+				sidebar	= $.trim( heading.text() );
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
@@ -51,6 +29,12 @@
 				if ( '#tmpl-axiscomposer-modal-delete-sidebar' !== template ) {
 					return;
 				}
+
+				var	data = {
+					sidebar: sidebar,
+					action: 'axiscomposer_delete_custom_sidebar',
+					security: axiscomposer_admin_sidebars.delete_custom_sidebar_nonce
+				};
 
 				$.ajax( {
 					url: axiscomposer_admin_sidebars.ajax_url,
@@ -63,26 +47,17 @@
 						});
 					},
 					success: function( response ) {
-
 						if ( response === true ) {
-							widgets.slideUp( 200, function() {
+							$( '.widget-control-remove', widgets ).trigger( 'click' );
 
-								// Remove all Widgets inside
-								$( '.widget-control-remove', widgets ).trigger( 'click' );
+							// Remove Widgets
+							widgets.slideUp( 250, function() {
 								widgets.remove();
-
-								// Re-calculate Widget Id's
-								obj.widgetArea.find( '.widgets-holder-wrap .widgets-sortables' ).each( function( i ) {
-									$(this).attr( 'id', 'sidebar-' + ( i + 1 ) );
-								});
-
-								// Re-save the Widgets Order
-								wpWidgets.saveOrder();
 							});
 
-							// Re-load the Window location
+							// Reload page
 							window.setTimeout( function() {
-								location.reload( false );
+								window.location.reload();
 							}, 100 );
 						}
 					}
@@ -91,8 +66,5 @@
 		}
 	};
 
-	$( function() {
-		$.ACSidebarsObj = new $.ACSidebars();
-	});
-
-})( jQuery );
+	ac_enhanced_sidebars.init();
+});

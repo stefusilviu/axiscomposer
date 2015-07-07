@@ -580,12 +580,6 @@ class AC_Admin_Settings {
 			}
 
 			/**
-			 * Fire an action when a certain 'type' of field is being saved.
-			 * @deprecated 1.0.0 - doesn't allow manipulation of values!
-			 */
-			do_action( 'axiscomposer_update_option_' . sanitize_title( $option['type'] ), $option );
-
-			/**
 			 * Sanitize the value of an option
 			 */
 			$value = apply_filters( 'axiscomposer_admin_settings_sanitize_option', $value, $option, $raw_value );
@@ -611,12 +605,6 @@ class AC_Admin_Settings {
 			} else {
 				$update_options[ $option_name ] = $value;
 			}
-
-			/**
-			 * Fire an action before saved..
-			 * @deprecated 1.0.0 - doesn't allow manipulation of values!
-			 */
-			do_action( 'axiscomposer_update_option', $option );
 		}
 
 		// Save all options in our array

@@ -152,28 +152,3 @@ function ac_format_shortcode( $raw_string ) {
 
 	return strtr( $raw_string, $args );
 }
-
-/**
- * Formats curency symbols when saved in settings.
- * @param  string $value
- * @param  array  $option
- * @param  string $raw_value
- * @return string
- */
-function ac_format_option_price_separators( $value, $option, $raw_value ) {
-	return wp_kses_post( $raw_value );
-}
-add_filter( 'axiscomposer_admin_settings_sanitize_option_axiscomposer_price_decimal_sep', 'ac_format_option_price_separators', 10, 3 );
-add_filter( 'axiscomposer_admin_settings_sanitize_option_axiscomposer_price_thousand_sep', 'ac_format_option_price_separators', 10, 3 );
-
-/**
- * Formats decimals when saved in settings.
- * @param  string $value
- * @param  array  $option
- * @param  string $raw_value
- * @return string
- */
-function ac_format_option_price_num_decimals( $value, $option, $raw_value ) {
-	return is_null( $raw_value ) ? 2 : absint( $raw_value );
-}
-add_filter( 'axiscomposer_admin_settings_sanitize_option_axiscomposer_price_num_decimals', 'ac_format_option_price_num_decimals', 10, 3 );

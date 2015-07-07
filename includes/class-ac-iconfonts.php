@@ -38,6 +38,36 @@ class AC_Iconfonts {
 			wp_add_inline_style( is_admin() ? 'axiscomposer-admin' : 'axiscomposer-general', $font_face );
 		}
 	}
+
+	/**
+	 * Create iconfont font-face styles.
+	 * @param  string $font_family
+	 * @param  string $font_url
+	 * @param  string $font_ver
+	 * @return string
+	 */
+	private static function create_font_face( $font_family, $font_url, $font_ver ) {
+		$ampersand = empty( $font_ver ) ? '' : str_replace( '?', '&', $font_ver );
+		$font_face = "
+		@font-face {
+		    font-family: '{$font_family}';
+		    src:url('{$font_url}.eot{$font_ver}');
+		    src:url('{$font_url}.eot#iefix{$ampersand}') format('embedded-opentype'),
+		        url('{$font_url}.woff{$font_ver}') format('woff'),
+		        url('{$font_url}.ttf{$font_ver}') format('truetype'),
+		        url('{$font_url}.svg{$font_ver}#{$font_family}') format('svg');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		body .axiscomposer-font-{$font_family},
+		body .axiscomposer-font-{$font_family} span,
+		body [data-iconfont='{$font_family}']:before {
+		    font-family: '{$font_family}';
+		}
+		";
+
+		return $font_face;
+	}
 }
 
 AC_Iconfonts::init();

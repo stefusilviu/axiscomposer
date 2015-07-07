@@ -7,6 +7,7 @@
  * Imports
  */
 @import "bourbon";
+@import "mixins";
 @import "animation";
 @import "modal";
 
@@ -36,13 +37,13 @@
 .axiscomposer-delete-sidebar {
 	color: #aaa;
 	z-index: 100;
+	font-size: 16px;
 	text-decoration: none;
 	@include position(absolute, 15px 45px null null);
 
 	&:before {
-		font-family: 'AxisComposer' !important;
-		content: "\e009";
-		font-size: 16px !important;
+		@include iconbefore( "\e009" );
+		margin-right: 0;
 	}
 
 	&:hover {

@@ -533,7 +533,7 @@ class AC_Admin_Settings {
 	 *
 	 * Loops though the axiscomposer options array and outputs each field.
 	 *
-	 * @param array $options Opens array to output
+	 * @param  array $options Opens array to output
 	 * @return bool
 	 */
 	public static function save_fields( $options ) {
@@ -541,88 +541,85 @@ class AC_Admin_Settings {
 			return false;
 		}
 
-		// Options to update will be stored here
+		// Options to update will be stored here and saved later
 		$update_options = array();
 
 		// Loop options and get values to save
-		foreach ( $options as $value ) {
-			if ( ! isset( $value['id'] ) || ! isset( $value['type'] ) ) {
+		foreach ( $options as $option ) {
+			if ( ! isset( $option['id'] ) || ! isset( $option['type'] ) ) {
 				continue;
 			}
 
 			// Get posted value
-			if ( strstr( $value['id'], '[' ) ) {
-				parse_str( $value['id'], $option_name_array );
-
+			if ( strstr( $option['id'], '[' ) ) {
+				parse_str( $option['id'], $option_name_array );
 				$option_name  = current( array_keys( $option_name_array ) );
 				$setting_name = key( $option_name_array[ $option_name ] );
-
-				$option_value = isset( $_POST[ $option_name ][ $setting_name ] ) ? wp_unslash( $_POST[ $option_name ][ $setting_name ] ) : null;
+				$raw_value    = isset( $_POST[ $option_name ][ $setting_name ] ) ? wp_unslash( $_POST[ $option_name ][ $setting_name ] ) : null;
 			} else {
-				$option_name  = $value['id'];
+				$option_name  = $option['id'];
 				$setting_name = '';
-				$option_value = isset( $_POST[ $value['id'] ] ) ? wp_unslash( $_POST[ $value['id'] ] ) : null;
+				$raw_value    = isset( $_POST[ $option['id'] ] ) ? wp_unslash( $_POST[ $option['id'] ] ) : null;
 			}
 
-			// Format value
-			switch ( sanitize_title( $value['type'] ) ) {
+			// Format the value based on option type
+			switch ( $option['type'] ) {
 				case 'checkbox' :
-					$option_value = is_null( $option_value ) ? 'no' : 'yes';
+					$value = is_null( $raw_value ) ? 'no' : 'yes';
 					break;
 				case 'textarea' :
-					$option_value = wp_kses_post( trim( $option_value ) );
-					break;
-				case 'text' :
-				case 'email':
-				case 'number':
-				case 'select' :
-				case 'color' :
-				case 'password' :
-				case 'radio' :
-					if ( in_array( $value['id'], array( 'axiscomposer_price_thousand_sep', 'axiscomposer_price_decimal_sep' ) ) ) {
-						$option_value = wp_kses_post( $option_value );
-
-					} elseif ( 'axiscomposer_price_num_decimals' == $value['id'] ) {
-						$option_value = is_null( $option_value ) ? 2 : absint( $option_value );
-
-					} else {
-						$option_value = ac_clean( $option_value );
-					}
+					$value = wp_kses_post( trim( $raw_value ) );
 					break;
 				case 'multiselect' :
 				case 'multi_select_screens' :
-					$option_value = array_filter( array_map( 'ac_clean', (array) $option_value ) );
+					$value = array_filter( array_map( 'ac_clean', (array) $raw_value ) );
 					break;
 				default :
-					do_action( 'axiscomposer_update_option_' . sanitize_title( $value['type'] ), $value );
+					$value = ac_clean( $raw_value );
 					break;
 			}
 
-			if ( ! is_null( $option_value ) ) {
-				// Check if option is an array
-				if ( $option_name && $setting_name ) {
-					// Get old option value
-					if ( ! isset( $update_options[ $option_name ] ) ) {
-						$update_options[ $option_name ] = get_option( $option_name, array() );
-					}
+			/**
+			 * Fire an action when a certain 'type' of field is being saved.
+			 * @deprecated 1.0.0 - doesn't allow manipulation of values!
+			 */
+			do_action( 'axiscomposer_update_option_' . sanitize_title( $option['type'] ), $option );
 
-					if ( ! is_array( $update_options[ $option_name ] ) ) {
-						$update_options[ $option_name ] = array();
-					}
+			/**
+			 * Sanitize the value of an option
+			 */
+			$value = apply_filters( 'axiscomposer_admin_settings_sanitize_option', $value, $option, $raw_value );
 
-					$update_options[ $option_name ][ $setting_name ] = $option_value;
+			/**
+			 * Sanitize the value of an option by option name
+			 */
+			$value = apply_filters( "axiscomposer_admin_settings_sanitize_option_$option_name", $value, $option, $raw_value );
 
-				// Single value
-				} else {
-					$update_options[ $option_name ] = $option_value;
-				}
+			if ( is_null( $value ) ) {
+				continue;
 			}
 
-			// Custom handling
-			do_action( 'axiscomposer_update_option', $value );
+			// Check if option is an array and handle that differently to single values.
+			if ( $option_name && $setting_name ) {
+				if ( ! isset( $update_options[ $option_name ] ) ) {
+					$update_options[ $option_name ] = get_option( $option_name, array() );
+				}
+				if ( ! is_array( $update_options[ $option_name ] ) ) {
+					$update_options[ $option_name ] = array();
+				}
+				$update_options[ $option_name ][ $setting_name ] = $value;
+			} else {
+				$update_options[ $option_name ] = $value;
+			}
+
+			/**
+			 * Fire an action before saved..
+			 * @deprecated 1.0.0 - doesn't allow manipulation of values!
+			 */
+			do_action( 'axiscomposer_update_option', $option );
 		}
 
-		// Now save the options
+		// Save all options in our array
 		foreach ( $update_options as $name => $value ) {
 			update_option( $name, $value );
 		}

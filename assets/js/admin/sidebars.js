@@ -1,24 +1,24 @@
 /* global axiscomposer_admin_sidebars */
 jQuery( function( $ ) {
 
-	var ac_enhanced_sidebars = {
+	/**
+	 * Custom Sidebars Actions.
+	 */
+	var ac_custom_sidebars_actions = {
 		init: function() {
-			this.create_form();
-			this.add_trash_icon();
-
-			$( '.widget-liquid-right' ).on( 'click', '.axiscomposer-delete-sidebar', this.remove_sidebar );
+			this.initial_load();
+			$( '.widget-liquid-right' ).on( 'click', '.axiscomposer-delete-sidebar', this.delete_sidebar );
 		},
-		create_form: function() {
+		initial_load: function() {
 			$( '#widgets-right' ).prepend( $( '#tmpl-axiscomposer-form-create-sidebar' ).html() );
+
+			// Add trash icon for custom sidebars.
+			$( '#widgets-right .sidebar-axiscomposer-custom-widgets-area' ).css({
+				'position': 'relative'
+			}).append( '<div class="axiscomposer-delete-sidebar">&nbsp;</div>' );
 		},
-		add_trash_icon: function() {
-			$( '#widgets-right' ).find( '.sidebar-axiscomposer-custom-widgets-area' ).css( 'position', 'relative' ).append( '<div class="axiscomposer-delete-sidebar">&nbsp;</div>' );
-		},
-		remove_sidebar: function( e ) {
-			var	widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ),
-				heading = widgets.find( '.sidebar-name h3' ),
-				spinner = heading.find( '.spinner' ),
-				sidebar	= $.trim( heading.text() );
+		delete_sidebar: function( e ) {
+			var	widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ), title = widgets.find( '.sidebar-name h3' );
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
@@ -31,7 +31,7 @@ jQuery( function( $ ) {
 				}
 
 				var	data = {
-					sidebar: sidebar,
+					sidebar: $.trim( title.text() ),
 					action: 'axiscomposer_delete_custom_sidebar',
 					security: axiscomposer_admin_sidebars.delete_custom_sidebar_nonce
 				};
@@ -41,21 +41,16 @@ jQuery( function( $ ) {
 					data: data,
 					type: 'POST',
 					beforeSend: function() {
-						spinner.css({
-							'visibility': 'visible',
-							'display': 'inline-block'
-						});
+						title.find( '.spinner' ).addClass( 'is-active' );
 					},
 					success: function( response ) {
 						if ( response === true ) {
 							$( '.widget-control-remove', widgets ).trigger( 'click' );
-
-							// Remove Widgets
 							widgets.slideUp( 250, function() {
 								widgets.remove();
 							});
 
-							// Reload page
+							// Reload Page
 							window.setTimeout( function() {
 								window.location.reload();
 							}, 100 );
@@ -66,5 +61,5 @@ jQuery( function( $ ) {
 		}
 	};
 
-	ac_enhanced_sidebars.init();
+	ac_custom_sidebars_actions.init();
 });

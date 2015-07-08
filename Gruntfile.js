@@ -22,8 +22,7 @@ module.exports = function( grunt ){
 				'<%= dirs.js %>/admin/*.js',
 				'!<%= dirs.js %>/admin/*.min.js',
 				'<%= dirs.js %>/frontend/*.js',
-				'!<%= dirs.js %>/frontend/*.min.js',
-				'!<%= dirs.js %>/admin/enhanced-select.js' // Because of select2 necessity
+				'!<%= dirs.js %>/frontend/*.min.js'
 			]
 		},
 

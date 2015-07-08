@@ -13,7 +13,7 @@ jQuery( function( $ ) {
 			formatNoMatches: function() {
 				return ac_enhanced_select_params.i18n_no_matches;
 			},
-			formatAjaxError: function( jqXHR, textStatus, errorThrown ) {
+			formatAjaxError: function() {
 				return ac_enhanced_select_params.i18n_ajax_error;
 			},
 			formatInputTooShort: function( input, min ) {
@@ -41,7 +41,7 @@ jQuery( function( $ ) {
 
 				return ac_enhanced_select_params.i18n_selection_too_long_n.replace( '%qty%', limit );
 			},
-			formatLoadMore: function( pageNumber ) {
+			formatLoadMore: function() {
 				return ac_enhanced_select_params.i18n_load_more;
 			},
 			formatSearching: function() {
@@ -90,14 +90,14 @@ jQuery( function( $ ) {
 						url:         ac_enhanced_select_params.ajax_url,
 						dataType:    'json',
 						quietMillis: 250,
-						data: function( term, page ) {
+						data: function( term ) {
 							return {
 								term:     term,
 								action:   $( this ).data( 'action' ) || 'axiscomposer_json_search_pages_and_portfolio',
 								security: ac_enhanced_select_params.search_post_types_nonce
 							};
 						},
-						results: function( data, page ) {
+						results: function( data ) {
 							var terms = [];
 							if ( data ) {
 								$.each( data, function( id, text ) {

@@ -29,21 +29,45 @@ class AC_Iconfonts {
 	}
 
 	/**
-	 * Get all available iconfonts.
-	 * @return array
-	 */
-	public static function get_all_iconfonts() {
-		$iconfonts = get_option( 'axiscomposer_custom_iconfonts', array() );
-		return array_merge( ac_get_core_supported_iconfonts(), $iconfonts );
-	}
-
-	/**
 	 * Unpack a compressed package file.
 	 * @param  string $package Full path to the package file.
 	 * @return string|WP_Error The path to the unpacked contents, or a {@see WP_Error} on failure.
 	 */
 	public static function unpack_package( $package ) {
 		global $wp_filesystem;
+
+		// WordPress Filesystem Abstraction.
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		if ( ! $wp_filesystem || ! is_object( $wp_filesystem ) ) {
+			WP_Filesystem();
+		}
+
+		$temp_folder = get_temp_dir() . basename( AC_ICONFONT_DIR );
+
+		// Clean up temp directory
+		if ( $wp_filesystem->is_dir( $temp_folder ) ) {
+			$wp_filesystem->delete( $temp_folder, true );
+		}
+
+		// Unzip package to temp directory
+		$result = unzip_file( $package, $temp_folder );
+
+		if ( is_wp_error( $result ) ) {
+			$wp_filesystem->delete( $temp_folder, true );
+			if ( 'incompatible_archive' == $result->get_error_code() ) {
+				return new WP_Error( 'incompatible_archive', __( 'The package could not be extracted.', 'axiscomposer' ), $result->get_error_data() );
+			}
+			return $result;
+		}
+	}
+
+	/**
+	 * Get all available iconfonts.
+	 * @return array
+	 */
+	public static function get_all_iconfonts() {
+		$iconfonts = get_option( 'axiscomposer_custom_iconfonts', array() );
+		return array_merge( ac_get_core_supported_iconfonts(), $iconfonts );
 	}
 
 	/**

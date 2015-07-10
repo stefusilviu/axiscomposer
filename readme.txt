@@ -102,4 +102,4 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Upgrade Notice ==
 
 = 1.0.0 =
-1.0.0 is a major update so it is important that you make backups, test extensions and your theme prior to updating, and ensure extensions are 1.0 compatible. Developers should catch up with [develop.axisthemes.com](http://develop.axisthemes.com/) to see what has been happening in core.
+1.0.0 is a major update so it is important that you make backups, and ensure themes and extensions are 1.0 compatible. Developers should catch up with [develop.axisthemes.com](http://develop.axisthemes.com/) to see what has been happening in core.

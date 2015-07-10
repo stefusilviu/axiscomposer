@@ -220,6 +220,57 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	}
 
 	/**
+	 * Generate Iconfont HTML.
+	 *
+	 * @param  mixed $key
+	 * @param  mixed $data
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function generate_iconfont_html( $key, $data ) {
+
+		$field    = $this->get_field_key( $key );
+		$defaults = array(
+			'title'             => '',
+			'class'             => '',
+			'css'               => '',
+			'desc_tip'          => false,
+			'description'       => '',
+			'custom_attributes' => array(),
+			'options'           => array()
+		);
+
+		$data = wp_parse_args( $data, $defaults );
+
+		ob_start();
+		?>
+		<tr valign="top" class="full-width">
+			<td colspan="3" class="forminp">
+				<label for="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
+				<fieldset>
+					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
+					<?php echo $this->get_description_html( $data ); ?>
+					<input type="hidden" class="ac_iconfont_input" name="<?php echo esc_attr( $field ); ?>" id="<?php echo esc_attr( $field ); ?>" value="<?php echo esc_attr( $this->get_option( $key ) ); ?>" <?php echo $this->get_custom_attribute_html( $data ); ?> />
+					<div class="ac-iconfont-container <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>">
+						<?php foreach ( (array) $data['options'] as $iconfont => $glyph ) : ?>
+							<div class="ac-iconfont-title"><?php echo esc_html( sprintf( __( 'Font: %s', 'axiscomposer' ), $iconfont ) ); ?></div>
+							<div class="ac-iconfont-result axiscomposer-font-<?php echo esc_attr( $iconfont ); ?>" data-iconfont="<?php echo esc_attr( $iconfont ); ?>">
+								<?php foreach ( (array) $glyph as $charcode => $unicode ) : ?>
+									<?php $active = ( $this->get_option( $key ) === ( $iconfont . ',' . $charcode ) ) ? 'active' : 'inactive'; ?>
+									<span class="icon-picker <?php echo esc_attr( $active ); ?>" title="Charcode: \<?php echo esc_attr( $charcode ); ?>" data-charcode="<?php echo esc_attr( $charcode ); ?>"><?php echo ac_format_unicode( $unicode ); ?></span>
+								<?php endforeach; ?>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</fieldset>
+			</td>
+		</tr>
+		<?php
+
+		return ob_get_clean();
+	}
+
+	/**
 	 * Generate Image Upload Button HTML.
 	 *
 	 * @param  mixed $key

@@ -112,24 +112,12 @@ class AC_AJAX {
 			die(-1);
 		}
 
-		// Get the file path if the zip file
-		$attachment = $_POST['value'];
-		$zipfile    = realpath( get_attached_file( $attachment['id'] ) );
-		$flatten    = AC_Iconfonts::zip_flatten( $zipfile, array( '\.eot', '\.svg', '\.ttf', '\.woff', '\.json' ) );
+		// Get the zip file path.
+		$value    = $_POST['value'];
+		$zip_file = realpath( get_attached_file( $value['id'] ) );
 
-		// If zip is flatten, save it to our temp folder and extract the svg file.
-		if ( $flatten ) {
-			AC_Iconfonts::create_config();
-		}
-
-		// If we got no name for the font don't add it and delete the temp folder.
-		$tempdir = AC_ICONFONT_DIR . '/axisfonts-temp';
-		if ( AC_Iconfonts::$font_name == 'unknown' ) {
-			AC_Iconfonts::delete_files( $tempdir );
-			die( 'Was not able to retrieve the Font name from your Uploaded Folder' );
-		}
-
-		die( 'axiscomposer_iconfont_added:' . AC_Iconfonts::$font_name );
+		// Unpack a compressed package file.
+		$unpack = AC_Iconfonts::unpack_package( $zip_file );
 	}
 
 	/**
@@ -148,17 +136,6 @@ class AC_AJAX {
 		if ( empty( $term ) ) {
 			die();
 		}
-
-		$list   = AC_Iconfonts::load_iconfont_list();
-		$delete = isset( $list[ $term ] ) ? $list[ $term ] : false;
-
-		if ( $delete ) {
-			AC_Iconfonts::delete_files( $delete['includes'] );
-			AC_Iconfonts::remove_iconfont( $term );
-			die( 'axiscomposer_iconfont_removed:' . $term );
-		}
-
-		die( 'Unable to remove Font' );
 	}
 
 	/**

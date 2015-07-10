@@ -38,6 +38,15 @@ class AC_Iconfonts {
 	}
 
 	/**
+	 * Unpack a compressed package file.
+	 * @param  string $package Full path to the package file.
+	 * @return string|WP_Error The path to the unpacked contents, or a {@see WP_Error} on failure.
+	 */
+	public static function unpack_package( $package ) {
+		global $wp_filesystem;
+	}
+
+	/**
 	 * Adds iconfont inline styles.
 	 */
 	public static function inline_styles() {

@@ -117,6 +117,14 @@ class AC_Admin_Welcome {
 				top: 0;
 				<?php echo is_rtl() ? 'left' : 'right'; ?>: 0;
 			}
+			.about-wrap .feature-section {
+				margin-bottom: 40px;
+			}
+			.about-wrap .last-feature-section {
+				border-bottom: 0;
+				padding-bottom: 0;
+				margin-bottom: 0;
+			}
 			.about-wrap .ac-feature {
 				overflow: visible !important;
 				*zoom:1;
@@ -132,10 +140,18 @@ class AC_Admin_Welcome {
 			.about-wrap .ac-feature:after {
 				clear: both;
 			}
+			.about-wrap div.icon {
+				width: 0 !important;
+				padding: 0;
+				margin: 20px 0 !important;
+			}
 			.about-integrations {
 				background: #fff;
 				margin: 20px 0;
 				padding: 1px 20px 10px;
+			}
+			.about-integrations .feature-section {
+				padding: 20px 0;
 			}
 			.changelog h4 {
 				line-height: 1.4;
@@ -198,14 +214,9 @@ class AC_Admin_Welcome {
 
 			<?php $this->intro(); ?>
 
-			<!--<div class="changelog point-releases"></div>-->
-
 			<div class="changelog">
-				<h4><?php _e( 'UI Overhaul', 'axiscomposer' ); ?></h4>
-				<p><?php _e( 'We\'ve updated the user interface on both the front and backend of AxisComposer 1.0 "Kickstart Hippo".', 'axiscomposer' ); ?></p>
-
 				<div class="changelog about-integrations">
-					<div class="ac-feature feature-section col three-col">
+					<div class="ac-feature feature-section last-feature-section col three-col">
 						<div>
 							<h4><?php _e( 'Frontend UI Improvements', 'axiscomposer' ); ?></h4>
 							<p><?php _e( 'On the frontend there are several UX enhancements such as the responsive table design as well as a fresh, modern look which meshes more fluidly with the current design trends of default WordPress themes.', 'axiscomposer' ); ?></p>
@@ -222,7 +233,7 @@ class AC_Admin_Welcome {
 				</div>
 			</div>
 			<div class="changelog">
-				<div class="feature-section col three-col">
+				<div class="feature-section last-feature-section col three-col">
 					<div>
 						<h4><?php _e( 'Custom Widgets Area Builder', 'axiscomposer' ); ?></h4>
 						<p><?php printf( __( 'We have added a new option to create the "Custom Widgets Area". Coupled with ability to delete the unused Widget Area or Sidebar. Enable or disable this in the %ssettings%s.', 'axiscomposer' ), '<a href="' . admin_url( 'admin.php?page=ac-settings&tab=general' ) . '">', '</a>' ); ?></p>

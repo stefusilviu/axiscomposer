@@ -90,6 +90,28 @@ class AC_Iconfonts {
 	}
 
 	/**
+	 * Scan the svg files.
+	 * @param  string $svg_path
+	 * @return array
+	 */
+	public static function scan_svg_files( $svg_path ) {
+		$files  = @scandir( $svg_path );
+		$result = array();
+
+		if ( ! empty( $files ) ) {
+			foreach ( $files as $key => $value ) {
+				if ( ! in_array( $value, array( '.', '..' ) ) ) {
+					if ( ! is_dir( $value ) && strstr( $value, '.svg' ) ) {
+						$result[ sanitize_title( $value ) ] = $value;
+					}
+				}
+			}
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Get all available iconfonts.
 	 * @return array
 	 */

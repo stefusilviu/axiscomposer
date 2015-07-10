@@ -21,11 +21,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Iconfonts {
 
 	/**
+	 * The font ID.
+	 * @var string
+	 */
+	protected static $font_id = 'unknown';
+
+	/**
+	 * Charmap config file.
+	 * @var string
+	 */
+	protected static $charmap = 'charmap.php';
+
+	/**
+	 * Array of glyph unicode.
+	 * @var array
+	 */
+	protected static $glyph_unicode = array();
+
+	/**
 	 * Hook in tabs.
 	 */
 	public static function init() {
 		add_action( 'wp_enqueue_scripts',    array( __CLASS__, 'inline_styles' ), 11 );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'inline_styles' ), 11 );
+	}
+
+	/**
+	 * Get the font file URI.
+	 * @param  string $path
+	 * @param  string $file
+	 * @return string
+	 */
+	public static function get_font_file_uri( $path, $file ) {
+		return trailingslashit( AC_ICONFONT_URL . basename( $path ) ) . $file;
 	}
 
 	/**

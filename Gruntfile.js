@@ -37,7 +37,8 @@ module.exports = function( grunt ){
 					cwd: '<%= dirs.js %>/admin/',
 					src: [
 						'*.js',
-						'!*.min.js'
+						'!*.min.js',
+						'!Gruntfile.js'
 					],
 					dest: '<%= dirs.js %>/admin/',
 					ext: '.min.js'
@@ -110,7 +111,7 @@ module.exports = function( grunt ){
 					'!<%= dirs.js %>/admin/*.min.js',
 					'!<%= dirs.js %>/frontend/*.min.js'
 				],
-				tasks: ['uglify']
+				tasks: ['jshint', 'uglify']
 			}
 		},
 
@@ -204,7 +205,7 @@ module.exports = function( grunt ){
 		// Clean the directory.
 		clean: {
 			apigen: {
-				src: [ 'apidocs' ]
+				src: [ 'ac-apidocs' ]
 			}
 		}
 	});
@@ -222,8 +223,9 @@ module.exports = function( grunt ){
 
 	// Register tasks
 	grunt.registerTask( 'default', [
-		'css',
-		'uglify'
+		'jshint',
+		'uglify',
+		'css'
 	]);
 
 	grunt.registerTask( 'css', [

@@ -178,7 +178,7 @@ final class AxisComposer {
 			include_once( 'includes/class-ac-sidebars.php' );                // Sidebar Builder
 		}
 
-		include_once( 'includes/class-ac-iconfonts.php' );                   // Iconfonts Manager
+		include_once( 'includes/class-ac-iconfont.php' );                    // Iconfont Manager
 		include_once( 'includes/class-ac-post-types.php' );                  // Registers post types
 		include_once( 'includes/abstracts/abstract-ac-settings-api.php' );   // Settings API (for shortcodes, and integrations)
 		include_once( 'includes/abstracts/abstract-ac-shortcode.php' );      // Shortcodes

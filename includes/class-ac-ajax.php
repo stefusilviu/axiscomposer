@@ -117,7 +117,7 @@ class AC_AJAX {
 		$zip_file = realpath( get_attached_file( $value['id'] ) );
 
 		// Unpack a compressed package file.
-		$unpack = AC_Iconfonts::unpack_package( $zip_file );
+		$unpack = AC_Iconfont::unpack_package( $zip_file );
 	}
 
 	/**

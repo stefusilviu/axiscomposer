@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisComposer Iconfonts
+ * AxisComposer Iconfont
  *
- * Handles the Iconfonts Upload easily.
+ * Handles the Iconfont Upload easily.
  *
- * @class       AC_Iconfonts
+ * @class       AC_Iconfont
  * @package     AxisComposer/Classes
  * @category    Class
  * @author      AxisThemes
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AC_Iconfonts Class
+ * AC_Iconfont Class
  */
-class AC_Iconfonts {
+class AC_Iconfont {
 
 	/**
 	 * The font ID.
@@ -174,4 +174,4 @@ class AC_Iconfonts {
 	}
 }
 
-AC_Iconfonts::init();
+AC_Iconfont::init();

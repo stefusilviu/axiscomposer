@@ -90,6 +90,34 @@ class AC_Iconfont {
 	}
 
 	/**
+	 * Create a charmap config file for font glyphs.
+	 * @return mixed WP_Error on failure, True on success
+	 */
+	public static function charmap_file( $working_dir ) {
+		global $wp_filesystem;
+
+		$charmap = path_join( $working_dir, self::$charmap );
+
+		if ( ! $wp_filesystem->is_file( $charmap ) ) {
+			$contents = '<?php $chars = array();' . PHP_EOL;
+
+			foreach ( self::$glyph_unicode[ self::$font_id ] as $unicode ) {
+				if ( ! empty( $unicode ) ) {
+					$delimiter = strpos( $unicode, "'" ) ? '"' : "'";
+					$contents .= '$chars[\'' . self::$font_id . '\'][' . $delimiter . $unicode . $delimiter . '] = ' . $delimiter . $unicode . $delimiter . ';' . PHP_EOL;
+				}
+			}
+
+			// Create charmap config file.
+			if ( ! $wp_filesystem->put_contents( $charmap, $contents, FS_CHMOD_FILE ) ) {
+				return new WP_Error( 'create_charmap_failed', __( 'Could not create charmap configuration file.', 'axiscomposer' ), $charmap );
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Scan the svg files.
 	 * @param  string $svg_path
 	 * @return array

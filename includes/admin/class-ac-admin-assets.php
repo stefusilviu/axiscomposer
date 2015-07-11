@@ -57,8 +57,8 @@ class AC_Admin_Assets {
 			wp_enqueue_style( 'axiscomposer-admin-sidebars', AC()->plugin_url() . '/assets/css/sidebars.css', array(), AC_VERSION );
 		}
 
-		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfonts' ) ) ) {
-			wp_enqueue_style( 'axiscomposer-admin-iconfonts', AC()->plugin_url() . '/assets/css/iconfonts.css', array(), AC_VERSION );
+		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
+			wp_enqueue_style( 'axiscomposer-admin-iconfont', AC()->plugin_url() . '/assets/css/iconfont.css', array(), AC_VERSION );
 		}
 	}
 
@@ -165,10 +165,10 @@ class AC_Admin_Assets {
 		}
 
 		// Iconfonts Specific
-		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfonts' ) ) ) {
+		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
 			wp_enqueue_media();
 			wp_enqueue_script( 'media-upload' );
-			wp_enqueue_script( 'ac-admin-iconfonts', AC()->plugin_url() . '/assets/js/admin/iconfonts' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-iconfont', AC()->plugin_url() . '/assets/js/admin/iconfont' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
 
 			$params = array(
 				'ajax_url'                     => admin_url( 'admin-ajax.php' ),
@@ -176,7 +176,7 @@ class AC_Admin_Assets {
 				'delete_custom_iconfont_nonce' => wp_create_nonce( 'delete-custom-iconfont' ),
 			);
 
-			wp_localize_script( 'ac-admin-iconfonts', 'axiscomposer_admin_iconfonts', $params );
+			wp_localize_script( 'ac-admin-iconfont', 'axiscomposer_admin_iconfont', $params );
 		}
 	}
 }

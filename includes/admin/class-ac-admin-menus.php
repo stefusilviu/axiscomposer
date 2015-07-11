@@ -24,7 +24,7 @@ class AC_Admin_Menu {
 	public function __construct() {
 		// Add menus
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 9 );
-		add_action( 'admin_menu', array( $this, 'iconfonts_menu' ), 20 );
+		add_action( 'admin_menu', array( $this, 'iconfont_menu' ), 20 );
 		add_action( 'admin_menu', array( $this, 'settings_menu' ), 50 );
 		add_action( 'admin_menu', array( $this, 'status_menu' ), 60 );
 		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
@@ -53,8 +53,8 @@ class AC_Admin_Menu {
 	/**
 	 * Add menu item
 	 */
-	public function iconfonts_menu() {
-		add_submenu_page( 'axiscomposer', __( 'Iconfonts', 'axiscomposer' ),  __( 'Iconfonts', 'axiscomposer' ) , 'manage_axiscomposer', 'ac-iconfonts', array( $this, 'iconfonts_page' ) );
+	public function iconfont_menu() {
+		add_submenu_page( 'axiscomposer', __( 'Iconfont', 'axiscomposer' ),  __( 'Iconfont', 'axiscomposer' ) , 'manage_axiscomposer', 'ac-iconfont', array( $this, 'iconfont_page' ) );
 	}
 
 	/**
@@ -146,10 +146,10 @@ class AC_Admin_Menu {
 	}
 
 	/**
-	 * Init the iconfonts page
+	 * Init the iconfont page
 	 */
-	public function iconfonts_page() {
-		AC_Admin_Iconfonts::output();
+	public function iconfont_page() {
+		AC_Admin_Iconfont::output();
 	}
 
 	/**

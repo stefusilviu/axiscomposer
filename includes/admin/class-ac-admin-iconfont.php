@@ -1,8 +1,8 @@
 <?php
 /**
- * AxisComposer Admin Iconfonts Class.
+ * AxisComposer Admin Iconfont Class.
  *
- * @class       AC_Admin_Iconfonts
+ * @class       AC_Admin_Iconfont
  * @package     AxisComposer/Admin
  * @category    Class
  * @author      AxisThemes
@@ -14,15 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AC_Admin_Iconfonts Class
+ * AC_Admin_Iconfont Class
  */
-class AC_Admin_Iconfonts {
+class AC_Admin_Iconfont {
 
 	/**
-	 * Handles output of the iconfonts page in admin.
+	 * Handles output of the iconfont page in admin.
 	 */
 	public static function output() {
-		include_once( 'views/html-admin-page-iconfonts.php' );
+		include_once( 'views/html-admin-page-iconfont.php' );
 	}
 
 	/**

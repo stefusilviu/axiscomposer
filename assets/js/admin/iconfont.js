@@ -10,7 +10,7 @@ var AC_Icon_Fonts = AC_Icon_Fonts || {};
 
 	// Views
 	AC_Icon_Fonts.AppView = Backbone.View.extend({
-		el: '#axiscomposer-iconfonts',
+		el: '#axiscomposer-iconfont',
 		events: {
 			'click .modal-close': 'closeButton',
 			'click #btn-ok': 'addButton'

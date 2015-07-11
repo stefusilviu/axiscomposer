@@ -21,7 +21,7 @@ function ac_get_screen_ids() {
 	$ac_screen_id = sanitize_title( __( 'AxisComposer', 'axiscomposer' ) );
 	$screen_ids   = array(
 		'toplevel_page_' . $ac_screen_id,
-		$ac_screen_id . '_page_ac-iconfonts',
+		$ac_screen_id . '_page_ac-iconfont',
 		$ac_screen_id . '_page_ac-settings',
 		$ac_screen_id . '_page_ac-status',
 		$ac_screen_id . '_page_ac-addons',

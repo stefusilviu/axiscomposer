@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 include( 'functions-ac-conditional.php' );
 include( 'functions-ac-deprecated.php' );
 include( 'functions-ac-formatting.php' );
+include( 'functions-ac-iconfont.php' );
 include( 'functions-ac-helper.php' );
 
 /**
@@ -204,12 +205,4 @@ function ac_get_core_supported_iconfonts() {
  */
 function ac_get_layout_supported_screens() {
 	return (array) apply_filters( 'axiscomposer_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
-}
-
-/**
- * AxisComposer Font Supported Extensions.
- * @return array
- */
-function ac_get_font_supported_extensions() {
-	return (array) apply_filters( 'axiscomposer_font_supported_extensions', array( 'svg', 'ttf', 'otf', 'woff', 'woff2', 'eot' ) );
 }

@@ -118,6 +118,35 @@ class AC_Iconfont {
 	}
 
 	/**
+	 * Rename files/directories.
+	 */
+	public static function rename_files( $working_dir ) {
+		global $wp_filesystem;
+
+		$font_folder = trailingslashit( AC_ICONFONT_DIR . self::$font_id );
+
+		// Move the font directory.
+		if ( self::$font_id !== basename( $working_dir ) ) {
+			if ( $wp_filesystem->is_dir( $font_folder ) ) {
+				$wp_filesystem->delete( $font_folder, true );
+			}
+			$wp_filesystem->move( $working_dir, $font_folder, true );
+		}
+
+		// Rename the fonts filename.
+		$extensions = ac_get_iconfont_extensions();
+		foreach ( glob( $font_folder . '*' ) as $file ) {
+			$pathinfo = pathinfo( $file );
+			if ( in_array( $pathinfo['extension'], $extensions ) && strpos( $pathinfo['filename'], '.dev' ) === false ) {
+				$destination = $pathinfo['dirname'] . DIRECTORY_SEPARATOR . self::$font_id . '.' . $pathinfo['extension'];
+				$wp_filesystem->move( $file, $destination, true );
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Scan the svg files.
 	 * @param  string $svg_path
 	 * @return array

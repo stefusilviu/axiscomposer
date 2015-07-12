@@ -21,3 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 function ac_get_iconfont_extensions() {
 	return (array) apply_filters( 'axiscomposer_iconfont_extensions', array( 'svg', 'ttf', 'otf', 'woff', 'woff2', 'eot' ) );
 }
+
+/**
+ * Get all iconfonts charlist.
+ * @return array
+ */
+function ac_get_iconfont_charlist() {
+	return AC_Iconfont::load_all_charlist();
+}

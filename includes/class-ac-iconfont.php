@@ -188,7 +188,7 @@ class AC_Iconfont {
 		foreach ( $iconfonts as $iconfont ) {
 			$chars = array();
 
-			$charmap = path_join( $config['font_dir'], $config['charmap'] );
+			$charmap = path_join( $iconfont['font_dir'], $iconfont['charmap'] );
 			if ( $charmap && is_readable( $charmap ) ) {
 				include_once( $charmap );
 			}

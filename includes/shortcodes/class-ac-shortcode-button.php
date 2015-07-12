@@ -90,6 +90,13 @@ class AC_Shortcode_Button extends AC_Shortcode {
 					'center' => __( 'Center Align', 'axiscomposer' ),
 					'right'  => __( 'Right Align', 'axiscomposer' )
 				)
+			),
+			'iconfont' => array(
+				'title'             => __( 'Button Icon', 'axiscomposer' ),
+				'description'       => __( 'Select an icon for your Button below.', 'axiscomposer' ),
+				'type'              => 'iconfont',
+				'default'           => 'entypo-fontello',
+				'options'           => ac_get_iconfont_charlist()
 			)
 		);
 	}

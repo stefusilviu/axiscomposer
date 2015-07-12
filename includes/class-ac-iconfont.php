@@ -178,6 +178,30 @@ class AC_Iconfont {
 	}
 
 	/**
+	 * Load all iconfonts charlist.
+	 * @return array
+	 */
+	public static function load_all_charlist() {
+		$char_sets = array();
+		$iconfonts = self::get_all_iconfonts();
+
+		foreach ( $iconfonts as $iconfont ) {
+			$chars = array();
+
+			$charmap = path_join( $config['font_dir'], $config['charmap'] );
+			if ( $charmap && is_readable( $charmap ) ) {
+				include_once( $charmap );
+			}
+
+			if ( ! empty( $chars ) ) {
+				$char_sets = array_merge( $char_sets, $chars );
+			}
+		}
+
+		return $char_sets;
+	}
+
+	/**
 	 * Adds iconfont inline styles.
 	 */
 	public static function inline_styles() {

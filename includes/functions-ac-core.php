@@ -28,6 +28,17 @@ add_filter( 'widget_text', 'do_shortcode' );
 add_filter( 'the_content', 'ac_fix_shortcodes' );
 
 /**
+ * Short Description (excerpt)
+ */
+add_filter( 'axiscomposer_short_description', 'wptexturize' );
+add_filter( 'axiscomposer_short_description', 'convert_smilies' );
+add_filter( 'axiscomposer_short_description', 'convert_chars' );
+add_filter( 'axiscomposer_short_description', 'wpautop' );
+add_filter( 'axiscomposer_short_description', 'shortcode_unautop' );
+add_filter( 'axiscomposer_short_description', 'prepend_attachment' );
+add_filter( 'axiscomposer_short_description', 'do_shortcode', 11 ); // AFTER wpautop()
+
+/**
  * Format content to fix shortcodes.
  * @param  string $content
  * @return string

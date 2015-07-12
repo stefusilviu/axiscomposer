@@ -125,6 +125,24 @@ function ac_format_content( $raw_string ) {
 }
 
 /**
+ * Format portfolio short description.
+ * @param  string $content
+ * @return string
+ */
+function ac_format_portfolio_short_description( $content ) {
+	// Add support for Jetpack Markdown
+	if ( class_exists( 'WPCom_Markdown' ) ) {
+		$markdown = WPCom_Markdown::get_instance();
+
+		return wpautop( $markdown->transform( $content ) );
+	}
+
+	return $content;
+}
+
+add_filter( 'axiscomposer_short_description', 'ac_format_portfolio_short_description', 9999999 );
+
+/**
  * Format unicode to display actual icon.
  * @param  string $raw_string
  * @return string

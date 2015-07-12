@@ -30,7 +30,6 @@ class AC_Admin_Menu {
 		add_filter( 'menu_order', array( $this, 'menu_order' ) );
 		add_filter( 'custom_menu_order', array( $this, 'custom_menu_order' ) );
 
-		// Iconfont page. (Default: false)
 		if ( apply_filters( 'axiscomposer_show_iconfont_page', false ) ) {
 			add_action( 'admin_menu', array( $this, 'iconfont_menu' ), 20 );
 		}

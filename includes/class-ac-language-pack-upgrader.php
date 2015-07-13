@@ -56,6 +56,8 @@ class AC_Language_Pack_Upgrader {
 	 */
 	public function check_for_update( $data ) {
 		if ( $this->has_available_update() ) {
+			$locale = get_locale();
+
 			$data->translations[] = array(
 				'type'       => 'plugin',
 				'slug'       => 'axiscomposer',

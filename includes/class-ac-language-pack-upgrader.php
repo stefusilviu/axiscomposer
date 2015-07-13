@@ -59,10 +59,10 @@ class AC_Language_Pack_Upgrader {
 			$data->translations[] = array(
 				'type'       => 'plugin',
 				'slug'       => 'axiscomposer',
-				'language'   => get_locale(),
+				'language'   => $locale,
 				'version'    => AC_VERSION,
 				'updated'    => date( 'Y-m-d H:i:s' ),
-				'package'    => $this->get_language_package_uri(),
+				'package'    => $this->get_language_package_uri( $locale ),
 				'autoupdate' => 1
 			);
 		}

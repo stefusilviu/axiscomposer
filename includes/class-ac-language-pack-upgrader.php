@@ -1,10 +1,10 @@
 <?php
 /**
- * AxisComposer Localization
+ * AxisComposer Language Pack Upgrader class
  *
  * Downloads the last language pack.
  *
- * @class       AC_Localization
+ * @class       AC_Language_Pack_Upgrader
  * @package     AxisComposer/Classes/language
  * @category    Class
  * @author      AxisThemes
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * AC_Localization Class
+ * AC_Language_Pack_Upgrader Class
  */
-class AC_Localization {
+class AC_Language_Pack_Upgrader {
 
 	/**
 	 * Languages repository.
@@ -234,4 +234,4 @@ class AC_Localization {
 	}
 }
 
-new AC_Localization();
+new AC_Language_Pack_Upgrader();

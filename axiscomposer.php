@@ -184,7 +184,7 @@ final class AxisComposer {
 		include_once( 'includes/abstracts/abstract-ac-shortcode.php' );      // Shortcodes
 		include_once( 'includes/abstracts/abstract-ac-integration.php' );    // An integration with a service
 		include_once( 'includes/class-ac-integrations.php' );                // Loads integrations
-		include_once( 'includes/class-ac-localization.php' );                // Download/update languages
+		include_once( 'includes/class-ac-language-pack-upgrader.php' );      // Download/update languages
 	}
 
 	/**

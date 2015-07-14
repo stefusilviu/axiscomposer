@@ -13,6 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<p class="submit">
 		<a href="http://axisthemes.com/themes" class="button-primary" target="_blank"><?php _e( 'Official Themes', 'axiscomposer' ); ?></a>
 		<a href="<?php echo esc_url( apply_filters( 'axiscomposer_docs_url', 'http://docs.axisthemes.com/document/plugins/axiscomposer/third-party-custom-theme-compatibility/', 'theme-compatibility' ) ); ?>" class="button-secondary" target="_blank"><?php _e( 'Theme Integration Guide', 'axiscomposer' ); ?></a>
-		<a class="button-secondary skip" href="<?php echo esc_url( add_query_arg( 'ac-hide-notice', 'theme_support' ) ); ?>"><?php _e( 'Hide This Notice', 'axiscomposer' ); ?></a>
+		<a class="button-secondary skip" href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'ac-hide-notice', 'theme_support' ), 'axiscomposer_hide_notices_nonce', '_ac_notice_nonce' ) ); ?>"><?php _e( 'Hide This Notice', 'axiscomposer' ); ?></a>
 	</p>
 </div>

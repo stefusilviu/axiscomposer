@@ -89,7 +89,15 @@ class AC_Admin_Notices {
 	 * Hide a notice if the GET variable is set.
 	 */
 	public function hide_notices() {
-		if ( isset( $_GET['ac-hide-notice'] ) ) {
+		if ( isset( $_GET['ac-hide-notice'] ) && isset( $_GET['_ac_notice_nonce'] ) ) {
+			if ( ! wp_verify_nonce( $_GET['_ac_notice_nonce'], 'axiscomposer_hide_notices_nonce' ) ) {
+				wp_die( __( 'Action failed. Please refresh the page and retry.', 'axiscomposer' ) );
+			}
+
+			if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+				wp_die( __( 'Cheatin&#8217; huh?', 'axiscomposer' ) );
+			}
+
 			$hide_notice = sanitize_text_field( $_GET['ac-hide-notice'] );
 			self::remove_notice( $hide_notice );
 			do_action( 'axiscomposer_hide_' . $hide_notice . '_notice' );

@@ -18,6 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'action' => 'do-translation-upgrade' ), admin_url( 'update-core.php' ) ), 'upgrade-translations' ) ); ?>" class="button-primary"><?php _e( 'Update Translation', 'axiscomposer' ); ?></a>
 			<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?page=ac-status&tab=tools&action=translation_upgrade' ), 'debug_action' ) ); ?>" class="button-secondary"><?php _e( 'Force Update Translation', 'axiscomposer' ); ?></a>
 		<?php endif; ?>
-		<a href="<?php echo esc_url( add_query_arg( 'ac-hide-notice', 'translation_upgrade' ) ); ?>" class="button-secondary skip"><?php _e( 'Hide This Notice', 'axiscomposer' ); ?></a>
+		<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'ac-hide-notice', 'translation_upgrade' ), 'axiscomposer_hide_notices_nonce', '_ac_notice_nonce' ) ); ?>" class="button-secondary skip"><?php _e( 'Hide This Message', 'axiscomposer' ); ?></a>
 	</p>
 </div>

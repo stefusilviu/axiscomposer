@@ -82,6 +82,7 @@ class AC_Admin_Assets {
 		wp_register_script( 'jquery-tiptip', AC()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AC_VERSION, true );
 		wp_register_script( 'zeroclipboard', AC()->plugin_url() . '/assets/js/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
 		wp_register_script( 'stupidtable', AC()->plugin_url() . '/assets/js/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
+		wp_register_script( 'serializejson', AC()->plugin_url() . '/assets/js/jquery-serializejson/jquery.serializejson' . $suffix . '.js', array( 'jquery' ), '2.6.1' );
 		wp_register_script( 'select2', AC()->plugin_url() . '/assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
 		wp_register_script( 'ac-enhanced-select', AC()->plugin_url() . '/assets/js/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AC_VERSION );
 		wp_localize_script( 'ac-enhanced-select', 'ac_enhanced_select_params', array(
@@ -118,7 +119,7 @@ class AC_Admin_Assets {
 
 		// Meta boxes
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal', 'serializejson' ), AC_VERSION );
 			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 
 			$params = array(

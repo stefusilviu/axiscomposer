@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0-alpha-5 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-07-07 01:42:37+00:00\n"
+"POT-Creation-Date: 2015-07-14 20:02:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,29 +48,33 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:358
+#: includes/abstracts/abstract-ac-shortcode.php:256
+msgid "Font: %s"
+msgstr ""
+
+#: includes/abstracts/abstract-ac-shortcode.php:409
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:359
+#: includes/abstracts/abstract-ac-shortcode.php:410
 msgid ""
 "This option lets you set custom css class you are willing to use for "
 "customization."
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:565
+#: includes/abstracts/abstract-ac-shortcode.php:616
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:567
+#: includes/abstracts/abstract-ac-shortcode.php:618
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:568
+#: includes/abstracts/abstract-ac-shortcode.php:619
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-ac-ajax.php:221
+#: includes/class-ac-ajax.php:198
 msgid "%s &ndash; %s"
 msgstr ""
 
@@ -78,10 +82,12 @@ msgstr ""
 msgid "Select an option&hellip;"
 msgstr ""
 
-#: includes/class-ac-iconfonts.php:55
-msgid ""
-"Using this feature is reserved for Super Admins. You unfortunately don't "
-"have the necessary permissions."
+#: includes/class-ac-iconfont.php:86
+msgid "The package could not be extracted."
+msgstr ""
+
+#: includes/class-ac-iconfont.php:113
+msgid "Could not create charmap configuration file."
 msgstr ""
 
 #: includes/class-ac-install.php:366
@@ -256,7 +262,23 @@ msgstr ""
 msgid "Parent Project"
 msgstr ""
 
+#: includes/class-ac-post-types.php:161
+msgid "Project Image"
+msgstr ""
+
 #: includes/class-ac-post-types.php:162
+msgid "Set project image"
+msgstr ""
+
+#: includes/class-ac-post-types.php:163
+msgid "Remove project image"
+msgstr ""
+
+#: includes/class-ac-post-types.php:164
+msgid "Use as project image"
+msgstr ""
+
+#: includes/class-ac-post-types.php:167
 msgid "This is where you can add new portfolio items to your project."
 msgstr ""
 
@@ -264,11 +286,11 @@ msgstr ""
 msgid "Custom Widget Area of the site - %s "
 msgstr ""
 
-#: includes/functions-ac-core.php:141
+#: includes/functions-ac-core.php:153
 msgid "Post"
 msgstr ""
 
-#: includes/functions-ac-core.php:142
+#: includes/functions-ac-core.php:154
 msgid "Page"
 msgstr ""
 
@@ -455,6 +477,14 @@ msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-button.php:82
 msgid "This sets the custom alignment of the button."
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-button.php:95
+msgid "Button Icon"
+msgstr ""
+
+#: includes/shortcodes/class-ac-shortcode-button.php:96
+msgid "Select an icon for your Button below."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-calltoaction.php:33

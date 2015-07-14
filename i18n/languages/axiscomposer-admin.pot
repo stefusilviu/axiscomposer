@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0-alpha-5 Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-07-07 01:42:39+00:00\n"
+"POT-Creation-Date: 2015-07-14 20:02:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,60 +13,60 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.5.2\n"
 
-#: includes/admin/class-ac-admin-assets.php:130
+#: includes/admin/class-ac-admin-assets.php:131
 msgid "Please enter in a value without any invalid or special characters."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:131
+#: includes/admin/class-ac-admin-assets.php:132
 msgid "Please enter in a value without any whitespace or special characters."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:132
+#: includes/admin/class-ac-admin-assets.php:133
 msgid "The current number of cells does not allow any layout variations."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:133
+#: includes/admin/class-ac-admin-assets.php:134
 msgid "You need to add at least one cell"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:134
+#: includes/admin/class-ac-admin-assets.php:135
 msgid "You need to remove at least one cell"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:135
+#: includes/admin/class-ac-admin-assets.php:136
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:136
+#: includes/admin/class-ac-admin-assets.php:137
 msgid "Permanently Delete all Canvas Elements"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:137
+#: includes/admin/class-ac-admin-assets.php:138
 msgid ""
 "You need to add at least one canvas element below for this action. %sYour "
 "history session has beeen reset :)%s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:138
+#: includes/admin/class-ac-admin-assets.php:139
 msgid ""
 "All Page Builder content will be permanently lost and cannot be undone. "
 "%sAre you positive you want to delete all canvas elements?%s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:139
+#: includes/admin/class-ac-admin-assets.php:140
 msgid ""
 "Loading failed - Your session timed out. Please reload the page and try "
 "again."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:140
+#: includes/admin/class-ac-admin-assets.php:141
 #: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:190
 msgid "Dismiss"
 msgstr ""
 
 #: includes/admin/class-ac-admin-help.php:40
 #: includes/admin/class-ac-admin-help.php:42
-#: includes/admin/class-ac-admin-welcome.php:175
+#: includes/admin/class-ac-admin-welcome.php:191
 msgid "Documentation"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 
 #: includes/admin/class-ac-admin-help.php:55
 #: includes/admin/class-ac-admin-help.php:65
-#: includes/admin/class-ac-admin-menus.php:80
+#: includes/admin/class-ac-admin-menus.php:83
 #: includes/admin/views/html-admin-page-status.php:16
 msgid "System Status"
 msgstr ""
@@ -163,33 +163,29 @@ msgstr ""
 msgid "Official Extensions"
 msgstr ""
 
-#: includes/admin/class-ac-admin-iconfonts.php:36
-msgid "Default Icons"
-msgstr ""
-
 #. Plugin Name of the plugin/theme
 msgid "AxisComposer"
 msgstr ""
 
-#: includes/admin/class-ac-admin-menus.php:57
-msgid "Iconfonts"
+#: includes/admin/class-ac-admin-menus.php:60
+msgid "Iconfont"
 msgstr ""
 
-#: includes/admin/class-ac-admin-menus.php:64
+#: includes/admin/class-ac-admin-menus.php:67
 msgid "AxisComposer Settings"
 msgstr ""
 
-#: includes/admin/class-ac-admin-menus.php:64
-#: includes/admin/class-ac-admin-welcome.php:174
+#: includes/admin/class-ac-admin-menus.php:67
+#: includes/admin/class-ac-admin-welcome.php:190
 #: includes/admin/views/html-admin-page-status-report.php:319
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-ac-admin-menus.php:80
+#: includes/admin/class-ac-admin-menus.php:83
 msgid "AxisComposer Status"
 msgstr ""
 
-#: includes/admin/class-ac-admin-menus.php:192
+#: includes/admin/class-ac-admin-menus.php:195
 msgid "Visit Settings"
 msgstr ""
 
@@ -497,137 +493,127 @@ msgstr ""
 msgid "Welcome to AxisComposer"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:155
+#: includes/admin/class-ac-admin-welcome.php:171
 msgid "Welcome to AxisComposer %s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:160
+#: includes/admin/class-ac-admin-welcome.php:176
 msgid "Thanks, all done!"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:162
+#: includes/admin/class-ac-admin-welcome.php:178
 msgid "Thank you for updating to the latest version!"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:164
+#: includes/admin/class-ac-admin-welcome.php:180
 msgid "Thanks for installing!"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:167
+#: includes/admin/class-ac-admin-welcome.php:183
 msgid ""
 "%s AxisComposer %s is more powerful, stable and secure than ever before. We "
 "hope you enjoy using it."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:171
+#: includes/admin/class-ac-admin-welcome.php:187
 msgid "Version %s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:182
+#: includes/admin/class-ac-admin-welcome.php:198
 msgid "What's New"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:184
+#: includes/admin/class-ac-admin-welcome.php:200
 msgid "Credits"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:186
+#: includes/admin/class-ac-admin-welcome.php:202
 msgid "Translators"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:204
-msgid "UI Overhaul"
-msgstr ""
-
-#: includes/admin/class-ac-admin-welcome.php:205
-msgid ""
-"We've updated the user interface on both the front and backend of "
-"AxisComposer 1.0 \"Kickstart Hippo\"."
-msgstr ""
-
-#: includes/admin/class-ac-admin-welcome.php:210
+#: includes/admin/class-ac-admin-welcome.php:221
 msgid "Frontend UI Improvements"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:211
+#: includes/admin/class-ac-admin-welcome.php:222
 msgid ""
 "On the frontend there are several UX enhancements such as the responsive "
 "table design as well as a fresh, modern look which meshes more fluidly with "
 "the current design trends of default WordPress themes."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:214
+#: includes/admin/class-ac-admin-welcome.php:225
 msgid "Backend UI Improvements"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:215
+#: includes/admin/class-ac-admin-welcome.php:226
 msgid ""
 "On the backend, settings have been re-organised and perform better on "
 "hand-held devices for an all round improved user experience. "
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:218
+#: includes/admin/class-ac-admin-welcome.php:229
 msgid "Pagebuilder UI"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:219
+#: includes/admin/class-ac-admin-welcome.php:230
 msgid ""
 "As part of the Builder, we've introduced a UI for the Pagebuilder system in "
 "1.0. This makes it easier for 3rd party apps to integrate with AxisComposer"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:227
+#: includes/admin/class-ac-admin-welcome.php:238
 msgid "Custom Widgets Area Builder"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:228
+#: includes/admin/class-ac-admin-welcome.php:239
 msgid ""
 "We have added a new option to create the \"Custom Widgets Area\". Coupled "
 "with ability to delete the unused Widget Area or Sidebar. Enable or disable "
 "this in the %ssettings%s."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:231
+#: includes/admin/class-ac-admin-welcome.php:242
 msgid "Simplified Iconfonts Upload"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:232
+#: includes/admin/class-ac-admin-welcome.php:243
 msgid ""
 "We have added a new option to upload the \"Custom Iconfonts\". Coupled with "
 "some of the additional hooks for developers to load and store your custom "
 "iconfonts. View %sIconfont Settings%s."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:235
+#: includes/admin/class-ac-admin-welcome.php:246
 msgid "Color Customization"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:236
+#: includes/admin/class-ac-admin-welcome.php:247
 msgid ""
 "If you're looking to customise the look and feel of the frontend in 1.0, "
 "take a look at the free %sAxisComposer Colors plugin%s. This lets you "
 "change the colors with a live preview."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:244
+#: includes/admin/class-ac-admin-welcome.php:255
 msgid "Go to AxisComposer Settings"
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:259
+#: includes/admin/class-ac-admin-welcome.php:270
 msgid ""
 "AxisComposer is developed and maintained by a worldwide team of passionate "
 "individuals and backed by an awesome developer community. Want to see your "
 "name? <a href=\"%s\">Contribute to AxisComposer</a>."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:275
+#: includes/admin/class-ac-admin-welcome.php:286
 msgid ""
 "AxisComposer has been kindly translated into several other languages thanks "
 "to our translation team. Want to see your name? <a href=\"%s\">Translate "
 "AxisComposer</a>."
 msgstr ""
 
-#: includes/admin/class-ac-admin-welcome.php:322
+#: includes/admin/class-ac-admin-welcome.php:333
 msgid "View %s"
 msgstr ""
 
@@ -891,24 +877,20 @@ msgstr ""
 msgid "Integration"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-iconfonts.php:13
-msgid "Iconfonts Manager"
+#: includes/admin/views/html-admin-page-iconfont.php:13
+msgid "Iconfont Manager"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-iconfonts.php:14
+#: includes/admin/views/html-admin-page-iconfont.php:14
 msgid "Choose a Font ZIP File"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-iconfonts.php:14
+#: includes/admin/views/html-admin-page-iconfont.php:14
 msgid "Insert Font Zip File"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-iconfonts.php:15
+#: includes/admin/views/html-admin-page-iconfont.php:15
 msgid "Add New"
-msgstr ""
-
-#: includes/admin/views/html-admin-page-iconfonts.php:31
-msgid "No font icons uploaded. Upload some font icons to display here."
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:12
@@ -1397,67 +1379,67 @@ msgstr ""
 msgid "http://axisthemes.com"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:90
+#: includes/admin/class-ac-admin-assets.php:91
 msgctxt "enhanced select"
 msgid "One result is available, press enter to select it."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:91
+#: includes/admin/class-ac-admin-assets.php:92
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:92
+#: includes/admin/class-ac-admin-assets.php:93
 msgctxt "enhanced select"
 msgid "No matches found"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:93
+#: includes/admin/class-ac-admin-assets.php:94
 msgctxt "enhanced select"
 msgid "Loading failed"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:94
+#: includes/admin/class-ac-admin-assets.php:95
 msgctxt "enhanced select"
 msgid "Please enter 1 or more characters"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:95
+#: includes/admin/class-ac-admin-assets.php:96
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:96
+#: includes/admin/class-ac-admin-assets.php:97
 msgctxt "enhanced select"
 msgid "Please delete 1 character"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:97
+#: includes/admin/class-ac-admin-assets.php:98
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:98
+#: includes/admin/class-ac-admin-assets.php:99
 msgctxt "enhanced select"
 msgid "You can only select 1 item"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:99
+#: includes/admin/class-ac-admin-assets.php:100
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:100
+#: includes/admin/class-ac-admin-assets.php:101
 msgctxt "enhanced select"
 msgid "Loading more results&hellip;"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:101
+#: includes/admin/class-ac-admin-assets.php:102
 msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""
 
-#: includes/admin/class-ac-admin-menus.php:97
+#: includes/admin/class-ac-admin-menus.php:100
 msgctxt "Admin menu name"
 msgid "Iconfonts"
 msgstr ""

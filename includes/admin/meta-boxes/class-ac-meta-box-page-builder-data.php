@@ -65,10 +65,10 @@ class AC_Meta_Box_Page_Builder_Data {
 					?>
 				</ul>
 
-				<div id="layout_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'layout' ); ?></div>
-				<div id="content_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'content' ); ?></div>
-				<div id="media_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'media' ); ?></div>
-				<div id="plugin_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'plugin' ); ?></div>
+				<div id="layout_builder_data" class="panel axiscomposer-options-panel"><?php self::display_panel_shortcodes( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axiscomposer-options-panel"><?php self::display_panel_shortcodes( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axiscomposer-options-panel"><?php self::display_panel_shortcodes( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axiscomposer-options-panel"><?php self::display_panel_shortcodes( 'plugin' ); ?></div>
 
 				<?php do_action( 'axiscomposer_shortcode_data_panels' ); ?>
 
@@ -106,7 +106,7 @@ class AC_Meta_Box_Page_Builder_Data {
 	 * Display shortcode links for an option panel.
 	 * @param string $type Options panel data type.
 	 */
-	protected static function display_item_shortcodes( $type = 'plugin' ) {
+	protected static function display_panel_shortcodes( $type = 'plugin' ) {
 
 		foreach ( AC()->shortcodes->get_shortcodes() as $load_shortcodes ) {
 

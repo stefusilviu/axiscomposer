@@ -20,8 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AC_Meta_Box_Page_Builder_Data {
 
-	private static $load_shortcode;
-
 	/**
 	 * Output the meta box
 	 */
@@ -67,10 +65,10 @@ class AC_Meta_Box_Page_Builder_Data {
 					?>
 				</ul>
 
-				<div id="layout_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'layout' ); ?></div>
-				<div id="content_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'content' ); ?></div>
-				<div id="media_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'media' ); ?></div>
-				<div id="plugin_builder_data" class="panel axiscomposer-options-panel"><?php self::fetch_shortcode_buttons( 'plugin' ); ?></div>
+				<div id="layout_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'layout' ); ?></div>
+				<div id="content_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'content' ); ?></div>
+				<div id="media_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'media' ); ?></div>
+				<div id="plugin_builder_data" class="panel axiscomposer-options-panel"><?php self::display_item_shortcodes( 'plugin' ); ?></div>
 
 				<?php do_action( 'axiscomposer_shortcode_data_panels' ); ?>
 
@@ -105,35 +103,27 @@ class AC_Meta_Box_Page_Builder_Data {
 	}
 
 	/**
-	 * Fetch Shortcode Buttons.
-	 * @param  string      $type    Tabbed content type
-	 * @param  boolean     $display Return or Print
-	 * @return string|null          Shortcode Buttons
+	 * Display shortcode links for an option panel.
+	 * @param string $type Options panel data type.
 	 */
-	protected static function fetch_shortcode_buttons( $type = 'plugin', $display = true ) {
+	protected static function display_item_shortcodes( $type = 'plugin' ) {
 
 		foreach ( AC()->shortcodes->get_shortcodes() as $load_shortcodes ) {
 
 			if ( empty( $load_shortcodes->shortcode['invisible'] ) ) {
 
-				if ( $load_shortcodes->shortcode['type'] === $type ) {
+				if ( $type === $load_shortcodes->shortcode['type'] ) {
 
-					// Fetch shortcode data :)
+					// Fetch shortcode data
 					$title     = $load_shortcodes->method_title;
 					$tooltip   = $load_shortcodes->method_description;
 					$shortcode = $load_shortcodes->shortcode;
 
-					// Fallback if icon is missing :)
+					// Fallback if icon is missing =/
 					$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
 
-					// Create a button Link :)
-					self::$load_shortcode = '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode help_tip ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-tip="' . ac_sanitize_tooltip( $tooltip ) . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
-
-					if ( $display ) {
-						echo self::$load_shortcode;
-					} else {
-						return self::$load_shortcode;
-					}
+					// Create a button Link
+					echo '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode help_tip ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-tip="' . ac_sanitize_tooltip( $tooltip ) . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
 				}
 			}
 		}

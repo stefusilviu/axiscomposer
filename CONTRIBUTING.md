@@ -27,7 +27,7 @@ GitHub is for *bug reports and contributions only* - if you have a support quest
 * When committing, reference your issue (#1234) and include a note about the fix.
 * Push the changes to your fork and submit a pull request on the master branch of the AxisComposer repository. Existing maintenance branches will be maintained of by AxisComposer developers.
 * Please **don't** modify the changelog - this will be maintained by the AxisComposer developers.
-* Please **don't** add your localizations or update the .pot files - this will be maintanied by the AxisComposer developers. To contribute to the localization of AxisComposer, please join the [AxisComposer Transifex project](https://www.transifex.com/projects/p/axiscomposer/).
+* Please **don't** add your localizations or update the .pot files - this will be maintained by the AxisComposer developers. To contribute to the localization of AxisComposer, please join the [AxisComposer Transifex project](https://www.transifex.com/projects/p/axiscomposer/).
 
 At this point you're waiting on us to merge your pull request. We'll review all pull requests, and make suggestions and changes if necessary.
 

@@ -97,8 +97,6 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * Flush the cache
-	 *
-	 * @return void
 	 */
 	public function flush_widget_cache() {
 		wp_cache_delete( apply_filters( 'axiscomposer_cached_widget_id', $this->widget_id ), 'widget' );

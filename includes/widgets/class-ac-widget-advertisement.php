@@ -75,7 +75,6 @@ class AC_Widget_Advertisement extends AC_Widget {
 	 * @see WP_Widget
 	 * @param array $args
 	 * @param array $instance
-	 * @return void
 	 */
 	public function widget( $args, $instance ) {
 

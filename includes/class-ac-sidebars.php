@@ -26,7 +26,7 @@ class AC_Sidebars {
 	public function __construct() {
 		add_action( 'widgets_admin_page', array( $this, 'output_sidebar_tmpl' ) );
 		add_action( 'load-widgets.php', array( $this, 'add_custom_sidebars' ), 100 );
-		add_action( 'widgets_init', array( $this, 'register_custom_sidebar' ), 1000 );
+		add_action( 'widgets_init', array( $this, 'register_custom_sidebars' ), 1000 );
 	}
 
 	/**
@@ -105,9 +105,9 @@ class AC_Sidebars {
 	}
 
 	/**
-	 * Register Custom Widget Area (Sidebar).
+	 * Register Custom Widget Areas (Sidebars).
 	 */
-	public function register_custom_sidebar() {
+	public function register_custom_sidebars() {
 		$sidebars = get_option( 'axiscomposer_custom_sidebars', array() );
 
 		$args = apply_filters( 'axiscomposer_custom_widget_args', array(

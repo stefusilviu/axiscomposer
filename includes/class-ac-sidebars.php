@@ -108,14 +108,14 @@ class AC_Sidebars {
 	 * Register Custom Widget Areas (Sidebars).
 	 */
 	public function register_custom_sidebars() {
-		$sidebars = get_option( 'axiscomposer_custom_sidebars', array() );
-
 		$args = apply_filters( 'axiscomposer_custom_widget_args', array(
 			'before_widget' => '<aside id="%1$s" class="widget clearfix %2$s">',
 			'after_widget'  => '<span class="seperator extralight-border"></span></aside>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>'
 		) );
+
+		$sidebars = get_option( 'axiscomposer_custom_sidebars', array() );
 
 		foreach ( (array) $sidebars as $id => $name ) {
 			$args['name']        = $name;

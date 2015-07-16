@@ -105,7 +105,7 @@ class AC_Sidebars {
 	}
 
 	/**
-	 * Register Custom Widget Areas (Sidebars).
+	 * Register Custom Widgets Area (Sidebars).
 	 */
 	public function register_custom_sidebars() {
 		$args = apply_filters( 'axiscomposer_custom_widget_args', array(

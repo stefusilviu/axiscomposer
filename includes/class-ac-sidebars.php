@@ -30,20 +30,6 @@ class AC_Sidebars {
 	}
 
 	/**
-	 * Output Sidebar Templates.
-	 */
-	public function output_sidebar_tmpl() {
-		include_once( 'admin/views/html-admin-tmpl-sidebars.php' );
-	}
-
-	/**
-	 * Remove all sidebars.
-	 */
-	public static function remove_all_sidebars() {
-		delete_option( 'axiscomposer_custom_sidebars' );
-	}
-
-	/**
 	 * Add a sidebar.
 	 * @param string $name
 	 */
@@ -59,6 +45,13 @@ class AC_Sidebars {
 	public static function remove_sidebar( $name ) {
 		$sidebars = array_diff( get_option( 'axiscomposer_custom_sidebars', array() ), array( $name ) );
 		update_option( 'axiscomposer_custom_sidebars', $sidebars );
+	}
+
+	/**
+	 * Remove all sidebars.
+	 */
+	public static function remove_all_sidebars() {
+		delete_option( 'axiscomposer_custom_sidebars' );
 	}
 
 	/**
@@ -83,6 +76,13 @@ class AC_Sidebars {
 		}
 
 		return $sidebar_name;
+	}
+
+	/**
+	 * Output Sidebar Templates.
+	 */
+	public function output_sidebar_tmpl() {
+		include_once( 'admin/views/html-admin-tmpl-sidebars.php' );
 	}
 
 	/**

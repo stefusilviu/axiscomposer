@@ -27,10 +27,16 @@ class AC_Iconfont {
 	protected static $font_id = 'unknown';
 
 	/**
-	 * Charmap config file.
+	 * Charmap filename.
 	 * @var string
 	 */
 	protected static $charmap = 'charmap.php';
+
+	/**
+	 * Array of charlist.
+	 * @var string
+	 */
+	protected static $charlist = array();
 
 	/**
 	 * Array of glyph unicode.
@@ -182,6 +188,10 @@ class AC_Iconfont {
 	 * @return array
 	 */
 	public static function load_all_charlist() {
+		if ( ! empty( self::$charlist ) ) {
+			return self::$charlist;
+		}
+
 		$char_sets = array();
 		$iconfonts = self::get_all_iconfonts();
 
@@ -197,6 +207,9 @@ class AC_Iconfont {
 				$char_sets = array_merge( $char_sets, $chars );
 			}
 		}
+
+		// Cache the result
+		self::$charlist = $char_sets;
 
 		return $char_sets;
 	}

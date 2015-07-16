@@ -27,11 +27,6 @@ class AC_Admin_Post_Types {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 		add_filter( 'bulk_post_updated_messages', array( $this, 'bulk_post_updated_messages' ), 10, 2 );
 
-		// WP List table columns. Defined here so they are always available for events such as inline editing.
-		// add_filter( 'manage_portfolio_posts_columns', array( $this, 'portfolio_columns' ) );
-		// add_action( 'manage_portfolio_posts_custom_column', array( $this, 'render_portfolio_columns' ), 2 );
-		// add_filter( 'manage_edit-portfolio_sortable_columns', array( $this, 'portfolio_sortable_columns' ) );
-
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
 		add_filter( 'media_view_strings', array( $this, 'change_insert_into_post' ) );
@@ -85,75 +80,6 @@ class AC_Admin_Post_Types {
 		);
 
 		return $bulk_messages;
-	}
-
-	/**
-	 * Define custom columns for products
-	 * @param  array $existing_columns
-	 * @return array
-	 */
-	public function portfolio_columns( $existing_columns ) {
-		if ( empty( $existing_columns ) && ! is_array( $existing_columns ) ) {
-			$existing_columns = array();
-		}
-
-		unset( $existing_columns['title'], $existing_columns['comments'], $existing_columns['date'] );
-
-		$columns                   = array();
-		$columns['cb']             = $existing_columns['cb'];
-		$columns['thumb']          = '<span class="ac-image tips" data-tip="' . __( 'Image', 'axiscomposer' ) . '">' . __( 'Image', 'axiscomposer' ) . '</span>';
-		$columns['name']           = __( 'Name', 'axiscomposer' );
-		$columns['portfolio_cat']  = __( 'Categories', 'axiscomposer' );
-		$columns['portfolio_tag']  = __( 'Tags', 'axiscomposer' );
-		$columns['portfolio_type'] = __( 'Types', 'axiscomposer' );
-		$columns['featured']       = '<span class="ac-featured parent-tips" data-tip="' . __( 'Featured', 'axiscomposer' ) . '">' . __( 'Featured', 'axiscomposer' ) . '</span>';
-		$columns['date']           = __( 'Date', 'axiscomposer' );
-
-		return array_merge( $columns, $existing_columns );
-	}
-
-	/**
-	 * Ouput custom columns for products
-	 * @param  string $column
-	 */
-	public function render_portfolio_columns( $column ) {
-		global $post;
-
-		switch ( $column ) {
-			case 'thumb' :
-				# code...
-				break;
-			case 'name':
-				# code...
-				break;
-			case 'portfolio_cat':
-				# code...
-				break;
-			case 'portfolio_tag':
-				# code...
-				break;
-			case 'portfolio_type':
-				# code...
-				break;
-			case 'featured':
-				# code...
-				break;
-			default :
-				break;
-		}
-	}
-
-	/**
-	 * Make columns sortable - https://gist.github.com/906872
-	 * @param  array $columns
-	 * @return array
-	 */
-	public function portfolio_sortable_columns( $columns ) {
-		$custom = array(
-			'featured' => 'featured',
-			'name'     => 'title'
-		);
-		return wp_parse_args( $custom, $columns );
 	}
 
 	/**

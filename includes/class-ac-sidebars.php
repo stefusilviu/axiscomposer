@@ -62,13 +62,13 @@ class AC_Sidebars {
 	public static function validate_sidebar( $sidebar_name ) {
 		global $wp_registered_sidebars;
 
+		// Get the existing sidebars.
 		$existing_sidebars = array();
 		foreach ( $wp_registered_sidebars as $sidebar ) {
 			$existing_sidebars[] = $sidebar['name'];
 		}
 
-		$sidebar_name = ac_clean( $sidebar_name );
-
+		// Rename if sidebar exists.
 		if ( in_array( $sidebar_name, $existing_sidebars ) ) {
 			$count        = substr( $sidebar_name, -1 );
 			$rename       = is_numeric( $count ) ? ( substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 ) ) : ( $sidebar_name . ' - 1' );
@@ -98,7 +98,8 @@ class AC_Sidebars {
 				wp_die( __( 'Cheatin&#8217; huh?', 'axiscomposer' ) );
 			}
 
-			self::add_sidebar( self::validate_sidebar( $_POST['axiscomposer-add-sidebar'] ) );
+			$sidebar_name = ac_clean( $_POST['axiscomposer-add-sidebar'] );
+			self::add_sidebar( self::validate_sidebar( $sidebar_name ) );
 			wp_redirect( admin_url( 'widgets.php' ) );
 		}
 	}

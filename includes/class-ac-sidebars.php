@@ -26,27 +26,27 @@ class AC_Sidebars {
 	 * Hook in tabs.
 	 */
 	public function __construct() {
-		add_action( 'sidebar_admin_page', array( $this, 'output_sidebar_tmpl' ) );
-		add_action( 'load-widgets.php', array( $this, 'add_sidebar_option' ), 100 );
-		add_action( 'widgets_init', array( $this, 'register_custom_sidebars' ), 1000 );
+		add_action( 'widgets_admin_page', array( $this, 'output_sidebar_tmpl' ) );
+		add_action( 'load-widgets.php', array( $this, 'add_custom_sidebar' ), 100 );
+		add_action( 'widgets_init', array( $this, 'register_custom_sidebar' ), 1000 );
 	}
 
 	/**
-	 * Output Sidebar Form and Modal Templates.
+	 * Output Sidebar Templates.
 	 */
 	public function output_sidebar_tmpl() {
 		include_once( 'admin/views/html-admin-tmpl-sidebars.php' );
 	}
 
 	/**
-	 * Add Custom Widget Area (Sidebar) to the database.
+	 * Add Custom Widget Area (Sidebar).
 	 */
-	public function add_sidebar_option() {
+	public function add_custom_sidebar() {
 
 		if ( ! empty( $_POST['axiscomposer-add-sidebar'] ) ) {
 
 			$this->sidebars = get_option( 'axiscomposer_custom_sidebars' );
-			$sidebar_name	= $this->get_sidebar_name( $_POST['axiscomposer-add-sidebar'] );
+			$sidebar_name	= $this->check_sidebar_name( $_POST['axiscomposer-add-sidebar'] );
 
 			if ( empty( $this->sidebars ) ) {
 				$this->sidebars = array( $sidebar_name );
@@ -61,11 +61,11 @@ class AC_Sidebars {
 	}
 
 	/**
-	 * Checks the user submitted name and makes sure that there are no collisions.
-	 * @param  string $sidebar_name Raw Sidebar name
-	 * @return string $sidebar_name Valid Sidebar name without collisions.
+	 * Checks submitted sidebar name for collisions.
+	 * @param  string $sidebar_name Raw sidebar name
+	 * @return string $sidebar_name Valid sidebar name
 	 */
-	public function get_sidebar_name( $sidebar_name ) {
+	public function check_sidebar_name( $sidebar_name ) {
 
 		if ( empty( $GLOBALS['wp_registered_sidebars'] ) ) {
 			return $sidebar_name;
@@ -85,19 +85,19 @@ class AC_Sidebars {
 		if ( in_array( $sidebar_name, $sidebar_exists ) ) {
 			$count        = substr( $sidebar_name, -1 );
 			$rename       = is_numeric( $count ) ? ( substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 ) ) : ( $sidebar_name . ' - 1' );
-			$sidebar_name = $this->get_sidebar_name( $rename );
+			$sidebar_name = $this->check_sidebar_name( $rename );
 		}
 
 		return $sidebar_name;
 	}
 
 	/**
-	 * Register Custom Widget Areas (Sidebars).
+	 * Register Custom Widget Area (Sidebar).
 	 */
-	public function register_custom_sidebars() {
+	public function register_custom_sidebar() {
 
 		if ( empty( $this->sidebars ) ) {
-			$this->sidebars = get_option( 'axiscomposer_custom_sidebars' );
+			$this->sidebars = get_option( 'axiscomposer_custom_sidebars', array() );
 		}
 
 		$args = array(

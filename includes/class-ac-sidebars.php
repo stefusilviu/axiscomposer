@@ -26,22 +26,15 @@ class AC_Sidebars {
 	 * Hook in tabs.
 	 */
 	public function __construct() {
-		add_action( 'load-widgets.php', array( $this, 'load_widgets' ), 5 );
+		add_action( 'sidebar_admin_page', array( $this, 'output_sidebar_tmpl' ) );
+		add_action( 'load-widgets.php', array( $this, 'add_sidebar_option' ), 100 );
 		add_action( 'widgets_init', array( $this, 'register_custom_sidebars' ), 1000 );
 	}
 
 	/**
-	 * Load Necessary assets and hooks to the widgets page.
+	 * Output Sidebar Form and Modal Templates.
 	 */
-	public function load_widgets() {
-		add_action( 'admin_print_scripts', array( $this, 'output' ) );
-		add_action( 'load-widgets.php', array( $this, 'add_sidebar_option' ), 100 );
-	}
-
-	/**
-	 * Handles output of the Widget Area (Sidebar) Builder page in admin.
-	 */
-	public function output() {
+	public function output_sidebar_tmpl() {
 		include_once( 'admin/views/html-admin-tmpl-sidebars.php' );
 	}
 

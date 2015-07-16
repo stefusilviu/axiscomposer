@@ -59,7 +59,7 @@ class AC_Sidebars {
 	 * @param  string $sidebar_name Raw sidebar name.
 	 * @return string $sidebar_name Valid sidebar name.
 	 */
-	public static function validate_sidebar( $sidebar_name ) {
+	public static function validate_sidebar_name( $sidebar_name ) {
 		global $wp_registered_sidebars;
 
 		// Get the existing sidebars.
@@ -72,7 +72,7 @@ class AC_Sidebars {
 		if ( in_array( $sidebar_name, $existing_sidebars ) ) {
 			$count        = substr( $sidebar_name, -1 );
 			$rename       = is_numeric( $count ) ? ( substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 ) ) : ( $sidebar_name . ' - 1' );
-			$sidebar_name = self::validate_sidebar( $rename );
+			$sidebar_name = self::validate_sidebar_name( $rename );
 		}
 
 		return $sidebar_name;
@@ -99,7 +99,7 @@ class AC_Sidebars {
 			}
 
 			$sidebar_name = ac_clean( $_POST['axiscomposer-add-sidebar'] );
-			self::add_sidebar( self::validate_sidebar( $sidebar_name ) );
+			self::add_sidebar( self::validate_sidebar_name( $sidebar_name ) );
 			wp_redirect( admin_url( 'widgets.php' ) );
 		}
 	}

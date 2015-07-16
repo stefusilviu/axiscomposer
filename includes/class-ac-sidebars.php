@@ -39,6 +39,13 @@ class AC_Sidebars {
 	}
 
 	/**
+	 * Remove all sidebars.
+	 */
+	public static function remove_all_sidebars() {
+		delete_option( 'axiscomposer_custom_sidebars' );
+	}
+
+	/**
 	 * Add Custom Widget Area (Sidebar).
 	 */
 	public function add_custom_sidebar() {

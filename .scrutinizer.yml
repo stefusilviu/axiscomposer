@@ -3,6 +3,7 @@ filter:
   - tests/*
   - apigen/*
   - i18n/*
+  - includes/updates/*
 
 checks:
   php:

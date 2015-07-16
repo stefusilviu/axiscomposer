@@ -43,15 +43,15 @@ class AC_Shortcode_Googlemap extends AC_Shortcode {
 		);
 	}
 
-	 /**
-     * Frontend Shortcode Handle.
-     * @param  array  $atts      Array of attributes.
-     * @param  string $content   Text within enclosing form of shortcode element.
-     * @param  string $shortcode The shortcode found, when == callback name.
-     * @param  string $meta      Meta data.
-     * @return string            Returns the modified html string.
-     */
-    public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+	/**
+	 * Frontend Shortcode Handle.
+	 * @param  array  $atts      Array of attributes.
+	 * @param  string $content   Text within enclosing form of shortcode element.
+	 * @param  string $shortcode The shortcode found, when == callback name.
+	 * @param  string $meta      Meta data.
+	 * @return string            Returns the modified html string.
+	 */
+	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
 
-    }
+	}
 }

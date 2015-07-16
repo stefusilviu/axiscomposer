@@ -95,13 +95,12 @@ class AC_Sidebars {
 	 */
 	public function validate_sidebar( $sidebar_name ) {
 		$sidebar_name = sanitize_text_field( $sidebar_name );
-		if ( empty( $GLOBALS['wp_registered_sidebars'] ) ) {
-			return $sidebar_name;
-		}
 
 		$sidebar_exists = array();
-		foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-			$sidebar_exists[] = $sidebar['name'];
+		if ( ! empty( $GLOBALS['wp_registered_sidebars'] ) ) {
+			foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
+				$sidebar_exists[] = $sidebar['name'];
+			}
 		}
 
 		if ( in_array( $sidebar_name, $sidebar_exists ) ) {

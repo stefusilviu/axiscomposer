@@ -224,16 +224,14 @@ class AC_AJAX {
 			die(-1);
 		}
 
-		$sidebar = esc_attr( $_POST['sidebar'] );
+		$sidebar = (string) ac_clean( stripslashes( $_POST['sidebar'] ) );
 
-		if ( empty( $sidebar ) ) {
-			die();
+		if ( ! empty( $sidebar ) ) {
+			AC_Sidebars::remove_sidebar( $sidebar );
+			wp_send_json_success( array( $sidebar ) );
 		}
 
-		if ( AC_Sidebars::has_sidebar( $sidebar ) ) {
-			AC_Sidebars::remove_sidebar( stripslashes( $sidebar ) );
-			wp_send_json_success();
-		}
+		die();
 	}
 
 	/**

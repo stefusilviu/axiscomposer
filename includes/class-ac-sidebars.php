@@ -94,7 +94,7 @@ class AC_Sidebars {
 	 * @return string $sidebar_name Valid sidebar name.
 	 */
 	public function validate_sidebar( $sidebar_name ) {
-		$sidebar_name = sanitize_text_field( $sidebar_name );
+		$sidebar_name = ac_clean( $sidebar_name );
 
 		$sidebar_exists = array();
 		if ( ! empty( $GLOBALS['wp_registered_sidebars'] ) ) {

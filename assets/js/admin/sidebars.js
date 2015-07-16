@@ -44,7 +44,7 @@ jQuery( function( $ ) {
 						title.find( '.spinner' ).addClass( 'is-active' );
 					},
 					success: function( response ) {
-						if ( response === true ) {
+						if ( response.success === true ) {
 							$( '.widget-control-remove', widgets ).trigger( 'click' );
 							widgets.slideUp( 250, function() {
 								widgets.remove();

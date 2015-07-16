@@ -230,16 +230,9 @@ class AC_AJAX {
 			die();
 		}
 
-		if ( $sidebar ) {
-			$name = stripslashes( $_POST['sidebar'] );
-			$data = (array) get_option( 'axiscomposer_custom_sidebars' );
-			$keys = array_search( $name, $data );
-
-			if ( $keys !== false ) {
-				unset( $data[$keys] );
-				update_option( 'axiscomposer_custom_sidebars', $data );
-				wp_send_json( true );
-			}
+		if ( AC_Sidebars::has_sidebar( $sidebar ) ) {
+			AC_Sidebars::remove_sidebar( stripslashes( $sidebar ) );
+			wp_send_json_success();
 		}
 	}
 

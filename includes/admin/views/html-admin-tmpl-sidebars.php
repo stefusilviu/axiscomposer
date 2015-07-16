@@ -9,8 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <script type="text/template" id="tmpl-axiscomposer-form-create-sidebar">
-	<form class="axiscomposer-add-sidebar" action="widgets.php" method="post">
+	<form class="axiscomposer-add-sidebar" action="<?php echo self_admin_url( 'widgets.php' ); ?>" method="post">
 		<h3><?php _e( 'Custom Widget Area Builder', 'axiscomposer' ) ?></h3>
+		<?php wp_nonce_field( 'axiscomposer_add_sidebar', '_ac_sidebar_nonce' ); ?>
 		<input name="axiscomposer-add-sidebar" type="text" id="axiscomposer-add-sidebar" class="widefat" autocomplete="off" value="" placeholder="<?php _e( 'Enter New Widget Area Name', 'axiscomposer' ) ?>" />
 		<button id="create" class="button button-primary button-large create">
 			<?php _e( 'Add Widget Area', 'axiscomposer' ); ?>

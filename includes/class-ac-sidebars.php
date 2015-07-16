@@ -42,8 +42,14 @@ class AC_Sidebars {
 	 * Add Custom Widget Area (Sidebar).
 	 */
 	public function add_custom_sidebar() {
+		if ( isset( $_POST['axiscomposer-add-sidebar'] ) && isset( $_POST['_ac_sidebar_nonce'] ) ) {
+			if ( ! wp_verify_nonce( $_POST['_ac_sidebar_nonce'], 'axiscomposer_add_sidebar' ) ) {
+				wp_die( __( 'Action failed. Please refresh the page and retry.', 'axiscomposer' ) );
+			}
 
-		if ( ! empty( $_POST['axiscomposer-add-sidebar'] ) ) {
+			if ( ! current_user_can( 'manage_axiscomposer' ) ) {
+				wp_die( __( 'Cheatin&#8217; huh?', 'axiscomposer' ) );
+			}
 
 			$this->sidebars = get_option( 'axiscomposer_custom_sidebars' );
 			$sidebar_name	= $this->check_sidebar_name( $_POST['axiscomposer-add-sidebar'] );
@@ -56,7 +62,6 @@ class AC_Sidebars {
 
 			update_option( 'axiscomposer_custom_sidebars', $this->sidebars );
 			wp_redirect( admin_url( 'widgets.php' ) );
-			die();
 		}
 	}
 

@@ -224,7 +224,7 @@ class AC_AJAX {
 			die(-1);
 		}
 
-		$sidebar = (string) ac_clean( stripslashes( $_POST['sidebar'] ) );
+		$sidebar = ac_clean( stripslashes( $_POST['sidebar'] ) );
 
 		if ( ! empty( $sidebar ) ) {
 			AC_Sidebars::remove_sidebar( $sidebar );

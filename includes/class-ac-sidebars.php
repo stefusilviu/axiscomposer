@@ -62,12 +62,27 @@ class AC_Sidebars {
 	}
 
 	/**
-	 * See if a sidebar exists.
-	 * @param  string  $name
-	 * @return boolean
+	 * Validate sidebar name to prevent collisions.
+	 * @param  string $sidebar_name Raw sidebar name.
+	 * @return string $sidebar_name Valid sidebar name.
 	 */
-	public static function has_sidebar( $name ) {
-		return in_array( $name, get_option( 'axiscomposer_custom_sidebars', array() ) );
+	public static function validate_sidebar( $sidebar_name ) {
+		global $wp_registered_sidebars;
+
+		$sidebar_exists = array();
+		foreach ( $wp_registered_sidebars as $sidebar ) {
+			$sidebar_exists[] = $sidebar['name'];
+		}
+
+		$sidebar_name = ac_clean( $sidebar_name );
+
+		if ( in_array( $sidebar_name, $sidebar_exists ) ) {
+			$count        = substr( $sidebar_name, -1 );
+			$rename       = is_numeric( $count ) ? ( substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 ) ) : ( $sidebar_name . ' - 1' );
+			$sidebar_name = self::validate_sidebar( $rename );
+		}
+
+		return $sidebar_name;
 	}
 
 	/**
@@ -83,33 +98,9 @@ class AC_Sidebars {
 				wp_die( __( 'Cheatin&#8217; huh?', 'axiscomposer' ) );
 			}
 
-			self::add_sidebar( $this->validate_sidebar( $_POST['axiscomposer-add-sidebar'] ) );
+			self::add_sidebar( self::validate_sidebar( $_POST['axiscomposer-add-sidebar'] ) );
 			wp_redirect( admin_url( 'widgets.php' ) );
 		}
-	}
-
-	/**
-	 * Validate sidebar name to prevent collisions.
-	 * @param  string $sidebar_name Raw sidebar name.
-	 * @return string $sidebar_name Valid sidebar name.
-	 */
-	public function validate_sidebar( $sidebar_name ) {
-		$sidebar_name = ac_clean( $sidebar_name );
-
-		$sidebar_exists = array();
-		if ( ! empty( $GLOBALS['wp_registered_sidebars'] ) ) {
-			foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-				$sidebar_exists[] = $sidebar['name'];
-			}
-		}
-
-		if ( in_array( $sidebar_name, $sidebar_exists ) ) {
-			$count        = substr( $sidebar_name, -1 );
-			$rename       = is_numeric( $count ) ? ( substr( $sidebar_name, 0, -1 ) . ( (int) $count + 1 ) ) : ( $sidebar_name . ' - 1' );
-			$sidebar_name = $this->validate_sidebar( $rename );
-		}
-
-		return $sidebar_name;
 	}
 
 	/**

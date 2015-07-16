@@ -23,7 +23,7 @@
 	text-align: center;
 	background-color: #fff;
 	border: 1px solid #e5e5e5;
-	box-shadow: 0, 1px 0, 0, rgba( 0, 0, 0, 0.04 );
+	box-shadow: 0, 1px 0, 0, rgba(0,0,0,0.04);
 
 	input[type=text] {
 		max-width: 25em;
@@ -37,12 +37,11 @@
 .axiscomposer-delete-sidebar {
 	color: #aaa;
 	z-index: 100;
-	font-size: 16px;
-	text-decoration: none;
 	@include position(absolute, 15px 45px null null);
 
 	&:before {
 		@include iconbefore( "\e009" );
+		font-size: 16px;
 		margin-right: 0;
 	}
 

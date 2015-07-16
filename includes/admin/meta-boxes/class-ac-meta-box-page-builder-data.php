@@ -130,7 +130,7 @@ class AC_Meta_Box_Page_Builder_Data {
 	}
 
 	/**
-	 * Show Backbone Modal Templates.
+	 * Output Backbone Modal Templates.
 	 */
 	protected static function output_backbone_tmpl() {
 		$shortcode_modal_tmpl = apply_filters( 'axiscomposer_shortcode_backbone_modal_tmpl', array(

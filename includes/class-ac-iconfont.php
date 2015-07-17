@@ -34,7 +34,7 @@ class AC_Iconfont {
 
 	/**
 	 * Array of charlist.
-	 * @var string
+	 * @var array
 	 */
 	protected static $charlist = array();
 
@@ -208,6 +208,7 @@ class AC_Iconfont {
 			}
 		}
 
+		// Cache the result
 		self::$charlist = $char_sets;
 
 		return $char_sets;

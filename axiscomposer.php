@@ -215,7 +215,7 @@ final class AxisComposer {
 		$this->integrations = new AC_Integrations();                         // Integrations class
 
 		// Set up shortcodes
-		$this->shortcodes->get_shortcodes();
+		// $this->shortcodes->get_shortcodes();
 
 		// Init action
 		do_action( 'axiscomposer_init' );

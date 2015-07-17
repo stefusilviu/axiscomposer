@@ -208,7 +208,6 @@ class AC_Iconfont {
 			}
 		}
 
-		// Cache the result
 		self::$charlist = $char_sets;
 
 		return $char_sets;

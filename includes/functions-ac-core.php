@@ -188,7 +188,7 @@ function ac_get_allowed_screen_types() {
 
 /**
  * AxisComposer Core Supported Themes.
- * @return array
+ * @return string[]
  */
 function ac_get_core_supported_themes() {
 	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );

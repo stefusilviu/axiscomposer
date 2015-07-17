@@ -108,7 +108,7 @@ final class AxisComposer {
 		register_activation_hook( __FILE__, array( 'AC_Install', 'install' ) );
 		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
 		add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
-		add_action( 'admin_init', array( $this, 'shortcodes' ) );
+		add_action( 'init', array( $this, 'shortcodes' ) );
 		add_action( 'init', array( $this, 'init' ), 0 );
 	}
 

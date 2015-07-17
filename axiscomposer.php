@@ -109,6 +109,7 @@ final class AxisComposer {
 		add_action( 'after_setup_theme', array( $this, 'setup_environment' ) );
 		add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
 		add_action( 'init', array( $this, 'init' ), 0 );
+		add_action( 'init', array( $this, 'shortcodes' ) );
 	}
 
 	/**
@@ -213,9 +214,6 @@ final class AxisComposer {
 
 		// Load class instances
 		$this->integrations = new AC_Integrations();                         // Integrations class
-
-		// Set up shortcodes
-		$this->shortcodes->get_shortcodes();
 
 		// Init action
 		do_action( 'axiscomposer_init' );

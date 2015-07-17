@@ -24,7 +24,7 @@ class AC_Integrations {
 	public $integrations = array();
 
 	/**
-	 * Class Constructor Method.
+	 * Initialize integrations.
 	 */
 	public function __construct() {
 

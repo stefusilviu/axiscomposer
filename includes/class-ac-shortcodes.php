@@ -60,7 +60,7 @@ class AC_Shortcodes {
 	}
 
 	/**
-	 * __construct function.
+	 * Initialize shortcodes.
 	 */
 	public function __construct() {
 		$this->init();

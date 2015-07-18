@@ -12,8 +12,9 @@ DB_PASS=$3
 DB_HOST=${4-localhost}
 WP_VERSION=${5-latest}
 
-WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
-WP_CORE_DIR=${WP_CORE_DIR-/tmp/wordpress/}
+# TODO: allow environment vars for WP_TESTS_DIR & WP_CORE_DIR
+WP_TESTS_DIR="${PWD}/tmp/wordpress-tests-lib"
+WP_CORE_DIR="${PWD}/tmp/wordpress/"
 
 set -ex
 

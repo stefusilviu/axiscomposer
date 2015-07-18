@@ -1,10 +1,12 @@
 <?php
+
+namespace AxisComposer\Tests\Util;
+
 /**
- * Test AxisComposer class
- *
- * @since 1.0
+ * Class Main_Class
+ * @package AxisComposer\Tests\Util
  */
-class AC_Tests_AxisComposer extends AC_Unit_Test_Case {
+class Main_Class extends \AC_Unit_Test_Case {
 
 	/** @var \AxisComposer instance */
 	protected $ac;
@@ -42,7 +44,7 @@ class AC_Tests_AxisComposer extends AC_Unit_Test_Case {
 	 */
 	public function test_constants() {
 
-		$this->assertEquals( str_replace( 'tests/unit-tests/', '', plugin_dir_path( __FILE__ ) ) . 'axiscomposer.php', AC_PLUGIN_FILE );
+		$this->assertEquals( str_replace( 'tests/unit-tests/util/', '', plugin_dir_path( __FILE__ ) ) . 'axiscomposer.php', AC_PLUGIN_FILE );
 
 		$this->assertEquals( $this->ac->version, AC_VERSION );
 		$this->assertNotEquals( AC_ICONFONT_DIR, '' );
@@ -56,5 +58,7 @@ class AC_Tests_AxisComposer extends AC_Unit_Test_Case {
 	 */
 	public function test_ac_class_instances() {
 		$this->ac->init();
+
+		$this->assertInstanceOf( 'AC_Integrations', $this->ac->integrations );
 	}
 }

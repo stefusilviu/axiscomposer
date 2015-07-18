@@ -1,10 +1,15 @@
 <?php
+
+namespace AxisComposer\Tests\Formatting;
+
 /**
- * Test AC formatting functions
- *
+ * Class Functions
+ * @package AxisComposer\Tests\Formatting
  * @since 1.0
+ *
+ * @todo Split formatting class into smaller classes
  */
-class AC_Tests_Formatting_Functions extends AC_Unit_Test_Case {
+class Functions extends \AC_Unit_Test_Case {
 
 	/**
 	 * Test ac_clean() - note this is a basic type test as WP core already
@@ -14,7 +19,18 @@ class AC_Tests_Formatting_Functions extends AC_Unit_Test_Case {
 	 */
 	public function test_ac_clean() {
 
-		$this->assertInternalType( 'string', ac_clean( 'cleaned' ) );
+		$this->assertEquals( 'cleaned', ac_clean( '<script>alert();</script>cleaned' ) );
+	}
+
+	/**
+	 * Test ac_sanitize_tooltip() - note this is a basic type test as WP core already
+	 * has coverage for wp_kses()
+	 *
+	 * @since 2.4
+	 */
+	public function test_ac_sanitize_tooltip() {
+
+		$this->assertEquals( 'alert();cleaned', ac_sanitize_tooltip( '<script>alert();</script>cleaned' ) );
 	}
 
 	/**

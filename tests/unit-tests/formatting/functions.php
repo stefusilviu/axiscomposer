@@ -5,7 +5,7 @@ namespace AxisComposer\Tests\Formatting;
 /**
  * Class Functions
  * @package AxisComposer\Tests\Formatting
- * @since 1.0
+ * @since   1.0.0
  *
  * @todo Split formatting class into smaller classes
  */
@@ -15,7 +15,7 @@ class Functions extends \AC_Unit_Test_Case {
 	 * Test ac_clean() - note this is a basic type test as WP core already
 	 * has coverage for sanitized_text_field()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_clean() {
 
@@ -26,7 +26,7 @@ class Functions extends \AC_Unit_Test_Case {
 	 * Test ac_sanitize_tooltip() - note this is a basic type test as WP core already
 	 * has coverage for wp_kses()
 	 *
-	 * @since 2.4
+	 * @since 1.0.0
 	 */
 	public function test_ac_sanitize_tooltip() {
 
@@ -36,7 +36,7 @@ class Functions extends \AC_Unit_Test_Case {
 	/**
 	 * Test ac_array_overlay()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_array_overlay() {
 
@@ -70,7 +70,7 @@ class Functions extends \AC_Unit_Test_Case {
 	/**
 	 * Test ac_let_to_num()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function ac_let_to_num() {
 
@@ -90,7 +90,7 @@ class Functions extends \AC_Unit_Test_Case {
 	/**
 	 * Test ac_trim_string()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_trim_string() {
 		$this->assertEquals( 'string', ac_trim_string( 'string' ) );

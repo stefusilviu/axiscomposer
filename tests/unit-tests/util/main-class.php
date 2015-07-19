@@ -14,7 +14,7 @@ class Main_Class extends \AC_Unit_Test_Case {
 	/**
 	 * Setup test
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function setUp() {
 
@@ -26,7 +26,7 @@ class Main_Class extends \AC_Unit_Test_Case {
 	/**
 	 * Test AC has static instance
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_instance() {
 
@@ -40,7 +40,7 @@ class Main_Class extends \AC_Unit_Test_Case {
 	/**
 	 * Test that all AC constants are set
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_constants() {
 
@@ -54,7 +54,7 @@ class Main_Class extends \AC_Unit_Test_Case {
 	/**
 	 * Test class instance
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_class_instances() {
 		$this->ac->init();

@@ -5,14 +5,14 @@ namespace WooCommerce\Tests\Util;
 /**
  * Class Core_Functions
  * @package AxisComposer\Tests\Util
- * @since 1.0
+ * @since   1.0.0
  */
 class Core_Functions extends \AC_Unit_Test_Case {
 
 	/**
-	 * Test test_ac_get_core_supported_themes()
+	 * Test ac_get_core_supported_themes()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_get_core_supported_themes() {
 
@@ -22,9 +22,9 @@ class Core_Functions extends \AC_Unit_Test_Case {
 	}
 
 	/**
-	 * Test test_ac_get_core_supported_iconfonts()
+	 * Test ac_get_core_supported_iconfonts()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_get_core_supported_iconfonts() {
 
@@ -40,9 +40,9 @@ class Core_Functions extends \AC_Unit_Test_Case {
 	}
 
 	/**
-	 * Test test_ac_get_layout_supported_screens()
+	 * Test ac_get_layout_supported_screens()
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function test_ac_get_layout_supported_screens() {
 

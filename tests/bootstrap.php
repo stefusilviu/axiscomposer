@@ -2,7 +2,7 @@
 /**
  * AxisComposer Unit tests Bootstrap
  *
- * @since 1.0
+ * @since 1.0.0
  */
 class AC_Unit_Tests_Bootstrap {
 
@@ -21,7 +21,7 @@ class AC_Unit_Tests_Bootstrap {
 	/**
 	 * Setup the unit testing environment
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 
@@ -51,7 +51,7 @@ class AC_Unit_Tests_Bootstrap {
 	/**
 	 * Load AxisComposer
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function load_ac() {
 		require_once( $this->plugin_dir . '/axiscomposer.php' );
@@ -60,7 +60,7 @@ class AC_Unit_Tests_Bootstrap {
 	/**
 	 * Install AxisComposer after the test environment and AC have been loaded
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function install_ac() {
 
@@ -79,7 +79,7 @@ class AC_Unit_Tests_Bootstrap {
 	/**
 	 * Load AC-specific test cases and factories
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function includes() {
 
@@ -90,7 +90,7 @@ class AC_Unit_Tests_Bootstrap {
 	/**
 	 * Get the single class instance
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 * @return AC_Unit_Tests_Bootstrap
 	 */
 	public static function instance() {

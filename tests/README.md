@@ -26,7 +26,7 @@ The tests will execute and you'll be presented with a summary. Code coverage doc
 
 You can run specific tests by providing the path and filename to the test class:
 
-    $ phpunit tests/unit-tests/axiscomposer
+    $ phpunit tests/unit-tests/util/main-class
 
 A text code coverage summary can be displayed using the `--coverage-text` option:
 
@@ -43,6 +43,7 @@ A text code coverage summary can be displayed using the `--coverage-text` option
 * Prefer `assertsEquals()` where possible as it tests both type & equality
 * Remember that only methods prefixed with `test` will be run so use helper methods liberally to keep test methods small and reduce code duplication. If there is a common helper method used in multiple test files, consider adding it to the `AC_Unit_Test_Case` class so it can be shared by all test cases
 * Filters persist between test cases so be sure to remove them in your test method or in the `tearDown()` method.
+* Use data providers where possible. Be sure that their name is like `data_provider_function_to_test` (i.e. the data provider for `test_is_shortcode_tag` would be `data_provider_test_is_shortcode_tag`). Read more about data providers [here](https://phpunit.de/manual/current/en/writing-tests-for-phpunit.html#writing-tests-for-phpunit.data-providers).
 
 ## Automated Tests
 

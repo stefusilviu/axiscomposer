@@ -196,7 +196,7 @@ module.exports = function( grunt ){
 			},
 			apigen: {
 				command: [
-					'bash -c "apigen generate"',
+					'apigen generate',
 					'cd apigen',
 					'php hook-docs.php'
 				].join( '&&' )

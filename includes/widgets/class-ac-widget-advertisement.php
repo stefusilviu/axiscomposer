@@ -4,11 +4,11 @@
  *
  * Displays Advertisements Slots widget.
  *
- * @extends     AC_Widget
- * @package     AxisComposer/Widgets
- * @category    Widgets
- * @author      AxisThemes
- * @since       1.0.0
+ * @extends  AC_Widget
+ * @package  AxisComposer/Widgets
+ * @category Widgets
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

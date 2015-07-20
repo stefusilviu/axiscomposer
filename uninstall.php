@@ -4,10 +4,10 @@
  *
  * Uninstalling AxisComposer deletes user roles and options.
  *
- * @package     AxisComposer/Uninstaller
- * @category    Core
- * @author      AxisThemes
- * @since       1.0.0
+ * @author   AxisThemes
+ * @category Core
+ * @package  AxisComposer/Uninstaller
+ * @version  1.0.0
  */
 
 if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

@@ -2,11 +2,11 @@
 /**
  * Installation related functions and actions.
  *
- * @class       AC_Install
- * @package     AxisComposer/Classes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Install
+ * @package  AxisComposer/Classes
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

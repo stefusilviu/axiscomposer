@@ -2,10 +2,10 @@
 /**
  * AxisComposer Admin Functions
  *
- * @package     AxisComposer/Admin/Functions
- * @category    Core
- * @author      AxisThemes
- * @since       1.0.0
+ * @package  AxisComposer/Admin/Functions
+ * @category Core
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

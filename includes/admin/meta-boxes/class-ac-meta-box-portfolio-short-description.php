@@ -4,11 +4,11 @@
  *
  * Replaces the standard excerpt box.
  *
- * @class       AC_Meta_Box_Portfolio_Short_Description
- * @package     AxisComposer/Admin/Meta Boxes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Meta_Box_Portfolio_Short_Description
+ * @package  AxisComposer/Admin/Meta Boxes
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

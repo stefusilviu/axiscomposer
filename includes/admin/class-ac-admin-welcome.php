@@ -6,11 +6,11 @@
  *
  * Adapted from code in EDD (Copyright (c) 2012, Pippin Williamson) and WP.
  *
- * @class       AC_Admin_Welcome
- * @package     AxisComposer/Admin
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Admin_Welcome
+ * @package  AxisComposer/Admin
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

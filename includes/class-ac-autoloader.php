@@ -2,11 +2,11 @@
 /**
  * AxisComposer Autoloader
  *
- * @class       AC_Autoloader
- * @package     AxisComposer/Classes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Autoloader
+ * @package  AxisComposer/Classes
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

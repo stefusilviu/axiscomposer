@@ -4,11 +4,11 @@
  *
  * Displays the page builder data meta box, tabbed, with several drag and drop canvas elements.
  *
- * @class       AC_Meta_Box_Page_Builder_Data
- * @package     AxisComposer/Admin/Meta Boxes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Meta_Box_Page_Builder_Data
+ * @package  AxisComposer/Admin/Meta Boxes
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

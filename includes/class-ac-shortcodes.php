@@ -4,11 +4,11 @@
  *
  * Handles shortcode and loads shortcode methods via hooks.
  *
- * @class       AC_Shortcodes
- * @package     AxisComposer/Classes/Shortcode
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Shortcodes
+ * @package  AxisComposer/Classes/Shortcode
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -2,11 +2,11 @@
 /**
  * Portfolio Breadcrumb Hierarchy
  *
- * @class       AC_Meta_Box_Portfolio_Breadcrumb
- * @package     AxisComposer/Admin/Meta Boxes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Meta_Box_Portfolio_Breadcrumb
+ * @package  AxisComposer/Admin/Meta Boxes
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

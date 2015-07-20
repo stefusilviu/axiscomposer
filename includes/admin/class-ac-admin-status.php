@@ -2,11 +2,11 @@
 /**
  * Debug/Status page
  *
- * @class       AC_Admin_Status
- * @package     AxisComposer/Admin/System Status
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Admin_Status
+ * @package  AxisComposer/Admin/System Status
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

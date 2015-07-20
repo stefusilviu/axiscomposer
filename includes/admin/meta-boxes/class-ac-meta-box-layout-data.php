@@ -4,11 +4,11 @@
  *
  * Display the layout data meta box.
  *
- * @class       AC_Meta_Box_Layout_Data
- * @package     AxisComposer/Admin/Meta Boxes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Meta_Box_Layout_Data
+ * @package  AxisComposer/Admin/Meta Boxes
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

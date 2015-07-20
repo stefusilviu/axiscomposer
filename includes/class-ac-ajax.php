@@ -4,11 +4,11 @@
  *
  * AJAX Event Handler
  *
- * @class       AC_AJAX
- * @package     AxisComposer/Classes
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_AJAX
+ * @package  AxisComposer/Classes
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

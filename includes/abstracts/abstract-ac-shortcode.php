@@ -4,12 +4,12 @@
  *
  * Extended by individual shortcodes to handle shortcode data etc.
  *
- * @class       AC_Shortcode
- * @extends     AC_Settings_API
- * @package     AxisComposer/Abstracts
- * @category    Abstract Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Shortcode
+ * @extends  AC_Settings_API
+ * @package  AxisComposer/Abstracts
+ * @category Abstract Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 abstract class AC_Shortcode extends AC_Settings_API {
 

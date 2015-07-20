@@ -4,11 +4,11 @@
  *
  * Handles the building of the Sidebars on the fly.
  *
- * @class       AC_Sidebars
- * @package     AxisComposer/Classes
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Sidebars
+ * @package  AxisComposer/Classes
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

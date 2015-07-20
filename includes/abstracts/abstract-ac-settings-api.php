@@ -4,11 +4,11 @@
  *
  * Admin Settings API used by Shortcodes and Integrations.
  *
- * @class       AC_Settings_API
- * @package     AxisComposer/Abstracts
- * @category    Abstract Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Settings_API
+ * @package  AxisComposer/Abstracts
+ * @category Abstract Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 abstract class AC_Settings_API {
 

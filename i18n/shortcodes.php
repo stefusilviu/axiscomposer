@@ -2,10 +2,10 @@
 /**
  * tinyMCE i18n
  *
- * @package     AxisComposer/i18n
- * @category    i18n
- * @author      AxisThemes
- * @since       1.0.0
+ * @package  AxisComposer/i18n
+ * @category i18n
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -4,11 +4,11 @@
  *
  * Registers post types and taxonomies.
  *
- * @class       AC_Post_Types
- * @package     AxisComposer/Classes/Portfolio
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Post_Types
+ * @package  AxisComposer/Classes/Portfolio
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

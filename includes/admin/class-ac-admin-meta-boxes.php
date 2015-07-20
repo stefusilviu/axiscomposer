@@ -4,11 +4,11 @@
  *
  * Sets up the write panels used by page builder and custom post types.
  *
- * @class       AC_Admin_Meta_Boxes
- * @package     AxisComposer/Admin/Meta Boxes
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Admin_Meta_Boxes
+ * @package  AxisComposer/Admin/Meta Boxes
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

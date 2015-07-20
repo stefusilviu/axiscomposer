@@ -4,11 +4,11 @@
  *
  * Handles the Iconfont Upload easily.
  *
- * @class       AC_Iconfont
- * @package     AxisComposer/Classes
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Iconfont
+ * @package  AxisComposer/Classes
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -2,11 +2,11 @@
 /**
  * AxisComposer Admin Iconfont Class.
  *
- * @class       AC_Admin_Iconfont
- * @package     AxisComposer/Admin
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Admin_Iconfont
+ * @package  AxisComposer/Admin/Iconfont
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

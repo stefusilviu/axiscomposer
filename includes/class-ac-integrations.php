@@ -4,11 +4,11 @@
  *
  * Loads Integrations into AxisComposer.
  *
- * @class       AC_Integrations
- * @package     AxisComposer/Classes/Integrations
- * @category    Class
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Integrations
+ * @package  AxisComposer/Classes/Integrations
+ * @category Class
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

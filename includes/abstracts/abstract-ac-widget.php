@@ -2,12 +2,12 @@
 /**
  * Abstract Widget Class
  *
- * @class       AC_Widget
- * @extends     WP_Widget
- * @package     AxisComposer/Abstracts
- * @category    Widgets
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Widget
+ * @extends  WP_Widget
+ * @package  AxisComposer/Abstracts
+ * @category Widgets
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 abstract class AC_Widget extends WP_Widget {
 

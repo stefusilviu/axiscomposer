@@ -2,11 +2,11 @@
 /**
  * Gist Shortcode
  *
- * @extends     AC_Shortcode
- * @package     AxisComposer/Shortcodes
- * @category    Shortcodes
- * @author      AxisThemes
- * @since       1.0.0
+ * @extends  AC_Shortcode
+ * @package  AxisComposer/Shortcodes
+ * @category Shortcodes
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

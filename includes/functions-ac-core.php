@@ -4,10 +4,10 @@
  *
  * General core functions available on both the front-end and admin.
  *
- * @package     AxisComposer/Functions
- * @category    Core
- * @author      AxisThemes
- * @since       1.0.0
+ * @package  AxisComposer/Functions
+ * @category Core
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

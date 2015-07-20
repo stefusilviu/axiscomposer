@@ -2,11 +2,11 @@
 /**
  * Adds settings to the permalinks admin settings page.
  *
- * @class       AC_Admin_Permalink_Settings
- * @package     AxisComposer/Admin
- * @category    Admin
- * @author      AxisThemes
- * @since       1.0.0
+ * @class    AC_Admin_Permalink_Settings
+ * @package  AxisComposer/Admin
+ * @category Admin
+ * @author   AxisThemes
+ * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

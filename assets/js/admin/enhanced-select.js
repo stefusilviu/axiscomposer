@@ -94,7 +94,8 @@ jQuery( function( $ ) {
 							return {
 								term:     term,
 								action:   $( this ).data( 'action' ) || 'axiscomposer_json_search_pages_and_portfolio',
-								security: ac_enhanced_select_params.search_post_types_nonce
+								security: ac_enhanced_select_params.search_post_types_nonce,
+								exclude:  $( this ).data( 'exclude' )
 							};
 						},
 						results: function( data ) {
@@ -104,11 +105,14 @@ jQuery( function( $ ) {
 									terms.push( { id: id, text: text } );
 								});
 							}
-							return { results: terms };
+							return {
+								results: terms
+							};
 						},
 						cache: true
 					}
 				};
+
 				if ( $( this ).data( 'multiple' ) === true ) {
 					select2_args.multiple = true;
 					select2_args.initSelection = function( element, callback ) {
@@ -116,7 +120,10 @@ jQuery( function( $ ) {
 						var selected = [];
 
 						$( element.val().split( ',' ) ).each( function( i, val ) {
-							selected.push( { id: val, text: data[ val ] } );
+							selected.push({
+								id: val,
+								text: data[ val ]
+							});
 						});
 						return callback( selected );
 					};
@@ -126,7 +133,10 @@ jQuery( function( $ ) {
 				} else {
 					select2_args.multiple = false;
 					select2_args.initSelection = function( element, callback ) {
-						var data = {id: element.val(), text: element.attr( 'data-selected' )};
+						var data = {
+							id: element.val(),
+							text: element.attr( 'data-selected' )
+						};
 						return callback( data );
 					};
 				}

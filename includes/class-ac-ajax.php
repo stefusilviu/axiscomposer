@@ -148,10 +148,15 @@ class AC_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
-		$term = (string) ac_clean( stripslashes( $_GET['term'] ) );
+		$term    = (string) ac_clean( stripslashes( $_GET['term'] ) );
+		$exclude = array();
 
 		if ( empty( $term ) ) {
 			die();
+		}
+
+		if ( ! empty( $_GET['exclude'] ) ) {
+			$exclude = array_map( 'intval', explode( ',', $_GET['exclude'] ) );
 		}
 
 		$args = array(
@@ -159,7 +164,8 @@ class AC_AJAX {
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			's'              => $term,
-			'fields'         => 'ids'
+			'fields'         => 'ids',
+			'exclude'        => $exclude
 		);
 
 		if ( is_numeric( $term ) ) {
@@ -169,7 +175,8 @@ class AC_AJAX {
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
 				'post__in'       => array( 0, $term ),
-				'fields'         => 'ids'
+				'fields'         => 'ids',
+				'exclude'        => $exclude
 			);
 
 			$args3 = array(
@@ -177,7 +184,8 @@ class AC_AJAX {
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
 				'post_parent'    => $term,
-				'fields'         => 'ids'
+				'fields'         => 'ids',
+				'exclude'        => $exclude
 			);
 
 			$posts = array_unique( array_merge( get_posts( $args ), get_posts( $args2 ), get_posts( $args3 ) ) );

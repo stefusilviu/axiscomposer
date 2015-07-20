@@ -203,7 +203,7 @@ class AC_AJAX {
 					continue;
 				}
 
-				$found_pages[ $post ] = sprintf( __( '%s &ndash; %s', 'axiscomposer' ), '#' . absint( $page->ID ), wp_kses_post( $page->post_title ) );
+				$found_pages[ $post ] = rawurldecode( sprintf( __( '%s &ndash; %s', 'axiscomposer' ), '#' . absint( $page->ID ), $page->post_title ) );
 			}
 		}
 

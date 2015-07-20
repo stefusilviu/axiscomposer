@@ -9,6 +9,9 @@
  */
 class AC_Unit_Test_Case extends WP_UnitTestCase {
 
+	/** @var \AC_Unit_Test_Factory instance */
+	protected $factory;
+
 	/**
 	 * Setup test case
 	 *
@@ -17,6 +20,9 @@ class AC_Unit_Test_Case extends WP_UnitTestCase {
 	public function setUp() {
 
 		parent::setUp();
+
+		// Add custom factories
+		$this->factory = new AC_Unit_Test_Factory();
 
 		$this->setOutputCallback( array( $this, 'filter_output' ) );
 

@@ -25,6 +25,7 @@ class AC_Shortcodes {
 
 	/**
 	 * @var AC_Shortcodes The single instance of the class
+	 * @since 1.0
 	 */
 	protected static $_instance = null;
 

@@ -5,14 +5,14 @@
  * Provides AxisComposer-specific setup/tear down/assert methods, custom factories,
  * and helper functions
  *
- * @since 1.0
+ * @since 1.0.0
  */
 class AC_Unit_Test_Case extends WP_UnitTestCase {
 
 	/**
 	 * Setup test case
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function setUp() {
 
@@ -30,7 +30,7 @@ class AC_Unit_Test_Case extends WP_UnitTestCase {
 	 * the most template-related tests will fail due to indentation/alignment in
 	 * the template not matching the sample strings set in the tests
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	public function filter_output( $output ) {
 
@@ -63,7 +63,7 @@ class AC_Unit_Test_Case extends WP_UnitTestCase {
 	/**
 	 * Backport assertNotFalse to PHPUnit 3.6.12 which only runs in PHP 5.2
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 * @param  $condition
 	 * @param  string $message
 	 * @return mixed

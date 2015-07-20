@@ -83,6 +83,9 @@ class AC_Unit_Tests_Bootstrap {
 	 */
 	public function includes() {
 
+		// Framework
+		require_once( $this->tests_dir . '/framework/class-ac-unit-test-factory.php' );
+
 		// Test Cases
 		require_once( $this->tests_dir . '/framework/class-ac-unit-test-case.php' );
 	}

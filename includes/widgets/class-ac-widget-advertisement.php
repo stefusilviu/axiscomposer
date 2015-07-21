@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * AC_Widget_Advertisement Class
+ */
 class AC_Widget_Advertisement extends AC_Widget {
 
 	/**

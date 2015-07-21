@@ -3,10 +3,10 @@
  * AxisComposer General Settings
  *
  * @class    AC_Settings_General
+ * @version  1.0.0
  * @package  AxisComposer/Admin
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

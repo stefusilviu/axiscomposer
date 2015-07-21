@@ -5,10 +5,10 @@
  * Handles the building of the Sidebars on the fly.
  *
  * @class    AC_Sidebars
+ * @version  1.0.0
  * @package  AxisComposer/Classes
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -4,9 +4,9 @@
  *
  * Functions for iconfont specific things.
  *
- * @package  AxisComposer/Functions
- * @category Core
  * @author   AxisThemes
+ * @category Core
+ * @package  AxisComposer/Functions
  * @version  1.0.0
  */
 

@@ -2,9 +2,9 @@
 /**
  * AxisComposer Meta Box Functions
  *
- * @package  AxisComposer/Admin/Functions
- * @category Core
  * @author   AxisThemes
+ * @category Core
+ * @package  AxisComposer/Admin/Functions
  * @version  1.0.0
  */
 

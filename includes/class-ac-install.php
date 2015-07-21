@@ -3,10 +3,10 @@
  * Installation related functions and actions.
  *
  * @class    AC_Install
+ * @version  1.0.0
  * @package  AxisComposer/Classes
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

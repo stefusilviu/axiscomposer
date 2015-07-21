@@ -3,10 +3,10 @@
  * Handle frontend scripts.
  *
  * @class    AC_Frontend_Scripts
+ * @version  1.0.0
  * @package  AxisComposer/Classes
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -5,10 +5,10 @@
  * Handles shortcode and loads shortcode methods via hooks.
  *
  * @class    AC_Shortcodes
+ * @version  1.0.0
  * @package  AxisComposer/Classes/Shortcode
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

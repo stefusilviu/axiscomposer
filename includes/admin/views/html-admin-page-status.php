@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $current_tab = ! empty( $_REQUEST['tab'] ) ? sanitize_title( $_REQUEST['tab'] ) : 'status';
+
 ?>
 <div class="wrap axiscomposer">
 	<div class="icon32 icon32-axiscomposer-status" id="icon-axiscomposer"><br /></div><h2 class="nav-tab-wrapper axis-nav-tab-wrapper">

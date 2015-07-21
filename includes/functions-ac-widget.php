@@ -4,9 +4,9 @@
  *
  * Widget related functions and widget registration.
  *
- * @package  AxisComposer/Functions
- * @category Core
  * @author   AxisThemes
+ * @category Core
+ * @package  AxisComposer/Functions
  * @version  1.0.0
  */
 

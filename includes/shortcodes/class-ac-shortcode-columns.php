@@ -5,10 +5,10 @@
  * Note: Main AC_Shortcode_Columns is extended for different class for ease.
  *
  * @extends  AC_Shortcode
+ * @version  1.0.0
  * @package  AxisComposer/Shortcodes
  * @category Shortcodes
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

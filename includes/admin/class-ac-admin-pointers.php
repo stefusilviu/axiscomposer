@@ -3,10 +3,10 @@
  * Adds and controls pointers for contextual help/tutorials.
  *
  * @class    AC_Admin_Pointers
+ * @version  1.0.0
  * @package  AxisComposer/Admin
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

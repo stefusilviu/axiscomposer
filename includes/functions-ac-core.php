@@ -4,9 +4,9 @@
  *
  * General core functions available on both the front-end and admin.
  *
- * @package  AxisComposer/Functions
- * @category Core
  * @author   AxisThemes
+ * @category Core
+ * @package  AxisComposer/Functions
  * @version  1.0.0
  */
 

@@ -2,9 +2,9 @@
 /**
  * Update AC to 1.0.0
  *
- * @package  AxisComposer/Admin/Updates
- * @category Admin
  * @author   AxisThemes
+ * @category Admin
+ * @package  AxisComposer/Admin/Updates
  * @version  1.0.0
  */
 

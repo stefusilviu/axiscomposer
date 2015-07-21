@@ -5,10 +5,10 @@
  * Display the layout data meta box.
  *
  * @class    AC_Meta_Box_Layout_Data
+ * @version  1.0.0
  * @package  AxisComposer/Admin/Meta Boxes
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

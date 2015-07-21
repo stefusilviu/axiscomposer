@@ -4,10 +4,10 @@
  *
  * @class    AC_Widget
  * @extends  WP_Widget
+ * @version  1.0.0
  * @package  AxisComposer/Abstracts
  * @category Widgets
  * @author   AxisThemes
- * @version  1.0.0
  */
 abstract class AC_Widget extends WP_Widget {
 

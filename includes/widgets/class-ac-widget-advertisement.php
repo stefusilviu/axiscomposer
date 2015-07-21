@@ -5,10 +5,10 @@
  * Displays Advertisements Slots widget.
  *
  * @extends  AC_Widget
+ * @version  1.0.0
  * @package  AxisComposer/Widgets
  * @category Widgets
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -73,6 +73,7 @@ class AC_Widget_Advertisement extends AC_Widget {
 	 * widget function.
 	 *
 	 * @see WP_Widget
+	 *
 	 * @param array $args
 	 * @param array $instance
 	 */

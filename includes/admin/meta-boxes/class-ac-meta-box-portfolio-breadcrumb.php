@@ -3,10 +3,10 @@
  * Portfolio Breadcrumb Hierarchy
  *
  * @class    AC_Meta_Box_Portfolio_Breadcrumb
+ * @version  1.0.0
  * @package  AxisComposer/Admin/Meta Boxes
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

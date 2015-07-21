@@ -3,10 +3,10 @@
  * Debug/Status page
  *
  * @class    AC_Admin_Status
+ * @version  1.0.0
  * @package  AxisComposer/Admin/System Status
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

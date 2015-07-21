@@ -5,10 +5,10 @@
  * Handles the Iconfont Upload easily.
  *
  * @class    AC_Iconfont
+ * @version  1.0.0
  * @package  AxisComposer/Classes
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

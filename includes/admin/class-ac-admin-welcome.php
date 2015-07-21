@@ -7,10 +7,10 @@
  * Adapted from code in EDD (Copyright (c) 2012, Pippin Williamson) and WP.
  *
  * @class    AC_Admin_Welcome
+ * @version  1.0.0
  * @package  AxisComposer/Admin
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

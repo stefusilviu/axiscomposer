@@ -3,10 +3,10 @@
  * Post Types Admin
  *
  * @class    AC_Admin_Post_Types
+ * @version  1.0.0
  * @package  AxisComposer/Admin
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

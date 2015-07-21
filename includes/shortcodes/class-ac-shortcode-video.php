@@ -3,10 +3,10 @@
  * Video Shortcode
  *
  * @extends  AC_Shortcode
+ * @version  1.0.0
  * @package  AxisComposer/Shortcodes
  * @category Shortcodes
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

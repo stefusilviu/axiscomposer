@@ -8,7 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-
 <form method="post" action="options.php">
 	<?php settings_fields( 'axiscomposer_status_settings_fields' ); ?>
 	<?php $options = wp_parse_args( get_option( 'axiscomposer_status_options', array() ), array( 'uninstall_data' => 0, 'builder_debug_mode' => 0 ) ); ?>

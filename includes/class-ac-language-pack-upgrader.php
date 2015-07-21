@@ -5,10 +5,10 @@
  * Downloads the last language pack.
  *
  * @class    AC_Language_Pack_Upgrader
- * @package  AxisComposer/Classes/language
+ * @version  1.0.0
+ * @package  AxisComposer/Classes/Language
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

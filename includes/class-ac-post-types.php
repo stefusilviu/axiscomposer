@@ -5,10 +5,10 @@
  * Registers post types and taxonomies.
  *
  * @class    AC_Post_Types
+ * @version  1.0.0
  * @package  AxisComposer/Classes/Portfolio
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div id="message" class="updated axiscomposer-message ac-connect">
 	<p><?php printf( __( '<strong>AxisComposer Translation Available</strong> &#8211; Install or update your <code>%s</code> translation to version <code>%s</code>.', 'axiscomposer' ), get_locale(), AC_VERSION ); ?></p>
-
 	<p>
 		<?php if ( is_multisite() ) : ?>
 			<a href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin.php?page=ac-status&tab=tools&action=translation_upgrade' ), 'debug_action' ) ); ?>" class="button-primary"><?php _e( 'Update Translation', 'axiscomposer' ); ?></a>

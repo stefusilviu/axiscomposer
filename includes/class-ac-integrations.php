@@ -5,10 +5,10 @@
  * Loads Integrations into AxisComposer.
  *
  * @class    AC_Integrations
+ * @version  1.0.0
  * @package  AxisComposer/Classes/Integrations
  * @category Class
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

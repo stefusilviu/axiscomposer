@@ -3,10 +3,10 @@
  * Display notices in admin.
  *
  * @class    AC_Admin_Notices
+ * @version  1.0.0
  * @package  AxisComposer/Admin
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

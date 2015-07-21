@@ -5,10 +5,10 @@
  * Load Admin Assets.
  *
  * @class    AC_Admin_Assets
+ * @version  1.0.0
  * @package  AxisComposer/Admin
  * @category Admin
  * @author   AxisThemes
- * @version  1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

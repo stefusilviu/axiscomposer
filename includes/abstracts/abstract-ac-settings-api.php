@@ -711,12 +711,13 @@ abstract class AC_Settings_API {
 
 		$text  = $this->get_option( $key );
 		$field = $this->get_field_key( $key );
+		$value = trim( stripslashes( $_POST[ $field ] ) );
 
 		if ( isset( $_POST[ $field ] ) ) {
-			$text = ac_clean( stripslashes( $_POST[ $field ] ) );
+			$text = wp_kses_post( $value );
 		}
 
-		return $text;
+		return $text === $value ? $text : '';
 	}
 
 	/**

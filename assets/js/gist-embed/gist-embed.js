@@ -1,6 +1,6 @@
 // author: Blair Vanderhoof
 // https://github.com/blairvanderhoof/gist-embed
-// version 2.1
+// version 2.2
 (function($) {
 
   function getLineNumbers(lineRangeString) {
@@ -80,12 +80,21 @@
           // the html payload is in the div property
           if (response && response.div) {
             // github returns /assets/embed-id.css now, but let's be sure about that
-            if (response.stylesheet && response.stylesheet.indexOf('http') !== 0) {
-              // add leading slash if missing
-              if (response.stylesheet.indexOf('/') !== 0) {
-                response.stylesheet = '/' + response.stylesheet;
+            if (response.stylesheet) {
+              // github passes down html instead of a url for the stylehsheet now
+              // parse off the href
+              if (response.stylesheet.indexOf('<link') === 0) {
+                response.stylesheet =
+                  response.stylesheet
+                    .replace(/\\/g,'')
+                    .match(/href=\"([^\s]*)\"/)[1];
+              } else if (response.stylesheet.indexOf('http') !== 0) {
+                // add leading slash if missing
+                if (response.stylesheet.indexOf('/') !== 0) {
+                  response.stylesheet = '/' + response.stylesheet;
+                }
+                response.stylesheet = 'https://gist.github.com' + response.stylesheet;
               }
-              response.stylesheet = 'https://gist.github.com' + response.stylesheet;
             }
 
             // add the stylesheet if it does not exist
@@ -116,8 +125,8 @@
                 'width': '100%'
               });
 
-              // find all .line divs (acutal code lines) that match the highlightLines and add the highlight class
-              $responseDiv.find('.line').each(function(index) {
+              // find all .js-file-line tds (actual code lines) that match the highlightLines and add the highlight class
+              $responseDiv.find('.js-file-line').each(function(index) {
                 if ($.inArray(index + 1, highlightLineNumbers) !== -1) {
                   $(this).css({
                     'background-color': 'rgb(255, 255, 204)'
@@ -126,21 +135,14 @@
               });
             }
 
-            // if user provided a line param, get the line numbers baesed on the criteria
+            // if user provided a line param, get the line numbers based on the criteria
             if (lines) {
               lineNumbers = getLineNumbers(lines);
 
-              // find all .line divs (acutal code lines) and remove them if they don't exist in the line param
-              $responseDiv.find('.line').each(function(index) {
+              // find all trs containing code lines that don't exist in the line param
+              $responseDiv.find('.js-file-line').each(function(index) {
                 if (($.inArray(index + 1, lineNumbers)) === -1) {
-                  $(this).remove();
-                }
-              });
-
-              // find all .line-number divs (numbers on the gutter) and remove them if they don't exist in the line param
-              $responseDiv.find('.line-number').each(function(index) {
-                if (($.inArray(index + 1, lineNumbers)) === -1) {
-                  $(this).remove();
+                  $(this).parent().remove();
                 }
               });
             }
@@ -156,7 +158,7 @@
 
             // option to remove
             if (hideLineNumbersOption) {
-              $responseDiv.find('.line-numbers').remove();
+              $responseDiv.find('.js-line-number').remove();
             }
 
           } else {

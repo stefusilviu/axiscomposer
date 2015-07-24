@@ -581,7 +581,6 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		return $arguments;
 	}
 
-
 	/**
 	 * Callback for default sortable elements.
 	 */

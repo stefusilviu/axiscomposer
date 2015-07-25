@@ -69,6 +69,9 @@ class AC_AJAX {
 			if ( ! defined( 'DOING_AJAX' ) ) {
 				define( 'DOING_AJAX', true );
 			}
+			if ( ! defined( 'AC_DOING_AJAX' ) ) {
+				define( 'AC_DOING_AJAX', true );
+			}
 			do_action( 'ac_ajax_' . sanitize_text_field( $action ) );
 			die();
 		}

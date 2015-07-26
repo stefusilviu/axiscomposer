@@ -40,7 +40,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		/**
 		 * Shortcode AJAX Events
-		 * @todo Include in AC_AJAX Class as soon.
+		 * @todo Move to AC_AJAX Class.
 		 */
 		$this->shortcode_action();
 

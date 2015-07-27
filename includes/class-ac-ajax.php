@@ -50,7 +50,7 @@ class AC_AJAX {
 		} elseif ( get_option( 'permalink_structure' ) ) {
 			$endpoint = trailingslashit( home_url( '/ac-ajax/' . $request, 'relative' ) );
 		} else {
-			$endpoint = add_query_arg( 'ac-ajax=', $request, trailingslashit( home_url( '', 'relative' ) ) );
+			$endpoint = add_query_arg( $request ? 'ac-ajax' : 'ac-ajax=', $request, trailingslashit( home_url( '', 'relative' ) ) );
 		}
 		return esc_url_raw( $endpoint );
 	}

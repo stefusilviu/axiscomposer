@@ -152,7 +152,7 @@ function ac_get_shortcode_data( $data ) {
 	$pagebuilder_shortcodes = array();
 
 	foreach ( AC()->shortcodes->get_shortcodes() as $load_shortcodes ) {
-		$pagebuilder_shortcodes[] = $load_shortcodes->shortcode[$data];
+		$pagebuilder_shortcodes[] = $load_shortcodes->shortcode[ $data ];
 	}
 
 	return $pagebuilder_shortcodes;

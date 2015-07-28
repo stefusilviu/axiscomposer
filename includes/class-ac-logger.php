@@ -8,6 +8,14 @@
  * @category Class
  * @author   AxisThemes
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * AC_Logger Class
+ */
 class AC_Logger {
 
 	/**

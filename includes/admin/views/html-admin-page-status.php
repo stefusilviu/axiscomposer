@@ -15,7 +15,8 @@ $current_tab = ! empty( $_REQUEST['tab'] ) ? sanitize_title( $_REQUEST['tab'] ) 
 		<?php
 			$tabs = array(
 				'status' => __( 'System Status', 'axiscomposer' ),
-				'tools'  => __( 'Tools', 'axiscomposer' )
+				'tools'  => __( 'Tools', 'axiscomposer' ),
+				'logs'   => __( 'Logs', 'axiscomposer' )
 			);
 			foreach ( $tabs as $name => $label ) {
 				echo '<a href="' . admin_url( 'admin.php?page=ac-status&tab=' . $name ) . '" class="nav-tab ';
@@ -28,6 +29,9 @@ $current_tab = ! empty( $_REQUEST['tab'] ) ? sanitize_title( $_REQUEST['tab'] ) 
 		switch ( $current_tab ) {
 			case "tools" :
 				AC_Admin_Status::status_tools();
+			break;
+			case "logs" :
+				AC_Admin_Status::status_logs();
 			break;
 			default :
 				AC_Admin_Status::status_report();

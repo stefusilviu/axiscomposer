@@ -1,6 +1,6 @@
 <?php
 
-namespace WooCommerce\Tests\Util;
+namespace AxisComposer\Tests\Util;
 
 /**
  * Class Core_Functions

@@ -40,6 +40,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td><?php echo esc_html( AC()->version ); ?></td>
 		</tr>
 		<tr>
+			<td data-export-label="Log Directory Writable"><?php _e( 'Log Directory Writable', 'axiscomposer' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Several AxisComposer extensions can write logs which makes debugging problems easier. The directory must be writable for this to happen.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td><?php
+				if ( @fopen( AC_LOG_DIR . 'test-log.log', 'a' ) ) {
+					echo '<mark class="yes">&#10004; <code>' . AC_LOG_DIR . '</code></mark> ';
+				} else {
+					printf( '<mark class="error">&#10005; ' . __( 'To allow logging, make <code>%s</code> writable or define a custom <code>AC_LOG_DIR</code>.', 'axiscomposer' ) . '</mark>', AC_LOG_DIR );
+				}
+			?></td>
+		</tr>
+		<tr>
 			<td data-export-label="WP Version"><?php _e( 'WP Version', 'axiscomposer' ); ?>:</td>
 			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of WordPress installed on your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
 			<td><?php bloginfo('version'); ?></td>

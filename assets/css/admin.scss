@@ -1559,6 +1559,18 @@ table.ac_status_table {
 	}
 }
 
+#log-viewer-select {
+	padding: 10px 0 8px;
+	line-height: 180%;
+}
+
+#log-viewer {
+	textarea {
+		width: 100%;
+		resize: vertical;
+	}
+}
+
 /**
  * Utility classes
  */

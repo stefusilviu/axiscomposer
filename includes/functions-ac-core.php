@@ -126,6 +126,15 @@ function ac_print_js() {
 }
 
 /**
+ * Get a log file path
+ * @param  string $handle name
+ * @return string the log file path
+ */
+function ac_get_log_file_path( $handle ) {
+	return trailingslashit( AC_LOG_DIR ) . $handle . '-' . sanitize_file_name( wp_hash( $handle ) ) . '.log';
+}
+
+/**
  * Get all available sidebars.
  * @param  array $sidebars
  * @return array

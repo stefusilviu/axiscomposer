@@ -295,6 +295,16 @@ class AC_Install {
 				'base'    => AC_ICONFONT_DIR,
 				'file'    => 'index.html',
 				'content' => ''
+			),
+			array(
+				'base' 		=> AC_LOG_DIR,
+				'file' 		=> '.htaccess',
+				'content' 	=> 'deny from all'
+			),
+			array(
+				'base' 		=> AC_LOG_DIR,
+				'file' 		=> 'index.html',
+				'content' 	=> ''
 			)
 		);
 

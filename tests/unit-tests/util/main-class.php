@@ -47,6 +47,7 @@ class Main_Class extends \AC_Unit_Test_Case {
 		$this->assertEquals( str_replace( 'tests/unit-tests/util/', '', plugin_dir_path( __FILE__ ) ) . 'axiscomposer.php', AC_PLUGIN_FILE );
 
 		$this->assertEquals( $this->ac->version, AC_VERSION );
+		$this->assertNotEquals( AC_LOG_DIR, '' );
 		$this->assertNotEquals( AC_ICONFONT_DIR, '' );
 		$this->assertNotEquals( AC_ICONFONT_URL, '' );
 	}

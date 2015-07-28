@@ -152,4 +152,44 @@ class AC_Admin_Status {
 
 		return apply_filters( 'axiscomposer_debug_tools', $tools );
 	}
+
+	/**
+	 * Show the logs page
+	 */
+	public static function status_logs() {
+
+		$logs = self::scan_log_files();
+
+		if ( ! empty( $_REQUEST['log_file'] ) && isset( $logs[ sanitize_title( $_REQUEST['log_file'] ) ] ) ) {
+			$viewed_log = $logs[ sanitize_title( $_REQUEST['log_file'] ) ];
+		} elseif ( ! empty( $logs ) ) {
+			$viewed_log = current( $logs );
+		}
+
+		include_once( 'views/html-admin-page-status-logs.php' );
+	}
+
+	/**
+	 * Scan the log files
+	 * @return array
+	 */
+	public static function scan_log_files() {
+		$files  = @scandir( AC_LOG_DIR );
+		$result = array();
+
+		if ( $files ) {
+
+			foreach ( $files as $key => $value ) {
+
+				if ( ! in_array( $value, array( '.', '..' ) ) ) {
+					if ( ! is_dir( $value ) && strstr( $value, '.log' ) ) {
+						$result[ sanitize_title( $value ) ] = $value;
+					}
+				}
+			}
+
+		}
+
+		return $result;
+	}
 }

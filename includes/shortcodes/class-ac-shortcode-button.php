@@ -110,6 +110,30 @@ class AC_Shortcode_Button extends AC_Shortcode {
 	 * @return string            Returns the modified html string.
 	 */
 	public function shortcode_handle( $atts, $content = '', $shortcode = '', $meta = '' ) {
+		extract( shortcode_atts( array(
+			'label'         => '',
+			'link'          => '',
+			'size'          => '',
+			'position'      => '',
+			'iconfont'      => ''
+		), $atts, $this->shortcode['name'] ) );
 
+		// Don't display if button label is missing
+		if ( empty( $label ) ) {
+			return;
+		}
+
+		$custom_class = empty( $meta['custom_class'] ) ? '' : $meta['custom_class'];
+
+		ob_start();
+		?>
+		<section class="axiscomposer button-section">
+			<div class="ac-button <?php echo esc_attr( $custom_class ); ?>">
+				<a href="<?php echo esc_attr( $link ); ?>" class="<?php echo esc_attr( $size ); ?> <?php echo esc_attr( $position ); ?>" title="<?php echo esc_attr( $label ); ?>"><?php echo esc_attr( $label ); ?></a>
+			</div>
+		</section>
+		<?php
+
+		return ob_get_clean();
 	}
 }

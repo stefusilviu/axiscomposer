@@ -206,7 +206,7 @@ function do_shortcode_tag_builder( $m ) {
 	$values['content'] = ( $values['closing'] !== false ) ? $m[5] : null;
 
 	if ( isset( $_POST['params']['extract'] ) ) {
-		// If we open a modal winndow check for the nested shortcodes
+		// If we open a modal window check for the nested shortcodes
 		if ( $values['content'] ) {
 			$values['content'] = do_shortcode_builder( $values['content'] );
 		}

@@ -1,8 +1,4 @@
-# [AxisComposer](http://axisthemes.com/axiscomposer/)
-
-[![Build Status](https://img.shields.io/travis/axisthemes/axiscomposer/master.svg?style=flat-square)](https://travis-ci.org/axisthemes/axiscomposer)
-[![Quality Score](https://img.shields.io/scrutinizer/g/axisthemes/axiscomposer.svg?style=flat-square)](https://scrutinizer-ci.com/g/axisthemes/axiscomposer)
-[![Coverage Status](https://img.shields.io/coveralls/axisthemes/axiscomposer.svg?style=flat-square)](https://coveralls.io/r/axisthemes/axiscomposer)
+# [AxisComposer](http://axisthemes.com/axiscomposer/) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Build Status](https://api.travis-ci.org/axisthemes/axiscomposer.svg?branch=master)](http://travis-ci.org/axisthemes/axiscomposer) [![Coverage Status](https://coveralls.io/repos/axisthemes/axiscomposer/badge.svg?branch=master&service=github)](https://coveralls.io/github/axisthemes/axiscomposer?branch=master)
 
 Welcome to the AxisComposer repository on GitHub. Here you can browse the source, look at open issues and keep track of development. We recommend all developers to follow the [AxisComposer development blog](http://dev.axisthemes.com/axiscomposer/) to stay up to date about everything happening in the project. You can also [follow @AxisThemes](https://twitter.com/AxisThemes) on Twitter for the latest development updates from AxisThemes Network.
 

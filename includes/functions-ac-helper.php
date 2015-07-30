@@ -106,7 +106,7 @@ function ac_shortcode_data( $name, $content = null, $args = array() ) {
 	}
 
 	$_shortcode .= "\n\n";
-	// $_shortcode = str_replace('\n', '', $_shortcode );
+	// $_shortcode = str_replace( '\n', '', $_shortcode );
 
 	return $_shortcode;
 }

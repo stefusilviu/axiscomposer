@@ -68,11 +68,11 @@ class AC_Admin_Help {
 
 		$screen->set_help_sidebar(
 			'<p><strong>' . __( 'For more information:', 'axiscomposer' ) . '</strong></p>' .
-			'<p><a href="' . 'http://axisthemes.com/axiscomposer/' . '" target="_blank">' . __( 'About AxisComposer', 'axiscomposer' ) . '</a></p>' .
+			'<p><a href="' . 'http://www.axisthemes.com/axiscomposer/' . '" target="_blank">' . __( 'About AxisComposer', 'axiscomposer' ) . '</a></p>' .
 			'<p><a href="' . 'http://wordpress.org/extend/plugins/axiscomposer/' . '" target="_blank">' . __( 'WordPress.org Project', 'axiscomposer' ) . '</a></p>' .
 			'<p><a href="' . 'https://github.com/axisthemes/axiscomposer' . '" target="_blank">' . __( 'Github Project', 'axiscomposer' ) . '</a></p>' .
-			'<p><a href="' . 'http://axisthemes.com/product-category/themes/axiscomposer/' . '" target="_blank">' . __( 'Official Themes', 'axiscomposer' ) . '</a></p>' .
-			'<p><a href="' . 'http://axisthemes.com/product-category/extensions/axiscomposer/' . '" target="_blank">' . __( 'Official Extensions', 'axiscomposer' ) . '</a></p>'
+			'<p><a href="' . 'http://www.axisthemes.com/product-category/themes/axiscomposer/' . '" target="_blank">' . __( 'Official Themes', 'axiscomposer' ) . '</a></p>' .
+			'<p><a href="' . 'http://www.axisthemes.com/product-category/extensions/axiscomposer/' . '" target="_blank">' . __( 'Official Extensions', 'axiscomposer' ) . '</a></p>'
 		);
 	}
 }

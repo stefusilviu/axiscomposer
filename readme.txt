@@ -14,7 +14,7 @@ AxisComposer is a powerful, extendable page builder plugin that helps you compos
 
 Take full control over your WordPress website, build any page layout you can imagine smartly with the help of drag and drop interface. Delivering enterprise-level quality and features, backed by a name you can trust. Say "hello" to the AxisComposer plugin.
 
-AxisComposer is built by the experienced folk at AxisThemes who also offer premium [WordPress themes](http://axisthemes.com/product-category/themes/ "WordPress themes from AxisThemes") and [AxisComposer extensions](http://axisthemes.com/product-category/axiscomposer-extensions/ "AxisComposer extensions from AxisThemes") to further enhance your WordPress website.
+AxisComposer is built by the experienced folk at AxisThemes who also offer premium [WordPress themes](http://www.axisthemes.com/product-category/themes/ "WordPress themes from AxisThemes") and [AxisComposer extensions](http://www.axisthemes.com/product-category/axiscomposer-extensions/ "AxisComposer extensions from AxisThemes") to further enhance your WordPress website.
 
 = Strength & flexibility =
 AxisComposer is built using WordPress best practises both on the front and the back end. This results in an efficient, robust and intuitive plugin.

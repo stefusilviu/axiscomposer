@@ -286,7 +286,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( strstr( $dirname, 'axiscomposer-' ) && strstr( $plugin_data['PluginURI'], 'axisthemes.com' ) ) {
 
 					if ( false === ( $version_data = get_transient( md5( $plugin ) . '_version_data' ) ) ) {
-						$changelog = wp_safe_remote_get( 'http://axisthemes.com/changelogs/' . $dirname . '/changelog.txt' );
+						$changelog = wp_safe_remote_get( 'http://www.axisthemes.com/changelogs/' . $dirname . '/changelog.txt' );
 						$cl_lines  = explode( "\n", wp_remote_retrieve_body( $changelog ) );
 						if ( ! empty( $cl_lines ) ) {
 							foreach ( $cl_lines as $line_num => $cl_line ) {
@@ -366,7 +366,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$theme_dir = substr( strtolower( str_replace( ' ','', $active_theme->Name ) ), 0, 45 );
 
 			if ( false === ( $theme_version_data = get_transient( $theme_dir . '_version_data' ) ) ) {
-				$theme_changelog = wp_safe_remote_get( 'http://axisthemes.com/changelogs/' . $theme_dir . '/changelog.txt' );
+				$theme_changelog = wp_safe_remote_get( 'http://www.axisthemes.com/changelogs/' . $theme_dir . '/changelog.txt' );
 				$cl_lines  = explode( "\n", wp_remote_retrieve_body( $theme_changelog ) );
 				if ( ! empty( $cl_lines ) ) {
 					foreach ( $cl_lines as $line_num => $cl_line ) {

@@ -76,15 +76,11 @@ class AC_Install {
 
 		self::create_options();
 		self::create_roles();
+		self::create_files();
 
 		// Register post types
 		AC_Post_Types::register_post_types();
 		AC_Post_Types::register_taxonomies();
-
-		// Also register endpoints - this needs to be done prior to rewrite rule flush
-		AC_AJAX::add_endpoint();
-
-		self::create_files();
 
 		// Queue upgrades/setup wizard
 		$current_ac_version = get_option( 'axiscomposer_version', null );

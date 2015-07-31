@@ -24,19 +24,8 @@ class AC_AJAX {
 	 * Hooks in ajax handlers
 	 */
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'add_endpoint' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'do_ac_ajax' ), 0 );
-
 		self::add_ajax_events();
-	}
-
-	/**
-	 * Add our endpoint for frontend ajax requests
-	 */
-	public static function add_endpoint() {
-		add_rewrite_tag( '%ac-ajax%', '([^/]*)' );
-		add_rewrite_rule( 'ac-ajax/([^/]*)/?', 'index.php?ac-ajax=$matches[1]', 'top' );
-		add_rewrite_rule( 'index.php/ac-ajax/([^/]*)/?', 'index.php?ac-ajax=$matches[1]', 'top' );
 	}
 
 	/**
@@ -45,14 +34,7 @@ class AC_AJAX {
 	 * @return string
 	 */
 	public static function get_endpoint( $request = '' ) {
-		if ( strstr( get_option( 'permalink_structure' ), '/index.php/' ) ) {
-			$endpoint = trailingslashit( home_url( '/index.php/ac-ajax/' . $request, 'relative' ) );
-		} elseif ( get_option( 'permalink_structure' ) ) {
-			$endpoint = trailingslashit( home_url( '/ac-ajax/' . $request, 'relative' ) );
-		} else {
-			$endpoint = add_query_arg( $request ? 'ac-ajax' : 'ac-ajax=', $request, trailingslashit( home_url( '', 'relative' ) ) );
-		}
-		return esc_url_raw( $endpoint );
+		return esc_url_raw( add_query_arg( 'ac-ajax', $request ) );
 	}
 
 	/**

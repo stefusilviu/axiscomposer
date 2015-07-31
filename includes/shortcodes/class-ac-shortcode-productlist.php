@@ -33,13 +33,17 @@ class AC_Shortcode_Productlist extends AC_Shortcode {
 		$this->method_title       = __( 'Product List', 'axiscomposer' );
 		$this->method_description = __( 'Displays a list of Product Entries', 'axiscomposer' );
 		$this->shortcode = array(
-			'sort'    => 520,
-			'type'    => 'plugin',
-			'name'    => 'ac_productlist',
-			'icon'    => 'icon-productlist',
-			'image'   => AC()->plugin_url() . '/assets/images/plugin/productlist.png', // Fallback if icon is missing :)
-			'target'  => 'ac-target-insert',
-			'tinyMCE' => array( 'disable' => false ),
+			'sort'     => 520,
+			'type'     => 'plugin',
+			'name'     => 'ac_productlist',
+			'icon'     => 'icon-productlist',
+			'image'    => AC()->plugin_url() . '/assets/images/plugin/productlist.png', // Fallback if icon is missing :)
+			'target'   => 'ac-target-insert',
+			'tinyMCE'  => array( 'disable' => false ),
+			'specific' => array(
+				'screen' => array( 'product' ),
+				'notice' => __( 'This element can only be used on single product pages.', 'axiscomposer' )
+			)
 		);
 	}
 

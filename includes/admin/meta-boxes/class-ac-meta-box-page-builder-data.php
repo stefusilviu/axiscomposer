@@ -113,17 +113,24 @@ class AC_Meta_Box_Page_Builder_Data {
 			if ( empty( $load_shortcodes->shortcode['invisible'] ) ) {
 
 				if ( $type === $load_shortcodes->shortcode['type'] ) {
+					$screen = get_current_screen();
 
 					// Fetch shortcode data
 					$title     = $load_shortcodes->method_title;
 					$tooltip   = $load_shortcodes->method_description;
 					$shortcode = $load_shortcodes->shortcode;
 
+					// Specific Screen Shortcode
+					if ( isset( $screen->id ) && isset( $shortcode['specific']['screen'] ) && ! in_array( $screen->id, $shortcode['specific']['screen'] ) ) {
+						$shortcode['class'] .= empty( $shortcode['class'] ) ? 'specific-shortcode' : ' specific-shortcode';
+						$tooltip = isset( $shortcode['specific']['notice'] ) ? $shortcode['specific']['notice'] : __( 'Current screen doesn\'t support this shortcode element =/', 'axiscomposer' );
+					}
+
 					// Fallback if icon is missing =/
 					$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
 
 					// Create a button Link
-					echo '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode help_tip ' . $shortcode['class'] . $shortcode['target'] . '" data-dragdrop-level="' . $shortcode['drag-level'] . '" data-tip="' . ac_sanitize_tooltip( $tooltip ) . '">' . $shortcode_icon . '<span>' . $title. '</span></a>';
+					echo '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode help_tip ' . esc_attr( $shortcode['class'] ) . ' ' . esc_attr( $shortcode['target'] ) . '" data-dragdrop-level="' . esc_attr( $shortcode['drag-level'] ) . '" data-tip="' . ac_sanitize_tooltip( $tooltip ) . '">' . $shortcode_icon . '<span>' . wp_kses_post( $title ) . '</span></a>';
 				}
 			}
 		}

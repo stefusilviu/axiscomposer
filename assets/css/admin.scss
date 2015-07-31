@@ -483,6 +483,16 @@ label[for="axiscomposer-pagebuilder-hide"] {
 		background: rgba(255,255,255,0.7);
 		padding-top: 1px;
 	}
+
+	&.specific-shortcode {
+		opacity: 0.7;
+		cursor: help;
+		background-color: #fafafa;
+
+		span {
+			background: none;
+		}
+	}
 }
 
 /**

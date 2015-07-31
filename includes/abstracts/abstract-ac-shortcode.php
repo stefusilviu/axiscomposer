@@ -360,8 +360,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		// Load the default shortcode data.
 		foreach ( $load_shortcode_data as $key => $data ) {
-			if ( empty( $this->shortcode[$key] ) ) {
-				$this->shortcode[$key] = $data;
+			if ( empty( $this->shortcode[ $key ] ) ) {
+				$this->shortcode[ $key ] = $data;
 			}
 		}
 

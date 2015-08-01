@@ -484,10 +484,14 @@ label[for="axiscomposer-pagebuilder-hide"] {
 		padding-top: 1px;
 	}
 
-	&.specific-shortcode {
+	&.disabled-shortcode {
 		opacity: 0.7;
 		cursor: help;
 		background-color: #fafafa;
+
+		img {
+			pointer-events: none;
+		}
 
 		span {
 			background: none;

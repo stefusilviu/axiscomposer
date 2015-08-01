@@ -180,6 +180,11 @@ jQuery( function( $ ) {
 		},
 
 		add_element: function() {
+			// Prevent if we have disabled shortcode
+			if ( $( this ).is( '.disabled-shortcode' ) ) {
+				return;
+			}
+
 			var shortcode     = this.hash.replace( '#', '' ),
 				element_tmpl  = $( '#tmpl-axiscomposer-' + shortcode ),
 				insert_target = 'instant-insert'; // ( this.className.indexOf( 'ac-target-insert' ) !== -1 ) ? 'target_insert' : 'instant_insert',
@@ -757,7 +762,7 @@ jQuery( function( $ ) {
 
 				// Draggable
 				$( '#axiscomposer-pagebuilder' ).find( '.ac-drag' ).not( '.ui-draggable' ).draggable( data );
-				$( '#axiscomposer-pagebuilder' ).find( '.insert-shortcode' ).not( '.ui-draggable' ).draggable(
+				$( '#axiscomposer-pagebuilder' ).find( '.insert-shortcode' ).not( '.ui-draggable, .disabled-shortcode' ).draggable(
 					$.extend( {}, data, {
 						handle: false,
 						cursorAt: {

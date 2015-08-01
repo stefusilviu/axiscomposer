@@ -120,9 +120,9 @@ class AC_Meta_Box_Page_Builder_Data {
 					$tooltip   = $load_shortcodes->method_description;
 					$shortcode = $load_shortcodes->shortcode;
 
-					// Specific Screen Shortcode
+					// Specific screen shortcode
 					if ( isset( $screen->id ) && isset( $shortcode['specific']['screen'] ) && ! in_array( $screen->id, $shortcode['specific']['screen'] ) ) {
-						$shortcode['class'] .= empty( $shortcode['class'] ) ? 'specific-shortcode' : ' specific-shortcode';
+						$shortcode['class'] .= empty( $shortcode['class'] ) ? 'disabled-shortcode' : ' disabled-shortcode';
 						$tooltip = isset( $shortcode['specific']['notice'] ) ? $shortcode['specific']['notice'] : __( 'Current screen doesn\'t support this shortcode element =/', 'axiscomposer' );
 					}
 

@@ -1,6 +1,21 @@
 /* global axiscomposer_admin_meta_boxes_pagebuilder, quicktags, QTags */
 jQuery( function ( $ ) {
 
+	// Run tipTip
+	function runTipTip() {
+		// Remove any lingering tooltips
+		$( '#tiptip_holder' ).removeAttr( 'style' );
+		$( '#tiptip_arrow' ).removeAttr( 'style' );
+		$( '.tips' ).tipTip({
+			'attribute': 'data-tip',
+			'fadeIn': 50,
+			'fadeOut': 50,
+			'delay': 200
+		});
+	}
+
+	runTipTip();
+
 	// Field validation error tips
 	$( document.body )
 		.on( 'ac_add_error_tip', function( e, element, error_type ) {
@@ -47,15 +62,6 @@ jQuery( function ( $ ) {
 				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_gist_error' ] );
 			}
 		});
-
-	// Tooltips
-	var tiptip_args = {
-		'attribute' : 'data-tip',
-		'fadeIn' : 50,
-		'fadeOut' : 50,
-		'delay' : 200
-	};
-	$( '.tips, .help_tip' ).tipTip( tiptip_args );
 
 	// Tabbed Panels
 	$( document.body ).on( 'ac-init-tabbed-panels', function() {

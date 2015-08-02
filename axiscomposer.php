@@ -6,7 +6,7 @@
  * Version: 1.0.0-alpha-1
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
- * Requires at least: 4.0
+ * Requires at least: 4.2
  * Tested up to: 4.2
  *
  * Text Domain: axiscomposer

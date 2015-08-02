@@ -65,14 +65,14 @@ class AC_Shortcode_Calltoaction extends AC_Shortcode {
 			),
 			'cta_maintext' => array(
 				'title'             => __( 'CTA Main Text', 'axiscomposer' ),
-				'description'       => __( 'Enter main text description for call to action.' ),
+				'description'       => __( 'Enter main text description for call to action.', 'axiscomposer' ),
 				'type'              => 'text',
 				'desc_tip'          => true,
 				'default'           => ''
 			),
 			'cta_extratext' => array(
 				'title'             => __( 'CTA Addtional Text', 'axiscomposer' ),
-				'description'       => __( 'Enter addtional text description for call to action.' ),
+				'description'       => __( 'Enter addtional text description for call to action.', 'axiscomposer' ),
 				'type'              => 'text',
 				'desc_tip'          => true,
 				'default'           => ''

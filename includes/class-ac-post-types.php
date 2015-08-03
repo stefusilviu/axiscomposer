@@ -27,6 +27,7 @@ class AC_Post_Types {
 		add_action( 'init', array( __CLASS__, 'register_taxonomies' ), 5 );
 		add_action( 'init', array( __CLASS__, 'register_post_types' ), 5 );
 		add_action( 'init', array( __CLASS__, 'support_jetpack_omnisearch' ) );
+		add_action( 'rest_api_allowed_post_types', array( __CLASS__, 'rest_api_allowed_post_types' ) );
 	}
 
 	/**
@@ -190,6 +191,16 @@ class AC_Post_Types {
 		if ( class_exists( 'Jetpack_Omnisearch_Posts' ) ) {
 			new Jetpack_Omnisearch_Posts( 'portfolio' );
 		}
+	}
+
+	/**
+	 * Added portfolio for Jetpack related posts.
+	 * @param  array $post_types
+	 * @return array
+	 */
+	public static function rest_api_allowed_post_types( $post_types ) {
+		$post_types[] = 'portfolio';
+		return $post_types;
 	}
 }
 

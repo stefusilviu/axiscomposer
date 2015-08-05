@@ -146,7 +146,6 @@ class AC_Admin_Meta_Boxes {
 		}
 
 		// We need this save event to run once to avoid potential endless loops. This would have been perfect:
-		//	remove_action( current_filter(), __METHOD__ );
 		self::$saved_meta_boxes = true;
 
 		// Check the post type

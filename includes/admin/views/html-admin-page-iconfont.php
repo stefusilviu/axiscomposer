@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="axiscomposer-iconfont" class="wrap">
 	<h2>
 		<?php _e( 'Iconfont Manager', 'axiscomposer' ); ?>
-		<a href="#add-iconfont" id="btn-ok" class="add-new-h2 add-iconfont" data-choose="<?php _e( 'Choose a Font ZIP File', 'axiscomposer' ) ?>" data-update="<?php _e( 'Insert Font Zip File', 'axiscomposer' ) ?>" data-mime="application/zip, application/octet-stream" data-target="iconfont_upload" data-trigger="insert_iconfont_zip">
+		<a href="#add-iconfont" id="btn-ok" class="add-new-h2 add-iconfont" data-choose="<?php esc_attr_e( 'Choose a Font ZIP File', 'axiscomposer' ) ?>" data-update="<?php esc_attr_e( 'Insert Font Zip File', 'axiscomposer' ) ?>" data-mime="application/zip, application/octet-stream" data-target="iconfont_upload" data-trigger="insert_iconfont_zip">
 		<?php _e( 'Add New', 'axiscomposer' ); ?>
 		</a> &nbsp;<span class="spinner"></span>
 	</h2>

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<form class="axiscomposer-add-sidebar" action="<?php echo self_admin_url( 'widgets.php' ); ?>" method="post">
 		<h3><?php _e( 'Custom Widget Area Builder', 'axiscomposer' ) ?></h3>
 		<?php wp_nonce_field( 'axiscomposer_add_sidebar', '_ac_sidebar_nonce' ); ?>
-		<input name="axiscomposer-add-sidebar" type="text" id="axiscomposer-add-sidebar" class="widefat" autocomplete="off" value="" placeholder="<?php _e( 'Enter New Widget Area Name', 'axiscomposer' ) ?>" />
+		<input name="axiscomposer-add-sidebar" type="text" id="axiscomposer-add-sidebar" class="widefat" autocomplete="off" value="" placeholder="<?php esc_attr_e( 'Enter New Widget Area Name', 'axiscomposer' ) ?>" />
 		<?php submit_button( __( 'Add Widget Area', 'axiscomposer' ), 'button button-primary button-large', 'add-sidebar-submit', false ); ?>
 	</form>
 </script>

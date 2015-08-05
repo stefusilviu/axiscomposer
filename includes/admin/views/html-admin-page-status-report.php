@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<a class="button-secondary docs" href="http://docs.axisthemes.com/document/understanding-the-axiscomposer-system-status-report/" target="_blank"><?php _e( 'Understanding the Status Report', 'axiscomposer' ); ?></a></p>
 	<div id="debug-report">
 		<textarea readonly="readonly"></textarea>
-		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php _e( 'Copied!', 'axiscomposer' ); ?>"><?php _e( 'Copy for Support', 'axiscomposer' ); ?></button></p>
+		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php esc_attr_e( 'Copied!', 'axiscomposer' ); ?>"><?php esc_attr_e( 'Copy for Support', 'axiscomposer' ); ?></button></p>
 	</div>
 </div>
 <table class="ac_status_table widefat" cellspacing="0" id="status">
@@ -280,7 +280,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$plugin_name = esc_html( $plugin_data['Name'] );
 
 				if ( ! empty( $plugin_data['PluginURI'] ) ) {
-					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage' , 'axiscomposer' ) . '" target="_blank">' . $plugin_name . '</a>';
+					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . esc_attr__( 'Visit plugin homepage' , 'axiscomposer' ) . '" target="_blank">' . $plugin_name . '</a>';
 				}
 
 				if ( strstr( $dirname, 'axiscomposer-' ) && strstr( $plugin_data['PluginURI'], 'axisthemes.com' ) ) {

@@ -57,7 +57,7 @@ class AC_Admin_Permalink_Settings {
 	public function portfolio_category_slug_input() {
 		$permalinks = get_option( 'axiscomposer_permalinks' );
 		?>
-		<input name="axiscomposer_portfolio_category_slug" type="text" class="regular-text code" value="<?php if ( isset( $permalinks['category_base'] ) ) echo esc_attr( $permalinks['category_base'] ); ?>" placeholder="<?php echo _x( 'portfolio-category', 'slug', 'axiscomposer') ?>" />
+		<input name="axiscomposer_portfolio_category_slug" type="text" class="regular-text code" value="<?php if ( isset( $permalinks['category_base'] ) ) echo esc_attr( $permalinks['category_base'] ); ?>" placeholder="<?php echo esc_attr_x( 'portfolio-category', 'slug', 'axiscomposer') ?>" />
 		<?php
 	}
 
@@ -67,7 +67,7 @@ class AC_Admin_Permalink_Settings {
 	public function portfolio_tag_slug_input() {
 		$permalinks = get_option( 'axiscomposer_permalinks' );
 		?>
-		<input name="axiscomposer_portfolio_tag_slug" type="text" class="regular-text code" value="<?php if ( isset( $permalinks['tag_base'] ) ) echo esc_attr( $permalinks['tag_base'] ); ?>" placeholder="<?php echo _x( 'portfolio-tag', 'slug', 'axiscomposer' ) ?>" />
+		<input name="axiscomposer_portfolio_tag_slug" type="text" class="regular-text code" value="<?php if ( isset( $permalinks['tag_base'] ) ) echo esc_attr( $permalinks['tag_base'] ); ?>" placeholder="<?php echo esc_attr_x( 'portfolio-tag', 'slug', 'axiscomposer' ) ?>" />
 		<?php
 	}
 

@@ -29,7 +29,7 @@ class AC_Meta_Box_Portfolio_Breadcrumb {
 			<p class="form-field">
 				<label for="breadcrumb_parent"><?php _e( 'Breadcrumb Parent Page', 'axiscomposer' ) ?></label>
 				<span class="description side"><?php _e( 'Select a parent page for this entry. If no page is selected then session data will be used to build the breadcrumb.', 'axiscomposer' ); ?></span>
-				<input type="hidden" class="ac-page-search" id="breadcrumb_parent" name="breadcrumb_parent" data-placeholder="<?php _e( 'Search for a page&hellip;', 'axiscomposer' ); ?>" data-action="axiscomposer_json_search_pages" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
+				<input type="hidden" class="ac-page-search" id="breadcrumb_parent" name="breadcrumb_parent" data-placeholder="<?php esc_attr_e( 'Search for a page&hellip;', 'axiscomposer' ); ?>" data-action="axiscomposer_json_search_pages" data-allow_clear="true" data-multiple="false" data-exclude="<?php echo intval( $post->ID ); ?>" data-selected="<?php
 					$page_id = absint( get_post_meta( $post->ID, '_breadcrumb_parent', true ) );
 
 					if ( $page_id ) {

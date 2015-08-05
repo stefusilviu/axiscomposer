@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<p class="submit">
 			<?php if ( ! isset( $GLOBALS['hide_save_button'] ) ) : ?>
-				<input name="save" class="button-primary" type="submit" value="<?php _e( 'Save changes', 'axiscomposer' ); ?>" />
+				<input name="save" class="button-primary" type="submit" value="<?php esc_attr_e( 'Save changes', 'axiscomposer' ); ?>" />
 			<?php endif; ?>
 			<input type="hidden" name="subtab" id="last_tab" />
 			<?php wp_nonce_field( 'axiscomposer-settings' ); ?>

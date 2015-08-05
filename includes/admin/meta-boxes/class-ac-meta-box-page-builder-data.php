@@ -77,15 +77,15 @@ class AC_Meta_Box_Page_Builder_Data {
 			<div id="axiscomposer-handle" class="handle-bar">
 				<div class="control-bar">
 					<div class="history-sections">
-						<div class="history-action help_tip" data-tip="<?php _e( 'History', 'axiscomposer' ); ?>">
-							<a href="#undo" class="undo-icon undo-data" title="<?php _e( 'Undo', 'axiscomposer' ); ?>"></a>
-							<a href="#redo" class="redo-icon redo-data" title="<?php _e( 'Redo', 'axiscomposer' ); ?>"></a>
+						<div class="history-action help_tip" data-tip="<?php esc_attr_e( 'History', 'axiscomposer' ); ?>">
+							<a href="#undo" class="undo-icon undo-data" title="<?php esc_attr_e( 'Undo', 'axiscomposer' ); ?>"></a>
+							<a href="#redo" class="redo-icon redo-data" title="<?php esc_attr_e( 'Redo', 'axiscomposer' ); ?>"></a>
 						</div>
-						<div class="delete-action help_tip" data-tip="<?php _e( 'Permanently delete all canvas elements', 'axiscomposer' ); ?>">
+						<div class="delete-action help_tip" data-tip="<?php esc_attr_e( 'Permanently delete all canvas elements', 'axiscomposer' ); ?>">
 							<a href="#trash" class="trash-icon trash-data"></a>
 						</div>
 					</div>
-					<div class="template-sections help_tip" data-tip="<?php _e( 'Save or Load the Page Builder Templates', 'axiscomposer' ); ?>">
+					<div class="template-sections help_tip" data-tip="<?php esc_attr_e( 'Save or Load the Page Builder Templates', 'axiscomposer' ); ?>">
 						<a href="#template" class="button-secondary"><?php _e( 'Templates', 'axiscomposer' ); ?></a>
 					</div>
 				</div>
@@ -160,7 +160,7 @@ class AC_Meta_Box_Page_Builder_Data {
 
 		foreach ( $shortcode_modal_tmpl as $key => $template ) {
 			?>
-			<script type="text/template" id="tmpl-axiscomposer-modal-<?php echo esc_attr( $template['tmpl'] ); ?>">
+			<script type="text/template" id="tmpl-axiscomposer-modal-<?php esc_attr_e( $template['tmpl'] ); ?>">
 				<div class="ac-backbone-modal">
 					<div class="ac-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="ac-backbone-modal-main" role="main">
@@ -184,9 +184,9 @@ class AC_Meta_Box_Page_Builder_Data {
 							<footer class="ac-backbone-modal-footer">
 								<div class="inner">
 									<% if ( dismiss ) { %>
-										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axiscomposer' ); ?></button>
+										<button class="button button-large button-secondary modal-close"><?php esc_attr_e( 'Dismiss' , 'axiscomposer' ); ?></button>
 									<% } else { %>
-										<button id="btn-ok" class="button button-large button-primary"><?php echo esc_html( $template['button'] ); ?></button>
+										<button id="btn-ok" class="button button-large button-primary"><?php esc_html_e( $template['button'] ); ?></button>
 									<% } %>
 								</div>
 							</footer>

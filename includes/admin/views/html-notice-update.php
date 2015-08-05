@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <script type="text/javascript">
 	jQuery( '.ac-update-now' ).click( 'click', function() {
-		var answer = confirm( '<?php _e( 'It is strongly recommended that you backup your database before proceeding. Are you sure you wish to run the updater now?', 'axiscomposer' ); ?>' );
-		return answer;
+		return window.confirm( '<?php echo esc_js( __( 'It is strongly recommended that you backup your database before proceeding. Are you sure you wish to run the updater now?', 'axiscomposer' ) ); ?>' );
 	});
 </script>

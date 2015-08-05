@@ -184,7 +184,7 @@ class AC_Meta_Box_Page_Builder_Data {
 							<footer class="ac-backbone-modal-footer">
 								<div class="inner">
 									<% if ( dismiss ) { %>
-										<button class="button button-large button-secondary modal-close"><?php esc_attr_e( 'Dismiss' , 'axiscomposer' ); ?></button>
+										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axiscomposer' ); ?></button>
 									<% } else { %>
 										<button id="btn-ok" class="button button-large button-primary"><?php esc_html_e( $template['button'] ); ?></button>
 									<% } %>

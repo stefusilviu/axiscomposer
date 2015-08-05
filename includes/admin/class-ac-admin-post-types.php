@@ -138,23 +138,23 @@ class AC_Admin_Post_Types {
 			) );
 
 			if ( is_pagebuilder_active( $post->ID ) ) {
-				$active_label = $params['default_label'];
+				$button_label = $params['default_label'];
 				$button_class = 'button-secondary';
 				$editor_class = 'ac-hidden-editor';
 			} elseif ( $params['disabled'] ) {
-				$active_label = $params['disable_label'];
+				$button_label = $params['disable_label'];
 				$button_class = 'button-secondary disabled';
 				$editor_class = 'ac-visible-editor';
 			} else {
-				$active_label = $params['builder_label'];
+				$button_label = $params['builder_label'];
 				$button_class = 'button-primary';
 				$editor_class = 'ac-visible-editor';
 			}
 
-			echo '<a href="#" id="_toggle_editor" class="button button-large ' . $button_class . ' axiscomposer-toggle-editor" data-builder="' . $params['builder_label'] . '" data-editor="' . $params['default_label'] . '">' . $active_label . '</a>';
+			echo '<a href="#" id="_toggle_editor" class="button button-large ' . $button_class . ' axiscomposer-toggle-editor" data-builder="' . esc_attr( $params['builder_label'] ) . '" data-editor="' . esc_attr( $params['default_label'] ) . '">' . esc_attr( $button_label ) . '</a>';
 			echo '<div id="postdivrich_wrap" class="axiscomposer ' . $editor_class . '">';
 			if ( $params['notice'] ) {
-				echo '<div class="ac_plugin_display_notice">' . $params['notice'] . '</div>';
+				echo '<div class="ac_plugin_display_notice">' . esc_attr( $params['notice'] ) . '</div>';
 			}
 		}
 	}

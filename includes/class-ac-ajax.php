@@ -24,6 +24,7 @@ class AC_AJAX {
 	 * Hooks in ajax handlers
 	 */
 	public static function init() {
+		add_action( 'init', array( __CLASS__, 'define_ajax'), 0 );
 		add_action( 'template_redirect', array( __CLASS__, 'do_ac_ajax' ), 0 );
 		self::add_ajax_events();
 	}
@@ -38,6 +39,21 @@ class AC_AJAX {
 	}
 
 	/**
+	 * Set AJAX defines.
+	 */
+	public static function define_ajax() {
+
+		if ( ! empty( $_GET['ac-ajax'] ) ) {
+			if ( ! defined( 'DOING_AJAX' ) ) {
+				define( 'DOING_AJAX', true );
+			}
+			if ( ! defined( 'AC_DOING_AJAX' ) ) {
+				define( 'AC_DOING_AJAX', true );
+			}
+		}
+	}
+
+	/**
 	 * Check for AC Ajax request and fire action
 	 */
 	public static function do_ac_ajax() {
@@ -48,12 +64,6 @@ class AC_AJAX {
 		}
 
 		if ( $action = $wp_query->get( 'ac-ajax' ) ) {
-			if ( ! defined( 'DOING_AJAX' ) ) {
-				define( 'DOING_AJAX', true );
-			}
-			if ( ! defined( 'AC_DOING_AJAX' ) ) {
-				define( 'AC_DOING_AJAX', true );
-			}
 			do_action( 'ac_ajax_' . sanitize_text_field( $action ) );
 			die();
 		}

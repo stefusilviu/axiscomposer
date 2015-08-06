@@ -214,8 +214,10 @@ jQuery( function( $ ) {
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				title: parents.data( 'modal-title' ),
-				template: '#tmpl-axiscomposer-modal-edit-element'
+				template: 'axiscomposer-modal-edit-element',
+				variable: {
+					title: parents.data( 'modal-title' )
+				}
 			});
 
 			return false;
@@ -324,10 +326,12 @@ jQuery( function( $ ) {
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_title,
-				message: ( length > 0 ) ? axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_notice : axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_least,
-				dismiss: ( length > 0 ) ? false : true,
-				template: '#tmpl-axiscomposer-modal-trash-data'
+				template: 'axiscomposer-modal-trash-data',
+				variable: {
+					title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_title,
+					message: ( length > 0 ) ? axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_notice : axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_least,
+					dismiss: ( length > 0 ) ? false : true
+				}
 			});
 
 			return false;
@@ -939,10 +943,12 @@ jQuery( function( $ ) {
 
 				// AxisComposer Backbone Modal
 				$( this ).ACBackboneModal({
-					title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_select_cell_layout,
-					message: notification,
-					dismiss: cell_size_variations ? false : true,
-					template: '#tmpl-axiscomposer-modal-cell-size'
+					template: 'axiscomposer-modal-cell-size',
+					variable: {
+						title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_select_cell_layout,
+						message: notification,
+						dismiss: cell_size_variations ? false : true
+					}
 				});
 
 				return false;
@@ -1020,7 +1026,7 @@ jQuery( function( $ ) {
 		backbone: {
 
 			init: function( e, target ) {
-				if ( '#tmpl-axiscomposer-modal-edit-element' === target ) {
+				if ( 'axiscomposer-modal-edit-element' === target ) {
 					ac_meta_boxes_pagebuilder.backbone.init_edit_element();
 				}
 			},
@@ -1088,13 +1094,13 @@ jQuery( function( $ ) {
 			},
 
 			response: function( e, target, data ) {
-				if ( '#tmpl-axiscomposer-modal-trash-data' === target ) {
+				if ( 'axiscomposer-modal-trash-data' === target ) {
 					ac_meta_boxes_pagebuilder.backbone.trash_data();
 				}
-				if ( '#tmpl-axiscomposer-modal-cell-size' === target ) {
+				if ( 'axiscomposer-modal-cell-size' === target ) {
 					ac_meta_boxes_pagebuilder.backbone.cell_size( data.add_cell_size );
 				}
-				if ( '#tmpl-axiscomposer-modal-edit-element' === target ) {
+				if ( 'axiscomposer-modal-edit-element' === target ) {
 					ac_meta_boxes_pagebuilder.backbone.edit_element( data );
 				}
 			},

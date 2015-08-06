@@ -25,10 +25,8 @@
 
 		if ( settings.template ) {
 			new $.ACBackboneModal.View({
-				title: settings.title,
-				message: settings.message,
-				dismiss: settings.dismiss,
-				target: settings.template
+				target: settings.template,
+				string: settings.variable
 			});
 		}
 	};
@@ -39,10 +37,8 @@
 	 * @type {object}
 	 */
 	$.ACBackboneModal.defaultOptions = {
-		title: '',
-		message: '',
-		dismiss: '',
-		template: ''
+		template: '',
+		variable: {}
 	};
 
 	/**
@@ -53,31 +49,25 @@
 	$.ACBackboneModal.View = Backbone.View.extend({
 		tagName: 'div',
 		id: 'ac-backbone-modal-dialog',
-		_title:   undefined,
-		_message: undefined,
-		_dismiss: undefined,
-		_target:  undefined,
+		_target: undefined,
+		_string: undefined,
 		events: {
 			'click .modal-close': 'closeButton',
 			'click #btn-ok':      'addButton',
 			'keydown':            'keyboardActions'
 		},
 		initialize: function( data ) {
-			this._title   = data.title;
-			this._message = data.message;
-			this._dismiss = data.dismiss;
-			this._target  = data.target;
+			this._target = data.target;
+			this._string = data.string;
 			_.bindAll( this, 'render' );
 			this.render();
 		},
 		render: function() {
-			var variables = {
-				title:   this._title,
-				message: this._message,
-				dismiss: this._dismiss
-			};
+			var template = wp.template( this._target );
 
-			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
+			this.$el.attr( 'tabindex', '0' ).append(
+				template( this._string )
+			);
 
 			$( document.body ).css({
 				'overflow': 'hidden'

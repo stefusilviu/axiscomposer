@@ -165,29 +165,29 @@ class AC_Meta_Box_Page_Builder_Data {
 					<div class="ac-backbone-modal-content <?php echo implode( ' ', $template['class'] ); ?>">
 						<section class="ac-backbone-modal-main" role="main">
 							<header class="ac-backbone-modal-header">
-								<h1><%= title %></h1>
+								<h1>{{ data.title }}</h1>
 								<button class="modal-close modal-close-link dashicons dashicons-no-alt">
 									<span class="screen-reader-text">Close modal panel</span>
 								</button>
 							</header>
 							<article class="ac-backbone-modal-article">
 								<form action="" method="post" class="ac-enhanced-form">
-									<% if ( message ) { %>
+									<# if ( data.message ) { #>
 										<div class="message">
-											<%= message %>
+											{{{ data.message }}}
 										</div>
-									<% } else { %>
+									<# } else { #>
 										<div class="ac-enhanced-settings ajax-connect">&nbsp;</div>
-									<% } %>
+									<# } #>
 								</form>
 							</article>
 							<footer class="ac-backbone-modal-footer">
 								<div class="inner">
-									<% if ( dismiss ) { %>
+									<# if ( data.dismiss ) { #>
 										<button class="button button-large button-secondary modal-close"><?php _e( 'Dismiss' , 'axiscomposer' ); ?></button>
-									<% } else { %>
+									<# } else { #>
 										<button id="btn-ok" class="button button-large button-primary"><?php esc_html_e( $template['button'] ); ?></button>
-									<% } %>
+									<# } #>
 								</div>
 							</footer>
 						</section>

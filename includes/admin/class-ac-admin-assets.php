@@ -77,7 +77,7 @@ class AC_Admin_Assets {
 		// Register Scripts
 		wp_register_script( 'axiscomposer-admin', AC()->plugin_url() . '/assets/js/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AC_VERSION );
 		wp_register_script( 'ac-admin-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'wp-color-picker', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'jquery-ui-droppable', 'jquery-tiptip', 'ac-enhanced-select', 'plupload-all', 'stupidtable' ), AC_VERSION );
-		wp_register_script( 'ac-backbone-modal', AC()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
+		wp_register_script( 'ac-backbone-modal', AC()->plugin_url() . '/assets/js/admin/modal' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone', 'wp-util' ), AC_VERSION );
 		wp_register_script( 'jquery-blockui', AC()->plugin_url() . '/assets/js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70', true );
 		wp_register_script( 'jquery-tiptip', AC()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip' . $suffix . '.js', array( 'jquery' ), AC_VERSION, true );
 		wp_register_script( 'zeroclipboard', AC()->plugin_url() . '/assets/js/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AC_VERSION );

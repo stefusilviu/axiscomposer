@@ -1,6 +1,6 @@
 # How To Contribute
 
-Community made patches, localizations, bug reports and contributions are always welcome and are crucial to ensure AxisComposer remains the leading page builder for WordPress. AxisComposer currently powers most of the websites across the internet, and your help making it even more awesome will be greatly appreciated :)
+Community made patches, localizations, bug reports and contributions are always welcome and are crucial to ensure AxisComposer remains the leading page builder platform for WordPress. AxisComposer currently powers most of the websites across the internet, and your help making it even more awesome will be greatly appreciated :)
 
 When contributing please ensure you follow the guidelines below to help us keep on top of things.
 
@@ -15,7 +15,7 @@ GitHub and Transifex are for *bug reports and contributions only* - if you have 
 
 ### Reporting Issues
 
-Reporting issues is a great way to became a contributor as it doesn't require technical skills. In fact you don't even need to know a programming language or to be able to check the code itself, you just need to make sure that everything works as expected and report an issue report if you spot a bug. Sound like something you're up for? Go for it!
+Reporting issues is a great way to became a contributor as it doesn't require technical skills. In fact you don't even need to know a programming language or to be able to check the code itself, you just need to make sure that everything works as expected and report an issue if you spot a bug. Sound like something you're up for? Go for it!
 
 #### How To Submit An Issue Report
 

@@ -214,8 +214,10 @@ jQuery( function( $ ) {
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				title: parents.data( 'modal-title' ),
-				template: 'axiscomposer-modal-edit-element'
+				template: 'axiscomposer-modal-edit-element',
+				variable: {
+					title: parents.data( 'modal-title' )
+				}
 			});
 
 			return false;
@@ -324,10 +326,12 @@ jQuery( function( $ ) {
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_title,
-				message: ( length > 0 ) ? axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_notice : axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_least,
-				dismiss: ( length > 0 ) ? false : true,
-				template: 'axiscomposer-modal-trash-data'
+				template: 'axiscomposer-modal-trash-data',
+				variable: {
+					title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_title,
+					message: ( length > 0 ) ? axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_notice : axiscomposer_admin_meta_boxes_pagebuilder.i18n_trash_elements_least,
+					dismiss: ( length > 0 ) ? false : true
+				}
 			});
 
 			return false;
@@ -939,10 +943,12 @@ jQuery( function( $ ) {
 
 				// AxisComposer Backbone Modal
 				$( this ).ACBackboneModal({
-					title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_select_cell_layout,
-					message: notification,
-					dismiss: cell_size_variations ? false : true,
-					template: 'axiscomposer-modal-cell-size'
+					template: 'axiscomposer-modal-cell-size',
+					variable: {
+						title: axiscomposer_admin_meta_boxes_pagebuilder.i18n_select_cell_layout,
+						message: notification,
+						dismiss: cell_size_variations ? false : true
+					}
 				});
 
 				return false;

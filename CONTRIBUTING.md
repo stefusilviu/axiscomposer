@@ -42,7 +42,6 @@ If you think something could be improved and you're able to do so, make your cha
 * When committing, reference your issue number (#1234) and include a note about the fix
 * Push the changes to your fork and submit a pull request on the master branch of the AxisComposer repository. Existing maintenance branches will be maintained by AxisComposer developers
 * Please **don't** modify the changelog - this will be maintained by the AxisComposer developers.
-* Please **don't** modify the changelog - this will be maintained by the AxisComposer developers.
 * Please **don't** add your localizations or update the .pot files - these will also be maintained by the AxisComposer developers. To contribute to the localization of AxisComposer, please join the [AxisComposer Transifex project](https://www.transifex.com/projects/p/axiscomposer/). This is much needed, if you speak a language that needs translating consider yourself officially invited to the party.
 
 After you follow the step above, the next stage will be waiting on us to merge your Pull Request. We review them all, and make suggestions and changes as and if necessary.

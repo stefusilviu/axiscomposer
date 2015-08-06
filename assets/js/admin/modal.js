@@ -71,13 +71,15 @@
 			this.render();
 		},
 		render: function() {
-			var variables = {
-				title:   this._title,
-				message: this._message,
-				dismiss: this._dismiss
-			};
+			var template = wp.template( this._target );
 
-			this.$el.attr( 'tabindex', '0' ).append( _.template( $( this._target ).html(), variables ) );
+			this.$el.attr( 'tabindex', '0' ).append(
+				template({
+					title:   this._title,
+					message: this._message,
+					dismiss: this._dismiss
+				})
+			);
 
 			$( document.body ).css({
 				'overflow': 'hidden'

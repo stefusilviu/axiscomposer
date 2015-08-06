@@ -22,11 +22,11 @@ jQuery( function( $ ) {
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({
-				template: '#tmpl-axiscomposer-modal-delete-sidebar'
+				template: 'axiscomposer-modal-delete-sidebar'
 			});
 
 			$( document.body ).on( 'ac_backbone_modal_response', function( e, template ) {
-				if ( '#tmpl-axiscomposer-modal-delete-sidebar' !== template ) {
+				if ( 'axiscomposer-modal-delete-sidebar' !== template ) {
 					return;
 				}
 

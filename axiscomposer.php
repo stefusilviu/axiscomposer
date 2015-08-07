@@ -3,7 +3,7 @@
  * Plugin Name: AxisComposer
  * Plugin URI: http://www.axisthemes.com/axiscomposer/
  * Description: A drag and drop builder that helps you compose anything. Beautifully.
- * Version: 1.0.0-alpha-2
+ * Version: 1.0.0-alpha-3
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
  * Requires at least: 4.2

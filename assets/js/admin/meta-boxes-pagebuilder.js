@@ -225,7 +225,7 @@ jQuery( function( $ ) {
 			var element = $( this ).parents( '.ac-sortable-element:eq(0)' ), parents = false, remove_cell = false, hide_timer = 200;
 			if ( ! element.length ) {
 				element = $( this ).parents( '.ac-layout-column:eq(0)' );
-				parents = $( this ).parents( '.ac-layout-sections:eq(0) > .ac-inner-shortcode' );
+				parents = $( this ).parents( '.ac-layout-section:eq(0) > .ac-inner-shortcode' );
 				if ( ! element.length ) {
 					element = $( this ).parents( '.ac-layout-section:eq(0)' );
 					parents = false;

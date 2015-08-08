@@ -21,8 +21,8 @@ jQuery( function( $ ) {
 			this.pagebuilder = $( '#axiscomposer-pagebuilder' ).find( ':input.pagebuilder-status' );
 
 			this.storage.init();
+			this.shortcode.init();
 			this.stupidtable.init();
-			this.shortcode_interface();
 
 			$( 'a.axiscomposer-toggle-editor' ).click( this.toggle_editor );
 
@@ -112,7 +112,7 @@ jQuery( function( $ ) {
 
 				setTimeout( function() {
 					$( '#content-tmce' ).trigger( 'click' );
-					ac_meta_boxes_pagebuilder.shortcode_interface();
+					ac_meta_boxes_pagebuilder.shortcode.init();
 				}, 10 );
 			} else {
 				$( '#axiscomposer-pagebuilder' ).find( '.canvas-area' ).empty();
@@ -129,54 +129,6 @@ jQuery( function( $ ) {
 
 			// Auto resize WordPress editor
 			$( document.body ).trigger( 'ac-init-wp-editor' );
-		},
-
-		shortcode_interface: function( text ) {
-			// Prevent if we don't have the pagebuilder active
-			if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
-				return;
-			}
-
-			// Also test-drive val() to html()
-			if ( typeof text === 'undefined' ) {
-				text = $( '.canvas-data' ).val();
-				if ( text.indexOf( '[' ) === -1 ) {
-					text = $( '#content.wp-editor-area' ).val();
-					if ( typeof window.tinyMCE !== 'undefined' ) {
-						text = window.switchEditors._wp_Nop( text );
-					}
-
-					$( '.canvas-data' ).val( text );
-				}
-			}
-
-			var data = {
-				text: text,
-				action: 'axiscomposer_shortcodes_to_interface'
-			};
-
-			ac_meta_boxes_pagebuilder.block();
-
-			$.ajax({
-				url: axiscomposer_admin_meta_boxes_pagebuilder.ajax_url,
-				data: data,
-				type: 'POST',
-				success: function( response ) {
-					if ( response ) {
-						$( '.canvas-area' ).empty();
-						$( '.canvas-area' ).append( response );
-						ac_meta_boxes_pagebuilder.textarea.outer();
-					}
-
-					// Take History snapshot and load drag-drop
-					ac_meta_boxes_pagebuilder.storage.history_snapshot();
-					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
-
-					ac_meta_boxes_pagebuilder.tiptip();
-					ac_meta_boxes_pagebuilder.unblock();
-					ac_meta_boxes_pagebuilder.stupidtable.init();
-				}
-			});
 		},
 
 		add_element: function() {
@@ -1278,6 +1230,61 @@ jQuery( function( $ ) {
 				if ( 89 === button && controlled && ! e.shiftKey && ! e.altKey ) {
 					ac_meta_boxes_pagebuilder.storage.redo_data( e );
 				}
+			}
+		},
+
+		shortcode: {
+
+			init: function() {
+				this.load_shortcode();
+			},
+
+			load_shortcode: function( text ) {
+				// Prevent if we don't have the pagebuilder active
+				if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
+					return;
+				}
+
+				// Also test-drive val() to html()
+				if ( typeof text === 'undefined' ) {
+					text = $( '.canvas-data' ).val();
+					if ( text.indexOf( '[' ) === -1 ) {
+						text = $( '#content.wp-editor-area' ).val();
+						if ( typeof window.tinyMCE !== 'undefined' ) {
+							text = window.switchEditors._wp_Nop( text );
+						}
+
+						$( '.canvas-data' ).val( text );
+					}
+				}
+
+				var data = {
+					text: text,
+					action: 'axiscomposer_shortcodes_to_interface'
+				};
+
+				ac_meta_boxes_pagebuilder.block();
+
+				$.ajax({
+					url: axiscomposer_admin_meta_boxes_pagebuilder.ajax_url,
+					data: data,
+					type: 'POST',
+					success: function( response ) {
+						if ( response ) {
+							$( '.canvas-area' ).empty();
+							$( '.canvas-area' ).append( response );
+							ac_meta_boxes_pagebuilder.textarea.outer();
+						}
+
+						// Take History snapshot and load drag-drop
+						ac_meta_boxes_pagebuilder.storage.history_snapshot();
+						$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
+
+						ac_meta_boxes_pagebuilder.tiptip();
+						ac_meta_boxes_pagebuilder.unblock();
+						ac_meta_boxes_pagebuilder.stupidtable.init();
+					}
+				});
 			}
 		},
 

@@ -119,7 +119,7 @@ class AC_Admin_Assets {
 
 		// Meta boxes
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal', 'serializejson' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal', 'shortcode', 'serializejson' ), AC_VERSION );
 			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 
 			$params = array(

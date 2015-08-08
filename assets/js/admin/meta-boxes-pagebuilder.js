@@ -139,7 +139,7 @@ jQuery( function( $ ) {
 
 			var shortcode     = this.hash.replace( '#', '' ),
 				element_tmpl  = $( '#tmpl-axiscomposer-' + shortcode ),
-				insert_target = 'instant-insert'; // ( this.className.indexOf( 'ac-target-insert' ) !== -1 ) ? 'target_insert' : 'instant_insert',
+				insert_target = 'instant-insert';
 
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {

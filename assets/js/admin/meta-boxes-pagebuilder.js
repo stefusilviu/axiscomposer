@@ -186,9 +186,9 @@ jQuery( function( $ ) {
 			}
 
 			// Check if cell
-			if ( element.is( '.ac-layout-cell' ) ) {
+			if ( element.length && element.is( '.ac-layout-cell' ) ) {
 				var count = element.parents( '.ac-layout-row:eq(0)' ).find( '.ac-layout-cell' ).length;
-				if ( typeof ac_meta_boxes_pagebuilder_data.new_cell_order[count] !== 'undefined' ) {
+				if ( typeof ac_meta_boxes_pagebuilder_data.new_cell_order[ count ] !== 'undefined' ) {
 					recalc_cell = true;
 				} else {
 					return false;
@@ -225,7 +225,7 @@ jQuery( function( $ ) {
 			var element = $( this ).parents( '.ac-sortable-element:eq(0)' ), parents = false, remove_cell = false, hide_timer = 200;
 			if ( ! element.length ) {
 				element = $( this ).parents( '.ac-layout-column:eq(0)' );
-				parents = $( this ).parents( '.ac-layout-section:eq(0)>.ac-inner-shortcode' );
+				parents = $( this ).parents( '.ac-layout-sections:eq(0) > .ac-inner-shortcode' );
 				if ( ! element.length ) {
 					element = $( this ).parents( '.ac-layout-section:eq(0)' );
 					parents = false;

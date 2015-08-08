@@ -162,6 +162,7 @@ jQuery( function( $ ) {
 				}
 			}
 
+			// Store shortcode parents :)
 			window.ac_shortcode = parents;
 
 			// AxisComposer Backbone Modal

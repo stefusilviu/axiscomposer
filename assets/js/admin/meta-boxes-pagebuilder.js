@@ -458,12 +458,13 @@ jQuery( function( $ ) {
 		},
 
 		shortcode_string: function( values, shortcode, tag, force_content_close ) {
-			var i, key, output = '', content = '', attr = '', seperator = ',', linebreak = '\n';
+			var i, key, output = '', content = '', attrs = '', seperator = ',', linebreak = '\n';
+
 			if ( ! tag ) {
 				tag = {};
 			}
 
-			// Create shortcode content var
+			// Create shortcode content
 			if ( typeof values.content !== 'undefined' ) {
 				if ( typeof values.content === 'object' ) {
 					if ( values.content[0].indexOf( '[' ) !== -1 ) {
@@ -483,7 +484,7 @@ jQuery( function( $ ) {
 				delete values.content;
 			}
 
-			// Create shortcode attr string
+			// Create shortcode attributes
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
 					if ( isNaN( key ) ) {
@@ -491,14 +492,14 @@ jQuery( function( $ ) {
 							values[ key ] = values[ key ].join( ',' );
 						}
 
-						attr += key + '=\'' + values[ key ] + '\' ';
+						attrs += key + '=\'' + values[ key ] + '\' ';
 					} else {
-						attr += values[ key ] + ' ';
+						attrs += values[ key ] + ' ';
 					}
 				}
 			}
 
-			tag.open = '[' + shortcode + ' ' + $.trim( attr ) + ']';
+			tag.open = '[' + shortcode + ' ' + $.trim( attrs ) + ']';
 			output = tag.open;
 
 			if ( content || typeof force_content_close !== 'undefined' && force_content_close === true ) {

@@ -394,22 +394,22 @@ jQuery( function( $ ) {
 				if ( values.hasOwnProperty( key ) ) {
 					new_key = key.replace( /axiscomposer_/g, '' );
 					if ( key !== new_key ) {
-						old_val = ( typeof values[new_key] !== 'undefined' ) ? ( values[new_key] + ',' ) : '';
-						values[new_key] = old_val ? old_val + values[key] : values[key];
-						delete values[key];
+						old_val = ( typeof values[ new_key ] !== 'undefined' ) ? ( values[ new_key ] + ',' ) : '';
+						values[ new_key ] = old_val ? old_val + values[ key ] : values[ key ];
+						delete values[ key ];
 					}
 				}
 			}
 
-			// Replace all single quotes with real single quotes so we don't break the shortcode. Not necessary in the content.
+			// Replace all single quotes with "real" single quotes so we don't break the shortcode. Not necessary in the content.
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
 					if ( key !== 'content' ) {
-						if ( typeof values[key] === 'string' ) {
-							values[key] = values[key].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
-						} else if ( typeof values[key] === 'object' ) {
-							for ( subkey in values[key] ) {
-								values[key][subkey] = values[key][subkey].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
+						if ( typeof values[ key ] === 'string' ) {
+							values[ key ] = values[ key ].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
+						} else if ( typeof values[ key ] === 'object' ) {
+							for ( subkey in values[ key ] ) {
+								values[ key ][ subkey ] = values[ key ][ subkey ].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
 							}
 						}
 					}
@@ -442,8 +442,8 @@ jQuery( function( $ ) {
 					class_key = class_el.data( 'update_class_with' ).split( ',' );
 
 					for ( var i = 0; i < class_key.length; i++ ) {
-						if ( typeof values[class_key[i]] === 'string' ) {
-							class_el.get(0).className += ' axiscomposer-' + class_key[i] + '-' + values[class_key[i]];
+						if ( typeof values[ class_key[i] ] === 'string' ) {
+							class_el.get(0).className += ' axiscomposer-' + class_key[i] + '-' + values[ class_key[i] ];
 						}
 					}
 				});

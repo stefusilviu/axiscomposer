@@ -367,14 +367,14 @@ jQuery( function( $ ) {
 				tags   = extract_html.tags;
 			}
 
-			// If we are working inside a section or cell just update the shortcode open tag else update everything
-			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-cell' ) ) {
+			// If we are working inside a section or column just update the shortcode open tag else update everything
+			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
 				save_data.val( save_data.val().replace( new RegExp( '^\\[' + shortcode + '.*?\\]' ), tags.open ) );
 			} else {
 				save_data.val( output );
 			}
 
-			// Update the Section and column inner textarea
+			// Update the section and column inner textarea
 			if ( section.length ) {
 				ac_meta_boxes_pagebuilder.textarea.inner( false, section );
 			} else if ( column.length ) {
@@ -533,7 +533,7 @@ jQuery( function( $ ) {
 					return true;
 				}
 
-				// variable declarations are hoisted to the top of the scope :)
+				// Variable declarations are hoisted to the top of the scope :)
 				var i, content, main_storage, content_fields, open_tags, currentName, currentSize;
 
 				// If we are in section iterate over all columns inside and set the value before setting the section value

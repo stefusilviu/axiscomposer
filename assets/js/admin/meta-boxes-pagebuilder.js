@@ -487,13 +487,13 @@ jQuery( function( $ ) {
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
 					if ( isNaN( key ) ) {
-						if ( typeof values[key] === 'object' ) {
-							values[key] = values[key].join( ',' );
+						if ( typeof values[ key ] === 'object' ) {
+							values[ key ] = values[ key ].join( ',' );
 						}
 
-						attr += key + '=\'' + values[key] + '\' ';
+						attr += key + '=\'' + values[ key ] + '\' ';
 					} else {
-						attr += values[key] + ' ';
+						attr += values[ key ] + ' ';
 					}
 				}
 			}

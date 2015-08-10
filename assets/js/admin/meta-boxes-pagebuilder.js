@@ -551,7 +551,7 @@ jQuery( function( $ ) {
 
 					content        = '';
 					currentName    = container.data( 'shortcode-handler' );
-					main_storage   = container.find( '>.ac-inner-shortcode >textarea[data-name="text-shortcode"]' );
+					main_storage   = container.find( '>.ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
 					content_fields = container.find( '>.ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
 

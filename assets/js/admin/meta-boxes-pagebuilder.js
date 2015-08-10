@@ -424,10 +424,10 @@ jQuery( function( $ ) {
 			// var update_html = '', replace_val = ''; Need later for visual_updates ;)
 
 			if ( ! element_container.is( '.ac-no-visual-updates') ) {
-				// Reset class name's
+				// Reset classnames
 				class_updates.attr( 'class', '' );
 
-				// Update elements on the Builder Canvas like text elements to reflect those changes instantly.
+				// Update elements on pagebuilder canvas like text elements to reflect those changes instantly.
 				visual_updates.each( function() {
 					visual_el = $( this );
 					visual_key = visual_el.data( 'update_with' );
@@ -436,7 +436,7 @@ jQuery( function( $ ) {
 					// @todo Will do later when we need actually ;)
 				});
 
-				// Update element's classname on pagebuilder canvas to reflect visual chanages instantly.
+				// Update element classname on pagebuilder canvas to reflect visual chanages instantly.
 				class_updates.each( function() {
 					class_el = $( this );
 					class_key = class_el.data( 'update_class_with' ).split( ',' );

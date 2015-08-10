@@ -296,7 +296,6 @@ jQuery( function( $ ) {
 				section      = column.parents( '.ac-layout-section:eq(0)' ),
 				size_string  = column.find( '.ac-column-size' ),
 				data_storage = column.find( '.ac-inner-shortcode > textarea[data-name="text-shortcode"]' ),
-				data_string  = data_storage.val(),
 				next_size    = [],
 				column_size  = ac_meta_boxes_pagebuilder_data.col_size,
 				current_size = column.data( 'width' );
@@ -309,12 +308,8 @@ jQuery( function( $ ) {
 			}
 
 			if ( typeof next_size !== 'undefined' ) {
-				// Regular Expression
-				data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
-				data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
-
-				// Data Storage
-				data_storage.val( data_string );
+				// Replace shortcode tag
+				data_storage.val( ac_meta_boxes_pagebuilder.shortcode.replace_tag( current_size, data_storage.val(), next_size[0] ) );
 
 				// Remove and Add Layout flex-grid class for column
 				column.removeClass( current_size ).addClass( next_size[0] );
@@ -953,15 +948,10 @@ jQuery( function( $ ) {
 			change_single_cell_size: function( cell, next_size ) {
 				var current_size = cell.data( 'width' ),
 					size_string  = cell.find( '> .ac-sorthandle > .ac-column-size' ),
-					data_storage = cell.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' ),
-					data_string  = data_storage.val();
+					data_storage = cell.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
 
-				// Regular Expression
-				data_string = data_string.replace( new RegExp( '^\\[' + current_size, 'g' ), '[' + next_size[0] );
-				data_string = data_string.replace( new RegExp( current_size + '\\]', 'g' ), next_size[0] + ']' );
-
-				// Data storage
-				data_storage.val( data_string );
+				// Replace shortcode tag
+				data_storage.val( ac_meta_boxes_pagebuilder.shortcode.replace_tag( current_size, data_storage.val(), next_size[0] ) );
 
 				// Remove and Add Layout flex-grid class for cell
 				cell.removeClass( current_size ).addClass( next_size[0] );
@@ -1286,6 +1276,12 @@ jQuery( function( $ ) {
 						ac_meta_boxes_pagebuilder.stupidtable.init();
 					}
 				});
+			},
+
+			replace_tag: function( tag, text, next ) {
+				text = text.replace( new RegExp( '^\\[' + tag, 'g' ), '[' + next );
+				text = text.replace( new RegExp( tag + '\\]', 'g' ), next + ']' );
+				return text;
 			}
 		},
 

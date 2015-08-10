@@ -345,7 +345,7 @@ jQuery( function( $ ) {
 
 			for ( var i = recalcs.length - 1; i >= 0; i-- ) {
 				current = $( recalcs[i] );
-				values[current.data( 'attr' )] = current.val();
+				values[ current.data( 'attr' ) ] = current.val();
 			}
 
 			ac_meta_boxes_pagebuilder.send_to_datastorage( values, element_container );

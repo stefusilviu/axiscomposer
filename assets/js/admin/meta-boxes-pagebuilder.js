@@ -314,7 +314,7 @@ jQuery( function( $ ) {
 				// Remove and Add Layout flex-grid class for column
 				column.removeClass( current_size ).addClass( next_size[0] );
 
-				// Make sure to also set the data attr so html() functions fetch the correct value
+				// Ensure to set data-attr so html() functions fetch the correct value
 				column.attr( 'data-width', next_size[0] ).data( 'width', next_size[0] );
 
 				// Change the column size text

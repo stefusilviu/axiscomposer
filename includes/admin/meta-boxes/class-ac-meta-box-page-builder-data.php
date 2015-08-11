@@ -93,7 +93,7 @@ class AC_Meta_Box_Page_Builder_Data {
 			<div id="axiscomposer-canvas" class="visual-editor">
 				<div class="canvas-area ac-data layout-flex-grid ac-drop" data-dragdrop-level="0"></div>
 				<div class="canvas-secure-data">
-					<textarea name="pagebuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_pagebuilder_canvas', true ) ); ?></textarea> <!-- readonly="readonly" later -->
+					<textarea name="pagebuilder_canvas" id="canvas-data" class="canvas-data"><?php echo esc_textarea( get_post_meta( $post->ID, '_pagebuilder_canvas', true ) ); ?></textarea>
 				</div>
 			</div>
 		</div><?php

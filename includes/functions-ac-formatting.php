@@ -134,7 +134,7 @@ function ac_format_portfolio_short_description( $content ) {
 	if ( class_exists( 'WPCom_Markdown' ) ) {
 		$markdown = WPCom_Markdown::get_instance();
 
-		return wpautop( $markdown->transform( $content ) );
+		return wpautop( $markdown->transform( $content, array( 'unslash' => false ) ) );
 	}
 
 	return $content;

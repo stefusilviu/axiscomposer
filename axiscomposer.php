@@ -7,7 +7,7 @@
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
  * Requires at least: 4.2
- * Tested up to: 4.2
+ * Tested up to: 4.3
  *
  * Text Domain: axiscomposer
  * Domain Path: /i18n/languages/

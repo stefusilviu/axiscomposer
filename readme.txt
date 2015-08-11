@@ -3,7 +3,7 @@ Contributors: axisthemes, shivapoudel, RajeebTheGreat
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=axisthemes@gmail.com&item_name=Donation+for+AxisComposer
 Requires at least: 4.2
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -102,4 +102,4 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Upgrade Notice ==
 
 = 1.0.0 =
-1.0.0 is a major update so it is important that you make backups, and ensure themes and extensions are 1.0 compatible. Developers should catch up with [develop.axisthemes.com](http://develop.axisthemes.com/) to see what has been happening in core.
+1.0.0 is a major update so it is important that you make backups, and ensure themes and extensions are 1.0 compatible. Developers should catch up with [the development blog](https://axiscomposer.wordpress.com/) to see what has been happening in core.

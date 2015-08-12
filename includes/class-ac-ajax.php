@@ -42,7 +42,6 @@ class AC_AJAX {
 	 * Set AJAX defines.
 	 */
 	public static function define_ajax() {
-
 		if ( ! empty( $_GET['ac-ajax'] ) ) {
 			if ( ! defined( 'DOING_AJAX' ) ) {
 				define( 'DOING_AJAX', true );
@@ -51,6 +50,8 @@ class AC_AJAX {
 				define( 'AC_DOING_AJAX', true );
 			}
 		}
+		// Turn off error_reporting during AJAX events to prevent malformed JSON
+		error_reporting(0);
 	}
 
 	/**

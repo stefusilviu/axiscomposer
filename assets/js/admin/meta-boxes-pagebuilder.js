@@ -489,7 +489,7 @@ jQuery( function( $ ) {
 				if ( values.hasOwnProperty( key ) ) {
 					if ( isNaN( key ) ) {
 						if ( typeof values[ key ] === 'object' ) {
-							values[ key ] = values[ key ].join( ',' );
+							values[ key ] = values[ key ].join( seperator );
 						}
 
 						attrs += key + '=\'' + values[ key ] + '\' ';

@@ -357,7 +357,7 @@ jQuery( function( $ ) {
 				save_data = element_container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ),
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
 
-			// If a value is string insert, otherwise calculate shortcode.
+			// Insert a value if string, otherwise calculate shortcode.
 			if ( typeof values === 'string' ) {
 				output = values;
 			} else {
@@ -375,7 +375,7 @@ jQuery( function( $ ) {
 				save_data.val( output );
 			}
 
-			// Update the section and column inner textarea
+			// Update the section and column inner textarea.
 			if ( section.length ) {
 				ac_meta_boxes_pagebuilder.textarea.inner( false, section );
 			} else if ( column.length ) {

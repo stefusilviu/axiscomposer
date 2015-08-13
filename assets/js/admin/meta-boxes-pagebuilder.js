@@ -367,7 +367,7 @@ jQuery( function( $ ) {
 				tags   = extract_html.tags;
 			}
 
-			// If we are working inside a section or column just update the shortcode open tag else update everything
+			// Update the section and column shortcode open tag else everything
 			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
 				var regex = new RegExp( '^\\[' + shortcode + '.*?\\]' );
 				save_data.val( save_data.val().replace( regex, tags.open ) );

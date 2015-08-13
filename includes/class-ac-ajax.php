@@ -50,8 +50,8 @@ class AC_AJAX {
 				define( 'AC_DOING_AJAX', true );
 			}
 		}
-		// Turn off error_reporting during AJAX events to prevent malformed JSON
-		error_reporting(0);
+		// Turn off display_errors during AJAX events to prevent malformed JSON
+		@ini_set( 'display_errors', 0 );
 	}
 
 	/**

@@ -92,7 +92,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 * Fix - Query in uninstall script.
 * Fix - Prevent potential XSS within tooltips.
 * Tweak - Improve tooltip sanitization.
-* Tweak - Disable error_reporting during ajax requests to prevent malformed JSON.
+* Tweak - Disable display_errors during ajax requests to prevent malformed JSON.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
 * Dev - Switched to .scss for all styles.
 * Dev - Included bourbon for scss mixins.

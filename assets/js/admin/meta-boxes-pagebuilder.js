@@ -622,7 +622,7 @@ jQuery( function( $ ) {
 				var content        = '',
 					size_count     = 0,
 					column_size    = ac_meta_boxes_pagebuilder_data.col_size,
-					content_fields = scope.find( '>textarea[data-name="text-shortcode"]' ),
+					content_fields = scope.find( '> textarea[data-name="text-shortcode"]' ),
 					current_field, current_content, current_parents, current_size, next_size;
 
 				for ( var i = 0; i < content_fields.length; i++ ) {

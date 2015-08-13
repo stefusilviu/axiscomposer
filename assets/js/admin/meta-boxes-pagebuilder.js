@@ -357,7 +357,7 @@ jQuery( function( $ ) {
 				save_data = element_container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ),
 				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
 
-			// If we got a string value passed insert the string, otherwise calculate the shortcode
+			// If a value is string insert, otherwise calculate shortcode.
 			if ( typeof values === 'string' ) {
 				output = values;
 			} else {
@@ -367,7 +367,7 @@ jQuery( function( $ ) {
 				tags   = extract_html.tags;
 			}
 
-			// Update the section and column shortcode open tag else everything
+			// Only update the shortcode open tag for section and column, otherwise update everything.
 			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
 				var regex = new RegExp( '^\\[' + shortcode + '.*?\\]' );
 				save_data.val( save_data.val().replace( regex, tags.open ) );

@@ -367,7 +367,7 @@ jQuery( function( $ ) {
 				tags   = extract_html.tags;
 			}
 
-			// Only update the shortcode open tag for section and column, otherwise update everything.
+			// Only update the shortcode opening tag for section and column, otherwise update everything.
 			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
 				var regex = new RegExp( '^\\[' + shortcode + '.*?\\]' );
 				save_data.val( save_data.val().replace( regex, tags.open ) );

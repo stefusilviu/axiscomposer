@@ -361,7 +361,7 @@ jQuery( function( $ ) {
 			if ( typeof values === 'string' ) {
 				output = values;
 			} else {
-				var extract_html = ac_meta_boxes_pagebuilder.update_builder_html( values, element_container );
+				var extract_html = ac_meta_boxes_pagebuilder.update_builder_html( values, shortcode, element_container );
 
 				output = extract_html.output;
 				tags   = extract_html.tags;
@@ -387,7 +387,7 @@ jQuery( function( $ ) {
 			element_container.trigger( 'update' );
 		},
 
-		update_builder_html: function( values, element_container, force_content_close ) {
+		update_builder_html: function( values, shortcode, element_container, force_content_close ) {
 			var key, subkey, new_key, old_val;
 
 			// Filter keys for the 'axiscomposer_' string prefix and re-modify the key that was edited.
@@ -417,8 +417,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			var shortcode      = element_container.data( 'shortcode-handler' ),
-				visual_updates = element_container.find( '[data-update_with]' ),
+			var	visual_updates = element_container.find( '[data-update_with]' ),
 				class_updates  = element_container.find( '[data-update_class_with]' ),
 				visual_el = '', visual_key = '', visual_template = '', class_el = '', class_key = '';
 

@@ -465,7 +465,7 @@ jQuery( function( $ ) {
 				tag = {};
 			}
 
-			// Create shortcode content
+			// Parse shortcode content
 			if ( typeof values.content !== 'undefined' ) {
 				if ( typeof values.content === 'object' ) {
 					if ( values.content[0].indexOf( '[' ) !== -1 ) {
@@ -485,7 +485,7 @@ jQuery( function( $ ) {
 				delete values.content;
 			}
 
-			// Create shortcode attributes
+			// Parse shortcode attributes
 			for ( key in values ) {
 				if ( values.hasOwnProperty( key ) ) {
 					if ( isNaN( key ) ) {

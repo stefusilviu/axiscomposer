@@ -417,7 +417,7 @@ jQuery( function( $ ) {
 				}
 			}
 
-			var	visual_updates = element_container.find( '[data-update_with]' ),
+			var visual_updates = element_container.find( '[data-update_with]' ),
 				class_updates  = element_container.find( '[data-update_class_with]' ),
 				visual_el = '', visual_key = '', visual_template = '', class_el = '', class_key = '';
 

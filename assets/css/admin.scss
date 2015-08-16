@@ -512,7 +512,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 		.ac-inner-shortcode {
 
 			textarea {
-				width: 98%; /* Added */
+				width: 98%;
 				resize: none;
 				font-size: 11px;
 				margin: 20px auto;
@@ -537,17 +537,6 @@ label[for="axiscomposer-pagebuilder-hide"] {
 	.ac-layout-row .ac-layout-cell > .ac-sorthandle {
 		border-top: 1px dashed #e1e1e1;
 	}
-}
-
-/* Interface tabs that hold shortcode tab-actives */
-.shortcode_tab-active_wrap {
-	display: block;
-	position: relative;
-}
-
-/* Shortcode Wrap */
-#wpwrap .ac-active-insert {
-	border: 1px solid #D54E21;
 }
 
 /**

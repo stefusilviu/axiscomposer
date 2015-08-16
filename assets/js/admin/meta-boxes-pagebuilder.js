@@ -492,9 +492,9 @@ jQuery( function( $ ) {
 							values[ key ] = values[ key ].join( seperator );
 						}
 
-						attrs += key + '=\'' + values[ key ] + '\' ';
+						attrs += ' ' + key + '="' + values[ key ] + '"';
 					} else {
-						attrs += values[ key ] + ' ';
+						attrs += ' ' + values[ key ];
 					}
 				}
 			}

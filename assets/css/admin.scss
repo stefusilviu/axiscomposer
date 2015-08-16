@@ -303,6 +303,11 @@ label[for="axiscomposer-pagebuilder-hide"] {
 			.delete-action {
 				float: left;
 				padding: 6px;
+
+				a {
+					box-shadow: none;
+					text-decoration: none;
+				}
 			}
 
 			.history-action {
@@ -312,7 +317,6 @@ label[for="axiscomposer-pagebuilder-hide"] {
 					@include ir();
 					color: #7b7b7b;
 					font-size: 16px;
-					box-shadow: none;
 
 					&:hover {
 						color: #2ea2cc;
@@ -350,7 +354,6 @@ label[for="axiscomposer-pagebuilder-hide"] {
 					@include ir();
 					color: #7b7b7b;
 					font-size: 16px;
-					box-shadow: none;
 					margin-left: 3px;
 
 					&:before {
@@ -648,21 +651,14 @@ body .ui-draggable-dragging {
 	.ac-sorthandle {
 		left: 0;
 		right: 0;
-		/*top: -24px;*/
-		/*opacity: 0;*/
-		/*border: none;*/
-		/*box-shadow: none;*/
-		/*position: absolute;*/
-		/*background: rgba( 0, 0, 0, 0.25 );*/
-		/*border-bottom: 1px solid rgba( 0, 0, 0, 0.1 );*/
 	}
 
 	.ac-inner-shortcode {
-		background: #fcfcfc;
 		padding: 10px;
-		border: 1px solid #e1e1e1;
 		text-align: center;
-		border-top: none; /* Added */
+		background: #fcfcfc;
+		border: 1px solid #e1e1e1;
+		border-top: none;
 	}
 }
 
@@ -704,6 +700,11 @@ body .ui-draggable-dragging {
 	height: 25px;
 	font-size: 16px;
 	position: relative;
+
+	a {
+		box-shadow: none;
+		text-decoration: none;
+	}
 
 	.ac-element-title,
 	.ac-column-size,

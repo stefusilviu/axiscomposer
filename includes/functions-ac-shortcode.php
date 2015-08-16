@@ -25,11 +25,7 @@ function ac_shortcode_data( $name, $content = null, $args = array() ) {
 			if ( is_numeric( $key ) ) {
 				$_shortcode .= ' ' . $arg;
 			} else {
-				if ( ( strpos( $arg, "'" ) === false ) && ( strpos( $arg, '&#039;' ) === false ) ) {
-					$_shortcode .= " " . $key . "='" . $arg . "'";
-				} else {
-					$_shortcode .= ' ' . $key . '="' . $arg . '"';
-				}
+				$_shortcode .= ' ' . $key . '="' . $arg . '"';
 			}
 		}
 	}

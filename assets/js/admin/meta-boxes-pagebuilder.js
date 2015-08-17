@@ -354,24 +354,26 @@ jQuery( function( $ ) {
 			var column    = element_container.parents( '.ac-layout-column:eq(0)' ),
 				section   = element_container.parents( '.ac-layout-section:eq(0)' ),
 				save_data = element_container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ),
-				shortcode = element_container.data( 'shortcode-handler' ), output = '', tags = {};
+				shortcode = element_container.data( 'shortcode-handler' ), shortcode_type = 'closed', data_storage = '';
 
-			// Insert a value if string, otherwise calculate shortcode.
-			if ( typeof values === 'string' ) {
-				output = values;
-			} else {
-				var extract_html = ac_meta_boxes_pagebuilder.update_builder_html( values, shortcode, element_container );
-
-				output = extract_html.output;
-				tags   = extract_html.tags;
+			// Indicate shortcode type.
+			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
+				shortcode_type = 'single';
 			}
 
-			// Only update the shortcode opening tag for section and column, otherwise update everything.
-			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
-				var regex = new RegExp( '^\\[' + shortcode + '.*?\\]' );
-				save_data.val( save_data.val().replace( regex, tags.open ) );
+			// Update the data storage.
+			if ( typeof values === 'string' ) {
+				data_storage = values;
 			} else {
-				save_data.val( output );
+				data_storage = ac_meta_boxes_pagebuilder.update_builder_html( values, shortcode, shortcode_type, element_container );
+			}
+
+			// Update the shortcode data.
+			if ( 'single' === shortcode_type ) {
+				var regex = new RegExp( '^\\[' + shortcode + '.*?\\]' );
+				save_data.val( save_data.val().replace( regex, $.trim( data_storage ) ) );
+			} else {
+				save_data.val( data_storage );
 			}
 
 			// Update the section and column inner textarea.
@@ -386,7 +388,7 @@ jQuery( function( $ ) {
 			element_container.trigger( 'update' );
 		},
 
-		update_builder_html: function( values, shortcode, element_container, force_content_close ) {
+		update_builder_html: function( values, shortcode, type, element_container ) {
 			var key, new_key, old_val;
 
 			// Filter keys for the 'axiscomposer_' string prefix and re-modify the key that was edited.
@@ -448,20 +450,12 @@ jQuery( function( $ ) {
 				});
 			}
 
-			// Create the shortcode string out of the arguments and save it to the data storage textarea.
-			var tags = {}, extract_html = {};
-			extract_html.tags = tags;
-			extract_html.output = ac_meta_boxes_pagebuilder.shortcode_string( values, shortcode, tags, force_content_close );
-
-			return extract_html;
+			// Transform the shortcode match into a string
+			return ac_meta_boxes_pagebuilder.shortcode_string( values, shortcode, type );
 		},
 
-		shortcode_string: function( values, shortcode, tag, force_content_close ) {
-			var key, output = '', content = '', attrs = '', seperator = ',', linebreak = '\n';
-
-			if ( ! tag ) {
-				tag = {};
-			}
+		shortcode_string: function( values, shortcode, type ) {
+			var content = '', seperator = ',', linebreak = '\n';
 
 			// Parse shortcode content
 			if ( typeof values.content !== 'undefined' ) {
@@ -483,36 +477,14 @@ jQuery( function( $ ) {
 				delete values.content;
 			}
 
-			// Parse shortcode attributes
-			for ( key in values ) {
-				if ( values.hasOwnProperty( key ) ) {
-					if ( isNaN( key ) ) {
-						if ( typeof values[ key ] === 'object' ) {
-							values[ key ] = values[ key ].join( seperator );
-						}
+			var result = wp.shortcode.string({
+				tag: shortcode,
+				attrs: values,
+				type: type,
+				content: content
+			});
 
-						attrs += ' ' + key + '="' + values[ key ] + '"';
-					} else {
-						attrs += ' ' + values[ key ];
-					}
-				}
-			}
-
-			tag.open = '[' + shortcode + ' ' + $.trim( attrs ) + ']';
-			output = tag.open;
-
-			if ( content || typeof force_content_close !== 'undefined' && force_content_close === true ) {
-				if ( $.trim( content ) === '' ) {
-					content = '';
-				}
-
-				tag.close = '[/' + shortcode + ']';
-				output += content + tag.close;
-			}
-
-			output += linebreak + linebreak;
-
-			return output;
+			return result + linebreak + linebreak;
 		},
 
 		textarea: {

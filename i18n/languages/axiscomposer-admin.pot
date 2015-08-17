@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0.0-alpha-2 Admin\n"
+"Project-Id-Version: AxisComposer 1.0.0-alpha-3 Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-08-07 15:04:32+00:00\n"
+"POT-Creation-Date: 2015-08-17 17:07:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"

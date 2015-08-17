@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0.0-alpha-2 Frontend\n"
+"Project-Id-Version: AxisComposer 1.0.0-alpha-3 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-08-07 15:04:26+00:00\n"
+"POT-Creation-Date: 2015-08-17 17:07:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-ac-ajax.php:204
+#: includes/class-ac-ajax.php:207
 msgid "%s &ndash; %s"
 msgstr ""
 
@@ -290,11 +290,11 @@ msgstr ""
 msgid "Custom Widget Area of the site - %s "
 msgstr ""
 
-#: includes/functions-ac-core.php:162
+#: includes/functions-ac-core.php:163
 msgid "Post"
 msgstr ""
 
-#: includes/functions-ac-core.php:163
+#: includes/functions-ac-core.php:164
 msgid "Page"
 msgstr ""
 

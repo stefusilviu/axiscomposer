@@ -354,26 +354,26 @@ jQuery( function( $ ) {
 			var column    = element_container.parents( '.ac-layout-column:eq(0)' ),
 				section   = element_container.parents( '.ac-layout-section:eq(0)' ),
 				save_data = element_container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]:eq(0)' ),
-				shortcode = element_container.data( 'shortcode-handler' ), shortcode_type = 'closed', data_storage = '';
+				shortcode = element_container.data( 'shortcode-handler' ), shortcode_type = 'closed', shortcode_string = '';
 
 			// Indicate shortcode type.
 			if ( element_container.is( '.ac-layout-section' ) || element_container.is( '.ac-layout-column' ) ) {
 				shortcode_type = 'single';
 			}
 
-			// Update the data storage.
+			// Update the shortcode string.
 			if ( typeof values === 'string' ) {
-				data_storage = values;
+				shortcode_string = values;
 			} else {
-				data_storage = ac_meta_boxes_pagebuilder.update_builder_html( values, shortcode, shortcode_type, element_container );
+				shortcode_string = ac_meta_boxes_pagebuilder.update_builder_html( values, shortcode, shortcode_type, element_container );
 			}
 
-			// Update the shortcode data.
+			// Update the shortcode storage.
 			if ( 'single' === shortcode_type ) {
 				var regex = new RegExp( '^\\[' + shortcode + '.*?\\]' );
-				save_data.val( save_data.val().replace( regex, $.trim( data_storage ) ) );
+				save_data.val( save_data.val().replace( regex, $.trim( shortcode_string ) ) );
 			} else {
-				save_data.val( data_storage );
+				save_data.val( shortcode_string );
 			}
 
 			// Update the section and column inner textarea.

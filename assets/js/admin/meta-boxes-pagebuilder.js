@@ -387,7 +387,7 @@ jQuery( function( $ ) {
 		},
 
 		update_builder_html: function( values, shortcode, element_container, force_content_close ) {
-			var key, subkey, new_key, old_val;
+			var key, new_key, old_val;
 
 			// Filter keys for the 'axiscomposer_' string prefix and re-modify the key that was edited.
 			for ( key in values ) {
@@ -408,7 +408,7 @@ jQuery( function( $ ) {
 						if ( typeof values[ key ] === 'string' ) {
 							values[ key ] = values[ key ].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
 						} else if ( typeof values[ key ] === 'object' ) {
-							for ( subkey in values[ key ] ) {
+							for ( var subkey in values[ key ] ) {
 								values[ key ][ subkey ] = values[ key ][ subkey ].replace( /'(.+?)'/g, '‘$1’' ).replace( /'/g, '’' );
 							}
 						}

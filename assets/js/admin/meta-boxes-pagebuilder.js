@@ -339,12 +339,11 @@ jQuery( function( $ ) {
 		},
 
 		recalc_element: function( element_container ) {
-			var values  = [],
-				current = false,
+			var values  = {},
 				recalcs = element_container.find( 'select.ac-recalc-shortcode' );
 
 			for ( var i = recalcs.length - 1; i >= 0; i-- ) {
-				current = $( recalcs[i] );
+				var current = $( recalcs[i] );
 				values[ current.data( 'attr' ) ] = current.val();
 			}
 
@@ -458,7 +457,7 @@ jQuery( function( $ ) {
 		},
 
 		shortcode_string: function( values, shortcode, tag, force_content_close ) {
-			var i, key, output = '', content = '', attrs = '', seperator = ',', linebreak = '\n';
+			var key, output = '', content = '', attrs = '', seperator = ',', linebreak = '\n';
 
 			if ( ! tag ) {
 				tag = {};
@@ -471,7 +470,7 @@ jQuery( function( $ ) {
 						seperator = linebreak;
 					}
 
-					for ( i = 0; i < values.content.length; i++ ) {
+					for ( var i = 0; i < values.content.length; i++ ) {
 						values.content[i] = $.trim( values.content[i] );
 					}
 

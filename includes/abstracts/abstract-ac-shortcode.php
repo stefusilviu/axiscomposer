@@ -493,7 +493,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 				// Check if we already got a value?
 				foreach ( $form_fields as $key => &$value ) {
-					if ( isset( $key ) && isset( $main_shortcode['attr'][$key] ) ) {
+					if ( isset( $key ) && isset( $main_shortcode['attr'][ $key ] ) ) {
 						$value['shortcode_data'] = $main_shortcode['attr'];
 
 						// If we got a item with subelements
@@ -571,7 +571,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		if ( ! empty( $this->form_fields ) ) {
 			foreach ( $this->form_fields as $key => $value ) {
 				if ( isset( $key ) && isset( $value['default'] ) ) {
-					$arguments[$key] = $value['default'];
+					$arguments[ $key ] = $value['default'];
 				}
 			}
 

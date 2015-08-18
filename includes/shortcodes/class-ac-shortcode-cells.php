@@ -296,21 +296,21 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 			$new_key = $key;
 		}
 
-		if ( isset( $atts[$key] ) && $atts[$key] !== '' ) {
+		if ( isset( $atts[ $key ] ) && $atts[ $key ] !== '' ) {
 			switch ( $new_key ) {
 				case 'background-image':
-					$style_string = $new_key . ':url(' . $atts[$key] . ');';
+					$style_string = $new_key . ':url(' . $atts[ $key ] . ');';
 				break;
 
 				case 'background-repeat':
-					if ( $atts[$key] == 'stretch' ) {
-						$atts[$key] = 'no-repeat';
+					if ( $atts[ $key ] == 'stretch' ) {
+						$atts[ $key ] = 'no-repeat';
 					}
-					$style_string = $new_key . ':' . $atts[$key] . ';';
+					$style_string = $new_key . ':' . $atts[ $key ] . ';';
 				break;
 
 				default:
-					$style_string = $new_key . ':' . $atts[$key] . ';';
+					$style_string = $new_key . ':' . $atts[ $key ] . ';';
 				break;
 			}
 		}

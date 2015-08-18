@@ -522,8 +522,8 @@ jQuery( function( $ ) {
 
 					content        = '';
 					currentName    = container.data( 'shortcode-handler' );
-					main_storage   = container.find( '>.ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '>.ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
+					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '> .ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -537,8 +537,8 @@ jQuery( function( $ ) {
 				if ( container.is( '.ac-layout-cell' ) ) {
 					content        = '';
 					currentSize    = container.data( 'width' );
-					main_storage   = container.find( '>.ac-inner-shortcode >textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '>.ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
+					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '> .ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
 					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
@@ -555,7 +555,7 @@ jQuery( function( $ ) {
 					content        = '';
 					currentSize    = container.data( 'width' );
 					content_fields = container.find( '.ac-sortable-element textarea[data-name="text-shortcode"]' );
-					main_storage   = container.find( '>.ac-inner-shortcode >textarea[data-name="text-shortcode"]' );
+					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
 
 					for ( i = 0; i < content_fields.length; i++ ) {
 						content += $( content_fields[i] ).val();
@@ -574,7 +574,7 @@ jQuery( function( $ ) {
 
 				if ( ! scope ) {
 					$( '.canvas-area' ).find( '.ac-layout-section' ).each( function() {
-						var col_in_section   = $( this ).find( '>.ac-inner-shortcode > div > .ac-inner-shortcode' ),
+						var col_in_section   = $( this ).find( '> .ac-inner-shortcode > div > .ac-inner-shortcode' ),
 							col_in_grid_cell = $( this ).find( '.ac-layout-cell .ac-layout-column-no-cell > .ac-inner-shortcode' );
 
 						if ( col_in_section.length ) {

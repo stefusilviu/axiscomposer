@@ -21,6 +21,11 @@
 	font-size: 1.3em !important;
 }
 
+#available-widgets [class*="axiscomposer"] .widget-title:before {
+	font-family: 'AxisComposer' !important;
+	content: "\e001";
+}
+
 span.mce_axiscomposer_shortcodes_button {
 	background-image: none !important;
 	@include ir();

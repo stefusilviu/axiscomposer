@@ -19,3 +19,35 @@
 .clear {
 	clear: both;
 }
+/**
+ * Basic Styles
+ */
+body {
+	.ac-left{
+		text-align: left;
+	}
+	.ac-right{
+		text-align: right;
+	}
+	.ac-center{
+		text-align: center;
+	}
+}
+/**
+ * Text Block
+ */
+.ac-textblock{
+	clear: both;
+	line-height: 1.5em;
+}
+/**
+ * Special Heading
+ */
+.ac-special-heading{
+	.ac-special-heading-tag{
+		margin: 0;
+	}
+	.ac-subheading{
+		margin: 0;
+	}
+}

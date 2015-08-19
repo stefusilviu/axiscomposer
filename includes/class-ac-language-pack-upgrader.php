@@ -34,7 +34,7 @@ class AC_Language_Pack_Upgrader {
 		add_filter( 'upgrader_pre_download', array( $this, 'version_update' ), 10, 2 );
 		add_action( 'axiscomposer_installed', array( $this, 'has_available_update' ) );
 		add_action( 'update_option_WPLANG', array( $this, 'updated_language_option' ), 10, 2 );
-		add_filter( 'admin_init', array( $this, 'manual_language_update' ), 999 );
+		add_filter( 'admin_init', array( $this, 'manual_language_update' ), 10 );
 	}
 
 	/**
@@ -172,15 +172,17 @@ class AC_Language_Pack_Upgrader {
 			is_admin()
 			&& current_user_can( 'update_plugins' )
 			&& isset( $_GET['page'] )
-			&& 'ac-status' == $_GET['page']
+			&& in_array( $_GET['page'], array( 'ac-status' ) )
 			&& isset( $_GET['action'] )
 			&& 'translation_upgrade' == $_GET['action']
 		) {
+			$page    = 'ac-status&tab=tools';
+			$wpnonce = 'debug_action';
 
-			$url       = wp_nonce_url( admin_url( 'admin.php?page=ac-status&tab=tools&action=translation_upgrade' ), 'language_update' );
-			$tools_url = admin_url( 'admin.php?page=ac-status&tab=tools' );
+			$url       = wp_nonce_url( admin_url( 'admin.php?page=' . $page . '&action=translation_upgrade' ), 'language_update' );
+			$tools_url = admin_url( 'admin.php?page=' . $page );
 
-			if ( ! isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( $_REQUEST['_wpnonce'], 'debug_action' ) ) {
+			if ( ! isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( $_REQUEST['_wpnonce'], $wpnonce ) ) {
 				wp_redirect( add_query_arg( array( 'translation_updated' => 2 ), $tools_url ) );
 				exit;
 			}
@@ -232,6 +234,30 @@ class AC_Language_Pack_Upgrader {
 				wp_redirect( add_query_arg( array( 'translation_updated' => 4 ), $tools_url ) );
 				exit;
 			}
+		}
+	}
+
+	/**
+	 * Language update messages.
+	 */
+	public static function language_update_messages() {
+		switch ( $_GET['translation_updated'] ) {
+			case 2 :
+				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'woocommerce' ) . '</p></div>';
+				break;
+			case 3 :
+				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'woocommerce' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
+				break;
+			case 4 :
+				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'woocommerce' ) . '</p></div>';
+				break;
+
+			default :
+				// Force WordPress find for new updates and hide the WooCommerce translation update
+				set_site_transient( 'update_plugins', null );
+
+				echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'woocommerce' ) . '</p></div>';
+				break;
 		}
 	}
 }

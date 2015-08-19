@@ -243,20 +243,20 @@ class AC_Language_Pack_Upgrader {
 	public static function language_update_messages() {
 		switch ( $_GET['translation_updated'] ) {
 			case 2 :
-				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'woocommerce' ) . '</p></div>';
+				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axiscomposer' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'axiscomposer' ) . '</p></div>';
 				break;
 			case 3 :
-				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'woocommerce' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
+				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axiscomposer' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'axiscomposer' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
 				break;
 			case 4 :
-				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'woocommerce' ) . '</p></div>';
+				echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'axiscomposer' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'axiscomposer' ) . '</p></div>';
 				break;
 
 			default :
-				// Force WordPress find for new updates and hide the WooCommerce translation update
+				// Force WordPress find for new updates and hide the AxisComposer translation update
 				set_site_transient( 'update_plugins', null );
 
-				echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'woocommerce' ) . '</p></div>';
+				echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'axiscomposer' ) . '</p></div>';
 				break;
 		}
 	}

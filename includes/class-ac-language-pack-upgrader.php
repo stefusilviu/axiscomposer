@@ -24,7 +24,7 @@ class AC_Language_Pack_Upgrader {
 	 * Languages repository.
 	 * @var string
 	 */
-	protected $repo = 'https://github.com/axisthemes/axiscomposer-language-packs/raw/v';
+	protected static $repo = 'https://github.com/axisthemes/axiscomposer-language-packs/raw/v';
 
 	/**
 	 * Initialize the language pack upgrader.
@@ -32,7 +32,7 @@ class AC_Language_Pack_Upgrader {
 	public function __construct() {
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_for_update' ) );
 		add_filter( 'upgrader_pre_download', array( $this, 'version_update' ), 10, 2 );
-		add_action( 'axiscomposer_installed', array( $this, 'has_available_update' ) );
+		add_action( 'axiscomposer_installed', array( __CLASS__, 'has_available_update' ) );
 		add_action( 'update_option_WPLANG', array( $this, 'updated_language_option' ), 10, 2 );
 		add_filter( 'admin_init', array( $this, 'manual_language_update' ), 10 );
 	}
@@ -42,11 +42,11 @@ class AC_Language_Pack_Upgrader {
 	 * @param  string $locale
 	 * @return string
 	 */
-	public function get_language_package_uri( $locale = null ) {
+	public static function get_language_package_uri( $locale = null ) {
 		if ( is_null( $locale ) ) {
 			$locale = get_locale();
 		}
-		return $this->repo . AC_VERSION . '/packages/' . $locale . '.zip';
+		return self::$repo . AC_VERSION . '/packages/' . $locale . '.zip';
 	}
 
 	/**
@@ -55,7 +55,7 @@ class AC_Language_Pack_Upgrader {
 	 * @return object
 	 */
 	public function check_for_update( $data ) {
-		if ( $this->has_available_update() ) {
+		if ( self::has_available_update() ) {
 			$locale = get_locale();
 
 			$data->translations[] = array(
@@ -64,7 +64,7 @@ class AC_Language_Pack_Upgrader {
 				'language'   => $locale,
 				'version'    => AC_VERSION,
 				'updated'    => date( 'Y-m-d H:i:s' ),
-				'package'    => $this->get_language_package_uri( $locale ),
+				'package'    => self::get_language_package_uri( $locale ),
 				'autoupdate' => 1
 			);
 		}
@@ -78,7 +78,7 @@ class AC_Language_Pack_Upgrader {
 	 * @param string $new
 	 */
 	public function updated_language_option( $old, $new ) {
-		$this->has_available_update( $new );
+		self::has_available_update( $new );
 	}
 
 	/**
@@ -86,7 +86,7 @@ class AC_Language_Pack_Upgrader {
 	 * @param  string $locale
 	 * @return bool
 	 */
-	public function has_available_update( $locale = null ) {
+	public static function has_available_update( $locale = null ) {
 		if ( is_null( $locale ) ) {
 			$locale = get_locale();
 		}
@@ -98,8 +98,8 @@ class AC_Language_Pack_Upgrader {
 		$version = get_option( 'axiscomposer_language_pack_version', array( '0', $locale ) );
 
 		if ( ! is_array( $version ) || version_compare( $version[0], AC_VERSION, '<' ) || $version[1] !== $locale ) {
-			if ( $this->check_if_language_pack_exists( $locale ) ) {
-				$this->configure_axiscomposer_upgrade_notice();
+			if ( self::check_if_language_pack_exists( $locale ) ) {
+				self::configure_axiscomposer_upgrade_notice();
 				return true;
 			} else {
 				// Updated the axiscomposer_language_pack_version to avoid searching translations for this release again
@@ -113,7 +113,7 @@ class AC_Language_Pack_Upgrader {
 	/**
 	 * Configure the AxisComposer translation upgrade notice.
 	 */
-	public function configure_axiscomposer_upgrade_notice() {
+	public static function configure_axiscomposer_upgrade_notice() {
 		AC_Admin_Notices::add_notice( 'translation_upgrade' );
 	}
 
@@ -122,8 +122,8 @@ class AC_Language_Pack_Upgrader {
 	 * @param  string $locale
 	 * @return bool
 	 */
-	public function check_if_language_pack_exists( $locale ) {
-		$response = wp_safe_remote_get( $this->get_language_package_uri( $locale ), array( 'timeout' => 60 ) );
+	public static function check_if_language_pack_exists( $locale ) {
+		$response = wp_safe_remote_get( self::get_language_package_uri( $locale ), array( 'timeout' => 60 ) );
 
 		if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 			return true;
@@ -144,7 +144,7 @@ class AC_Language_Pack_Upgrader {
 	 * @return bool
 	 */
 	public function version_update( $reply, $package ) {
-		if ( $package === $this->get_language_package_uri() ) {
+		if ( $package === self::get_language_package_uri() ) {
 			$this->save_language_version();
 		}
 
@@ -199,7 +199,7 @@ class AC_Language_Pack_Upgrader {
 			}
 
 			// Download the language pack
-			$response = wp_safe_remote_get( $this->get_language_package_uri(), array( 'timeout' => 60 ) );
+			$response = wp_safe_remote_get( self::get_language_package_uri(), array( 'timeout' => 60 ) );
 			if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
 				global $wp_filesystem;
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-alpha-3 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-08-17 17:07:26+00:00\n"
+"POT-Creation-Date: 2015-08-20 18:56:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -116,6 +116,30 @@ msgstr ""
 
 #: includes/class-ac-install.php:389
 msgid "Premium Support"
+msgstr ""
+
+#: includes/class-ac-language-pack-upgrader.php:246
+#: includes/class-ac-language-pack-upgrader.php:249
+#: includes/class-ac-language-pack-upgrader.php:252
+msgid "Failed to install/update the translation:"
+msgstr ""
+
+#: includes/class-ac-language-pack-upgrader.php:246
+msgid "Seems you don't have permission to do this!"
+msgstr ""
+
+#: includes/class-ac-language-pack-upgrader.php:249
+msgid ""
+"An authentication error occurred while updating the translation. Please try "
+"again or configure your %sUpgrade Constants%s."
+msgstr ""
+
+#: includes/class-ac-language-pack-upgrader.php:252
+msgid "Sorry but there is no translation available for your language =/"
+msgstr ""
+
+#: includes/class-ac-language-pack-upgrader.php:259
+msgid "Translations installed/updated successfully!"
 msgstr ""
 
 #: includes/class-ac-post-types.php:61 includes/class-ac-post-types.php:63

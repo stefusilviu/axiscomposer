@@ -1,5 +1,5 @@
 === AxisComposer - #1 Page Builder ===
-Contributors: axisthemes, shivapoudel, RajeebTheGreat
+Contributors: shivapoudel, RajeebTheGreat, axisthemes
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=axisthemes@gmail.com&item_name=Donation+for+AxisComposer
 Requires at least: 4.2

@@ -191,21 +191,21 @@ class AC_Shortcode_Heading extends AC_Shortcode {
 			return;
 		}
 
+		$sub_heading  = "<div class='ac-subheading' style='font-size:{$subheading_size}px;'><p>";
+		$sub_heading .= $subheading_text;
+		$sub_heading .= "</p></div>";
+
 		$above_heading = $below_heading = '';
 
 		if ( $subheading === 'subheading-above' ) {
-			$above_heading .= "<div class='ac-subheading' style='font-size:{$subheading_size}px;'><p>";
-			$above_heading .= $subheading_text;
-			$above_heading .= "</p></div>";
-		} elseif ( $subheading === 'subheading-below' ) {
-			$below_heading .= "<div class='ac-subheading' style='font-size:{$subheading_size}px;'><p>";
-			$below_heading .= $subheading_text;
-			$below_heading .= "</p></div>";
+			$above_heading = $sub_heading;
+		} elseif( $subheading === 'subheading-below' ) {
+			$below_heading = $sub_heading;
 		}
 
 		$custom_style = "padding-bottom:{$padding}px;";
 
-		if ( $font_color == "specific" ) {
+		if ( $font_color === "specific" ) {
 			$custom_style .= "color:{$color};";
 		}
 

@@ -66,13 +66,13 @@ jQuery( function ( $ ) {
 	// Tabbed Panels
 	$( document.body ).on( 'ac-init-tabbed-panels', function() {
 		$( 'ul.ac-tabs' ).show();
-		$( 'ul.ac-tabs a' ).click( function() {
+		$( 'ul.ac-tabs a' ).click( function( e ) {
+			e.preventDefault();
 			var panel_wrap = $( this ).closest( 'div.panel-wrap' );
 			$( 'ul.ac-tabs li', panel_wrap ).removeClass( 'active' );
 			$( this ).parent().addClass( 'active' );
 			$( 'div.panel', panel_wrap ).hide();
 			$( $( this ).attr( 'href' ) ).show();
-			return false;
 		});
 		$( 'div.panel-wrap' ).each( function() {
 			$( this ).find( 'ul.ac-tabs li' ).eq( 0 ).find( 'a' ).click();

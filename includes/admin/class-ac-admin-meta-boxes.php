@@ -112,6 +112,9 @@ class AC_Admin_Meta_Boxes {
 	 */
 	public function remove_meta_boxes() {
 		remove_meta_box( 'postexcerpt', 'portfolio', 'normal' );
+		remove_meta_box( 'pageparentdiv', 'portfolio', 'side' );
+		remove_meta_box( 'commentstatusdiv', 'portfolio', 'side' );
+		remove_meta_box( 'commentstatusdiv', 'portfolio', 'normal' );
 	}
 
 	/**

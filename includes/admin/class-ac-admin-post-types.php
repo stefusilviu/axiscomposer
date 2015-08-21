@@ -174,8 +174,9 @@ class AC_Admin_Post_Types {
 
 	/**
 	 * Hidden default Meta-Boxes.
-	 * @param  array     $hidden An array of meta boxes hidden by default.
-	 * @param  WP_Screen $screen WP_Screen object of the current screen.
+	 * @param  array  $hidden
+	 * @param  object $screen
+	 * @return array
 	 */
 	public function hidden_meta_boxes( $hidden, $screen ) {
 		if ( 'portfolio' === $screen->post_type && 'post' === $screen->base ) {

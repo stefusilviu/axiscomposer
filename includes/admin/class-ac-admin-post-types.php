@@ -121,13 +121,11 @@ class AC_Admin_Post_Types {
 	}
 
 	/**
-	 * edit_form_after_title function.
-	 * @return string
+	 * Print after the title field.
+	 * @param WP_Post $post
 	 */
-	public function edit_form_after_title() {
-		$screen = get_current_screen();
-
-		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
+	public function edit_form_after_title( $post ) {
+		if ( in_array( $post->post_type, ac_get_allowed_screen_types() ) ) {
 			global $post;
 
 			$params = apply_filters( 'axiscomposer_editors_toggle_params', array(
@@ -161,13 +159,11 @@ class AC_Admin_Post_Types {
 	}
 
 	/**
-	 * edit_form_after_editor function.
-	 * @return string
+	 * Print after the content editor.
+	 * @param WP_Post $post
 	 */
-	public function edit_form_after_editor() {
-		$screen = get_current_screen();
-
-		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
+	public function edit_form_after_editor( $post ) {
+		if ( in_array( $post->post_type, ac_get_allowed_screen_types() ) ) {
 			echo '</div> <!-- #postdivrich_wrap -->';
 		}
 	}

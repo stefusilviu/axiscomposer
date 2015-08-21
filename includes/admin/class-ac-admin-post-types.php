@@ -32,6 +32,7 @@ class AC_Admin_Post_Types {
 		add_filter( 'media_view_strings', array( $this, 'change_insert_into_post' ) );
 		add_action( 'edit_form_after_title', array( $this, 'edit_form_after_title' ) );
 		add_action( 'edit_form_after_editor', array( $this, 'edit_form_after_editor' ) );
+		add_filter( 'default_hidden_meta_boxes', array( $this, 'hidden_meta_boxes' ), 10, 2 );
 
 		// Meta-Box Class
 		include_once( 'class-ac-admin-meta-boxes.php' );
@@ -172,7 +173,20 @@ class AC_Admin_Post_Types {
 	}
 
 	/**
-	 * Disable DFW feature pointer
+	 * Hidden default Meta-Boxes.
+	 * @param  array     $hidden An array of meta boxes hidden by default.
+	 * @param  WP_Screen $screen WP_Screen object of the current screen.
+	 */
+	public function hidden_meta_boxes( $hidden, $screen ) {
+		if ( 'portfolio' === $screen->post_type && 'post' === $screen->base ) {
+			$hidden = array_merge( $hidden, array( 'postcustom' ) );
+		}
+
+		return $hidden;
+	}
+
+	/**
+	 * Disable DFW feature pointer.
 	 */
 	public function disable_dfw_feature_pointer() {
 		$screen = get_current_screen();

@@ -94,7 +94,7 @@ jQuery( function ( $ ) {
 			}
 		});
 		$( 'div.panel-wrap' ).each( function() {
-			$( this ).find( 'ul.ac-tabs li' ).eq( $supports_html5_storage ? sessionStorage.getItem( panel_data + '1' ) : 0 ).find( 'a' ).click();
+			$( this ).find( 'ul.ac-tabs li' ).eq( $supports_html5_storage ? sessionStorage.getItem( panel_data ) : 0 ).find( 'a' ).click();
 		});
 	}).trigger( 'ac-init-tabbed-panels' );
 

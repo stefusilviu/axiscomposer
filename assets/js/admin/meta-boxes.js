@@ -1,6 +1,17 @@
 /* global axiscomposer_admin_meta_boxes_pagebuilder, quicktags, QTags */
 jQuery( function ( $ ) {
 
+	/* Storage Handling */
+	var $supports_html5_storage;
+	try {
+		$supports_html5_storage = ( 'sessionStorage' in window && window.sessionStorage !== null );
+
+		window.sessionStorage.setItem( 'ac', 'test' );
+		window.sessionStorage.removeItem( 'ac' );
+	} catch( err ) {
+		$supports_html5_storage = false;
+	}
+
 	// Run tipTip
 	function runTipTip() {
 		// Remove any lingering tooltips
@@ -65,6 +76,8 @@ jQuery( function ( $ ) {
 
 	// Tabbed Panels
 	$( document.body ).on( 'ac-init-tabbed-panels', function() {
+		var panel_data = 'ac-panel-' + axiscomposer_admin_meta_boxes_pagebuilder.post_id;
+
 		$( 'ul.ac-tabs' ).show();
 		$( 'ul.ac-tabs a' ).click( function( e ) {
 			e.preventDefault();
@@ -74,8 +87,14 @@ jQuery( function ( $ ) {
 			$( 'div.panel', panel_wrap ).hide();
 			$( $( this ).attr( 'href' ) ).show();
 		});
+		$( 'ul.pagebuilder_data_tabs li' ).click( function( e ) {
+			e.preventDefault();
+			if ( $supports_html5_storage ) {
+				sessionStorage.setItem( panel_data, $( this ).index() );
+			}
+		});
 		$( 'div.panel-wrap' ).each( function() {
-			$( this ).find( 'ul.ac-tabs li' ).eq( 0 ).find( 'a' ).click();
+			$( this ).find( 'ul.ac-tabs li' ).eq( $supports_html5_storage ? sessionStorage.getItem( panel_data + '1' ) : 0 ).find( 'a' ).click();
 		});
 	}).trigger( 'ac-init-tabbed-panels' );
 

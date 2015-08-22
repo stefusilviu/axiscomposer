@@ -76,8 +76,6 @@ jQuery( function ( $ ) {
 
 	// Tabbed Panels
 	$( document.body ).on( 'ac-init-tabbed-panels', function() {
-		var panel_data = 'ac-panel-' + axiscomposer_admin_meta_boxes_pagebuilder.post_id;
-
 		$( 'ul.ac-tabs' ).show();
 		$( 'ul.ac-tabs a' ).click( function( e ) {
 			e.preventDefault();
@@ -87,14 +85,23 @@ jQuery( function ( $ ) {
 			$( 'div.panel', panel_wrap ).hide();
 			$( $( this ).attr( 'href' ) ).show();
 		});
-		$( 'ul.pagebuilder_data_tabs li' ).click( function( e ) {
-			e.preventDefault();
+		$( 'ul.pagebuilder_data_tabs li' ).click( function() {
 			if ( $supports_html5_storage ) {
-				sessionStorage.setItem( panel_data, $( this ).index() );
+				sessionStorage.setItem( 'ac_active_tab', $( this ).index() );
 			}
 		});
 		$( 'div.panel-wrap' ).each( function() {
-			$( this ).find( 'ul.ac-tabs li' ).eq( $supports_html5_storage ? sessionStorage.getItem( panel_data ) : 0 ).find( 'a' ).click();
+			var active_tab = 0;
+
+			/* Active Tab Handling */
+			if ( $supports_html5_storage ) {
+				active_tab = sessionStorage.getItem( 'ac_active_tab' );
+				if ( active_tab === null || active_tab === undefined || active_tab === '' ) {
+					active_tab = 0;
+				}
+			}
+
+			$( this ).find( 'ul.ac-tabs li' ).eq( active_tab ).find( 'a' ).click();
 		});
 	}).trigger( 'ac-init-tabbed-panels' );
 

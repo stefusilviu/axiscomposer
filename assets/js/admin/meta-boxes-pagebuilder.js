@@ -836,7 +836,7 @@ jQuery( function( $ ) {
 				var $row                 = $( this ).parents( '.ac-layout-row:eq(0)' ),
 					cells                = $row.find( '.ac-layout-cell' ),
 					cell_size            = ac_meta_boxes_pagebuilder_data.cell_size,
-					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[cells.length], notification = '';
+					cell_size_variations = ac_meta_boxes_pagebuilder_data.cell_size_variations[ cells.length ], notification = '';
 
 				// Create cell size lists
 				if ( cell_size_variations ) {

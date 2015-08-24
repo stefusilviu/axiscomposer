@@ -39,7 +39,7 @@ class AC_AJAX {
 	}
 
 	/**
-	 * Set AJAX defines.
+	 * Set AC AJAX constant and headers.
 	 */
 	public static function define_ajax() {
 		if ( ! empty( $_GET['ac-ajax'] ) ) {
@@ -54,6 +54,12 @@ class AC_AJAX {
 		if ( ! WP_DEBUG || ( WP_DEBUG && ! WP_DEBUG_DISPLAY ) ) {
 			@ini_set( 'display_errors', 0 );
 		}
+		// Send headers like admin-ajax.php
+		send_origin_headers();
+		@header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
+		@header( 'X-Robots-Tag: noindex' );
+		send_nosniff_header();
+		nocache_headers();
 	}
 
 	/**

@@ -1158,6 +1158,7 @@ jQuery( function( $ ) {
 					history.storage.push( new_snapshot );
 
 					if ( history.storage.length > 40 ) {
+						history.temporary --;
 						history.storage.shift();
 					}
 

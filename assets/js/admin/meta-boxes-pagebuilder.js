@@ -12,6 +12,29 @@ jQuery( function( $ ) {
 		$supports_html5_storage = false;
 	}
 
+	// Tabbed Panels Storage
+	$( document.body ).on( 'ac-tabbed-panels-storage', function() {
+		$( 'ul.pagebuilder_data_tabs li' ).click( function( e ) {
+			e.preventDefault();
+			if ( $supports_html5_storage ) {
+				sessionStorage.setItem( 'ac_active_tab', $( this ).index() );
+			}
+		});
+		$( 'div.pagebuilder_data' ).each( function() {
+			var active_tab = 0;
+
+			/* Active Tab Handling */
+			if ( $supports_html5_storage ) {
+				active_tab = sessionStorage.getItem( 'ac_active_tab' );
+				if ( active_tab === null || active_tab === undefined || active_tab === '' ) {
+					active_tab = 0;
+				}
+			}
+
+			$( this ).find( 'ul.pagebuilder_data_tabs li' ).eq( active_tab ).find( 'a' ).click();
+		});
+	}).trigger( 'ac-tabbed-panels-storage' );
+
 	/**
 	 * Page Builder Panel
 	 */

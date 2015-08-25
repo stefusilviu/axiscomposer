@@ -74,7 +74,7 @@ jQuery( function ( $ ) {
 			$( 'div.panel', panel_wrap ).hide();
 			$( $( this ).attr( 'href' ) ).show();
 		});
-		$( 'div.panel-wrap:not(.pagebuilder_data)' ).each( function() {
+		$( 'div.panel-wrap' ).filter( ':not(.pagebuilder_data)' ).each( function() {
 			$( this ).find( 'ul.ac-tabs li' ).eq( 0 ).find( 'a' ).click();
 		});
 	}).trigger( 'ac-init-tabbed-panels' );

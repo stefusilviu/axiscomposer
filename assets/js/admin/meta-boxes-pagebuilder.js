@@ -20,7 +20,7 @@ jQuery( function( $ ) {
 				sessionStorage.setItem( 'ac_active_tab', $( this ).index() );
 			}
 		});
-		$( 'div.pagebuilder_data' ).each( function() {
+		$( 'div.panel-wrap' ).filter( '.pagebuilder_data' ).each( function() {
 			var active_tab = 0;
 
 			/* Active Tab Handling */

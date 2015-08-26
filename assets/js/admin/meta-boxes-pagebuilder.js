@@ -296,7 +296,7 @@ jQuery( function( $ ) {
 
 			// Clear storage
 			if ( length === 0 ) {
-				ac_meta_boxes_pagebuilder.storage.clear_storage();
+				ac_meta_boxes_pagebuilder.storage.remove_storage();
 				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			}
 
@@ -1045,7 +1045,7 @@ jQuery( function( $ ) {
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
 				ac_meta_boxes_pagebuilder.textarea.outer();
-				ac_meta_boxes_pagebuilder.storage.clear_storage();
+				ac_meta_boxes_pagebuilder.storage.remove_storage();
 				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			},
 
@@ -1080,8 +1080,8 @@ jQuery( function( $ ) {
 					this.temporary = this.maximum;
 				}
 
-				// Clear storage
-				this.clear_storage();
+				// Remove storage
+				this.remove_storage();
 			},
 
 			set_key: function() {
@@ -1165,7 +1165,7 @@ jQuery( function( $ ) {
 					try {
 						sessionStorage.setItem( history.set_key(), JSON.stringify( history.storage ) );
 					} catch( err ) {
-						ac_meta_boxes_pagebuilder.storage.clear_storage();
+						ac_meta_boxes_pagebuilder.storage.remove_storage();
 						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
 					}
 				}
@@ -1187,7 +1187,7 @@ jQuery( function( $ ) {
 				}
 			},
 
-			clear_storage: function() {
+			remove_storage: function() {
 				var history = ac_meta_boxes_pagebuilder.storage;
 				sessionStorage.removeItem( history.set_key() );
 				sessionStorage.removeItem( history.set_key() + '-temp' );

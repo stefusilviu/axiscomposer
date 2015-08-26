@@ -1046,132 +1046,166 @@ jQuery( function( $ ) {
 		},
 
 		storage: {
-
+			current_step: null,
+			maximum_step: null,
 			init: function() {
-				this.storage = this.get_key() || [];
-				this.maximum = this.storage.length - 1;
-
-				// Temporary storage index
-				this.temporary = this.get_key( this.set_key() + '-temp' );
-				if ( typeof this.temporary === 'undefined' || this.temporary === null ) {
-					this.temporary = this.maximum;
-				}
-
-				// Remove storage
+				this.tab_storage();
 				this.remove_storage();
 			},
 
-			set_key: function() {
-				return ( 'ac-storage-' + axiscomposer_admin_meta_boxes_pagebuilder.post_id ).toLowerCase();
-			},
+			snapshot: function() {
+				var stored, history = ac_meta_boxes_pagebuilder.storage;
 
-			get_key: function( passed_key ) {
-				var history = ac_meta_boxes_pagebuilder.storage;
-				return $.parseJSON( sessionStorage.getItem( passed_key || history.set_key() ) );
+				// Update all textarea html with actual value
+				$( '.canvas-area' ).find( 'textarea' ).each( function() {
+					this.innerHTML = this.value;
+				});
+
+				// Create new snapshot data
+				if ( stored = history.get_storage( 'history' ) ) {
+					history.current_step = stored.length - 1;
+
+					// Snapshot data
+					var old_snapshot = stored[ history.current_step ];
+					var new_snapshot = [
+						$( '.canvas-data' ).val(),
+						$( '.canvas-area' ).html().replace( /modal-animation/g, '' )
+					];
+
+					// Prevent if we have the old snapshot data
+					if ( old_snapshot === undefined || ( old_snapshot[0] !== new_snapshot[0] ) ) {
+						history.current_step ++;
+
+						// Remove all steps after current one
+						stored = stored.slice( 0, history.current_step );
+
+						// Add the new snapshot data
+						stored.push( new_snapshot );
+
+						// Check for the step shift
+						if ( stored.length > 40 ) {
+							stored.shift();
+							history.current_step --;
+						}
+
+						try {
+							history.set_storage( 'history', stored );
+						} catch ( err ) {
+							ac_meta_boxes_pagebuilder.storage.remove_storage();
+							$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
+						}
+					}
+
+					history.maximum_step = stored.length - 1;
+				}
+
+				// Update buttons state
+				history.buttons_state();
 			},
 
 			undo_data: function( e ) {
 				e.preventDefault();
 				var history = ac_meta_boxes_pagebuilder.storage;
-				if ( ( history.temporary - 1 ) >= 0 ) {
-					history.temporary --;
-					history.canvas_update( history.storage[ history.temporary ] );
+				if ( history.current_step - 1 >= 0 ) {
+					history.current_step --;
+					history.canvas_update();
 				}
 			},
 
 			redo_data: function( e ) {
 				e.preventDefault();
 				var history = ac_meta_boxes_pagebuilder.storage;
-				if ( ( history.temporary + 1 ) <= history.maximum ) {
-					history.temporary ++;
-					history.canvas_update( history.storage[ history.temporary ] );
+				if ( history.current_step + 1 <= history.maximum_step ) {
+					history.current_step ++;
+					history.canvas_update();
 				}
 			},
 
-			canvas_update: function( values ) {
-				var history = ac_meta_boxes_pagebuilder.storage;
+			canvas_update: function() {
+				var stored, history = ac_meta_boxes_pagebuilder.storage;
 
-				$( '.canvas-data' ).val( values[0] );
-				$( '.canvas-area' ).html( values[1] );
-				ac_meta_boxes_pagebuilder.tinyMCE( values[0] );
-				sessionStorage.setItem( history.set_key() + '-temp', history.temporary );
-
-				// Undo button
-				if ( history.temporary <= 0 ) {
-					$( '.undo-data' ).addClass( 'inactive-history' );
-				} else {
-					$( '.undo-data' ).removeClass( 'inactive-history' );
+				// Update data
+				if ( stored = history.get_storage( 'history' ) ) {
+					$( '.canvas-data' ).val( stored[ history.current_step ][0] );
+					$( '.canvas-area' ).html( stored[ history.current_step ][1] );
+					ac_meta_boxes_pagebuilder.tinyMCE( stored[ history.current_step ][0] );
 				}
 
-				// Redo button
-				if ( history.temporary + 1 > history.maximum ) {
-					$( '.redo-data' ).addClass( 'inactive-history' );
-				} else {
-					$( '.redo-data' ).removeClass( 'inactive-history' );
-				}
+				// Update buttons state
+				history.buttons_state();
 
+				// Load drag-drop items
 				$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 			},
 
-			snapshot: function() {
-				// Update all textarea html with actual value
-				$( '.canvas-area' ).find( 'textarea' ).each( function() {
-					this.innerHTML = this.value;
-				});
-
+			buttons_state: function() {
 				var history = ac_meta_boxes_pagebuilder.storage;
-				if ( typeof history.temporary === 'undefined' || history.temporary === null ) {
-					history.temporary = history.storage.length - 1;
-				}
-
-				var last_storage = history.storage[ history.temporary ],
-					new_snapshot = [ $( '.canvas-data' ).val(), $( '.canvas-area' ).html().replace( /modal-animation/g, '' ) ];
-
-				// Create new snapshot
-				if ( typeof last_storage === 'undefined' || ( last_storage[0] !== new_snapshot[0] ) ) {
-					history.temporary ++;
-
-					history.storage = history.storage.slice( 0, history.temporary );
-					history.storage.push( new_snapshot );
-
-					if ( history.storage.length > 40 ) {
-						history.temporary --;
-						history.storage.shift();
-					}
-
-					try {
-						sessionStorage.setItem( history.set_key(), JSON.stringify( history.storage ) );
-					} catch( err ) {
-						ac_meta_boxes_pagebuilder.storage.remove_storage();
-						$( '.undo-data, .redo-data' ).addClass( 'inactive-history' );
-					}
-				}
-
-				history.maximum = history.storage.length - 1;
 
 				// Undo button
-				if ( history.temporary === 0 || history.storage.length === 1 ) {
+				if ( history.current_step <= 0 ) {
 					$( '.undo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.undo-data' ).removeClass( 'inactive-history' );
 				}
 
 				// Redo button
-				if ( history.maximum === history.temporary ) {
+				if ( history.current_step === history.maximum_step ) {
 					$( '.redo-data' ).addClass( 'inactive-history' );
 				} else {
 					$( '.redo-data' ).removeClass( 'inactive-history' );
 				}
 			},
 
-			remove_storage: function() {
-				var history = ac_meta_boxes_pagebuilder.storage;
-				sessionStorage.removeItem( history.set_key() );
-				sessionStorage.removeItem( history.set_key() + '-temp' );
+			tab_storage: function() {
+				var index, history = ac_meta_boxes_pagebuilder.storage;
+				$( 'ul.pagebuilder_data_tabs li' ).click( function( e ) {
+					e.preventDefault();
+					history.set_storage( 'tab', $( this ).index() );
+				});
+				$( 'div.panel-wrap' ).filter( '.pagebuilder_data' ).each( function() {
+					if ( index = history.get_storage( 'tab' ) ) {
+						if ( index === null || index === undefined || index.length === 0 ) {
+							index = 0;
+						}
+					}
+					$( this ).find( 'ul.pagebuilder_data_tabs li' ).eq( index ).find( 'a' ).click();
+				});
+			},
 
-				// Reset huh?
-				history.storage   = [];
-				history.temporary = null;
+			get_storage: function( name ) {
+				var stored_obj = false, post_id = axiscomposer_admin_meta_boxes_pagebuilder.post_id;
+
+				if ( $supports_html5_storage && post_id ) {
+					stored_obj = sessionStorage.getItem( 'ac-storage-' + post_id + '-' + name );
+
+					if ( stored_obj ) {
+						stored_obj = JSON.parse( stored_obj );
+					} else {
+						stored_obj = [];
+					}
+				}
+
+				return stored_obj;
+			},
+
+			set_storage: function( name, stored_obj ) {
+				var key, post_id = axiscomposer_admin_meta_boxes_pagebuilder.post_id;
+
+				if ( $supports_html5_storage && post_id ) {
+					key = 'ac-storage-' + post_id + '-' + name;
+					sessionStorage.setItem( key, JSON.stringify( stored_obj ) );
+					return sessionStorage.getItem( key ) !== null;
+				}
+
+				return false;
+			},
+
+			remove_storage: function() {
+				var post_id = axiscomposer_admin_meta_boxes_pagebuilder.post_id;
+
+				if ( $supports_html5_storage && post_id ) {
+					sessionStorage.removeItem( 'ac-storage-' + post_id + '-history' );
+				}
 			},
 
 			history_snapshot: function() {

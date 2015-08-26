@@ -1174,10 +1174,10 @@ jQuery( function( $ ) {
 				history.temporary = null;
 			},
 
-			history_snapshot: function( timeout ) {
+			history_snapshot: function() {
 				setTimeout( function() {
 					$( document.body ).trigger( 'ac_storage_snapshot' );
-				}, timeout ? timeout : 150 );
+				}, 150 );
 			},
 
 			keyboard_actions: function( e ) {

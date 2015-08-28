@@ -126,8 +126,6 @@ class AC_Admin_Post_Types {
 	 */
 	public function edit_form_after_title( $post ) {
 		if ( in_array( $post->post_type, ac_get_allowed_screen_types() ) ) {
-			global $post;
-
 			$params = apply_filters( 'axiscomposer_editors_toggle_params', array(
 				'notice'        => '',
 				'disabled'      => false,

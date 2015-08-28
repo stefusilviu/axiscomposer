@@ -320,7 +320,7 @@ jQuery( function( $ ) {
 				// Change the column size text
 				size_string.text( next_size[1] );
 
-				// Textarea Update and History snapshot :)
+				// Textarea update and history snapshot :)
 				ac_meta_boxes_pagebuilder.textarea.outer();
 				if ( section.length ) {
 					ac_meta_boxes_pagebuilder.textarea.inner( false, section );
@@ -815,7 +815,7 @@ jQuery( function( $ ) {
 							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 						}
 
-						// History Snapshot
+						// History snapshot
 						ac_meta_boxes_pagebuilder.storage.history_snapshot();
 					}
 				};

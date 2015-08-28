@@ -121,14 +121,14 @@ jQuery( function( $ ) {
 				button.addClass( 'button-primary' ).removeClass( 'button-secondary' ).text( $( this ).data( 'builder' ) );
 				ac_meta_boxes_pagebuilder.pagebuilder.val( 'inactive' );
 
+				// Adjust when switching editor modes
+				$( document.body ).trigger( 'ac-switch-editor-modes' );
+
 				// Clear default tinyMCE editor if debug mode is disabled
 				if ( axiscomposer_admin_meta_boxes_pagebuilder.debug_mode !== 'yes' && ( $( '.canvas-data' ).val().indexOf( '[' ) !== -1 ) ) {
 					ac_meta_boxes_pagebuilder.tinyMCE( '' );
 				}
 			}
-
-			// Auto resize WordPress editor
-			$( document.body ).trigger( 'ac-init-wp-editor' );
 		},
 
 		add_element: function() {

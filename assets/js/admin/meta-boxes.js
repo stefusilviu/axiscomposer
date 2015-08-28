@@ -101,8 +101,8 @@ jQuery( function ( $ ) {
 		});
 	}).trigger( 'ac-init-iconpicker' );
 
-	// Auto resize WordPress editor
-	$( document.body ).on( 'ac-init-wp-editor', function() {
+	// Switch Editor Modes
+	$( document.body ).on( 'ac-switch-editor-modes', function() {
 		if ( window.editorExpand && $( '#postdivrich' ).hasClass( 'wp-editor-expand' ) ) {
 			window.editorExpand.off();
 			window.editorExpand.on();
@@ -170,11 +170,10 @@ jQuery( function ( $ ) {
 				// Activate the visual editor
 				switcher.filter( '.switch-tmce' ).trigger( 'click' );
 
-				// Trigger events
+				// Trigger update and remove events
 				$( document.body ).on( 'ac-enhanced-form-tinymce-update', function() {
 					switcher.filter( '.switch-html' ).trigger( 'click' );
 				}).on( 'ac-enhanced-form-tinymce-remove', function() {
-					$( document.body ).trigger( 'ac-init-wp-editor' );
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
 				});
 			});

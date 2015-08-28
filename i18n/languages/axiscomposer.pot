@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0.0-alpha-3 Frontend\n"
+"Project-Id-Version: AxisComposer 1.0.0-alpha-1 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-08-20 18:56:51+00:00\n"
+"POT-Creation-Date: 2015-08-28 18:02:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: includes/abstracts/abstract-ac-integration.php:24
 #: includes/abstracts/abstract-ac-settings-api.php:79
-#: includes/class-ac-install.php:372
+#: includes/class-ac-install.php:367
 msgid "Settings"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-ac-ajax.php:207
+#: includes/class-ac-ajax.php:213
 msgid "%s &ndash; %s"
 msgstr ""
 
@@ -90,31 +90,31 @@ msgstr ""
 msgid "Could not create charmap configuration file."
 msgstr ""
 
-#: includes/class-ac-install.php:372
+#: includes/class-ac-install.php:367
 msgid "View AxisComposer Settings"
 msgstr ""
 
-#: includes/class-ac-install.php:387
+#: includes/class-ac-install.php:382
 msgid "View AxisComposer Documentation"
 msgstr ""
 
-#: includes/class-ac-install.php:387
+#: includes/class-ac-install.php:382
 msgid "Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:388
+#: includes/class-ac-install.php:383
 msgid "View AxisComposer API Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:388
+#: includes/class-ac-install.php:383
 msgid "API Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:389
+#: includes/class-ac-install.php:384
 msgid "Visit Premium Customer Support Forum"
 msgstr ""
 
-#: includes/class-ac-install.php:389
+#: includes/class-ac-install.php:384
 msgid "Premium Support"
 msgstr ""
 
@@ -1063,103 +1063,99 @@ msgid "Heading Style"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:78
-msgid "This sets the custom modern and classic heading style."
+msgid "This allows to set align of heading text."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:85
-msgid "Default Style"
+msgid "Align Left"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:86
-msgid "Heading Style Modern (left)"
+msgid "Align Center"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-heading.php:87
-msgid "Heading Style Modern (centered)"
+msgid " Align Right"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:88
-msgid "Heading Style Classic (centered, italic)"
-msgstr ""
-
-#: includes/shortcodes/class-ac-shortcode-heading.php:92
+#: includes/shortcodes/class-ac-shortcode-heading.php:91
 msgid "Heading Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:93
+#: includes/shortcodes/class-ac-shortcode-heading.php:92
 msgid "This sets the custom font size of the heading text."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:103
+#: includes/shortcodes/class-ac-shortcode-heading.php:102
 msgid "Subheading"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:104
+#: includes/shortcodes/class-ac-shortcode-heading.php:103
 msgid "This option lets you control the display of subheading."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:111
+#: includes/shortcodes/class-ac-shortcode-heading.php:110
 msgid "No Subheading"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:112
+#: includes/shortcodes/class-ac-shortcode-heading.php:111
 msgid "Display Subheading Above"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:113
+#: includes/shortcodes/class-ac-shortcode-heading.php:112
 msgid "Display Subheading Below"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:117
+#: includes/shortcodes/class-ac-shortcode-heading.php:116
 msgid "Subheading Text"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:118
+#: includes/shortcodes/class-ac-shortcode-heading.php:117
 msgid "Enter an extra descriptive subheading here."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:124
+#: includes/shortcodes/class-ac-shortcode-heading.php:123
 msgid "Subheading Size"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:125
+#: includes/shortcodes/class-ac-shortcode-heading.php:124
 msgid "This sets the custom font size of the subheading text."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:135
+#: includes/shortcodes/class-ac-shortcode-heading.php:134
 msgid "Padding Bottom"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:136
+#: includes/shortcodes/class-ac-shortcode-heading.php:135
 msgid "This sets the custom bottom padding in pixel."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:146
+#: includes/shortcodes/class-ac-shortcode-heading.php:145
 #: includes/shortcodes/class-ac-shortcode-textblock.php:72
 msgid "Font Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:147
+#: includes/shortcodes/class-ac-shortcode-heading.php:146
 #: includes/shortcodes/class-ac-shortcode-textblock.php:73
 msgid "This option lets you limit which color you are willing to use."
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:154
+#: includes/shortcodes/class-ac-shortcode-heading.php:153
 #: includes/shortcodes/class-ac-shortcode-textblock.php:80
 msgid "Theme Default Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:155
+#: includes/shortcodes/class-ac-shortcode-heading.php:154
 #: includes/shortcodes/class-ac-shortcode-textblock.php:81
 msgid "Define Custom Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:159
+#: includes/shortcodes/class-ac-shortcode-heading.php:158
 #: includes/shortcodes/class-ac-shortcode-textblock.php:85
 msgid "Custom Font Color"
 msgstr ""
 
-#: includes/shortcodes/class-ac-shortcode-heading.php:160
+#: includes/shortcodes/class-ac-shortcode-heading.php:159
 msgid "This sets the custom font color of the heading text."
 msgstr ""
 

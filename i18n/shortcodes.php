@@ -1,6 +1,6 @@
 <?php
 /**
- * tinyMCE i18n
+ * TinyMCE i18n
  *
  * @package  AxisComposer/i18n
  * @category i18n

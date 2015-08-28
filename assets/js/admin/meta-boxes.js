@@ -103,8 +103,7 @@ jQuery( function ( $ ) {
 
 	// Auto resize WordPress editor
 	$( document.body ).on( 'ac-init-wp-editor', function() {
-		var $supports_editor_expand = ( 'editorExpand' in window && window.editorExpand !== null );
-		if ( $supports_editor_expand && $( '#editor-expand-toggle' ).prop( 'checked' ) ) {
+		if ( window.editorExpand && $( '#postdivrich' ).hasClass( 'wp-editor-expand' ) ) {
 			window.editorExpand.off();
 			window.editorExpand.on();
 		}

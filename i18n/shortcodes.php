@@ -39,7 +39,7 @@ function axiscomposer_tinymce_plugin_translation() {
 
 	/**
 	 * Filter translated strings prepared for TinyMCE.
-	 * @param array  $mce_translation Key/value pairs of strings.
+	 * @param array $mce_translation Key/value pairs of strings.
 	 * @since 1.0.0
 	 */
 	$mce_translation = apply_filters( 'axiscomposer_mce_translations', $mce_translation );

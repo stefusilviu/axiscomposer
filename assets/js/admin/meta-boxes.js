@@ -134,8 +134,7 @@ jQuery( function ( $ ) {
 
 			// TinyMCE Visual Editor
 			$( 'textarea[id=axiscomposer_content]' ).each( function() {
-				var $id  = this.id,
-					mode = window.getUserSetting( 'editor' );
+				var $id = this.id, mode = window.getUserSetting( 'editor' );
 
 				// Fix Quick tags
 				quicktags({ id: $id, buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' });

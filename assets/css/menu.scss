@@ -73,6 +73,10 @@ i.mce-i-axiscomposer-shortcodes {
 
 .ac_plugin_display_notice {
 	margin: 15px 0 0;
+
+	&.active {
+		background-color: $axiscomposer;
+	}
 }
 
 /**

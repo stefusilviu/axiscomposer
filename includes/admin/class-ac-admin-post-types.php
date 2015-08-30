@@ -132,7 +132,7 @@ class AC_Admin_Post_Types {
 				'builder_label' => __( 'Use Page Builder', 'axiscomposer' ),
 				'default_label' => __( 'Use Default Editor', 'axiscomposer' ),
 				'disable_label' => __( 'Page Builder Disabled', 'axiscomposer' )
-			) );
+			), $post );
 
 			if ( is_pagebuilder_active( $post->ID ) ) {
 				$button_label = $params['default_label'];
@@ -151,7 +151,7 @@ class AC_Admin_Post_Types {
 			echo '<a href="#" id="_toggle_editor" class="button button-large ' . $button_class . ' axiscomposer-toggle-editor" data-builder="' . esc_attr( $params['builder_label'] ) . '" data-editor="' . esc_attr( $params['default_label'] ) . '">' . esc_html( $button_label ) . '</a>';
 			echo '<div id="postdivrich_wrap" class="axiscomposer ' . $editor_class . '">';
 			if ( $params['notice'] ) {
-				echo '<div class="ac_plugin_display_notice">' . esc_html( $params['notice'] ) . '</div>';
+				echo '<div class="ac_plugin_display_notice ' . esc_attr( $params['disabled'] ? 'inactive' : 'active' ) . '">' . esc_html( $params['notice'] ) . '</div>';
 			}
 		}
 	}

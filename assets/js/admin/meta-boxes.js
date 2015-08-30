@@ -174,6 +174,7 @@ jQuery( function ( $ ) {
 				$( document.body ).on( 'ac-enhanced-form-tinymce-update', function() {
 					switcher.filter( '.switch-html' ).trigger( 'click' );
 				}).on( 'ac-enhanced-form-tinymce-remove', function() {
+					window.setUserSetting( 'editor', 'tmce' );
 					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
 				});
 			});

@@ -1273,7 +1273,7 @@ jQuery( function( $ ) {
 							ac_meta_boxes_pagebuilder.textarea.outer();
 						}
 
-						// Activate the visual editor
+						// Activate visual editor
 						$( '#content-tmce' ).trigger( 'click' );
 
 						// Take history snapshot and load drag-drop

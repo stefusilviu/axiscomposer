@@ -134,49 +134,25 @@ jQuery( function ( $ ) {
 
 			// TinyMCE Visual Editor
 			$( 'textarea[id=axiscomposer_content]' ).each( function() {
-				var id       = this.id,
-					wrap     = $( '#wp-' + id + '-wrap' ),
-					switcher = wrap.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
-					textarea = $( '#' + id ),
-					settings = {
-						id: this.id,
-						buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close'
-					};
+				var $id  = this.id,
+					mode = window.getUserSetting( 'editor' );
 
 				// Fix Quick tags
-				quicktags(settings);
+				quicktags({ id: $id, buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' });
 				QTags._buttonsInit();
 
-				// Modify behaviour for html editor
-				switcher.bind( 'click', function() {
-					var button = $( this );
-					if ( button.is( '.switch-tmce' ) ) {
-						wrap.removeClass( 'html-active' ).addClass( 'tmce-active' );
-						textarea.attr( 'aria-hidden', true );
-						window.tinyMCE.execCommand( 'mceAddEditor', true, id );
-						window.tinyMCE.get( id ).setContent( window.switchEditors.wpautop( textarea.val() ), { format: 'raw' } );
-					} else {
-						var value = textarea.val();
-						if ( window.tinyMCE.get( id ) ) {
-							value = window.tinyMCE.get( id ).getContent();
-						}
+				// Execute TinyMCE editor
+				window.tinyMCE.execCommand( 'mceAddEditor', true, $id );
+				if ( 'html' === mode ) {
+					window.switchEditors.go( $id, 'html' );
+				}
 
-						wrap.removeClass( 'tmce-active' ).addClass( 'html-active' );
-						textarea.attr( 'aria-hidden', false );
-						window.tinyMCE.execCommand( 'mceRemoveEditor', true, id );
-						textarea.val( window.switchEditors._wp_Nop( value ) );
-					}
-				});
-
-				// Activate the visual editor
-				switcher.filter( '.switch-tmce' ).trigger( 'click' );
-
-				// Trigger update and remove events
+				// Trigger TinyMCE events
 				$( document.body ).on( 'ac-enhanced-form-tinymce-update', function() {
-					window.switchEditors.go( id, 'html' );
-					window.setUserSetting( 'editor', 'tmce' );
-				}).on( 'ac-enhanced-form-tinymce-remove', function() {
-					window.tinyMCE.execCommand( 'mceRemoveEditor', true, id );
+					if ( 'html' !== mode ) {
+						window.switchEditors.go( $id, 'html' );
+					}
+					window.setUserSetting( 'editor', mode );
 				});
 			});
 
@@ -202,7 +178,7 @@ jQuery( function ( $ ) {
 		})
 
 		.on( 'ac_backbone_modal_before_remove', function() {
-			$( document.body ).trigger( 'ac-enhanced-form-tinymce-remove' );
+			window.tinyMCE.execCommand( 'mceRemoveEditor', false, 'axiscomposer_content' );
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 

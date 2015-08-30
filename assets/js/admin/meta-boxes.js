@@ -134,25 +134,17 @@ jQuery( function ( $ ) {
 
 			// TinyMCE Visual Editor
 			$( 'textarea.axiscomposer-tinymce' ).each( function() {
-				var $id = this.id, mode = window.getUserSetting( 'editor' );
+				var mode = window.getUserSetting( 'editor' );
 
 				// Fix Quicktags
-				quicktags({ id: $id, buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' });
+				quicktags({ id: this.id, buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' });
 				QTags._buttonsInit();
 
-				// Execute TinyMCE editor
-				window.tinyMCE.execCommand( 'mceAddEditor', true, $id );
+				// Executes TinyMCE editor
+				window.tinyMCE.execCommand( 'mceAddEditor', true, this.id );
 				if ( 'html' === mode ) {
-					window.switchEditors.go( $id, 'html' );
+					window.switchEditors.go( this.id, 'html' );
 				}
-
-				// Trigger TinyMCE events
-				$( document.body ).on( 'ac-enhanced-form-tinymce-update', function() {
-					if ( 'html' !== mode ) {
-						window.switchEditors.go( $id, 'html' );
-					}
-					window.setUserSetting( 'editor', mode );
-				});
 			});
 
 			// Regular color pickers
@@ -173,11 +165,21 @@ jQuery( function ( $ ) {
 
 		// AxisComposer Backbone modal
 		.on( 'ac_backbone_modal_before_update', function() {
-			$( document.body ).trigger( 'ac-enhanced-form-tinymce-update' );
+			$( 'textarea.axiscomposer-tinymce' ).each( function() {
+				var mode = window.getUserSetting( 'editor' );
+				if ( 'html' !== mode ) {
+					window.switchEditors.go( this.id, 'html' );
+				}
+			});
+
+			// Activate visual editor
+			window.setUserSetting( 'editor', 'tmce' );
 		})
 
 		.on( 'ac_backbone_modal_before_remove', function() {
-			window.tinyMCE.execCommand( 'mceRemoveEditor', false, 'axiscomposer_content' );
+			$( 'textarea.axiscomposer-tinymce' ).each( function() {
+				window.tinyMCE.execCommand( 'mceRemoveEditor', false, this.id );
+			});
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 

@@ -134,9 +134,9 @@ jQuery( function ( $ ) {
 
 			// TinyMCE Visual Editor
 			$( 'textarea[id=axiscomposer_content]' ).each( function() {
-				var id        = this.id,
-					wrap      = $( '#wp-' + id + '-wrap' ),
-					switcher  = wrap.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
+				var id       = this.id,
+					wrap     = $( '#wp-' + id + '-wrap' ),
+					switcher = wrap.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
 					textarea = $( '#' + id ),
 					settings = {
 						id: this.id,

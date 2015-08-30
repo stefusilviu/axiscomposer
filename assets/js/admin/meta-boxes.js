@@ -132,13 +132,12 @@ jQuery( function ( $ ) {
 				}
 			}).change();
 
-			// TinyMCE Editor
-			$( 'textarea.axiscomposer-tinymce' ).each( function() {
-				var $el      = this.id,
-					$this    = $( this ),
-					parents  = $this.parents( '.wp-editor-wrap:eq(0)' ),
-					textarea = parents.find( 'textarea.axiscomposer-tinymce' ),
-					switcher = parents.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
+			// TinyMCE Visual Editor
+			$( 'textarea[id=axiscomposer_content]' ).each( function() {
+				var id        = this.id,
+					wrap      = $( '#wp-' + id + '-wrap' ),
+					switcher  = wrap.find( '.wp-switch-editor' ).removeAttr( 'onclick' ),
+					textarea = $( '#' + id ),
 					settings = {
 						id: this.id,
 						buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close'
@@ -152,17 +151,19 @@ jQuery( function ( $ ) {
 				switcher.bind( 'click', function() {
 					var button = $( this );
 					if ( button.is( '.switch-tmce' ) ) {
-						parents.removeClass( 'html-active' ).addClass( 'tmce-active' );
-						window.tinyMCE.execCommand( 'mceAddEditor', true, $el );
-						window.tinyMCE.get( $el ).setContent( window.switchEditors.wpautop( textarea.val() ), { format: 'raw' } );
+						wrap.removeClass( 'html-active' ).addClass( 'tmce-active' );
+						textarea.attr( 'aria-hidden', true );
+						window.tinyMCE.execCommand( 'mceAddEditor', true, id );
+						window.tinyMCE.get( id ).setContent( window.switchEditors.wpautop( textarea.val() ), { format: 'raw' } );
 					} else {
 						var value = textarea.val();
-						if ( window.tinyMCE.get( $el ) ) {
-							value = window.tinyMCE.get( $el ).getContent();
+						if ( window.tinyMCE.get( id ) ) {
+							value = window.tinyMCE.get( id ).getContent();
 						}
 
-						parents.removeClass( 'tmce-active' ).addClass( 'html-active' );
-						window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
+						wrap.removeClass( 'tmce-active' ).addClass( 'html-active' );
+						textarea.attr( 'aria-hidden', false );
+						window.tinyMCE.execCommand( 'mceRemoveEditor', true, id );
 						textarea.val( window.switchEditors._wp_Nop( value ) );
 					}
 				});
@@ -172,10 +173,10 @@ jQuery( function ( $ ) {
 
 				// Trigger update and remove events
 				$( document.body ).on( 'ac-enhanced-form-tinymce-update', function() {
-					switcher.filter( '.switch-html' ).trigger( 'click' );
-				}).on( 'ac-enhanced-form-tinymce-remove', function() {
+					window.switchEditors.go( id, 'html' );
 					window.setUserSetting( 'editor', 'tmce' );
-					window.tinyMCE.execCommand( 'mceRemoveEditor', true, $el );
+				}).on( 'ac-enhanced-form-tinymce-remove', function() {
+					window.tinyMCE.execCommand( 'mceRemoveEditor', true, id );
 				});
 			});
 

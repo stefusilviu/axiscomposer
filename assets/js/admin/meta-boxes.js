@@ -133,7 +133,7 @@ jQuery( function ( $ ) {
 			}).change();
 
 			// TinyMCE Visual Editor
-			$( 'textarea[id=axiscomposer_content]' ).each( function() {
+			$( 'textarea.axiscomposer-tinymce' ).each( function() {
 				var $id = this.id, mode = window.getUserSetting( 'editor' );
 
 				// Fix Quick tags

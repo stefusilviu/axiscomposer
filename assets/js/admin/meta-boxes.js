@@ -136,8 +136,8 @@ jQuery( function ( $ ) {
 			$( 'textarea.axiscomposer-tinymce' ).each( function() {
 				var $id = this.id, mode = window.getUserSetting( 'editor' );
 
-				// Fix Quick tags
-				quicktags({ id: $id, buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' });
+				// Fix Quicktags
+				quicktags({ id: $id, buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,close' });
 				QTags._buttonsInit();
 
 				// Execute TinyMCE editor

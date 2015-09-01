@@ -47,9 +47,15 @@ function ac_shortcode_string( $tag, $attrs = array(), $content = '', $type = 'cl
 	$_text .= ']';
 
 	if ( $content ) {
-		$_text .= "\n" . trim( stripslashes( $content ) ) . "\n";
+		// Check if the content is empty.
+		$content = "\n" . trim( stripslashes( $content ) ) . "\n";
+		if ( trim( $content ) == '' ) {
+			$content = '';
+		}
+
+		$_text .= $content;
 	}
 
 	// Add the closing tag.
-	return $_text . '[/' . $tag . ']';
+	return $_text . '[/' . $tag . ']' . "\n\n";
 }

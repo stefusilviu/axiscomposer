@@ -144,7 +144,7 @@ jQuery( function( $ ) {
 			if ( element_tmpl.length ) {
 				if ( insert_target === 'instant-insert' ) {
 					$( '.canvas-area' ).append( element_tmpl.html() );
-					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 					$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 				}
@@ -210,12 +210,12 @@ jQuery( function( $ ) {
 			var wrapper = element.parents( '.ac-layout-section, .ac-layout-column' );
 			if ( element.is( '.ac-layout-section' ) || element.is( '.ac-layout-column' ) || wrapper.length ) {
 				if ( wrapper.length ) {
-					ac_meta_boxes_pagebuilder.textarea.outer();
-					ac_meta_boxes_pagebuilder.textarea.inner( element );
+					ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
+					ac_meta_boxes_pagebuilder.shortcode.inner_textarea( element );
 				}
 			}
 
-			ac_meta_boxes_pagebuilder.textarea.outer();
+			ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 			ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			$( document.body ).trigger( 'ac_dragdrop_items_loaded' );
 			return false;
@@ -252,10 +252,10 @@ jQuery( function( $ ) {
 				element.remove();
 
 				if ( parents && parents.length ) {
-					ac_meta_boxes_pagebuilder.textarea.inner( parents );
+					ac_meta_boxes_pagebuilder.shortcode.inner_textarea( parents );
 				}
 
-				ac_meta_boxes_pagebuilder.textarea.outer();
+				ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 
 				// Bugfix - column delete makes the canvas undroppable for unknown reason
@@ -321,10 +321,10 @@ jQuery( function( $ ) {
 				size_string.text( next_size[1] );
 
 				// Textarea update and history snapshot :)
-				ac_meta_boxes_pagebuilder.textarea.outer();
+				ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 				if ( section.length ) {
-					ac_meta_boxes_pagebuilder.textarea.inner( false, section );
-					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, section );
+					ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 				}
 				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			}
@@ -378,12 +378,12 @@ jQuery( function( $ ) {
 
 			// Update the section and column inner textarea.
 			if ( section.length ) {
-				ac_meta_boxes_pagebuilder.textarea.inner( false, section );
+				ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, section );
 			} else if ( column.length ) {
-				ac_meta_boxes_pagebuilder.textarea.inner( false, column );
+				ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, column );
 			}
 
-			ac_meta_boxes_pagebuilder.textarea.outer();
+			ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 			ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			element_container.trigger( 'update' );
 		},
@@ -451,197 +451,7 @@ jQuery( function( $ ) {
 			}
 
 			// Transform the shortcode match into a string
-			return ac_meta_boxes_pagebuilder.shortcode_string( values, shortcode, type );
-		},
-
-		shortcode_string: function( values, shortcode, type ) {
-			var content = '', seperator = ',', linebreak = '\n';
-
-			// Parse shortcode content
-			if ( typeof values.content !== 'undefined' ) {
-				if ( typeof values.content === 'object' ) {
-					if ( values.content[0].indexOf( '[' ) !== -1 ) {
-						seperator = linebreak;
-					}
-
-					for ( var i = 0; i < values.content.length; i++ ) {
-						values.content[i] = $.trim( values.content[i] );
-					}
-
-					content = values.content.join( seperator );
-				} else {
-					content = values.content;
-				}
-
-				content = linebreak + content + linebreak;
-				delete values.content;
-			}
-
-			var result = wp.shortcode.string({
-				tag: shortcode,
-				attrs: values,
-				type: type,
-				content: content
-			});
-
-			return result + linebreak + linebreak;
-		},
-
-		textarea: {
-
-			inner: function( element, container ) {
-				// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section
-				if ( typeof container === 'undefined' ) {
-					container = $( element ).parents( '.ac-layout-section:eq(0)' );
-				}
-
-				// If we got no section and no container yet check if the container is a column
-				if ( ! container.length ) {
-					container = $( element ).parents( '.ac-layout-column:eq(0)' );
-				}
-
-				// Still no container? No need for an inner update
-				if ( ! container.length ) {
-					return true;
-				}
-
-				// Variable declarations are hoisted to the top of the scope :)
-				var i, content, main_storage, content_fields, open_tags, currentName, currentSize;
-
-				// If we are in section iterate over all columns inside and set the value before setting the section value
-				if ( container.is( '.ac-layout-section' ) ) {
-					var columns = container.find( '.ac-layout-column-no-cell' );
-					for ( i = 0; i < columns.length; i++ ) {
-						ac_meta_boxes_pagebuilder.textarea.inner( false, $( columns[i] ) );
-					}
-
-					columns = container.find( '.ac-layout-cell' );
-					for ( i = 0; i < columns.length; i++ ) {
-						ac_meta_boxes_pagebuilder.textarea.inner( false, $( columns[i] ) );
-					}
-
-					content        = '';
-					currentName    = container.data( 'shortcode-handler' );
-					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '> .ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
-					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
-
-					for ( i = 0; i < content_fields.length; i++ ) {
-						content += $( content_fields[i] ).val();
-					}
-
-					content = open_tags[0] + '\n\n' + content + '[/' + currentName + ']';
-					main_storage.val( content );
-				}
-
-				if ( container.is( '.ac-layout-cell' ) ) {
-					content        = '';
-					currentSize    = container.data( 'width' );
-					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
-					content_fields = container.find( '> .ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
-					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
-
-					for ( i = 0; i < content_fields.length; i++ ) {
-						content += $( content_fields[i] ).val();
-					}
-
-					content = open_tags[0] + '\n\n' + content + '[/' + currentSize + ']';
-					main_storage.val( content );
-				}
-
-				if ( container.is( '.ac-layout-column:not(.ac-layout-cell)' ) ) {
-					var	currentFirst = container.is( '.ac-first-column' ) ? ' first' : '';
-
-					content        = '';
-					currentSize    = container.data( 'width' );
-					content_fields = container.find( '.ac-sortable-element textarea[data-name="text-shortcode"]' );
-					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
-
-					for ( i = 0; i < content_fields.length; i++ ) {
-						content += $( content_fields[i] ).val();
-					}
-
-					content = '[' + currentSize + currentFirst + ']\n\n' + content + '[/' + currentSize + ']';
-					main_storage.val( content );
-				}
-			},
-
-			outer: function( scope ) {
-				// Prevent if we don't have the pagebuilder active
-				if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
-					return;
-				}
-
-				if ( ! scope ) {
-					$( '.canvas-area' ).find( '.ac-layout-section' ).each( function() {
-						var col_in_section   = $( this ).find( '> .ac-inner-shortcode > div > .ac-inner-shortcode' ),
-							col_in_grid_cell = $( this ).find( '.ac-layout-cell .ac-layout-column-no-cell > .ac-inner-shortcode' );
-
-						if ( col_in_section.length ) {
-							ac_meta_boxes_pagebuilder.textarea.outer( col_in_section );
-						}
-
-						if ( col_in_grid_cell.length ) {
-							ac_meta_boxes_pagebuilder.textarea.outer( col_in_grid_cell );
-						}
-					});
-
-					scope = $( '.ac-data > div > .ac-inner-shortcode' );
-				}
-
-				var content        = '',
-					size_count     = 0,
-					column_size    = ac_meta_boxes_pagebuilder_data.col_size,
-					content_fields = scope.find( '> textarea[data-name="text-shortcode"]' ),
-					current_field, current_content, current_parents, current_size, next_size;
-
-				for ( var i = 0; i < content_fields.length; i++ ) {
-					current_field   = $( content_fields[i] );
-					current_content = current_field.val();
-					current_parents = current_field.parents( '.ac-layout-column-no-cell:eq(0)' );
-
-					// Check for column to add/remove first class
-					if ( current_parents.length ) {
-						current_size = current_parents.data( 'width' );
-
-						for( var x in column_size ) {
-							if ( current_size === column_size[x][0] ) {
-								next_size = column_size[x];
-							}
-						}
-
-						size_count += next_size[2];
-
-						if ( size_count > 1 || i === 0 ) {
-
-							if ( ! current_parents.is( '.ac-first-column' ) ) {
-								current_parents.addClass( 'ac-first-column' );
-								current_content = current_content.replace( new RegExp( '^\\[' + current_size ), '[' + current_size + ' first' );
-								current_field.val( current_content );
-							}
-
-							size_count = next_size[2];
-						} else if ( current_parents.is( '.ac-first-column' ) ) {
-							current_parents.removeClass( 'ac-first-column' );
-							current_content = current_content.replace( ' first', '' );
-							current_field.val( current_content );
-						}
-					} else {
-						size_count = 1;
-					}
-
-					content += current_content;
-				}
-
-				$( '.canvas-data' ).val( content );
-
-				// Slows the whole process considerably
-				var timer = false;
-				clearTimeout( timer );
-				timer = setTimeout( function() {
-					ac_meta_boxes_pagebuilder.tinyMCE( content );
-				}, 500 );
-			}
+			return ac_meta_boxes_pagebuilder.shortcode.create_string( values, shortcode, type );
 		},
 
 		dragdrop: {
@@ -795,7 +605,7 @@ jQuery( function( $ ) {
 
 						// If the element got a former parent we need to update that as well
 						if ( formerParent.length ) {
-							ac_meta_boxes_pagebuilder.textarea.inner( false, formerParent );
+							ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, formerParent );
 						}
 
 						// Get the element that the new element was inserted into. This has to be the parent of the current toEL since we usually insert the new element outside of the toEL with the 'after' method
@@ -803,12 +613,12 @@ jQuery( function( $ ) {
 						var insertedInto = ( method === 'after' ) ? toEl.parents( '.ac-drop' ) : toEl;
 
 						if ( insertedInto.data( 'dragdrop-level' ) !== 0 ) {
-							ac_meta_boxes_pagebuilder.textarea.outer(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
-							ac_meta_boxes_pagebuilder.textarea.inner( ui.draggable );
+							ac_meta_boxes_pagebuilder.shortcode.outer_textarea(); // <-- actually only necessary because of column first class. optimize that so we can remove the costly function of updating all elements :)
+							ac_meta_boxes_pagebuilder.shortcode.inner_textarea( ui.draggable );
 						}
 
 						// Everything is fine, now do the re sorting and textarea updating
-						ac_meta_boxes_pagebuilder.textarea.outer();
+						ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 
 						// Apply dragging and dropping in case we got a new element
 						if ( typeof template !== 'undefined' ) {
@@ -891,8 +701,8 @@ jQuery( function( $ ) {
 						}
 					}
 
-					ac_meta_boxes_pagebuilder.textarea.inner( false, $row );
-					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, $row );
+					ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 				}
 			},
@@ -1021,7 +831,7 @@ jQuery( function( $ ) {
 
 			trash_data: function() {
 				$( '.canvas-area' ).empty();
-				ac_meta_boxes_pagebuilder.textarea.outer();
+				ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 				ac_meta_boxes_pagebuilder.storage.remove_storage();
 				ac_meta_boxes_pagebuilder.storage.history_snapshot();
 			},
@@ -1033,8 +843,8 @@ jQuery( function( $ ) {
 
 				if ( add_cell_size ) {
 					ac_meta_boxes_pagebuilder.cell.change_multiple_cell_size( cells, cell_size_variations[add_cell_size], true );
-					ac_meta_boxes_pagebuilder.textarea.inner( false, $row );
-					ac_meta_boxes_pagebuilder.textarea.outer();
+					ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, $row );
+					ac_meta_boxes_pagebuilder.shortcode.outer_textarea();
 					ac_meta_boxes_pagebuilder.storage.history_snapshot();
 				}
 			},
@@ -1290,6 +1100,193 @@ jQuery( function( $ ) {
 				text = text.replace( new RegExp( '^\\[' + tag, 'g' ), '[' + next );
 				text = text.replace( new RegExp( tag + '\\]', 'g' ), next + ']' );
 				return text;
+			},
+
+			create_string: function( values, shortcode, type ) {
+				var content = '', seperator = ',', linebreak = '\n';
+
+				// Parse shortcode content
+				if ( typeof values.content !== 'undefined' ) {
+					if ( typeof values.content === 'object' ) {
+						if ( values.content[0].indexOf( '[' ) !== -1 ) {
+							seperator = linebreak;
+						}
+
+						for ( var i = 0; i < values.content.length; i++ ) {
+							values.content[i] = $.trim( values.content[i] );
+						}
+
+						content = values.content.join( seperator );
+					} else {
+						content = values.content;
+					}
+
+					content = linebreak + content + linebreak;
+					delete values.content;
+				}
+
+				var result = wp.shortcode.string({
+					tag: shortcode,
+					attrs: values,
+					type: type,
+					content: content
+				});
+
+				return result + linebreak + linebreak;
+			},
+
+			inner_textarea: function( element, container ) {
+				// If we don't have a container passed but an element try to detch the outer most possible container that wraps that element: A Section
+				if ( typeof container === 'undefined' ) {
+					container = $( element ).parents( '.ac-layout-section:eq(0)' );
+				}
+
+				// If we got no section and no container yet check if the container is a column
+				if ( ! container.length ) {
+					container = $( element ).parents( '.ac-layout-column:eq(0)' );
+				}
+
+				// Still no container? No need for an inner update
+				if ( ! container.length ) {
+					return true;
+				}
+
+				// Variable declarations are hoisted to the top of the scope :)
+				var i, content, main_storage, content_fields, open_tags, currentName, currentSize;
+
+				// If we are in section iterate over all columns inside and set the value before setting the section value
+				if ( container.is( '.ac-layout-section' ) ) {
+					var columns = container.find( '.ac-layout-column-no-cell' );
+					for ( i = 0; i < columns.length; i++ ) {
+						ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, $( columns[i] ) );
+					}
+
+					columns = container.find( '.ac-layout-cell' );
+					for ( i = 0; i < columns.length; i++ ) {
+						ac_meta_boxes_pagebuilder.shortcode.inner_textarea( false, $( columns[i] ) );
+					}
+
+					content        = '';
+					currentName    = container.data( 'shortcode-handler' );
+					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '> .ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column .ac-sortable-element textarea[data-name="text-shortcode"], .ac-layout-cell .ac-layout-column textarea[data-name="text-shortcode"] )' );
+					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentName + '.*?\\]' ) );
+
+					for ( i = 0; i < content_fields.length; i++ ) {
+						content += $( content_fields[i] ).val();
+					}
+
+					content = open_tags[0] + '\n\n' + content + '[/' + currentName + ']';
+					main_storage.val( content );
+				}
+
+				if ( container.is( '.ac-layout-cell' ) ) {
+					content        = '';
+					currentSize    = container.data( 'width' );
+					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
+					content_fields = container.find( '> .ac-inner-shortcode > div textarea[data-name="text-shortcode"]:not( .ac-layout-column-no-cell .ac-sortable-element textarea[data-name="text-shortcode"] )' );
+					open_tags      = main_storage.val().match( new RegExp( '\\[' + currentSize + '.*?\\]' ) );
+
+					for ( i = 0; i < content_fields.length; i++ ) {
+						content += $( content_fields[i] ).val();
+					}
+
+					content = open_tags[0] + '\n\n' + content + '[/' + currentSize + ']';
+					main_storage.val( content );
+				}
+
+				if ( container.is( '.ac-layout-column:not(.ac-layout-cell)' ) ) {
+					var	currentFirst = container.is( '.ac-first-column' ) ? ' first' : '';
+
+					content        = '';
+					currentSize    = container.data( 'width' );
+					content_fields = container.find( '.ac-sortable-element textarea[data-name="text-shortcode"]' );
+					main_storage   = container.find( '> .ac-inner-shortcode > textarea[data-name="text-shortcode"]' );
+
+					for ( i = 0; i < content_fields.length; i++ ) {
+						content += $( content_fields[i] ).val();
+					}
+
+					content = '[' + currentSize + currentFirst + ']\n\n' + content + '[/' + currentSize + ']';
+					main_storage.val( content );
+				}
+			},
+
+			outer_textarea: function( scope ) {
+				// Prevent if we don't have the pagebuilder active
+				if ( ac_meta_boxes_pagebuilder.pagebuilder.val() !== 'active' ) {
+					return;
+				}
+
+				if ( ! scope ) {
+					$( '.canvas-area' ).find( '.ac-layout-section' ).each( function() {
+						var col_in_section   = $( this ).find( '> .ac-inner-shortcode > div > .ac-inner-shortcode' ),
+							col_in_grid_cell = $( this ).find( '.ac-layout-cell .ac-layout-column-no-cell > .ac-inner-shortcode' );
+
+						if ( col_in_section.length ) {
+							ac_meta_boxes_pagebuilder.shortcode.outer_textarea( col_in_section );
+						}
+
+						if ( col_in_grid_cell.length ) {
+							ac_meta_boxes_pagebuilder.shortcode.outer_textarea( col_in_grid_cell );
+						}
+					});
+
+					scope = $( '.ac-data > div > .ac-inner-shortcode' );
+				}
+
+				var content        = '',
+					size_count     = 0,
+					column_size    = ac_meta_boxes_pagebuilder_data.col_size,
+					content_fields = scope.find( '> textarea[data-name="text-shortcode"]' ),
+					current_field, current_content, current_parents, current_size, next_size;
+
+				for ( var i = 0; i < content_fields.length; i++ ) {
+					current_field   = $( content_fields[i] );
+					current_content = current_field.val();
+					current_parents = current_field.parents( '.ac-layout-column-no-cell:eq(0)' );
+
+					// Check for column to add/remove first class
+					if ( current_parents.length ) {
+						current_size = current_parents.data( 'width' );
+
+						for( var x in column_size ) {
+							if ( current_size === column_size[x][0] ) {
+								next_size = column_size[x];
+							}
+						}
+
+						size_count += next_size[2];
+
+						if ( size_count > 1 || i === 0 ) {
+
+							if ( ! current_parents.is( '.ac-first-column' ) ) {
+								current_parents.addClass( 'ac-first-column' );
+								current_content = current_content.replace( new RegExp( '^\\[' + current_size ), '[' + current_size + ' first' );
+								current_field.val( current_content );
+							}
+
+							size_count = next_size[2];
+						} else if ( current_parents.is( '.ac-first-column' ) ) {
+							current_parents.removeClass( 'ac-first-column' );
+							current_content = current_content.replace( ' first', '' );
+							current_field.val( current_content );
+						}
+					} else {
+						size_count = 1;
+					}
+
+					content += current_content;
+				}
+
+				$( '.canvas-data' ).val( content );
+
+				// Slows the whole process considerably
+				var timer = false;
+				clearTimeout( timer );
+				timer = setTimeout( function() {
+					ac_meta_boxes_pagebuilder.tinyMCE( content );
+				}, 500 );
 			}
 		},
 

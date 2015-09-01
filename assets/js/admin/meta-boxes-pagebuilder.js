@@ -1270,7 +1270,6 @@ jQuery( function( $ ) {
 						if ( response ) {
 							$( '.canvas-area' ).empty();
 							$( '.canvas-area' ).append( response );
-							ac_meta_boxes_pagebuilder.textarea.outer();
 						}
 
 						// Activate visual editor

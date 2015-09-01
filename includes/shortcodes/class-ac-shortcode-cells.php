@@ -176,7 +176,7 @@ class AC_Shortcode_Cells extends AC_Shortcode {
 			$output .= '</div>';
 			$output .= '<div class="ac-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $this->shortcode['drop-level'] . '">';
 				$output .= '<span class="ac-fake-cellborder"></span>';
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_string( $this->shortcode['name'], $args, $content ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );
 					$output .= $content;

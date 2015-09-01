@@ -115,7 +115,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 
 		if ( $content ) {
 			$eventual_content = do_shortcode_builder( $content );
-			$textarea_content = ac_shortcode_data( $this->shortcode['name'], $content, $args );
+			$textarea_content = ac_shortcode_string( $this->shortcode['name'], $args, $content );
 		} else {
 			$eventual_content = '';
 			$ac_cell_one_half = new AC_Shortcode_Cells_One_Half();
@@ -123,7 +123,7 @@ class AC_Shortcode_Grid_Row extends AC_Shortcode {
 			// Loading twice as we have to generate 2 cell :)
 			$eventual_content .= $ac_cell_one_half->editor_element( $shortcode_params );
 			$eventual_content .= $ac_cell_one_half->editor_element( $shortcode_params );
-			$textarea_content = ac_shortcode_data( $this->shortcode['name'], '[ac_cell_one_half first][/ac_cell_one_half] [ac_cell_one_half][/ac_cell_one_half]', $args );
+			$textarea_content = ac_shortcode_string( $this->shortcode['name'], $args, '[ac_cell_one_half first][/ac_cell_one_half] [ac_cell_one_half][/ac_cell_one_half]' );
 		}
 
 		$output = '<div class="ac-layout-row ac-layout-section modal-animation ac-no-visual-updates ac-drag ' . $this->shortcode['name'] . '"' . ac_html_data_string( $data ) . '>';

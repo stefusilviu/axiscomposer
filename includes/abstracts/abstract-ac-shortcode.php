@@ -551,7 +551,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 				$nested_content = '';
 
 				foreach ( $content as $data ) {
-					$nested_content .= trim( ac_shortcode_data( $this->shortcode['shortcode_nested'][0], null, $data ) . "\n" );
+					$nested_content .= trim( ac_shortcode_string( $this->shortcode['shortcode_nested'][0], $data ) . "\n" );
 				}
 
 				$content = $nested_content;
@@ -619,7 +619,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			$output .= '</div>';
 			$output .= '<div class="ac-inner-shortcode ' . $extra_class . '">';
 				$output .= $innerHtml;
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_string( $this->shortcode['name'], $args, $content ) . '</textarea>';
 			$output .= '</div>';
 		$output .= '</div>';
 

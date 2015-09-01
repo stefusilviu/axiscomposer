@@ -214,7 +214,7 @@ class AC_Shortcode_Section extends AC_Shortcode {
 				$output .= '<a class="axiscomposer-clone clone-element-icon" href="#clone" title="' . __( 'Clone Section',  'axiscomposer' ) . '">' . __( 'Clone Section',  'axiscomposer' ) . '</a>';
 			$output .= '</div>';
 			$output .= '<div class="ac-inner-shortcode ac-connect-sort ac-drop" data-dragdrop-level="' . $data['dragdrop-level'] . '">';
-				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_data( $this->shortcode['name'], $content, $args ) . '</textarea>';
+				$output .= '<textarea data-name="text-shortcode" rows="4" cols="20">' . ac_shortcode_string( $this->shortcode['name'], $args, $content ) . '</textarea>';
 				if ( $content ) {
 					$content = do_shortcode_builder( $content );
 					$output .= $content;

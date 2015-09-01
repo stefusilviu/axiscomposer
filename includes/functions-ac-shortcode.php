@@ -47,46 +47,15 @@ function ac_shortcode_string( $tag, $attrs = array(), $content = '', $type = 'cl
 	$_text .= ']';
 
 	if ( $content ) {
-		$_text .= "\n" . trim( stripslashes( $content ) ) . "\n";
-	}
-
-	// Add the closing tag.
-	return $_text . '[/' . $tag . ']';
-}
-
-/**
- * Create a new shortcode data programmatically.
- * @deprecated 1.0 Deprecated in favour of ac_shortcode_string.
- */
-function ac_shortcode_data( $name, $content = null, $args = array() ) {
-	$_shortcode = '[' . $name;
-
-	if ( is_array( $args ) ) {
-		foreach ( $args as $key => $arg ) {
-			if ( is_numeric( $key ) ) {
-				$_shortcode .= ' ' . $arg;
-			} else {
-				$_shortcode .= ' ' . $key . '="' . $arg . '"';
-			}
-		}
-	}
-
-	$_shortcode .= ']';
-
-	if ( ! is_null( $content ) ) {
-		// Strip-slashes and trim the content
-		$content = "\n" . trim( stripslashes( $content ) ) . "\n"; // Testdrive: add htmlentities()
-
-		// If the content is empty without tabs and line breaks remove it completely
+		// Check if the content is empty.
+		$content = "\n" . trim( stripslashes( $content ) ) . "\n";
 		if ( trim( $content ) == '' ) {
 			$content = '';
 		}
 
-		$_shortcode .= $content . '[/' . $name . ']';
+		$_text .= $content;
 	}
 
-	$_shortcode .= "\n\n";
-	// $_shortcode = str_replace( '\n', '', $_shortcode );
-
-	return $_shortcode;
+	// Add the closing tag.
+	return $_text . '[/' . $tag . ']' . "\n\n";
 }

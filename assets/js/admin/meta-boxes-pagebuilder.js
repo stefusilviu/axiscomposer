@@ -271,7 +271,7 @@ jQuery( function( $ ) {
 		trash_data: function() {
 			var length = $( '.canvas-area' ).children().length;
 
-			// Clear storage
+			// Reset storage
 			if ( length === 0 ) {
 				ac_meta_boxes_pagebuilder.storage.remove_storage();
 				ac_meta_boxes_pagebuilder.storage.history_snapshot();

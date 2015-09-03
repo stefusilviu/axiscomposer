@@ -79,8 +79,7 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * Cache the widget
-	 *
-	 * @param  array $args
+	 * @param  array  $args
 	 * @param  string $content
 	 * @return string the content that was cached
 	 */
@@ -99,7 +98,6 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * Output the html at the start of a widget
-	 *
 	 * @param  array $args
 	 * @return string
 	 */
@@ -113,7 +111,6 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * Output the html at the end of a widget
-	 *
 	 * @param  array $args
 	 * @return string
 	 */
@@ -123,10 +120,9 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * update function.
-	 *
-	 * @see WP_Widget->update
-	 * @param array $new_instance
-	 * @param array $old_instance
+	 * @see    WP_Widget->update
+	 * @param  array $new_instance
+	 * @param  array $old_instance
 	 * @return array
 	 */
 	public function update( $new_instance, $old_instance ) {
@@ -153,8 +149,7 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * form function.
-	 *
-	 * @see WP_Widget->form
+	 * @see   WP_Widget->form
 	 * @param array $instance
 	 */
 	public function form( $instance ) {

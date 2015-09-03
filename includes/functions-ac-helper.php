@@ -126,8 +126,7 @@ function ac_get_shortcode_data( $data ) {
  * the shortcode will still show up in the post or content.
  *
  * @since 1.0.0
- *
- * @uses $_ac_shortcode_tags
+ * @uses  $_ac_shortcode_tags
  *
  * @param  string $content Content to search for shortcodes
  * @return string Content with shortcodes filtered out.

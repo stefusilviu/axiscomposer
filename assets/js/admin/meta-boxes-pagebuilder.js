@@ -593,7 +593,7 @@ jQuery( function( $ ) {
 						if ( ui.draggable[0].hash ) {
 							var shortcode = ui.draggable.get(0).hash.replace( '#', '' );
 
-							template = $.parseHTML( $( '#tmpl-axiscomposer-' + shortcode ).html() );
+							template = $.parseHTML( $( '#tmpl-axiscomposer-shortcode-' + shortcode ).html() );
 							ui.draggable = template;
 						}
 
@@ -687,14 +687,14 @@ jQuery( function( $ ) {
 				var $row  = $( clicked ).parents( '.ac-layout-row:eq(0)' ),
 					cells = $row.find( '.ac-layout-cell' ),
 					count = ( cells.length + direction ),
-					newEl = ac_meta_boxes_pagebuilder_data.new_cell_order[count];
+					newEl = ac_meta_boxes_pagebuilder_data.new_cell_order[ count ];
 
 				if ( typeof newEl !== 'undefined' ) {
 					ac_meta_boxes_pagebuilder.cell.change_multiple_cell_size( cells, newEl );
 
 					// Check if we can append cells
 					if ( cells.length === count ) {
-						var cell_tmpl = $( '#tmpl-axiscomposer-' + newEl[0].replace( 'ac_cell_', 'ac_shortcode_cells_' ).replace( '_one_full', '' ) );
+						var cell_tmpl = $( '#tmpl-axiscomposer-shortcode-' + newEl[0].replace( '_one_full', '' ) );
 						if ( cell_tmpl.length ) {
 							$row.find( '> .ac-inner-shortcode' ).append( cell_tmpl.html() );
 							$( document.body ).trigger( 'ac_dragdrop_items_loaded' );

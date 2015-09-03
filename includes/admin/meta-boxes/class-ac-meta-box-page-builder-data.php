@@ -130,7 +130,7 @@ class AC_Meta_Box_Page_Builder_Data {
 					$shortcode_icon = ( isset( $shortcode['image'] ) && ! empty( $shortcode['image'] ) ) ? '<img src="' . $shortcode['image'] . '" alt="' . $title . '" />' : '<i class="' . $shortcode['icon'] . '"></i>';
 
 					// Create a button Link
-					echo '<a href="#' . strtolower( $shortcode['href-class'] ) . '" class="insert-shortcode help_tip ' . esc_attr( $shortcode['class'] ) . ' ' . esc_attr( $shortcode['target'] ) . '" data-dragdrop-level="' . esc_attr( $shortcode['drag-level'] ) . '" data-tip="' . ac_sanitize_tooltip( $tooltip ) . '">' . $shortcode_icon . '<span>' . wp_kses_post( $title ) . '</span></a>';
+					echo '<a href="#' . strtolower( $shortcode['name'] ) . '" class="insert-shortcode help_tip ' . esc_attr( $shortcode['class'] ) . ' ' . esc_attr( $shortcode['target'] ) . '" data-dragdrop-level="' . esc_attr( $shortcode['drag-level'] ) . '" data-tip="' . ac_sanitize_tooltip( $tooltip ) . '">' . $shortcode_icon . '<span>' . wp_kses_post( $title ) . '</span></a>';
 				}
 			}
 		}

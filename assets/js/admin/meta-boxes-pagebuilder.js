@@ -138,7 +138,7 @@ jQuery( function( $ ) {
 			}
 
 			var shortcode     = this.hash.replace( '#', '' ),
-				element_tmpl  = $( '#tmpl-axiscomposer-' + shortcode ),
+				element_tmpl  = $( '#tmpl-axiscomposer-shortcode-' + shortcode ),
 				insert_target = 'instant-insert';
 
 			if ( element_tmpl.length ) {

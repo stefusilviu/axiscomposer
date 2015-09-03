@@ -354,8 +354,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			'class'      => '',
 			'target'     => '',
 			'drag-level' => 3,
-			'drop-level' => -1,
-			'href-class' => get_class( $this )
+			'drop-level' => -1
 		);
 
 		// Load the default shortcode data.
@@ -630,7 +629,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * Output a Pagebuilder Shortcode Templates.
 	 */
 	public function print_media_templates() {
-		$class    = $this->shortcode['href-class'];
+		$tmpl_id  = $this->shortcode['name'];
 		$template = $this->prepare_editor_element();
 
 		if ( is_array( $template ) ) {

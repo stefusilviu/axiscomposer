@@ -141,11 +141,11 @@ function do_shortcode_builder( $content ) {
  * Regular Expression callable for do_shortcode_builder() for calling shortcode hook.
  * @see get_shortcode_regex for details of the match array contents.
  *
- * @since 1.0.0
+ * @since  1.0.0
  * @access private
- * @uses $shortcode_tags
+ * @uses   $shortcode_tags
  *
- * @param array $m Regular expression match array
+ * @param  array $m Regular expression match array
  * @return mixed False on failure.
  */
 function do_shortcode_tag_builder( $m ) {

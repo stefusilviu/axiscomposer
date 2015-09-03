@@ -13,35 +13,30 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * CSS class
-	 *
 	 * @var string
 	 */
 	public $widget_cssclass;
 
 	/**
 	 * Widget description
-	 *
 	 * @var string
 	 */
 	public $widget_description;
 
 	/**
 	 * Widget ID
-	 *
 	 * @var string
 	 */
 	public $widget_id;
 
 	/**
 	 * Widget name
-	 *
 	 * @var string
 	 */
 	public $widget_name;
 
 	/**
 	 * Settings
-	 *
 	 * @var array
 	 */
 	public $settings;

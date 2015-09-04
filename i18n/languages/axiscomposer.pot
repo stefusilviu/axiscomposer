@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-alpha-1 Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-09-01 22:33:43+00:00\n"
+"POT-Creation-Date: 2015-09-04 20:51:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,25 +52,25 @@ msgstr ""
 msgid "Font: %s"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:409
+#: includes/abstracts/abstract-ac-shortcode.php:408
 msgid "Custom CSS Class"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:410
+#: includes/abstracts/abstract-ac-shortcode.php:409
 msgid ""
 "This option lets you set custom css class you are willing to use for "
 "customization."
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:615
+#: includes/abstracts/abstract-ac-shortcode.php:614
 msgid "Edit Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:617
+#: includes/abstracts/abstract-ac-shortcode.php:616
 msgid "Delete Element"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-shortcode.php:618
+#: includes/abstracts/abstract-ac-shortcode.php:617
 msgid "Clone Element"
 msgstr ""
 

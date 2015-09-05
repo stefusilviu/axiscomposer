@@ -86,18 +86,10 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Changelog ==
 
 * Feature - Language pack downloader. po and mo files removed from core (too heavy).
-* Refactor - Improved the Iconfont Uploader Class.
 * Refactor - Compressed the Page Builder Scripts in single file.
-* Fix - Change hooks used to output post columns - fixes columns after quick edit.
-* Fix - Query in uninstall script.
 * Fix - Prevent potential XSS within tooltips.
-* Tweak - Improve tooltip sanitization.
-* Tweak - Disable display_errors during ajax requests to prevent malformed JSON.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
-* Dev - Switched to .scss for all styles.
-* Dev - Included bourbon for scss mixins.
-* Dev - Separated soft and hard deprecated scripts.
-* Dev - Added new filter to disable and display notice for specific post by ID.
+* Dev - Switched to .scss and included bourbon for scss mixins.
 * Localisation - Removed language files from core to made the package lighter (see language pack downloader feature).
 
 == Upgrade Notice ==

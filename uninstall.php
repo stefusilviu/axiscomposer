@@ -2,7 +2,7 @@
 /**
  * AxisComposer Uninstall
  *
- * Uninstalling AxisComposer deletes user roles and options.
+ * Uninstalling the plugin deletes user roles and options.
  *
  * @author   AxisThemes
  * @category Core

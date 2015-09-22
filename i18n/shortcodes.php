@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! class_exists( '_WP_Editors' ) ) {
-    require( ABSPATH . WPINC . '/class-wp-editor.php' );
+	require( ABSPATH . WPINC . '/class-wp-editor.php' );
 }
 
 if ( ! function_exists( 'axiscomposer_tinymce_plugin_translation' ) ) :

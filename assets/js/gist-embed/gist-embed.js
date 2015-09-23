@@ -1,6 +1,6 @@
 // author: Blair Vanderhoof
 // https://github.com/blairvanderhoof/gist-embed
-// version 2.2
+// version 2.3
 (function($) {
 
   function getLineNumbers(lineRangeString) {
@@ -36,6 +36,7 @@
         hideFooterOption,
         hideLineNumbersOption,
         showLoading,
+        showSpinner,
         data = {};
 
       // make block level so loading text shows properly
@@ -47,8 +48,13 @@
       hideLineNumbersOption = $elem.data('gist-hide-line-numbers') === true;
       lines = $elem.data('gist-line');
       highlightLines = $elem.data('gist-highlight-line');
-      showLoading = $elem.data('gist-show-loading') !== undefined ?
-        $elem.data('gist-show-loading') : true;
+      showSpinner = $elem.data('gist-show-spinner') === true;
+      if (showSpinner) {
+        showLoading = false;
+      } else {
+        showLoading = $elem.data('gist-show-loading') !== undefined ?
+          $elem.data('gist-show-loading') : true;
+      }
 
       if (file) {
         data.file = file;
@@ -58,10 +64,16 @@
       if (!id) return false;
 
       url = 'https://gist.github.com/' + id + '.json';
+      loading = 'Loading gist ' + url + (data.file ? ', file: ' + data.file : '') + '...';
 
       // loading
-      if (showLoading) {
-        $elem.html('Loading gist ' + url + (data.file ? ', file: ' + data.file : '') + '...');
+      if (showLoading)  {
+        $elem.html(loading);
+      }
+
+      // loading spinner
+      if (showSpinner) {
+        $elem.html('<img style="display:block;margin-left:auto;margin-right:auto"  alt="' + loading + '" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif">');
       }
 
       // request the json version of this gist

@@ -78,6 +78,13 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 				'desc_tip'          => true,
 				'default'           => ''
 			),
+			'load_spinner' => array(
+				'title'             => __( 'Load Spinner', 'axiscomposer' ),
+				'label'             => __( 'Load a gist with a loading spinner.', 'axiscomposer' ),
+				'type'              => 'checkbox',
+				'checkboxgroup'     => '',
+				'default'           => 'yes'
+			),
 			'hide_footer' => array(
 				'title'             => __( 'Footer Meta', 'axiscomposer' ),
 				'label'             => __( 'Load a gist with footer meta removed.', 'axiscomposer' ),
@@ -91,13 +98,6 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 				'type'              => 'checkbox',
 				'checkboxgroup'     => '',
 				'default'           => 'no'
-			),
-			'show_loading' => array(
-				'title'             => __( 'Loading Message', 'axiscomposer' ),
-				'label'             => __( 'Load a gist without displaying loading message.', 'axiscomposer' ),
-				'type'              => 'checkbox',
-				'checkboxgroup'     => '',
-				'default'           => 'yes'
 			)
 		);
 	}
@@ -115,9 +115,9 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 			'id'              => '',
 			'file'            => '',
 			'display'         => '',
+			'load_spinner'    => '',
 			'hide_footer'     => '',
 			'hide_linenumber' => '',
-			'show_loading'    => ''
 		), $atts, $this->shortcode['name'] ) );
 
 		// Don't display if ID is missing
@@ -138,7 +138,8 @@ class AC_Shortcode_Gist extends AC_Shortcode {
 					data-gist-file="<?php echo esc_attr( $gist_file ); ?>"
 					data-gist-hide-footer="<?php echo empty( $hide_footer ) ? 'false' : 'true'; ?>"
 					data-gist-hide-line-numbers="<?php echo empty( $hide_linenumber ) ? 'false' : 'true'; ?>"
-					data-gist-show-loading="<?php echo empty( $show_loading ) ? 'true' : 'false'; ?>">
+					data-gist-show-spinner="<?php echo empty( $load_spinner ) ? 'false' : 'true'; ?>"
+					data-gist-show-loading="false">
 				</code>
 			</div>
 		</section>

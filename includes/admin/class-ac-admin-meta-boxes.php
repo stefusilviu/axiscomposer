@@ -128,7 +128,7 @@ class AC_Admin_Meta_Boxes {
 			return;
 		}
 
-		// Dont' save meta boxes for revisions or autosaves
+		// Don't save meta boxes for revisions or autosaves
 		if ( defined( 'DOING_AUTOSAVE' ) || is_int( wp_is_post_revision( $post ) ) || is_int( wp_is_post_autosave( $post ) ) ) {
 			return;
 		}

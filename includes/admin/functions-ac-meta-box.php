@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Output a select input box.
- *
  * @param array $field
  */
 function axiscomposer_wp_select( $field ) {

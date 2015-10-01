@@ -25,6 +25,12 @@ class AC_Frontend_Scripts {
 	private static $scripts = array();
 
 	/**
+	 * Contains an array of script handles registered by AC
+	 * @var array
+	 */
+	private static $styles = array();
+
+	/**
 	 * Contains an array of script handles localized by AC
 	 * @var array
 	 */
@@ -72,11 +78,11 @@ class AC_Frontend_Scripts {
 	 *
 	 * @uses   wp_register_script()
 	 * @access private
-	 * @param  string   $handle    [description]
-	 * @param  string   $path      [description]
-	 * @param  string[] $deps      [description]
-	 * @param  string   $version   [description]
-	 * @param  boolean  $in_footer [description]
+	 * @param  string   $handle
+	 * @param  string   $path
+	 * @param  string[] $deps
+	 * @param  string   $version
+	 * @param  boolean  $in_footer
 	 */
 	private static function register_script( $handle, $path, $deps = array( 'jquery' ), $version = AC_VERSION, $in_footer = true ) {
 		self::$scripts[] = $handle;
@@ -88,17 +94,51 @@ class AC_Frontend_Scripts {
 	 *
 	 * @uses   wp_enqueue_script()
 	 * @access private
-	 * @param  string   $handle    [description]
-	 * @param  string   $path      [description]
-	 * @param  string[] $deps      [description]
-	 * @param  string   $version   [description]
-	 * @param  boolean  $in_footer [description]
+	 * @param  string   $handle
+	 * @param  string   $path
+	 * @param  string[] $deps
+	 * @param  string   $version
+	 * @param  boolean  $in_footer
 	 */
 	private static function enqueue_script( $handle, $path = '', $deps = array( 'jquery' ), $version = AC_VERSION, $in_footer = true ) {
 		if ( ! in_array( $handle, self::$scripts ) && $path ) {
 			self::register_script( $handle, $path, $deps, $version, $in_footer );
 		}
 		wp_enqueue_script( $handle );
+	}
+
+	/**
+	 * Register a style for use.
+	 *
+	 * @uses   wp_register_style()
+	 * @access private
+	 * @param  string   $handle
+	 * @param  string   $path
+	 * @param  string[] $deps
+	 * @param  string   $version
+	 * @param  string   $media
+	 */
+	private static function register_style( $handle, $path, $deps = array(), $version = AC_VERSION, $media = 'all' ) {
+		self::$styles[] = $handle;
+		wp_register_style( $handle, $path, $deps, $version, $media );
+	}
+
+	/**
+	 * Register and enqueue a styles for use.
+	 *
+	 * @uses   wp_enqueue_style()
+	 * @access private
+	 * @param  string   $handle
+	 * @param  string   $path
+	 * @param  string[] $deps
+	 * @param  string   $version
+	 * @param  string   $media
+	 */
+	private static function enqueue_style( $handle, $path = '', $deps = array(), $version = AC_VERSION, $media = 'all' ) {
+		if ( ! in_array( $handle, self::$styles ) && $path ) {
+			self::register_style( $handle, $path, $deps, $version, $media );
+		}
+		wp_enqueue_style( $handle );
 	}
 
 	/**
@@ -125,7 +165,7 @@ class AC_Frontend_Scripts {
 		// CSS Styles
 		if ( $enqueue_styles = self::get_styles() ) {
 			foreach ( $enqueue_styles as $handle => $args ) {
-				wp_enqueue_style( $handle, $args['src'], $args['deps'], $args['version'], $args['media'] );
+				self::enqueue_style( $handle, $args['src'], $args['deps'], $args['version'], $args['media'] );
 			}
 		}
 	}

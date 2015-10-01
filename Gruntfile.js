@@ -56,7 +56,7 @@ module.exports = function( grunt ){
 					ext: '.min.js'
 				}]
 			},
-			jquery_plugin: {
+			vendor: {
 				files: {
 					'<%= dirs.js %>/jquery-blockui/jquery.blockUI.min.js': ['<%= dirs.js %>/jquery-blockui/jquery.blockUI.js'],
 					'<%= dirs.js %>/jquery-serializejson/jquery.serializejson.min.js': ['<%= dirs.js %>/jquery-serializejson/jquery.serializejson.js'],

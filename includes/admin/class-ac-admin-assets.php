@@ -125,8 +125,11 @@ class AC_Admin_Assets {
 
 		// Meta boxes
 		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
-			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal', 'shortcode', 'serializejson' ), AC_VERSION );
-			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
+			wp_register_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal', 'shortcode', 'serializejson' ), AC_VERSION );
+			wp_register_script( 'ac-admin-pagebuilder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
+
+			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes' );
+			wp_enqueue_script( 'ac-admin-pagebuilder-meta-boxes-position' );
 
 			$params = array(
 				'post_id'                         => isset( $post->ID ) ? $post->ID : '',
@@ -151,7 +154,8 @@ class AC_Admin_Assets {
 		}
 
 		if ( in_array( $screen->id, ac_get_layout_supported_screens() ) ) {
-			wp_enqueue_script( 'ac-admin-layout-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-layout' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
+			wp_register_script( 'ac-admin-layout-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-layout' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-layout-meta-boxes' );
 		}
 
 		// System status
@@ -161,21 +165,25 @@ class AC_Admin_Assets {
 
 		// Widgets Specific
 		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) ) {
-			wp_enqueue_script( 'ac-admin-sidebars', AC()->plugin_url() . '/assets/js/admin/sidebars' . $suffix . '.js', array( 'ac-backbone-modal' ), AC_VERSION );
-
-			$params = array(
-				'ajax_url'                    => admin_url( 'admin-ajax.php' ),
-				'delete_custom_sidebar_nonce' => wp_create_nonce( 'delete-custom-sidebar' )
+			wp_register_script( 'ac-admin-sidebars', AC()->plugin_url() . '/assets/js/admin/sidebars' . $suffix . '.js', array( 'ac-backbone-modal' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-sidebars' );
+			wp_localize_script(
+				'ac-admin-sidebars',
+				'axiscomposer_admin_sidebars',
+				array(
+					'ajax_url'                    => admin_url( 'admin-ajax.php' ),
+					'delete_custom_sidebar_nonce' => wp_create_nonce( 'delete-custom-sidebar' )
+				)
 			);
-
-			wp_localize_script( 'ac-admin-sidebars', 'axiscomposer_admin_sidebars', $params );
 		}
 
 		// Iconfonts Specific
 		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
 			wp_enqueue_media();
+			wp_register_script( 'ac-admin-iconfont', AC()->plugin_url() . '/assets/js/admin/iconfont' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
+
 			wp_enqueue_script( 'media-upload' );
-			wp_enqueue_script( 'ac-admin-iconfont', AC()->plugin_url() . '/assets/js/admin/iconfont' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
+			wp_enqueue_script( 'ac-admin-iconfont' );
 
 			$params = array(
 				'ajax_url'                     => admin_url( 'admin-ajax.php' ),

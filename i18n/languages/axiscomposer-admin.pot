@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0.0-alpha-1 Admin\n"
+"Project-Id-Version: AxisComposer 1.0.0-dev Admin\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-09-06 23:52:38+00:00\n"
+"POT-Creation-Date: 2015-10-05 17:54:38+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,53 +13,53 @@ msgstr ""
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.5.3\n"
 
-#: includes/admin/class-ac-admin-assets.php:131
+#: includes/admin/class-ac-admin-assets.php:140
 msgid "Please enter in a value without any invalid or special characters."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:132
+#: includes/admin/class-ac-admin-assets.php:141
 msgid "Please enter in a value without any whitespace or special characters."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:133
+#: includes/admin/class-ac-admin-assets.php:142
 msgid "The current number of cells does not allow any layout variations."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:134
+#: includes/admin/class-ac-admin-assets.php:143
 msgid "You need to add at least one cell"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:135
+#: includes/admin/class-ac-admin-assets.php:144
 msgid "You need to remove at least one cell"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:136
+#: includes/admin/class-ac-admin-assets.php:145
 msgid "Select a cell layout"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:137
+#: includes/admin/class-ac-admin-assets.php:146
 msgid "Permanently Delete all Canvas Elements"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:138
+#: includes/admin/class-ac-admin-assets.php:147
 msgid ""
 "You need to add at least one canvas element below for this action. %sYour "
 "history session has beeen reset :)%s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:139
+#: includes/admin/class-ac-admin-assets.php:148
 msgid ""
 "All Page Builder content will be permanently lost and cannot be undone. "
 "%sAre you positive you want to delete all canvas elements?%s"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:140
+#: includes/admin/class-ac-admin-assets.php:149
 msgid ""
 "Loading failed - Your session timed out. Please reload the page and try "
 "again."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:141
+#: includes/admin/class-ac-admin-assets.php:150
 #: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:187
 msgid "Dismiss"
 msgstr ""
@@ -177,7 +177,7 @@ msgstr ""
 
 #: includes/admin/class-ac-admin-menus.php:67
 #: includes/admin/class-ac-admin-welcome.php:190
-#: includes/admin/views/html-admin-page-status-report.php:330
+#: includes/admin/views/html-admin-page-status-report.php:331
 msgid "Settings"
 msgstr ""
 
@@ -215,45 +215,39 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:35
-msgid "Portfolio permalink base"
+#: includes/admin/class-ac-admin-permalink-settings.php:34
+msgid "Portfolio Permalinks"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:40
+#: includes/admin/class-ac-admin-permalink-settings.php:39
 msgid "Portfolio category base"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:47
+#: includes/admin/class-ac-admin-permalink-settings.php:46
 msgid "Portfolio tag base"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:78
-msgid ""
-"These settings control the permalinks used for portfolio. These settings "
-"only apply when <strong>not using \"default\" permalinks above</strong>."
+#: includes/admin/class-ac-admin-permalink-settings.php:77
+msgid "These settings control the permalinks specifically used for portfolio."
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:97
+#: includes/admin/class-ac-admin-permalink-settings.php:95
 msgid "Default"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:101
-msgid "Portfolio"
-msgstr ""
-
-#: includes/admin/class-ac-admin-permalink-settings.php:105
+#: includes/admin/class-ac-admin-permalink-settings.php:99
 msgid "Project base"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:109
-msgid "Category base Project"
+#: includes/admin/class-ac-admin-permalink-settings.php:103
+msgid "Project based category"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:114
+#: includes/admin/class-ac-admin-permalink-settings.php:108
 msgid "Custom Base"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:116
+#: includes/admin/class-ac-admin-permalink-settings.php:110
 msgid ""
 "Enter a custom base to use. A base <strong>must</strong> be set or "
 "WordPress will use default instead."
@@ -1135,112 +1129,112 @@ msgstr ""
 msgid "Active Plugins"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:283
+#: includes/admin/views/html-admin-page-status-report.php:284
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:311
+#: includes/admin/views/html-admin-page-status-report.php:312
 msgid "Network enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:335
+#: includes/admin/views/html-admin-page-status-report.php:336
 msgid "TinyMCE Enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:336
+#: includes/admin/views/html-admin-page-status-report.php:337
 msgid "Does your site have tinyMCE enabled?"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:340
+#: includes/admin/views/html-admin-page-status-report.php:341
 msgid "Sidebar Builder Enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:341
+#: includes/admin/views/html-admin-page-status-report.php:342
 msgid "Does your site have Sidebar Builder enabled?"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:349
+#: includes/admin/views/html-admin-page-status-report.php:350
 msgid "Theme"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:392
+#: includes/admin/views/html-admin-page-status-report.php:393
 msgid "Name"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:393
+#: includes/admin/views/html-admin-page-status-report.php:394
 msgid "The name of the current active theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:397
+#: includes/admin/views/html-admin-page-status-report.php:398
 msgid "Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:398
+#: includes/admin/views/html-admin-page-status-report.php:399
 msgid "The installed version of the current active theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:403
+#: includes/admin/views/html-admin-page-status-report.php:404
 msgid "%s is available"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:408
+#: includes/admin/views/html-admin-page-status-report.php:409
 msgid "Author URL"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:409
+#: includes/admin/views/html-admin-page-status-report.php:410
 msgid "The theme developers URL."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:413
+#: includes/admin/views/html-admin-page-status-report.php:414
 msgid "Child Theme"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:414
+#: includes/admin/views/html-admin-page-status-report.php:415
 msgid "Displays whether or not the current theme is a child theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:416
+#: includes/admin/views/html-admin-page-status-report.php:417
 msgid ""
 "If you're modifying AxisComposer or a parent theme you didn't build "
 "personally we recommend using a child theme. See: <a href=\"%s\" "
 "target=\"_blank\">How to create a child theme</a>"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:424
+#: includes/admin/views/html-admin-page-status-report.php:425
 msgid "Parent Theme Name"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:425
+#: includes/admin/views/html-admin-page-status-report.php:426
 msgid "The name of the parent theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:429
+#: includes/admin/views/html-admin-page-status-report.php:430
 msgid "Parent Theme Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:430
+#: includes/admin/views/html-admin-page-status-report.php:431
 msgid "The installed version of the parent theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:434
+#: includes/admin/views/html-admin-page-status-report.php:435
 msgid "Parent Theme Author URL"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:435
+#: includes/admin/views/html-admin-page-status-report.php:436
 msgid "The parent theme developers URL."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:440
+#: includes/admin/views/html-admin-page-status-report.php:441
 msgid "AxisComposer Support"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:441
+#: includes/admin/views/html-admin-page-status-report.php:442
 msgid ""
 "Displays whether or not the current active theme declares AxisComposer "
 "support."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:444
+#: includes/admin/views/html-admin-page-status-report.php:445
 msgid "Not Declared"
 msgstr ""
 
@@ -1374,62 +1368,62 @@ msgstr ""
 msgid "http://axisthemes.com"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:91
+#: includes/admin/class-ac-admin-assets.php:97
 msgctxt "enhanced select"
 msgid "One result is available, press enter to select it."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:92
+#: includes/admin/class-ac-admin-assets.php:98
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:93
+#: includes/admin/class-ac-admin-assets.php:99
 msgctxt "enhanced select"
 msgid "No matches found"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:94
+#: includes/admin/class-ac-admin-assets.php:100
 msgctxt "enhanced select"
 msgid "Loading failed"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:95
+#: includes/admin/class-ac-admin-assets.php:101
 msgctxt "enhanced select"
 msgid "Please enter 1 or more characters"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:96
+#: includes/admin/class-ac-admin-assets.php:102
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:97
+#: includes/admin/class-ac-admin-assets.php:103
 msgctxt "enhanced select"
 msgid "Please delete 1 character"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:98
+#: includes/admin/class-ac-admin-assets.php:104
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:99
+#: includes/admin/class-ac-admin-assets.php:105
 msgctxt "enhanced select"
 msgid "You can only select 1 item"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:100
+#: includes/admin/class-ac-admin-assets.php:106
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:101
+#: includes/admin/class-ac-admin-assets.php:107
 msgctxt "enhanced select"
 msgid "Loading more results&hellip;"
 msgstr ""
 
-#: includes/admin/class-ac-admin-assets.php:102
+#: includes/admin/class-ac-admin-assets.php:108
 msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""
@@ -1439,37 +1433,37 @@ msgctxt "Admin menu name"
 msgid "Iconfonts"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:60
+#: includes/admin/class-ac-admin-permalink-settings.php:59
 msgctxt "slug"
 msgid "portfolio-category"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:70
+#: includes/admin/class-ac-admin-permalink-settings.php:69
 msgctxt "slug"
 msgid "portfolio-tag"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:168
+#: includes/admin/class-ac-admin-permalink-settings.php:172
 msgctxt "slug"
 msgid "portfolio"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:84
+#: includes/admin/class-ac-admin-permalink-settings.php:83
 msgctxt "default-slug"
 msgid "project"
 msgstr ""
 
-#: includes/admin/class-ac-admin-permalink-settings.php:85
+#: includes/admin/class-ac-admin-permalink-settings.php:84
 msgctxt "default-slug"
 msgid "portfolio"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:307
+#: includes/admin/views/html-admin-page-status-report.php:308
 msgctxt "Version info"
 msgid "%s is available"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:319
+#: includes/admin/views/html-admin-page-status-report.php:320
 msgctxt "by author"
 msgid "by %s"
 msgstr ""

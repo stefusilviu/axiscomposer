@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AxisComposer 1.0.0-alpha-1 Frontend\n"
+"Project-Id-Version: AxisComposer 1.0.0-dev Frontend\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-09-06 23:52:36+00:00\n"
+"POT-Creation-Date: 2015-10-05 17:54:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,11 +74,11 @@ msgstr ""
 msgid "Clone Element"
 msgstr ""
 
-#: includes/class-ac-ajax.php:213
+#: includes/class-ac-ajax.php:210
 msgid "%s &ndash; %s"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:164
+#: includes/class-ac-frontend-scripts.php:204
 msgid "Select an option&hellip;"
 msgstr ""
 
@@ -885,27 +885,27 @@ msgid "This option lets you set the file names you want to display."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-gist.php:82
-msgid "Footer Meta"
+msgid "Load Spinner"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-gist.php:83
-msgid "Load a gist with footer meta removed."
+msgid "Load a gist with a loading spinner."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-gist.php:89
-msgid "Line Numbers"
+msgid "Footer Meta"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-gist.php:90
-msgid "Load a gist with all line numbers removed."
+msgid "Load a gist with footer meta removed."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-gist.php:96
-msgid "Loading Message"
+msgid "Line Numbers"
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-gist.php:97
-msgid "Load a gist without displaying loading message."
+msgid "Load a gist with all line numbers removed."
 msgstr ""
 
 #: includes/shortcodes/class-ac-shortcode-googlemap.php:33
@@ -1477,62 +1477,62 @@ msgstr ""
 msgid "http://axisthemes.com"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:165
+#: includes/class-ac-frontend-scripts.php:205
 msgctxt "enhanced select"
 msgid "One result is available, press enter to select it."
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:166
+#: includes/class-ac-frontend-scripts.php:206
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:167
+#: includes/class-ac-frontend-scripts.php:207
 msgctxt "enhanced select"
 msgid "No matches found"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:168
+#: includes/class-ac-frontend-scripts.php:208
 msgctxt "enhanced select"
 msgid "Loading failed"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:169
+#: includes/class-ac-frontend-scripts.php:209
 msgctxt "enhanced select"
 msgid "Please enter 1 or more characters"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:170
+#: includes/class-ac-frontend-scripts.php:210
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:171
+#: includes/class-ac-frontend-scripts.php:211
 msgctxt "enhanced select"
 msgid "Please delete 1 character"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:172
+#: includes/class-ac-frontend-scripts.php:212
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:173
+#: includes/class-ac-frontend-scripts.php:213
 msgctxt "enhanced select"
 msgid "You can only select 1 item"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:174
+#: includes/class-ac-frontend-scripts.php:214
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:175
+#: includes/class-ac-frontend-scripts.php:215
 msgctxt "enhanced select"
 msgid "Loading more results&hellip;"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:176
+#: includes/class-ac-frontend-scripts.php:216
 msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""

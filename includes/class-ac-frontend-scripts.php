@@ -145,6 +145,10 @@ class AC_Frontend_Scripts {
 	 * Register/enqueue frontend scripts.
 	 */
 	public static function load_scripts() {
+		if ( ! did_action( 'before_axiscomposer_init' ) ) {
+			return;
+		}
+
 		$suffix               = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		$assets_path          = str_replace( array( 'http:', 'https:' ), '', AC()->plugin_url() ) . '/assets/';
 		$frontend_script_path = $assets_path . 'js/frontend/';

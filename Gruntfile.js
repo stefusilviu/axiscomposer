@@ -125,31 +125,14 @@ module.exports = function( grunt ){
 					'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
 				}
 			},
-			frontend: {
+			dist: {
 				options: {
 					potFilename: 'axiscomposer.pot',
 					exclude: [
 						'tmp/.*',
 						'tests/.*',
-						'apigen/.*',
-						'includes/admin/.*'
-					],
-					processPot: function ( pot ) {
-						pot.headers['project-id-version'] += ' Frontend';
-						return pot;
-					}
-				}
-			},
-			admin: {
-				options: {
-					potFilename: 'axiscomposer-admin.pot',
-					include: [
-						'includes/admin/.*'
-					],
-					processPot: function ( pot ) {
-						pot.headers['project-id-version'] += ' Admin';
-						return pot;
-					}
+						'apigen/.*'
+					]
 				}
 			}
 		},

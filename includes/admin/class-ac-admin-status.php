@@ -94,11 +94,6 @@ class AC_Admin_Status {
 			}
 		}
 
-		// Manual translation update messages
-		if ( isset( $_GET['translation_updated'] ) ) {
-			AC_Language_Pack_Upgrader::language_update_messages();
-		}
-
 		// Display message if settings settings have been saved
 		if ( isset( $_REQUEST['settings-updated'] ) ) {
 			echo '<div class="updated"><p>' . __( 'Your changes have been saved.', 'axiscomposer' ) . '</p></div>';
@@ -124,14 +119,6 @@ class AC_Admin_Status {
 				'desc'    => __( 'This tool will reset the admin roles to default. Use this if your users cannot access all of the AxisComposer admin pages.', 'axiscomposer' ),
 			)
 		);
-
-		if ( get_locale() !== 'en_US' ) {
-			$tools['translation_upgrade'] = array(
-				'name'    => __( 'Translation Upgrade', 'axiscomposer' ),
-				'button'  => __( 'Force Translation Upgrade', 'axiscomposer' ),
-				'desc'    => __( '<strong class="red">Note:</strong> This option will force the translation upgrade for your language if a translation is available.', 'axiscomposer' ),
-			);
-		}
 
 		return apply_filters( 'axiscomposer_debug_tools', $tools );
 	}

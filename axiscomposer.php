@@ -185,7 +185,6 @@ final class AxisComposer {
 		include_once( 'includes/abstracts/abstract-ac-shortcode.php' );      // Shortcodes
 		include_once( 'includes/abstracts/abstract-ac-integration.php' );    // An integration with a service
 		include_once( 'includes/class-ac-integrations.php' );                // Loads integrations
-		include_once( 'includes/class-ac-language-pack-upgrader.php' );      // Download/update languages
 	}
 
 	/**
@@ -224,25 +223,15 @@ final class AxisComposer {
 	 *
 	 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
 	 *
-	 * Admin Locales are found in:
-	 * 		- WP_LANG_DIR/axiscomposer/axiscomposer-admin-LOCALE.mo
-	 * 		- WP_LANG_DIR/plugins/axiscomposer-admin-LOCALE.mo
-	 *
-	 * Frontend/global Locales found in:
-	 * 		- WP_LANG_DIR/axiscomposer/axiscomposer-LOCALE.mo
-	 * 	 	- axiscomposer/i18n/languages/axiscomposer-LOCALE.mo (which if not found falls back to:)
-	 * 	 	- WP_LANG_DIR/plugins/axiscomposer-LOCALE.mo
+	 * Locales found in:
+	 *      - WP_LANG_DIR/axiscomposer/axiscomposer-LOCALE.mo
+	 *      - WP_LANG_DIR/plugins/axiscomposer-LOCALE.mo
 	 */
 	public function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'axiscomposer' );
 
-		if ( $this->is_request( 'admin' ) ) {
-			load_textdomain( 'axiscomposer', WP_LANG_DIR . '/axiscomposer/axiscomposer-admin-' . $locale . '.mo' );
-			load_textdomain( 'axiscomposer', WP_LANG_DIR . '/plugins/axiscomposer-admin-' . $locale . '.mo' );
-		}
-
 		load_textdomain( 'axiscomposer', WP_LANG_DIR . '/axiscomposer/axiscomposer-' . $locale . '.mo' );
-		load_plugin_textdomain( 'axiscomposer', false, plugin_basename( dirname( __FILE__ ) ) . "/i18n/languages" );
+		load_plugin_textdomain( 'axiscomposer', false, plugin_basename( dirname( __FILE__ ) ) . '/i18n/languages' );
 	}
 
 	/**

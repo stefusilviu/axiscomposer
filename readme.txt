@@ -18,11 +18,11 @@ AxisComposer is built by the experienced folk at AxisThemes who also offer premi
 = Strength & flexibility =
 AxisComposer is built using WordPress best practises both on the front and the back end. This results in an efficient, robust and intuitive plugin.
 
-= Get involved =
+= Join our growing community =
 
 Developers can contribute to the source code on the [AxisComposer GitHub Repository](https://github.com/axisthemes/axiscomposer/blob/master/CONTRIBUTING.md).
 
-Translators can contribute new languages to AxisComposer through [Transifex](https://www.transifex.com/projects/p/axiscomposer/).
+Want to add a new language to AxisComposer? Swell! You can contribute via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/axiscomposer).
 
 == Installation ==
 

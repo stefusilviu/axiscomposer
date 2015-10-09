@@ -6,7 +6,7 @@ When contributing please ensure you follow the guidelines below to help us keep 
 
 __Please Note:__
 
-GitHub and Transifex are for *bug reports and contributions only* - if you have a support question or a request for a customization this is not the right place to post it. Use [AxisThemes Support](http://support.axisthemes.com) for customer support, [WordPress.org](http://wordpress.org/support/plugin/axiscomposer) for community support, and for customizations we recommend one of the following services:
+GitHub is for *bug reports and contributions only* - if you have a support question or a request for a customization this is not the right place to post it. Use [AxisThemes Support](http://support.axisthemes.com) for customer support, [WordPress.org](http://wordpress.org/support/plugin/axiscomposer) for community support, and for customizations we recommend one of the following services:
 
 - [Codeable](https://codeable.io/)
 - [Affiliated Axis Workers](http://www.axisthemes.com/affiliated-axis-workers/)
@@ -42,7 +42,7 @@ If you think something could be improved and you're able to do so, make your cha
 * When committing, reference your issue number (#1234) and include a note about the fix
 * Push the changes to your fork and submit a pull request on the master branch of the AxisComposer repository. Existing maintenance branches will be maintained by AxisComposer developers
 * Please **don't** modify the changelog - this will be maintained by the AxisComposer developers.
-* Please **don't** add your localizations or update the .pot files - these will also be maintained by the AxisComposer developers. To contribute to the localization of AxisComposer, please join the [AxisComposer Transifex project](https://www.transifex.com/projects/p/axiscomposer/). This is much needed, if you speak a language that needs translating consider yourself officially invited to the party.
+* Please **don't** add your localizations or update the .pot files - these will also be maintained by the AxisComposer developers. To contribute to the localization of AxisComposer, please join the [translate.wordpress.org project](https://translate.wordpress.org/projects/wp-plugins/axiscomposer). This is much needed, if you speak a language that needs translating consider yourself officially invited to the party.
 
 After you follow the step above, the next stage will be waiting on us to merge your Pull Request. We review them all, and make suggestions and changes as and if necessary.
 
@@ -52,14 +52,12 @@ Localization is a very important part of AxisComposer. We believe in net neutral
 
 ### Translating The Core
 
-We have a [public project on Transifex](https://www.transifex.com/projects/p/axiscomposer/). You can join the localization team of your language and help by translating AxisComposer.
+We have a [project on translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/axiscomposer). You can join the localization team of your language and help by translating AxisComposer.
 If AxisComposer is already 100% translated for your language, join the team anyway! We regularly update our language files and there will definitely be need of your help soon.
 
 # Additional Resources
 
 * [General GitHub documentation](http://help.github.com/)
 * [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
-* [General Transifex documentation](http://docs.transifex.com/)
-* [Translate using Transifex](http://docs.transifex.com/introduction/translators/)
 * [AxisThemes Docs](http://docs.axisthemes.com/)
 * [AxisThemes Support](http://support.axisthemes.com)

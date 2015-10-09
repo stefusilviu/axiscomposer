@@ -46,17 +46,6 @@ class AC_Admin {
 			include_once( 'class-ac-admin-help.php' );
 		}
 
-		// Setup/Welcome
-		if ( ! empty( $_GET['page'] ) ) {
-			switch ( $_GET['page'] ) {
-				case 'ac-about' :
-				case 'ac-credits' :
-				case 'ac-translators' :
-					include_once( 'class-ac-admin-welcome.php' );
-					break;
-			}
-		}
-
 		// TinyMCE
 		if ( 'yes' === get_option( 'axiscomposer_tinymce_enabled', 'yes' ) ) {
 			include_once( 'class-ac-admin-tinymce.php' );
@@ -106,11 +95,6 @@ class AC_Admin {
 		}
 		$current_screen = get_current_screen();
 		$ac_pages       = ac_get_screen_ids();
-
-		// Add the dashboard pages
-		$ac_pages[] = 'dashboard_page_ac-about';
-		$ac_pages[] = 'dashboard_page_ac-credits';
-		$ac_pages[] = 'dashboard_page_ac-translators';
 
 		// Check to make sure we're on a AxisComposer admin page
 		if ( isset( $current_screen->id ) && apply_filters( 'axiscomposer_display_admin_footer_text', in_array( $current_screen->id, $ac_pages ) ) ) {

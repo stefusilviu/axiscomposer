@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Clean variables
- * @param  string $var
- * @return string
+ * Clean variables using sanitize_text_field
+ * @param  string|array $var
+ * @return string|array
  */
 function ac_clean( $var ) {
-	return sanitize_text_field( $var );
+	return is_array( $var ) ? array_map( 'ac_clean', $var ) : sanitize_text_field( $var );
 }
 
 /**

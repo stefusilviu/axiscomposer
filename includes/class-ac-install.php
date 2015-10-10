@@ -87,10 +87,8 @@ class AC_Install {
 		AC_Post_Types::register_post_types();
 		AC_Post_Types::register_taxonomies();
 
-		// Queue upgrades/setup wizard
-		$current_ac_version = get_option( 'axiscomposer_version', null );
+		// Queue upgrades
 		$current_db_version = get_option( 'axiscomposer_db_version', null );
-		$major_ac_version   = substr( AC()->version, 0, strrpos( AC()->version, '.' ) );
 
 		AC_Admin_Notices::remove_all_notices();
 

@@ -50,15 +50,20 @@ class AC_Install {
 	public static function install_actions() {
 		if ( ! empty( $_GET['do_update_axiscomposer'] ) ) {
 			self::update();
-
-			// Update Complete
 			AC_Admin_Notices::remove_notice( 'update' );
-
-			// What's new redirect
-			delete_transient( '_ac_activation_redirect' );
-			wp_redirect( admin_url( 'index.php?page=ac-about&ac-updated=true' ) );
-			exit;
+			add_action( 'admin_notices', array( __CLASS__, 'updated_notice' ) );
 		}
+	}
+
+	/**
+	 * Show notice stating update was successful.
+	 */
+	public static function updated_notice() {
+		?>
+		<div id="message" class="updated axiscomposer-message ac-connect">
+			<p><?php _e( 'AxisComposer data update complete. Thank you for updating to the latest version!', 'axiscomposer' ); ?></p>
+		</div>
+		<?php
 	}
 
 	/**

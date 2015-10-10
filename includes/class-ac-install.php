@@ -60,7 +60,7 @@ class AC_Install {
 	 */
 	public static function updated_notice() {
 		?>
-		<div id="message" class="updated axiscomposer-message ac-connect">
+		<div id="message" class="notice notice-info">
 			<p><?php _e( 'AxisComposer data update complete. Thank you for updating to the latest version!', 'axiscomposer' ); ?></p>
 		</div>
 		<?php

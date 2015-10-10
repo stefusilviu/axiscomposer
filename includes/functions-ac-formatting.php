@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Clean variables using sanitize_text_field
  * @param  string|array $var
- * @return string|array
+ * @return string
  */
 function ac_clean( $var ) {
 	return is_array( $var ) ? array_map( 'ac_clean', $var ) : sanitize_text_field( $var );

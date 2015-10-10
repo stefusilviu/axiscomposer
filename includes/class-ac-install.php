@@ -100,7 +100,6 @@ class AC_Install {
 			self::update_db_version();
 		}
 
-		// Update version
 		self::update_ac_version();
 
 		// Flush rules after install

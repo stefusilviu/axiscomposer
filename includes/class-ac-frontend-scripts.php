@@ -199,8 +199,7 @@ class AC_Frontend_Scripts {
 		switch ( $handle ) {
 			case 'axiscomposer' :
 				return array(
-					'ajax_url'    => AC()->ajax_url(),
-					'ac_ajax_url' => AC_AJAX::get_endpoint( "%%endpoint%%" ),
+					'ajax_url'    => AC()->ajax_url()
 				);
 			break;
 			case 'axiscomposer-enhanced-select' :

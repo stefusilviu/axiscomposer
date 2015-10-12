@@ -24,58 +24,7 @@ class AC_AJAX {
 	 * Hooks in ajax handlers
 	 */
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'define_ajax' ), 0 );
-		add_action( 'template_redirect', array( __CLASS__, 'do_ac_ajax' ), 0 );
 		self::add_ajax_events();
-	}
-
-	/**
-	 * Get AC Ajax Endpoint
-	 * @param  string $request Optional
-	 * @return string
-	 */
-	public static function get_endpoint( $request = '' ) {
-		return esc_url_raw( add_query_arg( 'ac-ajax', $request ) );
-	}
-
-	/**
-	 * Set AC AJAX constant and headers.
-	 */
-	public static function define_ajax() {
-		if ( ! empty( $_GET['ac-ajax'] ) ) {
-			if ( ! defined( 'DOING_AJAX' ) ) {
-				define( 'DOING_AJAX', true );
-			}
-			if ( ! defined( 'AC_DOING_AJAX' ) ) {
-				define( 'AC_DOING_AJAX', true );
-			}
-		}
-		// Turn off display_errors during AJAX events to prevent malformed JSON
-		if ( ! WP_DEBUG || ( WP_DEBUG && ! WP_DEBUG_DISPLAY ) ) {
-			@ini_set( 'display_errors', 0 );
-		}
-		// Send headers like admin-ajax.php
-		send_origin_headers();
-		@header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
-		@header( 'X-Robots-Tag: noindex' );
-		send_nosniff_header();
-		nocache_headers();
-	}
-
-	/**
-	 * Check for AC Ajax request and fire action
-	 */
-	public static function do_ac_ajax() {
-		global $wp_query;
-
-		if ( ! empty( $_GET['ac-ajax'] ) ) {
-			$wp_query->set( 'ac-ajax', sanitize_text_field( $_GET['ac-ajax'] ) );
-		}
-
-		if ( $action = $wp_query->get( 'ac-ajax' ) ) {
-			do_action( 'ac_ajax_' . sanitize_text_field( $action ) );
-			die();
-		}
 	}
 
 	/**

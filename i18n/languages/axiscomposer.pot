@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-10-10 22:15:59+00:00\n"
+"POT-Creation-Date: 2015-10-13 14:15:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +52,7 @@ msgstr ""
 #: includes/abstracts/abstract-ac-settings-api.php:79
 #: includes/admin/class-ac-admin-menus.php:67
 #: includes/admin/views/html-admin-page-status-report.php:331
-#: includes/class-ac-install.php:362
+#: includes/class-ac-install.php:360
 msgid "Settings"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgid "Search for a page&hellip;"
 msgstr ""
 
 #: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:38
-#: includes/class-ac-ajax.php:210
+#: includes/class-ac-ajax.php:159
 msgid "%s &ndash; %s"
 msgstr ""
 
@@ -1230,7 +1230,7 @@ msgid ""
 "Are you sure you wish to run the updater now?"
 msgstr ""
 
-#: includes/class-ac-frontend-scripts.php:208
+#: includes/class-ac-frontend-scripts.php:207
 msgid "Select an option&hellip;"
 msgstr ""
 
@@ -1248,31 +1248,31 @@ msgid ""
 "version!"
 msgstr ""
 
-#: includes/class-ac-install.php:362
+#: includes/class-ac-install.php:360
 msgid "View AxisComposer Settings"
 msgstr ""
 
-#: includes/class-ac-install.php:377
+#: includes/class-ac-install.php:375
 msgid "View AxisComposer Documentation"
 msgstr ""
 
-#: includes/class-ac-install.php:377
+#: includes/class-ac-install.php:375
 msgid "Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:378
+#: includes/class-ac-install.php:376
 msgid "View AxisComposer API Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:378
+#: includes/class-ac-install.php:376
 msgid "API Docs"
 msgstr ""
 
-#: includes/class-ac-install.php:379
+#: includes/class-ac-install.php:377
 msgid "Visit Premium Customer Support Forum"
 msgstr ""
 
-#: includes/class-ac-install.php:379
+#: includes/class-ac-install.php:377
 msgid "Premium Support"
 msgstr ""
 
@@ -2608,73 +2608,73 @@ msgid "http://axisthemes.com"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:97
-#: includes/class-ac-frontend-scripts.php:209
+#: includes/class-ac-frontend-scripts.php:208
 msgctxt "enhanced select"
 msgid "One result is available, press enter to select it."
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:98
-#: includes/class-ac-frontend-scripts.php:210
+#: includes/class-ac-frontend-scripts.php:209
 msgctxt "enhanced select"
 msgid "%qty% results are available, use up and down arrow keys to navigate."
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:99
-#: includes/class-ac-frontend-scripts.php:211
+#: includes/class-ac-frontend-scripts.php:210
 msgctxt "enhanced select"
 msgid "No matches found"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:100
-#: includes/class-ac-frontend-scripts.php:212
+#: includes/class-ac-frontend-scripts.php:211
 msgctxt "enhanced select"
 msgid "Loading failed"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:101
-#: includes/class-ac-frontend-scripts.php:213
+#: includes/class-ac-frontend-scripts.php:212
 msgctxt "enhanced select"
 msgid "Please enter 1 or more characters"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:102
-#: includes/class-ac-frontend-scripts.php:214
+#: includes/class-ac-frontend-scripts.php:213
 msgctxt "enhanced select"
 msgid "Please enter %qty% or more characters"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:103
-#: includes/class-ac-frontend-scripts.php:215
+#: includes/class-ac-frontend-scripts.php:214
 msgctxt "enhanced select"
 msgid "Please delete 1 character"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:104
-#: includes/class-ac-frontend-scripts.php:216
+#: includes/class-ac-frontend-scripts.php:215
 msgctxt "enhanced select"
 msgid "Please delete %qty% characters"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:105
-#: includes/class-ac-frontend-scripts.php:217
+#: includes/class-ac-frontend-scripts.php:216
 msgctxt "enhanced select"
 msgid "You can only select 1 item"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:106
-#: includes/class-ac-frontend-scripts.php:218
+#: includes/class-ac-frontend-scripts.php:217
 msgctxt "enhanced select"
 msgid "You can only select %qty% items"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:107
-#: includes/class-ac-frontend-scripts.php:219
+#: includes/class-ac-frontend-scripts.php:218
 msgctxt "enhanced select"
 msgid "Loading more results&hellip;"
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:108
-#: includes/class-ac-frontend-scripts.php:220
+#: includes/class-ac-frontend-scripts.php:219
 msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""

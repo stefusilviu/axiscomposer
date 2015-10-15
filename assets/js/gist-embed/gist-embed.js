@@ -1,7 +1,10 @@
-// author: Blair Vanderhoof
-// https://github.com/blairvanderhoof/gist-embed
-// version 2.3
+/*
+ * author: Blair Vanderhoof
+ * https://github.com/blairvanderhoof/gist-embed
+ * version 2.5
+ */
 (function($) {
+  'use strict';
 
   function getLineNumbers(lineRangeString) {
     var lineNumbers = [], range, lineNumberSections;
@@ -32,6 +35,7 @@
         url,
         file,
         lines,
+        loading,
         highlightLines,
         hideFooterOption,
         hideLineNumbersOption,
@@ -61,7 +65,9 @@
       }
 
       // if the id doesn't exist, then ignore the code block
-      if (!id) return false;
+      if (!id) {
+        return false;
+      }
 
       url = 'https://gist.github.com/' + id + '.json';
       loading = 'Loading gist ' + url + (data.file ? ', file: ' + data.file : '') + '...';
@@ -164,8 +170,8 @@
               $responseDiv.find('.gist-meta').remove();
 
               // present a uniformed border when footer is hidden
-              $responseDiv.find('.gist-data').css("border-bottom", "0px");
-              $responseDiv.find('.gist-file').css("border-bottom", "1px solid #ddd");
+              $responseDiv.find('.gist-data').css('border-bottom', '0px');
+              $responseDiv.find('.gist-file').css('border-bottom', '1px solid #ddd');
             }
 
             // option to remove

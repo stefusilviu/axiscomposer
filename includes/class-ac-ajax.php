@@ -47,9 +47,6 @@ class AC_AJAX {
 
 			if ( $nopriv ) {
 				add_action( 'wp_ajax_nopriv_axiscomposer_' . $ajax_event, array( __CLASS__, $ajax_event ) );
-
-				// AC AJAX can be used for frontend ajax requests
-				add_action( 'ac_ajax_' . $ajax_event, array( __CLASS__, $ajax_event ) );
 			}
 		}
 	}

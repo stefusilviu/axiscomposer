@@ -186,6 +186,10 @@ final class AxisComposer {
 		include_once( 'includes/abstracts/abstract-ac-shortcode.php' );      // Shortcodes
 		include_once( 'includes/abstracts/abstract-ac-integration.php' );    // An integration with a service
 		include_once( 'includes/class-ac-integrations.php' );                // Loads integrations
+
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			include_once( 'includes/class-ac-cli.php' );
+		}
 	}
 
 	/**

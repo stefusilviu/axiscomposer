@@ -56,7 +56,9 @@ class AC_CLI_Tool extends WP_CLI_Command {
 
 				update_post_meta( $id, '_pagebuilder_status', $data['status'] );
 
-				WP_CLI::success( "Updated Pagebuilder Status for Post ID $id." );
+				$editor_toggle = ( 'active' == $data['status'] ) ? 'Pagebuilder' : 'Default Editor';
+
+				WP_CLI::success( "$editor_toggle activated for Post ID $id." );
 			} else {
 				WP_CLI::run_command( array( 'ac', 'tool', 'update', $args[0] ), array( 'status' => 'active' ) );
 			}

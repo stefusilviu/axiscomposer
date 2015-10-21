@@ -75,11 +75,13 @@ function ac_get_image_size( $image_size ) {
 		);
 
 		$image_size = $width . '_' . $height;
+
 	} elseif ( in_array( $image_size, array( 'portfolio_thumbnail', 'portfolio_single' ) ) ) {
 		$size           = get_option( $image_size . '_image_size', array() );
 		$size['width']  = isset( $size['width'] ) ? $size['width'] : '300';
 		$size['height'] = isset( $size['height'] ) ? $size['height'] : '300';
 		$size['crop']   = isset( $size['crop'] ) ? $size['crop'] : 0;
+
 	} else {
 		$size = array(
 			'width'  => '300',

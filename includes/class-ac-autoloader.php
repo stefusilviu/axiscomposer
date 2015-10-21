@@ -74,8 +74,6 @@ class AC_Autoloader {
 			$path = $this->include_path . 'admin/meta-boxes/';
 		} elseif ( strpos( $class, 'ac_admin' ) === 0 ) {
 			$path = $this->include_path . 'admin/';
-		} elseif ( strpos( $class, 'ac_cli_' ) === 0 ) {
-			$path = $this->include_path . 'cli/';
 		}
 
 		if ( empty( $path ) || ( ! $this->load_file( $path . $file ) && strpos( $class, 'ac_' ) === 0 ) ) {

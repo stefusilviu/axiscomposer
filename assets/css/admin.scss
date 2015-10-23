@@ -1199,7 +1199,7 @@ img.help_tip {
 
 .status-enabled {
 	&:before {
-		@include icon( "\e012" );
+		@include icon( "\e013" );
 		color: $axiscomposer;
 	}
 }

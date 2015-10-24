@@ -60,7 +60,7 @@ jQuery( function( $ ) {
 		tiptip: function() {
 			$( '#tiptip_holder' ).removeAttr( 'style' );
 			$( '#tiptip_arrow' ).removeAttr( 'style' );
-			$( '.tips, .help_tip' ).tipTip({
+			$( '.tips, .help_tip, .axiscomposer-help-tip' ).tipTip({
 				'attribute': 'data-tip',
 				'fadeIn': 50,
 				'fadeOut': 50,

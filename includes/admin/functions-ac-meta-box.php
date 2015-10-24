@@ -43,7 +43,7 @@ function axiscomposer_wp_select( $field ) {
 	if ( ! empty( $field['description'] ) ) {
 
 		if ( isset( $field['desc_tip'] ) && false !== $field['desc_tip'] ) {
-			$description = '<img class="help_tip" data-tip="' . esc_attr( $field['description'] ) . '" src="' . esc_url( AC()->plugin_url() ) . '/assets/images/help.png" height="16" width="16" />';
+			$description = ac_help_tip( $field['description'] );
 		} else {
 			$description = '<span class="description ' . esc_attr( $field['desc_class'] ) . '">' . wp_kses_post( $field['description'] ) . '</span>';
 		}

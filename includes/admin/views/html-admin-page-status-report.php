@@ -26,22 +26,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<tbody>
 		<tr>
 			<td data-export-label="Home URL"><?php _e( 'Home URL', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The URL of your site\'s homepage.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The URL of your site\'s homepage.', 'axiscomposer' ) ); ?></td>
 			<td><?php form_option( 'home' ); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Site URL"><?php _e( 'Site URL', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The root URL of your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The root URL of your site.', 'axiscomposer' ) ); ?></td>
 			<td><?php form_option( 'siteurl' ); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="AC Version"><?php _e( 'AC Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of AxisComposer installed on your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The version of AxisComposer installed on your site.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo esc_html( AC()->version ); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Log Directory Writable"><?php _e( 'Log Directory Writable', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Several AxisComposer extensions can write logs which makes debugging problems easier. The directory must be writable for this to happen.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Several AxisComposer extensions can write logs which makes debugging problems easier. The directory must be writable for this to happen.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				if ( @fopen( AC_LOG_DIR . 'test-log.log', 'a' ) ) {
 					echo '<mark class="yes">&#10004; <code>' . AC_LOG_DIR . '</code></mark> ';
@@ -52,17 +52,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 		<tr>
 			<td data-export-label="WP Version"><?php _e( 'WP Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of WordPress installed on your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The version of WordPress installed on your site.', 'axiscomposer' ) ); ?></td>
 			<td><?php bloginfo('version'); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="WP Multisite"><?php _e( 'WP Multisite', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Whether or not you have WordPress Multisite enabled.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Whether or not you have WordPress Multisite enabled.', 'axiscomposer' ) ); ?></td>
 			<td><?php if ( is_multisite() ) echo '&#10004;'; else echo '&ndash;'; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="WP Memory Limit"><?php _e( 'WP Memory Limit', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				$memory = ac_let_to_num( WP_MEMORY_LIMIT );
 				if ( $memory < 67108864 ) {
@@ -74,12 +74,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 		<tr>
 			<td data-export-label="WP Debug Mode"><?php _e( 'WP Debug Mode', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Displays whether or not WordPress is in Debug Mode.', 'axiscomposer' ) ); ?></td>
 			<td><?php if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) echo '<mark class="yes">&#10004;</mark>'; else echo '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Language"><?php _e( 'Language', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The current language used by WordPress. Default = English', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The current language used by WordPress. Default = English', 'axiscomposer' ) ); ?></td>
 			<td><?php echo get_locale() ?></td>
 		</tr>
 	</tbody>
@@ -93,12 +93,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<tbody>
 		<tr>
 			<td data-export-label="Server Info"><?php _e( 'Server Info', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Information about the web server that is currently hosting your site.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Information about the web server that is currently hosting your site.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo esc_html( $_SERVER['SERVER_SOFTWARE'] ); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="PHP Version"><?php _e( 'PHP Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The version of PHP installed on your hosting server.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				// Check if phpversion function exists
 				if ( function_exists( 'phpversion' ) ) {
@@ -117,28 +117,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( function_exists( 'ini_get' ) ) : ?>
 			<tr>
 				<td data-export-label="PHP Post Max Size"><?php _e( 'PHP Post Max Size', 'axiscomposer' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+				<td class="help"><?php echo ac_help_tip( __( 'The largest filesize that can be contained in one post.', 'axiscomposer' ) ); ?></td>
 				<td><?php echo size_format( ac_let_to_num( ini_get('post_max_size') ) ); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="PHP Time Limit"><?php _e( 'PHP Time Limit', 'axiscomposer' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+				<td class="help"><?php echo ac_help_tip( __( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'axiscomposer' ) ); ?></td>
 				<td><?php echo ini_get('max_execution_time'); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="PHP Max Input Vars"><?php _e( 'PHP Max Input Vars', 'axiscomposer' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+				<td class="help"><?php echo ac_help_tip( __( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'axiscomposer' ) ); ?></td>
 				<td><?php echo ini_get('max_input_vars'); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="SUHOSIN Installed"><?php _e( 'SUHOSIN Installed', 'axiscomposer' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+				<td class="help"><?php echo ac_help_tip( __( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'axiscomposer' ) ); ?></td>
 				<td><?php echo extension_loaded( 'suhosin' ) ? '&#10004;' : '&ndash;'; ?></td>
 			</tr>
 		<?php endif; ?>
 		<tr>
 			<td data-export-label="MySQL Version"><?php _e( 'MySQL Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The version of MySQL installed on your hosting server.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				/** @global wpdb $wpdb */
 				global $wpdb;
@@ -147,12 +147,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 		<tr>
 			<td data-export-label="Max Upload Size"><?php _e( 'Max Upload Size', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The largest filesize that can be uploaded to your WordPress installation.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The largest filesize that can be uploaded to your WordPress installation.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo size_format( wp_max_upload_size() ); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Default Timezone is UTC"><?php _e( 'Default Timezone is UTC', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The default timezone for your server.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The default timezone for your server.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				$default_timezone = date_default_timezone_get();
 				if ( 'UTC' !== $default_timezone ) {
@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			// WP Remote Post Check
 			$posting['wp_remote_post']['name'] = __( 'Remote Post', 'axiscomposer' );
-			$posting['wp_remote_post']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisComposer plugins may uses this method of communication when sending back information.', 'axiscomposer' ) . '">[?]</a>';
+			$posting['wp_remote_post']['help'] = ac_help_tip( __( 'AxisComposer plugins may uses this method of communication when sending back information.', 'axiscomposer' ) );
 
 			$response = wp_safe_remote_post( 'https://www.paypal.com/cgi-bin/webscr', array(
 				'timeout'    => 60,
@@ -191,7 +191,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			// WP Remote Get Check
 			$posting['wp_remote_get']['name'] = __( 'Remote Get', 'axiscomposer' );
-			$posting['wp_remote_get']['help'] = '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'AxisComposer plugins may use this method of communication when checking for plugin updates.', 'axiscomposer' ) . '">[?]</a>';
+			$posting['wp_remote_get']['help'] = ac_help_tip( __( 'AxisComposer plugins may use this method of communication when checking for plugin updates.', 'axiscomposer' ) );
 
 			$response = wp_safe_remote_get( 'https://api.github.com/repos/axisthemes/axiscomposer/contributors' );
 
@@ -235,7 +235,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<tbody>
 		<tr>
 			<td data-export-label="AC Database Version"><?php _e( 'AC Database Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of AxisComposer that the database is formatted for. This should be the same as your AxisComposer Version.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The version of AxisComposer that the database is formatted for. This should be the same as your AxisComposer Version.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo esc_html( get_option( 'axiscomposer_db_version' ) ); ?></td>
 		</tr>
 		<tr><?php
@@ -334,12 +334,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<tbody>
 		<tr>
 			<td data-export-label="TinyMCE Enabled"><?php _e( 'TinyMCE Enabled', 'axiscomposer' ) ?></td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have tinyMCE enabled?', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Does your site have tinyMCE enabled?', 'axiscomposer' ) ); ?></td>
 			<td><?php echo 'yes' === get_option( 'axiscomposer_tinymce_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Sidebar Builder Enabled"><?php _e( 'Sidebar Builder Enabled', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Does your site have Sidebar Builder enabled?', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Does your site have Sidebar Builder enabled?', 'axiscomposer' ) ); ?></td>
 			<td><?php echo 'yes' === get_option( 'axiscomposer_sidebar_enabled' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="no">&ndash;</mark>'; ?></td>
 		</tr>
 	</tbody>
@@ -391,12 +391,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<tbody>
 		<tr>
 			<td data-export-label="Name"><?php _e( 'Name', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the current active theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The name of the current active theme.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo $active_theme->Name; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Version"><?php _e( 'Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the current active theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The installed version of the current active theme.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				echo esc_html( $theme_version );
 
@@ -407,12 +407,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tr>
 		<tr>
 			<td data-export-label="Author URL"><?php _e( 'Author URL', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The theme developers URL.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The theme developers URL.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo $active_theme->{'Author URI'}; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Child Theme"><?php _e( 'Child Theme', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Displays whether or not the current theme is a child theme.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				echo is_child_theme() ? '<mark class="yes">&#10004;</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisComposer or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axiscomposer' ), 'http://codex.wordpress.org/Child_Themes' );
 			?></td>
@@ -423,23 +423,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 		<tr>
 			<td data-export-label="Parent Theme Name"><?php _e( 'Parent Theme Name', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The name of the parent theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The name of the parent theme.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo $parent_theme->Name; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Parent Theme Version"><?php _e( 'Parent Theme Version', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The installed version of the parent theme.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The installed version of the parent theme.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo  $parent_theme->Version; ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Parent Theme Author URL"><?php _e( 'Parent Theme Author URL', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The parent theme developers URL.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'The parent theme developers URL.', 'axiscomposer' ) ); ?></td>
 			<td><?php echo $parent_theme->{'Author URI'}; ?></td>
 		</tr>
 		<?php endif ?>
 		<tr>
 			<td data-export-label="AxisComposer Support"><?php _e( 'AxisComposer Support', 'axiscomposer' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'Displays whether or not the current active theme declares AxisComposer support.', 'axiscomposer' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo ac_help_tip( __( 'Displays whether or not the current active theme declares AxisComposer support.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				if ( ! current_theme_supports( 'axiscomposer' ) && ! in_array( $active_theme->template, ac_get_core_supported_themes() ) ) {
 					echo '<mark class="error">' . __( 'Not Declared', 'axiscomposer' ) . '</mark>';
@@ -455,7 +455,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/javascript">
 
-	jQuery( 'a.help_tip' ).click( function() {
+	jQuery( 'a.axiscomposer-help-tip' ).click( function() {
 		return false;
 	});
 
@@ -504,7 +504,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			jQuery( '#debug-report textarea' ).val( report ).focus().select();
 			jQuery( this ).fadeOut();
 			return false;
-		} catch( e ){
+		} catch( e ) {
+			/*jshint devel: true */
 			console.log( e );
 		}
 

@@ -15,7 +15,7 @@ jQuery( function( $ ) {
 			// Add trash icon for custom sidebars.
 			$( '#widgets-right .sidebar-axiscomposer-custom-widgets-area' ).css({
 				'position': 'relative'
-			}).append( '<div class="axiscomposer-delete-sidebar">&nbsp;</div>' );
+			}).append( '<div class="axiscomposer-delete-sidebar"></div>' );
 		},
 		delete_sidebar: function( e ) {
 			var	widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ), title = widgets.find( '.sidebar-name h3' );

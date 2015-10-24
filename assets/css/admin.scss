@@ -339,7 +339,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 				.redo-icon {
 					float: right;
 					margin-left: .5em;
-					margin-right: 3px;
+					margin-right: 4px;
 
 					&:before {
 						@include icon( "\e008" );
@@ -919,7 +919,7 @@ body .ui-draggable-dragging {
 			&:before {
 				font-size: 16px;
 				vertical-align: text-top;
-				@include iconbefore( "\e010" );
+				@include iconbefore( "\e00f" );
 			}
 
 			&:hover,
@@ -930,12 +930,6 @@ body .ui-draggable-dragging {
 
 			&:last-child {
 				border-left: none;
-			}
-
-			&.set-cell-icon {
-				&:before {
-					content: "\e00f";
-				}
 			}
 
 			&.add-cell-icon {
@@ -1157,10 +1151,12 @@ table.ac_iconfonts {
 			margin: 0;
 		}
 	}
+
 	th.sort {
 		width: 28px;
 		padding: 0;
 	}
+
 	td.sort {
 		padding: 0 7px;
 		cursor: move;
@@ -1169,7 +1165,7 @@ table.ac_iconfonts {
 		vertical-align: middle;
 
 		&:before {
-			content: "\e011";
+			content: "\e012";
 			font-family: 'AxisComposer';
 			text-align: center;
 			line-height: 1;
@@ -1199,7 +1195,7 @@ img.help_tip {
 
 .status-enabled {
 	&:before {
-		@include icon( "\e013" );
+		@include icon( "\e011" );
 		color: $axiscomposer;
 	}
 }

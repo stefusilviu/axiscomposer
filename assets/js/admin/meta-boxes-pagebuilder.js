@@ -5,7 +5,6 @@ jQuery( function( $ ) {
 	var $supports_html5_storage;
 	try {
 		$supports_html5_storage = ( 'sessionStorage' in window && window.sessionStorage !== null );
-
 		window.sessionStorage.setItem( 'ac', 'test' );
 		window.sessionStorage.removeItem( 'ac' );
 	} catch( err ) {

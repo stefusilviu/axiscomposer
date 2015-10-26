@@ -7,7 +7,7 @@ jQuery( function ( $ ) {
 		'fadeOut': 50,
 		'delay': 200
 	};
-	$( '.tips, .help_tip' ).tipTip( tiptip_args );
+	$( '.tips, .help_tip, .axiscomposer-help-tip' ).tipTip( tiptip_args );
 
 	// Add tiptip to parent element for widefat tables
 	$( '.parent-tips' ).each( function() {

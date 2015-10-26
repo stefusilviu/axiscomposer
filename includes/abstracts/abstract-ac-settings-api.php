@@ -262,7 +262,7 @@ abstract class AC_Settings_API {
 			$tip = '';
 		}
 
-		return $tip ? '<img class="help_tip" data-tip="' . ac_sanitize_tooltip( $tip ) . '" src="' . AC()->plugin_url() . '/assets/images/help.png" height="16" width="16" />' : '';
+		return $tip ? ac_help_tip( $tip, true ) : '';
 	}
 
 	/**

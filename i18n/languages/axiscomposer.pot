@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-alpha-1\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-10-22 23:22:06+00:00\n"
+"POT-Creation-Date: 2015-10-26 20:36:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1166,15 +1166,12 @@ msgid ""
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-tools.php:59
+#: includes/admin/views/html-admin-settings.php:31
 msgid "Save Changes"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status.php:19
 msgid "Logs"
-msgstr ""
-
-#: includes/admin/views/html-admin-settings.php:31
-msgid "Save changes"
 msgstr ""
 
 #: includes/admin/views/html-admin-tmpl-sidebars.php:13

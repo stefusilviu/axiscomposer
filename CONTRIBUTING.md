@@ -9,7 +9,6 @@ __Please Note:__
 GitHub is for *bug reports and contributions only* - if you have a support question or a request for a customization this is not the right place to post it. Use [AxisThemes Support](http://support.axisthemes.com) for customer support, [WordPress.org](http://wordpress.org/support/plugin/axiscomposer) for community support, and for customizations we recommend one of the following services:
 
 - [Codeable](https://codeable.io/)
-- [Affiliated Axis Workers](http://www.axisthemes.com/affiliated-axis-workers/)
 
 ## Contributing To The Core
 

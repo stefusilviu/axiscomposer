@@ -18,13 +18,13 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit; // Exit if accessed directly.
 }
 
 if ( ! class_exists( 'AxisComposer' ) ) :
 
 /**
- * Main AxisComposer Class
+ * Main AxisComposer Class.
  *
  * @class    AxisComposer
  * @property mixed $shortcodes The shortcodes class
@@ -38,7 +38,7 @@ final class AxisComposer {
 	public $version = '1.0.0';
 
 	/**
-	 * @var AxisComposer The single instance of the class
+	 * @var AxisComposer The single instance of the class.
 	 */
 	protected static $_instance = null;
 
@@ -48,13 +48,13 @@ final class AxisComposer {
 	public $integrations = null;
 
 	/**
-	 * Main AxisComposer Instance
+	 * Main AxisComposer Instance.
 	 *
 	 * Ensure only one instance of AxisComposer is loaded or can be loaded.
 	 *
 	 * @static
 	 * @see    AC()
-	 * @return AxisComposer - Main instance
+	 * @return AxisComposer - Main instance.
 	 */
 	public static function instance() {
 		if ( is_null( self::$_instance ) ) {
@@ -142,7 +142,7 @@ final class AxisComposer {
 
 	/**
 	 * What type of request is this?
-	 * @param  string $type admin, ajax, cron or frontend
+	 * @param  string $type admin, ajax, cron or frontend.
 	 * @return bool
 	 */
 	private function is_request( $type ) {
@@ -206,16 +206,16 @@ final class AxisComposer {
 	 * Init AxisComposer when WordPress Initialises.
 	 */
 	public function init() {
-		// Before init action
+		// Before init action.
 		do_action( 'before_axiscomposer_init' );
 
-		// Set up localisation
+		// Set up localisation.
 		$this->load_plugin_textdomain();
 
-		// Load class instances
+		// Load class instances.
 		$this->integrations = new AC_Integrations();                         // Integrations class
 
-		// Init action
+		// Init action.
 		do_action( 'axiscomposer_init' );
 	}
 
@@ -297,7 +297,7 @@ final class AxisComposer {
 	}
 
 	/**
-	 * Get shortcodes class
+	 * Get shortcodes class.
 	 * @return AC_Shortcodes
 	 */
 	public function shortcodes() {
@@ -308,6 +308,8 @@ final class AxisComposer {
 endif;
 
 /**
+ * Main instance of AxisComposer.
+ *
  * Returns the main instance of AC to prevent the need to use globals.
  *
  * @since  1.0.0

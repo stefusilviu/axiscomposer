@@ -79,8 +79,8 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Screenshots ==
 
 1. The slick AxisComposer settings panel.
-3. Advanced Layout Editor panel.
-2. AxisComposer widgets admin.
+3. Advanced Page Builder panel.
+2. Custom Widgets Area builder.
 
 == Changelog ==
 

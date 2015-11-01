@@ -1,6 +1,6 @@
 <?php
 /**
- * AxisComposer Autoloader
+ * AxisComposer Autoloader.
  *
  * @class    AC_Autoloader
  * @version  1.0.0
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Autoloader {
 
 	/**
-	 * Path to the includes directory
+	 * Path to the includes directory.
 	 * @var string
 	 */
 	private $include_path = '';

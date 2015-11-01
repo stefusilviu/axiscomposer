@@ -356,7 +356,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$active_theme         = wp_get_theme();
 		$theme_version        = $active_theme->Version;
 		$update_theme_version = $active_theme->Version;
-		$api                  = themes_api( 'theme_information', array( 'slug' => get_template(), 'fields' => array( 'sections' => false, 'tags' => false ) ) );
+		$api                  = themes_api( 'theme_information', array( 'slug' => get_stylesheet(), 'fields' => array( 'sections' => false, 'tags' => false ) ) );
 
 		// Check .org
 		if ( $api && ! is_wp_error( $api ) ) {
@@ -414,7 +414,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td data-export-label="Child Theme"><?php _e( 'Child Theme', 'axiscomposer' ); ?>:</td>
 			<td class="help"><?php echo ac_help_tip( __( 'Displays whether or not the current theme is a child theme.', 'axiscomposer' ) ); ?></td>
 			<td><?php
-				echo is_child_theme() ? '<mark class="yes">&#10004;</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisComposer or a parent theme you didn\'t build personally we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axiscomposer' ), 'http://codex.wordpress.org/Child_Themes' );
+				echo is_child_theme() ? '<mark class="yes">&#10004;</mark>' : '&#10005; &ndash; ' . sprintf( __( 'If you\'re modifying AxisComposer on a parent theme you didn\'t build personally, then we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'axiscomposer' ), 'http://codex.wordpress.org/Child_Themes' );
 			?></td>
 		</tr>
 		<?php

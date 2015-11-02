@@ -14,12 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Include Widget classes
+// Include Widget classes.
 include_once( 'abstracts/abstract-ac-widget.php' );
 include_once( 'widgets/class-ac-widget-advertisement.php' );
 
 /**
- * Register Widgets
+ * Register Widgets.
  * @since 1.0.0
  */
 function ac_register_widgets() {

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Include core functions (available in both admin and frontend)
+// Include core functions (available in both admin and frontend).
 include( 'functions-ac-conditional.php' );
 include( 'functions-ac-deprecated.php' );
 include( 'functions-ac-formatting.php' );
@@ -23,13 +23,13 @@ include( 'functions-ac-iconfont.php' );
 include( 'functions-ac-helper.php' );
 
 /**
- * Filters on data used in admin and frontend
+ * Filters on data used in admin and frontend.
  */
 add_filter( 'widget_text', 'do_shortcode' );
 add_filter( 'the_content', 'ac_fix_shortcodes' );
 
 /**
- * Short Description (excerpt)
+ * Short Description (excerpt).
  */
 add_filter( 'axiscomposer_short_description', 'wptexturize' );
 add_filter( 'axiscomposer_short_description', 'convert_smilies' );
@@ -57,7 +57,7 @@ function ac_fix_shortcodes( $content ) {
 /**
  * Get an image size.
  *
- * Variable is filtered by axiscomposer_get_image_size_{image_size}
+ * Variable is filtered by axiscomposer_get_image_size_{image_size}.
  *
  * @param  mixed $image_size
  * @return array
@@ -129,9 +129,9 @@ function ac_print_js() {
 }
 
 /**
- * Get a log file path
- * @param  string $handle name
- * @return string the log file path
+ * Get a log file path.
+ * @param  string $handle name.
+ * @return string the log file path.
  */
 function ac_get_log_file_path( $handle ) {
 	return trailingslashit( AC_LOG_DIR ) . $handle . '-' . sanitize_file_name( wp_hash( $handle ) ) . '.log';

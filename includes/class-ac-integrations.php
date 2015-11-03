@@ -1,6 +1,6 @@
 <?php
 /**
- * AxisComposer Integrations class
+ * AxisComposer Integrations Class
  *
  * Loads Integrations into AxisComposer.
  *

@@ -67,7 +67,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Install AC
+	 * Install AC.
 	 */
 	public static function install() {
 		global $wpdb;
@@ -122,7 +122,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Update AC version to current
+	 * Update AC version to current.
 	 */
 	private static function update_ac_version() {
 		delete_option( 'axiscomposer_version' );
@@ -130,7 +130,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Update DB version to current
+	 * Update DB version to current.
 	 */
 	private static function update_db_version( $version = null ) {
 		delete_option( 'axiscomposer_db_version' );
@@ -138,7 +138,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Handle updates
+	 * Handle updates.
 	 */
 	private static function update() {
 		$current_db_version = get_option( 'axiscomposer_db_version' );
@@ -154,9 +154,9 @@ class AC_Install {
 	}
 
 	/**
-	 * Default options
+	 * Default options.
 	 *
-	 * Sets up the default options used on the settings page
+	 * Sets up the default options used on the settings page.
 	 */
 	private static function create_options() {
 		// Include settings so that we can run through defaults
@@ -270,7 +270,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Create files/directories
+	 * Create files/directories.
 	 */
 	private static function create_files() {
 		// Install files and folders for uploading files and prevent hotlinking
@@ -321,7 +321,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Parse update notice from readme file
+	 * Parse update notice from readme file.
 	 * @param  string $content
 	 * @return string
 	 */

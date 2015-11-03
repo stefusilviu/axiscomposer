@@ -1,6 +1,6 @@
 <?php
 /**
- * Portfolio Short Description
+ * Portfolio Short Description.
  *
  * Replaces the standard excerpt box.
  *
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Meta_Box_Portfolio_Short_Description {
 
 	/**
-	 * Output the meta box
+	 * Output the meta box.
 	 */
 	public static function output( $post ) {
 

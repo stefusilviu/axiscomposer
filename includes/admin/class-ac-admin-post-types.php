@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Admin_Post_Types {
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public function __construct() {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );

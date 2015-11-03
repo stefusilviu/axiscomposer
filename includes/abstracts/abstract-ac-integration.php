@@ -1,6 +1,6 @@
 <?php
 /**
- * Abstract Integration class
+ * Abstract Integration Class
  *
  * Extended by individual integrations to offer additional functionality.
  *

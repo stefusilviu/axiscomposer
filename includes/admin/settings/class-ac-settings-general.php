@@ -34,7 +34,7 @@ class AC_Settings_General extends AC_Settings_Page {
 	}
 
 	/**
-	 * Get settings
+	 * Get settings.
 	 * @return array
 	 */
 	public function get_settings() {
@@ -108,7 +108,7 @@ class AC_Settings_General extends AC_Settings_Page {
 	}
 
 	/**
-	 * Save settings
+	 * Save settings.
 	 */
 	public function save() {
 		$settings = $this->get_settings();

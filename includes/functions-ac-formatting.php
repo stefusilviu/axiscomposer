@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Clean variables using sanitize_text_field
+ * Clean variables using sanitize_text_field.
  * @param  string|array $var
  * @return string
  */
@@ -45,7 +45,8 @@ function ac_sanitize_tooltip( $var ) {
 }
 
 /**
- * Merge two arrays
+ * Merge two arrays.
+ *
  * @param  array $a1
  * @param  array $a2
  * @return array

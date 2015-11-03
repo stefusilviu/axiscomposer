@@ -39,6 +39,7 @@ class AC_Autoloader {
 
 	/**
 	 * Take a class name and turn it into a file name.
+	 *
 	 * @param  string $class
 	 * @return string
 	 */
@@ -48,6 +49,7 @@ class AC_Autoloader {
 
 	/**
 	 * Include a class file.
+	 *
 	 * @param  string $path
 	 * @return bool successful or not
 	 */
@@ -61,6 +63,7 @@ class AC_Autoloader {
 
 	/**
 	 * Auto-load AC classes on demand to reduce memory consumption.
+	 *
 	 * @param string $class
 	 */
 	public function autoload( $class ) {

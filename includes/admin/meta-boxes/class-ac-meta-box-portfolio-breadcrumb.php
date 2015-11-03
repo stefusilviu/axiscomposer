@@ -1,6 +1,6 @@
 <?php
 /**
- * Portfolio Breadcrumb Hierarchy
+ * Portfolio Breadcrumb Hierarchy.
  *
  * @class    AC_Meta_Box_Portfolio_Breadcrumb
  * @version  1.0.0
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Meta_Box_Portfolio_Breadcrumb {
 
 	/**
-	 * Output the meta box
+	 * Output the meta box.
 	 */
 	public static function output( $post ) {
 		wp_nonce_field( 'axiscomposer_save_data', 'axiscomposer_meta_nonce' );
@@ -48,7 +48,7 @@ class AC_Meta_Box_Portfolio_Breadcrumb {
 	}
 
 	/**
-	 * Save meta box data
+	 * Save meta box data.
 	 */
 	public static function save( $post_id ) {
 		// Update meta

@@ -19,19 +19,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Frontend_Scripts {
 
 	/**
-	 * Contains an array of script handles registered by AC
+	 * Contains an array of script handles registered by AC.
 	 * @var array
 	 */
 	private static $scripts = array();
 
 	/**
-	 * Contains an array of script handles registered by AC
+	 * Contains an array of script handles registered by AC.
 	 * @var array
 	 */
 	private static $styles = array();
 
 	/**
-	 * Contains an array of script handles localized by AC
+	 * Contains an array of script handles localized by AC.
 	 * @var array
 	 */
 	private static $wp_localize_scripts = array();
@@ -189,7 +189,7 @@ class AC_Frontend_Scripts {
 	}
 
 	/**
-	 * Return data for script handles
+	 * Return data for script handles.
 	 * @access private
 	 * @param  string $handle
 	 * @return array|bool

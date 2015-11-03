@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Widget_Advertisement extends AC_Widget {
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'axiscomposer widget_advertisement';

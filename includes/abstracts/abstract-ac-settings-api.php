@@ -37,7 +37,7 @@ abstract class AC_Settings_API {
 	public $method_description = '';
 
 	/**
-	 * 'yes' if the method is enabled
+	 * 'yes' if the method is enabled.
 	 * @var string
 	 */
 	public $enabled;
@@ -67,7 +67,7 @@ abstract class AC_Settings_API {
 	public $sanitized_fields = array();
 
 	/**
-	 * Admin Options
+	 * Admin Options.
 	 *
 	 * Setup the gateway settings screen.
 	 * Override this in your gateway.
@@ -86,7 +86,7 @@ abstract class AC_Settings_API {
 	}
 
 	/**
-	 * Initialise Settings Form Fields
+	 * Initialise Settings Form Fields.
 	 *
 	 * Add an array of fields to be displayed
 	 * on the gateway's settings screen.
@@ -97,7 +97,7 @@ abstract class AC_Settings_API {
 	public function init_form_fields() {}
 
 	/**
-	 * Get the form fields after they are initialized
+	 * Get the form fields after they are initialized.
 	 * @return array of options
 	 */
 	public function get_form_fields() {
@@ -105,8 +105,8 @@ abstract class AC_Settings_API {
 	}
 
 	/**
-	 * Admin Panel Options Processing
-	 * - Saves the options to the DB
+	 * Admin Panel Options Processing.
+	 * - Saves the options to the DB.
 	 *
 	 * @since  1.0.0
 	 * @return bool
@@ -133,7 +133,7 @@ abstract class AC_Settings_API {
 	public function display_errors() {}
 
 	/**
-	 * Initialise Settings
+	 * Initialise Settings.
 	 *
 	 * Store all settings in a single database entry
 	 * and make sure the $settings array is either the default
@@ -144,14 +144,14 @@ abstract class AC_Settings_API {
 	 */
 	public function init_settings() {
 
-		// Load form_field settings
+		// Load form_field settings.
 		$this->settings = get_option( $this->plugin_id . $this->id . '_settings', null );
 
 		if ( ! $this->settings || ! is_array( $this->settings ) ) {
 
 			$this->settings = array();
 
-			// If there are no settings defined, load defaults
+			// If there are no settings defined, load defaults.
 			if ( $form_fields = $this->get_form_fields() ) {
 
 				foreach ( $form_fields as $k => $v ) {
@@ -173,7 +173,7 @@ abstract class AC_Settings_API {
 	 *
 	 * @param  string $key
 	 * @param  mixed  $empty_value
-	 * @return mixed  The value specified for the option or a default value for the option
+	 * @return mixed  The value specified for the option or a default value for the option.
 	 */
 	public function get_option( $key, $empty_value = null ) {
 
@@ -266,7 +266,7 @@ abstract class AC_Settings_API {
 	}
 
 	/**
-	 * Get HTML for descriptions
+	 * Get HTML for descriptions.
 	 *
 	 * @param  array $data
 	 * @return string
@@ -287,7 +287,7 @@ abstract class AC_Settings_API {
 	}
 
 	/**
-	 * Get custom attributes
+	 * Get custom attributes.
 	 *
 	 * @param  array $data
 	 * @return string

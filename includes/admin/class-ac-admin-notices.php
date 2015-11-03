@@ -28,7 +28,7 @@ class AC_Admin_Notices {
 	);
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public function __construct() {
 		add_action( 'switch_theme', array( $this, 'reset_admin_notices' ) );
@@ -41,7 +41,7 @@ class AC_Admin_Notices {
 	}
 
 	/**
-	 * Remove all notices
+	 * Remove all notices.
 	 */
 	public static function remove_all_notices() {
 		delete_option( 'axiscomposer_admin_notices' );
@@ -57,7 +57,7 @@ class AC_Admin_Notices {
 	}
 
 	/**
-	 * Show a notice
+	 * Show a notice.
 	 * @param string $name
 	 */
 	public static function add_notice( $name ) {
@@ -66,7 +66,7 @@ class AC_Admin_Notices {
 	}
 
 	/**
-	 * Remove a notice from being displayed
+	 * Remove a notice from being displayed.
 	 * @param string $name
 	 */
 	public static function remove_notice( $name ) {
@@ -75,7 +75,7 @@ class AC_Admin_Notices {
 	}
 
 	/**
-	 * See if a notice is being shown
+	 * See if a notice is being shown.
 	 * @param  string  $name
 	 * @return boolean
 	 */
@@ -119,14 +119,14 @@ class AC_Admin_Notices {
 	}
 
 	/**
-	 * If we need to update, include a message with the update button
+	 * If we need to update, include a message with the update button.
 	 */
 	public function update_notice() {
 		include( 'views/html-notice-update.php' );
 	}
 
 	/**
-	 * Show the Theme Check notice
+	 * Show the Theme Check notice.
 	 */
 	public function theme_check_notice() {
 		if ( ! current_theme_supports( 'axiscomposer' ) && ! in_array( get_option( 'template' ), ac_get_core_supported_themes() ) ) {

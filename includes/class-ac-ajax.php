@@ -21,14 +21,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_AJAX {
 
 	/**
-	 * Hooks in ajax handlers
+	 * Hooks in ajax handlers.
 	 */
 	public static function init() {
 		self::add_ajax_events();
 	}
 
 	/**
-	 * Hook in methods - uses WordPress ajax handlers (admin-ajax)
+	 * Hook in methods - uses WordPress ajax handlers (admin-ajax).
 	 */
 	public static function add_ajax_events() {
 		// axiscomposer_EVENT => nopriv
@@ -52,7 +52,7 @@ class AC_AJAX {
 	}
 
 	/**
-	 * AJAX Add Icon Font
+	 * AJAX Add Icon Font.
 	 */
 	public static function add_iconfont() {
 
@@ -71,7 +71,7 @@ class AC_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Icon Font
+	 * AJAX Delete Icon Font.
 	 */
 	public static function delete_iconfont() {
 
@@ -89,7 +89,8 @@ class AC_AJAX {
 	}
 
 	/**
-	 * Search for pages and return json
+	 * Search for pages and return json.
+	 *
 	 * @param string $x (default: '')
 	 * @param string $post_types (default: array( 'page' ))
 	 */
@@ -163,7 +164,8 @@ class AC_AJAX {
 	}
 
 	/**
-	 * Search for pages & portfolio projects and return json
+	 * Search for pages & portfolio projects and return json.
+	 *
 	 * @see AC_AJAX::json_search_pages()
 	 */
 	public static function json_search_pages_and_portfolio() {
@@ -171,7 +173,7 @@ class AC_AJAX {
 	}
 
 	/**
-	 * AJAX Delete Custom Sidebar on Widgets Page
+	 * AJAX Delete Custom Sidebar on Widgets Page.
 	 */
 	public static function delete_custom_sidebar() {
 		ob_start();
@@ -193,7 +195,7 @@ class AC_AJAX {
 	}
 
 	/**
-	 * AJAX Shortcodes to interface
+	 * AJAX Shortcodes to interface.
 	 */
 	public static function shortcodes_to_interface( $text = null ) {
 		$allowed = false;

@@ -131,6 +131,7 @@ final class AxisComposer {
 
 	/**
 	 * Define constant if not already set.
+	 *
 	 * @param string $name
 	 * @param string|bool $value
 	 */
@@ -142,6 +143,7 @@ final class AxisComposer {
 
 	/**
 	 * What type of request is this?
+	 *
 	 * @param  string $type admin, ajax, cron or frontend.
 	 * @return bool
 	 */

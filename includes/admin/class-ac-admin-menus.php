@@ -41,7 +41,7 @@ class AC_Admin_Menu {
 	}
 
 	/**
-	 * Add menu items
+	 * Add menu items.
 	 */
 	public function admin_menu() {
 		global $menu;
@@ -54,14 +54,14 @@ class AC_Admin_Menu {
 	}
 
 	/**
-	 * Add menu item
+	 * Add menu item.
 	 */
 	public function iconfont_menu() {
 		add_submenu_page( 'axiscomposer', __( 'Iconfont', 'axiscomposer' ),  __( 'Iconfont', 'axiscomposer' ) , 'manage_axiscomposer', 'ac-iconfont', array( $this, 'iconfont_page' ) );
 	}
 
 	/**
-	 * Add menu item
+	 * Add menu item.
 	 */
 	public function settings_menu() {
 		$settings_page = add_submenu_page( 'axiscomposer', __( 'AxisComposer Settings', 'axiscomposer' ),  __( 'Settings', 'axiscomposer' ) , 'manage_axiscomposer', 'ac-settings', array( $this, 'settings_page' ) );
@@ -77,7 +77,7 @@ class AC_Admin_Menu {
 	}
 
 	/**
-	 * Add menu item
+	 * Add menu item.
 	 */
 	public function status_menu() {
 		add_submenu_page( 'axiscomposer', __( 'AxisComposer Status', 'axiscomposer' ),  __( 'System Status', 'axiscomposer' ) , 'manage_axiscomposer', 'ac-status', array( $this, 'status_page' ) );
@@ -141,7 +141,7 @@ class AC_Admin_Menu {
 	}
 
 	/**
-	 * Custom menu order
+	 * Custom menu order.
 	 * @return bool
 	 */
 	public function custom_menu_order() {
@@ -149,28 +149,28 @@ class AC_Admin_Menu {
 	}
 
 	/**
-	 * Init the iconfont page
+	 * Init the iconfont page.
 	 */
 	public function iconfont_page() {
 		AC_Admin_Iconfont::output();
 	}
 
 	/**
-	 * Init the settings page
+	 * Init the settings page.
 	 */
 	public function settings_page() {
 		AC_Admin_Settings::output();
 	}
 
 	/**
-	 * Init the status page
+	 * Init the status page.
 	 */
 	public function status_page() {
 		AC_Admin_Status::output();
 	}
 
 	/**
-	 * Add the "Visit Settings" link in admin bar main menu
+	 * Add the "Visit Settings" link in admin bar main menu.
 	 * @param WP_Admin_Bar $wp_admin_bar
 	 */
 	public function admin_bar_menus( $wp_admin_bar ) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * AxisComposer Admin Settings Class.
+ * AxisComposer Admin Settings Class
  *
  * @class    AC_Admin_Settings
  * @version  1.0.0
@@ -23,7 +23,7 @@ class AC_Admin_Settings {
 	private static $messages = array();
 
 	/**
-	 * Include the settings page classes
+	 * Include the settings page classes.
 	 */
 	public static function get_settings_pages() {
 		if ( empty( self::$settings ) ) {
@@ -41,7 +41,7 @@ class AC_Admin_Settings {
 	}
 
 	/**
-	 * Save the settings
+	 * Save the settings.
 	 */
 	public static function save() {
 		global $current_tab;
@@ -67,7 +67,7 @@ class AC_Admin_Settings {
 	}
 
 	/**
-	 * Add a message
+	 * Add a message.
 	 * @param string $text
 	 */
 	public static function add_message( $text ) {
@@ -75,7 +75,7 @@ class AC_Admin_Settings {
 	}
 
 	/**
-	 * Add an error
+	 * Add an error.
 	 * @param string $text
 	 */
 	public static function add_error( $text ) {
@@ -83,7 +83,7 @@ class AC_Admin_Settings {
 	}
 
 	/**
-	 * Output messages + errors
+	 * Output messages + errors.
 	 * @return string
 	 */
 	public static function show_messages() {

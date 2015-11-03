@@ -26,14 +26,14 @@ class AC_Admin_Status {
 	}
 
 	/**
-	 * Handles output of reports
+	 * Handles output of reports.
 	 */
 	public static function status_report() {
 		include_once( 'views/html-admin-page-status-report.php' );
 	}
 
 	/**
-	 * Handles output of tools
+	 * Handles output of tools.
 	 */
 	public static function status_tools() {
 		global $wpdb;
@@ -103,7 +103,7 @@ class AC_Admin_Status {
 	}
 
 	/**
-	 * Get tools
+	 * Get tools.
 	 * @return array of tools
 	 */
 	public static function get_tools() {
@@ -124,7 +124,7 @@ class AC_Admin_Status {
 	}
 
 	/**
-	 * Show the logs page
+	 * Show the logs page.
 	 */
 	public static function status_logs() {
 
@@ -140,7 +140,7 @@ class AC_Admin_Status {
 	}
 
 	/**
-	 * Scan the log files
+	 * Scan the log files.
 	 * @return array
 	 */
 	public static function scan_log_files() {
@@ -164,7 +164,7 @@ class AC_Admin_Status {
 	}
 
 	/**
-	 * Get latest version of a theme by slug
+	 * Get latest version of a theme by slug.
 	 * @param  object $theme WP_Theme object
 	 * @return string Version number if found
 	 */

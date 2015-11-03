@@ -24,7 +24,7 @@ abstract class AC_Settings_Page {
 	protected $label = '';
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public function __construct() {
 		add_filter( 'axiscomposer_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
@@ -34,7 +34,7 @@ abstract class AC_Settings_Page {
 	}
 
 	/**
-	 * Add this page to settings
+	 * Add this page to settings.
 	 */
 	public function add_settings_page( $pages ) {
 		$pages[ $this->id ] = $this->label;
@@ -43,7 +43,7 @@ abstract class AC_Settings_Page {
 	}
 
 	/**
-	 * Get settings
+	 * Get settings.
 	 * @return array
 	 */
 	public function get_settings() {
@@ -51,7 +51,7 @@ abstract class AC_Settings_Page {
 	}
 
 	/**
-	 * Get sections
+	 * Get sections.
 	 * @return array
 	 */
 	public function get_sections() {
@@ -59,7 +59,7 @@ abstract class AC_Settings_Page {
 	}
 
 	/**
-	 * Output sections
+	 * Output sections.
 	 */
 	public function output_sections() {
 		global $current_section;
@@ -82,7 +82,7 @@ abstract class AC_Settings_Page {
 	}
 
 	/**
-	 * Output the settings
+	 * Output the settings.
 	 */
 	public function output() {
 		$settings = $this->get_settings();
@@ -90,7 +90,7 @@ abstract class AC_Settings_Page {
 	}
 
 	/**
-	 * Save settings
+	 * Save settings.
 	 */
 	public function save() {
 		global $current_section;

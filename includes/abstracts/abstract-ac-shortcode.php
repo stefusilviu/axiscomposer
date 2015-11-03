@@ -39,7 +39,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		$this->config_shortcode();
 
 		/**
-		 * Shortcode AJAX Events
+		 * Shortcode AJAX Events.
 		 * @todo Move to AC_AJAX Class.
 		 */
 		$this->shortcode_action();
@@ -107,10 +107,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			}
 		}
 
-		// Get the default fields values
+		// Get the default fields values.
 		$this->form_fields = $this->get_default_values();
 
-		// Get modal settings fragment
+		// Get modal settings fragment.
 		ob_start();
 		?><table class="form-table">
 			<?php $this->generate_settings_html(); ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * AxisComposer Shortcodes class
+ * AxisComposer Shortcodes Class
  *
  * Handles shortcode and loads shortcode methods via hooks.
  *

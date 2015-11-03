@@ -12,37 +12,42 @@
 abstract class AC_Widget extends WP_Widget {
 
 	/**
-	 * CSS class
+	 * CSS class.
+	 *
 	 * @var string
 	 */
 	public $widget_cssclass;
 
 	/**
-	 * Widget description
+	 * Widget description.
+	 *
 	 * @var string
 	 */
 	public $widget_description;
 
 	/**
-	 * Widget ID
+	 * Widget ID.
+	 *
 	 * @var string
 	 */
 	public $widget_id;
 
 	/**
-	 * Widget name
+	 * Widget name.
+	 *
 	 * @var string
 	 */
 	public $widget_name;
 
 	/**
-	 * Settings
+	 * Settings.
+	 *
 	 * @var array
 	 */
 	public $settings;
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public function __construct() {
 
@@ -78,7 +83,8 @@ abstract class AC_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Cache the widget
+	 * Cache the widget.
+	 *
 	 * @param  array  $args
 	 * @param  string $content
 	 * @return string the content that was cached
@@ -90,14 +96,15 @@ abstract class AC_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Flush the cache
+	 * Flush the cache.
 	 */
 	public function flush_widget_cache() {
 		wp_cache_delete( apply_filters( 'axiscomposer_cached_widget_id', $this->widget_id ), 'widget' );
 	}
 
 	/**
-	 * Output the html at the start of a widget
+	 * Output the html at the start of a widget.
+	 *
 	 * @param  array $args
 	 * @return string
 	 */
@@ -110,7 +117,8 @@ abstract class AC_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Output the html at the end of a widget
+	 * Output the html at the end of a widget.
+	 *
 	 * @param  array $args
 	 * @return string
 	 */
@@ -120,6 +128,7 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * update function.
+	 *
 	 * @see    WP_Widget->update
 	 * @param  array $new_instance
 	 * @param  array $old_instance
@@ -149,6 +158,7 @@ abstract class AC_Widget extends WP_Widget {
 
 	/**
 	 * form function.
+	 *
 	 * @see   WP_Widget->form
 	 * @param array $instance
 	 */

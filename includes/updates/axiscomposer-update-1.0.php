@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * TinyMCE Plugin settings
- * Maintain the old tinyMCE logic for upgrades
+ * TinyMCE Plugin settings.
+ * Maintain the old tinyMCE logic for upgrades.
  */
 update_option( 'axiscomposer_tinymce_enabled', 'no' );

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Meta_Box_Page_Builder_Data {
 
 	/**
-	 * Output the meta box
+	 * Output the meta box.
 	 */
 	public static function output( $post ) {
 		wp_nonce_field( 'axiscomposer_save_data', 'axiscomposer_meta_nonce' );
@@ -221,7 +221,7 @@ class AC_Meta_Box_Page_Builder_Data {
 	}
 
 	/**
-	 * Save meta box data
+	 * Save meta box data.
 	 */
 	public static function save( $post_id ) {
 

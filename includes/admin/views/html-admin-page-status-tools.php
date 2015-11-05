@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<label><input type="checkbox" class="checkbox" name="axiscomposer_status_options[uninstall_data]" value="1" <?php checked( '1', $options['uninstall_data'] ); ?> /> <?php _e( 'Enabled', 'axiscomposer' ); ?></label>
 					</p>
 					<p>
-						<span class="description"><?php _e( 'This tool will remove all AxisComposer and Portfolio data when using the "Delete" link on the plugins screen.', 'axiscomposer' ); ?></span>
+						<span class="description"><?php _e( 'This tool will remove all AxisComposer and Portfolio data when using the "Delete" link on the plugins screen. It will also remove any setting/option prepended with "axiscomposer_" so may also affect installed AxisComposer Extensions.', 'axiscomposer' ); ?></span>
 					</p>
 				</td>
 			</tr>

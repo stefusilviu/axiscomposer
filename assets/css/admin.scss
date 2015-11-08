@@ -652,7 +652,6 @@ body .ui-draggable-dragging {
 }
 
 .ac-sortable-element, .ac-layout-column {
-
 	&:hover {
 		z-index: 20;
 	}
@@ -759,13 +758,13 @@ body .ui-draggable-dragging {
 		width: 25px;
 		height: 25px;
 
+		&:hover {
+			color: #278ab7;
+		}
+
 		&:before {
 			@include icon( "\e00d" );
 			line-height: 1.5;
-		}
-
-		&:hover {
-			color: #278ab7;
 		}
 	}
 
@@ -776,13 +775,13 @@ body .ui-draggable-dragging {
 		width: 25px;
 		height: 25px;
 
+		&:hover {
+			color: #278ab7;
+		}
+
 		&:before {
 			@include icon( "\e00e" );
 			line-height: 1.5;
-		}
-
-		&:hover {
-			color: #278ab7;
 		}
 	}
 
@@ -793,13 +792,13 @@ body .ui-draggable-dragging {
 		width: 25px;
 		height: 25px;
 
+		&:hover {
+			color: #d54e21;
+		}
+
 		&:before {
 			@include icon( "\e00a" );
 			line-height: 1.5;
-		}
-
-		&:hover {
-			color: #d54e21;
 		}
 	}
 }

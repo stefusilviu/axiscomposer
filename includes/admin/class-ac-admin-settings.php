@@ -570,7 +570,6 @@ class AC_Admin_Settings {
 					$value = wp_kses_post( trim( $raw_value ) );
 					break;
 				case 'multiselect' :
-				case 'multi_select_screens' :
 					$value = array_filter( array_map( 'ac_clean', (array) $raw_value ) );
 					break;
 				default :

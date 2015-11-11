@@ -137,8 +137,6 @@ class AC_Admin_Settings {
 			self::add_message( stripslashes( $_GET['ac_message'] ) );
 		}
 
-		self::show_messages();
-
 		// Get tabs for the settings page
 		$tabs = apply_filters( 'axiscomposer_settings_tabs_array', array() );
 

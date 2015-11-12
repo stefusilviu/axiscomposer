@@ -65,16 +65,11 @@ class AC_Settings_General extends AC_Settings_Page {
 
 			array(
 				'title'   => __( 'Specific Screens', 'axiscomposer' ),
+				'desc'    => '',
 				'id'      => 'axiscomposer_specific_allowed_screens',
-				'type'    => 'multiselect',
-				'class'   => 'ac-enhanced-select',
 				'css'     => 'min-width: 350px;',
 				'default' => '',
-				'options' => ac_get_screen_types(),
-				'buttons' => true,
-				'custom_attributes' => array(
-					'data-placeholder' => __( 'Choose some screens&hellip;', 'axiscomposer' )
-				)
+				'type'    => 'multi_select_screens'
 			),
 
 			array(

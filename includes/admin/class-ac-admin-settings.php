@@ -216,9 +216,6 @@ class AC_Admin_Settings {
 			if ( ! isset( $value['desc_tip'] ) ) {
 				$value['desc_tip'] = false;
 			}
-			if ( ! isset( $value['buttons'] ) ) {
-				$value['buttons'] = false;
-			}
 			if ( ! isset( $value['placeholder'] ) ) {
 				$value['placeholder'] = '';
 			}
@@ -365,12 +362,8 @@ class AC_Admin_Settings {
 										<?php
 									}
 								?>
-							</select><?php
-								echo $description;
-								if ( 'multiselect' == $value['type'] && $value['buttons'] ) : ?>
-									</br><a class="select_all button" href="#"><?php _e( 'Select all', 'axiscomposer' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axiscomposer' ); ?></a><?php
-								endif;
-						?></td>
+							</select> <?php echo $description; ?>
+						</td>
 					</tr><?php
 					break;
 
@@ -478,6 +471,38 @@ class AC_Admin_Settings {
 						<?php
 					}
 					break;
+
+				// Screens multiselect
+				case 'multi_select_screens' :
+
+					$selections = (array) self::get_option( $value['id'] );
+
+					if ( ! empty( $value['options'] ) ) {
+						$screens = $value['options'];
+					} else {
+						$screens = ac_get_screen_types();
+					}
+
+					asort( $screens );
+					?><tr valign="top">
+						<th scope="row" class="titledesc">
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?></label>
+							<?php echo $tooltip_html; ?>
+						</th>
+						<td class="forminp">
+							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose some screens&hellip;', 'axiscomposer' ); ?>" title="<?php esc_attr_e( 'Screen', 'axiscomposer' ) ?>" class="ac-enhanced-select">
+								<?php
+									if ( ! empty( $screens ) ) {
+										foreach ( $screens as $key => $val ) {
+											echo '<option value="' . esc_attr( $key ) . '" ' . selected( in_array( $key, $selections ), true, false ) . '>' . $val . '</option>';
+										}
+									}
+								?>
+							</select> <?php echo ( $description ) ? $description : ''; ?> </br><a class="select_all button" href="#"><?php _e( 'Select all', 'axiscomposer' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axiscomposer' ); ?></a>
+						</td>
+					</tr><?php
+					break;
+
 				// Default: run an action
 				default:
 					do_action( 'axiscomposer_admin_field_' . $value['type'], $value );
@@ -570,6 +595,7 @@ class AC_Admin_Settings {
 					$value = wp_kses_post( trim( $raw_value ) );
 					break;
 				case 'multiselect' :
+				case 'multi_select_screens' :
 					$value = array_filter( array_map( 'ac_clean', (array) $raw_value ) );
 					break;
 				default :

@@ -203,7 +203,7 @@ function ac_get_allowed_screen_types() {
  * @return string[]
  */
 function ac_get_core_supported_themes() {
-	return array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
+	return array( 'twentysixteen', 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 }
 
 /**

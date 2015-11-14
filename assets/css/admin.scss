@@ -35,6 +35,7 @@
 .axiscomposer-toggle-editor {
 	z-index: 1001;
 	position: relative;
+	margin-top: 5px !important;
 
 	&:active, &:focus {
 		box-shadow: none !important;

@@ -84,12 +84,15 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 
 == Changelog ==
 
+= 1.0.0 - TBD =
 * Feature - Language pack downloader. po and mo files removed from core (too heavy).
 * Refactor - Compressed the Page Builder Scripts in single file.
 * Fix - Prevent potential XSS within tooltips.
 * Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked.
 * Dev - Switched to .scss and included bourbon for scss mixins.
 * Localisation - Removed language files from core to made the package lighter (see language pack downloader feature).
+
+[See changelog for all versions](https://raw.githubusercontent.com/axisthemes/axiscomposer/master/CHANGELOG.txt).
 
 == Upgrade Notice ==
 

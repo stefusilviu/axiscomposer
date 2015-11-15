@@ -2,7 +2,7 @@
 Contributors: axisthemes, shivapoudel
 Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
 Requires at least: 4.2
-Tested up to: 4.3
+Tested up to: 4.4
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

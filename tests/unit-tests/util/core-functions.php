@@ -16,7 +16,7 @@ class Core_Functions extends \AC_Unit_Test_Case {
 	 */
 	public function test_ac_get_core_supported_themes() {
 
-		$expected_themes = array( 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
+		$expected_themes = array( 'twentysixteen', 'twentyfifteen', 'twentyfourteen', 'twentythirteen', 'twentytwelve','twentyeleven', 'twentyten' );
 
 		$this->assertEquals( $expected_themes, ac_get_core_supported_themes() );
 	}

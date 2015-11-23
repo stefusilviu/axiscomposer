@@ -83,7 +83,6 @@ class AC_HookFinder {
 
 		echo '<div id="content">';
 		echo '<h1>Action and Filter Hook Reference</h1>';
-		echo '<div class="description"><p>The following is a full list of actions and filters found in AxisComposer core.</p></div>';
 
 		foreach ( self::$files_to_scan as $heading => $files ) {
 			self::$custom_hooks_found = array();
@@ -150,9 +149,9 @@ class AC_HookFinder {
 			ksort( self::$custom_hooks_found );
 
 			if ( ! empty( self::$custom_hooks_found ) ) {
-				echo '<h2>' . $heading . '</h2>';
+				echo '<div class="panel panel-default"><div class="panel-heading"><h2>' . $heading . '</h2></div>';
 
-				echo '<table class="summary"><thead><tr><th>Hook</th><th>Type</th><th>File(s)</th></tr></thead><tbody>';
+				echo '<table class="summary table table-bordered table-striped"><thead><tr><th>Hook</th><th>Type</th><th>File(s)</th></tr></thead><tbody>';
 
 				foreach ( self::$custom_hooks_found as $hook => $details ) {
 					echo '<tr>
@@ -162,16 +161,17 @@ class AC_HookFinder {
 					</tr>' . "\n";
 				}
 
-				echo '</tbody></table>';
+				echo '</tbody></table></div>';
 			}
 		}
 
 		echo '</div><div id="footer">';
 
-		$html   = file_get_contents( '../ac-apidocs/todo.html' );
+		$html   = file_get_contents( '../ac-apidocs/tree.html' );
 		$header = current( explode( '<div id="content">', $html ) );
 		$header = str_replace( '<li class="active">', '<li>', $header );
 		$header = str_replace( '<li class="hooks">', '<li class="active">', $header );
+		$header = str_replace( 'Tree | ', 'Hook Reference | ', $header );
 		$footer = end( explode( '<div id="footer">', $html ) );
 
 		file_put_contents( '../ac-apidocs/hook-docs.html', $header . ob_get_clean() . $footer );

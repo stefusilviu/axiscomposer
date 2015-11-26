@@ -65,6 +65,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td class="help"><?php echo ac_help_tip( __( 'The maximum amount of memory (RAM) that your site can use at one time.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				$memory = ac_let_to_num( WP_MEMORY_LIMIT );
+
+				if ( function_exists( 'memory_get_usage' ) ) {
+					$system_memory = wc_let_to_num( @ini_get( 'memory_limit' ) );
+					$memory        = max( $memory, $system_memory );
+				}
+
 				if ( $memory < 67108864 ) {
 					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'axiscomposer' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
 				} else {

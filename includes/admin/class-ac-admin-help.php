@@ -50,9 +50,9 @@ class AC_Admin_Help {
 			'title'     => __( 'Support', 'axiscomposer' ),
 			'content'   =>
 				'<h2>' . __( 'Support', 'axiscomposer' ) . '</h2>' .
-				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a AxisThemes customer, or need help with premium add-ons sold by AxisThemes, please %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://support.axisthemes.com">', '</a>' ) . '</p>' .
+				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a AxisThemes customer, or need help with premium add-ons sold by AxisThemes, please %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://www.axisthemes.com/my-account/tickets">', '</a>' ) . '</p>' .
 				'<p>' . __( 'Before asking for help we recommend checking the system status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
-				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Forums', 'axiscomposer' ) . '</a> <a href="' . 'http://support.axisthemes.com' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
+				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Forums', 'axiscomposer' ) . '</a> <a href="' . 'http://www.axisthemes.com/my-account/tickets' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
 
 		) );
 

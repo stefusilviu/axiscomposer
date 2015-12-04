@@ -41,8 +41,7 @@ class AC_Admin_Help {
 			'content'   =>
 				'<h2>' . __( 'Documentation', 'axiscomposer' ) . '</h2>' .
 				'<p>' . __( 'Should you need help understanding, using, or extending AxisComposer, please read our documentation. You will find all kinds of resources including snippets, tutorials and much more.' , 'axiscomposer' ) . '</p>' .
-				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/' . '" class="button button-primary">' . __( 'AxisComposer Documentation', 'axiscomposer' ) . '</a> <a href="' . 'http://docs.axisthemes.com/ac-apidocs/' . '" class="button">' . __( 'Developer API Docs', 'axiscomposer' ) . '</a></p>'
-
+				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Docs&utm_campaign=Onboarding' . '" class="button button-primary">' . __( 'AxisComposer Documentation', 'axiscomposer' ) . '</a> <a href="' . 'http://docs.axisthemes.com/ac-apidocs/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=APIDocs&utm_campaign=Onboarding' . '" class="button">' . __( 'Developer API Docs', 'axiscomposer' ) . '</a></p>'
 		) );
 
 		$screen->add_help_tab( array(
@@ -50,10 +49,9 @@ class AC_Admin_Help {
 			'title'     => __( 'Support', 'axiscomposer' ),
 			'content'   =>
 				'<h2>' . __( 'Support', 'axiscomposer' ) . '</h2>' .
-				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a AxisThemes customer, or need help with premium add-ons sold by AxisThemes, please %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://www.axisthemes.com/my-account/tickets">', '</a>' ) . '</p>' .
+				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a AxisThemes customer, or need help with premium add-ons sold by AxisThemes, please %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Docs&utm_campaign=Onboarding">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://www.axisthemes.com/my-account/tickets/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Tickets&utm_campaign=Onboarding">', '</a>' ) . '</p>' .
 				'<p>' . __( 'Before asking for help we recommend checking the system status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
-				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Forums', 'axiscomposer' ) . '</a> <a href="' . 'http://www.axisthemes.com/my-account/tickets' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
-
+				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Forums', 'axiscomposer' ) . '</a> <a href="' . 'http://www.axisthemes.com/my-account/tickets/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Tickets&utm_campaign=Onboarding' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
 		) );
 
 		$screen->add_help_tab( array(
@@ -68,11 +66,11 @@ class AC_Admin_Help {
 
 		$screen->set_help_sidebar(
 			'<p><strong>' . __( 'For more information:', 'axiscomposer' ) . '</strong></p>' .
-			'<p><a href="' . 'http://www.axisthemes.com/axiscomposer/' . '" target="_blank">' . __( 'About AxisComposer', 'axiscomposer' ) . '</a></p>' .
+			'<p><a href="' . 'http://www.axisthemes.com/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=AxisComposerPage&utm_campaign=Onboarding' . '" target="_blank">' . __( 'About AxisComposer', 'axiscomposer' ) . '</a></p>' .
 			'<p><a href="' . 'http://wordpress.org/extend/plugins/axiscomposer/' . '" target="_blank">' . __( 'WordPress.org Project', 'axiscomposer' ) . '</a></p>' .
 			'<p><a href="' . 'https://github.com/axisthemes/axiscomposer' . '" target="_blank">' . __( 'Github Project', 'axiscomposer' ) . '</a></p>' .
-			'<p><a href="' . 'http://www.axisthemes.com/product-category/themes/axiscomposer/' . '" target="_blank">' . __( 'Official Themes', 'axiscomposer' ) . '</a></p>' .
-			'<p><a href="' . 'http://www.axisthemes.com/product-category/extensions/axiscomposer/' . '" target="_blank">' . __( 'Official Extensions', 'axiscomposer' ) . '</a></p>'
+			'<p><a href="' . 'http://www.axisthemes.com/product-category/themes/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=ACThemes&utm_campaign=Onboarding' . '" target="_blank">' . __( 'Official Themes', 'axiscomposer' ) . '</a></p>' .
+			'<p><a href="' . 'http://www.axisthemes.com/product-category/extensions/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=ACExtensions&utm_campaign=Onboarding' . '" target="_blank">' . __( 'Official Extensions', 'axiscomposer' ) . '</a></p>'
 		);
 	}
 }

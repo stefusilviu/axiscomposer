@@ -42,6 +42,7 @@ class AC_Admin_Help {
 				'<h2>' . __( 'Documentation', 'axiscomposer' ) . '</h2>' .
 				'<p>' . __( 'Should you need help understanding, using, or extending AxisComposer, please read our documentation. You will find all kinds of resources including snippets, tutorials and much more.' , 'axiscomposer' ) . '</p>' .
 				'<p><a href="' . 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Docs&utm_campaign=Onboarding' . '" class="button button-primary">' . __( 'AxisComposer Documentation', 'axiscomposer' ) . '</a> <a href="' . 'http://docs.axisthemes.com/ac-apidocs/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=APIDocs&utm_campaign=Onboarding' . '" class="button">' . __( 'Developer API Docs', 'axiscomposer' ) . '</a></p>'
+
 		) );
 
 		$screen->add_help_tab( array(
@@ -52,6 +53,7 @@ class AC_Admin_Help {
 				'<p>' . sprintf( __( 'After %sreading the documentation%s, for further assistance you can use the %scommunity forums%s on WordPress.org to talk with other users. If however you are a AxisThemes customer, or need help with premium add-ons sold by AxisThemes, please %suse our helpdesk%s.', 'axiscomposer' ), '<a href="http://docs.axisthemes.com/documentation/plugins/axiscomposer/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Docs&utm_campaign=Onboarding">', '</a>', '<a href="https://wordpress.org/support/plugin/axiscomposer">', '</a>', '<a href="http://www.axisthemes.com/my-account/tickets/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Tickets&utm_campaign=Onboarding">', '</a>' ) . '</p>' .
 				'<p>' . __( 'Before asking for help we recommend checking the system status page to identify any problems with your configuration.', 'axiscomposer' ) . '</p>' .
 				'<p><a href="' . admin_url( 'admin.php?page=ac-status' ) . '" class="button button-primary">' . __( 'System Status', 'axiscomposer' ) . '</a> <a href="' . 'https://wordpress.org/support/plugin/axiscomposer' . '" class="button">' . __( 'WordPress.org Forums', 'axiscomposer' ) . '</a> <a href="' . 'http://www.axisthemes.com/my-account/tickets/?utm_source=AxisComposerPlugin&utm_medium=Help&utm_content=Tickets&utm_campaign=Onboarding' . '" class="button">' . __( 'AxisThemes Customer Support', 'axiscomposer' ) . '</a></p>'
+
 		) );
 
 		$screen->add_help_tab( array(

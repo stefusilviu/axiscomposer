@@ -161,11 +161,11 @@ abstract class AC_Widget extends WP_Widget {
 						$instance[ $key ] = min( $instance[ $key ], $setting['max'] );
 					}
 				break;
+				case 'textarea' :
+					$instance[ $key ] = wp_kses( trim( wp_unslash( $new_instance[ $key ] ) ), wp_kses_allowed_html( 'post' ) );
+				break;
 				case 'checkbox' :
 					$instance[ $key ] = is_null( $new_instance[ $key ] ) ? 0 : 1;
-				break;
-				case 'textarea' :
-					$instance[ $key ] = wp_kses_post( trim( $new_instance[ $key ] ) );
 				break;
 				default:
 					$instance[ $key ] = sanitize_text_field( $new_instance[ $key ] );
@@ -228,15 +228,6 @@ abstract class AC_Widget extends WP_Widget {
 					<?php
 				break;
 
-				case 'checkbox' :
-					?>
-					<p>
-						<input class="checkbox <?php echo esc_attr( $class ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="checkbox" value="1" <?php checked( $value, 1 ); ?> />
-						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>
-					</p>
-					<?php
-				break;
-
 				case 'textarea' :
 					?>
 					<p>
@@ -245,6 +236,15 @@ abstract class AC_Widget extends WP_Widget {
 						<?php if ( isset( $setting['desc'] ) ) : ?>
 							<small><?php echo esc_html( $setting['desc'] ); ?></small>
 						<?php endif; ?>
+					</p>
+					<?php
+				break;
+
+				case 'checkbox' :
+					?>
+					<p>
+						<input class="checkbox <?php echo esc_attr( $class ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="checkbox" value="1" <?php checked( $value, 1 ); ?> />
+						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo $setting['label']; ?></label>
 					</p>
 					<?php
 				break;

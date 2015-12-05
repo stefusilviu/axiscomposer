@@ -127,7 +127,7 @@ abstract class AC_Widget extends WP_Widget {
 	}
 
 	/**
-	 * update function.
+	 * Updates a particular instance of a widget.
 	 *
 	 * @see    WP_Widget->update
 	 * @param  array $new_instance
@@ -179,7 +179,7 @@ abstract class AC_Widget extends WP_Widget {
 	}
 
 	/**
-	 * form function.
+	 * Outputs the settings update form.
 	 *
 	 * @see   WP_Widget->form
 	 * @param array $instance

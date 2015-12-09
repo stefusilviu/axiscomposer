@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
 
 				if ( $memory < 67108864 ) {
-					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: %sIncreasing memory allocated to PHP%s', 'axiscomposer' ), size_format( $memory ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">', '</a>' ) . '</mark>';
+					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: %s', 'axiscomposer' ), size_format( $memory ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">' . __( 'Increasing memory allocated to PHP', 'axiscomposer' ) . '</a>' ) . '</mark>';
 				} else {
 					echo '<mark class="yes">' . size_format( $memory ) . '</mark>';
 				}
@@ -111,7 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$php_version = phpversion();
 
 					if ( version_compare( $php_version, '5.4', '<' ) ) {
-						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: %sHow to update your PHP version%s', 'axiscomposer' ), esc_html( $php_version ), '<a href="http://docs.axisthemes.com/document/how-to-update-your-php-version/" target="_blank">', '</a>' ) . '</mark>';
+						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: %s', 'axiscomposer' ), esc_html( $php_version ), '<a href="http://docs.axisthemes.com/document/how-to-update-your-php-version/" target="_blank">' . __( 'How to update your PHP version', 'axiscomposer' ) . '</a>' ) . '</mark>';
 					} else {
 						echo '<mark class="yes">' . esc_html( $php_version ) . '</mark>';
 					}
@@ -179,7 +179,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$posting['mbstring']['success'] = true;
 			} else {
 				$posting['mbstring']['success'] = false;
-				$posting['mbstring']['note']    = sprintf( __( 'Your server does not support the %smbstring%s functions - this is required for better charactrer encoding. Some fallbacks will be used instead for it.', 'axiscomposer' ), '<a href="http://php.net/manual/en/mbstring.installation.php" target="_blank">', '</a>' );
+				$posting['mbstring']['note']    = sprintf( __( 'Your server does not support the %s functions - this is required for better charactrer encoding. Some fallbacks will be used instead for it.', 'axiscomposer' ), '<a href="http://php.net/manual/en/mbstring.installation.php">mbstring</a>' );
 			}
 
 			// WP Remote Post Check.
@@ -234,7 +234,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<td class="help"><?php echo isset( $post['help'] ) ? $post['help'] : ''; ?></td>
 					<td>
 						<mark class="<?php echo $mark; ?>">
-							<?php echo ! empty( $post['success'] ) ? '&#10004' : '&#10005'; ?> <?php echo ! empty( $post['note'] ) ? wp_kses_post( $post['note'] ) : ''; ?>
+							<?php echo ! empty( $post['success'] ) ? '&#10004' : '&#10005'; ?> <?php echo ! empty( $post['note'] ) ? wp_kses_data( $post['note'] ) : ''; ?>
 						</mark>
 					</td>
 				</tr>

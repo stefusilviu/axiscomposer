@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Page - Status Report
+ * Admin View: Page - Status Report.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -106,12 +106,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td data-export-label="PHP Version"><?php _e( 'PHP Version', 'axiscomposer' ); ?>:</td>
 			<td class="help"><?php echo ac_help_tip( __( 'The version of PHP installed on your hosting server.', 'axiscomposer' ) ); ?></td>
 			<td><?php
-				// Check if phpversion function exists
+				// Check if phpversion function exists.
 				if ( function_exists( 'phpversion' ) ) {
 					$php_version = phpversion();
 
 					if ( version_compare( $php_version, '5.4', '<' ) ) {
-						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: <a href="%s" target="_blank">How to update your PHP version</a>', 'axiscomposer' ), esc_html( $php_version ), 'http://docs.axisthemes.com/document/how-to-update-your-php-version/' ) . '</mark>';
+						echo '<mark class="error">' . sprintf( __( '%s - We recommend a minimum PHP version of 5.4. See: %sHow to update your PHP version%s', 'axiscomposer' ), esc_html( $php_version ), '<a href="http://docs.axisthemes.com/document/how-to-update-your-php-version/" target="_blank">', '</a>' ) . '</mark>';
 					} else {
 						echo '<mark class="yes">' . esc_html( $php_version ) . '</mark>';
 					}
@@ -124,17 +124,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<tr>
 				<td data-export-label="PHP Post Max Size"><?php _e( 'PHP Post Max Size', 'axiscomposer' ); ?>:</td>
 				<td class="help"><?php echo ac_help_tip( __( 'The largest filesize that can be contained in one post.', 'axiscomposer' ) ); ?></td>
-				<td><?php echo size_format( ac_let_to_num( ini_get('post_max_size') ) ); ?></td>
+				<td><?php echo size_format( ac_let_to_num( ini_get( 'post_max_size' ) ) ); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="PHP Time Limit"><?php _e( 'PHP Time Limit', 'axiscomposer' ); ?>:</td>
 				<td class="help"><?php echo ac_help_tip( __( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'axiscomposer' ) ); ?></td>
-				<td><?php echo ini_get('max_execution_time'); ?></td>
+				<td><?php echo ini_get( 'max_execution_time' ); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="PHP Max Input Vars"><?php _e( 'PHP Max Input Vars', 'axiscomposer' ); ?>:</td>
 				<td class="help"><?php echo ac_help_tip( __( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'axiscomposer' ) ); ?></td>
-				<td><?php echo ini_get('max_input_vars'); ?></td>
+				<td><?php echo ini_get( 'max_input_vars' ); ?></td>
 			</tr>
 			<tr>
 				<td data-export-label="SUHOSIN Installed"><?php _e( 'SUHOSIN Installed', 'axiscomposer' ); ?>:</td>
@@ -171,7 +171,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 			$posting = array();
 
-			// WP Remote Post Check
+			// Multibyte String.
+			$posting['mbstring']['name'] = 'Multibyte String';
+			$posting['mbstring']['help'] = ac_help_tip( __( 'Multibyte String (mbstring) is used to convert character encoding, like for emails or converting characters to lowercase.', 'axiscomposer' ) );
+
+			if ( extension_loaded( 'mbstring' ) ) {
+				$posting['mbstring']['success'] = true;
+			} else {
+				$posting['mbstring']['success'] = false;
+				$posting['mbstring']['note']    = sprintf( __( 'Your server does not support the %smbstring%s functions - this is required for better charactrer encoding. Some fallbacks will be used instead for it.', 'axiscomposer' ), '<a href="http://php.net/manual/en/mbstring.installation.php" target="_blank">', '</a>' );
+			}
+
+			// WP Remote Post Check.
 			$posting['wp_remote_post']['name'] = __( 'Remote Post', 'axiscomposer' );
 			$posting['wp_remote_post']['help'] = ac_help_tip( __( 'AxisComposer plugins may uses this method of communication when sending back information.', 'axiscomposer' ) );
 
@@ -195,7 +206,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$posting['wp_remote_post']['success'] = false;
 			}
 
-			// WP Remote Get Check
+			// WP Remote Get Check.
 			$posting['wp_remote_get']['name'] = __( 'Remote Get', 'axiscomposer' );
 			$posting['wp_remote_get']['help'] = ac_help_tip( __( 'AxisComposer plugins may use this method of communication when checking for plugin updates.', 'axiscomposer' ) );
 
@@ -223,7 +234,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<td class="help"><?php echo isset( $post['help'] ) ? $post['help'] : ''; ?></td>
 					<td>
 						<mark class="<?php echo $mark; ?>">
-							<?php echo ! empty( $post['success'] ) ? '&#10004' : '&#10005'; ?> <?php echo ! empty( $post['note'] ) ? wp_kses_data( $post['note'] ) : ''; ?>
+							<?php echo ! empty( $post['success'] ) ? '&#10004' : '&#10005'; ?> <?php echo ! empty( $post['note'] ) ? wp_kses_post( $post['note'] ) : ''; ?>
 						</mark>
 					</td>
 				</tr>
@@ -265,8 +276,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axiscomposer' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
 		</tr>
 	</thead>
-	<tbody>
-		<?php
+	<tbody><?php
 		$active_plugins = (array) get_option( 'active_plugins', array() );
 
 		if ( is_multisite() ) {
@@ -283,7 +293,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			if ( ! empty( $plugin_data['Name'] ) ) {
 
-				// link the plugin name to the plugin url if available
+				// Link the plugin name to the plugin url if available.
 				$plugin_name = esc_html( $plugin_data['Name'] );
 
 				if ( ! empty( $plugin_data['PluginURI'] ) ) {
@@ -328,8 +338,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php
 			}
 		}
-		?>
-	</tbody>
+	?></tbody>
 </table>
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
@@ -355,15 +364,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<tr>
 			<th colspan="3" data-export-label="Theme"><?php _e( 'Theme', 'axiscomposer' ); ?></th>
 		</tr>
-	</thead>
-		<?php
+	</thead><?php
 		include_once( ABSPATH . 'wp-admin/includes/theme-install.php' );
 
 		$active_theme         = wp_get_theme();
 		$theme_version        = $active_theme->Version;
 		$update_theme_version = AC_Admin_Status::get_latest_theme_version( $active_theme );
-		?>
-	<tbody>
+	?><tbody>
 		<tr>
 			<td data-export-label="Name"><?php _e( 'Name', 'axiscomposer' ); ?>:</td>
 			<td class="help"><?php echo ac_help_tip( __( 'The name of the current active theme.', 'axiscomposer' ) ); ?></td>
@@ -457,16 +464,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				jQuery( 'tr', jQuery( this ) ).each( function() {
 
 					var label       = jQuery( this ).find( 'td:eq(0)' ).data( 'export-label' ) || jQuery( this ).find( 'td:eq(0)' ).text();
-					var the_name    = jQuery.trim( label ).replace( /(<([^>]+)>)/ig, '' ); // Remove HTML
-					var image       = jQuery( this ).find( 'td:eq(2)' ).find( 'img' ); // Get WP 4.2 emojis
-					var prefix      = ( undefined === image.attr( 'alt' ) ) ? '' : image.attr( 'alt' ) + ' '; // Remove WP 4.2 emojis
+					var the_name    = jQuery.trim( label ).replace( /(<([^>]+)>)/ig, '' ); // Remove HTML.
+					var image       = jQuery( this ).find( 'td:eq(2)' ).find( 'img' ); // Get WP 4.2 emojis.
+					var prefix      = ( undefined === image.attr( 'alt' ) ) ? '' : image.attr( 'alt' ) + ' '; // Remove WP 4.2 emojis.
 					var the_value   = jQuery.trim( prefix + jQuery( this ).find( 'td:eq(2)' ).text() );
 					var value_array = the_value.split( ', ' );
 
 					if ( value_array.length > 1 ) {
 
-						// If value have a list of plugins ','
-						// Split to add new line
+						// If value have a list of plugins ','.
+						// Split to add new line.
 						var temp_line ='';
 						jQuery.each( value_array, function( key, line ) {
 							temp_line = temp_line + line + '\n';

@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
 
 				if ( $memory < 67108864 ) {
-					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'axiscomposer' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
+					echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 64MB. See: %sIncreasing memory allocated to PHP%s', 'axiscomposer' ), size_format( $memory ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP" target="_blank">', '</a>' ) . '</mark>';
 				} else {
 					echo '<mark class="yes">' . size_format( $memory ) . '</mark>';
 				}

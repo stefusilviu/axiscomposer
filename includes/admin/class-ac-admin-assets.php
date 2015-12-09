@@ -89,7 +89,7 @@ class AC_Admin_Assets {
 		wp_register_script( 'zeroclipboard', AC()->plugin_url() . '/assets/js/zeroclipboard/jquery.zeroclipboard' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
 		wp_register_script( 'stupidtable', AC()->plugin_url() . '/assets/js/stupidtable/stupidtable' . $suffix . '.js', array( 'jquery' ), AC_VERSION );
 		wp_register_script( 'serializejson', AC()->plugin_url() . '/assets/js/jquery-serializejson/jquery.serializejson' . $suffix . '.js', array( 'jquery' ), '2.6.1' );
-		wp_register_script( 'select2', AC()->plugin_url() . '/assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
+		wp_register_script( 'select2', AC()->plugin_url() . '/assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.4' );
 		wp_register_script( 'ac-enhanced-select', AC()->plugin_url() . '/assets/js/admin/enhanced-select' . $suffix . '.js', array( 'jquery', 'select2' ), AC_VERSION );
 		wp_localize_script( 'ac-enhanced-select', 'ac_enhanced_select_params', array(
 			'ajax_url'                  => admin_url( 'admin-ajax.php' ),

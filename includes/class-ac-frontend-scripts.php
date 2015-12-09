@@ -154,7 +154,7 @@ class AC_Frontend_Scripts {
 		$frontend_script_path = $assets_path . 'js/frontend/';
 
 		// Register any scripts for later use, or used as dependencies
-		self::register_script( 'select2', $assets_path . 'js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.2' );
+		self::register_script( 'select2', $assets_path . 'js/select2/select2' . $suffix . '.js', array( 'jquery' ), '3.5.4' );
 		self::register_script( 'gist-embed', $assets_path . 'js/gist-embed/gist-embed' . $suffix . '.js', array( 'jquery' ), '2.4' );
 		self::register_script( 'jquery-blockui', $assets_path . 'js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70' );
 

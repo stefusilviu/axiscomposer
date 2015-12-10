@@ -5,14 +5,14 @@ Welcome to the AxisComposer repository on GitHub. Here you can browse the source
 If you are not a developer, please use the [AxisComposer plugin page](http://wordpress.org/plugins/axiscomposer/) on WordPress.org.
 
 ## Documentation
-* [AxisComposer Docs](http://docs.axisthemes.com/documentation/plugins/axiscomposer/)
-* [AxisComposer API Docs](http://docs.axisthemes.com/apidocs/axiscomposer/)
+* [AxisComposer Documentation](http://docs.axisthemes.com/documentation/plugins/axiscomposer/)
+* [AxisComposer Code Reference](http://docs.axisthemes.com/ac-apidocs/)
 
 ## Support
 This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core AxisComposer issues only. Support can take place in the appropriate channels:
 
 * The [AxisComposer premium support portal](http://support.axisthemes.com/) for customers who have purchased themes or extensions.
-* The [public support forums](http://wordpress.org/support/plugin/axiscomposer) on WordPress.org, where the community can help each other out.
+* [Our community forum on wp.org](https://wordpress.org/support/plugin/axiscomposer) which is available for all AxisComposer users.
 
 Support requests in issues on this repository will be closed on sight.
 

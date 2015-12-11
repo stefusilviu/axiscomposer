@@ -179,7 +179,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$posting['mbstring']['success'] = true;
 			} else {
 				$posting['mbstring']['success'] = false;
-				$posting['mbstring']['note']    = sprintf( __( 'Your server does not support the %s functions - this is required for better charactrer encoding. Some fallbacks will be used instead for it.', 'axiscomposer' ), '<a href="http://php.net/manual/en/mbstring.installation.php">mbstring</a>' );
+				$posting['mbstring']['note']    = sprintf( __( 'Your server does not support the %s functions - this is required for better character encoding. Some fallbacks will be used instead for it.', 'axiscomposer' ), '<a href="http://php.net/manual/en/mbstring.installation.php">mbstring</a>' );
 			}
 
 			// WP Remote Post Check.

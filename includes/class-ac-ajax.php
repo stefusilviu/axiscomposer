@@ -101,8 +101,7 @@ class AC_AJAX {
 
 		check_ajax_referer( 'search-post-types', 'security' );
 
-		$term    = (string) ac_clean( stripslashes( $_GET['term'] ) );
-		$exclude = array();
+		$term = (string) ac_clean( stripslashes( $_GET['term'] ) );
 
 		if ( empty( $term ) ) {
 			die();
@@ -141,6 +140,14 @@ class AC_AJAX {
 
 		if ( ! empty( $_GET['exclude'] ) ) {
 			$query .= " AND posts.ID NOT IN (" . implode( ',', array_map( 'intval', explode( ',', $_GET['exclude'] ) ) ) . ")";
+		}
+
+		if ( ! empty( $_GET['include'] ) ) {
+			$query .= " AND posts.ID IN (" . implode( ',', array_map( 'intval', explode( ',', $_GET['include'] ) ) ) . ")";
+		}
+
+		if ( ! empty( $_GET['limit'] ) ) {
+			$query .= " LIMIT " . intval( $_GET['limit'] );
 		}
 
 		$posts       = array_unique( $wpdb->get_col( $query ) );

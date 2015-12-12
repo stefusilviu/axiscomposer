@@ -95,7 +95,9 @@ jQuery( function( $ ) {
 								term:     term,
 								action:   $( this ).data( 'action' ) || 'axiscomposer_json_search_pages_and_portfolio',
 								security: ac_enhanced_select_params.search_post_types_nonce,
-								exclude:  $( this ).data( 'exclude' )
+								exclude:  $( this ).data( 'exclude' ),
+								include:  $( this ).data( 'include' ),
+								limit:    $( this ).data( 'limit' )
 							};
 						},
 						results: function( data ) {

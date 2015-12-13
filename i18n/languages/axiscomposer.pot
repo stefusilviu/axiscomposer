@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-alpha-1\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-12-09 17:29:38+00:00\n"
+"POT-Creation-Date: 2015-12-13 16:44:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -668,7 +668,7 @@ msgid "Search for a page&hellip;"
 msgstr ""
 
 #: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:38
-#: includes/class-ac-ajax.php:157
+#: includes/class-ac-ajax.php:164
 msgid "%s &ndash; %s"
 msgstr ""
 
@@ -981,7 +981,7 @@ msgstr ""
 #: includes/admin/views/html-admin-page-status-report.php:182
 msgid ""
 "Your server does not support the %s functions - this is required for better "
-"charactrer encoding. Some fallbacks will be used instead for it."
+"character encoding. Some fallbacks will be used instead for it."
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:186

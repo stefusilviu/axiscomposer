@@ -95,7 +95,7 @@ class AC_Admin_Menu {
 			unset( $submenu['axiscomposer'][0] );
 
 			// Add count if user has access
-			if ( current_user_can( 'manage_axiscomposer' ) && ( $iconfont_count = 0 ) ) {
+			if ( apply_filters( 'axiscomposer_include_processing_iconfont_count_in_menu', true ) && current_user_can( 'manage_axiscomposer' ) && ( $iconfont_count = 0 ) ) {
 				foreach ( $submenu['axiscomposer'] as $key => $menu_item ) {
 					if ( 0 === strpos( $menu_item[0], _x( 'Iconfonts', 'Admin menu name', 'axiscomposer' ) ) ) {
 						$submenu['axiscomposer'][ $key ][0] .= ' <span class="awaiting-mod update-plugins count-' . $iconfont_count . '"><span class="processing-count">' . number_format_i18n( $iconfont_count ) . '</span></span>';

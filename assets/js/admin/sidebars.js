@@ -18,7 +18,7 @@ jQuery( function( $ ) {
 			}).append( '<div class="axiscomposer-delete-sidebar"></div>' );
 		},
 		delete_sidebar: function( e ) {
-			var	widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ), title = widgets.find( '.sidebar-name h3' );
+			var widgets = $( e.currentTarget ).parents( '.widgets-holder-wrap:eq(0)' ), title = widgets.find( '.sidebar-name h2, .sidebar-name h3' );
 
 			// AxisComposer Backbone Modal
 			$( this ).ACBackboneModal({

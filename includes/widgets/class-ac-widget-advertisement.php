@@ -29,7 +29,7 @@ class AC_Widget_Advertisement extends AC_Widget {
 		$this->widget_id          = 'axiscomposer_widget_advertisement';
 		$this->widget_name        = __( 'AxisComposer Advertisement', 'axiscomposer' );
 		$this->settings           = array(
-			'title'  => array(
+			'title' => array(
 				'type'  => 'text',
 				'std'   => __( 'Advertisement', 'axiscomposer' ),
 				'label' => __( 'Title', 'axiscomposer' )

@@ -50,7 +50,7 @@ jQuery( function( $ ) {
 								widgets.remove();
 							});
 
-							// Reload Page
+							// Finally, reload the window.
 							window.setTimeout( function() {
 								window.location.reload();
 							}, 100 );

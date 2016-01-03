@@ -29,7 +29,7 @@ class AC_Widget_Advertisement extends AC_Widget {
 		$this->widget_id          = 'axiscomposer_widget_advertisement';
 		$this->widget_name        = __( 'AxisComposer Advertisement', 'axiscomposer' );
 		$this->settings           = array(
-			'title'  => array(
+			'title' => array(
 				'type'  => 'text',
 				'std'   => __( 'Advertisement', 'axiscomposer' ),
 				'label' => __( 'Title', 'axiscomposer' )
@@ -87,7 +87,7 @@ class AC_Widget_Advertisement extends AC_Widget {
 		$title = $instance['title'];
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-		$slot_type      = isset( $instance['slot_type'] ) ? $instance['display_type'] : 'double';
+		$slot_type      = isset( $instance['slot_type'] ) ? $instance['slot_type'] : 'double';
 		$hide_if_target = empty( $instance['hide_if_target'] ) ? 0 : 1;
 
 		echo $before_widget;

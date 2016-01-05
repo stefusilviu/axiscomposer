@@ -20,7 +20,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AC_Admin_Meta_Boxes {
 
+	/**
+	 * Is meta boxes saved once?
+	 *
+	 * @var boolean
+	 */
 	private static $saved_meta_boxes = false;
+
+	/**
+	 * Meta box error messages.
+	 *
+	 * @var array
+	 */
 	public static $meta_box_errors  = array();
 
 	/**

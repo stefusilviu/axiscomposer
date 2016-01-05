@@ -18,8 +18,26 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AC_Admin_Settings {
 
+
+	/**
+	 * Setting pages.
+	 *
+	 * @var array
+	 */
 	private static $settings = array();
+
+	/**
+	 * Error messages.
+	 *
+	 * @var array
+	 */
 	private static $errors   = array();
+
+	/**
+	 * Update messages.
+	 *
+	 * @var array
+	 */
 	private static $messages = array();
 
 	/**

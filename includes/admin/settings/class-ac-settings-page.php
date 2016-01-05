@@ -20,7 +20,18 @@ if ( ! class_exists( 'AC_Settings_Page' ) ) :
  */
 abstract class AC_Settings_Page {
 
-	protected $id    = '';
+	/**
+	 * Setting page id.
+	 *
+	 * @var string
+	 */
+	protected $id = '';
+
+	/**
+	 * Setting page label.
+	 *
+	 * @var string
+	 */
 	protected $label = '';
 
 	/**

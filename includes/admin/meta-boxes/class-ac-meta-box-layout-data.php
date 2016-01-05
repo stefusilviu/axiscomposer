@@ -22,6 +22,7 @@ class AC_Meta_Box_Layout_Data {
 
 	/**
 	 * Output the meta box.
+	 * @param WP_Post $post
 	 */
 	public static function output( $post ) {
 		wp_nonce_field( 'axiscomposer_save_data', 'axiscomposer_meta_nonce' );
@@ -82,6 +83,7 @@ class AC_Meta_Box_Layout_Data {
 
 	/**
 	 * Save meta box data.
+	 * @param int $post_id
 	 */
 	public static function save( $post_id ) {
 

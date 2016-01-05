@@ -22,6 +22,7 @@ class AC_Meta_Box_Portfolio_Short_Description {
 
 	/**
 	 * Output the meta box.
+	 * @param WP_Post $post
 	 */
 	public static function output( $post ) {
 

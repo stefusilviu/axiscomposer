@@ -35,7 +35,7 @@ class AC_Install {
 	}
 
 	/**
-	 * check_version function.
+	 * Check AxisComposer version.
 	 */
 	public static function check_version() {
 		if ( ! defined( 'IFRAME_REQUEST' ) && ( get_option( 'axiscomposer_version' ) != AC()->version || get_option( 'axiscomposer_db_version' ) != AC()->version ) ) {

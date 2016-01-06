@@ -19,7 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class AC_Logger {
 
 	/**
-	 * @var array Stores open file _handles.
+	 * Stores open file _handles.
+	 * @var array
 	 * @access private
 	 */
 	private $_handles;

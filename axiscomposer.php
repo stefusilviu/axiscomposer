@@ -33,17 +33,23 @@ if ( ! class_exists( 'AxisComposer' ) ) :
 final class AxisComposer {
 
 	/**
+	 * AxisComposer version.
+	 *
 	 * @var string
 	 */
 	public $version = '1.0.0';
 
 	/**
-	 * @var AxisComposer The single instance of the class.
+	 * The single instance of the class.
+	 *
+	 * @var AxisComposer
 	 */
 	protected static $_instance = null;
 
 	/**
-	 * @var AC_Integrations $integrations
+	 * Integrations instance.
+	 *
+	 * @var AC_Integrations
 	 */
 	public $integrations = null;
 

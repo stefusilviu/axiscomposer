@@ -1,6 +1,6 @@
 AxisComposer - #1 Page Builder
  
-Copyright 2015 by the contributors
+Copyright 2016 by the contributors
 
 AxisComposer is released under the GPL
 

@@ -1,19 +1,19 @@
-# Copyright (C) 2015 AxisThemes
+# Copyright (C) 2016 AxisThemes
 # This file is distributed under the same license as the AxisComposer package.
 msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-alpha-1\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2015-12-13 16:44:07+00:00\n"
+"POT-Creation-Date: 2016-01-13 09:32:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.5.3\n"
 
-#: axiscomposer.php:71 axiscomposer.php:79
+#: axiscomposer.php:77 axiscomposer.php:85
 #: includes/admin/class-ac-admin-notices.php:96
 #: includes/class-ac-shortcodes.php:52 includes/class-ac-shortcodes.php:60
 #: includes/class-ac-sidebars.php:98
@@ -29,22 +29,22 @@ msgid "AxisComposer"
 msgstr ""
 
 #: i18n/shortcodes.php:31
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:37
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:38
 msgid "Layout Elements"
 msgstr ""
 
 #: i18n/shortcodes.php:32
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:42
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:43
 msgid "Content Elements"
 msgstr ""
 
 #: i18n/shortcodes.php:33
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:47
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:48
 msgid "Media Elements"
 msgstr ""
 
 #: i18n/shortcodes.php:34
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:52
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:53
 msgid "Plugin Additions"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgid ""
 msgstr ""
 
 #: includes/admin/class-ac-admin-assets.php:150
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:187
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:188
 msgid "Dismiss"
 msgstr ""
 
@@ -246,25 +246,25 @@ msgstr ""
 msgid "Visit Settings"
 msgstr ""
 
-#: includes/admin/class-ac-admin-meta-boxes.php:92
+#: includes/admin/class-ac-admin-meta-boxes.php:103
 msgid "Portfolio Short Description"
 msgstr ""
 
-#: includes/admin/class-ac-admin-meta-boxes.php:93
+#: includes/admin/class-ac-admin-meta-boxes.php:104
 msgid "Breadcrumb Hierarchy"
 msgstr ""
 
-#: includes/admin/class-ac-admin-meta-boxes.php:99
+#: includes/admin/class-ac-admin-meta-boxes.php:110
 msgid "%s Layout"
 msgstr ""
 
-#: includes/admin/class-ac-admin-meta-boxes.php:105
+#: includes/admin/class-ac-admin-meta-boxes.php:116
 #: includes/admin/class-ac-admin-pointers.php:52
 msgid "Page Builder"
 msgstr ""
 
 #: includes/admin/class-ac-admin-notices.php:92
-#: includes/admin/class-ac-admin-settings.php:50
+#: includes/admin/class-ac-admin-settings.php:68
 #: includes/class-ac-sidebars.php:94
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
@@ -413,27 +413,27 @@ msgstr ""
 msgid "Page Builder Disabled"
 msgstr ""
 
-#: includes/admin/class-ac-admin-settings.php:61
+#: includes/admin/class-ac-admin-settings.php:79
 msgid "Your settings have been saved."
 msgstr ""
 
-#: includes/admin/class-ac-admin-settings.php:116
+#: includes/admin/class-ac-admin-settings.php:134
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: includes/admin/class-ac-admin-settings.php:493
+#: includes/admin/class-ac-admin-settings.php:511
 msgid "Choose some screens&hellip;"
 msgstr ""
 
-#: includes/admin/class-ac-admin-settings.php:493
+#: includes/admin/class-ac-admin-settings.php:511
 msgid "Screen"
 msgstr ""
 
-#: includes/admin/class-ac-admin-settings.php:501
+#: includes/admin/class-ac-admin-settings.php:519
 msgid "Select all"
 msgstr ""
 
-#: includes/admin/class-ac-admin-settings.php:501
+#: includes/admin/class-ac-admin-settings.php:519
 msgid "Select none"
 msgstr ""
 
@@ -498,176 +498,176 @@ msgstr ""
 msgid "Thank you for creating with AxisComposer."
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:36
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:37
 msgid "Layout Settings"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:37
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:38
 msgid "Default Layout"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:38
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:39
 msgid "No Sidebar"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:39
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:40
 msgid "Left Sidebar"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:40
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:41
 msgid "Right Sidebar"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:41
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:42
 msgid "Select the specific layout for this entry."
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:44
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:45
 msgid "Sidebar Settings"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:44
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:45
 msgid "Choose a custom sidebar for this entry."
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:47
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:48
 msgid "Footer Settings"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:48
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:49
 msgid "Default Socket and Widgets"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:49
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:50
 msgid "Both Socket and Widgets"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:50
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:51
 msgid "Only Widgets (No Socket)"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:51
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:52
 msgid "Only Socket (No Widgets)"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:52
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:53
 msgid "Hide Socket and Widgets"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:53
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:54
 msgid "Display the socket and footer widgets?"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:61
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:62
 msgid "Header Title and Breadcrumb"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:62
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:63
 msgid "Default Title and Breadcrumb"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:63
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:64
 msgid "Display Title and Breadcrumb"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:64
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:65
 msgid "Display Title (No Breadcrumb)"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:65
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:66
 msgid "Hide both Title and Breadcrumb"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:66
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:67
 msgid "Display the Title Bar with Page Title and Breadcrumb Navigation?"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:69
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:70
 msgid "Header Transparency and Visibility"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:70
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:71
 msgid "No Transparency"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:71
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:72
 msgid "Transparent Header"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:72
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:73
 msgid "Transparent & Glassy Header"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:73
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:74
 msgid "Display Header on scroll down"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:74
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:75
 msgid "Hide Header on this page"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:75
+#: includes/admin/meta-boxes/class-ac-meta-box-layout-data.php:76
 msgid ""
 "Several options to change the header transparency and visibility on this "
 "page."
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:80
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:81
 msgid "History"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:81
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:82
 msgid "Undo"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:82
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:83
 msgid "Redo"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:84
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:85
 msgid "Permanently delete all canvas elements"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:88
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:89
 msgid "Save or Load the Page Builder Templates"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:89
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:90
 msgid "Templates"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:126
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:127
 msgid "Current screen doesn't support this shortcode element =/"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:146
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:147
 #: includes/admin/views/html-admin-tmpl-sidebars.php:39
 msgid "Delete"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:151
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:152
 msgid "Add"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:156
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:157
 msgid "Save"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:30
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:31
 msgid "Breadcrumb Parent Page"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:31
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:32
 msgid ""
 "Select a parent page for this entry. If no page is selected then session "
 "data will be used to build the breadcrumb."
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:32
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:33
 msgid "Search for a page&hellip;"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:38
+#: includes/admin/meta-boxes/class-ac-meta-box-portfolio-breadcrumb.php:39
 #: includes/class-ac-ajax.php:164
 msgid "%s &ndash; %s"
 msgstr ""

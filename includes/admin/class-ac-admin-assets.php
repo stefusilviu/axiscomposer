@@ -74,8 +74,6 @@ class AC_Admin_Assets {
 	public function admin_scripts() {
 		global $post;
 
-		get_currentuserinfo();
-
 		$screen = get_current_screen();
 		$status = get_option( 'axiscomposer_status_options', array() );
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';

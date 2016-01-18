@@ -1,6 +1,6 @@
 === AxisComposer ===
 Contributors: axisthemes, shivapoudel
-Tags: builder, axisthemes, wordpress builder, page builder, page layouts, sidebar builder, widgets, configurable, extensible
+Tags: builder, page builder, layouts, page layouts, sidebar builder, widgets, extensible
 Requires at least: 4.2
 Tested up to: 4.4
 Stable tag: 1.0.0

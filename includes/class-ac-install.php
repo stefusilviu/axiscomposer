@@ -27,7 +27,7 @@ class AC_Install {
 	 * Hook in tabs.
 	 */
 	public static function init() {
-		add_action( 'admin_init', array( __CLASS__, 'check_version' ), 5 );
+		add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
 		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 		add_action( 'in_plugin_update_message-axiscomposer/axiscomposer.php', array( __CLASS__, 'in_plugin_update_message' ) );
 		add_filter( 'plugin_action_links_' . AC_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
@@ -35,17 +35,21 @@ class AC_Install {
 	}
 
 	/**
-	 * Check AxisComposer version.
+	 * Check AxisComposer version and run the updater is required.
+	 *
+	 * This check is done on all requests and runs if the versions do not match.
 	 */
 	public static function check_version() {
-		if ( ! defined( 'IFRAME_REQUEST' ) && ( get_option( 'axiscomposer_version' ) != AC()->version || get_option( 'axiscomposer_db_version' ) != AC()->version ) ) {
+		if ( ! defined( 'IFRAME_REQUEST' ) && get_option( 'axiscomposer_version' ) !== AC()->version ) {
 			self::install();
 			do_action( 'axiscomposer_updated' );
 		}
 	}
 
 	/**
-	 * Install actions when a update button is clicked.
+	 * Install actions when a update button is clicked within the admin area.
+	 *
+	 * This function is hooked into admin_init to affect admin only.
 	 */
 	public static function install_actions() {
 		if ( ! empty( $_GET['do_update_axiscomposer'] ) ) {

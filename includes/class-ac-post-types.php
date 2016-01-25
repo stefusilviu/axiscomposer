@@ -1,6 +1,6 @@
 <?php
 /**
- * Post types
+ * Post Types
  *
  * Registers post types and taxonomies.
  *
@@ -163,7 +163,6 @@ class AC_Post_Types {
 							'set_featured_image'    => __( 'Set project image', 'axiscomposer' ),
 							'remove_featured_image' => __( 'Remove project image', 'axiscomposer' ),
 							'use_featured_image'    => __( 'Use as project image', 'axiscomposer' ),
-
 						),
 					'description'         => __( 'This is where you can add new portfolio items to your project.', 'axiscomposer' ),
 					'public'              => true,

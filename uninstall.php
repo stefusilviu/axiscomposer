@@ -14,12 +14,11 @@ if( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
+global $wpdb;
+
 $status_options = get_option( 'axiscomposer_status_options', array() );
 
 if ( ! empty( $status_options['uninstall_data'] ) ) {
-
-	global $wpdb;
-
 	// Roles + caps.
 	include_once( 'includes/class-ac-install.php' );
 	AC_Install::remove_roles();

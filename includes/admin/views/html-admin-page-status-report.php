@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$memory = ac_let_to_num( WP_MEMORY_LIMIT );
 
 				if ( function_exists( 'memory_get_usage' ) ) {
-					$system_memory = wc_let_to_num( @ini_get( 'memory_limit' ) );
+					$system_memory = ac_let_to_num( @ini_get( 'memory_limit' ) );
 					$memory        = max( $memory, $system_memory );
 				}
 

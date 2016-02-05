@@ -35,6 +35,7 @@ class AC_Admin_Assets {
 		global $wp_scripts;
 
 		$screen         = get_current_screen();
+		$screen_id      = $screen ? $screen->id : '';
 		$jquery_version = isset( $wp_scripts->registered['jquery-ui-core']->ver ) ? $wp_scripts->registered['jquery-ui-core']->ver : '1.9.2';
 
 		// Register admin styles
@@ -49,7 +50,7 @@ class AC_Admin_Assets {
 		wp_enqueue_style( 'axiscomposer-menu' );
 
 		// Admin styles for AC pages only
-		if ( in_array( $screen->id, ac_get_screen_ids() ) || in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
+		if ( in_array( $screen_id, ac_get_screen_ids() ) || in_array( $screen_id, ac_get_allowed_screen_types() ) ) {
 			wp_enqueue_style( 'axiscomposer-admin' );
 			wp_enqueue_style( 'jquery-ui-style' );
 			wp_enqueue_style( 'wp-color-picker' );
@@ -59,11 +60,11 @@ class AC_Admin_Assets {
 			wp_enqueue_style( 'axiscomposer-colors' );
 		}
 
-		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) ) {
+		if ( in_array( $screen_id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) ) {
 			wp_enqueue_style( 'axiscomposer-admin-sidebars' );
 		}
 
-		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
+		if ( in_array( $screen_id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
 			wp_enqueue_style( 'axiscomposer-admin-iconfont' );
 		}
 	}
@@ -74,9 +75,10 @@ class AC_Admin_Assets {
 	public function admin_scripts() {
 		global $post;
 
-		$screen = get_current_screen();
-		$status = get_option( 'axiscomposer_status_options', array() );
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$screen    = get_current_screen();
+		$screen_id = $screen ? $screen->id : '';
+		$status    = get_option( 'axiscomposer_status_options', array() );
+		$suffix    = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Register Scripts
 		wp_register_script( 'axiscomposer-admin', AC()->plugin_url() . '/assets/js/admin/admin' . $suffix . '.js', array( 'jquery', 'jquery-blockui', 'jquery-ui-sortable', 'jquery-ui-widget', 'jquery-ui-core', 'jquery-tiptip' ), AC_VERSION );
@@ -107,7 +109,7 @@ class AC_Admin_Assets {
 		) );
 
 		// AxisComposer admin pages
-		if ( in_array( $screen->id, ac_get_screen_ids() ) ) {
+		if ( in_array( $screen_id, ac_get_screen_ids() ) ) {
 			wp_enqueue_script( 'iris' );
 			wp_enqueue_script( 'axiscomposer-admin' );
 			wp_enqueue_script( 'ac-enhanced-select' );
@@ -122,7 +124,7 @@ class AC_Admin_Assets {
 		}
 
 		// Meta boxes
-		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
+		if ( in_array( $screen_id, ac_get_allowed_screen_types() ) ) {
 			wp_register_script( 'ac-admin-pagebuilder-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder' . $suffix . '.js', array( 'ac-admin-meta-boxes', 'ac-backbone-modal', 'shortcode', 'serializejson', 'media-models' ), AC_VERSION );
 			wp_register_script( 'ac-admin-pagebuilder-meta-boxes-position', AC()->plugin_url() . '/assets/js/admin/meta-boxes-pagebuilder-position' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 
@@ -151,18 +153,18 @@ class AC_Admin_Assets {
 			wp_localize_script( 'ac-admin-pagebuilder-meta-boxes', 'axiscomposer_admin_meta_boxes_pagebuilder', $params );
 		}
 
-		if ( in_array( $screen->id, ac_get_layout_supported_screens() ) ) {
+		if ( in_array( $screen_id, ac_get_layout_supported_screens() ) ) {
 			wp_register_script( 'ac-admin-layout-meta-boxes', AC()->plugin_url() . '/assets/js/admin/meta-boxes-layout' . $suffix . '.js', array( 'ac-admin-meta-boxes' ), AC_VERSION );
 			wp_enqueue_script( 'ac-admin-layout-meta-boxes' );
 		}
 
 		// System status
-		if ( 'axiscomposer_page_ac-status' === $screen->id ) {
+		if ( 'axiscomposer_page_ac-status' === $screen_id ) {
 			wp_enqueue_script( 'zeroclipboard' );
 		}
 
 		// Widgets Specific
-		if ( in_array( $screen->id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) ) {
+		if ( in_array( $screen_id, array( 'widgets' ) ) && ( 'yes' === get_option( 'axiscomposer_sidebar_enabled', 'yes' ) ) ) {
 			wp_register_script( 'ac-admin-sidebars', AC()->plugin_url() . '/assets/js/admin/sidebars' . $suffix . '.js', array( 'ac-backbone-modal' ), AC_VERSION );
 			wp_enqueue_script( 'ac-admin-sidebars' );
 			wp_localize_script(
@@ -176,7 +178,7 @@ class AC_Admin_Assets {
 		}
 
 		// Iconfonts Specific
-		if ( in_array( $screen->id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
+		if ( in_array( $screen_id, array( 'axiscomposer_page_ac-iconfont' ) ) ) {
 			wp_enqueue_media();
 			wp_register_script( 'ac-admin-iconfont', AC()->plugin_url() . '/assets/js/admin/iconfont' . $suffix . '.js', array( 'jquery', 'underscore', 'backbone' ), AC_VERSION );
 

@@ -55,7 +55,9 @@ class AC_Admin {
 	 * Include admin files conditionally.
 	 */
 	public function conditional_includes() {
-		$screen = get_current_screen();
+		if ( ! $screen = get_current_screen() ) {
+			return;
+		}
 
 		switch ( $screen->id ) {
 			case 'options-permalink' :

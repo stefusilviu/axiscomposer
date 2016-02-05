@@ -31,7 +31,7 @@ class AC_Admin_Pointers {
 	public function setup_pointers_for_screen() {
 		$screen = get_current_screen();
 
-		if ( in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
+		if ( $screen && in_array( $screen->id, ac_get_allowed_screen_types() ) ) {
 			$this->create_pagebuilder_pointers();
 		}
 	}

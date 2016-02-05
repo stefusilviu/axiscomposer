@@ -507,7 +507,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		try {
 			jQuery( '#debug-report' ).slideDown();
-			jQuery( '#debug-report textarea' ).val( report ).focus().select();
+			jQuery( '#debug-report textarea' ).val( '`' + report + '`' ).focus().select();
 			jQuery( this ).fadeOut();
 			return false;
 		} catch( e ) {

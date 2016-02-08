@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 include( 'functions-ac-conditional.php' );
 include( 'functions-ac-deprecated.php' );
 include( 'functions-ac-formatting.php' );
+include( 'functions-ac-portfolio.php' );
 include( 'functions-ac-shortcode.php' );
 include( 'functions-ac-iconfont.php' );
 include( 'functions-ac-helper.php' );

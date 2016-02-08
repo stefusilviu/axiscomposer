@@ -1,6 +1,6 @@
 <?php
 /**
- * AxisComposer Iconfont Functions.
+ * AxisComposer Iconfont Functions
  *
  * Functions for iconfont specific things.
  *

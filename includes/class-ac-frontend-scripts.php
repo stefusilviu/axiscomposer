@@ -159,7 +159,7 @@ class AC_Frontend_Scripts {
 		self::register_script( 'jquery-blockui', $assets_path . 'js/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.70' );
 
 		// Register frontend scripts conditionally.
-		if ( is_ac_shortcode_tag( 'ac_gist' ) ) {
+		if ( ac_post_content_has_shortcode( 'ac_gist' ) ) {
 			self::enqueue_script( 'gist-embed' );
 		}
 

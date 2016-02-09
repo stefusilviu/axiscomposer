@@ -25,20 +25,6 @@ if ( ! function_exists( 'is_ajax' ) ) {
 	}
 }
 
-if ( ! function_exists( 'is_ac_shortcode_tag' ) ) {
-
-	/**
-	 * is_ac_shortcode_tag - Returns true when the shortcode tag is found.
-	 * @param  string $tag Shortcode tag to check.
-	 * @return bool
-	 */
-	function is_ac_shortcode_tag( $tag = '' ) {
-		global $post;
-
-		return is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, $tag );
-	}
-}
-
 if ( ! function_exists( 'is_pagebuilder_active' ) ) {
 
 	/**

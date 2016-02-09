@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Generate a string from shortcode parameters.
+ *
  * @param  string $tag
  * @param  array  $attrs
  * @param  string $content
@@ -58,4 +59,16 @@ function ac_shortcode_string( $tag, $attrs = array(), $content = '', $type = 'cl
 
 	// Add the closing tag.
 	return $_text . '[/' . $tag . ']' . "\n\n";
+}
+
+/**
+ * Checks whether the content passed contains a specific short code.
+ *
+ * @param  string $tag Shortcode tag to check.
+ * @return bool
+ */
+function ac_post_content_has_shortcode( $tag = '' ) {
+	global $post;
+
+	return is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, $tag );
 }

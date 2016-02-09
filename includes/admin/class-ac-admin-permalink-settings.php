@@ -77,7 +77,7 @@ class AC_Admin_Permalink_Settings {
 		echo wpautop( __( 'These settings control the permalinks specifically used for portfolio.', 'axiscomposer' ) );
 
 		$permalinks          = get_option( 'axiscomposer_permalinks' );
-		$portfolio_permalink = $permalinks['portfolio_base'];
+		$portfolio_permalink = isset( $permalinks['portfolio_base'] ) ? $permalinks['portfolio_base'] : '';
 
 		// Get base slug
 		$base_slug      = _x( 'project', 'default-slug', 'axiscomposer' );

@@ -27,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			self::show_messages();
 
 			do_action( 'axiscomposer_settings_' . $current_tab );
-			do_action( 'axiscomposer_settings_tabs_' . $current_tab ); // @deprecated hook
 		?>
 
 		<p class="submit">

@@ -64,7 +64,7 @@ class AC_Settings_General extends AC_Settings_Page {
 			),
 
 			array(
-				'title'   => __( 'Specific Screens', 'axiscomposer' ),
+				'title'   => __( 'Allow Specific Screens', 'axiscomposer' ),
 				'desc'    => '',
 				'id'      => 'axiscomposer_specific_allowed_screens',
 				'css'     => 'min-width: 350px;',

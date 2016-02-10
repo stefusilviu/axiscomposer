@@ -73,9 +73,6 @@ class AC_Admin_Settings {
 		do_action( 'axiscomposer_update_options_' . $current_tab );
 		do_action( 'axiscomposer_update_options' );
 
-		// Clear any unwanted data
-		delete_transient( 'axiscomposer_cache_excluded_uris' );
-
 		self::add_message( __( 'Your settings have been saved.', 'axiscomposer' ) );
 
 		// Flush rules

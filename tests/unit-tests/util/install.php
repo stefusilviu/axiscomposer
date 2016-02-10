@@ -34,7 +34,9 @@ class AC_Tests_Install extends \AC_Unit_Test_Case {
 		// Clean existing install first
 		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 			define( 'WP_UNINSTALL_PLUGIN', true );
+			update_option( 'axiscomposer_status_options', array( 'uninstall_data' => 1 ) );
 		}
+
 		include( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/uninstall.php' );
 
 		\AC_Install::install();
@@ -49,7 +51,9 @@ class AC_Tests_Install extends \AC_Unit_Test_Case {
 		// Clean existing install first
 		if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 			define( 'WP_UNINSTALL_PLUGIN', true );
+			update_option( 'axiscomposer_status_options', array( 'uninstall_data' => 1 ) );
 		}
+
 		include( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/uninstall.php' );
 
 		\AC_Install::create_roles();

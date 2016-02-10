@@ -66,6 +66,7 @@ class AC_Unit_Tests_Bootstrap {
 
 		// Clean existing install first
 		define( 'WP_UNINSTALL_PLUGIN', true );
+		update_option( 'axiscomposer_status_options', array( 'uninstall_data' => 1 ) );
 		include( $this->plugin_dir . '/uninstall.php' );
 
 		AC_Install::install();

@@ -22,9 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</h2>
 
 		<?php
+			do_action( 'axiscomposer_sections_' . $current_tab );
+
 			self::show_messages();
 
-			do_action( 'axiscomposer_sections_' . $current_tab );
 			do_action( 'axiscomposer_settings_' . $current_tab );
 			do_action( 'axiscomposer_settings_tabs_' . $current_tab ); // @deprecated hook
 		?>

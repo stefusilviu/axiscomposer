@@ -70,7 +70,8 @@ class AC_Post_Types {
 						'edit_item'         => __( 'Edit Project Category', 'axiscomposer' ),
 						'update_item'       => __( 'Update Project Category', 'axiscomposer' ),
 						'add_new_item'      => __( 'Add New Project Category', 'axiscomposer' ),
-						'new_item_name'     => __( 'New Project Category Name', 'axiscomposer' )
+						'new_item_name'     => __( 'New Project Category Name', 'axiscomposer' ),
+						'not_found'         => __( 'No Project Category found', 'axiscomposer' ),
 					),
 				'show_ui'      => true,
 				'query_var'    => true,

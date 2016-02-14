@@ -168,9 +168,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * @return string
 	 */
 	public function generate_tinymce_html( $key, $data ) {
-
-		$field    = $this->get_field_key( $key );
-		$defaults = array(
+		$field_key = $this->get_field_key( $key );
+		$defaults  = array(
 			'title'       => '',
 			'class'       => '',
 			'desc_tip'    => false,
@@ -183,7 +182,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		?>
 		<tr valign="top" class="full-width">
 			<td colspan="3" class="forminp">
-				<label for="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
+				<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
 				<fieldset>
 					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
 					<?php
@@ -192,10 +191,10 @@ abstract class AC_Shortcode extends AC_Settings_API {
 						$settings = array(
 							'editor_css'    => '<style>#wp-tinymce-content-editor-container .wp-editor-area{height:auto; display:block; border:none !important;}</style>',
 							'editor_class'  => esc_attr( $data['class'] ),
-							'textarea_name' => esc_attr( $field )
+							'textarea_name' => esc_attr( $field_key )
 						);
 
-						wp_editor( htmlspecialchars_decode( $this->get_option( $key ) ), esc_attr( $field ), apply_filters( 'axiscomposer_backbone_modal_editor_settings', $settings ) );
+						wp_editor( htmlspecialchars_decode( $this->get_option( $key ) ), esc_attr( $field_key ), apply_filters( 'axiscomposer_backbone_modal_editor_settings', $settings ) );
 					?>
 				</fieldset>
 			</td>
@@ -228,9 +227,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * @return string
 	 */
 	public function generate_iconfont_html( $key, $data ) {
-
-		$field    = $this->get_field_key( $key );
-		$defaults = array(
+		$field_key = $this->get_field_key( $key );
+		$defaults  = array(
 			'title'             => '',
 			'class'             => '',
 			'css'               => '',
@@ -246,12 +244,12 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		?>
 		<tr valign="top" class="full-width">
 			<td colspan="3" class="forminp">
-				<label for="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
+				<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
 				<fieldset>
 					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
 					<?php echo $this->get_description_html( $data ); ?>
-					<input type="hidden" class="ac_iconfont_input" name="<?php echo esc_attr( $field ); ?>" id="<?php echo esc_attr( $field ); ?>" value="<?php echo esc_attr( $this->get_option( $key ) ); ?>" <?php echo $this->get_custom_attribute_html( $data ); ?> />
-					<div class="ac-iconfont-container <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>">
+					<input type="hidden" class="ac_iconfont_input" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" value="<?php echo esc_attr( $this->get_option( $key ) ); ?>" <?php echo $this->get_custom_attribute_html( $data ); ?> />
+					<div class="ac-iconfont-container <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>">
 						<?php foreach ( (array) $data['options'] as $iconfont => $glyph ) : ?>
 							<div class="ac-iconfont-title"><?php echo esc_html( sprintf( __( 'Font: %s', 'axiscomposer' ), $iconfont ) ); ?></div>
 							<div class="ac-iconfont-result axiscomposer-font-<?php echo esc_attr( $iconfont ); ?>" data-iconfont="<?php echo esc_attr( $iconfont ); ?>">
@@ -279,9 +277,8 @@ abstract class AC_Shortcode extends AC_Settings_API {
 	 * @return string
 	 */
 	public function generate_image_html( $key, $data ) {
-
-		$field    = $this->get_field_key( $key );
-		$defaults = array(
+		$field_key = $this->get_field_key( $key );
+		$defaults  = array(
 			'title'             => '',
 			'disabled'          => false,
 			'class'             => '',
@@ -298,13 +295,13 @@ abstract class AC_Shortcode extends AC_Settings_API {
 		?>
 		<tr valign="top">
 			<th scope="row" class="titledesc">
-				<label for="<?php echo esc_attr( $field ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
+				<label for="<?php echo esc_attr( $field_key ); ?>"><?php echo wp_kses_post( $data['title'] ); ?></label>
 				<?php echo $this->get_tooltip_html( $data ); ?>
 			</th>
 			<td class="forminp">
 				<fieldset>
 					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
-					<button class="button button-large insert-media ac-image-upload ac-image-insert <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo $this->get_custom_attribute_html( $data ); ?> ><?php echo esc_attr( $data['label'] ); ?></button>
+					<button class="button button-large insert-media ac-image-upload ac-image-insert <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo $this->get_custom_attribute_html( $data ); ?> ><?php echo esc_attr( $data['label'] ); ?></button>
 					<?php echo $this->get_description_html( $data ); ?>
 				</fieldset>
 			</td>
@@ -475,11 +472,11 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		if ( $shortcode ) {
 
-			// Extract and store the main shortcode
+			// Extract and store the main shortcode.
 			AC_AJAX::shortcodes_to_interface( $shortcode );
 			$main_shortcode = end( $_POST['extracted_shortcode'] );
 
-			// Proceed if the main shortcode has either arguments or content
+			// Proceed if the main shortcode has either arguments or content.
 			if ( ! empty( $main_shortcode['attr'] ) || ! empty( $main_shortcode['content'] ) ) {
 
 				if ( empty( $main_shortcode['attr'] ) ) {
@@ -545,7 +542,7 @@ abstract class AC_Shortcode extends AC_Settings_API {
 				$content = $this->arguments['content'];
 			}
 
-			// We got a nested shortcode
+			// We got a nested shortcode.
 			if ( is_array( $content ) ) {
 				$nested_content = '';
 

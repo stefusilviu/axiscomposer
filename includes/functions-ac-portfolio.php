@@ -22,17 +22,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function ac_portfolio_post_type_link( $permalink, $post ) {
-	// Abort if post is not a portfolio
+	// Abort if post is not a portfolio.
 	if ( $post->post_type !== 'portfolio' ) {
 		return $permalink;
 	}
 
-	// Abort early if the placeholder rewrite tag isn't in the generated URL
+	// Abort early if the placeholder rewrite tag isn't in the generated URL.
 	if ( false === strpos( $permalink, '%' ) ) {
 		return $permalink;
 	}
 
-	// Get the custom taxonomy terms in use by this post
+	// Get the custom taxonomy terms in use by this post.
 	$terms = get_the_terms( $post->ID, 'portfolio_cat' );
 
 	if ( ! empty( $terms ) ) {
@@ -42,7 +42,7 @@ function ac_portfolio_post_type_link( $permalink, $post ) {
 		$category_object = get_term( $category_object, 'portfolio_cat' );
 		$portfolio_cat   = $category_object->slug;
 
-		if ( $parent = $category_object->parent ) {
+		if ( $category_object->parent ) {
 			$ancestors = get_ancestors( $category_object->term_id, 'portfolio_cat' );
 			foreach ( $ancestors as $ancestor ) {
 				$ancestor_object = get_term( $ancestor, 'portfolio_cat' );

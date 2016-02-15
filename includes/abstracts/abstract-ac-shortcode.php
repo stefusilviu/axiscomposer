@@ -112,15 +112,13 @@ abstract class AC_Shortcode extends AC_Settings_API {
 
 		// Get modal settings fragment.
 		ob_start();
-		?><table class="form-table">
-			<?php $this->generate_settings_html(); ?>
-		</table><?php
-		$axiscomposer_modal_settings = ob_get_clean();
+		$this->admin_options();
+		$ac_modal_settings = ob_get_clean();
 
 		$data = array(
 			'result'    => 'success',
 			'fragments' => apply_filters( 'axiscomposer_update_modal_settings_fragments', array(
-				'.ac-enhanced-settings' => $axiscomposer_modal_settings
+				'.ac-enhanced-settings' => $ac_modal_settings
 			) )
 		);
 

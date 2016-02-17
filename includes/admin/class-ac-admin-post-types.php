@@ -108,9 +108,9 @@ class AC_Admin_Post_Types {
 	 * @return array
 	 */
 	public function change_insert_into_post( $strings ) {
-		global $post_type;
+		global $wp_version, $post_type;
 
-		if ( in_array( $post_type, array( 'portfolio' ) ) ) {
+		if ( version_compare( $wp_version, '4.4', '<' ) && in_array( $post_type, array( 'portfolio' ) ) ) {
 			$obj = get_post_type_object( $post_type );
 
 			$strings['insertIntoPost']     = sprintf( __( 'Insert into %s', 'axiscomposer' ), $obj->labels->singular_name );

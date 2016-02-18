@@ -29,7 +29,7 @@ We also support AxisComposer and all its extensions with comprehensive, easily-a
 
 = Join our growing community =
 
-Developers can contribute to the source code on the [AxisComposer GitHub Repository](https://github.com/axisthemes/axiscomposer/blob/master/.github/CONTRIBUTING.md).
+Developers can contribute to the source code on the [AxisComposer GitHub Repository](https://github.com/axisthemes/axiscomposer/).
 
 Want to add a new language to AxisComposer? Swell! You can contribute via [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/axiscomposer).
 

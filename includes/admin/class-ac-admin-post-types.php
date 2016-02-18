@@ -29,7 +29,6 @@ class AC_Admin_Post_Types {
 
 		// Edit post screens
 		add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 1, 2 );
-		add_filter( 'media_view_strings', array( $this, 'change_insert_into_post' ) );
 		add_action( 'edit_form_after_title', array( $this, 'edit_form_after_title' ) );
 		add_action( 'edit_form_after_editor', array( $this, 'edit_form_after_editor' ) );
 		add_filter( 'default_hidden_meta_boxes', array( $this, 'hidden_meta_boxes' ), 10, 2 );
@@ -100,24 +99,6 @@ class AC_Admin_Post_Types {
 		}
 
 		return $text;
-	}
-
-	/**
-	 * Change label for insert buttons.
-	 * @param  array $strings
-	 * @return array
-	 */
-	public function change_insert_into_post( $strings ) {
-		global $wp_version, $post_type;
-
-		if ( version_compare( $wp_version, '4.4', '<' ) && in_array( $post_type, array( 'portfolio' ) ) ) {
-			$obj = get_post_type_object( $post_type );
-
-			$strings['insertIntoPost']     = sprintf( __( 'Insert into %s', 'axiscomposer' ), $obj->labels->singular_name );
-			$strings['uploadedToThisPost'] = sprintf( __( 'Uploaded to this %s', 'axiscomposer' ), $obj->labels->singular_name );
-		}
-
-		return $strings;
 	}
 
 	/**

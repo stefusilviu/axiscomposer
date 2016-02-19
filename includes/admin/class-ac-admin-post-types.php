@@ -38,6 +38,9 @@ class AC_Admin_Post_Types {
 
 		// Disable DFW feature pointer
 		add_action( 'admin_footer', array( $this, 'disable_dfw_feature_pointer' ) );
+
+		// Disable post type view mode options
+		add_filter( 'view_mode_post_types', array( $this, 'disable_view_mode_options' ) );
 	}
 
 	/**
@@ -170,6 +173,19 @@ class AC_Admin_Post_Types {
 		if ( $screen && 'portfolio' === $screen->id && 'post' === $screen->base ) {
 			remove_action( 'admin_print_footer_scripts', array( 'WP_Internal_Pointers', 'pointer_wp410_dfw' ) );
 		}
+	}
+
+	/**
+	 * Removes portfolio from the list of post types that support "View Mode" switching.
+	 * View mode is seen on posts where you can switch between list or excerpt. Our post types don't support
+	 * it, so we want to hide the useless UI from the screen options tab.
+	 *
+	 * @param  array $post_types Array of post types supporting view mode
+	 * @return array             Array of post types supporting view mode, without portfolio
+	 */
+	public function disable_view_mode_options( $post_types ) {
+		unset( $post_types['portfolio'] );
+		return $post_types;
 	}
 }
 

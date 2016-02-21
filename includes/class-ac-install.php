@@ -356,9 +356,8 @@ class AC_Install {
 
 	/**
 	 * Display action links in the Plugins list table.
-	 *
-	 * @param  array  $actions     An array of plugin action links.
-	 * @param  string $plugin_file Path to the plugin file relative to the plugins directory.
+	 * @param  array  $actions
+	 * @param  string $plugin_file
 	 * @return array
 	 */
 	public static function plugin_action_links( $actions, $plugin_file ) {
@@ -375,9 +374,8 @@ class AC_Install {
 
 	/**
 	 * Display row meta in the Plugins list table.
-	 *
-	 * @param  array  $plugin_meta An array of the plugin's metadata.
-	 * @param  string $plugin_file Path to the plugin file, relative to the plugins directory.
+	 * @param  array  $plugin_meta
+	 * @param  string $plugin_file
 	 * @return array
 	 */
 	public static function plugin_row_meta( $plugin_meta, $plugin_file ) {

@@ -374,7 +374,7 @@ class AC_Install {
 	}
 
 	/**
-	 * Display row meta for the Plugins list table.
+	 * Display row meta in the Plugins list table.
 	 *
 	 * @param  array  $plugin_meta An array of the plugin's metadata.
 	 * @param  string $plugin_file Path to the plugin file, relative to the plugins directory.

@@ -362,11 +362,11 @@ class AC_Install {
 	 */
 	public static function plugin_action_links( $actions, $plugin_file ) {
 		if ( $plugin_file == AC_PLUGIN_BASENAME ) {
-			$ac_actions = array(
+			$new_actions = array(
 				'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
 			);
 
-			return array_merge( $ac_actions, $actions );
+			return array_merge( $new_actions, $actions );
 		}
 
 		return (array) $actions;
@@ -380,13 +380,13 @@ class AC_Install {
 	 */
 	public static function plugin_row_meta( $plugin_meta, $plugin_file ) {
 		if ( $plugin_file == AC_PLUGIN_BASENAME ) {
-			$ac_plugin_meta = array(
+			$new_plugin_meta = array(
 				'docs'    => '<a href="' . esc_url( apply_filters( 'axiscomposer_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/' ) ) . '" title="' . esc_attr( __( 'View AxisComposer Documentation', 'axiscomposer' ) ) . '">' . __( 'Docs', 'axiscomposer' ) . '</a>',
 				'apidocs' => '<a href="' . esc_url( apply_filters( 'axiscomposer_apidocs_url', 'http://docs.axisthemes.com/ac-apidocs/' ) ) . '" title="' . esc_attr( __( 'View AxisComposer API Docs', 'axiscomposer' ) ) . '">' . __( 'API Docs', 'axiscomposer' ) . '</a>',
 				'support' => '<a href="' . esc_url( apply_filters( 'axiscomposer_support_url', 'http://support.axisthemes.com/' ) ) . '" title="' . esc_attr( __( 'Visit Premium Customer Support Forum', 'axiscomposer' ) ) . '">' . __( 'Premium Support', 'axiscomposer' ) . '</a>',
 			);
 
-			return array_merge( $plugin_meta, $ac_plugin_meta );
+			return array_merge( $plugin_meta, $new_plugin_meta );
 		}
 
 		return (array) $plugin_meta;

@@ -30,7 +30,7 @@ class AC_Install {
 		add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
 		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 		add_action( 'in_plugin_update_message-axiscomposer/axiscomposer.php', array( __CLASS__, 'in_plugin_update_message' ) );
-		add_filter( 'plugin_action_links_' . AC_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
+		add_filter( 'plugin_action_links', array( __CLASS__, 'plugin_action_links' ), 10, 2 );
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 	}
 
@@ -355,36 +355,43 @@ class AC_Install {
 	}
 
 	/**
-	 * Show action links on the plugin screen.
-	 * @param  mixed $links Plugin Action links
+	 * Display action links in the Plugins list table.
+	 *
+	 * @param  array  $actions     An array of plugin action links.
+	 * @param  string $plugin_file Path to the plugin file relative to the plugins directory.
 	 * @return array
 	 */
-	public static function plugin_action_links( $links ) {
-		$action_links = array(
-			'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
-		);
+	public static function plugin_action_links( $actions, $plugin_file ) {
+		if ( $plugin_file == AC_PLUGIN_BASENAME ) {
+			$ac_actions = array(
+				'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
+			);
 
-		return array_merge( $action_links, $links );
+			return array_merge( $ac_actions, $actions );
+		}
+
+		return (array) $actions;
 	}
 
 	/**
-	 * Show row meta on the plugin screen.
-	 * @param  mixed $links Plugin Row Meta
-	 * @param  mixed $file  Plugin Base file
+	 * Display row meta for the Plugins list table.
+	 *
+	 * @param  array  $plugin_meta An array of the plugin's metadata.
+	 * @param  string $plugin_file Path to the plugin file, relative to the plugins directory.
 	 * @return array
 	 */
-	public static function plugin_row_meta( $links, $file ) {
-		if ( $file == AC_PLUGIN_BASENAME ) {
-			$row_meta = array(
+	public static function plugin_row_meta( $plugin_meta, $plugin_file ) {
+		if ( $plugin_file == AC_PLUGIN_BASENAME ) {
+			$ac_plugin_meta = array(
 				'docs'    => '<a href="' . esc_url( apply_filters( 'axiscomposer_docs_url', 'http://docs.axisthemes.com/documentation/plugins/axiscomposer/' ) ) . '" title="' . esc_attr( __( 'View AxisComposer Documentation', 'axiscomposer' ) ) . '">' . __( 'Docs', 'axiscomposer' ) . '</a>',
 				'apidocs' => '<a href="' . esc_url( apply_filters( 'axiscomposer_apidocs_url', 'http://docs.axisthemes.com/ac-apidocs/' ) ) . '" title="' . esc_attr( __( 'View AxisComposer API Docs', 'axiscomposer' ) ) . '">' . __( 'API Docs', 'axiscomposer' ) . '</a>',
 				'support' => '<a href="' . esc_url( apply_filters( 'axiscomposer_support_url', 'http://support.axisthemes.com/' ) ) . '" title="' . esc_attr( __( 'Visit Premium Customer Support Forum', 'axiscomposer' ) ) . '">' . __( 'Premium Support', 'axiscomposer' ) . '</a>',
 			);
 
-			return array_merge( $links, $row_meta );
+			return array_merge( $plugin_meta, $ac_plugin_meta );
 		}
 
-		return (array) $links;
+		return (array) $plugin_meta;
 	}
 }
 

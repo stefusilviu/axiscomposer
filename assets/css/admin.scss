@@ -1619,6 +1619,11 @@ table.ac_status_table {
 	clear: both;
 }
 
+.wrap.axiscomposer div.updated,
+.wrap.axiscomposer div.error {
+	margin-top: 10px;
+}
+
 /**
  * Clearfix
  */

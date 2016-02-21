@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="ac_status_table widefat" cellspacing="0" id="status">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="WordPress Environment"><?php _e( 'WordPress Environment', 'axiscomposer' ); ?></th>
+			<th colspan="3" data-export-label="WordPress Environment"><h2><?php _e( 'WordPress Environment', 'axiscomposer' ); ?></h2></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Server Environment"><?php _e( 'Server Environment', 'axiscomposer' ); ?></th>
+			<th colspan="3" data-export-label="Server Environment"><h2><?php _e( 'Server Environment', 'axiscomposer' ); ?></h2></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -263,7 +263,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Database"><?php _e( 'Database', 'axiscomposer' ); ?></th>
+			<th colspan="3" data-export-label="Database"><h2><?php _e( 'Database', 'axiscomposer' ); ?></h2></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -290,7 +290,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><?php _e( 'Active Plugins', 'axiscomposer' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</th>
+			<th colspan="3" data-export-label="Active Plugins (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)"><h2><?php _e( 'Active Plugins', 'axiscomposer' ); ?> (<?php echo count( (array) get_option( 'active_plugins' ) ); ?>)</h2></th>
 		</tr>
 	</thead>
 	<tbody><?php
@@ -360,7 +360,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Settings"><?php _e( 'Settings', 'axiscomposer' ); ?></th>
+			<th colspan="3" data-export-label="Settings"><h2><?php _e( 'Settings', 'axiscomposer' ); ?></h2></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -379,7 +379,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="ac_status_table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th colspan="3" data-export-label="Theme"><?php _e( 'Theme', 'axiscomposer' ); ?></th>
+			<th colspan="3" data-export-label="Theme"><h2><?php _e( 'Theme', 'axiscomposer' ); ?></h2></th>
 		</tr>
 	</thead><?php
 		include_once( ABSPATH . 'wp-admin/includes/theme-install.php' );

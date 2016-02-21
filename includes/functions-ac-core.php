@@ -230,3 +230,13 @@ function ac_get_core_supported_iconfonts() {
 function ac_get_layout_supported_screens() {
 	return (array) apply_filters( 'axiscomposer_layout_supported_screens', array( 'post', 'page', 'portfolio', 'jetpack-portfolio' ) );
 }
+
+/**
+ * Outputs a "back" link so admin screens can easily jump back a page.
+ *
+ * @param string $label Title of the page to return to.
+ * @param string $url   URL of the page to return to.
+ */
+function ac_back_link( $label, $url ) {
+	echo '<small class="ac-admin-breadcrumb"><a href="' . esc_url( $url ) . '" title="' . esc_attr( $label ) . '">&#x21a9;</a></small>';
+}

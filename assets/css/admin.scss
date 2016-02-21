@@ -1207,10 +1207,15 @@ img.help_tip {
 .axiscomposer {
 	.axis-nav-tab-wrapper {
 		margin-bottom: 16px !important;
+		border-bottom: 1px solid #ccc;
 	}
 
 	.subsubsub {
 		margin: -8px 0 0;
+	}
+
+	.ac-admin-breadcrumb {
+		margin-left: .5em;
 	}
 
 	#template div {
@@ -1515,6 +1520,11 @@ img.tips {
  */
 table.ac_status_table {
 	margin-bottom: 1em;
+
+	h2 {
+		font-size: 14px;
+		margin: 0;
+	}
 
 	tr {
 		&:nth-child(2n) {

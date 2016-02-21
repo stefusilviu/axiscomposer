@@ -254,7 +254,7 @@ class AC_Admin_Settings {
 				// Section Titles
 				case 'title':
 					if ( ! empty( $value['title'] ) ) {
-						echo '<h3>' . esc_html( $value['title'] ) . '</h3>';
+						echo '<h2>' . esc_html( $value['title'] ) . '</h2>';
 					}
 					if ( ! empty( $value['desc'] ) ) {
 						echo wpautop( wptexturize( wp_kses_post( $value['desc'] ) ) );

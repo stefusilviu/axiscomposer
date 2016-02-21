@@ -12,11 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php settings_fields( 'axiscomposer_status_settings_fields' ); ?>
 	<?php $options = wp_parse_args( get_option( 'axiscomposer_status_options', array() ), array( 'uninstall_data' => 0, 'builder_debug_mode' => 0 ) ); ?>
 	<table class="ac_status_table widefat" cellspacing="0">
-		<thead class="tools">
-			<tr>
-				<th colspan="2"><?php _e( 'Tools', 'axiscomposer' ); ?></th>
-			</tr>
-		</thead>
 		<tbody class="tools">
 			<?php foreach ( $tools as $action => $tool ) : ?>
 				<tr class="<?php echo sanitize_html_class( $action ); ?>">
@@ -24,8 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<td>
 						<p>
 							<a href="<?php echo wp_nonce_url( admin_url('admin.php?page=ac-status&tab=tools&action=' . $action ), 'debug_action' ); ?>" class="button <?php echo esc_attr( $action ); ?>"><?php echo esc_html( $tool['button'] ); ?></a>
-						</p>
-						<p>
 							<span class="description"><?php echo wp_kses_post( $tool['desc'] ); ?></span>
 						</p>
 					</td>

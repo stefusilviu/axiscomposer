@@ -30,7 +30,7 @@ class AC_Install {
 		add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
 		add_action( 'admin_init', array( __CLASS__, 'install_actions' ) );
 		add_action( 'in_plugin_update_message-axiscomposer/axiscomposer.php', array( __CLASS__, 'in_plugin_update_message' ) );
-		add_filter( 'plugin_action_links', array( __CLASS__, 'plugin_action_links' ), 10, 2 );
+		add_filter( 'plugin_action_links_' . AC_PLUGIN_BASENAME, array( __CLASS__, 'plugin_action_links' ) );
 		add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_row_meta' ), 10, 2 );
 	}
 
@@ -357,19 +357,14 @@ class AC_Install {
 	/**
 	 * Display action links in the Plugins list table.
 	 * @param  array  $actions
-	 * @param  string $plugin_file
 	 * @return array
 	 */
 	public static function plugin_action_links( $actions, $plugin_file ) {
-		if ( $plugin_file == AC_PLUGIN_BASENAME ) {
-			$new_actions = array(
-				'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
-			);
+		$new_actions = array(
+			'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
+		);
 
-			return array_merge( $new_actions, $actions );
-		}
-
-		return (array) $actions;
+		return array_merge( $new_actions, $actions );
 	}
 
 	/**

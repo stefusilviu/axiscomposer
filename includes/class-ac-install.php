@@ -356,10 +356,10 @@ class AC_Install {
 
 	/**
 	 * Display action links in the Plugins list table.
-	 * @param  array  $actions
+	 * @param  array $actions
 	 * @return array
 	 */
-	public static function plugin_action_links( $actions, $plugin_file ) {
+	public static function plugin_action_links( $actions ) {
 		$new_actions = array(
 			'settings' => '<a href="' . admin_url( 'admin.php?page=ac-settings' ) . '" title="' . esc_attr( __( 'View AxisComposer Settings', 'axiscomposer' ) ) . '">' . __( 'Settings', 'axiscomposer' ) . '</a>',
 		);

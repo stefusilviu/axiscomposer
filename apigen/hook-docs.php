@@ -207,11 +207,13 @@ class AC_HookFinder {
 		echo '</div><div id="footer">';
 
 		$html   = file_get_contents( '../ac-apidocs/tree.html' );
-		$header = current( explode( '<div id="content">', $html ) );
+		$header = explode( '<div id="content">', $html );
+		$header = current( $header );
 		$header = str_replace( '<li class="active">', '<li>', $header );
 		$header = str_replace( '<li class="hooks">', '<li class="active">', $header );
 		$header = str_replace( 'Tree | ', 'Hook Reference | ', $header );
-		$footer = end( explode( '<div id="footer">', $html ) );
+		$footer = explode( '<div id="footer">', $html );
+		$footer = end( $footer );
 
 		file_put_contents( '../ac-apidocs/hook-docs.html', $header . ob_get_clean() . $footer );
 		echo "Hook docs generated :)\n";

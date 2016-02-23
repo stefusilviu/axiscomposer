@@ -29,5 +29,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<textarea cols="70" rows="25"><?php echo esc_textarea( file_get_contents( AC_LOG_DIR . $viewed_log ) ); ?></textarea>
 	</div>
 <?php else : ?>
-	<div class="updated axiscomposer-message below-h2"><p><?php _e( 'There are currently no logs to view.', 'axiscomposer' ); ?></p></div>
+	<div class="updated axiscomposer-message inline"><p><?php _e( 'There are currently no logs to view.', 'axiscomposer' ); ?></p></div>
 <?php endif; ?>

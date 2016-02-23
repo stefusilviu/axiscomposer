@@ -66,15 +66,14 @@ class AC_Admin_Status {
 						AND b.option_value < %d";
 					$rows2 = $wpdb->query( $wpdb->prepare( $sql, $wpdb->esc_like( '_site_transient_' ) . '%', $wpdb->esc_like( '_site_transient_timeout_' ) . '%', time() ) );
 
-					echo '<div class="updated"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axiscomposer' ), $rows + $rows2 ) . '</p></div>';
-
+					echo '<div class="updated inline"><p>' . sprintf( __( '%d Transients Rows Cleared', 'axiscomposer' ), $rows + $rows2 ) . '</p></div>';
 				break;
 				case 'reset_roles' :
 					// Remove then re-add caps and roles
 					AC_Install::remove_roles();
 					AC_Install::create_roles();
 
-					echo '<div class="updated"><p>' . __( 'Roles successfully reset', 'axiscomposer' ) . '</p></div>';
+					echo '<div class="updated inline"><p>' . __( 'Roles successfully reset', 'axiscomposer' ) . '</p></div>';
 				break;
 				default :
 					$action = esc_attr( $_GET['action'] );
@@ -83,10 +82,9 @@ class AC_Admin_Status {
 						$return = call_user_func( $callback );
 						if ( $return === false ) {
 							if ( is_array( $callback ) ) {
-								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axiscomposer' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
-
+								echo '<div class="error inline"><p>' . sprintf( __( 'There was an error calling %s::%s', 'axiscomposer' ), get_class( $callback[0] ), $callback[1] ) . '</p></div>';
 							} else {
-								echo '<div class="error"><p>' . sprintf( __( 'There was an error calling %s', 'axiscomposer' ), $callback ) . '</p></div>';
+								echo '<div class="error inline"><p>' . sprintf( __( 'There was an error calling %s', 'axiscomposer' ), $callback ) . '</p></div>';
 							}
 						}
 					}
@@ -96,7 +94,7 @@ class AC_Admin_Status {
 
 		// Display message if settings settings have been saved
 		if ( isset( $_REQUEST['settings-updated'] ) ) {
-			echo '<div class="updated"><p>' . __( 'Your changes have been saved.', 'axiscomposer' ) . '</p></div>';
+			echo '<div class="updated inline"><p>' . __( 'Your changes have been saved.', 'axiscomposer' ) . '</p></div>';
 		}
 
 		include_once( 'views/html-admin-page-status-tools.php' );

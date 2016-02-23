@@ -93,8 +93,9 @@ class Functions extends \AC_Unit_Test_Case {
 	 * @since 1.0.0
 	 */
 	public function test_ac_trim_string() {
-		$this->assertEquals( 'string', ac_trim_string( 'string' ) );
-		$this->assertEquals( 's...',   ac_trim_string( 'string', 4 ) );
-		$this->assertEquals( 'st.',    ac_trim_string( 'string', 3, '.' ) );
+		$this->assertEquals( 'string',  ac_trim_string( 'string' ) );
+		$this->assertEquals( 's...',    ac_trim_string( 'string', 4 ) );
+		$this->assertEquals( 'st.',     ac_trim_string( 'string', 3, '.' ) );
+		$this->assertEquals( 'string¥', ac_trim_string( 'string¥', 7, '' ) );
 	}
 }

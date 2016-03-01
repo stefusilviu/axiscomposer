@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="updated axiscomposer-message">
+<div class="updated axiscomposer-message inline">
 	<p><?php _e( 'Please copy and paste this information in your ticket when contacting support:', 'axiscomposer' ); ?> </p>
 	<p class="submit"><a href="#" class="button-primary debug-report"><?php _e( 'Get System Report', 'axiscomposer' ); ?></a>
 	<a class="button-secondary docs" href="http://docs.axisthemes.com/document/understanding-the-axiscomposer-system-status-report/" target="_blank"><?php _e( 'Understanding the Status Report', 'axiscomposer' ); ?></a></p>

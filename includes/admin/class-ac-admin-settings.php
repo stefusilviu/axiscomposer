@@ -572,7 +572,7 @@ class AC_Admin_Settings {
 	 *
 	 * Loops though the axiscomposer options array and outputs each field.
 	 *
-	 * @param  array $options Opens array to output
+	 * @param  array $options Options array to output
 	 * @return bool
 	 */
 	public static function save_fields( $options ) {
@@ -580,16 +580,16 @@ class AC_Admin_Settings {
 			return false;
 		}
 
-		// Options to update will be stored here and saved later
+		// Options to update will be stored here and saved later.
 		$update_options = array();
 
-		// Loop options and get values to save
+		// Loop options and get values to save.
 		foreach ( $options as $option ) {
 			if ( ! isset( $option['id'] ) || ! isset( $option['type'] ) ) {
 				continue;
 			}
 
-			// Get posted value
+			// Get posted value.
 			if ( strstr( $option['id'], '[' ) ) {
 				parse_str( $option['id'], $option_name_array );
 				$option_name  = current( array_keys( $option_name_array ) );
@@ -601,7 +601,7 @@ class AC_Admin_Settings {
 				$raw_value    = isset( $_POST[ $option['id'] ] ) ? wp_unslash( $_POST[ $option['id'] ] ) : null;
 			}
 
-			// Format the value based on option type
+			// Format the value based on option type.
 			switch ( $option['type'] ) {
 				case 'checkbox' :
 					$value = is_null( $raw_value ) ? 'no' : 'yes';
@@ -619,12 +619,12 @@ class AC_Admin_Settings {
 			}
 
 			/**
-			 * Sanitize the value of an option
+			 * Sanitize the value of an option.
 			 */
 			$value = apply_filters( 'axiscomposer_admin_settings_sanitize_option', $value, $option, $raw_value );
 
 			/**
-			 * Sanitize the value of an option by option name
+			 * Sanitize the value of an option by option name.
 			 */
 			$value = apply_filters( "axiscomposer_admin_settings_sanitize_option_$option_name", $value, $option, $raw_value );
 
@@ -646,7 +646,7 @@ class AC_Admin_Settings {
 			}
 		}
 
-		// Save all options in our array
+		// Save all options in our array.
 		foreach ( $update_options as $name => $value ) {
 			update_option( $name, $value );
 		}

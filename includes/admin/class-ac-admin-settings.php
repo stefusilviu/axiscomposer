@@ -299,7 +299,7 @@ class AC_Admin_Settings {
 						</th>
 						<td class="forminp forminp-<?php echo sanitize_title( $value['type'] ) ?>">
 							<?php
-								if ( $value['type'] == 'color' ) {
+								if ( 'color' == $value['type'] ) {
 									echo '<span class="colorpickpreview" style="background: ' . esc_attr( $option_value ) . ';"></span>';
 								}
 							?>

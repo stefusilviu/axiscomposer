@@ -513,7 +513,7 @@ class AC_Admin_Settings {
 										}
 									}
 								?>
-							</select> <?php echo ( $description ) ? $description : ''; ?> </br><a class="select_all button" href="#"><?php _e( 'Select all', 'axiscomposer' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axiscomposer' ); ?></a>
+							</select> <?php echo ( $description ) ? $description : ''; ?> </br /><a class="select_all button" href="#"><?php _e( 'Select all', 'axiscomposer' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'axiscomposer' ); ?></a>
 						</td>
 					</tr><?php
 					break;

@@ -21,7 +21,7 @@ jQuery( function ( $ ) {
 		.on( 'ac_add_error_tip', function( e, element, error_type ) {
 			var offset = element.position();
 
-			if ( element.parent().find( '.ac_error_tip' ).size() === 0 ) {
+			if ( element.parent().find( '.ac_error_tip' ).length === 0 ) {
 				element.after( '<div class="ac_error_tip ' + error_type + '">' + axiscomposer_admin_meta_boxes_pagebuilder[error_type] + '</div>' );
 				element.parent().find( '.ac_error_tip' )
 					.css( 'left', offset.left + element.width() - ( element.width() / 2 ) - ( $( '.ac_error_tip' ).width() / 2 ) )

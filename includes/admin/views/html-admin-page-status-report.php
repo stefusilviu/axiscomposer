@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<td class="help"><?php echo ac_help_tip( __( 'Several AxisComposer extensions can write logs which makes debugging problems easier. The directory must be writable for this to happen.', 'axiscomposer' ) ); ?></td>
 			<td><?php
 				if ( @fopen( AC_LOG_DIR . 'test-log.log', 'a' ) ) {
-					echo '<mark class="yes">&#10004; <code>' . AC_LOG_DIR . '</code></mark> ';
+					echo '<mark class="yes">&#10004; <code class="private">' . AC_LOG_DIR . '</code></mark> ';
 				} else {
 					printf( '<mark class="error">&#10005; ' . __( 'To allow logging, make <code>%s</code> writable or define a custom <code>AC_LOG_DIR</code>.', 'axiscomposer' ) . '</mark>', AC_LOG_DIR );
 				}
@@ -471,7 +471,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		jQuery( '.ac_status_table thead, .ac_status_table tbody' ).each( function() {
 
-			if ( jQuery( this ).is('thead') ) {
+			if ( jQuery( this ).is( 'thead' ) ) {
 
 				var label = jQuery( this ).find( 'th:eq(0)' ).data( 'export-label' ) || jQuery( this ).text();
 				report = report + '\n### ' + jQuery.trim( label ) + ' ###\n\n';
@@ -484,11 +484,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 					var the_name    = jQuery.trim( label ).replace( /(<([^>]+)>)/ig, '' ); // Remove HTML.
 					var image       = jQuery( this ).find( 'td:eq(2)' ).find( 'img' ); // Get WP 4.2 emojis.
 					var prefix      = ( undefined === image.attr( 'alt' ) ) ? '' : image.attr( 'alt' ) + ' '; // Remove WP 4.2 emojis.
-					var the_value   = jQuery.trim( prefix + jQuery( this ).find( 'td:eq(2)' ).text() );
+
+					// Find value
+					var $value_html   = jQuery( this ).find( 'td:eq(2)' );
+					$value_html.find( '.private' ).remove();
+
+					// Format value
+					var the_value   = jQuery.trim( prefix + $value_html.text() );
 					var value_array = the_value.split( ', ' );
 
 					if ( value_array.length > 1 ) {
-
 						// If value have a list of plugins ','.
 						// Split to add new line.
 						var temp_line ='';
@@ -511,7 +516,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			jQuery( this ).fadeOut();
 			return false;
 		} catch( e ) {
-			/*jshint devel: true */
+			/* jshint devel: true */
 			console.log( e );
 		}
 

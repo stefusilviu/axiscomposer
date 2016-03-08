@@ -488,7 +488,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					// Find value
 					var $value_html = jQuery( this ).find( 'td:eq(2)' ).clone();
 					$value_html.find( '.private' ).remove();
-					$value_html.find( '.dashicons-yes' ).replaceWith( '<span class="dashicons dashicons-yes"></span>' );
+					$value_html.find( '.dashicons-yes' ).replaceWith( '&#10004;' );
 					$value_html.find( '.dashicons-no-alt, .dashicons-warning' ).replaceWith( '&#10060;' );
 
 					// Format value

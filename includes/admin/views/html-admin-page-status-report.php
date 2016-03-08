@@ -482,8 +482,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					var label       = jQuery( this ).find( 'td:eq(0)' ).data( 'export-label' ) || jQuery( this ).find( 'td:eq(0)' ).text();
 					var the_name    = jQuery.trim( label ).replace( /(<([^>]+)>)/ig, '' ); // Remove HTML.
-					var image       = jQuery( this ).find( 'td:eq(2)' ).find( 'img' ); // Get WP 4.2 emojis.
-					var prefix      = ( undefined === image.attr( 'alt' ) ) ? '' : image.attr( 'alt' ) + ' '; // Remove WP 4.2 emojis.
 
 					// Find value
 					var $value_html = jQuery( this ).find( 'td:eq(2)' ).clone();
@@ -492,7 +490,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$value_html.find( '.dashicons-no-alt, .dashicons-warning' ).replaceWith( '&#10060;' );
 
 					// Format value
-					var the_value   = jQuery.trim( prefix + $value_html.text() );
+					var the_value   = jQuery.trim( $value_html.text() );
 					var value_array = the_value.split( ', ' );
 
 					if ( value_array.length > 1 ) {

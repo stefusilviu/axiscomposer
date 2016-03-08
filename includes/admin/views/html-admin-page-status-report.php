@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="debug-report">
 		<textarea readonly="readonly"></textarea>
 		<p class="submit"><button id="copy-for-support" class="button-primary" href="#" data-tip="<?php esc_attr_e( 'Copied!', 'axiscomposer' ); ?>"><?php _e( 'Copy for Support', 'axiscomposer' ); ?></button></p>
+		<p class="copy-error hidden"><?php _e( 'Copying to clipboard failed. Please press Ctrl/Cmd+C to copy.', 'axiscomposer' ); ?></p>
 	</div>
 </div>
 <table class="ac_status_table widefat" cellspacing="0" id="status">
@@ -524,18 +525,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	});
 
 	jQuery( document ).ready( function( $ ) {
-		$( '#copy-for-support' ).tipTip({
-			'attribute':  'data-tip',
-			'activation': 'click',
-			'fadeIn':     50,
-			'fadeOut':    50,
-			'delay':      0
-		});
 
 		$( document.body ).on( 'copy', '#copy-for-support', function( e ) {
 			e.clipboardData.clearData();
-			e.clipboardData.setData( 'text/plain', $( '#debug-report textarea' ).val() );
+			e.clipboardData.setData( 'text/plain', $( '#debug-report' ).find( 'textarea' ).val() );
 			e.preventDefault();
+		});
+
+		$( document.body ).on( 'aftercopy', '#copy-for-support', function( e ) {
+			if ( true === e.success['text/plain'] ) {
+				$( '#copy-for-support' ).tipTip({
+					'attribute':  'data-tip',
+					'activation': 'focus',
+					'fadeIn':     50,
+					'fadeOut':    50,
+					'delay':      0
+				}).focus();
+			} else {
+				$( '.copy-error' ).removeClass( 'hidden' );
+				$( '#debug-report' ).find( 'textarea' ).focus().select();
+			}
 		});
 
 	});

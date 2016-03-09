@@ -1102,7 +1102,7 @@ table.wp-list-table {
 
 	td.column-featured {
 		span.ac-featured {
-			font-size: 1.2em;
+			font-size: 1.6em;
 		}
 	}
 }
@@ -1199,7 +1199,7 @@ img.help_tip {
 
 .status-enabled {
 	&:before {
-		@include icon( "\e011" );
+		@include icon( "\e010" );
 		color: $axiscomposer;
 	}
 }

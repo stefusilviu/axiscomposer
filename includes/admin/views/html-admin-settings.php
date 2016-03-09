@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap axiscomposer">
 	<form method="<?php echo esc_attr( apply_filters( 'axiscomposer_settings_form_method_tab_' . $current_tab, 'post' ) ); ?>" id="mainform" action="" enctype="multipart/form-data">
 		<div class="icon32 icon32-axiscomposer-settings" id="icon-axiscomposer"><br /></div>
-		<h1 class="screen-reader-text"><?php echo esc_html( $tabs[ $current_tab ] ); ?></h1>
+		<h1><?php printf( __( '%s Settings', 'axiscomposer' ), esc_html( $tabs[ $current_tab ] ) ); ?></h1>
 		<h2 class="nav-tab-wrapper axis-nav-tab-wrapper">
 			<?php
 				foreach ( $tabs as $name => $label ) {

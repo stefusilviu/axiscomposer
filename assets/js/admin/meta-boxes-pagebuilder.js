@@ -3,10 +3,13 @@ jQuery( function( $ ) {
 
 	/* Storage Handling */
 	var $supports_html5_storage;
+
 	try {
 		$supports_html5_storage = ( 'sessionStorage' in window && window.sessionStorage !== null );
 		window.sessionStorage.setItem( 'ac', 'test' );
 		window.sessionStorage.removeItem( 'ac' );
+		window.localStorage.setItem( 'ac', 'test' );
+		window.localStorage.removeItem( 'ac' );
 	} catch( err ) {
 		$supports_html5_storage = false;
 	}

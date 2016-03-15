@@ -115,15 +115,18 @@ function ac_print_js() {
 	global $ac_queued_js;
 
 	if ( ! empty( $ac_queued_js ) ) {
-
-		echo "<!-- AxisComposer JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) {";
-
-		// Sanitize
+		// Sanitize.
 		$ac_queued_js = wp_check_invalid_utf8( $ac_queued_js );
 		$ac_queued_js = preg_replace( '/&#(x)?0*(?(1)27|39);?/i', "'", $ac_queued_js );
 		$ac_queued_js = str_replace( "\r", '', $ac_queued_js );
 
-		echo $ac_queued_js . "});\n</script>\n";
+		$js = "<!-- AxisComposer JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) { $ac_queued_js });\n</script>\n";
+
+		/**
+		 * axiscomposer_queued_js filter.
+		 * @param string $js JavaScript code.
+		 */
+		echo apply_filters( 'axiscomposer_queued_js', $js );
 
 		unset( $ac_queued_js );
 	}

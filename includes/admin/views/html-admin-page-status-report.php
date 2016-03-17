@@ -167,6 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				/** @global wpdb $wpdb */
 				global $wpdb;
 				$mysql_version = $wpdb->db_version();
+
 				if ( version_compare( $mysql_version, '5.6', '<' ) ) {
 					echo '<mark class="error"><span class="dashicons dashicons-warning"></span> ' . sprintf( __( '%s - We recommend a minimum MySQL version of 5.6. See: %s', 'axiscomposer' ), esc_html( $mysql_version ), '<a href="https://wordpress.org/about/requirements/" target="_blank">' . __( 'WordPress Requirements', 'axiscomposer' ) . '</a>' ) . '</mark>';
 				} else {

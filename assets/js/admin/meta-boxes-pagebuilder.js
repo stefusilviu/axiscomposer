@@ -1295,18 +1295,14 @@ jQuery( function( $ ) {
 		stupidtable: {
 
 			init: function() {
-				$( '.axiscomposer_pagebuilder' ).stupidtable().on( 'aftertablesort', this.add_arrows );
+				$( '.axiscomposer_pagebuilder' ).stupidtable();
+				$( '.axiscomposer_pagebuilder' ).on( 'aftertablesort', this.add_arrows );
 			},
 
 			add_arrows: function( event, data ) {
 				var th    = $( this ).find( 'th' );
 				var arrow = data.direction === 'asc' ? '&uarr;' : '&darr;';
 				var index = data.column;
-
-				if ( 1 < index ) {
-					index = index - 1;
-				}
-
 				th.find( '.ac-arrow' ).remove();
 				th.eq( index ).append( '<span class="ac-arrow">' + arrow + '</span>' );
 			}

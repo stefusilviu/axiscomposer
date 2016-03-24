@@ -232,7 +232,7 @@ class AC_Iconfont {
 			}
 		}
 
-		if ( current_user_can( 'manage_axiscomposer' ) ) {
+		if ( ! empty( $font_face ) ) {
 			wp_add_inline_style( is_admin() ? 'axiscomposer-admin' : 'axiscomposer-general', $font_face );
 		}
 	}

@@ -1,7 +1,4 @@
 <?php
-
-namespace AxisComposer\Tests\Formatting;
-
 /**
  * Class Functions
  * @package AxisComposer\Tests\Formatting
@@ -9,7 +6,7 @@ namespace AxisComposer\Tests\Formatting;
  *
  * @todo Split formatting class into smaller classes
  */
-class Functions extends \AC_Unit_Test_Case {
+class AC_Tests_Formatting_Functions extends AC_Unit_Test_Case {
 
 	/**
 	 * Test ac_clean() - note this is a basic type test as WP core already

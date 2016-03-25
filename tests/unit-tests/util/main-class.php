@@ -1,14 +1,11 @@
 <?php
-
-namespace AxisComposer\Tests\Util;
-
 /**
  * Class Main_Class
  * @package AxisComposer\Tests\Util
  */
-class Main_Class extends \AC_Unit_Test_Case {
+class AC_Tests_Main_Class extends AC_Unit_Test_Case {
 
-	/** @var \AxisComposer instance */
+	/** @var AxisComposer instance */
 	protected $ac;
 
 	/**

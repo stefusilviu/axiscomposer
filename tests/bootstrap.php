@@ -6,7 +6,7 @@
  */
 class AC_Unit_Tests_Bootstrap {
 
-	/** @var \AC_Unit_Tests_Bootstrap instance */
+	/** @var AC_Unit_Tests_Bootstrap instance */
 	protected static $instance = null;
 
 	/** @var string directory where wordpress-tests-lib is installed */

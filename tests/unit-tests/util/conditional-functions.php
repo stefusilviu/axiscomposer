@@ -1,13 +1,10 @@
 <?php
-
-namespace AxisComposer\Tests\Util;
-
 /**
  * Class Conditional_Functions
  * @package AxisComposer\Tests\Util
  * @since   1.0.0
  */
-class Conditional_Functions extends \AC_Unit_Test_Case {
+class AC_Tests_Conditional_Functions extends AC_Unit_Test_Case {
 
 	/**
 	 * Test is_ajax()

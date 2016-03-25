@@ -1,13 +1,22 @@
 <?php
-
-namespace AxisComposer\Tests\Util;
-
 /**
  * Class Core_Functions
  * @package AxisComposer\Tests\Util
  * @since   1.0.0
  */
-class Core_Functions extends \AC_Unit_Test_Case {
+class AC_Tests_Core_Functions extends AC_Unit_Test_Case {
+
+	/**
+	 * Test ac_get_log_file_path().
+	 *
+	 * @since 1.0.0
+	 */
+	public function test_ac_get_log_file_path() {
+		$log_dir   = trailingslashit( AC_LOG_DIR );
+		$hash_name = sanitize_file_name( wp_hash( 'unit-tests' ) );
+
+		$this->assertEquals( $log_dir . 'unit-tests-' . $hash_name . '.log', ac_get_log_file_path( 'unit-tests' ) );
+	}
 
 	/**
 	 * Test ac_get_core_supported_themes()

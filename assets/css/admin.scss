@@ -1081,7 +1081,7 @@ table.wp-list-table {
 		margin: 0 auto;
 
 		&:before {
-			@include icon( "\e005" );
+			@include icon( "\e002" );
 		}
 	}
 
@@ -1090,12 +1090,14 @@ table.wp-list-table {
 		cursor: pointer;
 
 		&:before {
-			content: "\e002";
+			font-family: "Dashicons";
+			content: "\f155";
 		}
 
 		&.not-featured {
 			&:before {
-				content: "\e002";
+				font-family: "Dashicons";
+				content: "\f154";
 			}
 		}
 	}
@@ -1201,6 +1203,13 @@ img.help_tip {
 	&:before {
 		@include icon( "\e010" );
 		color: $axiscomposer;
+	}
+}
+
+.status-disabled {
+	&:before {
+		@include icon( "\e011" );
+		color: #ccc;
 	}
 }
 

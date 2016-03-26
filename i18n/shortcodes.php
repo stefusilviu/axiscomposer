@@ -26,8 +26,7 @@ function axiscomposer_tinymce_plugin_translation() {
 
 	// Default TinyMCE strings.
 	$mce_translation = array(
-		'shortcode_title' => __( 'Insert Page Builder Shortcode', 'axiscomposer' ),
-		'shortcode_text'  => __( 'AxisComposer', 'axiscomposer' ),
+		'shortcode_title' => __( 'Insert AxisComposer Shortcode', 'axiscomposer' ),
 		'layout_label'    => __( 'Layout Elements', 'axiscomposer' ),
 		'content_label'   => __( 'Content Elements', 'axiscomposer' ),
 		'media_label'     => __( 'Media Elements', 'axiscomposer' ),

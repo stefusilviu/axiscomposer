@@ -19,7 +19,6 @@
 
 			editor.addButton( 'axiscomposer_shortcodes', {
 				title : ed.getLang( 'axiscomposer_shortcodes.shortcode_title' ),
-				text: ed.getLang( 'axiscomposer_shortcodes.shortcode_text' ),
 				icon: 'axiscomposer-shortcodes',
 				type: 'menubutton',
 				menu: self.createMenu()

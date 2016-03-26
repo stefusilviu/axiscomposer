@@ -17,7 +17,7 @@
  */
 #adminmenu #toplevel_page_axiscomposer .menu-icon-generic div.wp-menu-image:before {
 	font-family: 'AxisComposer' !important;
-	content: "\e002";
+	content: "\e001";
 	font-size: 1.3em !important;
 }
 
@@ -31,7 +31,7 @@ span.mce_axiscomposer_shortcodes_button {
 	@include ir();
 
 	&:before {
-		@include icon( "\e002" );
+		@include icon( "\e001" );
 		font-size: .9em;
 		line-height: 1.2;
 	}
@@ -41,7 +41,7 @@ i.mce-i-axiscomposer-shortcodes {
 	position: relative;
 
 	&:before {
-		@include icon( "\e002" );
+		@include icon( "\e001" );
 		line-height: inherit;
 	}
 }

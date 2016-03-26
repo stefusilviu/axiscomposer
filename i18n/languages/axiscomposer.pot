@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2016-03-23 15:42:20+00:00\n"
+"POT-Creation-Date: 2016-03-26 10:08:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,29 +21,25 @@ msgid "Cheatin&#8217; huh?"
 msgstr ""
 
 #: i18n/shortcodes.php:29
-msgid "Insert Page Builder Shortcode"
+msgid "Insert AxisComposer Shortcode"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "AxisComposer"
-msgstr ""
-
-#: i18n/shortcodes.php:31
+#: i18n/shortcodes.php:30
 #: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:38
 msgid "Layout Elements"
 msgstr ""
 
-#: i18n/shortcodes.php:32
+#: i18n/shortcodes.php:31
 #: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:43
 msgid "Content Elements"
 msgstr ""
 
-#: i18n/shortcodes.php:33
+#: i18n/shortcodes.php:32
 #: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:48
 msgid "Media Elements"
 msgstr ""
 
-#: i18n/shortcodes.php:34
+#: i18n/shortcodes.php:33
 #: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:53
 msgid "Plugin Additions"
 msgstr ""
@@ -230,6 +226,10 @@ msgstr ""
 
 #: includes/admin/class-ac-admin-help.php:75
 msgid "Official Extensions"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "AxisComposer"
 msgstr ""
 
 #: includes/admin/class-ac-admin-menus.php:60

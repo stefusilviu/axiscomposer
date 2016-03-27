@@ -739,14 +739,14 @@ body .ui-draggable-dragging {
 			border-left: none;
 
 			&:before {
-				@include icon( "\e00b" );
+				@include icon_dashicons( "\f341" );
 				line-height: 1.5;
 			}
 		}
 
 		&.ac-increase {
 			&:before {
-				@include icon( "\e00c" );
+				@include icon_dashicons( "\f345" );
 				line-height: 1.5;
 			}
 		}
@@ -798,7 +798,7 @@ body .ui-draggable-dragging {
 		}
 
 		&:before {
-			@include icon( "\e00a" );
+			@include icon_dashicons( "\f158" );
 			line-height: 1.5;
 		}
 	}
@@ -919,7 +919,7 @@ body .ui-draggable-dragging {
 			&:before {
 				font-size: 16px;
 				vertical-align: text-top;
-				@include iconbefore( "\e00f" );
+				@include iconbeforedashicons( "\f228" );
 			}
 
 			&:hover,
@@ -934,7 +934,7 @@ body .ui-draggable-dragging {
 
 			&.add-cell-icon {
 				&:before {
-					content: "\e00c";
+					content: "\f502";
 				}
 			}
 		}

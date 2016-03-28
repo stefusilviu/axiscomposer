@@ -764,7 +764,7 @@ body .ui-draggable-dragging {
 		}
 
 		&:before {
-			@include icon( "\e00d" );
+			@include icon_dashicons( "\f327" );
 			line-height: 1.5;
 		}
 	}
@@ -781,7 +781,7 @@ body .ui-draggable-dragging {
 		}
 
 		&:before {
-			@include icon( "\e00e" );
+			@include icon_dashicons( "\f105" );
 			line-height: 1.5;
 		}
 	}

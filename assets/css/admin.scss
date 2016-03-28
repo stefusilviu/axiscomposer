@@ -1081,7 +1081,7 @@ table.wp-list-table {
 		margin: 0 auto;
 
 		&:before {
-			@include icon( "\e002" );
+			@include icon_dashicons( "\f128" );
 		}
 	}
 
@@ -1090,13 +1090,11 @@ table.wp-list-table {
 		cursor: pointer;
 
 		&:before {
-			font-family: "Dashicons";
 			content: "\f155";
 		}
 
 		&.not-featured {
 			&:before {
-				font-family: "Dashicons";
 				content: "\f154";
 			}
 		}

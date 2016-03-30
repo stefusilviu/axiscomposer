@@ -119,31 +119,31 @@ label[for="axiscomposer-pagebuilder-hide"] {
 				&:before {
 					font-size: 16px;
 					vertical-align: text-bottom;
-					@include iconbefore( "\e006" );
+					@include iconbefore( "\e005" );
 				}
 			}
 
 			&.layout_options {
 				a:before {
-					content: "\e003";
+					content: "\e002";
 				}
 			}
 
 			&.content_options {
 				a:before {
-					content: "\e004";
+					content: "\e003";
 				}
 			}
 
 			&.media_options {
 				a:before {
-					content: "\e005";
+					content: "\e004";
 				}
 			}
 
 			&.plugin_options {
 				a:before {
-					content: "\e006";
+					content: "\e005";
 				}
 			}
 
@@ -358,7 +358,7 @@ label[for="axiscomposer-pagebuilder-hide"] {
 					margin-left: 3px;
 
 					&:before {
-						@include icon( "\e009" );
+						@include icon( "\e006" );
 					}
 
 					&:hover {
@@ -764,7 +764,7 @@ body .ui-draggable-dragging {
 		}
 
 		&:before {
-			@include icon( "\e00d" );
+			@include icon( "\e009" );
 			line-height: 1.5;
 		}
 	}
@@ -781,7 +781,7 @@ body .ui-draggable-dragging {
 		}
 
 		&:before {
-			@include icon( "\e00e" );
+			@include icon( "\e00a" );
 			line-height: 1.5;
 		}
 	}
@@ -1199,14 +1199,14 @@ img.help_tip {
 
 .status-enabled {
 	&:before {
-		@include icon( "\e010" );
+		@include icon_dashicons( "\f147" );
 		color: $axiscomposer;
 	}
 }
 
 .status-disabled {
 	&:before {
-		@include icon( "\e011" );
+		@include icon_dashicons( "\f335" );
 		color: #ccc;
 	}
 }

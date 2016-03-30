@@ -1,13 +1,10 @@
 <?php
-
-namespace AxisComposer\Tests\Util;
-
 /**
  * Class Log
  * @package AxisComposer\Tests\Util
  * @since   1.0.0
  */
-class Log extends \AC_Unit_Test_Case {
+class AC_Tests_Log extends AC_Unit_Test_Case {
 	public function read_content( $handle ) {
 		return file_get_contents( ac_get_log_file_path( $handle ) );
 	}
@@ -18,7 +15,7 @@ class Log extends \AC_Unit_Test_Case {
 	 * @since 1.0.0
 	 */
 	public function test_add() {
-		$log = new \AC_Logger();
+		$log = new AC_Logger();
 
 		$log->add( 'unit-tests', 'this is a message' );
 
@@ -32,7 +29,7 @@ class Log extends \AC_Unit_Test_Case {
 	 * @since 1.0.0
 	 */
 	public function test_clear() {
-		$log = new \AC_Logger();
+		$log = new AC_Logger();
 
 		$log->add( 'unit-tests', 'this is a message' );
 		$log->clear( 'unit-tests' );

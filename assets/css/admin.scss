@@ -739,14 +739,14 @@ body .ui-draggable-dragging {
 			border-left: none;
 
 			&:before {
-				@include icon( "\e00b" );
+				@include icon_dashicons( "\f341" );
 				line-height: 1.5;
 			}
 		}
 
 		&.ac-increase {
 			&:before {
-				@include icon( "\e00c" );
+				@include icon_dashicons( "\f345" );
 				line-height: 1.5;
 			}
 		}
@@ -798,7 +798,7 @@ body .ui-draggable-dragging {
 		}
 
 		&:before {
-			@include icon( "\e00a" );
+			@include icon_dashicons( "\f158" );
 			line-height: 1.5;
 		}
 	}
@@ -919,7 +919,7 @@ body .ui-draggable-dragging {
 			&:before {
 				font-size: 16px;
 				vertical-align: text-top;
-				@include iconbefore( "\e00f" );
+				@include iconbeforedashicons( "\f228" );
 			}
 
 			&:hover,
@@ -934,7 +934,7 @@ body .ui-draggable-dragging {
 
 			&.add-cell-icon {
 				&:before {
-					content: "\e00c";
+					content: "\f502";
 				}
 			}
 		}
@@ -1081,7 +1081,7 @@ table.wp-list-table {
 		margin: 0 auto;
 
 		&:before {
-			@include icon( "\e005" );
+			@include icon_dashicons( "\f128" );
 		}
 	}
 
@@ -1090,12 +1090,12 @@ table.wp-list-table {
 		cursor: pointer;
 
 		&:before {
-			content: "\e002";
+			content: "\f155";
 		}
 
 		&.not-featured {
 			&:before {
-				content: "\e002";
+				content: "\f154";
 			}
 		}
 	}
@@ -1201,6 +1201,13 @@ img.help_tip {
 	&:before {
 		@include icon( "\e010" );
 		color: $axiscomposer;
+	}
+}
+
+.status-disabled {
+	&:before {
+		@include icon( "\e011" );
+		color: #ccc;
 	}
 }
 

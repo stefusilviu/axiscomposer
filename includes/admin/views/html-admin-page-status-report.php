@@ -155,6 +155,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<td><?php echo ini_get( 'max_input_vars' ); ?></td>
 			</tr>
 			<tr>
+				<td data-export-label="CURL Version"><?php _e( 'CURL Version', 'axiscomposer' ); ?>:</td>
+				<td class="help"><?php echo ac_help_tip( __( 'The version of CURL installed on your server.', 'axiscomposer' ) ); ?></td>
+				<td><?php
+					if ( function_exists( 'curl_version' ) ) {
+						$curl_version = curl_version();
+						echo $curl_version['version'] . ', ' . $curl_version['ssl_version'];
+					} else {
+						_e( 'N/A', 'axiscomposer' );
+					}
+				  ?></td>
+			</tr>
+			<tr>
 				<td data-export-label="SUHOSIN Installed"><?php _e( 'SUHOSIN Installed', 'axiscomposer' ); ?>:</td>
 				<td class="help"><?php echo ac_help_tip( __( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'axiscomposer' ) ); ?></td>
 				<td><?php echo extension_loaded( 'suhosin' ) ? '<span class="dashicons dashicons-yes"></span>' : '&ndash;'; ?></td>
@@ -211,9 +223,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$posting['wp_remote_post']['help'] = ac_help_tip( __( 'AxisComposer plugins may uses this method of communication when sending back information.', 'axiscomposer' ) );
 
 			$response = wp_safe_remote_post( 'https://www.paypal.com/cgi-bin/webscr', array(
-				'timeout'    => 60,
-				'user-agent' => 'AxisComposer/' . AC()->version,
-				'body'       => array(
+				'timeout'     => 60,
+				'user-agent'  => 'AxisComposer/' . AC()->version,
+				'httpversion' => '1.1',
+				'body'        => array(
 					'cmd'    => '_notify-validate'
 				)
 			) );

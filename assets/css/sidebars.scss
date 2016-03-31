@@ -40,7 +40,7 @@
 	@include position(absolute, 15px 45px null null);
 
 	&:before {
-		@include iconbefore( "\e009" );
+		@include iconbefore( "\e006" );
 		font-size: 16px;
 		margin-right: 0;
 	}

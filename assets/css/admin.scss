@@ -1224,8 +1224,13 @@ img.help_tip {
 }
 
 .axiscomposer {
+
+	h2.axis-nav-tab-wrapper {
+		margin-bottom: 1em;
+	}
+
 	nav.axis-nav-tab-wrapper {
-		margin: 1.5em 0 1em !important;
+		margin: 1.5em 0 1em;
 		border-bottom: 1px solid #ccc;
 	}
 

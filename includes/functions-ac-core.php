@@ -243,3 +243,19 @@ function ac_get_layout_supported_screens() {
 function ac_back_link( $label, $url ) {
 	echo '<small class="ac-admin-breadcrumb"><a href="' . esc_url( $url ) . '" title="' . esc_attr( $label ) . '">&#x21a9;</a></small>';
 }
+
+/**
+ * Display a AxisComposer help tip.
+ * @param  string $tip        Help tip text
+ * @param  bool   $allow_html Allow sanitized HTML if true or escape
+ * @return string
+ */
+function ac_help_tip( $tip, $allow_html = false ) {
+	if ( $allow_html ) {
+		$tip = ac_sanitize_tooltip( $tip );
+	} else {
+		$tip = esc_attr( $tip );
+	}
+
+	return '<span class="axiscomposer-help-tip" data-tip="' . $tip . '"></span>';
+}

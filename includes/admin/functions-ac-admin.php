@@ -35,22 +35,6 @@ function ac_get_screen_ids() {
 }
 
 /**
- * Display a AxisComposer help tip.
- * @param  string $tip        Help tip text
- * @param  bool   $allow_html Allow sanitized HTML if true or escape
- * @return string
- */
-function ac_help_tip( $tip, $allow_html = false ) {
-	if ( $allow_html ) {
-		$tip = ac_sanitize_tooltip( $tip );
-	} else {
-		$tip = esc_attr( $tip );
-	}
-
-	return '<span class="axiscomposer-help-tip" data-tip="' . $tip . '"></span>';
-}
-
-/**
  * Output admin fields.
  * @param array $options
  */

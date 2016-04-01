@@ -89,7 +89,7 @@ class AC_Sidebars {
 	 * Add a sidebar if the POST variable is set.
 	 */
 	public function add_custom_sidebars() {
-		if ( isset( $_POST['axiscomposer-add-sidebar'] ) && isset( $_POST['_ac_sidebar_nonce'] ) ) {
+		if ( ! empty( $_POST['axiscomposer-add-sidebar'] ) && isset( $_POST['_ac_sidebar_nonce'] ) ) {
 			if ( ! wp_verify_nonce( $_POST['_ac_sidebar_nonce'], 'axiscomposer_add_sidebar' ) ) {
 				wp_die( __( 'Action failed. Please refresh the page and retry.', 'axiscomposer' ) );
 			}

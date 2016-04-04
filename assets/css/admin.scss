@@ -117,33 +117,35 @@ label[for="axiscomposer-pagebuilder-hide"] {
 				line-height: 20px !important;
 
 				&:before {
-					font-size: 16px;
+					@include iconbeforedashicons( "\f237" );
+					font-size: 20px;
+					line-height: .8em;
+					margin-right: .3em;
 					vertical-align: text-bottom;
-					@include iconbefore( "\e005" );
 				}
 			}
 
 			&.layout_options {
 				a:before {
-					content: "\e002";
+					content: "\f510";
 				}
 			}
 
 			&.content_options {
 				a:before {
-					content: "\e003";
+					content: "\f217";
 				}
 			}
 
 			&.media_options {
 				a:before {
-					content: "\e004";
+					content: "\f126";
 				}
 			}
 
 			&.plugin_options {
 				a:before {
-					content: "\e005";
+					content: "\f106";
 				}
 			}
 

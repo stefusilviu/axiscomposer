@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2016-03-26 10:08:04+00:00\n"
+"POT-Creation-Date: 2016-04-06 05:14:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Generator: grunt-wp-i18n 0.5.3\n"
 
 #: axiscomposer.php:77 axiscomposer.php:85
 #: includes/admin/class-ac-admin-notices.php:96
@@ -44,12 +44,12 @@ msgstr ""
 msgid "Plugin Additions"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-settings-api.php:597
+#: includes/abstracts/abstract-ac-settings-api.php:613
 #: includes/admin/class-ac-admin-settings.php:516
 msgid "Select all"
 msgstr ""
 
-#: includes/abstracts/abstract-ac-settings-api.php:597
+#: includes/abstracts/abstract-ac-settings-api.php:613
 #: includes/admin/class-ac-admin-settings.php:516
 msgid "Select none"
 msgstr ""
@@ -241,7 +241,7 @@ msgid "AxisComposer Settings"
 msgstr ""
 
 #: includes/admin/class-ac-admin-menus.php:67
-#: includes/admin/views/html-admin-page-status-report.php:370
+#: includes/admin/views/html-admin-page-status-report.php:383
 #: includes/class-ac-install.php:364
 msgid "Settings"
 msgstr ""
@@ -899,7 +899,7 @@ msgid "%s - We recommend a minimum PHP version of 5.6. See: %s"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:132
-#: includes/admin/views/html-admin-page-status-report.php:172
+#: includes/admin/views/html-admin-page-status-report.php:184
 msgid "WordPress Requirements"
 msgstr ""
 
@@ -936,10 +936,22 @@ msgid ""
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:158
-msgid "SUHOSIN Installed"
+msgid "CURL Version"
 msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:159
+msgid "The version of CURL installed on your server."
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:165
+msgid "N/A"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:170
+msgid "SUHOSIN Installed"
+msgstr ""
+
+#: includes/admin/views/html-admin-page-status-report.php:171
 msgid ""
 "Suhosin is an advanced protection system for PHP installations. It was "
 "designed to protect your servers on the one hand against a number of well "
@@ -949,219 +961,219 @@ msgid ""
 "its data submission limits."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:164
+#: includes/admin/views/html-admin-page-status-report.php:176
 msgid "MySQL Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:165
+#: includes/admin/views/html-admin-page-status-report.php:177
 msgid "The version of MySQL installed on your hosting server."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:172
+#: includes/admin/views/html-admin-page-status-report.php:184
 msgid "%s - We recommend a minimum MySQL version of 5.6. See: %s"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:179
+#: includes/admin/views/html-admin-page-status-report.php:191
 msgid "Max Upload Size"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:180
+#: includes/admin/views/html-admin-page-status-report.php:192
 msgid "The largest filesize that can be uploaded to your WordPress installation."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:184
+#: includes/admin/views/html-admin-page-status-report.php:196
 msgid "Default Timezone is UTC"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:185
+#: includes/admin/views/html-admin-page-status-report.php:197
 msgid "The default timezone for your server."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:189
+#: includes/admin/views/html-admin-page-status-report.php:201
 msgid "Default timezone is %s - it should be UTC"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:200
+#: includes/admin/views/html-admin-page-status-report.php:212
 msgid ""
 "Multibyte String (mbstring) is used to convert character encoding, like for "
 "emails or converting characters to lowercase."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:206
+#: includes/admin/views/html-admin-page-status-report.php:218
 msgid ""
 "Your server does not support the %s functions - this is required for better "
 "character encoding. Some fallbacks will be used instead for it."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:210
+#: includes/admin/views/html-admin-page-status-report.php:222
 msgid "Remote Post"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:211
+#: includes/admin/views/html-admin-page-status-report.php:223
 msgid ""
 "AxisComposer plugins may uses this method of communication when sending "
 "back information."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:224
+#: includes/admin/views/html-admin-page-status-report.php:237
 msgid "wp_safe_remote_post() failed. Contact your hosting provider."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:226
-#: includes/admin/views/html-admin-page-status-report.php:244
+#: includes/admin/views/html-admin-page-status-report.php:239
+#: includes/admin/views/html-admin-page-status-report.php:257
 msgid "Error: %s"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:228
-#: includes/admin/views/html-admin-page-status-report.php:246
+#: includes/admin/views/html-admin-page-status-report.php:241
+#: includes/admin/views/html-admin-page-status-report.php:259
 msgid "Status code: %s"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:234
+#: includes/admin/views/html-admin-page-status-report.php:247
 msgid "Remote Get"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:235
+#: includes/admin/views/html-admin-page-status-report.php:248
 msgid ""
 "AxisComposer plugins may use this method of communication when checking for "
 "plugin updates."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:242
+#: includes/admin/views/html-admin-page-status-report.php:255
 msgid ""
 "wp_safe_remote_get() failed. The AxisComposer plugin updater won't work "
 "with your server. Contact your hosting provider."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:273
+#: includes/admin/views/html-admin-page-status-report.php:286
 msgid "Database"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:278
+#: includes/admin/views/html-admin-page-status-report.php:291
 msgid "AC Database Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:279
+#: includes/admin/views/html-admin-page-status-report.php:292
 msgid ""
 "The version of AxisComposer that the database is formatted for. This should "
 "be the same as your AxisComposer Version."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:290
+#: includes/admin/views/html-admin-page-status-report.php:303
 msgid "Table does not exist"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:300
+#: includes/admin/views/html-admin-page-status-report.php:313
 msgid "Active Plugins"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:324
+#: includes/admin/views/html-admin-page-status-report.php:337
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:352
+#: includes/admin/views/html-admin-page-status-report.php:365
 msgid "Network enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:375
+#: includes/admin/views/html-admin-page-status-report.php:388
 msgid "TinyMCE Enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:376
+#: includes/admin/views/html-admin-page-status-report.php:389
 msgid "Does your site have tinyMCE enabled?"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:380
+#: includes/admin/views/html-admin-page-status-report.php:393
 msgid "Sidebar Builder Enabled"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:381
+#: includes/admin/views/html-admin-page-status-report.php:394
 msgid "Does your site have Sidebar Builder enabled?"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:389
+#: includes/admin/views/html-admin-page-status-report.php:402
 msgid "Theme"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:399
+#: includes/admin/views/html-admin-page-status-report.php:412
 msgid "Name"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:400
+#: includes/admin/views/html-admin-page-status-report.php:413
 msgid "The name of the current active theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:404
+#: includes/admin/views/html-admin-page-status-report.php:417
 msgid "Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:405
+#: includes/admin/views/html-admin-page-status-report.php:418
 msgid "The installed version of the current active theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:410
-#: includes/admin/views/html-admin-page-status-report.php:443
+#: includes/admin/views/html-admin-page-status-report.php:423
+#: includes/admin/views/html-admin-page-status-report.php:456
 msgid "%s is available"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:415
+#: includes/admin/views/html-admin-page-status-report.php:428
 msgid "Author URL"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:416
+#: includes/admin/views/html-admin-page-status-report.php:429
 msgid "The theme developers URL."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:420
+#: includes/admin/views/html-admin-page-status-report.php:433
 msgid "Child Theme"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:421
+#: includes/admin/views/html-admin-page-status-report.php:434
 msgid "Displays whether or not the current theme is a child theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:423
+#: includes/admin/views/html-admin-page-status-report.php:436
 msgid ""
 "If you're modifying AxisComposer on a parent theme you didn't build "
 "personally, then we recommend using a child theme. See: <a href=\"%s\" "
 "target=\"_blank\">How to create a child theme</a>"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:432
+#: includes/admin/views/html-admin-page-status-report.php:445
 msgid "Parent Theme Name"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:433
+#: includes/admin/views/html-admin-page-status-report.php:446
 msgid "The name of the parent theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:437
+#: includes/admin/views/html-admin-page-status-report.php:450
 msgid "Parent Theme Version"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:438
+#: includes/admin/views/html-admin-page-status-report.php:451
 msgid "The installed version of the parent theme."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:448
+#: includes/admin/views/html-admin-page-status-report.php:461
 msgid "Parent Theme Author URL"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:449
+#: includes/admin/views/html-admin-page-status-report.php:462
 msgid "The parent theme developers URL."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:454
+#: includes/admin/views/html-admin-page-status-report.php:467
 msgid "AxisComposer Support"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:455
+#: includes/admin/views/html-admin-page-status-report.php:468
 msgid ""
 "Displays whether or not the current active theme declares AxisComposer "
 "support."
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:458
+#: includes/admin/views/html-admin-page-status-report.php:471
 msgid "Not Declared"
 msgstr ""
 
@@ -2784,12 +2796,12 @@ msgctxt "default-slug"
 msgid "portfolio"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:348
+#: includes/admin/views/html-admin-page-status-report.php:361
 msgctxt "Version info"
 msgid "%s is available"
 msgstr ""
 
-#: includes/admin/views/html-admin-page-status-report.php:360
+#: includes/admin/views/html-admin-page-status-report.php:373
 msgctxt "by author"
 msgid "by %s"
 msgstr ""

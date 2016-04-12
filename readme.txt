@@ -1,8 +1,8 @@
 === AxisComposer ===
 Contributors: axisthemes, shivapoudel
 Tags: builder, page builder, layouts, page layouts, sidebar builder, widgets, extensible
-Requires at least: 4.2
-Tested up to: 4.4
+Requires at least: 4.4
+Tested up to: 4.5
 Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

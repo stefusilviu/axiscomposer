@@ -44,28 +44,6 @@
 		});
 	});
 
-	// Sorting
-	$( 'table.ac_iconfonts tbody' ).sortable({
-		items: 'tr',
-		cursor: 'move',
-		axis: 'y',
-		handle: 'td.sort',
-		scrollSensitivity: 40,
-		helper: function( event, ui ) {
-			ui.children().each( function() {
-				$( this ).width( $( this ).width() );
-			});
-			ui.css( 'left', '0' );
-			return ui;
-		},
-		start: function( event, ui ) {
-			ui.item.css( 'background-color', '#f6f6f6' );
-		},
-		stop: function( event, ui ) {
-			ui.item.removeAttr( 'style' );
-		}
-	});
-
 	// Select all/none
 	$( '.axiscomposer' ).on( 'click', '.select_all', function() {
 		$( this ).closest( 'td' ).find( 'select option' ).attr( 'selected', 'selected' );

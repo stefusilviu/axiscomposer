@@ -32,7 +32,7 @@ jQuery( function ( $ ) {
 		})
 
 		.on( 'ac_remove_error_tip', function( e, element, error_type ) {
-			element.parent().find( '.wc_error_tip.' + error_type ).fadeOut( '100', function() { $( this ).remove(); } );
+			element.parent().find( '.ac_error_tip.' + error_type ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
 
 		.on( 'click', function() {

@@ -106,4 +106,4 @@ Yes you can! Join in on our [GitHub repository](http://github.com/axisthemes/axi
 == Upgrade Notice ==
 
 = 1.0.0 =
-1.0.0 is a major update so it is important that you make backups, and ensure themes and extensions are 1.0 compatible. Developers should catch up with [the development blog](https://axiscomposer.wordpress.com/) to see what has been happening in core.
+1.0.0 is a major update so it is important that you make backups, and ensure themes and extensions are 1.0 compatible before upgrading. Developers should catch up with [the development blog](https://axiscomposer.wordpress.com/) to see what has been happening in core.

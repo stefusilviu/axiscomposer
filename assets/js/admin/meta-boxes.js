@@ -18,6 +18,7 @@ jQuery( function ( $ ) {
 
 	// Field validation error tips
 	$( document.body )
+
 		.on( 'ac_add_error_tip', function( e, element, error_type ) {
 			var offset = element.position();
 
@@ -29,37 +30,54 @@ jQuery( function ( $ ) {
 					.fadeIn( '100' );
 			}
 		})
+
 		.on( 'ac_remove_error_tip', function( e, element, error_type ) {
-			element.parent().find( '.ac_error_tip.' + error_type ).remove();
+			element.parent().find( '.ac_error_tip.' + error_type ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
+
 		.on( 'click', function() {
 			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
+
 		.on( 'blur', '.ac_input_css[type=text], ac_input_gist[type=text]', function() {
 			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
-		.on( 'keyup change', '.ac_input_css[type=text]', function() {
+
+		.on( 'change', '.ac_input_css[type=text], .ac_input_gist[type=text]', function() {
+			var regex;
+
+			if ( $( this ).is( '.ac_input_css' ) ) {
+				regex = new RegExp( '[^A-Za-z0-9_-]+', 'gi' );
+			} else {
+				regex = new RegExp( '[^A-Za-z0-9]+', 'gi' );
+			}
+
 			var value    = $( this ).val();
-			var regex    = new RegExp( '[^A-Za-z0-9_-]+', 'gi' );
 			var newvalue = value.replace( regex, '' );
 
 			if ( value !== newvalue ) {
 				$( this ).val( newvalue );
-				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), 'i18n_css_error' ] );
-			} else {
-				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_css_error' ] );
 			}
 		})
-		.on( 'keyup change', '.ac_input_gist[type=text]', function() {
+
+		.on( 'keyup', '.ac_input_css[type=text], .ac_input_gist[type=text]', function() {
+			var regex, error;
+
+			if ( $( this ).is( '.ac_input_css' ) ) {
+				regex = new RegExp( '[^A-Za-z0-9_-]+', 'gi' );
+				error = 'i18n_css_error';
+			} else {
+				regex = new RegExp( '[^A-Za-z0-9]+', 'gi' );
+				error = 'i18n_gist_error';
+			}
+
 			var value    = $( this ).val();
-			var regex    = new RegExp( '[^A-Za-z0-9]+', 'gi' );
 			var newvalue = value.replace( regex, '' );
 
 			if ( value !== newvalue ) {
-				$( this ).val( newvalue );
-				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), 'i18n_gist_error' ] );
+				$( document.body ).triggerHandler( 'ac_add_error_tip', [ $( this ), error ] );
 			} else {
-				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), 'i18n_gist_error' ] );
+				$( document.body ).triggerHandler( 'ac_remove_error_tip', [ $( this ), error ] );
 			}
 		});
 

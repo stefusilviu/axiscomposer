@@ -72,6 +72,7 @@ class AC_Admin_Notices {
 	public static function remove_notice( $name ) {
 		$notices = array_diff( get_option( 'axiscomposer_admin_notices', array() ), array( $name ) );
 		update_option( 'axiscomposer_admin_notices', $notices );
+		delete_option( 'axiscomposer_admin_notice_' . $name );
 	}
 
 	/**
@@ -113,6 +114,37 @@ class AC_Admin_Notices {
 			foreach ( $notices as $notice ) {
 				if ( ! empty( $this->core_notices[ $notice ] ) && apply_filters( 'axiscomposer_show_admin_notice', true, $notice ) ) {
 					add_action( 'admin_notices', array( $this, $this->core_notices[ $notice ] ) );
+				} else {
+					add_action( 'admin_notices', array( $this, 'output_custom_notices' ) );
+				}
+			}
+		}
+	}
+
+	/**
+	 * Add a custom notice.
+	 * @param string $name
+	 * @param string $notice_html
+	 */
+	public static function add_custom_notice( $name, $notice_html ) {
+		self::add_notice( $name );
+		update_option( 'axiscomposer_admin_notice_' . $name, wp_kses_post( $notice_html ) );
+	}
+
+	/**
+	 * Output any stored custom notices.
+	 */
+	public function output_custom_notices() {
+		$notices = get_option( 'axiscomposer_admin_notices', array() );
+
+		if ( $notices ) {
+			foreach ( $notices as $notice ) {
+				if ( empty( $this->core_notices[ $notice ] ) ) {
+					$notice_html = get_option( 'axiscomposer_admin_notice_' . $notice );
+
+					if ( $notice_html ) {
+						include( 'views/html-notice-custom.php' );
+					}
 				}
 			}
 		}

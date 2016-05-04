@@ -316,7 +316,7 @@ class AC_Install {
 			$response = wp_safe_remote_get( 'https://plugins.svn.wordpress.org/axiscomposer/trunk/readme.txt' );
 
 			if ( ! is_wp_error( $response ) && ! empty( $response['body'] ) ) {
-				$upgrade_notice = self::parse_update_notice( $response['body'] );
+				$upgrade_notice = self::parse_update_notice( $response['body'], $args['new_version'] );
 				set_transient( $transient_name, $upgrade_notice, DAY_IN_SECONDS );
 			}
 		}
@@ -327,10 +327,11 @@ class AC_Install {
 	/**
 	 * Parse update notice from readme file.
 	 * @param  string $content
+	 * @param  string $new_version
 	 * @return string
 	 */
-	private static function parse_update_notice( $content ) {
-		// Output Upgrade Notice
+	private static function parse_update_notice( $content, $new_version ) {
+		// Output Upgrade Notice.
 		$matches        = null;
 		$regexp         = '~==\s*Upgrade Notice\s*==\s*=\s*(.*)\s*=(.*)(=\s*' . preg_quote( AC_VERSION ) . '\s*=|$)~Uis';
 		$upgrade_notice = '';
@@ -339,7 +340,8 @@ class AC_Install {
 			$version = trim( $matches[1] );
 			$notices = (array) preg_split('~[\r\n]+~', trim( $matches[2] ) );
 
-			if ( version_compare( AC_VERSION, $version, '<' ) ) {
+			// Check the latest stable version and ignore trunk.
+			if ( $version === $new_version && version_compare( AC_VERSION, $version, '<' ) ) {
 
 				$upgrade_notice .= '<div class="ac_plugin_upgrade_notice">';
 

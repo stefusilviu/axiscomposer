@@ -1,6 +1,20 @@
 /* global axiscomposer_settings_params */
 ( function( $ ) {
 
+	// Allowed Screens
+	$( 'select#axiscomposer_allowed_screens' ).change( function() {
+		if ( 'specific' === $( this ).val() ) {
+			$( this ).closest( 'tr' ).next( 'tr' ).hide();
+			$( this ).closest( 'tr' ).next().next( 'tr' ).show();
+		} else if ( 'all_except' === $( this ).val() ) {
+			$( this ).closest( 'tr' ).next( 'tr' ).show();
+			$( this ).closest( 'tr' ).next().next( 'tr' ).hide();
+		} else {
+			$( this ).closest( 'tr' ).next( 'tr' ).hide();
+			$( this ).closest( 'tr' ).next().next( 'tr' ).hide();
+		}
+	}).change();
+
 	// Color picker
 	$( '.colorpick' ).iris({
 		change: function( event, ui ) {

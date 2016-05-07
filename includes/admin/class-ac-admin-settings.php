@@ -505,7 +505,7 @@ class AC_Admin_Settings {
 							<?php echo $tooltip_html; ?>
 						</th>
 						<td class="forminp">
-							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose some screens&hellip;', 'axiscomposer' ); ?>" title="<?php esc_attr_e( 'Screen', 'axiscomposer' ) ?>" class="ac-enhanced-select">
+							<select multiple="multiple" name="<?php echo esc_attr( $value['id'] ); ?>[]" style="width:350px" data-placeholder="<?php esc_attr_e( 'Choose screens&hellip;', 'axiscomposer' ); ?>" title="<?php esc_attr_e( 'Screen', 'axiscomposer' ) ?>" class="ac-enhanced-select">
 								<?php
 									if ( ! empty( $screens ) ) {
 										foreach ( $screens as $key => $val ) {

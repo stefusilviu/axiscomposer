@@ -54,13 +54,23 @@ class AC_Settings_General extends AC_Settings_Page {
 				'id'       => 'axiscomposer_allowed_screens',
 				'default'  => 'all',
 				'type'     => 'select',
-				'class'    => 'availability ac-enhanced-select',
+				'class'    => 'ac-enhanced-select',
 				'css'      => 'min-width: 350px;',
 				'desc_tip' =>  true,
 				'options'  => array(
-					'all'      => __( 'Enable to all screens', 'axiscomposer' ),
-					'specific' => __( 'Enable to specific screens only', 'axiscomposer' )
+					'all'        => __( 'Enable to All Screens', 'axiscomposer' ),
+					'all_except' => __( 'Enable to All Screens, Except For&hellip;', 'axiscomposer' ),
+					'specific'   => __( 'Enable to Specific Screens', 'axiscomposer' )
 				)
+			),
+
+			array(
+				'title'   => __( 'Allow All Screens, Except For&hellip;', 'axiscomposer' ),
+				'desc'    => '',
+				'id'      => 'axiscomposer_all_except_screens',
+				'css'     => 'min-width: 350px;',
+				'default' => '',
+				'type'    => 'multi_select_screens'
 			),
 
 			array(

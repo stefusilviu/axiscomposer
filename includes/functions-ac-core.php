@@ -164,18 +164,19 @@ function ac_get_sidebars( $sidebars = array() ) {
  */
 function ac_get_screen_types() {
 	global $wp_post_types;
+
 	$post_types   = get_post_types( array( 'public' => true, 'show_in_menu' => true, '_builtin' => false ), 'names' );
 	$screen_types = apply_filters( 'axiscomposer_screens_types', array(
 		'post' => __( 'Post', 'axiscomposer' ),
 		'page' => __( 'Page', 'axiscomposer' )
 	) );
 
-	// Fetch Public Custom Post Types
+	// Fetch Public Custom Post Types.
 	foreach ( $post_types as $post_type ) {
 		$screen_types[ $post_type ] = $wp_post_types[ $post_type ]->labels->menu_name;
 	}
 
-	// Sort screens
+	// Sort screens.
 	if ( apply_filters( 'axiscomposer_sort_screens', true ) ) {
 		asort( $screen_types );
 	}
@@ -184,19 +185,37 @@ function ac_get_screen_types() {
 }
 
 /**
- * Get allowed specific Custom Post Types Screen.
+ * Get the allowed Custom Post Types Screen.
  * @return array
  */
 function ac_get_allowed_screen_types() {
-	if ( get_option( 'axiscomposer_allowed_screens' ) !== 'specific' ) {
-		return array_keys( ac_get_screen_types() );
+	$screen_types = ac_get_screen_types();
+
+	if ( 'all' === get_option( 'axiscomposer_allowed_screens' ) ) {
+		return array_keys( $screen_types );
 	}
 
-	$screens    = array();
-	$post_types = get_option( 'axiscomposer_specific_allowed_screens' );
+	if ( 'all_except' === get_option( 'axiscomposer_allowed_screens' ) ) {
+		$except_screens = get_option( 'axiscomposer_all_except_screens', array() );
 
-	foreach ( $post_types as $key => $post_type ) {
-		$screens[ $key ] = $post_type;
+		if ( ! $except_screens ) {
+			return array_keys( $screen_types );
+		} else {
+			$all_except_screens = $screen_types;
+			foreach( $except_screens as $screen ) {
+				unset( $all_except_screens[ $screen ] );
+			}
+			return apply_filters( 'axiscomposer_allowed_screen_types', array_keys( $all_except_screens ) );
+		}
+	}
+
+	$screens     = array();
+	$raw_screens = get_option( 'axiscomposer_specific_allowed_screens', array() );
+
+	if ( $raw_screens ) {
+		foreach ( $raw_screens as $key => $screen ) {
+			$screens[ $key ] = $screen;
+		}
 	}
 
 	return apply_filters( 'axiscomposer_allowed_screen_types', $screens );

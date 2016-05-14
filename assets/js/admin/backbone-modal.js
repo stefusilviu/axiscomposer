@@ -53,27 +53,11 @@
 		_string: undefined,
 		events: {
 			'click .modal-close': 'closeButton',
-			'click #btn-ok':      'addButton',
+			'click #btn-ok'     : 'addButton',
 			'touchstart #btn-ok': 'addButton',
-			'keydown':            'keyboardActions'
+			'keydown'           : 'keyboardActions'
 		},
-		initialize: function( data ) {
-			this._target = data.target;
-			this._string = data.string;
-			_.bindAll( this, 'render' );
-			this.render();
-		},
-		render: function() {
-			var template = wp.template( this._target );
-
-			this.$el.attr( 'tabindex', '0' ).append(
-				template( this._string )
-			);
-
-			$( document.body ).css({
-				'overflow': 'hidden'
-			}).append( this.$el );
-
+		resizeContent: function() {
 			var $content  = $( '.ac-backbone-modal-content' ).find( 'article' );
 			var content_h = ( $content.height() < 90 ) ? 90 : $content.height();
 			var max_h     = $( window ).height() - 200;
@@ -98,6 +82,25 @@
 				'margin-top': '-' + ( $( '.ac-backbone-modal-content' ).height() / 2 ) + 'px',
 				'margin-left': '-' + ( $( '.ac-backbone-modal-content' ).width() / 2 ) + 'px'
 			});
+		},
+		initialize: function( data ) {
+			this._target = data.target;
+			this._string = data.string;
+			_.bindAll( this, 'render' );
+			this.render();
+		},
+		render: function() {
+			var template = wp.template( this._target );
+
+			this.$el.attr( 'tabindex', '0' ).append(
+				template( this._string )
+			);
+
+			$( document.body ).css({
+				'overflow': 'hidden'
+			}).append( this.$el );
+
+			this.resizeContent();
 
 			$( document.body ).trigger( 'ac_backbone_modal_loaded', this._target );
 		},

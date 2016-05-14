@@ -8,11 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $current_tab = ! empty( $_REQUEST['tab'] ) ? sanitize_title( $_REQUEST['tab'] ) : 'status';
-$tabs        = array(
+$tabs        = apply_filters( 'axiscomposer_admin_status_tabs', array(
 	'status' => __( 'System Status', 'axiscomposer' ),
 	'tools'  => __( 'Tools', 'axiscomposer' ),
 	'logs'   => __( 'Logs', 'axiscomposer' )
-);
+) );
 
 ?>
 <div class="wrap axiscomposer">
@@ -28,14 +28,18 @@ $tabs        = array(
 	<h1 class="screen-reader-text"><?php echo esc_html( $tabs[ $current_tab ] ); ?></h1>
 	<?php
 		switch ( $current_tab ) {
-			case "tools" :
+			case 'tools' :
 				AC_Admin_Status::status_tools();
 			break;
-			case "logs" :
+			case 'logs' :
 				AC_Admin_Status::status_logs();
 			break;
 			default :
-				AC_Admin_Status::status_report();
+				if ( array_key_exists( $current_tab, $tabs ) && has_action( 'axiscomposer_admin_status_content_' . $current_tab ) ) {
+					do_action( 'axiscomposer_admin_status_content_' . $current_tab );
+				} else {
+					AC_Admin_Status::status_report();
+				}
 			break;
 		}
 	?>

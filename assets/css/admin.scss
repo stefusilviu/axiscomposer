@@ -23,13 +23,6 @@
 }
 
 /**
- * Animation Styles
- */
-.modal-animation {
-	@include animation( modal .3s $ease-out-back );
-}
-
-/**
  * Toggle Editor Button
  */
 .axiscomposer-toggle-editor {

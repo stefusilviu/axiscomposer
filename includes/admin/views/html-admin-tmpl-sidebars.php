@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <script type="text/template" id="tmpl-axiscomposer-modal-delete-sidebar">
 	<div class="ac-backbone-modal">
-		<div class="ac-backbone-modal-content modal-animation">
+		<div class="ac-backbone-modal-content">
 			<section class="ac-backbone-modal-main" role="main">
 				<header class="ac-backbone-modal-header">
 					<h1><?php _e( 'Last warning, are you sure?', 'axiscomposer' ); ?></h1>

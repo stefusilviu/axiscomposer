@@ -24,11 +24,15 @@
 
 	.ac-backbone-modal-content {
 		position: fixed;
-		top: 50%;
-		left: 50%;
-		width: 500px;
 		background: #fff;
 		z-index: 100000;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 500px;
+		article {
+			overflow: auto;
+		}
 	}
 
 	.high-screen,

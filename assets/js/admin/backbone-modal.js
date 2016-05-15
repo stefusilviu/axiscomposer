@@ -59,28 +59,10 @@
 		},
 		resizeContent: function() {
 			var $content  = $( '.ac-backbone-modal-content' ).find( 'article' );
-			var content_h = ( $content.height() < 90 ) ? 90 : $content.height();
-			var max_h     = $( window ).height() - 200;
+			var max_h     = $( window ).height() * 0.75;
 
-			if ( max_h > 400 ) {
-				max_h = 400;
-			}
-
-			if ( content_h > max_h ) {
-				$content.css({
-					'overflow': 'auto',
-					height: max_h + 'px'
-				});
-			} else {
-				$content.css({
-					'overflow': 'visible',
-					height: ( content_h > 90 ) ? 'auto' : content_h + 'px'
-				});
-			}
-
-			$( '.ac-backbone-modal-content' ).css({
-				'margin-top': '-' + ( $( '.ac-backbone-modal-content' ).height() / 2 ) + 'px',
-				'margin-left': '-' + ( $( '.ac-backbone-modal-content' ).width() / 2 ) + 'px'
+			$content.css({
+				'max-height': max_h + 'px'
 			});
 		},
 		initialize: function( data ) {

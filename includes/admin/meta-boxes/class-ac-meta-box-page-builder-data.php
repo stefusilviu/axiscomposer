@@ -145,17 +145,17 @@ class AC_Meta_Box_Page_Builder_Data {
 			'trash' => array(
 				'tmpl'   => 'trash-data',
 				'button' => __( 'Delete', 'axiscomposer' ),
-				'class'  => array( 'modal-animation' )
+				'class'  => array()
 			),
 			'cell' => array(
 				'tmpl'   => 'cell-size',
 				'button' => __( 'Add', 'axiscomposer' ),
-				'class'  => array( 'modal-animation' )
+				'class'  => array()
 			),
 			'edit' => array(
 				'tmpl' => 'edit-element',
 				'button' => __( 'Save', 'axiscomposer' ),
-				'class'  => array( 'axiscomposer', 'modal-animation', 'normal-screen' )
+				'class'  => array( 'axiscomposer', 'normal-screen' )
 			)
 		) );
 

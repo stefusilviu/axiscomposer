@@ -8,16 +8,11 @@
  */
 @import "bourbon";
 @import "mixins";
-@import "animation";
 @import "modal";
 
 /**
  * Styling begins
  */
-.modal-animation {
-	@include animation( modal .3s $ease-out-back );
-}
-
 .axiscomposer-add-sidebar {
 	padding: 10px;
 	text-align: center;

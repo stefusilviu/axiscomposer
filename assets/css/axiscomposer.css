@@ -1,1 +1,100 @@
-@-webkit-keyframes spin{100%{-webkit-transform:rotate(360deg)}}@-moz-keyframes spin{100%{-moz-transform:rotate(360deg)}}@keyframes spin{100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes modal{from{-webkit-transform:scale(.7)}to{-webkit-transform:scale(1)}}@-moz-keyframes modal{from{-moz-transform:scale(.7)}to{-moz-transform:scale(1)}}@keyframes modal{from{-webkit-transform:scale(.7);-moz-transform:scale(.7);-ms-transform:scale(.7);-o-transform:scale(.7);transform:scale(.7)}to{-webkit-transform:scale(1);-moz-transform:scale(1);-ms-transform:scale(1);-o-transform:scale(1);transform:scale(1)}}@font-face{font-family:AxisComposer;src:url(../fonts/AxisComposer.eot);src:url(../fonts/AxisComposer.eot?#iefix) format("embedded-opentype"),url(../fonts/AxisComposer.woff) format("woff"),url(../fonts/AxisComposer.ttf) format("truetype"),url(../fonts/AxisComposer.svg#AxisComposer) format("svg");font-weight:400;font-style:normal}.clear{clear:both}.ac-left{text-align:left}.ac-right{text-align:right}.ac-center{text-align:center}.ac-textblock{clear:both;line-height:1.5em}.ac-special-heading .ac-special-heading-tag,.ac-special-heading .ac-subheading{margin:0}
+/**
+ * axiscomposer.scss
+ * Governs the general look and feel of AxisComposer sections of shortcodes using themes that do not
+ * integrate with AxisComposer specifically.
+ */
+/**
+ * Imports
+ */
+/**
+ * _mixins.scss
+ * AxisComposer Mixins
+ */
+/**
+ * Objects
+ */
+/**
+ * _variables.scss
+ * AxisComposer CSS Variables
+ */
+/**
+ * _animation.scss
+ * Custom AxisComposer Animations.
+ */
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@-webkit-keyframes modal {
+  from {
+    -webkit-transform: scale(0.7); }
+  to {
+    -webkit-transform: scale(1); } }
+@-moz-keyframes modal {
+  from {
+    -moz-transform: scale(0.7); }
+  to {
+    -moz-transform: scale(1); } }
+@keyframes modal {
+  from {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    transform: scale(0.7); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+/**
+ * _fonts.scss
+ * Custom AxisComposer fonts.
+ */
+@font-face {
+  font-family: 'AxisComposer';
+  src: url("../fonts/AxisComposer.eot");
+  src: url("../fonts/AxisComposer.eot?#iefix") format("embedded-opentype"), url("../fonts/AxisComposer.woff") format("woff"), url("../fonts/AxisComposer.ttf") format("truetype"), url("../fonts/AxisComposer.svg#AxisComposer") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/**
+ * Utility classes
+ */
+.clear {
+  clear: both; }
+
+/**
+ * Align Styles
+ */
+.ac-left {
+  text-align: left; }
+
+.ac-right {
+  text-align: right; }
+
+.ac-center {
+  text-align: center; }
+
+/**
+ * Text Block
+ */
+.ac-textblock {
+  clear: both;
+  line-height: 1.5em; }
+
+/**
+ * Special Heading
+ */
+.ac-special-heading .ac-subheading,
+.ac-special-heading .ac-special-heading-tag {
+  margin: 0; }

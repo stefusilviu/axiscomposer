@@ -84,10 +84,15 @@
 			});
 		},
 		initialize: function( data ) {
+			var view     = this;
 			this._target = data.target;
 			this._string = data.string;
 			_.bindAll( this, 'render' );
 			this.render();
+
+			$( window ).resize( function() {
+				view.resizeContent();
+			});
 		},
 		render: function() {
 			var template = wp.template( this._target );

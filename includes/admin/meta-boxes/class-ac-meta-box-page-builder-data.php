@@ -144,18 +144,18 @@ class AC_Meta_Box_Page_Builder_Data {
 		$shortcode_modal_tmpl = apply_filters( 'axiscomposer_shortcode_backbone_modal_tmpl', array(
 			'trash' => array(
 				'tmpl'   => 'trash-data',
-				'button' => __( 'Delete', 'axiscomposer' ),
-				'class'  => array( 'modal-animation' )
+				'class'  => array( 'axiscomposer' ),
+				'button' => __( 'Delete', 'axiscomposer' )
 			),
 			'cell' => array(
 				'tmpl'   => 'cell-size',
-				'button' => __( 'Add', 'axiscomposer' ),
-				'class'  => array( 'modal-animation' )
+				'class'  => array( 'axiscomposer' ),
+				'button' => __( 'Add', 'axiscomposer' )
 			),
 			'edit' => array(
-				'tmpl' => 'edit-element',
+				'tmpl'   => 'edit-element',
+				'class'  => array( 'axiscomposer', 'normal-screen' ),
 				'button' => __( 'Save', 'axiscomposer' ),
-				'class'  => array( 'axiscomposer', 'modal-animation', 'normal-screen' )
 			)
 		) );
 

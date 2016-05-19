@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AxisComposer 1.0.0-dev\n"
 "Report-Msgid-Bugs-To: https://github.com/axisthemes/axiscomposer/issues\n"
-"POT-Creation-Date: 2016-05-09 10:50:17+00:00\n"
+"POT-Creation-Date: 2016-05-15 18:36:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
 
 #: axiscomposer.php:77 axiscomposer.php:85
 #: includes/admin/class-ac-admin-notices.php:97
@@ -633,16 +633,16 @@ msgstr ""
 msgid "Current screen doesn't support this shortcode element =/"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:147
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:148
 #: includes/admin/views/html-admin-tmpl-sidebars.php:39
 msgid "Delete"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:152
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:153
 msgid "Add"
 msgstr ""
 
-#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:157
+#: includes/admin/meta-boxes/class-ac-meta-box-page-builder-data.php:158
 msgid "Save"
 msgstr ""
 

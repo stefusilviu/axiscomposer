@@ -174,6 +174,18 @@ jQuery( function ( $ ) {
 				$( this ).wpColorPicker( colorpicker_args ).addClass( 'enhanced' );
 			});
 
+			// Render Media Preview
+			$('input.upload-input').each(function(){
+				var $field = $(this),
+					$preview = $field.siblings('.ac-media-preview'),
+					imgPreview = '';
+
+				if ($field.val() !== '') {
+					imgPreview = '<img src="' + $field.val() + '" alt="">';
+					$preview.append( imgPreview ).css({display: 'block'});
+				}
+			});
+
 			// Regular icon pickers
 			$( document.body ).trigger( 'ac-init-iconpicker' );
 
@@ -201,6 +213,66 @@ jQuery( function ( $ ) {
 			$( ':input.color-picker-field, :input.color-picker' ).wpColorPicker( 'close' );
 		})
 
-		.trigger( 'ac-enhanced-modal-elements-init' );
+		.trigger( 'ac-enhanced-modal-elements-init' )
+
+		// Upload media field
+		.on('click', '.ac-image-upload', function() {
+
+			var $field					= $(this).parent().find('input.upload-input'),
+				$wrapper				= $(this).parent(),
+				$preview 				= $wrapper.find('.ac-media-preview'),
+				imgPreview          = '';
+
+			if ( window.wp && wp.media ) {
+
+				frame = wp.media({
+					title: 'Select or Upload Image',
+					button: {
+						text: 'Use this media'
+					},
+					library: {type: 'image, video'},
+					multiple: false  // Set to true to allow multiple files to be selected
+				});
+
+				frame.on('select', function() {
+					var attachment = frame.state().get('selection').first(), 
+						href = attachment.attributes.url,
+						mime = attachment.attributes.mime,
+						regexImg = /^image\/(?:jpe?g|png|gif|x-icon)$/i;
+
+				if (mime.match(regexImg)) {
+					imgPreview += '<img src="'+href+'" alt="">';
+				}
+
+				$field.val( href );
+
+				if ($preview.html() !== 0) {
+					$preview.css({display: 'none'}).find('img').remove();
+				}
+
+				if (imgPreview !== '') {
+					$preview.append(imgPreview).css({display: 'block'});
+				} else {
+					$preview.css({display: 'none'}).find('img').remove();
+				}
+
+				frame.off('select');
+
+				}).open();
+			}
+
+			return false;
+		})
+
+		.on('click', '.ac-media-remove', function(){
+			var $fieldset				= $(this).closest('fieldset'),
+				$field					= $fieldset.find('input.upload-input'),
+				$preview 				= $fieldset.find('.ac-media-preview');
+
+			$field.val('');
+			$preview.css({display: 'none'}).find('img').remove();
+
+			return false;
+		});
 
 });

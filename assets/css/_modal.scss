@@ -331,7 +331,53 @@
 		}
 	}
 
+	.ac-media-preview {
+		display: none;
+		max-width: 12em;
+		height: auto;
+		margin-top: 10px;
+		border: 1px solid #ddd;
+		padding: 4px;
+		position: relative;
+
+		&:hover {
+			.ac-media-remove {
+				opacity: 1;
+			}
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block
+		}
+	}
+
+	.ac-media-remove {
+		height: 32px;
+		width: 32px;
+		position: absolute;
+		top: 4px;
+		right: 4px;
+		background: rgba(0,0,0,.3);
+		cursor: pointer;
+		color: #fff;
+		border: none;
+		opacity: .6;
+
+		&:hover {
+			background: rgba(0,0,0,.6);
+		}
+	}
+
 	button.insert-media {
 		width: 105px;
+		clear: both;
+	}
+
+	button.button-icon {
+		.dashicons {
+			line-height: inherit;
+		}
 	}
 }

@@ -299,7 +299,13 @@ abstract class AC_Shortcode extends AC_Settings_API {
 			<td class="forminp">
 				<fieldset>
 					<legend class="screen-reader-text"><span><?php echo wp_kses_post( $data['title'] ); ?></span></legend>
-					<button class="button button-large insert-media ac-image-upload ac-image-insert <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo $this->get_custom_attribute_html( $data ); ?> ><?php echo esc_attr( $data['label'] ); ?></button>
+					<input class="input-text upload-input <?php echo esc_attr( $data['class'] ); ?>" type="text" name="<?php echo esc_attr( $field_key ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" value="<?php echo esc_attr( $this->get_option( $key ) ); ?>" placeholder="<?php echo esc_attr( $data['placeholder'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo $this->get_custom_attribute_html( $data ); ?> />
+					<button class="button ac-image-upload ac-image-insert <?php echo esc_attr( $data['class'] ); ?>" id="<?php echo esc_attr( $field_key ); ?>" style="<?php echo esc_attr( $data['css'] ); ?>" <?php disabled( $data['disabled'], true ); ?> <?php echo $this->get_custom_attribute_html( $data ); ?> title="<?php echo esc_attr( $data['label'] ); ?>" ><?php echo esc_attr( $data['label'] ); ?></button>
+					<div class="ac-media-preview">
+						<button class="ac-media-remove dashicons dashicons-no-alt">
+							<span class="screen-reader-text"><?php _e( 'Remove media', 'axiscomposer' ) ?></span>
+						</button>
+					</div>
 					<?php echo $this->get_description_html( $data ); ?>
 				</fieldset>
 			</td>

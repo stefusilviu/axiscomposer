@@ -68,7 +68,11 @@ class AC_Shortcode_Section extends AC_Shortcode {
 				'label'             => __( 'Insert Image', 'axiscomposer' ),
 				'type'              => 'image',
 				'desc_tip'          => true,
-				'default'           => ''
+				'default'           => '',
+				'custom_attributes' => array(
+					'data-choose' => __( 'Choose an image', 'axiscomposer' ),
+					'data-update' => __( 'Use image', 'axiscomposer' ),
+				)
 			),
 			'background_attachment' => array(
 				'title'             => __( 'Background Attachment', 'axiscomposer' ),

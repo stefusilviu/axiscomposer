@@ -39,7 +39,7 @@ jQuery( function ( $ ) {
 			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
 
-		.on( 'blur', '.ac_input_css[type=text], ac_input_gist[type=text]', function() {
+		.on( 'blur', '.ac_input_css[type=text], .ac_input_gist[type=text]', function() {
 			$( '.ac_error_tip' ).fadeOut( '100', function() { $( this ).remove(); } );
 		})
 

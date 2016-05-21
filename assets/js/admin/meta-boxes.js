@@ -119,6 +119,61 @@ jQuery( function ( $ ) {
 		});
 	}).trigger( 'ac-init-iconpicker' );
 
+	// Uploading files
+	var file_frame;
+
+	$( document.body ).on( 'click', '.ac-image-upload, .ac-media-preview', function( event ) {
+		var $el = $( this );
+
+		var file_target_input   = $el.parent().find( '.ac-media-input' );
+		var file_target_preview = $el.parent().find( '.ac-media-preview' );
+
+		event.preventDefault();
+
+		// If the media frame already exists, reopen it.
+		if ( file_frame ) {
+			file_frame.open();
+			return;
+		}
+
+		// Create the media frame.
+		file_frame = wp.media.frames.media_file = wp.media({
+			// Set the title of the modal.
+			title: $el.data( 'choose' ),
+			button: {
+				text: $el.data( 'update' )
+			},
+			states: [
+				new wp.media.controller.Library({
+					title: $el.data( 'choose' ),
+					library: wp.media.query({ type: 'image' })
+				})
+			]
+		});
+
+		// When an image is selected, run a callback.
+		file_frame.on( 'select', function() {
+			// Get the attachment from the modal frame.
+			var attachment = file_frame.state().get( 'selection' ).first().toJSON();
+
+			// Initialize input and preview change.
+			file_target_input.val( attachment.url );
+			file_target_preview.css({ display: 'none' }).find( 'img' ).remove();
+			file_target_preview.css({ display: 'block' }).append( '<img src="' + attachment.url + '">' );
+		});
+
+		// Finally, open the modal.
+		file_frame.open();
+	});
+
+	$( document.body ).on( 'click', '.ac-media-remove', function(){
+		var $el = $( this ).closest( 'fieldset' );
+		$el.find( '.ac-media-input' ).val( '' );
+		$el.find( '.ac-media-preview' ).css({ display: 'none' }).find( 'img' ).remove();
+
+		return false;
+	});
+
 	// Switch Editor Modes
 	$( document.body ).on( 'ac-switch-editor-modes', function() {
 		if ( window.editorExpand && $( '#postdivrich' ).hasClass( 'wp-editor-expand' ) ) {
@@ -165,6 +220,17 @@ jQuery( function ( $ ) {
 				}
 			});
 
+			// Media Uploader Preview
+			$( 'input.ac-media-input' ).each( function() {
+				var preview_image  = $( this ).val(),
+					preview_target = $( this ).siblings( '.ac-media-preview' );
+
+				// Initialize image previews.
+				if ( preview_image !== '' ) {
+					preview_target.css({ display: 'block' }).append( '<img src="' + preview_image + '">' );
+				}
+			});
+
 			// Regular color pickers
 			$( ':input.color-picker-field, :input.color-picker' ).filter( ':not(.enhanced)' ).each( function() {
 				var colorpicker_args = {
@@ -177,7 +243,7 @@ jQuery( function ( $ ) {
 			// Regular icon pickers
 			$( document.body ).trigger( 'ac-init-iconpicker' );
 
-			// Regular select boxes
+			// Enhanced select2 boxes
 			$( document.body ).trigger( 'ac-enhanced-select-init' );
 		})
 
@@ -202,5 +268,4 @@ jQuery( function ( $ ) {
 		})
 
 		.trigger( 'ac-enhanced-modal-elements-init' );
-
 });
